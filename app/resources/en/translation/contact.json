@@ -1,0 +1,7 @@
+{
+  "title": "Contact probate",
+  "heading1": "Probate",
+  "paragraph1": "Phone: {helpLineNumber}",
+  "paragraph2": "{helpLineHours}",
+  "paragraph3": "<a rel=\"external noopener\" href=\"{callChargesLink}\">Find out about call charges</a>"
+}

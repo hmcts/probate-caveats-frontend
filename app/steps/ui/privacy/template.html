@@ -1,0 +1,73 @@
+{% extends "includes/layout.html" %}
+{% block page_title %}
+    {{content.title}}
+{% endblock %}
+
+{% block content %}
+
+{% from "widgets/lists.html" import unorderedList %}
+
+<main id="content" role="main">
+    <div class="column-two-thirds">
+
+        {% include "includes/phase_banner_beta.html" %}
+
+        <h1 class="form-title heading-large">{{content.heading1}}</h1>
+        <p>{{content.paragraph1}}</p>
+
+        <h2 class="heading-medium">{{content.whoManagesThisServiceHeading}}</h2>
+        <p>{{content.whoManagesThisServiceParagraph1}}</p>
+        <p>{{content.whoManagesThisServiceParagraph2 | replace('{mojPersonalInformationCharterLink}', links.mojPersonalInformationCharter) | safe}}</p>
+        <p>{{content.whoManagesThisServiceParagraph3}}</p>
+        <p>{{content.whoManagesThisServiceParagraph4 | replace('{termsLink}', links.terms) | safe}}</p>
+
+        <h2 class="heading-medium">{{content.whyWeCollectDataHeading}}</h2>
+        <p>{{content.whyWeCollectDataParagraph1}}</p>
+        {{unorderedList([content["whyWeCollectData-item1"], content["whyWeCollectData-item2"], content["whyWeCollectData-item3"]])}}
+        <p>{{content.whyWeCollectDataParagraph2}}</p>
+
+        <h2 class="heading-medium">{{content.dataWeCollectHeading}}</h2>
+        <p>{{content.dataWeCollectParagraph1}}</p>
+        {{unorderedList([content["dataWeCollect-item1"], content["dataWeCollect-item2"], content["dataWeCollect-item3"], content["dataWeCollect-item4"], content["dataWeCollect-item5"], content["dataWeCollect-item6"]])}}
+
+        <h2 class="heading-medium">{{content.usingYourDataHeading}}</h2>
+        <p>{{content.usingYourDataParagraph1 | safe}}</p>
+        <p>{{content.usingYourDataParagraph2}}</p>
+        <p>{{content.usingYourDataParagraph3 | replace('{cookiesLink}', links.cookies) | safe}}</p>
+        {{unorderedList([content["usingYourData-item1"], content["usingYourData-item2"], content["usingYourData-item3"], content["usingYourData-item4"]])}}
+
+        <h2 class="heading-medium">{{content.storingYourDataHeading1}}</h2>
+        <p>{{content.storingYourDataParagraph1 | safe}}</p>
+        <h3 class="heading-small">{{content.storingYourDataHeading2}}</h3>
+        <p>{{content.storingYourDataParagraph2}}</p>
+        <h3 class="heading-small">{{content.storingYourDataHeading3}}</h3>
+        <p>{{content.storingYourDataParagraph3}}</p>
+
+        <h2 class="heading-medium">{{content.sharingYourDataHeading1}}</h2>
+        <p>{{content.sharingYourDataParagraph1}}</p>
+        <p>{{content.sharingYourDataParagraph2 | replace('{goodThingsFoundationLink}', links.goodThingsFoundation) | safe}}</p>
+        <p>{{content.sharingYourDataParagraph3}}</p>
+        <p>{{content.sharingYourDataParagraph4 | replace('{termsLink}', links.terms) | safe}}</p>
+        <h3 class="heading-small">{{content.sharingYourDataHeading2}}</h3>
+        <p>{{content.sharingYourDataParagraph5}}</p>
+
+        <h2 class="heading-medium">{{content.yourRightsHeading}}</h2>
+        <p>{{content.yourRightsParagraph1}}</p>
+        {{unorderedList([content["yourRights-item1"], content["yourRights-item2"], content["yourRights-item3"], content["yourRights-item4"]])}}
+        <p>{{content.yourRightsParagraph2}}</p>
+        {{unorderedList([content["yourRights-item5"] | replace('{subjectAccessRequestLink}', links.subjectAccessRequest), content["yourRights-item6"]])}}
+        <p>{{content.yourRightsParagraph3}}</p>
+        {{unorderedList([content["yourRights-item7"], content["yourRights-item8"], content["yourRights-item9"], content["yourRights-item10"]])}}
+        <p>{{content.yourRightsParagraph4}}</p>
+        {{unorderedList([content["yourRights-item11"], content["yourRights-item12"]])}}
+
+        <h2 class="heading-medium">{{content.howToComplainHeading}}</h2>
+        <p>{{content.howToComplainParagraph1 | replace('{complaintsProcedureLink}', links.complaintsProcedure) | safe}}</p>
+        <p>{{content.howToComplainParagraph2}}</p>
+        <p>{{content.howToComplainParagraph3}}</p>
+        <p>{{content.howToComplainParagraph4 | replace('{informationCommissionersOfficeLink}', links.informationCommissionersOffice) | safe}}</p>
+    </div>
+
+</main>
+
+{% endblock %}

@@ -1,0 +1,341 @@
+#
+# probate-caveats-frontend
+#
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ${SERVICE_NAME}
+  namespace: ${NAMESPACE}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ${SERVICE_NAME}
+  template:
+    metadata:
+      labels:
+        app: ${SERVICE_NAME}
+    spec:
+      dnsConfig:
+        options:
+        - name: single-request-reopen
+      containers:
+      - image: ${IMAGE_NAME}
+        name: ${SERVICE_NAME}
+        env:
+        - name: REFORM_TEAM
+          value: 'probate'
+        - name: REFORM_SERVICE_NAME
+          value: 'probate-caveats-frontend'
+        - name: NODE_ENV
+          value: 'production'
+        - name: UV_THREADPOOL_SIZE
+          value: '64'
+        - name: GA_TRACKING_ID
+          value: 'UA-93598808-3'
+        - name: PUBLIC_PROTOCOL
+          value: 'https'
+        - name: LOG_LEVEL
+          value: 'DEBUG'
+        - name: FEATURE_TOGGLES_API_URL
+          value: 'http://feature-toggle-api'
+          #redis
+        - name: USE_REDIS
+          value: 'true'
+        - name: REDIS_USE_TLS
+          value: 'false'
+        - name: REDIS_HOST
+          value: 'probate-caveats-frontend-redis'
+        - name: REDIS_PORT
+          value: '6379'
+          # IDAM
+        - name: USE_IDAM
+          value: 'true'
+        - name: IDAM_SERVICE_KEY
+          value: ${IDAM_S2S_SECRET}
+        - name: IDAM_API_OAUTH2_CLIENT_CLIENT_SECRETS_PROBATE
+          value: ${IDAM_SECRET_PROBATE}
+          # POSTCODE
+        - name: POSTCODE_SERVICE_URL
+          value: ${PRO_POSTCODE_SERVICE_URL}
+        - name: POSTCODE_SERVICE_TOKEN
+          value: ${PRO_POSTCODE_SERVICE_TOKEN}
+          # SURVEY
+        - name: SURVEY
+          value: ${PRO_SURVEY}
+        - name: SURVEY_END_OF_APPLICATION
+          value: ${PRO_SURVEY_END_OF_APPLICATIONN}
+        - name: APPLICATION_FEE_CODE
+          value: ${PRO_APPLICATION_FEE_CODEL}
+        - name: UK_COPIES_FEE_CODE
+          value: ${PRO_UK_COPIES_FEE_CODE}
+        - name: OVERSEAS_COPIES_FEE_CODE
+          value: ${PRO_OVERSEAS_COPIES_FEE_CODE}
+        - name: SERVICE_ID
+          value: ${PRO_SERVICE_ID}
+        - name: SITE_ID
+          value: ${PRO_SITE_ID}
+        envFrom:
+        - configMapRef:
+            name: ${SERVICE_NAME}-config
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "0.2"
+          limits:
+            memory: "512Mi"
+            cpu: "1"
+        ports:
+        - containerPort: 3000
+          name: http
+        imagePullPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ${SERVICE_NAME}
+  namespace: ${NAMESPACE}
+  labels:
+    app: ${SERVICE_NAME}
+spec:
+  ports:
+  - name: http
+    protocol: TCP
+    port: 80
+    targetPort: 3000
+  selector:
+    app: ${SERVICE_NAME}
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ${SERVICE_NAME}
+  namespace: ${NAMESPACE}
+  annotations:
+    kubernetes.io/ingress.class: traefik
+spec:
+  rules:
+  - host: ${SERVICE_FQDN}
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: ${SERVICE_NAME}
+          servicePort: 80
+---
+#
+# FEATURE-TOGGLES
+#
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: feature-toggle-api
+  namespace: ${NAMESPACE}
+data:
+  JAVA_OPTS: -Xms8m -Xmx256m -Djava.security.egd=file:/dev/./urandom -XX:MaxMetaspaceSize=128m
+  APPINSIGHTS_INSTRUMENTATIONKEY: 'fake-key'
+  FLYWAY_ENABLED: 'true'
+  FLYWAY_NOOP_STRATEGY: 'false'
+  FEATURES_DB_HOST: 'shared-database'
+  FEATURES_DB_CONN_OPTIONS: ''
+  FEATURES_DB_USER_NAME: 'features'
+  FEATURES_DB_PASSWORD: 'features'
+  ADMIN_USERNAME_TEST: 'admin@example.com'
+  ADMIN_PASSWORD_TEST: 'Password12'
+  EDITOR_USERNAME_TEST: 'editor@example.com'
+  EDITOR_PASSWORD_TEST: 'Password12'
+  LOGBACK_REQUIRE_THREAD: 'false'
+  LOGBACK_REQUIRE_ALERT_LEVEL: 'false'
+  LOGBACK_REQUIRE_ERROR_CODE: 'false'
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: feature-toggle-api
+  namespace: ${NAMESPACE}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: feature-toggle-api
+  template:
+    metadata:
+      labels:
+        app: feature-toggle-api
+    spec:
+      initContainers:
+      - name: init-wait-db
+        image: busybox
+        command: ["sh", "-c", "for i in $(seq 1 300); do nc -zvw1 shared-database 5432 && exit 0 || sleep 3; done; exit 1"]
+      containers:
+      - image: hmcts/feature-toggle-api
+        name: feature-toggle-api
+        envFrom:
+        - configMapRef:
+            name: feature-toggle-api
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "200m"
+          limits:
+            memory: "1024Mi"
+            cpu: "2500m"
+        ports:
+        - containerPort: 8580
+          name: http
+        imagePullPolicy: Always
+#    dnsConfig:
+#      options:
+#      - name: single-request-reopen
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: feature-toggle-api
+  namespace: ${NAMESPACE}
+  labels:
+    app: feature-toggle-api
+spec:
+  ports:
+  - name: http
+    protocol: TCP
+    port: 80
+    targetPort: 8580
+  selector:
+    app: feature-toggle-api
+---
+#
+# FEATURE-TOGGLES :: Ingress
+#
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: feature-toggle-api
+  namespace: ${NAMESPACE}
+  annotations:
+    kubernetes.io/ingress.class: traefik
+spec:
+  rules:
+  - host: feature-toggle-api-${SERVICE_FQDN}
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: feature-toggle-api
+          servicePort: 80
+
+
+---
+#
+# SHARED-DATABASE
+#
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: shared-database-initdb
+  namespace: ${NAMESPACE}
+data:
+  initdb.sql: |
+    CREATE USER features WITH PASSWORD 'features';
+    CREATE DATABASE features WITH OWNER = features ENCODING = 'UTF-8' CONNECTION LIMIT = -1;
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shared-database
+  namespace: ${NAMESPACE}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: shared-database
+  template:
+    metadata:
+      labels:
+        app: shared-database
+    spec:
+      containers:
+      - image: postgres:10.5-alpine
+        name: shared-database
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "200m"
+          limits:
+            memory: "1024Mi"
+            cpu: "1000m"
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 5432
+          name: postgres
+        volumeMounts:
+        - mountPath: /docker-entrypoint-initdb.d
+          name: initdb
+          readOnly: true
+      volumes:
+      - name: initdb
+        configMap:
+          name: shared-database-initdb
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: shared-database
+  namespace: ${NAMESPACE}
+  labels:
+    app: shared-database
+spec:
+  ports:
+  - port: 5432
+  selector:
+    app: shared-database
+  clusterIP: None
+#
+# Redis
+#
+---
+apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
+kind: Deployment
+metadata:
+  name: probate-caveats-frontend-redis
+  namespace: ${NAMESPACE}
+  labels:
+    app: redis
+spec:
+  selector:
+    matchLabels:
+      app: redis
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: redis
+    spec:
+      containers:
+      - name: master
+        image: redis:5.0-alpine
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+        ports:
+        - containerPort: 6379
+#
+# Redis binding
+#
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: probate-caveats-frontend-redis
+  namespace: ${NAMESPACE}
+  labels:
+    app: redis
+spec:
+  ports:
+  - port: 6379
+    targetPort: 6379
+  selector:
+    app: redis

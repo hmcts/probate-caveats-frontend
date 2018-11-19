@@ -1,0 +1,43 @@
+{
+  "title": "What is the value of the estate",
+  "question": "What is the value of the estate?",
+  "questionHint": "You would have been given estate value figures after you submitted the estate report form online.",
+  "legend": "What is the value of the estate?",
+  "grossValue": "Gross value of the estate in &pound;",
+  "netValue": "Net value of the estate in &pound;",
+
+  "errors": {
+    "grossValueOnline": {
+      "required": {
+        "summary": "You haven&rsquo;t entered the gross amount",
+        "message": "Please enter the gross amount"
+      },
+      "invalid": {
+        "summary": "Invalid amount",
+        "message": "Invalid amount"
+      },
+      "invalidCurrencyFormat": {
+        "summary": "Invalid currency format",
+        "message": "Invalid currency format"
+      }
+    },
+    "netValueOnline": {
+      "required": {
+        "summary": "You haven&rsquo;t entered the net amount",
+        "message": "Please enter the net amount"
+      },
+      "invalid": {
+        "summary": "Invalid amount",
+        "message": "Invalid amount"
+      },
+      "invalidCurrencyFormat": {
+        "summary": "Invalid currency format",
+        "message": "Invalid currency format"
+      },
+      "netValueGreaterThanGross": {
+        "summary": "The net amount can&rsquo;t be greater than the gross amount",
+        "message": "The net amount can&rsquo;t be greater than the gross amount"
+      }
+    }
+  }
+}

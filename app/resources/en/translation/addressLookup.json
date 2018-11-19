@@ -1,0 +1,18 @@
+{
+  "errors": {
+    "postcode": {
+      "required": {
+        "summary": "You haven&rsquo;t entered a postcode or address",
+        "message": "Please enter a postcode"
+      },
+      "invalid": {
+        "summary": "Postcode is invalid",
+        "message": "Postcode is invalid"
+      },
+      "noAddresses": {
+        "summary": "No addresses found. Enter a postcode to search again",
+        "message": "Please enter a valid postcode"
+      }
+    }
+  }
+}

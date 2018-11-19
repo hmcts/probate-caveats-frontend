@@ -1,0 +1,53 @@
+{
+  "title": "Deceased address",
+  "question": "What was the permanent address at the time of their death?",
+  "postcode": "Postcode",
+  "findAddress": "Find UK address",
+  "addressLabel": "Address",
+  "selectAddress": "Select address",
+  "enterManually": "Enter their address instead",
+
+  "errors": {
+    "crossField": {
+      "oneOf": {
+        "summary": "Please select an address or enter it manually",
+        "message": "Please select an address or enter it manually"
+      }
+    },
+    "postcode": {
+      "required": {
+        "summary": "Please enter a postcode",
+        "message": "Please enter a postcode"
+      },
+      "invalid": {
+        "summary": "Please enter a postcode",
+        "message": "Please enter a valid postcode"
+      }
+    },
+    "postcodeLookup": {
+      "required": {
+        "summary": "You haven&rsquo;t entered a postcode or address"
+      }
+    },
+    "postcodeAddress": {
+      "required": {
+        "summary": "You haven&rsquo;t entered a postcode or address",
+        "message": "Please search for an address or enter one manually"
+      },
+      "invalid": {
+        "summary": "You haven&rsquo;t entered a postcode or address",
+        "message": "Please search for an address or enter one manually"
+      }
+    },
+    "freeTextAddress": {
+      "required": {
+        "summary": "You haven&rsquo;t entered a postcode or address",
+        "message": "Please search for an address or enter one manually"
+      },
+      "invalid": {
+        "summary": "You haven&rsquo;t entered a postcode or address",
+        "message": "Please search for an address or enter one manually"
+      }
+    }
+  }
+}

@@ -1,0 +1,93 @@
+// Related items
+// (These styles will be moved to GOV.UK elements, duplicating here for now.)
+.govuk-related-items {
+  margin-top: $gutter;
+  border-top: 10px solid $govuk-blue;
+  padding-top: 5px;
+
+  .heading-medium {
+    margin-top: 0.3em;
+    margin-bottom: 0.5em
+  }
+
+  li {
+    margin-bottom: 10px;
+    list-style-type: none;
+  }
+}
+
+// Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
+ .button-secondary{
+   @include button($grey-3);
+}
+
+// Tasklist page start
+li.task-item {
+    border-top: 1px solid $grey-2;
+    line-height: 1.5;
+    padding: 20px 0 10px 0;
+    position: relative;
+
+    .progress-status-tag {
+      background-color: $black;
+      color: $white;
+      padding: 0 8px;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+
+    .task-unavailable {
+      background-color: $govuk-blue;
+      color: $white;
+      padding: 0 5px;
+    }
+}
+// Tasklist page end
+
+.word-wrap {
+  word-wrap: break-word;
+}
+
+.notice {
+    clear: left;
+
+    p {
+      padding-left: 50px;
+    }
+
+    strong {
+      padding-left: 15px;
+    }
+
+    &.co-applicant {
+      margin-top: 50px;
+    }
+}
+
+.help-details {
+  margin-top: 50px;
+}
+
+.help-details-summary {
+  font-size: 16px;
+}
+
+.inset-page {border-width: em(3);
+  border-style: solid;
+  background-color: #f8f8f8;
+  border-color: #bfc1c3;
+  margin: 0 0 30px 0;
+  padding: em(50);
+  padding-top: em(35);
+  }
+
+  div.declaration-header {
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.form-hint {
+  margin-bottom: 0;
+}

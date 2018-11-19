@@ -1,0 +1,152 @@
+{% extends "includes/layout.html" %}
+{% block page_title %}
+    {{content.title}}
+{% endblock %}
+
+{% block content %}
+
+{% from "widgets/lists.html" import unorderedList %}
+
+<main id="content" role="main">
+    <div class="column-two-thirds">
+
+        {% include "includes/phase_banner_beta.html" %}
+
+        <h1 class="form-title heading-large">{{content.heading1}}</h1>
+        <p>{{content.paragraph1 | safe}}</p>
+
+        <h2 class="heading-medium">{{content.howAreCookiesUsedHeading1}}</h2>
+        <p>{{content.howAreCookiesUsedParagraph1}}</p>
+        {{unorderedList([content["howAreCookiesUsed-item1"], content["howAreCookiesUsed-item2"], content["howAreCookiesUsed-item3"]])}}
+        <p>{{content.howAreCookiesUsedParagraph2 | replace('{howToManageCookiesLink}', links.howToManageCookies) | safe}}</p>
+
+        <h2 class="heading-medium">{{content.websiteUsageCookiesHeading1}}</h2>
+        <p>{{content.websiteUsageCookiesParagraph1}}</p>
+        <p>{{content.websiteUsageCookiesParagraph2}}</p>
+        {{unorderedList([content["websiteUsageCookies-item1"], content["websiteUsageCookies-item2"], content["websiteUsageCookies-item3"], content["websiteUsageCookies-item4"]])}}
+        <p>{{content.websiteUsageCookiesParagraph3 | replace('{googlePrivacyPolicyLink}', links.googlePrivacyPolicy) | safe}}</p>
+        <p>{{content.websiteUsageCookiesParagraph4 | replace('{googleAnalyticsOptOutLink}', links.googleAnalyticsOptOut) | safe}}</p>
+        <p>{{content.websiteUsageCookiesParagraph5}}</p>
+
+        <table>
+            <caption class="visually-hidden">{{content.websiteUsageCookiesHeading1}}</caption>
+            <thead>
+                <tr>
+                    <th>{{content.cookieNameHeader}}</th>
+                    <th>{{content.cookiePurposeHeader}}</th>
+                    <th>{{content.cookieExpiryHeader}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{content.googleAnalyticsCookieName1}}</td>
+                    <td>{{content.googleAnalyticsCookiePurpose1 | safe}}</td>
+                    <td>{{content.googleAnalyticsCookieExpiry1}}</td>
+                </tr>
+                <tr>
+                    <td>{{content.googleAnalyticsCookieName2}}</td>
+                    <td>{{content.googleAnalyticsCookiePurpose2}}</td>
+                    <td>{{content.googleAnalyticsCookieExpiry2}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 class="heading-medium">{{content.introMessageCookiesHeading1}}</h2>
+        <p>{{content.introMessageCookiesParagraph1 | safe}}</p>
+
+        <table>
+            <caption class="visually-hidden">{{content.introMessageCookiesHeading1}}</caption>
+            <thead>
+                <tr>
+                    <th>{{content.cookieNameHeader}}</th>
+                    <th>{{content.cookiePurposeHeader}}</th>
+                    <th>{{content.cookieExpiryHeader}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{content.introMessageCookieName1}}</td>
+                    <td>{{content.introMessageCookiePurpose1 | safe}}</td>
+                    <td>{{content.introMessageCookieExpiry1}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 class="heading-medium">{{content.sessionCookiesHeading1 | safe}}</h2>
+        <p>{{content.sessionCookiesParagraph1 | safe}}</p>
+
+        <table>
+            <caption class="visually-hidden">{{content.sessionCookiesHeading1 | safe}}</caption>
+            <thead>
+                <tr>
+                    <th>{{content.cookieNameHeader}}</th>
+                    <th>{{content.cookiePurposeHeader}}</th>
+                    <th>{{content.cookieExpiryHeader}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{content.sessionCookieName1}}</td>
+                    <td>{{content.sessionCookiePurpose1}}</td>
+                    <td>{{content.sessionCookieExpiry1}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 class="heading-medium">{{content.identityCookiesHeading1}}</h2>
+        <p>{{content.identityCookiesParagraph1}}</p>
+
+        <table>
+            <caption class="visually-hidden">{{content.identityCookiesHeading1}}</caption>
+            <thead>
+                <tr>
+                    <th>{{content.cookieNameHeader}}</th>
+                    <th>{{content.cookiePurposeHeader}}</th>
+                    <th>{{content.cookieExpiryHeader}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{content.identityCookieName1}}</td>
+                    <td>{{content.identityCookiePurpose1}}</td>
+                    <td>{{content.identityCookieExpiry1}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 class="heading-medium">{{content.securityCookiesHeading1}}</h2>
+        <p>{{content.securityCookiesParagraph1}}</p>
+
+        <table>
+            <caption class="visually-hidden">{{content.securityCookiesHeading1}}</caption>
+            <thead>
+                <tr>
+                    <th>{{content.cookieNameHeader}}</th>
+                    <th>{{content.cookiePurposeHeader}}</th>
+                    <th>{{content.cookieExpiryHeader}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{content.securityCookieName1}}</td>
+                    <td>{{content.securityCookiePurpose1}}</td>
+                    <td>{{content.securityCookieExpiry1}}</td>
+                </tr>
+                <tr>
+                    <td>{{content.securityCookieName2}}</td>
+                    <td>{{content.securityCookiePurpose2}}</td>
+                    <td>{{content.securityCookieExpiry2}}</td>
+                </tr>
+                <tr>
+                    <td>{{content.securityCookieName3}}</td>
+                    <td>{{content.securityCookiePurpose3}}</td>
+                    <td>{{content.securityCookieExpiry3}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+</main>
+
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "includes/layout.html" %}
+{% block page_title %}
+    {{content.title}}
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    <div class="column-two-thirds">
+
+        {% include "includes/phase_banner_beta.html" %}
+
+        <h1 class="form-title heading-large">{{content.heading1}}</h1>
+        <p>{{content.paragraph1 | replace('{helpLineNumber}', helpline.number)}}</p>
+        <p>{{content.paragraph2 | replace('{helpLineHours}', helpline.hours)}}</p>
+        <p>{{content.paragraph3 | replace('{callChargesLink}', links.callCharges) | safe}}</p>
+
+    </div>
+
+</main>
+
+{% endblock %}

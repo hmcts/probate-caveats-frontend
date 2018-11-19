@@ -1,0 +1,15 @@
+{
+  "title": "Deceased died",
+  "question": "Did the person die after 1 October 2014?",
+  "optionYes": "Yes",
+  "optionNo": "No",
+
+  "errors": {
+    "diedAfterOct2014": {
+      "required": {
+        "summary": "You haven&rsquo;t answered the question about when the person died",
+        "message": "Answer &lsquo;yes&rsquo; if they died after 1 October 2014"
+      }
+    }
+  }
+}

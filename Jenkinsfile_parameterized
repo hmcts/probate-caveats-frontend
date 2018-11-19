@@ -1,0 +1,82 @@
+#!groovy
+//noinspection GroovyUnusedAssignment
+@Library("Infrastructure") _
+import uk.gov.hmcts.contino.Kubectl
+
+//noinspection GroovyAssignabilityCheck
+properties([
+		parameters([
+			choice(name: 'ENVIRONMENT', choices: 'sandbox\nsaat\nsprod\nnonprod\nprod', description: 'Environment where code should be build and deployed')
+		])
+])
+
+String product = "probate"
+String component = "caveats-fe"
+String slot = "sandbox"
+String serviceName = "${product}-${component}-${env}"
+String slotString = "-${slot}"
+env.TEST_E2E_FRONTEND_URL = "${serviceName}${slotString}.service.core-compute-${params.ENVIRONMENT}.internal"
+
+List<LinkedHashMap<String, Object>> secrets = [
+    secret('testIdamBaseUrl', 'IDAM_API_URL'),
+    secret('testIdamLoginUrl', 'IDAM_LOGIN_URL'),
+    secret('testUseIdam', 'USE_IDAM'),
+    secret('testInviteIdListUrl', 'INVITE_ID_LIST_URL'),
+    secret('testPinUrl', 'PIN_URL'),
+    secret('testInvitationUrl', 'INVITATION_URL'),
+    secret('testIdamAddUserUrl', 'IDAM_ADD_USER_URL'),
+    secret('testIdamRole', 'IDAM_CITIZEN_ROLE'),
+    secret('testIdamUserGroup', 'IDAM_USER_GROUP'),
+    secret('testCitizenDomain', 'CITIZEN_EMAIL_DOMAIN'),
+    secret('testEnvEmailAddress', 'TEST_EMAIL_ADDRESS'),
+    secret('testEnvMobileNumber', 'TEST_MOBILE_NUMBER'),
+    secret('testTerms', 'TERMS_AND_CONDITIONS'),
+    secret('testSurvey', 'SURVEY'),
+    secret('testsurveyEndOfApplication', 'SURVEY_END_OF_APPLICATION'),
+    secret('testUseGovPay', 'USE_GOV_PAY'),
+    secret('testPostcodeServiceUrl', 'POSTCODE_SERVICE_URL'),
+    secret('testPostCodeAddressToken', 'ADDRESS_TOKEN'),
+    secret('testRunE2ETest', 'RUN_E2E_TEST'),
+    secret('testValidationServiceUrl', 'TEST_VALIDATION_SERVICE_URL'),
+    secret('idam-secret-probate', 'IDAM_SECRET_PROBATE'),
+    secret('idam-s2s-secret', 'IDAM_S2S_SECRET'),
+    secret('postcode-service-url', 'PRO_POSTCODE_SERVICE_URL'),
+    secret('postcode-service-token', 'PRO_POSTCODE_SERVICE_TOKEN'),
+    secret('probate-survey', 'PRO_SURVEY'),
+    secret('probate-survey-end', 'PRO_SURVEY_END_OF_APPLICATION'),
+    secret('probate-application-fee-code', 'PRO_APPLICATION_FEE_CODE'),
+    secret('probate-uk-application-fee-code', 'PRO_UK_COPIES_FEE_CODE'),
+    secret('probate-overseas-application-fee-code', 'PRO_OVERSEAS_COPIES_FEE_CODE'),
+    secret('probate-service-id', 'PRO_SERVICE_ID'),
+    secret('probate-site-id', 'PRO_SITE_ID')
+]
+
+static LinkedHashMap<String, Object> secret(String secretName, String envVar) {
+  [ $class: 'AzureKeyVaultSecret',
+    secretType: 'Secret',
+    name: secretName,
+    version: '',
+    envVariable: envVar
+  ]
+}
+
+withParameterizedPipeline('nodejs', product, component, params.ENVIRONMENT, slot) {
+  after('build') {
+    sh '''
+    yarn setup
+    printenv '''
+  }
+
+  loadVaultSecrets(secrets)
+	/*
+  after('functionalTest:saat') {
+	sh "mkdir functional-output"
+	sh "cp -r output/mochawesome.* functional-output/."
+        publishHTML target: [
+                reportDir            : "output/",
+                reportFiles          : "mochawesome.html",
+                reportName           : "SAAT Functional Tests",
+                alwaysLinkToLastBuild: true
+        ]
+    }  */
+}

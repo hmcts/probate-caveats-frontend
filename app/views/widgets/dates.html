@@ -1,0 +1,36 @@
+{% from "widgets/fielderror.html" import fieldError %}
+
+{% macro date(day,month,year,date, name, maxyear, legend, hint) %}
+
+{% set hasError = day.error or month.error or year.error or date.error %}
+
+<fieldset class="form-group {{ 'form-group-error' if hasError }}" id ="{{name}}_date">
+
+    <legend class="visually-hidden">{{legend}}</legend>
+
+    {% if hint %}
+    <p class="form-hint no-link">{{hint}}</p>
+    {% endif %}
+
+    {{ fieldError(date) }}
+    {{ fieldError(day) }}
+    {{ fieldError(month) }}
+    {{ fieldError(year) }}
+
+    <div class="form-date">
+        <div class="form-group form-group-day">
+            <label for="{{name}}_day">Day</label>
+            <input class="form-control {{ 'form-control-error' if day.error }}" id="{{name}}_day" type="number" pattern="[0-9]*" min="1" max="31" name="{{name}}_day" value="{{day.value}}">
+        </div>
+        <div class="form-group form-group-month">
+            <label for="{{name}}_month">Month</label>
+            <input class="form-control {{ 'form-control-error' if month.error }}" id="{{name}}_month" type="number" pattern="[0-9]*" min="1" max="12" name="{{name}}_month" value="{{month.value}}">
+        </div>
+        <div class="form-group form-group-year">
+            <label for="{{name}}_year">Year</label>
+            <input class="form-control {{ 'form-control-error' if year.error }}" id="{{name}}_year" type="number" pattern="[0-9]*" min="1" max="{{maxyear}}" name="{{name}}_year" value="{{year.value}}">
+        </div>
+
+    </div>
+</fieldset>
+{% endmacro %}

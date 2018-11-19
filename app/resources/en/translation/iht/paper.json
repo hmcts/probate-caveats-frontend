@@ -1,0 +1,119 @@
+{
+  "title": "Which paper form was filled in",
+  "question": "Which paper form was filled in?",
+  "optionIHT205": "IHT 205 - there was no inheritance tax to pay",
+  "optionIHT207": "IHT 207 - there was no inheritance tax to pay and the person who died lived abroad",
+  "optionIHT400421": "IHT 400 and 421",
+  "gross205": "Enter the number added in to box D on this form (gross value &pound;)",
+  "net205": "Enter the number added in to box F on this form (net value &pound;)",
+  "gross207": "Enter the number added in to box C (gross value &pound;)",
+  "net207": "Enter the number added in to box G (net value &pound;)",
+  "gross400": "Enter the number added in to box 3 (gross value &pound;)",
+  "net400": "Enter the number added in to box 5 (net value &pound;)",
+  "421Info": "HMRC will process these forms and send them to the probate office for you.",
+
+  "errors": {
+    "form": {
+      "required": {
+        "summary": "You haven&rsquo;t selected a form",
+        "message": "Please select a form"
+      }
+    },
+    "grossIHT205": {
+      "required": {
+        "summary": "You haven&rsquo;t entered the gross amount",
+        "message": "Please enter the gross amount"
+      },
+      "invalid": {
+        "summary": "Invalid amount",
+        "message": "Invalid amount"
+      },
+      "invalidCurrencyFormat": {
+        "summary": "Invalid currency format",
+        "message": "Invalid currency format"
+      }
+    },
+    "netIHT205": {
+      "required": {
+        "summary": "You haven&rsquo;t entered the net amount",
+        "message": "Please enter the net amount"
+      },
+      "invalid": {
+        "summary": "Invalid amount",
+        "message": "Invalid amount"
+      },
+      "invalidCurrencyFormat": {
+        "summary": "Invalid currency format",
+        "message": "Invalid currency format"
+      },
+      "netValueGreaterThanGross": {
+        "summary": "The net amount can&rsquo;t be greater than the gross amount",
+        "message": "The net amount can&rsquo;t be greater than the gross amount"
+      }
+    },
+    "grossIHT207": {
+      "required": {
+        "summary": "You haven&rsquo;t entered the gross amount",
+        "message": "Please enter the gross amount"
+      },
+      "invalid": {
+        "summary": "Invalid amount",
+        "message": "Invalid amount"
+      },
+      "invalidCurrencyFormat": {
+        "summary": "Invalid currency format",
+        "message": "Invalid currency format"
+      }
+    },
+    "netIHT207": {
+      "required": {
+        "summary": "You haven&rsquo;t entered the net amount",
+        "message": "Please enter the net amount"
+      },
+      "invalid": {
+        "summary": "Invalid amount",
+        "message": "Invalid amount"
+      },
+      "invalidCurrencyFormat": {
+        "summary": "Invalid currency format",
+        "message": "Invalid currency format"
+      },
+      "netValueGreaterThanGross": {
+        "summary": "The net amount can&rsquo;t be greater than the gross amount",
+        "message": "The net amount can&rsquo;t be greater than the gross amount"
+      }
+    },
+    "grossIHT400421": {
+      "required": {
+        "summary": "You haven&rsquo;t entered the gross amount",
+        "message": "Please enter the gross amount"
+      },
+      "invalid": {
+        "summary": "Invalid amount",
+        "message": "Invalid amount"
+      },
+      "invalidCurrencyFormat": {
+        "summary": "Invalid currency format",
+        "message": "Invalid currency format"
+      }
+    },
+    "netIHT400421": {
+      "required": {
+        "summary": "You haven&rsquo;t entered the net amount",
+        "message": "Please enter the net amount"
+      },
+      "invalid": {
+        "summary": "Invalid amount",
+        "message": "Invalid amount"
+      },
+      "invalidCurrencyFormat": {
+        "summary": "Invalid currency format",
+        "message": "Invalid currency format"
+      },
+      "netValueGreaterThanGross": {
+        "summary": "The net amount can&rsquo;t be greater than the gross amount",
+        "message": "The net amount can&rsquo;t be greater than the gross amount"
+      }
+    }
+  }
+}

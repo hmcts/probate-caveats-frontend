@@ -1,0 +1,37 @@
+{% macro taskAction(prevTaskStatus, status, nextURL, checkYourAnswersURL, content, alreadyDeclared) %}
+    {% if prevTaskStatus === 'complete' %}
+        {% if status == 'notStarted' %}
+            <!-- Start link -->
+            <p><a href="{{nextURL}}" class="button button-start">{{content.taskNotStarted}}</a></p>
+        {% elif status == 'started' %}
+            <!-- Continue link -->
+            <p><a href="{{nextURL}}" class="button">{{content.taskStarted}}</a></p>
+        {% elif status == 'complete' %}
+            <!-- Check your answers -->
+            {% if alreadyDeclared === 'false' %}
+                <p><a href="{{checkYourAnswersURL}}">{{content.taskComplete}}</a></p>
+            {% else %}
+                <p>{{content.alreadyDeclared}}</p>
+            {% endif %}
+        {% endif %}
+    {% else %}
+        <!-- Previous steps need completing text -->
+        <p class="task-unavailable">{{content.taskUnavailable}}</p>
+    {% endif %}
+{% endmacro %}
+
+{% macro unorderedList(items) %}
+<ul class="list list-bullet">
+    {% for item in items %}
+        <li>{{item | safe}}</li>
+    {% endfor %}
+</ul>
+{% endmacro %}
+
+{% macro orderedList(items) %}
+    <ol class="list list-number">
+        {% for item in items %}
+            <li>{{item | safe}}</li>
+        {% endfor %}
+    </ol>
+{% endmacro %}

@@ -1,0 +1,16 @@
+{
+  "title": "Other applicants",
+  "question": "Are you planning to make a joint application with someone else?",
+  "explanation1": "You may want to apply with someone in your family, for example your sister or brother.",
+  "optionYes": "Yes",
+  "optionNo": "No",
+
+  "errors": {
+    "otherApplicants": {
+      "required": {
+        "summary": "You haven&rsquo;t answered the question about applying with someone else",
+        "message": "Answer &lsquo;yes&rsquo; if you want to apply with someone else"
+      }
+    }
+  }
+}
