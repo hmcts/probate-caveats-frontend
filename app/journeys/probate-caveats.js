@@ -39,8 +39,7 @@
 // };
 
 const stepList = {
-    StartApply: 'TaskList',
-    StartPage: 'TaskList',
+    StartPage: 'StartPage'
 };
 
 module.exports.stepList = stepList;
