@@ -1,7 +1,7 @@
 {
   "phase": "Beta",
   "feedback": "This is a new service – your <a aria-label=\"This link will open in a new tab. You&rsquo;ll need to return to this tab to continue with your application.\" href=\"{smartSurveyFeedbackUrl}?pageurl={currentPageUrl}\" target=\"_blank\" rel=\"external noopener\">feedback</a> will help us to improve it.",
-  "serviceName": "Apply for probate",
+  "serviceName": "Stop a grant of probate",
   "start": "Start now",
   "confirm": "Confirm your eligibility",
   "acceptAndApply": "Accept invitation and apply",
