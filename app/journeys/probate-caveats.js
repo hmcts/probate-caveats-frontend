@@ -39,7 +39,8 @@
 // };
 
 const stepList = {
-    StartPage: 'StartPage'
+    StartPage: 'StartPage',
+    ApplicantEmail: 'StartPage'
 };
 
 module.exports.stepList = stepList;
