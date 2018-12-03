@@ -39,7 +39,8 @@
 // };
 
 const stepList = {
-    StartPage: 'StartPage'
+    StartPage: 'StartPage',
+    DeceasedDoB: 'StartPage'
 };
 
 module.exports.stepList = stepList;
