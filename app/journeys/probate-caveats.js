@@ -14,12 +14,14 @@ const stepList = {
     DeceasedDob: 'DeceasedAlias',
     DeceasedAlias: {
         assetsInOtherNames: 'DeceasedOtherNames',
-        otherwise: 'EndJourneyPage'
+        otherwise: 'DeceasedAddress'
     },
-    DeceasedOtherNames: 'EndJourneyPage',
+    DeceasedOtherNames: 'DeceasedAddress',
     AddAlias: 'DeceasedOtherNames',
     RemoveAlias: 'DeceasedOtherNames',
+    DeceasedAddress: 'EndJourneyPage',
     AddressLookup: 'AddressLookup'
+
 };
 
 module.exports.stepList = stepList;
