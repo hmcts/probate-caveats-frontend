@@ -1,12 +1,7 @@
 {% extends "includes/layout.html" %}
-{% block page_title %}
-    {{content.title}}
-{% endblock %}
 
 {% block content %}
-
 {% from "widgets/lists.html" import unorderedList %}
-
 <main id="content" role="main">
     <div class="column-two-thirds">
 
@@ -48,7 +43,7 @@
         <p>{{content.disclaimerParagraph1 | safe}}</p>
         {{unorderedList([content["disclaimer-item1"], content["disclaimer-item2"], content["disclaimer-item3"], content["disclaimer-item4"], content["disclaimer-item5"]])}}
         <p>{{content.disclaimerParagraph2 | safe}}</p>
-        <p>{{content.disclaimerParagraph3 | safe}}</p>  
+        <p>{{content.disclaimerParagraph3 | safe}}</p>
         {{unorderedList([content["disclaimer-item6"], content["disclaimer-item7"], content["disclaimer-item8"], content["disclaimer-item9"]])}}
         <p>{{content.disclaimerParagraph4}}</p>
         <p>{{content.disclaimerParagraph5 | safe}}</p>
@@ -60,9 +55,6 @@
         <p>{{content.contactParagraph1 | replace('{helpLineNumber}', helpline.number)}}</p>
         <p>{{content.contactParagraph2 | replace('{helpLineHours}', helpline.hours)}}</p>
         <p>{{content.contactParagraph3 | replace('{callChargesLink}', links.callCharges) | safe}}</p>
-
     </div>
-
 </main>
-
 {% endblock %}

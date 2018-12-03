@@ -1,15 +1,9 @@
 {% extends "includes/layout.html" %}
-{% block page_title %}
-    {{content.title}}
-{% endblock %}
 
 {% block content %}
-
 {% from "widgets/lists.html" import unorderedList %}
-
 <main id="content" role="main">
     <div class="column-two-thirds">
-
         {% include "includes/phase_banner_beta.html" %}
 
         <h1 class="form-title heading-large">{{content.heading1}}</h1>
@@ -146,7 +140,5 @@
         </table>
 
     </div>
-
 </main>
-
 {% endblock %}
