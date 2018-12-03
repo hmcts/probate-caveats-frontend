@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "deceased-dob",
+  "type": "object",
+  "properties": {
+    "dob_day": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 31
+    },
+    "dob_month": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 12
+    },
+    "dob_year": {
+     "type": "integer",
+      "minimum": 1000,
+      "maximum": 9999
+    },
+    "dob_date": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "dob_day",
+    "dob_month",
+    "dob_year"
+  ]
+}

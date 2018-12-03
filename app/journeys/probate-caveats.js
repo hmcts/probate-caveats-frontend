@@ -6,9 +6,9 @@ const stepList = {
     ApplicantEmail: 'ApplicantAddress',
     ApplicantAddress: 'DeceasedName',
     DeceasedName: 'DeceasedDod',
-    DeceasedDod: 'EndJourneyPage',
+    DeceasedDod: 'DeceasedDoB',
+    DeceasedDoB: 'EndJourneyPage',
     AddressLookup: 'AddressLookup'
-
 };
 
 module.exports.stepList = stepList;
