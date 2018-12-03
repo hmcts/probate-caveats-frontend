@@ -3,7 +3,8 @@
 const stepList = {
     StartPage: 'ApplicantName',
     ApplicantName: 'ApplicantEmail',
-    ApplicantEmail: 'EndJourneyPage'
+    ApplicantEmail: 'EndJourneyPage',
+    DeceasedDod: 'StartPage'
 };
 
 module.exports.stepList = stepList;
