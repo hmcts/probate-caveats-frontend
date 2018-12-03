@@ -1,0 +1,22 @@
+{% extends "includes/two_thirds_form.html" %}
+
+{% from "widgets/textfields.html" import textField %}
+{% from "widgets/radiobuttons.html" import optionsRadio %}
+
+{% block question %}
+    <h1 class="form-title heading-large">{{content.question | replace('{deceasedName}', fields.deceasedName.value) | safe }}</h1>
+    <p>{{content.paragraph1 }}</p>
+{% endblock %}
+
+{% block form_content %}
+    {{optionsRadio(content,
+        name = 'alias',
+        field = fields.alias,
+        options = ['optionYes', 'optionNo'],
+        legend = content.legend,
+        inline = true
+    )}}
+    <div class="form-group">
+        <input class="button" type="submit" value="{{common.continue}}">
+    </div>
+{% endblock %}
