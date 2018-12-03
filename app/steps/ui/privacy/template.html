@@ -1,12 +1,7 @@
 {% extends "includes/layout.html" %}
-{% block page_title %}
-    {{content.title}}
-{% endblock %}
 
 {% block content %}
-
 {% from "widgets/lists.html" import unorderedList %}
-
 <main id="content" role="main">
     <div class="column-two-thirds">
 
@@ -67,7 +62,5 @@
         <p>{{content.howToComplainParagraph3}}</p>
         <p>{{content.howToComplainParagraph4 | replace('{informationCommissionersOfficeLink}', links.informationCommissionersOffice) | safe}}</p>
     </div>
-
 </main>
-
 {% endblock %}
