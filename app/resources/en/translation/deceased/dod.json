@@ -1,0 +1,45 @@
+{
+  "title": "Deceased date of death",
+  "question": "What was the date that they died?",
+  "questionHint": "Use the date from the death certificate. For example, 30 06 2016",
+  "legend": "Please enter date of death",
+
+  "errors": {
+    "dod_day": {
+      "required": {
+        "summary": "You haven&rsquo;t entered the day that they died",
+        "message": "Enter the day they died"
+      },
+      "invalid": {
+        "summary": "You haven&rsquo;t entered the date that they died",
+        "message": "Can only contain numbers"
+      }
+    },
+    "dod_month": {
+      "required": {
+        "summary": "You haven&rsquo;t entered the month that they died",
+        "message": "Enter the month they died"
+      },
+      "invalid": {
+        "summary": "You haven&rsquo;t entered the date that they died",
+        "message": "Can only contain numbers"
+      }
+    },
+    "dod_year": {
+      "required": {
+        "summary": "You haven&rsquo;t entered the year that they died",
+        "message": "Enter the year they died"
+      },
+      "invalid": {
+        "summary": "You haven&rsquo;t entered the date that they died",
+        "message": "Can only contain numbers"
+      }
+    },
+    "dod_date": {
+      "invalid": {
+        "summary": "You haven&rsquo;t entered the date that they died",
+        "message": "Enter a date that is today or in the past"
+      }
+    }
+  }
+}
