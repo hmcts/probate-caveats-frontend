@@ -1,0 +1,33 @@
+{% extends "includes/layout.html" %}
+
+{% block content %}
+    <main id="content" role="main">
+        {% include "includes/phase_banner_beta.html" %}
+
+        <div class="grid-row">
+            <div class="column-two-thirds">
+                <div class="govuk-box-highlight">
+                    <h1 class="heading-xlarge">
+                        {{content.header | safe}}
+                    </h1>
+                    {% if fields.ccdReferenceNumber.value !== '' %}
+                        <p class="font-large">
+                            <span class="font-medium">{{content.referenceNumber | safe}}</span><br>
+                            <strong class="bold">{{fields.ccdReferenceNumber.value}}</strong>
+                        </p>
+                    {% endif %}
+                </div>
+
+                <h2 class="heading-medium">{{content.successHeading1 | safe}}</h2>
+                <p>{{content.successParagraph1 | safe}}</p>
+                <p>{{content.successParagraph2 | safe}}</p>
+
+                <div class="panel panel-border-wide">
+                    <p>{{content.successParagraph3 | replace('{citizenAdvice}', links.citizenAdvice) | safe}}</p>
+                </div>
+
+                <a href="{{links.surveyEndOfApplication | safe}}">{{content.survey | safe}}</a>
+            </div>
+        </div>
+    </main>
+{% endblock %}

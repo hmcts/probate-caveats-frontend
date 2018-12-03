@@ -82,8 +82,10 @@ module.exports = {
         googlePrivacyPolicy: 'https://www.google.com/policies/privacy/partners/',
         googleAnalyticsOptOut: 'https://tools.google.com/dlpage/gaoptout/',
         mojPersonalInformationCharter: 'https://www.gov.uk/government/organisations/ministry-of-justice/about/personal-information-charter',
+        surveyEndOfApplication: process.env.SURVEY_END_OF_APPLICATION || 'https://www.smartsurvey.co.uk/',
         applicationFormPA1A: '/public/pdf/probate-application-form-pa1a.pdf',
         applicationFormPA1P: '/public/pdf/probate-application-form-pa1p.pdf',
+        citizenAdvice: 'https://www.citizensadvice.org.uk/'
     },
     helpline: {
         number: '0300 303 0648',
