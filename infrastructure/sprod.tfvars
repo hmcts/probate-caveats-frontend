@@ -47,3 +47,4 @@ probate_submit_service_url = "http://betaDevBprobateApp01.reform.hmcts.net:4102/
 probate_persistence_service_url = "http://betaDevBprobateApp01.reform.hmcts.net:4103/formdata"
 asp_name = "probate-sprod"
 asp_rg = "probate-sprod"
+feature_toggles_api_url = "http://rpe-feature-toggle-api-sprod.service.core-compute-sprod.internal"
