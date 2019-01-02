@@ -1,4 +1,4 @@
-const pageUnderTest = require('app/steps/ui/startpage/index');
+const pageUnderTest = require('app/steps/ui/endjourney/index');
 const testConfig = require('test/config.js');
 
 module.exports = function () {
@@ -6,7 +6,5 @@ module.exports = function () {
 
     I.amOnPage(pageUnderTest.getUrl());
     I.seeCurrentUrlEquals(pageUnderTest.getUrl());
-
-    I.click('.button.button-start');
 
 };

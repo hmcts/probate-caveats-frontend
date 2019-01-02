@@ -14,7 +14,7 @@
     "sass:watch": "NODE_PATH=. watch 'npm run -s sass' app/assets/sass/ &",
     "sass": "NODE_PATH=. node-sass app/assets/sass/application.scss --output public/stylesheets --quiet --output-style expanded --source-map true --include-path node_modules/govuk_template_jinja/assets/stylesheets --include-path node_modules/govuk_frontend_toolkit/stylesheets --include-path node_modules/govuk-elements-sass/public/sass/",
     "sass-ie8": "NODE_PATH=. node-sass app/assets/sass/application-ie8.scss --output public/stylesheets --quiet --output-style expanded --source-map true --include-path node_modules/govuk_template_jinja/assets/stylesheets --include-path node_modules/govuk_frontend_toolkit/stylesheets --include-path node_modules/govuk-elements-sass/public/sass/",
-    "test": "npm run test-unit -- $@ && npm run test-accessibility -- $@ && npm run test-component -- $@ npm run test-route -- $@",
+    "test": "npm run test-unit && npm run test-accessibility && npm run test-component && npm run test-route",
     "test-unit": "NODE_PATH=. LOG_LEVEL=error mocha test/unit --reporter spec --recursive --timeout 15000",
     "test-component": "NODE_PATH=. LOG_LEVEL=error mocha test/component --reporter spec --recursive --timeout 15000",
     "test-route": "NODE_PATH=. LOG_LEVEL=error mocha test/route --reporter spec --recursive --timeout 15000",
@@ -85,14 +85,15 @@
   "devDependencies": {
     "chai": "^4.1.0",
     "chai-http": "^4.0.0",
-    "codeceptjs": "^1.2.1",
+    "codeceptjs": "^1.4.6",
     "eslint": "4.1.1 ",
     "eslint-plugin-mocha": "^4.8.0",
     "istanbul": "^0.4.5",
     "mocha": "^2.5.3",
-    "mocha-jenkins-reporter": "^0.3.8",
+    "mocha-jenkins-reporter": "^0.4.1",
     "mochawesome": "^2.0.0",
-    "nodemon": "^1.11.0",
+    "nock": "^9.3.0",
+    "nodemon": "^1.17.5",
     "nsp": "^2.6.2",
     "pa11y": "^4.13.2",
     "phantomjs-prebuilt": "^2.1.13",
@@ -104,6 +105,7 @@
     "sonarqube-scanner": "^1.1.0",
     "superagent": "^3.8.2",
     "supertest": "^2.0.1",
-    "watch": "^1.0.1"
+    "watch": "^1.0.1",
+    "when": "^3.7.7"
   }
 }

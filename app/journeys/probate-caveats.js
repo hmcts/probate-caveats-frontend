@@ -39,8 +39,8 @@
 // };
 
 const stepList = {
-    StartPage: 'StartPage',
-    ApplicantName: 'StartPage'
+    StartPage: 'ApplicantName',
+    ApplicantName: 'EndJourneyPage'
 };
 
 module.exports.stepList = stepList;
