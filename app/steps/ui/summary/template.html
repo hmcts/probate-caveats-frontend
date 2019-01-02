@@ -1,0 +1,37 @@
+{% set title = content.Summary.title %}
+
+{% extends "includes/layout.html" %}
+
+{% block content %}
+
+<main id="content" role="main">
+    {% from "widgets/checkanswer.html" import checkanswer %}
+
+    {% include "includes/phase_banner_beta.html" %}
+    {% include "includes/error_summary.html" %}
+
+    <h1 class="heading-large">
+        {{content.Summary.heading}}
+    </h1>
+    <p>{{content.Summary.checkCarefully}}</p>
+
+    <h2 class="heading-medium">{{content.Summary.aboutYouHeading | safe}}</h2>
+    <dl class="check-your-answers check-your-answers--long">
+        {% include "ui/summary/includes/about-you.njk" %}
+    </dl>
+
+    <h2 class="heading-medium">{{content.Summary.deceasedHeading}}</h2>
+    <dl class="check-your-answers check-your-answers--long">
+        {% include "ui/summary/includes/deceased.njk" %}
+    </dl>
+
+    <div class="form-group">
+        {% if fields.summary.readyToDeclare.value === "true" %}
+            <p><a href="/declaration" class="button button-start">{{common.continue}}</a></p>
+        {% else %}
+            <p><a href="/summary/redirect" class="button button-start">{{common.continue}}</a></p>
+        {% endif %}
+    </div>
+</main>
+
+{% endblock %}

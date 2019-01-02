@@ -1,0 +1,38 @@
+{
+  "title": "Summary page",
+  "heading": "Check your answers",
+  "checkCarefully": "Check the information below carefully. This will form a record of your application for probate. It will also be stored as a public record, and will be able to be viewed online.",
+  "willHeading": "The will",
+  "willWithCodicilHeading": "The will and codicils",
+  "applicantHeading": "The executors",
+  "deceasedHeading": "About the person who died",
+  "ihtHeading": "Inheritance tax",
+  "otherExecutors": "Other executors applying for probate",
+  "executorsWhenDiedQuestion" : "Did {executorFullName} die before the person who died?",
+  "otherNamesLabel": "Names used by the deceased",
+  "aboutYouHeading": "About you",
+  "executorApplyingForProbate": "{executorOrderNumber} executor applying for probate",
+  "executorsNotApplyingForProbate": "Executors not applying for probate",
+  "executorsWithOtherNames": "Which executors have different names?",
+  "nameOnWill": "Name on will",
+  "currentName": "Current name",
+  "currentNameReason": "Reason for name change",
+  "address": "Address",
+  "mobileNumber": "Mobile number",
+  "emailAddress": "Email address",
+  "checkAnswersPdf": "Save this page (8kb PDF)",
+
+  "errors": {
+    "businessError": {
+      "dodBeforeDob": {
+        "summary": "Date of death cannot be before date of birth"
+      },
+      "ihtNetGreaterThanGross": {
+        "summary": "Net IHT value cannot be greater than the Gross value"
+      },
+      "fieldMinSize": {
+        "summary": "Must be at least {min} characters"
+      }
+    }
+  }
+}

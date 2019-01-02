@@ -1,0 +1,39 @@
+{{checkanswer(
+    items = [{
+            question: content.ApplicantName.firstName,
+            answer: fields.applicant.firstName.value,
+            visible: true
+        },
+        {
+            question: content.ApplicantName.lastName,
+            answer: fields.applicant.lastName.value,
+            visible: true
+        }
+    ],
+    url = content.ApplicantName.url,
+    common = common,
+    alreadyDeclared = fields.summary.alreadyDeclared.value
+)}}
+
+{{checkanswer(
+    items = [{
+        question: content.ApplicantEmailAddress.question,
+        answer: fields.applicant.emailAddress.value,
+        visible: true
+    }],
+    url = content.ApplicantEmailAddress.url,
+    common = common,
+    alreadyDeclared = fields.summary.alreadyDeclared.value
+)}}
+
+{{checkanswer(
+    items = [{
+        question: content.ApplicantAddress.question,
+        answer: fields.applicant.address.value,
+        visible: true
+    }],
+    url = content.ApplicantAddress.url,
+    common = common,
+    alreadyDeclared = fields.summary.alreadyDeclared.value
+)}}
+
