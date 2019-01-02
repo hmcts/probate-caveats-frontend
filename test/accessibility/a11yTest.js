@@ -12,7 +12,6 @@ const commonContent = require('app/resources/en/translation/common');
 const services = require('app/components/services');
 const stepsToExclude = ['AddAlias', 'RemoveAlias', 'AddressLookup'];
 const steps = initSteps.steps;
-let featureToggleStub;
 
 Object.keys(steps)
     .filter(stepName => stepsToExclude.includes(stepName))
@@ -34,9 +33,6 @@ for (const step in steps) {
 
             before((done) => {
 
-                featureToggleStub = sinon.stub(services, 'featureToggle')
-                    .returns(Promise.resolve('true'));
-
                 server = app.init();
                 agent = request.agent(server.app);
                 co(function* () {
@@ -53,7 +49,6 @@ for (const step in steps) {
             });
 
             after(function (done) {
-                featureToggleStub.restore();
                 server.http.close();
                 done();
             });

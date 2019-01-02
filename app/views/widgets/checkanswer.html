@@ -1,0 +1,35 @@
+{% macro checkanswer(items, url, common, alreadyDeclared, answerIsCollection, answerIsGroup) %}
+
+{%  set anyVisibleItems = items | selectattr("visible") | length %}
+{% if anyVisibleItems %}
+
+    {% set complete = false  %}
+    {% for item in items %}
+    {% if item.visible %}
+    {% if item.answer%}{% set complete = true  %}{% endif %}
+        <div class="check-your-answers__row">
+            <dt class="check-your-answers__question">{{item.question | safe}}</dt>
+            {% if answerIsCollection %}
+            <dd class="check-your-answers__answer">
+                {% for answ in item.answer %}
+                    <div class="check-your-answers__row">
+                    {{answ | safe}}
+                    </div>
+                {% endfor %}
+            </dd>
+            {% else %}
+            <dd class="check-your-answers__answer">{{item.answer | safe}}</dd>
+            {% endif %}
+            <dd class="check-your-answers__change">
+                {% if alreadyDeclared === 'false' %}
+                    {% set actionLink = common.change if complete else common.answer %}
+                    <a href="{{url}}">{{actionLink}}</a>
+                {% endif %}
+            </dd>
+        </div>
+    {% endif %}
+    {% endfor %}
+
+{% endif %}
+
+{% endmacro %}
