@@ -13,9 +13,7 @@ const strykerConfiguration = config => {
         coverageAnalysis: 'perTest',
         mutate:
       [
-          'app/steps/ui/**/index.js',
-          'app/core/**',
-          'app/wrappers/*.js',
+          'app/steps/ui/**/index.js'
       ],
         files: ['*.js', '*.json', 'app/**', 'git.properties*', 'test/unit/*', 'test/data/**', 'test/service-stubs/**'],
         maxConcurrentTestRunners: 1,
