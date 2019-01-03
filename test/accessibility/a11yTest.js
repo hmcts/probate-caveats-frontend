@@ -34,8 +34,6 @@ for (const step in steps) {
                 .replace(/\)/g, '\\)');
 
             before((done) => {
-                checkAllAgreedStub = sinon.stub(services, 'checkAllAgreed')
-                    .returns(Promise.resolve('false'));
 
                 featureToggleStub = sinon.stub(services, 'featureToggle')
                     .returns(Promise.resolve('true'));
@@ -56,7 +54,6 @@ for (const step in steps) {
             });
 
             after(function (done) {
-                checkAllAgreedStub.restore();
                 featureToggleStub.restore();
                 server.http.close();
                 done();
