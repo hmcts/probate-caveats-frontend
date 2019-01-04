@@ -49,3 +49,5 @@ probate_persistence_service_url = "http://betaPreProdprobateApp01.reform.hmcts.n
 asp_name = "probate-demo"
 
 asp_rg = "probate-demo"
+
+feature_toggles_api_url = "http://rpe-feature-toggle-api-demo.service.core-compute-demo.internal"
