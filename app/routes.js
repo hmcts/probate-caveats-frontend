@@ -24,7 +24,7 @@ router.use((req, res, next) => {
 
 router.get('/', (req, res) => {
     req.log.info({tags: 'Analytics'}, 'Application Started');
-    res.redirect('applicant-name');
+    res.redirect('start-page');
 });
 
 router.use((req, res, next) => {
