@@ -12,7 +12,6 @@ const commonContent = require('app/resources/en/translation/common');
 const services = require('app/components/services');
 const stepsToExclude = ['AddAlias', 'RemoveAlias'];
 const steps = initSteps.steps;
-let checkAllAgreedStub;
 let featureToggleStub;
 
 Object.keys(steps)
