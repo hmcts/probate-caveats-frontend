@@ -1,0 +1,18 @@
+{
+  "title": "Applicant email",
+  "question": "What is your email address?",
+  "Email": "Email",
+
+  "errors": {
+    "email": {
+      "required": {
+        "summary": "You haven&rsquo;t entered your email address",
+        "message": "Enter your email address"
+      },
+      "invalid": {
+        "summary": "The email you entered is invalid",
+        "message": "The email you entered is invalid"
+      }
+    }
+  }
+}

@@ -1,12 +1,12 @@
 'use strict';
 
 const TestWrapper = require('test/util/TestWrapper');
-// const ApplicantEmail = require('app/steps/ui/applicant/email/index');
+const ApplicantEmail = require('app/steps/ui/applicant/email/index');
 const testHelpBlockContent = require('test/component/common/testHelpBlockContent.js');
 
 describe('applicant-name', () => {
     let testWrapper;
-    // const expectedNextUrlForApplicantEmail = ApplicantEmail.getUrl();
+    const expectedNextUrlForApplicantEmail = ApplicantEmail.getUrl();
 
     beforeEach(() => {
         testWrapper = new TestWrapper('ApplicantName');
@@ -50,12 +50,12 @@ describe('applicant-name', () => {
             testWrapper.testErrors(done, data, 'invalid', errorsToTest);
         });
 
-        // it(`test it redirects to next page: ${expectedNextUrlForApplicantEmail}`, (done) => {
-        //     const data = {
-        //         firstName: 'bob',
-        //         lastName: 'smith'
-        //     };
-        //     testWrapper.testRedirect(done, data, expectedNextUrlForApplicantEmail);
-        // });
+        it(`test it redirects to next page: ${expectedNextUrlForApplicantEmail}`, (done) => {
+            const data = {
+                firstName: 'bob',
+                lastName: 'smith'
+            };
+            testWrapper.testRedirect(done, data, expectedNextUrlForApplicantEmail);
+        });
     });
 });

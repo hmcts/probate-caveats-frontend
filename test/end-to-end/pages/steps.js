@@ -12,6 +12,7 @@ module.exports = function () {
 
         enterApplicantName: steps.applicant.name,
 
+        enterApplicantEmail: steps.applicant.email,
         // temp stop page to represent end of journey
         seeEndOfJourney: steps.endJourney.endJourney
     });
