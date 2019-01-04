@@ -13,7 +13,7 @@ data:
   PAYMENT_CREATE_URL: 'http://payment-api-aat.service.core-compute-aat.internal/card-payments'
   VALIDATION_SERVICE_URL: 'http://probate-business-service-aat.service.core-compute-aat.internal/validate'
   SUBMIT_SERVICE_URL: 'http://probate-submit-service-aat.service.core-compute-aat.internal'
-  PERSISTENCE_SERVICE_URL: 'http://probate-persistence-service-aat.service.core-compute-aat.internal/formdata'
+#  PERSISTENCE_SERVICE_URL: 'http://probate-persistence-service-aat.service.core-compute-aat.internal/formdata'
 #  FEES_URL: 'http://fees-register-api-aat.service.core-compute-aat.internal'
 #  CLAIM_STORE_URL: 'http://cmc-claim-store-aat.service.core-compute-aat.internal'
 #  DRAFT_STORE_URL: 'http://draft-store-service-aat.service.core-compute-aat.internal'

@@ -12,7 +12,6 @@ const commonContent = require('app/resources/en/translation/common');
 const services = require('app/components/services');
 const stepsToExclude = ['AddAlias', 'RemoveAlias'];
 const steps = initSteps.steps;
-let checkAllAgreedStub;
 let featureToggleStub;
 
 Object.keys(steps)
@@ -34,8 +33,6 @@ for (const step in steps) {
                 .replace(/\)/g, '\\)');
 
             before((done) => {
-                checkAllAgreedStub = sinon.stub(services, 'checkAllAgreed')
-                    .returns(Promise.resolve('false'));
 
                 featureToggleStub = sinon.stub(services, 'featureToggle')
                     .returns(Promise.resolve('true'));
@@ -56,7 +53,6 @@ for (const step in steps) {
             });
 
             after(function (done) {
-                checkAllAgreedStub.restore();
                 featureToggleStub.restore();
                 server.http.close();
                 done();
