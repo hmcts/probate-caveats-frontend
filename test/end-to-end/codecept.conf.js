@@ -14,11 +14,11 @@ exports.config = {
             'chrome': {
                 'ignoreHTTPSErrors': true,
                 'ignore-certificate-errors': true
-            },
+            }
         },
         'PuppeteerHelper': {
             'require': './helpers/PuppeteerHelper.js'
-        },
+        }
     },
     'include': {
         'I': './pages/steps.js'
