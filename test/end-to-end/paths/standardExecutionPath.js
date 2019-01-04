@@ -23,6 +23,7 @@ Scenario('Standard Execution Journey', function* (I) {
     // Applicant details
     I.enterApplicantName('Applicant First Name', 'Applicant Last Name');
     I.enterApplicantEmail('Applicant@email.com');
+    I.enterAddressManually();
 
     // temp stop page - to represent end of journey
     I.seeEndOfJourney();
