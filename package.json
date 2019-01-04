@@ -14,7 +14,7 @@
     "sass:watch": "NODE_PATH=. watch 'npm run -s sass' app/assets/sass/ &",
     "sass": "NODE_PATH=. node-sass app/assets/sass/application.scss --output public/stylesheets --quiet --output-style expanded --source-map true --include-path node_modules/govuk_template_jinja/assets/stylesheets --include-path node_modules/govuk_frontend_toolkit/stylesheets --include-path node_modules/govuk-elements-sass/public/sass/",
     "sass-ie8": "NODE_PATH=. node-sass app/assets/sass/application-ie8.scss --output public/stylesheets --quiet --output-style expanded --source-map true --include-path node_modules/govuk_template_jinja/assets/stylesheets --include-path node_modules/govuk_frontend_toolkit/stylesheets --include-path node_modules/govuk-elements-sass/public/sass/",
-    "test": "npm run test-unit && npm run test-accessibility && npm run test-component && npm run test-route",
+    "test": "npm run test-unit -- $@ && npm run test-accessibility -- $@ && npm run test-component -- $@ && npm run test-route -- $@",
     "test-unit": "NODE_PATH=. LOG_LEVEL=error mocha test/unit --reporter spec --recursive --timeout 15000",
     "test-component": "NODE_PATH=. LOG_LEVEL=error mocha test/component --reporter spec --recursive --timeout 15000",
     "test-route": "NODE_PATH=. LOG_LEVEL=error mocha test/route --reporter spec --recursive --timeout 15000",
