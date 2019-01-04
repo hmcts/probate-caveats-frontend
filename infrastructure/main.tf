@@ -8,7 +8,9 @@ provider "vault" {
   address = "https://vault.reform.hmcts.net:6200"
 }
 
-
+provider "azurerm" {
+  version = "1.19.0"
+}
 
 # data "vault_generic_secret" "idam_frontend_service_key" {
 #   path = "secret/${var.vault_section}/ccidam/service-auth-provider/api/microservice-keys/probate-frontend"
@@ -44,6 +46,7 @@ data "azurerm_key_vault" "probate_key_vault" {
   name = "${local.vaultName}"
   resource_group_name = "${local.vaultName}"
 }
+
 
 # data "azurerm_key_vault_secret" "idam_secret_probate" {
 #   name = "ccidam-idam-api-secrets-probate"
