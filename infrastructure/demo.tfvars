@@ -47,3 +47,5 @@ probate_submit_service_url = "http://betaPreProdprobateApp01.reform.hmcts.net:41
 probate_persistence_service_url = "http://betaPreProdprobateApp01.reform.hmcts.net:4103/formdata"
 
 asp_name = "probate-demo"
+
+asp_rg = "probate-demo"
