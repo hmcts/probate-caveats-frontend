@@ -68,7 +68,7 @@ variable "external_host_name" {
 
 // Package details
 variable "packages_name" {
-  default = "probate-frontend"
+  default = "probate-caveats-frontend"
 }
 
 variable "packages_project" {
@@ -88,7 +88,7 @@ variable "version" {
 }
 
 variable "probate_frontend_service_name" {
-  default = "probate-frontend"
+  default = "probate-caveats-frontend"
 }
 
 variable "probate_frontend_public_port" {
@@ -120,7 +120,7 @@ variable "health_endpoint" {
 }
 
 variable "frontend_service_name" {
-  default = "probate-frontend"
+  default = "probate-caveats-frontend"
 }
 
 variable "probate_business_service_url" {
