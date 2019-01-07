@@ -11,15 +11,6 @@ class DeceasedDod extends DateStep {
     dateName() {
         return 'dod';
     }
-
-    handlePost(ctx, errors, formdata, session, hostname) {
-        return [ctx, errors];
-    }
-
-    action(ctx, formdata) {
-        super.action(ctx, formdata);
-        return [ctx, formdata];
-    }
 }
 
 module.exports = DeceasedDod;
