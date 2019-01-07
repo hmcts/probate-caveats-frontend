@@ -10,7 +10,7 @@ const {endsWith} = require('lodash');
 const sinon = require('sinon');
 const commonContent = require('app/resources/en/translation/common');
 const services = require('app/components/services');
-const stepsToExclude = ['AddAlias', 'RemoveAlias'];
+const stepsToExclude = ['AddAlias', 'RemoveAlias', 'AddressLookup'];
 const steps = initSteps.steps;
 let featureToggleStub;
 

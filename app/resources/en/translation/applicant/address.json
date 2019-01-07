@@ -1,0 +1,54 @@
+{
+  "title": "Applicant address",
+  "question": "What is your address?",
+  "explanation1": "We&rsquo;ll send the grant of probate to this address.",
+  "postcode": "Postcode",
+  "findAddress": "Find UK address",
+  "addressLabel": "Address",
+  "selectAddress": "Select address",
+  "enterManually": "Enter your address instead",
+
+  "errors": {
+    "crossField": {
+      "oneOf": {
+        "summary": "Please select an address or enter one manually",
+        "message": "Please select an address or enter one manually"
+      }
+    },
+    "postcode": {
+      "required": {
+        "summary": "Please search for an address or enter one manually",
+        "message": "Enter the postcode"
+      },
+      "invalid": {
+        "summary": "Please search for an address or enter one manually",
+        "message": "Invalid postcode"
+      }
+    },
+    "postcodeLookup": {
+      "required": {
+        "summary": "Please search for an address or enter one manually"
+      }
+    },
+    "postcodeAddress": {
+      "required": {
+        "summary": "Please select an address or enter one manually",
+        "message": "Select an address"
+      },
+      "invalid": {
+        "summary": "The address you selected is invalid",
+        "message": "Please select a valid address"
+      }
+    },
+    "freeTextAddress": {
+      "required": {
+        "summary": "Please select an address or enter one manually",
+        "message": "Enter an address"
+      },
+      "invalid": {
+        "summary": "Please select an address or enter one manually",
+        "message": "Enter a valid address"
+      }
+    }
+  }
+}

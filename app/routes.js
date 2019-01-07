@@ -33,7 +33,7 @@ router.use((req, res, next) => {
     next();
 });
 
-const steps = initSteps([`${__dirname}/steps/ui/`]);
+const steps = initSteps([`${__dirname}/steps/action/`, `${__dirname}/steps/ui/`]);
 
 Object.entries(steps).forEach(([, step]) => {
     router.get(step.constructor.getUrl(), step.runner().GET(step));
