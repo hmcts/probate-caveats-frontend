@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "applicant-address",
+  "type": "object",
+  "properties": {
+    "postcode": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 10
+    },
+    "addressFound": {
+      "type": "string"
+    },
+    "postcodeAddress": {
+      "type": "string"
+    },
+    "freeTextAddress": {
+      "type": "string",
+      "maxLength": 208
+    }
+  },
+  "switch": [
+    {"if": {"properties":
+           {"addressFound":{"enum": ["true"]}}},
+     "then": 
+           {"oneOf": 
+           [{"required": ["postcodeAddress"]}, 
+            {"required": ["freeTextAddress"]}]},
+     "continue": false
+    },
+    {"if": {"properties":
+              {"addressFound": {"enum":["none"]},
+               "freeTextAddress":{"maxLength": 0 }}},
+     "then": 
+           {"required": ["postcodeLookup"]},
+     "continue": false
+    },
+    {"if": {"properties": 
+           {"addressFound": {"enum": ["false"]}}},
+     "then":
+           {"required": ["freeTextAddress"]},
+      "continue": false
+    }
+  ]
+}

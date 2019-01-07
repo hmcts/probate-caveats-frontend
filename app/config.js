@@ -84,6 +84,12 @@ module.exports = {
         number: '0300 303 0648',
         hours: 'Monday to Friday, 9am to 5pm'
     },
+    utils: {
+        api: {
+            retries: process.env.RETRIES_NUMBER || 10,
+            retryDelay: process.env.RETRY_DELAY || 1000
+        }
+    },
     payment: {
         applicationFee: 215,
         applicationFeeThreshold: 5000,

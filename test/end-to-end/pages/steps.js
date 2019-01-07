@@ -13,6 +13,8 @@ module.exports = function () {
         enterApplicantName: steps.applicant.name,
 
         enterApplicantEmail: steps.applicant.email,
+
+        enterAddressManually: steps.applicant.address,
         // temp stop page to represent end of journey
         seeEndOfJourney: steps.endJourney.endJourney
     });
