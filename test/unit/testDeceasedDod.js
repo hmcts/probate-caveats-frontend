@@ -14,6 +14,14 @@ describe('DeceasedDod', () => {
         });
     });
 
+    describe('dateNmae()', () => {
+        it('should return the correct value', (done) => {
+            const name = DeceasedDod.dateName();
+            expect(name).to.equal('dod');
+            done();
+        });
+    });
+
     describe('handlePost()', () => {
         let ctx;
         let errors;
