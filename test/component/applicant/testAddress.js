@@ -8,7 +8,7 @@ const testHelpBlockContent = require('test/component/common/testHelpBlockContent
 
 describe('applicant-address', () => {
     let testWrapper;
-    const expectedNextUrlForExecsNumber = DeceasedName.getUrl();
+    const expectedNextUrlForDeceasedName = DeceasedName.getUrl();
 
     beforeEach(() => {
         testWrapper = new TestWrapper('ApplicantAddress');
@@ -59,12 +59,12 @@ describe('applicant-address', () => {
 
         });
 
-        it(`test it redirects to deceased name page: ${expectedNextUrlForExecsNumber}`, (done) => {
+        it(`test it redirects to deceased name page: ${expectedNextUrlForDeceasedName}`, (done) => {
             const data = {
                 postcode: 'ea1 eaf',
                 postcodeAddress: '102 Petty France'
             };
-            testWrapper.testRedirect(done, data, expectedNextUrlForExecsNumber);
+            testWrapper.testRedirect(done, data, expectedNextUrlForDeceasedName);
         });
 
         it('should display the selected address option if an error is caused by completing both addresses', (done) => {
