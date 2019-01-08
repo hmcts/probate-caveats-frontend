@@ -25,6 +25,7 @@ Scenario('Standard Execution Journey', function* (I) {
     I.enterApplicantEmail('Applicant@email.com');
     I.enterAddressManually();
     I.enterDeceasedName('Deceased First Name', 'Deceased Last Name');
+    I.enterDeceasedDateOfDeath('01', '01', '2019');
 
     // temp stop page - to represent end of journey
     I.seeEndOfJourney();

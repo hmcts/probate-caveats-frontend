@@ -1,0 +1,24 @@
+{% extends "includes/two_thirds_form.html" %}
+
+{% from "widgets/dates.html" import date %}
+
+{% block question %}
+    <h1 class="form-title heading-large">{{content.question}}</h1>
+{% endblock %}
+
+{% block form_content %}
+    {{date(
+        name = 'dod',
+        day = fields.dod_day,
+        month = fields.dod_month,
+        year  = fields.dod_year,
+        date = fields.dod_date,
+        maxyear = currentYear,
+        legend = content.legend,
+        hint = content.questionHint
+    )}}
+    <div class="form-group">
+        <input class="button" type="submit" value="{{common.continue}}">
+    </div>
+{% endblock %}
+{% block save_and_close %}{% endblock %}
