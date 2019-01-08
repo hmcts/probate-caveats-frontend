@@ -7,7 +7,7 @@ packages_environment = "preprod"
 packages_version = "3.0.0"
 
 probate_frontend_hostname = "probate-frontend-demo.service.core-compute-demo.internal"
-external_host_name = "probate.demo.platform.hmcts.net"
+external_host_name = "probate-caveats.demo.platform.hmcts.net"
 outbound_proxy = ""
 
 probate_google_track_id = "UA-93598808-1"
