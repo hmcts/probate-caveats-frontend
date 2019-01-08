@@ -11,8 +11,8 @@
         "message": "Enter the day they died"
       },
       "invalid": {
-        "summary": "You haven&rsquo;t entered the date that they died",
-        "message": "Can only contain numbers"
+        "summary": "You haven&rsquo;t entered a valid day that they died",
+        "message": "Enter a valid day of death"
       }
     },
     "dod_month": {
@@ -21,8 +21,8 @@
         "message": "Enter the month they died"
       },
       "invalid": {
-        "summary": "You haven&rsquo;t entered the date that they died",
-        "message": "Can only contain numbers"
+        "summary": "You haven&rsquo;t entered a valid month that they died",
+        "message": "Enter a valid month of death"
       }
     },
     "dod_year": {
@@ -31,14 +31,22 @@
         "message": "Enter the year they died"
       },
       "invalid": {
-        "summary": "You haven&rsquo;t entered the date that they died",
-        "message": "Can only contain numbers"
+        "summary": "You haven&rsquo;t entered a valid year that they died",
+        "message": "Enter a valid year of death"
       }
     },
     "dod_date": {
       "invalid": {
-        "summary": "You haven&rsquo;t entered the date that they died",
-        "message": "Enter a date that is today or in the past"
+        "summary": "You need to enter a valid date of death",
+        "message": "Enter a valid date of death"
+      },
+      "dateInFuture": {
+        "summary": "You must enter a date of death in the past",
+        "message": "Enter a date in the past"
+      },
+      "dodBeforeDob": {
+        "summary": "The date of death you entered is before the date of birth",
+        "message": "Enter a date of death that is after the date of birth"
       }
     }
   }
