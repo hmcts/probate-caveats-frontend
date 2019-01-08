@@ -1,7 +1,7 @@
 'use strict';
 
 const initSteps = require('app/core/initSteps');
-const {expect, assert} = require('chai');
+const expect = require('chai').expect;
 const steps = initSteps([`${__dirname}/../../app/steps/action/`, `${__dirname}/../../app/steps/ui`]);
 const DeceasedDod = steps.DeceasedDod;
 const content = require('app/resources/en/translation/deceased/dod');
@@ -17,7 +17,7 @@ describe('DeceasedDod', () => {
 
     describe('dateName()', () => {
         it('should return the correct dateName()', (done) => {
-            const dateNmae = DeceasedDod.dateName();
+            const dateName = DeceasedDod.dateName();
             expect(dateName).to.equal('dod');
             done();
         });
