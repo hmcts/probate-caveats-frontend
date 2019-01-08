@@ -15,6 +15,8 @@ module.exports = function () {
         enterApplicantEmail: steps.applicant.email,
 
         enterAddressManually: steps.applicant.address,
+
+        enterDeceasedName: steps.deceased.name,
         // temp stop page to represent end of journey
         seeEndOfJourney: steps.endJourney.endJourney
     });
