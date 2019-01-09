@@ -6,12 +6,12 @@
     "firstName": {
         "type": "string",
         "minLength": 2,
-        "pattern": "^[^<>]+$"
+        "pattern": "^[a-zA-ZÀ-ÿ-'\\s]*$"
     },
     "lastName": {
       "type": "string",
       "minLength": 2,
-      "pattern": "^[^<>]+$"
+      "pattern": "^[a-zA-ZÀ-ÿ-'\\s]*$"
     }
   },
   "required": [
