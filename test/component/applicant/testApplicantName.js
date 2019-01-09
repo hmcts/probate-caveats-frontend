@@ -50,6 +50,52 @@ describe('applicant-name', () => {
             testWrapper.testErrors(done, data, 'invalid', errorsToTest);
         });
 
+        it('test error message displayed for invalid firstName with numbers', (done) => {
+            const errorsToTest = ['firstName'];
+            const data = {
+                firstName: 'dave22',
+                lastName: 'bassett'
+            };
+            testWrapper.testErrors(done, data, 'invalid', errorsToTest);
+        });
+
+        it('test error message displayed for invalid firstName with special characters', (done) => {
+            const errorsToTest = ['firstName'];
+            const data = {
+                firstName: 'dave@',
+                lastName: 'bassett'
+            };
+            testWrapper.testErrors(done, data, 'invalid', errorsToTest);
+        });
+
+        it('test error message displayed for invalid firstName with special characters', (done) => {
+            const errorsToTest = ['firstName'];
+            const data = {
+                firstName: 'dave@',
+                lastName: 'bassett'
+            };
+            testWrapper.testErrors(done, data, 'invalid', errorsToTest);
+        });
+
+        it('test error message displayed for invalid lastName with numbers', (done) => {
+            const errorsToTest = ['lastName'];
+            const data = {
+                firstName: 'dave',
+                lastName: 'bassett5'
+            };
+            testWrapper.testErrors(done, data, 'invalid', errorsToTest);
+        });
+
+        it('test error message displayed for invalid lastName with special characters', (done) => {
+            const errorsToTest = ['lastName'];
+            const data = {
+                firstName: 'dave',
+                lastName: '@bassett'
+            };
+            testWrapper.testErrors(done, data, 'invalid', errorsToTest);
+        });
+
+
         // it(`test it redirects to next page: ${expectedNextUrlForApplicantEmail}`, (done) => {
         //     const data = {
         //         firstName: 'bob',
