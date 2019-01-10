@@ -116,34 +116,6 @@ describe('name/index.js', () => {
             done();
         });
 
-
-        //
-        // it('should return the error for DoD before DoB', (done) => {
-        //     session.form = {
-        //         deceased: {
-        //             dob_day: '02',
-        //             dob_month: '03',
-        //             dob_year: '2002'
-        //         }
-        //     };
-        //     ctx = {
-        //         dod_day: '01',
-        //         dod_month: '01',
-        //         dod_year: '2000'
-        //     };
-        //     errors = [];
-        //     [ctx, errors] = DeceasedDod.handlePost(ctx, errors, formdata, session);
-        //     expect(errors).to.deep.equal([
-        //         {
-        //             param: 'dod_date',
-        //             msg: {
-        //                 summary: content.errors.dod_date.dodBeforeDob.summary,
-        //                 message: content.errors.dod_date.dodBeforeDob.message
-        //             }
-        //         }
-        //     ]);
-        //     done();
-        // });
     });
 
 });
