@@ -2,6 +2,7 @@
 asp_name = "probate-aat"
 asp_rg = "probate-aat"
 env = "aat"
+external_host_name = "probate-caveats.aat.platform.hmcts.net"
 deployment_env = "preprod"
 
 vault_section = "preprod"
@@ -10,7 +11,6 @@ packages_environment = "preprod"
 packages_version = "3.0.0"
 
 probate_frontend_hostname = "probate-frontend-aat-staging.service.core-compute-aat.internal"
-external_host_name = "probate.aat.platform.hmcts.net"
 outbound_proxy = ""
 
 probate_google_track_id = "UA-93598808-1"
