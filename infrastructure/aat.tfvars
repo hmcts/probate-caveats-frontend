@@ -5,7 +5,7 @@ env = "aat"
 external_host_name = "probate-caveats.aat.platform.hmcts.net"
 deployment_env = "preprod"
 
-vault_section = "preprod"
+feature_toggles_api_url = "http://rpe-feature-toggle-api-demo.service.core-compute-demo.internal"
 
 packages_environment = "preprod"
 packages_version = "3.0.0"
