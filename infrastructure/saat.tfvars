@@ -1,3 +1,6 @@
+//module vars
+asp_name = "probate-saat"
+asp_rg = "probate-saat"
 env = "saat"
 deployment_env = "test"
 
