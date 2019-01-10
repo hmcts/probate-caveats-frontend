@@ -7,6 +7,8 @@ deployment_env = "preprod"
 
 feature_toggles_api_url = "http://rpe-feature-toggle-api-demo.service.core-compute-demo.internal"
 
+idam_service_api = "http://rpe-service-auth-provider-aat.service.core-compute-aat.internal"
+idam_user_host = "http://betaPreProdccidamAppLB.reform.hmcts.net:4501"
 packages_environment = "preprod"
 packages_version = "3.0.0"
 
@@ -26,11 +28,9 @@ payment_return_url = "https://probate-frontend-aat-staging.service.core-compute-
 
 payment_create_url = "https://preprod.payments.reform.hmcts.net:4401/users/userId/payments"
 
-idam_service_api = "http://betaPreProdccidamAppLB.reform.hmcts.net:4502"
 
 probate_private_beta_auth_url = "https://idam.preprod.ccidam.reform.hmcts.net/login"
 
-idam_user_host = "http://betaPreProdccidamAppLB.reform.hmcts.net:4501"
 
 probate_deployment_env = "test"
 
