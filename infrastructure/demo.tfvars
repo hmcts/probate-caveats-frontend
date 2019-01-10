@@ -15,7 +15,6 @@ idam_user_host = "http://betaPreProdccidamAppLB.reform.hmcts.net:4501"
 packages_environment = "preprod"
 packages_version = "3.0.0"
 
-probate_business_service_url = "http://betaPreProdprobateApp01.reform.hmcts.net:4101/validate"
 probate_submit_service_url = "http://betaPreProdprobateApp01.reform.hmcts.net:4102/submit"
 probate_persistence_service_url = "http://betaPreProdprobateApp01.reform.hmcts.net:4103/formdata"
 
