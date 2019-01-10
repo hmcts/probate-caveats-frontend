@@ -5,7 +5,7 @@ env = "saat"
 external_host_name = "probate-caveats.saat.platform.hmcts.net"
 deployment_env = "test"
 
-vault_section = "test"
+feature_toggles_api_url = "http://rpe-feature-toggle-api-demo.service.core-compute-demo.internal"
 
 packages_environment = "test"
 packages_version = "3.0.0"
