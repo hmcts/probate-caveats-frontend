@@ -46,7 +46,7 @@ describe('name/index.js', () => {
                 lastName: 'Smith'
             };
             errors = [];
-            [ctx, errors] = ApplicantName.validate(ctx,formdata);
+            [ctx, errors] = ApplicantName.validate(ctx, formdata);
             expect(errors).to.deep.equal([
                 {
                     param: 'firstName',
@@ -65,7 +65,7 @@ describe('name/index.js', () => {
                 lastName: 'Smith3'
             };
             errors = [];
-            [ctx, errors] = ApplicantName.validate(ctx,formdata);
+            [ctx, errors] = ApplicantName.validate(ctx, formdata);
             expect(errors).to.deep.equal([
                 {
                     param: 'lastName',
@@ -84,7 +84,7 @@ describe('name/index.js', () => {
                 lastName: 'Smith'
             };
             errors = [];
-            [ctx, errors] = ApplicantName.validate(ctx,formdata);
+            [ctx, errors] = ApplicantName.validate(ctx, formdata);
             expect(errors).to.deep.equal([
                 {
                     param: 'firstName',
@@ -103,7 +103,7 @@ describe('name/index.js', () => {
                 lastName: 'Smith#'
             };
             errors = [];
-            [ctx, errors] = ApplicantName.validate(ctx,formdata);
+            [ctx, errors] = ApplicantName.validate(ctx, formdata);
             expect(errors).to.deep.equal([
                 {
                     param: 'lastName',
