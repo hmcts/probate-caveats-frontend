@@ -9,7 +9,7 @@ deployment_env = "test"
 
 feature_toggles_api_url = "http://rpe-feature-toggle-api-demo.service.core-compute-demo.internal"
 
-idam_service_api = "http://betadevbccidams2slb.reform.hmcts.net"
+idam_service_api = "http://rpe-service-auth-provider-sandbox.service.core-compute-sandbox.internal"
 idam_user_host = "http://betaDevBccidamAppLB.reform.hmcts.net"
 
 packages_environment = "test"
