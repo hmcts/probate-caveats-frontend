@@ -57,19 +57,11 @@ describe('applicant-name', () => {
             };
             testWrapper.testRedirect(done, data, expectedNextUrlForApplicantEmail);
         });
+
         it('test error message displayed for invalid firstName with numbers', (done) => {
             const errorsToTest = ['firstName'];
             const data = {
                 firstName: 'dave22',
-                lastName: 'bassett'
-            };
-            testWrapper.testErrors(done, data, 'invalid', errorsToTest);
-        });
-
-        it('test error message displayed for invalid firstName with special characters', (done) => {
-            const errorsToTest = ['firstName'];
-            const data = {
-                firstName: 'dave@',
                 lastName: 'bassett'
             };
             testWrapper.testErrors(done, data, 'invalid', errorsToTest);

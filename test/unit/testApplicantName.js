@@ -113,6 +113,25 @@ describe('name/index.js', () => {
             done();
         });
 
+        it('should return the error for a last name that contains characters × ÷', (done) => {
+            ctx = {
+                firstName: 'Jason',
+                lastName: 'Smith × ÷'
+            };
+            errors = [];
+            [ctx, errors] = ApplicantName.validate(ctx, formdata);
+            expect(errors).to.deep.equal([
+                {
+                    param: 'lastName',
+                    msg: {
+                        summary: content.errors.lastName.invalid.summary,
+                        message: content.errors.lastName.invalid.message
+                    }
+                }
+            ]);
+            done();
+        });
+
     });
 
 });
