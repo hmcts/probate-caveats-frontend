@@ -1,3 +1,6 @@
+//module vars
+asp_name = "probate-aat"
+asp_rg = "probate-aat"
 env = "aat"
 deployment_env = "preprod"
 
