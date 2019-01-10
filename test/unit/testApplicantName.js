@@ -28,15 +28,12 @@ describe('name/index.js', () => {
 
         it('should return the ctx with the allowable characters for first and last name', (done) => {
             ctx = {
-                firstName: 'Jason\'s with á, é, í, ó, ú, ý, Á, É, Í, Ó, Ú, Ý; ð, Ð',
+                firstName: 'Jason\'s with -- á é í ó ú ý Á É Í Ó Ú Ý ð Ð',
                 lastName: 'Smith-Jones'
             };
             errors = [];
-            [ctx, errors] = ApplicantName.handlePost(ctx, errors, formdata, session);
-            expect(ctx).to.deep.equal({
-                firstName: 'Jason\'s with á, é, í, ó, ú, ý, Á, É, Í, Ó, Ú, Ý; ð, Ð',
-                lastName: 'Smith-Jones'
-            });
+            [ctx, errors] = ApplicantName.validate(ctx, formdata);
+            expect(errors).empty;
             done();
         });
 
