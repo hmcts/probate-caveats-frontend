@@ -29,10 +29,6 @@ probate_google_track_id = "UA-93598808-1"
 
 probate_private_beta_auth_url = "https://idam-test.dev.ccidam.reform.hmcts.net/login"
 
-probate_business_service_url = "http://probate-business-service-saat-staging.service.core-compute-saat.internal/validate"
-probate_persistence_service_url = "http://probate-persistence-service-saat-staging.service.core-compute-saat.internal/formdata"
-probate_submit_service_url = "http://probate-submit-service-saat-staging.service.core-compute-saat.internal/submit"
-
 reform_envirionment_for_test = "saat"
 
 vault_section = "test"
