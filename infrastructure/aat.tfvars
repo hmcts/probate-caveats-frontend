@@ -30,10 +30,6 @@ probate_google_track_id = "UA-93598808-1"
 
 probate_private_beta_auth_url = "https://idam.preprod.ccidam.reform.hmcts.net/login"
 
-probate_business_service_url = "http://betaPreProdprobateApp01.reform.hmcts.net:4101/validate"
-probate_persistence_service_url = "http://betaPreProdprobateApp01.reform.hmcts.net:4103/formdata"
-probate_submit_service_url = "http://betaPreProdprobateApp01.reform.hmcts.net:4102/submit"
-
 reform_envirionment_for_test = "aat"
 
 vault_section = "preprod"
