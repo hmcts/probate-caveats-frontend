@@ -29,10 +29,6 @@ probate_google_track_id = "UA-93598808-1"
 
 probate_private_beta_auth_url = "https://idam-test.dev.ccidam.reform.hmcts.net/login"
 
-probate_submit_service_url = "http://probate-submit-service-sandbox-staging.service.core-compute-sandbox.internal/submit"
-probate_business_service_url = "http://probate-business-service-sandbox-staging.service.core-compute-sandbox.internal/validate"
-probate_persistence_service_url = " http://probate-persistence-service-sandbox-staging.service.core-compute-sandbox.internal/formdata"
-
 reform_envirionment_for_test = "sandbox"
 
 vault_section = "test"
