@@ -19,6 +19,10 @@ module.exports = function () {
         enterDeceasedName: steps.deceased.name,
 
         enterDeceasedDateOfDeath: steps.deceased.dod,
+
+        enterDeceasedDateOfBirthKnown: steps.deceased.dobknown,
+
+        enterDeceasedDateOfBirth: steps.deceased.dob,
         // temp stop page to represent end of journey
         seeEndOfJourney: steps.endJourney.endJourney
     });

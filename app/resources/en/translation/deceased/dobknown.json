@@ -1,0 +1,16 @@
+{
+  "title": "Deceased date of birth",
+  "question": "Do you know {deceasedName}'s date of birth?",
+  "optionYes": "Yes",
+  "optionNo": "No",
+  "legend": "Please enter date of birth",
+
+  "errors": {
+    "left": {
+      "required": {
+        "summary": "Answer the question about the date of birth",
+        "message": "Select yes if you know the date of birth"
+      }
+    }
+  }
+}

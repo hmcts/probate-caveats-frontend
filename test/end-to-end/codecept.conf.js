@@ -9,7 +9,7 @@ exports.config = {
             'waitForTimeout': 60000,
             'waitForAction': 2000,
             'getPageTimeout': 60000,
-            'show': false,
+            'show': true,
             'waitForNavigation': 'networkidle0',
             'chrome': {
                 'ignoreHTTPSErrors': true,

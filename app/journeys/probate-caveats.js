@@ -6,8 +6,12 @@ const stepList = {
     ApplicantEmail: 'ApplicantAddress',
     ApplicantAddress: 'DeceasedName',
     DeceasedName: 'DeceasedDod',
-    DeceasedDod: 'DeceasedDoB',
-    DeceasedDoB: 'EndJourneyPage',
+    DeceasedDod: 'DeceasedDobKnown',
+    DeceasedDobKnown: {
+        dobknown: 'DeceasedDob',
+        otherwise: 'EndJourneyPage'
+    },
+    DeceasedDob: 'EndJourneyPage',
     AddressLookup: 'AddressLookup'
 };
 

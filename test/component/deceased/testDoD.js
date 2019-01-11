@@ -1,14 +1,14 @@
 'use strict';
 
 const TestWrapper = require('test/util/TestWrapper');
-//const DeceasedDob = require('app/steps/ui/deceased/dob/index');
+const DeceasedDobKnown = require('app/steps/ui/deceased/dobknown/index');
 const testHelpBlockContent = require('test/component/common/testHelpBlockContent.js');
 
 const nock = require('nock');
 
 describe('deceased-dod', () => {
     let testWrapper;
-    // const expectedNextUrlForDeceasedDob = DeceasedDob.getUrl();
+    const expectedNextUrlForDeceasedDobKnown = DeceasedDobKnown.getUrl();
 
     beforeEach(() => {
         testWrapper = new TestWrapper('DeceasedDod');
@@ -108,19 +108,15 @@ describe('deceased-dod', () => {
                 });
         });
 
-        // it(`test it redirects to deceased dob: ${expectedNextUrlForDeceasedDob}`, (done) => {
-        //     nock(featureToggleUrl)
-        //         .get(featureTogglePath)
-        //         .reply(200, 'false');
-        //
-        //     const data = {
-        //         dod_day: '01',
-        //         dod_month: '01',
-        //         dod_year: '2000'
-        //     };
-        //
-        //     testWrapper.testRedirect(done, data, expectedNextUrlForDeceasedDob);
-        // });
+        it(`test it redirects to deceased dob known: ${expectedNextUrlForDeceasedDobKnown}`, (done) => {
+            const data = {
+                dod_day: '01',
+                dod_month: '01',
+                dod_year: '2000'
+            };
+
+            testWrapper.testRedirect(done, data, expectedNextUrlForDeceasedDobKnown);
+        });
 
     });
 });
