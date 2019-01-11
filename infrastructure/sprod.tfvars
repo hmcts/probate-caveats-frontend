@@ -35,6 +35,5 @@ vault_section = "test"
 
 probate_frontend_hostname = "probate-frontend-sandbox-sprod.service.core-compute-sprod.internal"
 outbound_proxy = ""
-probate_redis_url = "betaDevBprobatecache01.reform.hmcts.net"
 f5_redis_listen_port = "6379"
 payment_return_url = "https://probate-frontend-sandbox-sprod.service.core-compute-sprod.internal/payment-status"
