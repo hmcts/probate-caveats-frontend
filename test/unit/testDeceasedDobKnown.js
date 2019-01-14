@@ -40,7 +40,7 @@ describe('DeceasedDobKnown', () => {
             };
             const content = DeceasedDobKnown.generateContent(ctx, formdata);
             expect(he.decode(content.question)).to.equal(
-                'Do you know Jason Smith\’s date of birth?'
+                'Do you know Jason Smith’s date of birth?'
             );
             done();
         });
