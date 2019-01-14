@@ -1,0 +1,10 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "deceased-dod-known",
+  "type": "object",
+  "properties": {
+  },
+  "required": [
+    "dobknown"
+  ]
+}
