@@ -6,7 +6,7 @@
   "legend": "Please enter date of birth",
 
   "errors": {
-    "left": {
+    "dobknown": {
       "required": {
         "summary": "Answer the question about the date of birth",
         "message": "Select yes if you know the date of birth"

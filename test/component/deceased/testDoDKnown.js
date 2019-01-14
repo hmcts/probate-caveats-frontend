@@ -24,6 +24,16 @@ describe('deceased-dob-known', () => {
     describe('Verify Content, Errors and Redirection', () => {
         testHelpBlockContent.runTest('DeceasedDobKnown');
 
+        it('test right content loaded on the page', (done) => {
+            const contentData = {deceasedName: ''};
+            testWrapper.testContent(done, [], contentData);
+        });
+
+        it('test errors message displayed for missing data', (done) => {
+            const data = {};
+            testWrapper.testErrors(done, data, 'required', []);
+        });
+
         it(`test it redirects to deceased dob known: ${expectedNextUrlForDeceasedDob}`, (done) => {
             const data = {
                 dobknown: 'Yes'
