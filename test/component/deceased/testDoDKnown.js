@@ -25,8 +25,19 @@ describe('deceased-dob-known', () => {
         testHelpBlockContent.runTest('DeceasedDobKnown');
 
         it('test right content loaded on the page', (done) => {
-            const contentData = {deceasedName: ''};
-            testWrapper.testContent(done, [], contentData);
+            const sessionData = {
+                deceased: {
+                    firstName: 'Jason',
+                    lastName: 'Smith'
+                }
+            };
+
+            testWrapper.agent.post('/prepare-session/form')
+                .send(sessionData)
+                .end(() => {
+                    const contentData = {deceasedName: 'Jason Smith'};
+                    testWrapper.testContent(done, [], contentData);
+                });
         });
 
         it('test errors message displayed for missing data', (done) => {
