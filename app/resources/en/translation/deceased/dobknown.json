@@ -1,6 +1,6 @@
 {
   "title": "Deceased date of birth",
-  "question": "Do you know {deceasedName}'s date of birth?",
+  "question": "Do you know {deceasedName}&apos;s date of birth?",
   "optionYes": "Yes",
   "optionNo": "No",
   "legend": "Please enter date of birth",

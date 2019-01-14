@@ -10,10 +10,6 @@ class DeceasedDobKnown extends ValidationStep {
         return '/deceased-dob-known';
     }
 
-    nextStepUrl(ctx) {
-        return this.next(ctx).constructor.getUrl('noWill');
-    }
-
     nextStepOptions() {
         const nextStepOptions = {
             options: [

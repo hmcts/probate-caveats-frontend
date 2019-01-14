@@ -4,6 +4,7 @@ const initSteps = require('app/core/initSteps');
 const expect = require('chai').expect;
 const steps = initSteps([`${__dirname}/../../app/steps/action/`, `${__dirname}/../../app/steps/ui`]);
 const DeceasedDobKnown = steps.DeceasedDobKnown;
+const he = require('he');
 
 describe('DeceasedDobKnown', () => {
     describe('getUrl()', () => {
@@ -38,7 +39,7 @@ describe('DeceasedDobKnown', () => {
                 }
             };
             const content = DeceasedDobKnown.generateContent(ctx, formdata);
-            expect(content.question).to.equal(
+            expect(he.decode(content.question)).to.equal(
                 'Do you know Jason Smith\'s date of birth?'
             );
             done();
