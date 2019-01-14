@@ -1,24 +1,29 @@
-FROM node:8.12.0-slim
-
-RUN mkdir -p /opt/app
-WORKDIR /opt/app
-
-COPY package.json /opt/app
-
-# Update & Install theses apps.
-RUN apt-get update && apt-get install --assume-yes git
-
-RUN yarn install --production  \
-        && yarn cache clean
-
+# ---- Base image ----
+FROM node:8.12.0-slim as base
 RUN yarn config set proxy "$http_proxy" && yarn config set https-proxy "$https_proxy"
 
-COPY . /opt/app
-RUN yarn setup
+ENV WORKDIR /opt/app
+WORKDIR ${WORKDIR}
 
-RUN rm -rf /opt/app/.git
+COPY package.json ./
 
-HEALTHCHECK --interval=10s --timeout=10s --retries=10 CMD http_proxy="" wget -q --spider http://localhost:3000/health || exit 1
+# Update & Install theses apps.
+RUN yarn install --production  \
+    && yarn cache clean
 
+# ---- Build image ----
+FROM base as build
+RUN apt-get update \
+ && apt-get install --assume-yes git bzip2
+COPY . ./
+RUN yarn install \
+    && yarn setup \
+    && rm -rf /opt/app/.git
+
+# ---- Runtime image ----
+FROM base as runtime
+COPY --from=build ${WORKDIR}/app app/
+COPY --from=build ${WORKDIR}/public public/
+COPY --from=build ${WORKDIR}/server.js ${WORKDIR}/app.js ${WORKDIR}/git.properties.json ./
 EXPOSE 3000
 CMD ["yarn", "start" ]
