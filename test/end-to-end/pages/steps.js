@@ -23,6 +23,10 @@ module.exports = function () {
         enterDeceasedDateOfBirthKnown: steps.deceased.dobknown,
 
         enterDeceasedDateOfBirth: steps.deceased.dob,
+
+        enterDeceasedHasAlias: steps.deceased.alias,
+
+        enterDeceasedOtherNames: steps.deceased.otherNames,
         // temp stop page to represent end of journey
         seeEndOfJourney: steps.endJourney.endJourney
     });

@@ -28,6 +28,8 @@ Scenario('Standard Execution Journey', function* (I) {
     I.enterDeceasedDateOfDeath('01', '01', '2019');
     I.enterDeceasedDateOfBirthKnown('optionYes');
     I.enterDeceasedDateOfBirth('01', '01', '1977');
+    I.enterDeceasedHasAlias('Yes');
+    I.enterDeceasedOtherNames(2);
 
     // temp stop page - to represent end of journey
     I.seeEndOfJourney();
