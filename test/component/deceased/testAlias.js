@@ -54,7 +54,7 @@ describe('deceased-alias', () => {
             testWrapper.testRedirect(done, data, expectedNextUrlForDeceasedOtherNames);
         });
 
-        it(`test it redirects to deceased other names page: ${expectedNextUrlForEndOfJourney}`, (done) => {
+        it(`test it redirects to end of journey page: ${expectedNextUrlForEndOfJourney}`, (done) => {
             const data = {
                 alias: 'No'
             };
