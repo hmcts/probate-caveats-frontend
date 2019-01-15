@@ -4,7 +4,6 @@ const initSteps = require('app/core/initSteps');
 const expect = require('chai').expect;
 const steps = initSteps([`${__dirname}/../../app/steps/action/`, `${__dirname}/../../app/steps/ui`]);
 const DeceasedAlias = steps.DeceasedAlias;
-const content = require('app/resources/en/translation/deceased/dob');
 
 describe('DeceasedAlias', () => {
     describe('getUrl()', () => {
@@ -61,9 +60,9 @@ describe('DeceasedAlias', () => {
                 body: {}
             };
             let errors = {};
-            expect(ctx.otherNames).to.equal('i exist');
+            expect(ctx.otherNames);
             [ctx, errors] = DeceasedAlias.handlePost(ctx, errors);
-            expect(ctx.otherNames).to.equal(undefined);
+            expect(!ctx.otherNames);
             done();
         });
     });
