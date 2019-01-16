@@ -3,6 +3,10 @@
   "id": "deceased-address-known",
   "type": "object",
   "properties": {
+    "addressknown": {
+      "type": "string",
+      "minLength": 1
+    }
   },
   "required": [
     "addressknown"
