@@ -2,12 +2,12 @@
 
 const TestWrapper = require('test/util/TestWrapper');
 const {set} = require('lodash');
-// const DeceasedMarried = require('app/steps/ui/deceased/married/index');
+const DeceasedAddressKnown = require('app/steps/ui/deceased/addressknown/index');
 const testHelpBlockContent = require('test/component/common/testHelpBlockContent.js');
 
 describe('deceased-otherNames', () => {
     let testWrapper, sessionData;
-    // const expectedNextUrlForDeceasedMarried = DeceasedMarried.getUrl();
+    const expectedNextUrlForDeceasedAddressKnown = DeceasedAddressKnown.getUrl();
 
     beforeEach(() => {
         testWrapper = new TestWrapper('DeceasedOtherNames');
@@ -80,16 +80,16 @@ describe('deceased-otherNames', () => {
             testWrapper.testErrors(done, data, 'invalid', ['lastName']);
         });
 
-        // it(`test it redirects to deceased married page: ${expectedNextUrlForDeceasedMarried}`, (done) => {
-        //     const data = {};
-        //     set(data, 'otherNames.name_0.firstName', 'John');
-        //     set(data, 'otherNames.name_0.lastName', 'Doe');
-        //
-        //     testWrapper.agent.post('/prepare-session/form')
-        //         .send(sessionData)
-        //         .end(() => {
-        //             testWrapper.testRedirect(done, data, expectedNextUrlForDeceasedMarried);
-        //         });
-        // });
+        it(`test it redirects to deceased address known page: ${expectedNextUrlForDeceasedAddressKnown}`, (done) => {
+            const data = {};
+            set(data, 'otherNames.name_0.firstName', 'John');
+            set(data, 'otherNames.name_0.lastName', 'Doe');
+
+            testWrapper.agent.post('/prepare-session/form')
+                .send(sessionData)
+                .end(() => {
+                    testWrapper.testRedirect(done, data, expectedNextUrlForDeceasedAddressKnown);
+                });
+        });
     });
 });

@@ -1,0 +1,16 @@
+{
+  "title": "Deceased address known",
+  "question": "Do you know what {deceasedName}&rsquo;s permanent address was?",
+  "optionYes": "Yes",
+  "optionNo": "No",
+  "legend": "Please enter address",
+
+  "errors": {
+    "addressknown": {
+      "required": {
+        "summary": "Answer the question about the address",
+        "message": "Select yes if you know the address"
+      }
+    }
+  }
+}

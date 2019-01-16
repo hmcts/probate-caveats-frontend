@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "deceased-address-known",
+  "type": "object",
+  "properties": {
+    "addressknown": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "addressknown"
+  ]
+}

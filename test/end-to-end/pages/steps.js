@@ -14,7 +14,7 @@ module.exports = function () {
 
         enterApplicantEmail: steps.applicant.email,
 
-        enterAddressManually: steps.applicant.address,
+        enterApplicantAddressManually: steps.applicant.address,
 
         enterDeceasedName: steps.deceased.name,
 
@@ -27,6 +27,10 @@ module.exports = function () {
         enterDeceasedHasAlias: steps.deceased.alias,
 
         enterDeceasedOtherNames: steps.deceased.otherNames,
+
+        enterDeceasedAddressKnown: steps.deceased.addressknown,
+
+        enterDeceasedAddressManually: steps.deceased.address,
         // temp stop page to represent end of journey
         seeEndOfJourney: steps.endJourney.endJourney
     });
