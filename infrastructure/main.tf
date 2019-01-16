@@ -150,9 +150,6 @@ module "probate-caveats-fe" {
     // Service name
     SERVICE_NAME = "${var.frontend_service_name}"
 
-    VALIDATION_SERVICE_URL = "${var.probate_business_service_url}"
-    SUBMIT_SERVICE_URL = "${var.probate_submit_service_url}"
-    PERSISTENCE_SERVICE_URL = "${var.probate_persistence_service_url}"
     USE_HTTPS =  "${var.probate_frontend_https}"
     USE_AUTH = "${var.probate_frontend_use_auth}"
     GA_TRACKING_ID = "${var.probate_google_track_id}"
