@@ -1,7 +1,7 @@
 'use strict';
 
 const TestWrapper = require('test/util/TestWrapper');
-const EndOfJourney = require('app/steps/ui/endjourney/index');
+const DeceasedAlias = require('app/steps/ui/deceased/alias/index');
 const DeceasedDob = require('app/steps/ui/deceased/dob/index');
 const testHelpBlockContent = require('test/component/common/testHelpBlockContent.js');
 
@@ -10,7 +10,7 @@ const nock = require('nock');
 describe('deceased-dob-known', () => {
     let testWrapper;
     const expectedNextUrlForDeceasedDob = DeceasedDob.getUrl();
-    const expectedNextUrlForEndOfJourney = EndOfJourney.getUrl();
+    const expectedNextUrlForDeceasedAlias = DeceasedAlias.getUrl();
 
     beforeEach(() => {
         testWrapper = new TestWrapper('DeceasedDobKnown');
@@ -53,12 +53,12 @@ describe('deceased-dob-known', () => {
             testWrapper.testRedirect(done, data, expectedNextUrlForDeceasedDob);
         });
 
-        it(`test it redirects to deceased dob not known: ${expectedNextUrlForEndOfJourney}`, (done) => {
+        it(`test it redirects to deceased dob not known: ${expectedNextUrlForDeceasedAlias}`, (done) => {
             const data = {
                 dobknown: 'No'
             };
 
-            testWrapper.testRedirect(done, data, expectedNextUrlForEndOfJourney);
+            testWrapper.testRedirect(done, data, expectedNextUrlForDeceasedAlias);
         });
 
     });
