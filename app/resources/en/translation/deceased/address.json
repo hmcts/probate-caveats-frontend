@@ -1,6 +1,6 @@
 {
   "title": "Deceased address",
-  "question": "What was the permanent address at the time of their death?",
+  "question": "What was the permanent address of {deceasedName}?",
   "postcode": "Postcode",
   "findAddress": "Find UK address",
   "addressLabel": "Address",

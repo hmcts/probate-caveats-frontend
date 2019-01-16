@@ -1,12 +1,12 @@
 'use strict';
 
 const TestWrapper = require('test/util/TestWrapper');
-// const Summary = require('app/steps/ui/summary/index');
+const EndOfJourney = require('app/steps/ui/endjourney/index');
 const testHelpBlockContent = require('test/component/common/testHelpBlockContent.js');
 
 describe('deceased-address', () => {
     let testWrapper;
-    // const expectedNextUrlForSummary = Summary.getUrl();
+    const expectedNextUrlForEndOfJourney = EndOfJourney.getUrl();
 
     beforeEach(() => {
         testWrapper = new TestWrapper('DeceasedAddress');
@@ -21,8 +21,19 @@ describe('deceased-address', () => {
 
         it('test right content loaded on the page', (done) => {
             const excludeKeys = ['selectAddress'];
+            const sessionData = {
+                deceased: {
+                    firstName: 'Jason',
+                    lastName: 'Smith'
+                }
+            };
 
-            testWrapper.testContent(done, excludeKeys);
+            testWrapper.agent.post('/prepare-session/form')
+                .send(sessionData)
+                .end(() => {
+                    const contentData = {deceasedName: 'Jason Smith'};
+                    testWrapper.testContent(done, excludeKeys, contentData);
+                });
         });
 
         it('test address schema validation when no address search has been done', (done) => {
@@ -56,12 +67,12 @@ describe('deceased-address', () => {
             testWrapper.testErrors(done, data, 'required', ['freeTextAddress']);
         });
 
-        // it(`test it redirects to summary page: ${expectedNextUrlForSummary}`, (done) => {
-        //     const data = {
-        //         postcode: 'ea1 eaf',
-        //         postcodeAddress: '102 Petty France'
-        //     };
-        //     testWrapper.testRedirect(done, data, expectedNextUrlForSummary);
-        // });
+        it(`test it redirects to end of journey page: ${expectedNextUrlForEndOfJourney}`, (done) => {
+            const data = {
+                postcode: 'ea1 eaf',
+                postcodeAddress: '102 Petty France'
+            };
+            testWrapper.testRedirect(done, data, expectedNextUrlForEndOfJourney);
+        });
     });
 });
