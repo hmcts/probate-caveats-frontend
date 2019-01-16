@@ -123,18 +123,6 @@ variable "frontend_service_name" {
   default = "probate-caveats-frontend"
 }
 
-variable "probate_business_service_url" {
-  type = "string"
-}
-
-variable "probate_submit_service_url" {
-  type = "string"
-}
-
-variable "probate_persistence_service_url" {
-  type = "string"
-}
-
 variable "probate_frontend_use_redis" {
   default = "false"
 }
