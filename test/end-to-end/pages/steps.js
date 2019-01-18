@@ -31,6 +31,9 @@ module.exports = function () {
         enterDeceasedAddressKnown: steps.deceased.addressknown,
 
         enterDeceasedAddressManually: steps.deceased.address,
+
+        seeSummaryPage: steps.summary.summary,
+
         // temp stop page to represent end of journey
         seeEndOfJourney: steps.endJourney.endJourney
     });

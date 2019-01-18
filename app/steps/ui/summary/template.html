@@ -1,19 +1,15 @@
-{% set title = content.Summary.title %}
+{% extends "includes/two_thirds_form.html" %}
 
-{% extends "includes/layout.html" %}
+{% from "widgets/checkanswer.html" import checkanswer %}
 
-{% block content %}
+{% set column_width = "column-full" %}
 
-<main id="content" role="main">
-    {% from "widgets/checkanswer.html" import checkanswer %}
+{% block question %}
+<h1 class="form-title heading-large">{{content.Summary.heading}}</h1>
+<p>{{content.Summary.checkCarefully}}</p>
+{% endblock %}
 
-    {% include "includes/phase_banner_beta.html" %}
-    {% include "includes/error_summary.html" %}
-
-    <h1 class="heading-large">
-        {{content.Summary.heading}}
-    </h1>
-    <p>{{content.Summary.checkCarefully}}</p>
+{% block form_content %}
 
     <h2 class="heading-medium">{{content.Summary.aboutYouHeading | safe}}</h2>
     <dl class="check-your-answers check-your-answers--long">
@@ -26,12 +22,7 @@
     </dl>
 
     <div class="form-group">
-        {% if fields.summary.readyToDeclare.value === "true" %}
-            <p><a href="/declaration" class="button button-start">{{common.continue}}</a></p>
-        {% else %}
-            <p><a href="/summary/redirect" class="button button-start">{{common.continue}}</a></p>
-        {% endif %}
+            <input class="button" type="submit" value="{{common.continue}}">
     </div>
-</main>
-
 {% endblock %}
+{% block save_and_close %}{% endblock %}

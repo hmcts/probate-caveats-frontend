@@ -7,10 +7,8 @@ const {expect} = require('chai');
 const app = require('app');
 const initSteps = require('app/core/initSteps');
 const {endsWith} = require('lodash');
-const sinon = require('sinon');
 const commonContent = require('app/resources/en/translation/common');
-const services = require('app/components/services');
-const stepsToExclude = ['AddAlias', 'RemoveAlias', 'AddressLookup'];
+const stepsToExclude = ['AddAlias', 'RemoveAlias', 'AddressLookup', 'Summary'];
 const steps = initSteps.steps;
 
 Object.keys(steps)

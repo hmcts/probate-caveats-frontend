@@ -18,12 +18,13 @@ const stepList = {
     },
     DeceasedAddressKnown: {
         addressknown: 'DeceasedAddress',
-        otherwise: 'EndJourneyPage'
+        otherwise: 'Summary'
     },
     DeceasedOtherNames: 'DeceasedAddressKnown',
     AddAlias: 'DeceasedOtherNames',
     RemoveAlias: 'DeceasedOtherNames',
-    DeceasedAddress: 'EndJourneyPage',
+    DeceasedAddress: 'Summary',
+    Summary: 'EndJourneyPage',
     AddressLookup: 'AddressLookup'
 
 };

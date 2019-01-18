@@ -6,7 +6,8 @@
     {% include "includes/phase_banner_beta.html" %}
 
     <div class="grid-row">
-        <div class="column-two-thirds">
+
+        <div class="{{column_width | default('column-two-thirds')}}">
 
             {% block error_summary %}
                 {% include "includes/error_summary.html" %}
