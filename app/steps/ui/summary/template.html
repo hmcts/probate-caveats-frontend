@@ -1,0 +1,28 @@
+{% extends "includes/two_thirds_form.html" %}
+
+{% from "widgets/checkanswer.html" import checkanswer %}
+
+{% set column_width = "column-full" %}
+
+{% block question %}
+<h1 class="form-title heading-large">{{content.Summary.heading}}</h1>
+<p>{{content.Summary.checkCarefully}}</p>
+{% endblock %}
+
+{% block form_content %}
+
+    <h2 class="heading-medium">{{content.Summary.aboutYouHeading | safe}}</h2>
+    <dl class="check-your-answers check-your-answers--long">
+        {% include "ui/summary/includes/about-you.njk" %}
+    </dl>
+
+    <h2 class="heading-medium">{{content.Summary.deceasedHeading}}</h2>
+    <dl class="check-your-answers check-your-answers--long">
+        {% include "ui/summary/includes/deceased.njk" %}
+    </dl>
+
+    <div class="form-group">
+            <input class="button" type="submit" value="{{common.continue}}">
+    </div>
+{% endblock %}
+{% block save_and_close %}{% endblock %}

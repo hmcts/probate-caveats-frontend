@@ -1,0 +1,103 @@
+{{checkanswer(
+    items = [{
+            question: content.DeceasedName.firstName,
+            answer: fields.deceased.firstName.value,
+            visible: true
+    },
+    {
+           question: content.DeceasedName.lastName,
+           answer: fields.deceased.lastName.value,
+           visible: true
+    }],
+    url = content.DeceasedName.url,
+    common = common,
+    alreadyDeclared = false
+
+)}}
+
+{{checkanswer(
+    items = [{
+        question: content.DeceasedDod.question,
+        answer: fields.deceased.dod_formattedDate.value,
+        visible: true
+    }],
+    url = content.DeceasedDod.url,
+    common = common,
+    alreadyDeclared = false
+)}}
+
+{{checkanswer(
+    items = [{
+        question: content.DeceasedDobKnown.question,
+        answer: fields.deceased.dobknown.value,
+        visible: true
+    }],
+    url = content.DeceasedDobKnown.url,
+    common = common,
+    alreadyDeclared = false
+)}}
+
+{% if fields.deceased.dobknown.value === 'Yes' %}
+{{checkanswer(
+    items = [{
+        question: content.DeceasedDob.question,
+        answer: fields.deceased.dob_formattedDate.value,
+        visible: true
+    }],
+    url = content.DeceasedDob.url,
+    common = common,
+    alreadyDeclared = false
+)}}
+{% endif %}
+
+{{checkanswer(
+    items = [{
+        question: content.DeceasedAlias.question,
+        answer: fields.deceased.alias.value,
+        visible: true
+    }],
+    url = content.DeceasedAlias.url,
+    common = common,
+    alreadyDeclared = false
+)}}
+
+{% if fields.deceased.otherNames.value.length > 0 %}
+    <div class="check-your-answers__row">
+        <dt class="check-your-answers__question">{{content.Summary.otherNamesLabel | safe}}</dt>
+        <dd class="check-your-answers__answer">
+        {% for index, otherName in fields.deceased.otherNames.value %}
+            <div class="check-your-answers__row">
+                {{otherName.firstName.value | safe}} {{otherName.lastName.value | safe}}
+            </div>
+        {% endfor %}
+        </dd>
+        <dd class="check-your-answers__change">{% if fields.summary.alreadyDeclared.value == 'false' %}
+            <a href="{{content.DeceasedOtherNames.url}}">{{common.change}}</a>
+            {%endif%}
+        </dd>
+    </div>
+{% endif %}
+
+{{checkanswer(
+    items = [{
+        question: content.DeceasedAddressKnown.question,
+        answer: fields.deceased.addressknown.value,
+        visible: true
+    }],
+    url = content.DeceasedAddressKnown.url,
+    common = common,
+    alreadyDeclared = false
+)}}
+
+{% if fields.deceased.addressknown.value === 'Yes' %}
+{{checkanswer(
+    items = [{
+        question: content.DeceasedAddress.question,
+        answer: fields.deceased.address.value,
+        visible: true
+    }],
+    url = content.DeceasedAddress.url,
+    common = common,
+    alreadyDeclared = false
+)}}
+{% endif %}

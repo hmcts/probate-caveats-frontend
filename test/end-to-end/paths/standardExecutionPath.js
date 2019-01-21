@@ -24,6 +24,8 @@ Scenario('Standard Execution Journey', function* (I) {
     I.enterApplicantName('Applicant First Name', 'Applicant Last Name');
     I.enterApplicantEmail('Applicant@email.com');
     I.enterApplicantAddressManually();
+
+    // Deceased details
     I.enterDeceasedName('Deceased First Name', 'Deceased Last Name');
     I.enterDeceasedDateOfDeath('01', '01', '2019');
     I.enterDeceasedDateOfBirthKnown('optionYes');
@@ -33,6 +35,9 @@ Scenario('Standard Execution Journey', function* (I) {
     I.enterDeceasedAddressKnown('optionYes');
     I.enterDeceasedAddressManually();
 
+    // Summary page
+    I.seeSummaryPage();
+
     // temp stop page - to represent end of journey
-    I.seeEndOfJourney();
+    //I.seeEndOfJourney();
 }).retry(TestConfigurator.getRetryScenarios());

@@ -2,7 +2,7 @@
 
 const TestWrapper = require('test/util/TestWrapper');
 const DeceasedAddress = require('app/steps/ui/deceased/address/index');
-const EndOfJourney = require('app/steps/ui/endjourney/index');
+const Summary = require('app/steps/ui/summary/index');
 const testHelpBlockContent = require('test/component/common/testHelpBlockContent.js');
 
 const nock = require('nock');
@@ -10,7 +10,7 @@ const nock = require('nock');
 describe('deceased-address-known', () => {
     let testWrapper;
     const expectedNextUrlForDeceasedAddress = DeceasedAddress.getUrl();
-    const expectedNextUrlForEndOfJourney = EndOfJourney.getUrl();
+    const expectedNextUrlForSummary = Summary.getUrl();
 
     beforeEach(() => {
         testWrapper = new TestWrapper('DeceasedAddressKnown');
@@ -53,12 +53,12 @@ describe('deceased-address-known', () => {
             testWrapper.testRedirect(done, data, expectedNextUrlForDeceasedAddress);
         });
 
-        it(`test it redirects to end of journey page: ${expectedNextUrlForEndOfJourney}`, (done) => {
+        it(`test it redirects to summary page: ${expectedNextUrlForSummary}`, (done) => {
             const data = {
                 addressknown: 'No'
             };
 
-            testWrapper.testRedirect(done, data, expectedNextUrlForEndOfJourney);
+            testWrapper.testRedirect(done, data, expectedNextUrlForSummary);
         });
 
     });

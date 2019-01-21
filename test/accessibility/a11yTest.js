@@ -7,12 +7,9 @@ const {expect} = require('chai');
 const app = require('app');
 const initSteps = require('app/core/initSteps');
 const {endsWith} = require('lodash');
-const sinon = require('sinon');
 const commonContent = require('app/resources/en/translation/common');
-const services = require('app/components/services');
-const stepsToExclude = ['AddAlias', 'RemoveAlias', 'AddressLookup'];
+const stepsToExclude = ['AddAlias', 'RemoveAlias', 'AddressLookup', 'Summary'];
 const steps = initSteps.steps;
-let featureToggleStub;
 
 Object.keys(steps)
     .filter(stepName => stepsToExclude.includes(stepName))
@@ -34,9 +31,6 @@ for (const step in steps) {
 
             before((done) => {
 
-                featureToggleStub = sinon.stub(services, 'featureToggle')
-                    .returns(Promise.resolve('true'));
-
                 server = app.init();
                 agent = request.agent(server.app);
                 co(function* () {
@@ -53,7 +47,6 @@ for (const step in steps) {
             });
 
             after(function (done) {
-                featureToggleStub.restore();
                 server.http.close();
                 done();
             });

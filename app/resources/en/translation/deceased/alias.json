@@ -1,10 +1,10 @@
 {
   "title": "Did the person who died have assets in another name",
-  "question": "Did {deceasedName} have assets in another name?",
+  "question": "Was {deceasedName} known by any other names?",
   "optionYes": "Yes",
   "optionNo": "No",
   "legend": "Did the person who died have assets in another name?",
-  "paragraph1": "This could be shares or property that they held in their maiden name or nickname. They might also have used a different spelling or missed out some parts of their name.",
+  "paragraph1": "This may help us match your application with the application for a grant of probate",
   "theDeceased": "the deceased",
   "errors": {
     "alias": {
