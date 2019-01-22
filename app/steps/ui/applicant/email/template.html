@@ -4,6 +4,7 @@
 
 {% block question %}
     <h1 class="form-title heading-large">{{content.question}}</h1>
+    <p>{{content.explanation1 | safe}}</p>
 {% endblock %}
 {% block form_content %}
     <fieldset>

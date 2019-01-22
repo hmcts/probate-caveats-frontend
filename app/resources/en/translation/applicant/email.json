@@ -1,8 +1,8 @@
 {
   "title": "Applicant email",
   "question": "What is your email address?",
-  "Email": "Email",
-
+  "email": "Email",
+  "explanation1": "You&rsquo;ll receive confirmation of your application by email.",
   "errors": {
     "email": {
       "required": {
@@ -10,7 +10,7 @@
         "message": "Enter your email address"
       },
       "invalid": {
-        "summary": "The email you entered is invalid",
+        "summary": "You&rsquo;ve entered an invalid email address. Check the email address and enter it again.",
         "message": "The email you entered is invalid"
       }
     }
