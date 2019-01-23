@@ -10,7 +10,7 @@
     "firstName": {
       "required": {
         "summary": "You haven&rsquo;t entered the first name of the person who has died",
-        "message": "Please enter the first name of the person who died."
+        "message": "Please enter the first name of the person who died"
       },
       "invalid": {
         "summary": "The first name can only contain letters a to z, spaces, hyphens and apostrophes",
