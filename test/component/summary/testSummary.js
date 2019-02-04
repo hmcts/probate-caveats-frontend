@@ -30,11 +30,19 @@ describe('summary', () => {
             testWrapper.testContent(done, contentToExclude);
         });
 
-        it(`test it redirects to deceased alias page: ${expectedNextUrlForEndOfJourney}`, (done) => {
-            const data = minimalCaveatForm;
-
-            testWrapper.testRedirect(done, data, expectedNextUrlForThankYou);
-        });
+        // TODO implement nexturl test when integration to orchestration service complete
+        // it(`test it redirects to end of journey page: ${expectedNextUrlForEndOfJourney}`, (done) => {
+        //     const sessionData = minimalCaveatForm;
+        //     const data = {};
+        //     testWrapper.agent.post('/prepare-session/form')
+        //         .send(sessionData)
+        //         .end((err) => {
+        //             if (err) {
+        //                 throw err;
+        //             }
+        //             testWrapper.testRedirect(done, data, expectedNextUrlForEndOfJourney);
+        //         });
+        // });
 
     });
 });
