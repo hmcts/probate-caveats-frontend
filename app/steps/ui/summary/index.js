@@ -59,7 +59,7 @@ class Summary extends Step {
     * sendToOrchestrationService(ctx, errors, formdata, total) {
         set(formdata, 'payment.total', total);
         const result = yield services.sendToOrchestrationService(formdata, ctx);
-        logger.info('sendToSubmitService result = ' + JSON.stringify(result));
+        logger.info('sendToOrchestrationService result = ' + JSON.stringify(result));
 
         if (result.name === 'Error' || result === 'DUPLICATE_SUBMISSION') {
             const keyword = result === 'DUPLICATE_SUBMISSION' ? 'duplicate' : 'failure';
