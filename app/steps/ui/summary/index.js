@@ -49,6 +49,28 @@ class Summary extends Step {
         res.send(html);
     }
 
+    * handlePost(ctx, errors, formdata, session) {
+        const serviceAuthResult = yield services.authorise();
+        set(ctx, 'serviceAuthorization', serviceAuthResult);
+        const result = yield this.sendToOrchestrationService(ctx, errors, formdata, 0);
+        logger.info('sendToSubmitService result = ' + JSON.stringify(result));
+    }
+
+    * sendToOrchestrationService(ctx, errors, formdata, total) {
+        set(formdata, 'payment.total', total);
+        const result = yield services.sendToOrchestrationService(formdata, ctx);
+        logger.info('sendToSubmitService result = ' + JSON.stringify(result));
+
+        if (result.name === 'Error' || result === 'DUPLICATE_SUBMISSION') {
+            const keyword = result === 'DUPLICATE_SUBMISSION' ? 'duplicate' : 'failure';
+            errors.push(FieldError('submit', keyword, this.resourcePath, ctx));
+        }
+
+        logger.info({tags: 'Analytics'}, 'Application Case Created');
+
+        return result;
+    }
+
 }
 
 module.exports = Summary;

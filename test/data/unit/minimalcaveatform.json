@@ -1,0 +1,29 @@
+{
+    "applicant": {
+        "address": {
+            "addressLine1": "dddd"
+        },
+        "email": "blah@gmail.com",
+        "firstName": "Jason",
+        "lastName": "Smith"
+    },
+    "deceased": {
+        "dod_date": "2018-11-20",
+        "firstName": "Mike",
+        "lastName": "Samuels"
+    },
+    "expirydate": "2019-06-01",
+    "payments": [{
+        "amount": 220.5,
+        "date": "2018-12-03T15:58:44.954+0000",
+        "method": "online",
+        "reference": "RC-1543-8527-2465-2900",
+        "siteId": "P223",
+        "status": "Success",
+        "transactionId": "v5bf26kn5rq9rvdq7gsvn7v11d"
+    }],
+    "registry": {
+        "name": "Birmingham"
+    },
+    "type": "Caveat"
+}

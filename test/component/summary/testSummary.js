@@ -4,6 +4,7 @@ const TestWrapper = require('test/util/TestWrapper');
 const ThankYou = require('app/steps/ui/thankyou/index');
 const nock = require('nock');
 const testHelpBlockContent = require('test/component/common/testHelpBlockContent.js');
+const minimalCaveatForm = require('test/data/unit/minimalcaveatform');
 
 describe('summary', () => {
     let testWrapper;
@@ -29,12 +30,8 @@ describe('summary', () => {
             testWrapper.testContent(done, contentToExclude);
         });
 
-        it(`test it redirects to deceased alias page: ${expectedNextUrlForThankYou}`, (done) => {
-            const data = {
-                dob_day: '01',
-                dob_month: '01',
-                dob_year: '1999'
-            };
+        it(`test it redirects to deceased alias page: ${expectedNextUrlForEndOfJourney}`, (done) => {
+            const data = minimalCaveatForm;
 
             testWrapper.testRedirect(done, data, expectedNextUrlForThankYou);
         });
