@@ -39,19 +39,17 @@ const featureToggle = (featureToggleKey) => {
     return utils.fetchText(url, fetchOptions);
 };
 
-const sendToSubmitService = (data, ctx, softStop) => {
-    logInfo('sendToSubmitService');
+const sendToOrchestrationService = (data, ctx) => {
+    logInfo('submitToOrchestrationService');
     const headers = {
         'Content-Type': 'application/json',
         'Session-Id': ctx.sessionID,
-        'Authorization': ctx.authToken,
-        'UserId': ctx.userId
+        'Authorization': config.app.authorization,
+        'ServiceAuthorization': ctx.serviceAuthorization
     };
     const body = submitData(ctx, data);
-    body.softStop = softStop;
-    body.applicantEmail = data.applicantEmail;
-    const fetchOptions = utils.fetchOptions({submitdata: body}, 'POST', headers);
-    return utils.fetchJson(`${ORCHESTRATION_SERVICE_URL}/submit`, fetchOptions);
+    const fetchOptions = utils.fetchOptions(body, 'POST', headers);
+    return utils.fetchJson(`${ORCHESTRATION_SERVICE_URL}/forms/${data.applicant.email}/submissions`, fetchOptions);
 };
 
 const updateCcdCasePaymentStatus = (data, ctx) => {
@@ -108,7 +106,7 @@ const authorise = () => {
 
 module.exports = {
     findAddress,
-    sendToSubmitService,
+    sendToOrchestrationService,
     updateCcdCasePaymentStatus,
     createPayment,
     findPayment,
