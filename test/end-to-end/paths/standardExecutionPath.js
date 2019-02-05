@@ -28,11 +28,10 @@ Scenario('Standard Execution Journey', function* (I) {
     // Deceased details
     I.enterDeceasedName('Deceased First Name', 'Deceased Last Name');
     I.enterDeceasedDateOfDeath('01', '01', '2019');
-    I.enterDeceasedDateOfBirthKnown('optionYes');
+    I.enterDeceasedDateOfBirthKnown('Yes');
     I.enterDeceasedDateOfBirth('01', '01', '1977');
     I.enterDeceasedHasAlias('Yes');
     I.enterDeceasedOtherNames(2);
-    I.enterDeceasedAddressKnown('optionYes');
     I.enterDeceasedAddressManually();
 
     // Summary page

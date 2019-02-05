@@ -2,13 +2,13 @@
 
 const TestWrapper = require('test/util/TestWrapper');
 const DeceasedOtherNames = require('app/steps/ui/deceased/otherNames/index');
-const DeceasedAddressKnown = require('app/steps/ui/deceased/addressknown/index');
+const DeceasedAddress = require('app/steps/ui/deceased/address/index');
 const testHelpBlockContent = require('test/component/common/testHelpBlockContent.js');
 
 describe('deceased-alias', () => {
     let testWrapper;
     const expectedNextUrlForDeceasedOtherNames = DeceasedOtherNames.getUrl();
-    const expectedNextUrlForDeceasedAddressKnown = DeceasedAddressKnown.getUrl();
+    const expectedNextUrlForDeceasedAddress = DeceasedAddress.getUrl();
 
     beforeEach(() => {
         testWrapper = new TestWrapper('DeceasedAlias');
@@ -54,11 +54,11 @@ describe('deceased-alias', () => {
             testWrapper.testRedirect(done, data, expectedNextUrlForDeceasedOtherNames);
         });
 
-        it(`test it redirects to deceased address known page: ${expectedNextUrlForDeceasedAddressKnown}`, (done) => {
+        it(`test it redirects to deceased address page: ${expectedNextUrlForDeceasedAddress}`, (done) => {
             const data = {
                 alias: 'No'
             };
-            testWrapper.testRedirect(done, data, expectedNextUrlForDeceasedAddressKnown);
+            testWrapper.testRedirect(done, data, expectedNextUrlForDeceasedAddress);
         });
 
     });

@@ -2,12 +2,12 @@
 
 const TestWrapper = require('test/util/TestWrapper');
 const {set} = require('lodash');
-const DeceasedAddressKnown = require('app/steps/ui/deceased/addressknown/index');
+const DeceasedAddress = require('app/steps/ui/deceased/address/index');
 const testHelpBlockContent = require('test/component/common/testHelpBlockContent.js');
 
 describe('deceased-otherNames', () => {
     let testWrapper, sessionData;
-    const expectedNextUrlForDeceasedAddressKnown = DeceasedAddressKnown.getUrl();
+    const expectedNextUrlForDeceasedAddress = DeceasedAddress.getUrl();
 
     beforeEach(() => {
         testWrapper = new TestWrapper('DeceasedOtherNames');
@@ -80,7 +80,7 @@ describe('deceased-otherNames', () => {
             testWrapper.testErrors(done, data, 'invalid', ['lastName']);
         });
 
-        it(`test it redirects to deceased address known page: ${expectedNextUrlForDeceasedAddressKnown}`, (done) => {
+        it(`test it redirects to deceased address page: ${expectedNextUrlForDeceasedAddress}`, (done) => {
             const data = {};
             set(data, 'otherNames.name_0.firstName', 'John');
             set(data, 'otherNames.name_0.lastName', 'Doe');
@@ -88,7 +88,7 @@ describe('deceased-otherNames', () => {
             testWrapper.agent.post('/prepare-session/form')
                 .send(sessionData)
                 .end(() => {
-                    testWrapper.testRedirect(done, data, expectedNextUrlForDeceasedAddressKnown);
+                    testWrapper.testRedirect(done, data, expectedNextUrlForDeceasedAddress);
                 });
         });
     });

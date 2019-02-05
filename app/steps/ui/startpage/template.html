@@ -1,16 +1,14 @@
 {% extends "includes/layout.html" %}
 
 {% block content %}
-<main id="content" role="main">
-    {% include "includes/phase_banner_beta.html" %}
-    <div class="column-two-thirds">
-    <h1 class="form-title heading-large">{{content.header}}</h1>
-
-    <p>{{content.paragraph1 | safe}}</p>
-
-    <div class="form-group">
-        <p><a href="/applicant-name" class="button button-start">{{common.start}}</a></p>
-    </div>
-    </div>
-</main>
+    <main id="content" role="main">
+        {% include "includes/phase_banner_beta.html" %}
+        <div class="column-two-thirds">
+            <h1 class="form-title heading-large">{{ content.header }}</h1>
+            <p>{{ content.paragraph1 | safe }}</p>
+            <div class="form-group">
+                <p><a href="/applicant-name" class="button button-start">{{ common.start }}</a></p>
+            </div>
+        </div>
+    </main>
 {% endblock %}

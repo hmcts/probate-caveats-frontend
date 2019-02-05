@@ -4,38 +4,37 @@
 {% from "widgets/addresslookup.html" import addressFinder %}
 
 {% block question %}
-    <h1 class="form-title heading-large">{{content.question}}</h1>
-    <p>{{content.explanation1 | safe}}</p>
+    <h1 class="form-title heading-large">{{ content.question }}</h1>
 {% endblock %}
 
 {% block form_content %}
+    <p class="form-hint">{{ content.explanation1 | safe }}</p>
     <fieldset>
         <legend class="visually-hidden">
             {{ content.findAddress | safe }}
         </legend>
         <!-- Applicant address lookup -->
-        {{addressFinder(
+        {{ addressFinder(
             fields,
             content,
-            'ApplicantAddress')
-        }}
+            'ApplicantAddress'
+        ) }}
         <div class="form-group">
-            <details {{"open" if fields.freeTextAddress }}>
-                <summary><span class="summary">{{content.enterManually}}</span>
-                </summary>
+            <details {{ "open" if fields.freeTextAddress }}>
+                <summary><span class="summary">{{ content.enterManually }}</span></summary>
                 <div class="panel panel-border-narrow">
-                    {{textarea(
+                    {{ textarea(
                         name = 'freeTextAddress',
                         field = fields.freeTextAddress,
                         text = content.enterManually,
-                        size = 8)
-                    }}
+                        size = 8
+                    ) }}
                 </div>
             </details>
         </div>
     </fieldset>
     <div class="form-group">
-        <input type="submit" class="button" value="{{common.continue}}">
+        <input type="submit" class="button" value="{{ common.continue }}">
     </div>
 {% block save_and_close %}{% endblock %}
 {% endblock %}
