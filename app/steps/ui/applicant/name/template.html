@@ -1,0 +1,31 @@
+{% extends "includes/two_thirds_form.html" %}
+
+{% from "widgets/textfields.html" import textField %}
+
+{% block question %}
+    <h1 class="form-title heading-large">{{content.question}}</h1>
+{% endblock %}
+{% block form_content %}
+    <fieldset>
+        <legend class="visually-hidden">
+            {{ content.question | safe }}
+        </legend>
+        {{textField(
+            name = 'firstName',
+            field = fields.firstName,
+            text = content.firstName,
+            hint = content.firstNameHint,
+            size = 30
+        )}}
+        {{textField(
+            name = 'lastName',
+            field = fields.lastName,
+            text = content.lastName,
+            size = 50
+        )}}
+    </fieldset>
+    <div class="form-group">
+        <input class="button" type="submit" value="{{common.continue}}">
+    </div>
+{% endblock %}
+{% block save_and_close %}{% endblock %}

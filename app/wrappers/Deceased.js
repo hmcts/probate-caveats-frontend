@@ -11,9 +11,6 @@ class Deceased {
         return this.deceased.alias === commonContent.yes;
     }
 
-    isMarried() {
-        return this.deceased.married === commonContent.yes;
-    }
 }
 
 module.exports = Deceased;

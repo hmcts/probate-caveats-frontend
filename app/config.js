@@ -27,11 +27,6 @@ module.exports = {
             url: process.env.SUBMIT_SERVICE_URL || 'http://localhost:8181',
             port: 8181
         },
-        persistence: {
-            url: process.env.PERSISTENCE_SERVICE_URL || 'http://localhost:8282/formdata',
-            port: 8282,
-            path: '/formdata'
-        },
         idam: {
             loginUrl: process.env.IDAM_LOGIN_URL || 'https://localhost:8000/login',
             apiUrl: process.env.IDAM_API_URL || 'http://localhost:8484',
@@ -90,6 +85,12 @@ module.exports = {
     helpline: {
         number: '0300 303 0648',
         hours: 'Monday to Friday, 9am to 5pm'
+    },
+    utils: {
+        api: {
+            retries: process.env.RETRIES_NUMBER || 10,
+            retryDelay: process.env.RETRY_DELAY || 1000
+        }
     },
     payment: {
         applicationFee: 215,

@@ -8,7 +8,9 @@ provider "vault" {
   address = "https://vault.reform.hmcts.net:6200"
 }
 
-
+provider "azurerm" {
+  version = "1.19.0"
+}
 
 # data "vault_generic_secret" "idam_frontend_service_key" {
 #   path = "secret/${var.vault_section}/ccidam/service-auth-provider/api/microservice-keys/probate-frontend"
@@ -44,6 +46,7 @@ data "azurerm_key_vault" "probate_key_vault" {
   name = "${local.vaultName}"
   resource_group_name = "${local.vaultName}"
 }
+
 
 # data "azurerm_key_vault_secret" "idam_secret_probate" {
 #   name = "ccidam-idam-api-secrets-probate"
@@ -128,12 +131,12 @@ module "probate-caveats-fe" {
     //UV_THREADPOOL_SIZE = "64"
     //NODE_CONFIG_DIR = "${var.node_config_dir}"
 
-	  // Logging vars
+    // Logging vars
     REFORM_TEAM = "${var.product}"
     REFORM_SERVICE_NAME = "${var.product}-${var.microservice}"
     REFORM_ENVIRONMENT = "${var.env}"
 
-	  // Packages
+    // Packages
     PACKAGES_NAME="${var.packages_name}"
     PACKAGES_PROJECT="${var.packages_project}"
     PACKAGES_ENVIRONMENT="${var.packages_environment}"
@@ -141,15 +144,12 @@ module "probate-caveats-fe" {
 
     DEPLOYMENT_ENV="${var.deployment_env}"
 
-	  // Frontend web details
+    // Frontend web details
     PUBLIC_PROTOCOL ="${var.probate_frontend_protocol}"
 
     // Service name
     SERVICE_NAME = "${var.frontend_service_name}"
 
-    VALIDATION_SERVICE_URL = "${var.probate_business_service_url}"
-    SUBMIT_SERVICE_URL = "${var.probate_submit_service_url}"
-    PERSISTENCE_SERVICE_URL = "${var.probate_persistence_service_url}"
     USE_HTTPS =  "${var.probate_frontend_https}"
     USE_AUTH = "${var.probate_frontend_use_auth}"
     GA_TRACKING_ID = "${var.probate_google_track_id}"
@@ -180,23 +180,22 @@ module "probate-caveats-fe" {
     //POSTCODE_SERVICE_TOKEN = "${data.vault_generic_secret.probate_postcode_service_token.data["value"]}"
     POSTCODE_SERVICE_TOKEN = "${data.azurerm_key_vault_secret.probate_postcode_service_token.value}"
 
-    # SURVEY = "${data.vault_generic_secret.probate_survey.data["value"]}"
+
     SURVEY = "${data.azurerm_key_vault_secret.probate_survey.value}"
-    # SURVEY_END_OF_APPLICATION = "${data.vault_generic_secret.probate_survey_end.data["value"]}"
     SURVEY_END_OF_APPLICATION = "${data.azurerm_key_vault_secret.probate_survey_end.value}"
-    # APPLICATION_FEE_CODE = "${data.vault_generic_secret.probate_application_fee_code.data["value"]}"
     APPLICATION_FEE_CODE = "${data.azurerm_key_vault_secret.probate_application_fee_code.value}"
-    # UK_COPIES_FEE_CODE = "${data.vault_generic_secret.probate_uk_application_fee_code.data["value"]}"
-     UK_COPIES_FEE_CODE = "${data.azurerm_key_vault_secret.probate_uk_application_fee_code.value}"
-    # OVERSEAS_COPIES_FEE_CODE = "${data.vault_generic_secret.probate_overseas_application_fee_code.data["value"]}"
+    UK_COPIES_FEE_CODE = "${data.azurerm_key_vault_secret.probate_uk_application_fee_code.value}"
     OVERSEAS_COPIES_FEE_CODE = "${data.azurerm_key_vault_secret.probate_overseas_application_fee_code.value}"
-    # SERVICE_ID = "${data.vault_generic_secret.probate_service_id.data["value"]}"
     SERVICE_ID = "${data.azurerm_key_vault_secret.probate_service_id.value}"
-    # SITE_ID = "${data.vault_generic_secret.probate_site_id.data["value"]}"
     SITE_ID = "${data.azurerm_key_vault_secret.probate_site_id.value}"
 
     REFORM_ENVIRONMENT = "${var.reform_envirionment_for_test}"
 
     FEATURE_TOGGLES_API_URL = "${var.feature_toggles_api_url}"
+
+    TESTING = "TESTING"
+    // Cache
+    WEBSITE_LOCAL_CACHE_OPTION = "${var.website_local_cache_option}"
+    WEBSITE_LOCAL_CACHE_SIZEINMB = "${var.website_local_cache_sizeinmb}"
   }
 }

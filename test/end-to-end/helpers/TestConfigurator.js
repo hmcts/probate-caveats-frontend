@@ -16,6 +16,7 @@ class TestConfigurator {
         this.paymentEnvironments = testConfig.paymentEnvironments;
         this.TestFrontendUrl = testConfig.TestFrontendUrl;
         this.useGovPay = testConfig.TestUseGovPay;
+        this.retryScenarios = testConfig.TestRetryScenarios;
     }
 
     getBefore() {
@@ -98,6 +99,10 @@ class TestConfigurator {
 
     getUseGovPay() {
         return this.useGovPay;
+    }
+
+    getRetryScenarios() {
+        return this.retryScenarios;
     }
 
 }

@@ -1,7 +1,9 @@
 #!groovy
 
 @Library("Infrastructure")
+//@Library("Infrastructure@fd7aef62b5503c45b4998a072175d94d62aab70e")
 import uk.gov.hmcts.contino.Kubectl
+import uk.gov.hmcts.contino.Consul
 
 String product = "probate"
 String component = "caveats-fe"
@@ -72,7 +74,9 @@ withPipeline("nodejs", product, component) {
 
     def ingressIP = kubectl.getServiceLoadbalancerIP("traefik", "kube-system")
 
-    registerConsulDns(subscription, "feature-toggle-api-${aksServiceName}", ingressIP)
+    def consul = new Consul(this)
+
+    consul.registerDns("feature-toggle-api-${aksServiceName}", ingressIP)
 
 
     env.FEATURE_TOGGLES_API_URL="https://feature-toggle-api-${aksServiceName}.${aksDomain}"

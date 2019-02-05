@@ -1,0 +1,30 @@
+{
+  "title": "Applicant name",
+  "question": "What is your full name?",
+  "firstName": "First name(s)",
+  "firstNameHint": "Including middle names",
+  "lastName": "Last name(s)",
+
+  "errors": {
+    "firstName": {
+      "required": {
+        "summary": "You haven&rsquo;t entered your first name",
+        "message": "Enter your first name, including middle names"
+      },
+      "invalid": {
+        "summary": "Your first name can only contain letters a to z, spaces, hyphens and apostrophes",
+        "message": "Your first name can only contain letters a to z, spaces, hyphens and apostrophes"
+      }
+    },
+    "lastName": {
+      "required": {
+        "summary": "You haven&rsquo;t entered your last name",
+        "message": "Enter your last name"
+      },
+      "invalid": {
+        "summary": "Your last name can only contain letters a to z, spaces, hyphens and apostrophes",
+        "message": "Your last name can only contain letters a to z, spaces, hyphens and apostrophes"
+      }
+    }
+  }
+}
