@@ -1,16 +1,56 @@
 {% extends "includes/layout.html" %}
 
+{% from "widgets/lists.html" import unorderedList %}
+
 {% block content %}
-<main id="content" role="main">
-    {% include "includes/phase_banner_beta.html" %}
-    <div class="column-two-thirds">
-    <h1 class="form-title heading-large">{{content.header}}</h1>
+    <main id="content" role="main">
+        {% include "includes/phase_banner_beta.html" %}
 
-    <p>{{content.paragraph1 | safe}}</p>
+        <div class="column-two-thirds">
+            <h1 class="form-title heading-large">{{ content.header1 }}</h1>
 
-    <div class="form-group">
-        <p><a href="/applicant-name" class="button button-start">{{common.start}}</a></p>
-    </div>
-    </div>
-</main>
+            <p>{{ content.paragraph1 | safe }}</p>
+            <p>{{ content.paragraph2 | safe }}</p>
+            {{ unorderedList([
+                content.bullet1,
+                content.bullet2,
+                content.bullet3,
+                content.bullet4,
+                content.bullet5,
+                content.bullet6,
+                content.bullet7 | replace('{whoInheritsLink}', links.whoInheritsLink),
+                content.bullet8,
+                content.bullet9
+            ]) }}
+
+            <p>{{ content.paragraph3 | safe }}</p>
+            <p>{{ content.paragraph4 | safe }}</p>
+            <p>{{ content.paragraph5 | safe }}</p>
+
+            <div class="notice">
+                <i class="icon icon-important">
+                    <span class="visually-hidden">Warning</span>
+                </i>
+                <strong class="bold-small">
+                    {{ content.paragraph6 | safe }}
+                </strong>
+            </div>
+
+            <h2 class="form-title heading-medium">{{ content.header2 }}</h2>
+            {{ unorderedList([
+                content.bullet10,
+                content.bullet11,
+                content.bullet12
+            ]) }}
+
+            <h2 class="form-title heading-medium">{{ content.header3 }}</h2>
+            <p>{{ content.paragraph7 | replace('{feesCost}', applicationFee) | safe }}</p>
+            <p>{{ content.paragraph8 | safe }}</p>
+            <p>{{ content.paragraph9 | safe }}</p>
+
+            <div class="form-group">
+                <p><a href="/applicant-name" class="button button-start">{{ common.start }}</a></p>
+            </div>
+        </div>
+    </main>
 {% endblock %}

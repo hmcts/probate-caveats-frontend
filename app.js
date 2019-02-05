@@ -46,6 +46,7 @@ exports.init = function() {
         'enableTracking': config.enableTracking,
         'links': config.links,
         'helpline': config.helpline,
+        'applicationFee': config.payment.applicationFee,
         'nonce': uuid
     };
 
