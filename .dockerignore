@@ -17,3 +17,5 @@
 !test
 !git.properties.json
 !.git
+!acb.yaml
+!Dockerfile
