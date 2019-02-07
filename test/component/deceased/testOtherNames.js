@@ -5,7 +5,7 @@ const {set} = require('lodash');
 const DeceasedAddress = require('app/steps/ui/deceased/address/index');
 const testHelpBlockContent = require('test/component/common/testHelpBlockContent.js');
 
-describe('deceased-otherNames', () => {
+describe('deceased-othernames', () => {
     let testWrapper, sessionData;
     const expectedNextUrlForDeceasedAddress = DeceasedAddress.getUrl();
 
