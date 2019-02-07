@@ -3,31 +3,31 @@
 {% from "widgets/textfields.html" import textField %}
 
 {% block question %}
-    <h1 class="form-title heading-large">{{content.question | safe }}</h1>
-    <p>{{content.explanation1}}</p>
+    <h1 class="form-title heading-large">{{ content.question | safe }}</h1>
 {% endblock %}
 
 {% block form_content %}
+    <p class="form-hint">{{ content.explanation1 }}</p>
     <fieldset>
         <legend class="visually-hidden">
             {{ content.question | safe }}
         </legend>
-        {{textField(
+        {{ textField(
             name = 'firstName',
             field = fields.firstName,
             text = content.firstName,
             hint = content.firstNameHint,
             size = 30
-        )}}
-        {{textField(
+        ) }}
+        {{ textField(
             name = 'lastName',
             field = fields.lastName,
             text = content.lastName,
             size = 50
-        )}}
+        ) }}
     </fieldset>
     <div class="form-group">
-        <input class="button" type="submit" value="{{common.continue}}">
+        <input class="button" type="submit" value="{{ common.continue }}">
     </div>
 {% endblock %}
 {% block save_and_close %}{% endblock %}

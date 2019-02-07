@@ -3,13 +3,11 @@
 const commonContent = require('app/resources/en/translation/common');
 const pageUnderTest = require('app/steps/ui/deceased/dobknown/index');
 
-module.exports = function (optionValue) {
+module.exports = function (answer = 'Yes') {
     const I = this;
-    I.seeCurrentUrlEquals(pageUnderTest.getUrl());
 
-    optionValue = optionValue || 'optionYes';
     I.seeCurrentUrlEquals(pageUnderTest.getUrl());
-    I.click(`#dobknown-${optionValue}`);
+    I.click(`#dobknown-option${answer}`);
 
     I.click(commonContent.continue);
 };

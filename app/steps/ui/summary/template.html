@@ -5,24 +5,24 @@
 {% set column_width = "column-full" %}
 
 {% block question %}
-<h1 class="form-title heading-large">{{content.Summary.heading}}</h1>
-<p>{{content.Summary.checkCarefully}}</p>
+    <h1 class="form-title heading-large">{{ content.Summary.heading }}</h1>
 {% endblock %}
 
 {% block form_content %}
+    <p>{{ content.Summary.checkCarefully }}</p>
 
-    <h2 class="heading-medium">{{content.Summary.aboutYouHeading | safe}}</h2>
+    <h2 class="heading-medium">{{ content.Summary.aboutYouHeading | safe }}</h2>
     <dl class="check-your-answers check-your-answers--long">
         {% include "ui/summary/includes/about-you.njk" %}
     </dl>
 
-    <h2 class="heading-medium">{{content.Summary.deceasedHeading}}</h2>
+    <h2 class="heading-medium">{{ content.Summary.deceasedHeading }}</h2>
     <dl class="check-your-answers check-your-answers--long">
         {% include "ui/summary/includes/deceased.njk" %}
     </dl>
 
     <div class="form-group">
-            <input class="button" type="submit" value="{{common.continue}}">
+        <input class="button" type="submit" value="{{ common.continue }}">
     </div>
 {% endblock %}
 {% block save_and_close %}{% endblock %}
