@@ -1,6 +1,7 @@
 'use strict';
 
 const Step = require('app/core/steps/Step');
+const FormatCcdCaseId = require('app/utils/FormatCcdCaseId');
 
 class ThankYou extends Step {
 
@@ -10,15 +11,7 @@ class ThankYou extends Step {
 
     getContextData(req) {
         const ctx = super.getContextData(req);
-        ctx.ccdReferenceNumber = '';
-        if (req.session.form.ccdCase && req.session.form.ccdCase.id) {
-            ctx.ccdReferenceNumber = req.session.form.ccdCase.id.toString();
-
-            if (!ctx.ccdReferenceNumber.includes('-')) {
-                ctx.ccdReferenceNumber = ctx.ccdReferenceNumber.match(/.{1,4}/g);
-                ctx.ccdReferenceNumber = ctx.ccdReferenceNumber.join('-');
-            }
-        }
+        ctx.ccdReferenceNumber = FormatCcdCaseId.format(req.session.form.ccdCase);
         return ctx;
     }
 
