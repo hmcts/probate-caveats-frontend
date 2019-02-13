@@ -3,11 +3,11 @@
 {% from "widgets/dates.html" import date %}
 
 {% block question %}
-    <h1 class="form-title heading-large">{{content.question}}</h1>
+    <h1 class="form-title heading-large">{{ content.question }}</h1>
 {% endblock %}
 
 {% block form_content %}
-    {{date(
+    {{ date(
         name = 'dod',
         day = fields.dod_day,
         month = fields.dod_month,
@@ -16,9 +16,9 @@
         maxyear = currentYear,
         legend = content.legend,
         hint = content.questionHint
-    )}}
+    ) }}
     <div class="form-group">
-        <input class="button" type="submit" value="{{common.continue}}">
+        <input class="button" type="submit" value="{{ common.continue }}">
     </div>
 {% endblock %}
 {% block save_and_close %}{% endblock %}
