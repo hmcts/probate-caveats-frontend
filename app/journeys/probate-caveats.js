@@ -21,7 +21,6 @@ const stepList = {
     DeceasedOtherNames: 'DeceasedAddress',
     DeceasedAddress: 'Summary',
     Summary: 'ThankYou',
-    ThankYou: 'EndJourneyPage',
 
     AddressLookup: 'AddressLookup'
 };

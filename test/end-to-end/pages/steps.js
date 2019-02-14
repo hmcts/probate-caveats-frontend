@@ -22,6 +22,6 @@ module.exports = function () {
         seeSummaryPage: steps.summary.summary,
 
         // Temp stop page to represent end of journey
-        seeEndOfJourney: steps.endjourney.endjourney
+        seeThankYouPage: steps.thankyou.thankyou
     });
 };

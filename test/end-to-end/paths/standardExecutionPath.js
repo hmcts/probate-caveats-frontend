@@ -37,6 +37,7 @@ Scenario('Standard Execution Journey', function* (I) {
     // Summary page
     I.seeSummaryPage();
 
-    // temp stop page - to represent end of journey
-    //I.seeEndOfJourney();
+    // Thank you page
+    I.seeThankYouPage();
+
 }).retry(TestConfigurator.getRetryScenarios());
