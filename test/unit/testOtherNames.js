@@ -1,7 +1,7 @@
 'use strict';
 
 const expect = require('chai').expect;
-const DeceasedOtherNames = require('app/steps/ui/deceased/otherNames/index');
+const DeceasedOtherNames = require('app/steps/ui/deceased/othernames/index');
 
 describe('DeceasedOtherNames', () => {
     describe('getUrl()', () => {

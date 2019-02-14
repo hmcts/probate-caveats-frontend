@@ -14,15 +14,11 @@ const stepList = {
     DeceasedDob: 'DeceasedAlias',
     DeceasedAlias: {
         assetsInOtherNames: 'DeceasedOtherNames',
-        otherwise: 'DeceasedAddressKnown'
+        otherwise: 'DeceasedAddress'
     },
-    DeceasedAddressKnown: {
-        addressknown: 'DeceasedAddress',
-        otherwise: 'Summary'
-    },
-    DeceasedOtherNames: 'DeceasedAddressKnown',
     AddAlias: 'DeceasedOtherNames',
     RemoveAlias: 'DeceasedOtherNames',
+    DeceasedOtherNames: 'DeceasedAddress',
     DeceasedAddress: 'Summary',
     Summary: 'ThankYou',
     ThankYou: 'EndJourneyPage',

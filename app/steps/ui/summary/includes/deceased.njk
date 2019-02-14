@@ -1,13 +1,13 @@
 {{checkanswer(
     items = [{
-            question: content.DeceasedName.firstName,
-            answer: fields.deceased.firstName.value,
-            visible: true
+        question: content.DeceasedName.firstName,
+        answer: fields.deceased.firstName.value,
+        visible: true
     },
     {
-           question: content.DeceasedName.lastName,
-           answer: fields.deceased.lastName.value,
-           visible: true
+       question: content.DeceasedName.lastName,
+       answer: fields.deceased.lastName.value,
+       visible: true
     }],
     url = content.DeceasedName.url,
     common = common,
@@ -80,18 +80,6 @@
 
 {{checkanswer(
     items = [{
-        question: content.DeceasedAddressKnown.question,
-        answer: fields.deceased.addressknown.value,
-        visible: true
-    }],
-    url = content.DeceasedAddressKnown.url,
-    common = common,
-    alreadyDeclared = false
-)}}
-
-{% if fields.deceased.addressknown.value === 'Yes' %}
-{{checkanswer(
-    items = [{
         question: content.DeceasedAddress.question,
         answer: fields.deceased.address.value,
         visible: true
@@ -100,4 +88,3 @@
     common = common,
     alreadyDeclared = false
 )}}
-{% endif %}

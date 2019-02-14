@@ -1,6 +1,6 @@
 'use strict';
 
-const DeceasedOtherNames = require('app/steps/ui/deceased/otherNames/index');
+const DeceasedOtherNames = require('app/steps/ui/deceased/othernames/index');
 const {set, isEmpty} = require('lodash');
 const ActionStepRunner = require('app/core/runners/ActionStepRunner');
 
