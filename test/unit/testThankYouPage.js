@@ -35,7 +35,8 @@ describe('ThankYou', () => {
                 session: {
                     form: {
                         ccdCase: {
-                            id: '1234-5678-9012-3456'
+                            id: '1234-5678-9012-3456',
+                            state: 'CaseCreated'
                         }
                     }
                 }
@@ -51,7 +52,8 @@ describe('ThankYou', () => {
                 session: {
                     form: {
                         ccdCase: {
-                            id: '1234567890123456'
+                            id: '1234567890123456',
+                            state: 'CaseCreated'
                         }
                     }
                 }
@@ -67,7 +69,8 @@ describe('ThankYou', () => {
                 session: {
                     form: {
                         ccdCase: {
-                            id: 1234567890123456
+                            id: 1234567890123456,
+                            state: 'CaseCreated'
                         }
                     }
                 }
