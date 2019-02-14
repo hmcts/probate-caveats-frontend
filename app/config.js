@@ -77,6 +77,8 @@ module.exports = {
         googlePrivacyPolicy: 'https://www.google.com/policies/privacy/partners/',
         googleAnalyticsOptOut: 'https://tools.google.com/dlpage/gaoptout/',
         mojPersonalInformationCharter: 'https://www.gov.uk/government/organisations/ministry-of-justice/about/personal-information-charter',
+        survey: process.env.SURVEY || 'https://www.smartsurvey.co.uk/',
+        surveyEndOfApplication: process.env.SURVEY_END_OF_APPLICATION || 'https://www.smartsurvey.co.uk/',
         applicationFormPA1A: '/public/pdf/probate-application-form-pa1a.pdf',
         applicationFormPA1P: '/public/pdf/probate-application-form-pa1p.pdf',
         whoInheritsLink: 'https://www.gov.uk/inherits-someone-dies-without-will'
