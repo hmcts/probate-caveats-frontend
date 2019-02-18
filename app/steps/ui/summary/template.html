@@ -9,8 +9,7 @@
 {% endblock %}
 
 {% block form_content %}
-    <div class="form-group">
-        <p>{{ content.Summary.checkCarefully }}</p>
+    <p class="form-group" id="main-heading-content">{{ content.Summary.checkCarefully }}</p>
 
         <h2 class="heading-medium">{{ content.Summary.aboutYouHeading | safe }}</h2>
         <dl class="check-your-answers check-your-answers--long">
