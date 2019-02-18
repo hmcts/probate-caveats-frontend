@@ -116,6 +116,10 @@ class Step {
     setHardStop(ctx, reason) {
         ctx.stopReason = reason;
     }
+
+    renderPage(res, html) {
+        res.send(html);
+    }
 }
 
 module.exports = Step;

@@ -3,6 +3,8 @@
 const Step = require('app/core/steps/Step');
 const isEmpty = require('lodash').isEmpty;
 const FormatName = require('app/utils/FormatName');
+const CheckAnswersSummaryJSONObjectBuilder = require('app/utils/CheckAnswersSummaryJSONObjectBuilder');
+const checkAnswersSummaryJSONObjBuilder = new CheckAnswersSummaryJSONObjectBuilder();
 
 class Summary extends Step {
 
@@ -39,6 +41,12 @@ class Summary extends Step {
             });
         fields[this.section] = super.generateFields(ctx, errors, formdata);
         return fields;
+    }
+
+    renderPage(res, html) {
+        const formdata = res.req.session.form;
+        formdata.checkAnswersSummary = checkAnswersSummaryJSONObjBuilder.build(html);
+        res.send(html);
     }
 
 }

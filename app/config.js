@@ -27,6 +27,13 @@ module.exports = {
             url: process.env.SUBMIT_SERVICE_URL || 'http://localhost:8181',
             port: 8181
         },
+        orchestration: {
+            url: process.env.ORCHESTRATION_SERVICE_URL || 'http://localhost:8888',
+            port: 8888,
+            paths: {
+                checkanswerspdf: 'documents/generate/checkAnswersSummary'
+            }
+        },
         idam: {
             loginUrl: process.env.IDAM_LOGIN_URL || 'https://localhost:8000/login',
             apiUrl: process.env.IDAM_API_URL || 'http://localhost:8484',
@@ -44,9 +51,6 @@ module.exports = {
             serviceAuthorization: process.env.PAYMENT_SERVICE_AUTHORIZATION || 'dummy_token',
             userId: process.env.PAYMENT_USER_ID || 999999999,
             returnUrlPath: '/payment-status'
-        },
-        orchestration: {
-            url: process.env.ORCHESTRATION_SERVICE_URL || 'http://localhost:8080'
         }
     },
     redis: {

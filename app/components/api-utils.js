@@ -35,10 +35,13 @@ const asyncFetch = (url, fetchOptions, parseBody) => {
                 logger.error(res.statusText);
                 return parseBody(res)
                     .then(body => {
-                        logger.error(body);
+                        if (body instanceof Buffer) {
+                            logger.error(body.toLocaleString());
+                        } else {
+                            logger.error(body);
+                        }
                         reject(new Error(res.statusText));
                     });
-
             })
             .then(body => {
                 resolve(body);
