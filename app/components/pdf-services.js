@@ -22,6 +22,8 @@ const createCheckAnswersPdf = (formdata, sessionId) => {
 function createPDFDocument(formdata, serviceToken, body) {
     const headers = {
         'Content-Type': 'application/json',
+        'Session-Id': formdata.applicantEmail,
+        'Authorization': config.app.authorization,
         'ServiceAuthorization': serviceToken
     };
     const fetchOptions = utils.fetchOptions(body, 'POST', headers);

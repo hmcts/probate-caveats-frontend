@@ -8,6 +8,7 @@ module.exports = {
         path: process.env.FEATURE_TOGGLES_PATH || '/api/ff4j/check'
     },
     app: {
+        authorization:
         useHttps: process.env.USE_HTTPS || 'false',
         port: process.env.PORT || '3000',
         useCSRFProtection: 'true'
