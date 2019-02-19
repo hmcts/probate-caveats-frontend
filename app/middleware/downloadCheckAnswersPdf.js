@@ -1,12 +1,9 @@
 'use strict';
 
-const router = require('express').Router();
 const commonContent = require('app/resources/en/translation/common');
 const pdfservices = require('app/components/pdf-services');
 
-router.get('/check-answers-pdf', getCheckAnswersPdf);
-
-function getCheckAnswersPdf(req, res) {
+function downloadCheckAnswersPdf(req, res) {
     const formdata = req.session.form;
     pdfservices.createCheckAnswersPdf(formdata, req.session.id)
         .then(result => {
@@ -29,7 +26,4 @@ function throwPDFException(req, res, err) {
     res.render('errors/500', {common: commonContent});
 }
 
-module.exports = {
-    router,
-    getCheckAnswersPdf
-};
+module.exports = downloadCheckAnswersPdf;

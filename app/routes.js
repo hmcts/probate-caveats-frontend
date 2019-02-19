@@ -4,7 +4,7 @@ const config = require('app/config');
 const router = require('express').Router();
 const initSteps = require('app/core/initSteps');
 const logger = require('app/components/logger');
-const documentDownload = require('app/documentDownload');
+const documentDownloads = require('app/documentDownloads');
 
 router.all('*', (req, res, next) => {
     req.log = logger(req.sessionID);
@@ -34,7 +34,7 @@ router.use((req, res, next) => {
     next();
 });
 
-router.use(documentDownload);
+router.use(documentDownloads);
 
 const steps = initSteps([`${__dirname}/steps/action/`, `${__dirname}/steps/ui/`]);
 
