@@ -4,7 +4,9 @@ const router = require('express').Router();
 const commonContent = require('app/resources/en/translation/common');
 const pdfservices = require('app/components/pdf-services');
 
-router.get('/check-answers-pdf', (req, res) => {
+router.get('/check-answers-pdf', getCheckAnswersPdf);
+
+function getCheckAnswersPdf(req, res) {
     const formdata = req.session.form;
     pdfservices.createCheckAnswersPdf(formdata, req.session.id)
         .then(result => {
@@ -13,7 +15,7 @@ router.get('/check-answers-pdf', (req, res) => {
         .catch(err => {
             throwPDFException(req, res, err);
         });
-});
+}
 
 function setPDFHeadingValuesAndSend(res, result, filename) {
     res.setHeader('Content-Type', 'application/pdf');
@@ -23,7 +25,11 @@ function setPDFHeadingValuesAndSend(res, result, filename) {
 
 function throwPDFException(req, res, err) {
     req.log.error(err);
-    res.status(500).render('errors/500', {common: commonContent});
+    res.status(500);
+    res.render('errors/500', {common: commonContent});
 }
 
-module.exports = router;
+module.exports = {
+    router,
+    getCheckAnswersPdf
+};
