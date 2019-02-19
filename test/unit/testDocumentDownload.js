@@ -1,11 +1,9 @@
 'use strict';
 
-const express = require('express');
 const {expect} = require('chai');
 const sinon = require('sinon');
 const downloadCheckAnswersPdf = require('app/middleware/downloadCheckAnswersPdf');
 const pdfServices = require('app/components/pdf-services');
-const request = require('supertest');
 
 describe('getCheckAnswersPdf', () => {
     describe('createCheckAnswersPdf()', () => {
@@ -33,7 +31,7 @@ describe('getCheckAnswersPdf', () => {
 
         afterEach(() => {
             pdfServicesStub.restore();
-        })
+        });
 
         it('should return a successful download result', (done) => {
             pdfServicesStub.returns(Promise.resolve('pdf buffer'));
@@ -41,7 +39,7 @@ describe('getCheckAnswersPdf', () => {
             setTimeout(() => {
                 expect(res.setHeader.calledTwice).to.equal(true);
                 expect(res.setHeader.calledWith('Content-Type', 'application/pdf')).to.equal(true);
-                expect(res.setHeader.calledWith('Content-disposition', `attachment; filename=checkYourAnswers.pdf`)).to.equal(true);
+                expect(res.setHeader.calledWith('Content-disposition', 'attachment; filename=checkYourAnswers.pdf')).to.equal(true);
                 expect(res.send.calledOnce).to.equal(true);
                 expect(res.send.calledWith('pdf buffer')).to.equal(true);
                 done();
@@ -49,7 +47,7 @@ describe('getCheckAnswersPdf', () => {
         });
 
         it('should return an error', (done) => {
-            pdfServicesStub.returns(Promise.reject('error occured'));
+            pdfServicesStub.returns(Promise.reject(new Error('error occured')));
             downloadCheckAnswersPdf(req, res);
             setTimeout(() => {
                 expect(req.log.error.calledOnce).to.equal(true);
