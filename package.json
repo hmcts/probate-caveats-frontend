@@ -39,11 +39,7 @@
     "sonar-scan": "node_modules/sonar-scanner/bin/sonar-scanner -Dsonar.projectName='Probate :: caveats-fe' -Dsonar.sources=app -Dsonar.cpd.exclusions=app/steps/** -Dsonar.language=js -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info",
     "git-info": "node-git-info-json",
     "//": "The below scripts are just stubs, don't use them in production",
-    "s2s-stub": "NODE_PATH=. node test/service-stubs/idam.js",
-    "submit-stub": "NODE_PATH=. node test/service-stubs/submit.js",
-    "persistence-stub": "NODE_PATH=. node test/service-stubs/persistence.js",
-    "business-stub": "NODE_PATH=. node test/service-stubs/business.js",
-    "payment-stub": "NODE_PATH=. node test/service-stubs/payment.js",
+    "orchestration-stub": "NODE_PATH=. node test/service-stubs/orchestration.js",
     "find-address-stub": "NODE_PATH=. node test/service-stubs/find-address.js"
   },
   "dependencies": {
