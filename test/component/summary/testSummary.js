@@ -1,13 +1,13 @@
 'use strict';
 
 const TestWrapper = require('test/util/TestWrapper');
-const EndOfJourney = require('app/steps/ui/endjourney/index');
+const ThankYou = require('app/steps/ui/thankyou/index');
 const nock = require('nock');
 const testHelpBlockContent = require('test/component/common/testHelpBlockContent.js');
 
 describe('summary', () => {
     let testWrapper;
-    const expectedNextUrlForEndOfJourney = EndOfJourney.getUrl();
+    const expectedNextUrlForThankYou = ThankYou.getUrl();
 
     beforeEach(() => {
         testWrapper = new TestWrapper('Summary');
@@ -29,14 +29,14 @@ describe('summary', () => {
             testWrapper.testContent(done, contentToExclude);
         });
 
-        it(`test it redirects to deceased alias page: ${expectedNextUrlForEndOfJourney}`, (done) => {
+        it(`test it redirects to deceased alias page: ${expectedNextUrlForThankYou}`, (done) => {
             const data = {
                 dob_day: '01',
                 dob_month: '01',
                 dob_year: '1999'
             };
 
-            testWrapper.testRedirect(done, data, expectedNextUrlForEndOfJourney);
+            testWrapper.testRedirect(done, data, expectedNextUrlForThankYou);
         });
 
     });

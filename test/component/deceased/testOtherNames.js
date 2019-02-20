@@ -22,7 +22,6 @@ describe('deceased-othernames', () => {
         testHelpBlockContent.runTest('DeceasedOtherNames');
 
         it('test right content loaded on the page', (done) => {
-
             set(sessionData, 'deceased.firstName', 'John');
             set(sessionData, 'deceased.lastName', 'Doe');
 
@@ -31,7 +30,6 @@ describe('deceased-othernames', () => {
             testWrapper.agent.post('/prepare-session/form')
                 .send(sessionData)
                 .end(() => {
-
                     const contentData = {deceasedName: 'John Doe'};
 
                     testWrapper.testContent(done, excludeKeys, contentData);
@@ -49,7 +47,6 @@ describe('deceased-othernames', () => {
             testWrapper.agent.post('/prepare-session/form')
                 .send(sessionData)
                 .end(() => {
-
                     const contentData = {
                         deceasedName: 'John Doe'
                     };

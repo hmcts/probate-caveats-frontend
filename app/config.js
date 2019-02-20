@@ -81,7 +81,8 @@ module.exports = {
         surveyEndOfApplication: process.env.SURVEY_END_OF_APPLICATION || 'https://www.smartsurvey.co.uk/',
         applicationFormPA1A: '/public/pdf/probate-application-form-pa1a.pdf',
         applicationFormPA1P: '/public/pdf/probate-application-form-pa1p.pdf',
-        whoInheritsLink: 'https://www.gov.uk/inherits-someone-dies-without-will'
+        whoInheritsLink: 'https://www.gov.uk/inherits-someone-dies-without-will',
+        citizenAdvice: 'https://www.citizensadvice.org.uk/'
     },
     helpline: {
         number: '0300 303 0648',

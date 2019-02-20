@@ -20,9 +20,9 @@ const stepList = {
     RemoveAlias: 'DeceasedOtherNames',
     DeceasedOtherNames: 'DeceasedAddress',
     DeceasedAddress: 'Summary',
-    Summary: 'EndJourneyPage',
-    AddressLookup: 'AddressLookup'
+    Summary: 'ThankYou',
 
+    AddressLookup: 'AddressLookup'
 };
 
 module.exports.stepList = stepList;
