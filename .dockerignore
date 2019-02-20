@@ -19,3 +19,4 @@
 !.git
 !acb.yaml
 !Dockerfile
+!acb.tpl.yaml
