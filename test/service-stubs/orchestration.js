@@ -11,10 +11,14 @@ const ORCHESTRATION_PORT = config.services.orchestration.port;
 const CHECK_ANSWERS_PDF_URL = config.services.orchestration.paths.checkanswerspdf;
 
 router.post('/' + CHECK_ANSWERS_PDF_URL, (req, res) => {
-    fs.readFile('test/data/checkAnswersSummary.pdf' , function (err, data) {
-        res.contentType("application/pdf");
-        res.status(200);
-        res.send(data);
+    fs.readFile('test/data/checkAnswersSummary.pdf', function (err, data) {
+        if (err) {
+            console.log(err);
+        } else {
+            res.contentType('application/pdf');
+            res.status(200);
+            res.send(data);
+        }
     });
 });
 
