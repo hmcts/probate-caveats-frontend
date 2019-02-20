@@ -51,7 +51,6 @@ describe('getCheckAnswersPdf', () => {
             downloadCheckAnswersPdf(req, res);
             setTimeout(() => {
                 expect(req.log.error.calledOnce).to.equal(true);
-                expect(req.log.error.calledWith('error occured')).to.equal(true);
                 expect(res.status.calledOnce).to.equal(true);
                 expect(res.status.calledWith(500)).to.equal(true);
                 expect(res.render.calledOnce).to.equal(true);

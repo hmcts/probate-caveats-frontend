@@ -33,8 +33,8 @@ describe('pdf-services', () => {
                 .then((res) => {
                     expect(res).to.equal('pdf buffer');
                     sinon.assert.callCount(fetchBufferStub, 1);
-                    done();
                 });
+            done();
         });
 
         it('no fetchBuffer call if Authorise returns an error', (done) => {
@@ -42,10 +42,10 @@ describe('pdf-services', () => {
             fetchBufferStub.returns('pdf buffer');
             pdfServices.createCheckAnswersPdf(formdata, 'seesionId')
                 .catch((err) => {
-                    expect(err).to.equal('not authorised');
+                    expect(err.toLocaleString()).to.equal('not authorised');
                     sinon.assert.callCount(fetchBufferStub, 0);
-                    done();
                 });
+            done();
         });
     });
 });

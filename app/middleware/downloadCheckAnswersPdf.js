@@ -21,7 +21,7 @@ function setPDFHeadingValuesAndSend(res, result, filename) {
 }
 
 function throwPDFException(req, res, err) {
-    req.log.error(err);
+    req.log.error(err.toLocaleString());
     res.status(500);
     res.render('errors/500', {common: commonContent});
 }
