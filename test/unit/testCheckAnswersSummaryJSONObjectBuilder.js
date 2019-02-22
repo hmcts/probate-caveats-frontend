@@ -76,12 +76,12 @@ describe('CheckAnswersSummaryJSONObjectBuilder', function () {
             assert.exists(checkAnswersSummary);
             assertPropertyExistsAndIsEqualTo(checkAnswersSummary.mainParagraph,
                 'Check the information below carefully. This will form a record of your application for probate. It will also be stored as a public record, and will be able to be viewed online.');
-            assertPropertyExistsAndIsEqualTo(checkAnswersSummary.pageTitle, `\n        Check your answers\n    `);
+            assertPropertyExistsAndIsEqualTo(checkAnswersSummary.pageTitle, '\n        Check your answers\n    ');
             assert.isArray(checkAnswersSummary.sections, 'Sections exists');
             assert.lengthOf(checkAnswersSummary.sections, 5, 'Section array has length of 5');
 
             const willSection = checkAnswersSummary.sections[0];
-            assertPropertyExistsAndIsEqualTo(willSection.title, `\n        The will\n    `);
+            assertPropertyExistsAndIsEqualTo(willSection.title, '\n        The will\n    ');
             assertPropertyExistsAndIsEqualTo(willSection.type, 'heading-medium');
             assert.isArray(willSection.questionAndAnswers);
             assert.lengthOf(willSection.questionAndAnswers, 2, 'Will Section array has 2 questionsAndAnswers');

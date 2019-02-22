@@ -112,5 +112,6 @@ module.exports = {
     updateCcdCasePaymentStatus,
     createPayment,
     findPayment,
-    authorise
+    authorise,
+    featureToggle
 };
