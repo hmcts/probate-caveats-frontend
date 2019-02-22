@@ -7,6 +7,7 @@ const ORCHESTRATION_SERVICE_URL = config.services.orchestration.url;
 const CHECK_ANSWERS_PDF_URL = config.services.orchestration.paths.checkanswerspdf;
 const logger = require('app/components/logger');
 const logInfo = (message, sessionId = 'Init') => logger(sessionId).info(message);
+const security = require('app/components/security');
 
 const createCheckAnswersPdf = (formdata, sessionId) => {
     logInfo('Create check your answers PDF', sessionId);
@@ -20,14 +21,17 @@ const createCheckAnswersPdf = (formdata, sessionId) => {
 };
 
 function createPDFDocument(formdata, serviceToken, body) {
-    const headers = {
-        'Content-Type': 'application/businessdocument+json',
-        'Session-Id': formdata.applicantEmail,
-        'Authorization': config.app.authorization,
-        'ServiceAuthorization': serviceToken
-    };
-    const fetchOptions = utils.fetchOptions(body, 'POST', headers);
-    return utils.fetchBuffer(`${ORCHESTRATION_SERVICE_URL}/${CHECK_ANSWERS_PDF_URL}`, fetchOptions);
+    return security.getUserToken()
+        .then((usertoken) => {
+            const headers = {
+                'Content-Type': 'application/businessdocument+json',
+                'Session-Id': formdata.applicantEmail,
+                'Authorization': usertoken,
+                'ServiceAuthorization': serviceToken
+            };
+            const fetchOptions = utils.fetchOptions(body, 'POST', headers);
+            return utils.fetchBuffer(`${ORCHESTRATION_SERVICE_URL}/${CHECK_ANSWERS_PDF_URL}`, fetchOptions);
+        });
 }
 
 module.exports = {

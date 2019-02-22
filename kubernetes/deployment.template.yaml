@@ -76,6 +76,10 @@ spec:
           value: ${PRO_SERVICE_ID}
         - name: SITE_ID
           value: ${PRO_SITE_ID}
+        - name: CAVEAT_USER_EMAIL
+          value: ${CAVEAT_USER_EMAIL}
+        - name: CAVEAT_USER_PASSWORD
+          value: ${CAVEAT_USER_PASSWORD}
         envFrom:
         - configMapRef:
             name: ${SERVICE_NAME}-config
