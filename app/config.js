@@ -20,23 +20,26 @@ module.exports = {
             port: 8585,
             path: '/find-address'
         },
-        validation: {
-            url: process.env.VALIDATION_SERVICE_URL || 'http://localhost:8080/validate'
-        },
-        submit: {
-            url: process.env.SUBMIT_SERVICE_URL || 'http://localhost:8181',
-            port: 8181
+        orchestration: {
+            url: process.env.ORCHESTRATION_SERVICE_URL || 'http://localhost:8888',
+            port: 8888,
+            paths: {
+                checkanswerspdf: 'documents/generate/checkAnswersSummary'
+            }
         },
         idam: {
             loginUrl: process.env.IDAM_LOGIN_URL || 'https://localhost:8000/login',
-            apiUrl: process.env.IDAM_API_URL || 'http://localhost:8484',
+            apiUrl: process.env.IDAM_API_URL || 'http://localhost:4501',
             roles: ['probate-private-beta', 'citizen'],
             s2s_url: process.env.IDAM_S2S_URL || 'http://localhost:4502',
             service_name: 'probate_frontend',
             service_key: process.env.IDAM_SERVICE_KEY || 'AAAAAAAAAAAAAAAA',
             probate_oauth2_client: 'probate',
             probate_oauth2_secret: process.env.IDAM_API_OAUTH2_CLIENT_CLIENT_SECRETS_PROBATE || '123456',
-            probate_oauth_callback_path: '/oauth2/callback'
+            probate_oauth_callback_path: '/oauth2/callback',
+            caveat_user_email: process.env.CAVEAT_USER_EMAIL || 'testusername1@test.com',
+            caveat_user_password: process.env.CAVEAT_USER_PASSWORD || 'password',
+            caveat_redirectUrl: process.env.CAVEAT_REDIRECT_URL || 'http://localhost:3451/oauth2/callback'
         },
         payment: {
             createPaymentUrl: process.env.PAYMENT_CREATE_URL || 'http://localhost:8383/card-payments',

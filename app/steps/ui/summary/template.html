@@ -10,7 +10,7 @@
 
 {% block form_content %}
     <div class="form-group">
-        <p>{{ content.Summary.checkCarefully }}</p>
+        <p id="main-heading-content">{{ content.Summary.checkCarefully }}</p>
 
         <h2 class="heading-medium">{{ content.Summary.aboutYouHeading | safe }}</h2>
         <dl class="check-your-answers check-your-answers--long">
@@ -22,6 +22,11 @@
             {% include "ui/summary/includes/deceased.njk" %}
         </dl>
     </div>
+
+    <p class="save-this-page-link">
+        <i class="icon icon-file-download"></i>
+        <a class="anchor-margin-left" id="checkAnswerHref" href="/check-answers-pdf">{{ content.Summary.checkAnswersPdf }}</a>
+    </p>
 
     <div class="form-group">
         <input class="button button-start" type="submit" value="{{ common.continue }}">
