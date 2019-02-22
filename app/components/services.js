@@ -14,6 +14,7 @@ const PROXY = config.services.postcode.proxy;
 const SERVICE_AUTHORISATION_URL = `${config.services.idam.s2s_url}/lease`;
 const serviceName = config.services.idam.service_name;
 const secret = config.services.idam.service_key;
+const FEATURE_TOGGLE_URL = config.featureToggles.url;
 const logger = require('app/components/logger');
 const logInfo = (message, sessionId = 'Init') => logger(sessionId).info(message);
 
@@ -26,6 +27,16 @@ const findAddress = (postcode) => {
     };
     const fetchOptions = utils.fetchOptions({}, 'GET', headers, PROXY);
     return utils.fetchJson(url, fetchOptions);
+};
+
+const featureToggle = (featureToggleKey) => {
+    logInfo('featureToggle');
+    const url = `${FEATURE_TOGGLE_URL}${config.featureToggles.path}/${featureToggleKey}`;
+    const headers = {
+        'Content-Type': 'application/json'
+    };
+    const fetchOptions = utils.fetchOptions({}, 'GET', headers);
+    return utils.fetchText(url, fetchOptions);
 };
 
 const sendToSubmitService = (data, ctx, softStop) => {
