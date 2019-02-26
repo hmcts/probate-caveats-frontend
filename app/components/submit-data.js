@@ -21,11 +21,9 @@ const submitData = (ctx, formdata) => {
     deceased.lastName = formdata.deceased.lastName;
 
     //TODO This needs to be refactored to produce a full address
-    if (formdata.deceased.addressknown === 'Yes') {
-        let deceasedAddress = {};
-        body.deceased.address = deceasedAddress;
-        deceasedAddress.addressLine1 = formdata.deceased.address;
-    }
+    let deceasedAddress = {};
+    body.deceased.address = deceasedAddress;
+    deceasedAddress.addressLine1 = formdata.deceased.address;
 
     body.deceased.dod_date = dateformat(formdata.deceased.dod_date, 'yyyy-mm-dd');
 
@@ -52,7 +50,7 @@ const submitData = (ctx, formdata) => {
         body.payments = formdata.payments;
     }
 
-    body.expirydate = getExpiryDate(formdata);
+    body.expirydate = null;
 
     return body;
 };
@@ -60,11 +58,6 @@ const submitData = (ctx, formdata) => {
 //TODO what is the registry allocation algorithum
 function getRegistryName(formdata) {
     return 'Birmingham';
-}
-
-//TODO what is the expiry date algorithum
-function getExpiryDate(formdata) {
-    return '2019-06-01';
 }
 
 module.exports = submitData;

@@ -44,7 +44,7 @@ const sendToOrchestrationService = (data, ctx) => {
     const headers = {
         'Content-Type': 'application/json',
         'Session-Id': ctx.sessionID,
-        'Authorization': config.app.authorization,
+        'Authorization': ctx.token,
         'ServiceAuthorization': ctx.serviceAuthorization
     };
     const body = submitData(ctx, data);
