@@ -4,7 +4,6 @@ nodejs:
     PUBLIC_PROTOCOL: https
     REFORM_TEAM: probate
     REFORM_SERVICE_NAME: probate-caveats-frontend
-    FEATURE_TOGGLES_API_URL: http://${SERVICE_NAME}-ftr-tgl-api
     REFORM_ENVIRONMENT: aat
     USE_REDIS: true
     REDIS_USE_TLS: false
@@ -26,30 +25,6 @@ nodejs:
 # Don't modify below here
   image: ${IMAGE_NAME}
   ingressHost: ${SERVICE_FQDN}
-
-rpe-feature-toggle-api:
-  releaseNameOverride: ${SERVICE_NAME}-ftr-tgl-api
-  importer:
-    cron:
-      enabled: false
-    oneoff:
-      enabled: false
-  java:
-    releaseNameOverride: ${SERVICE_NAME}-ftr-tgl-api
-    ingressIP: ${INGRESS_IP}
-    consulIP: ${CONSUL_LB_IP}
-    registerAdditionalDns:
-      enabled: true
-      primaryIngressHost: ${SERVICE_FQDN}
-      prefix: ftr-tgl
-    environment:
-      FEATURES_DB_HOST: ${SERVICE_NAME}-ft-db
-      ADMIN_USERNAME_TEST: admin@example.com
-      ADMIN_PASSWORD_TEST: Password12
-      EDITOR_USERNAME_TEST: editor@example.com
-      EDITOR_PASSWORD_TEST: Password12
-  postgresql:
-    postgresqlDatabase: hmcts
 
 
 redis:
