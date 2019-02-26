@@ -5,6 +5,11 @@ const isEmpty = require('lodash').isEmpty;
 const FormatName = require('app/utils/FormatName');
 const CheckAnswersSummaryJSONObjectBuilder = require('app/utils/CheckAnswersSummaryJSONObjectBuilder');
 const checkAnswersSummaryJSONObjBuilder = new CheckAnswersSummaryJSONObjectBuilder();
+const {get, set} = require('lodash');
+const logger = require('app/components/logger')('Init');
+const FieldError = require('app/components/error');
+const services = require('app/components/services');
+const security =require('app/components/security');
 
 class Summary extends Step {
 
@@ -51,9 +56,13 @@ class Summary extends Step {
 
     * handlePost(ctx, errors, formdata, session) {
         const serviceAuthResult = yield services.authorise();
+        const token = yield security.getUserToken();
         set(ctx, 'serviceAuthorization', serviceAuthResult);
+        set(ctx, 'token', token);
         const result = yield this.sendToOrchestrationService(ctx, errors, formdata, 0);
-        logger.info('sendToSubmitService result = ' + JSON.stringify(result));
+        set(formdata, 'ccdCase.id', result.ccdCase.id);
+        set(formdata, 'ccdCase.state', result.ccdCase.state);
+        return [ctx, errors];
     }
 
     * sendToOrchestrationService(ctx, errors, formdata, total) {
@@ -65,6 +74,7 @@ class Summary extends Step {
             const keyword = result === 'DUPLICATE_SUBMISSION' ? 'duplicate' : 'failure';
             errors.push(FieldError('submit', keyword, this.resourcePath, ctx));
         }
+
 
         logger.info({tags: 'Analytics'}, 'Application Case Created');
 
