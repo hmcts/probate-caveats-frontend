@@ -1,13 +1,16 @@
 {
     "applicant": {
         "address": {
-            "addressLine1": "dddd"
+            "addressLine1": "aaaa"
         },
         "email": "blah@gmail.com",
         "firstName": "Jason",
         "lastName": "Smith"
     },
     "deceased": {
+        "address": {
+            "addressLine1": "dddd"
+        },
         "dod_date": "2018-11-20",
         "firstName": "Mike",
         "lastName": "Samuels"

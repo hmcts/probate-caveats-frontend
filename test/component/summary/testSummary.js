@@ -5,18 +5,37 @@ const ThankYou = require('app/steps/ui/thankyou/index');
 const nock = require('nock');
 const testHelpBlockContent = require('test/component/common/testHelpBlockContent.js');
 const minimalCaveatForm = require('test/data/unit/minimalcaveatform');
+const sinon = require('sinon');
+const services = require('app/components/services');
+const security = require('app/components/security');
 
 describe('summary', () => {
     let testWrapper;
     const expectedNextUrlForThankYou = ThankYou.getUrl();
+    let servicesMock, securityMock;
 
     beforeEach(() => {
         testWrapper = new TestWrapper('Summary');
+        servicesMock = sinon.mock(services);
+        securityMock = sinon.mock(security);
+
+        servicesMock.expects('authorise').returns(Promise.resolve('authorised'));
+        securityMock.expects('getUserToken').returns(Promise.resolve('token'));
+        servicesMock.expects('sendToOrchestrationService').returns(
+            Promise.resolve({ ccdCase : {
+                                id: '123',
+                                state: 'state'
+                                }
+                            })
+        );
+
     });
 
     afterEach(() => {
         testWrapper.destroy();
         nock.cleanAll();
+        servicesMock.restore();
+        securityMock.restore();
     });
 
     describe('Verify Content, Errors and Redirection', () => {
@@ -30,19 +49,18 @@ describe('summary', () => {
             testWrapper.testContent(done, contentToExclude);
         });
 
-        // TODO implement nexturl test when integration to orchestration service complete
-        // it(`test it redirects to end of journey page: ${expectedNextUrlForEndOfJourney}`, (done) => {
-        //     const sessionData = minimalCaveatForm;
-        //     const data = {};
-        //     testWrapper.agent.post('/prepare-session/form')
-        //         .send(sessionData)
-        //         .end((err) => {
-        //             if (err) {
-        //                 throw err;
-        //             }
-        //             testWrapper.testRedirect(done, data, expectedNextUrlForEndOfJourney);
-        //         });
-        // });
+        it(`test it redirects to end of journey page: ${expectedNextUrlForThankYou}`, (done) => {
+            const sessionData = minimalCaveatForm;
+            const data = {};
+            testWrapper.agent.post('/prepare-session/form')
+                .send(sessionData)
+                .end((err) => {
+                    if (err) {
+                        throw err;
+                    }
+                    testWrapper.testRedirect(done, data, expectedNextUrlForThankYou);
+                });
+        });
 
     });
 });
