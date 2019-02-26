@@ -59,10 +59,12 @@ withPipeline("nodejs", product, component) {
   before('buildinfra:prod') {
     error 'Deliberately breaking pipeline to prevent prod deployment'
   }
+
+  enableDockerBuild()
   installCharts()
 
 //  //if (env.CHANGE_TITLE && !env.CHANGE_TITLE.startsWith('[PREVIEW]')) {
-//    enableDockerBuild()
+
 //    enableDeployToAKS()
 ////  }
 //
