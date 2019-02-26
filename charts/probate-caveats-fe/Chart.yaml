@@ -1,5 +1,5 @@
 description: A Helm chart for the HMCTS probate product
-name: probate-caveats-frontend
+name: probate-caveats-fe
 home: https://github.com/hmcts/probate-caveats-frontend
 version: 0.0.1
 maintainers:
