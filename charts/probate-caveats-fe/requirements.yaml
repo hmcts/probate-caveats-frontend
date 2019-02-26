@@ -1,7 +1,4 @@
 dependencies:
-  - name: rpe-feature-toggle-api
-    version: 0.0.5
-    repository: '@hmcts'
   - name: nodejs
     version: 0.0.12
     repository: '@hmcts'
