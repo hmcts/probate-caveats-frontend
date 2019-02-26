@@ -18,17 +18,6 @@ describe('summary', () => {
         testWrapper = new TestWrapper('Summary');
         servicesMock = sinon.mock(services);
         securityMock = sinon.mock(security);
-
-        servicesMock.expects('authorise').returns(Promise.resolve('authorised'));
-        securityMock.expects('getUserToken').returns(Promise.resolve('token'));
-        servicesMock.expects('sendToOrchestrationService').returns(
-            Promise.resolve({ ccdCase : {
-                                id: '123',
-                                state: 'state'
-                                }
-                            })
-        );
-
     });
 
     afterEach(() => {
@@ -52,6 +41,15 @@ describe('summary', () => {
         it(`test it redirects to end of journey page: ${expectedNextUrlForThankYou}`, (done) => {
             const sessionData = minimalCaveatForm;
             const data = {};
+            servicesMock.expects('authorise').returns(Promise.resolve('authorised'));
+            securityMock.expects('getUserToken').returns(Promise.resolve('token'));
+            servicesMock.expects('sendToOrchestrationService').returns(
+                Promise.resolve({
+                    ccdCase: {
+                        id: '123',
+                        state: 'state'
+                    }
+                }));
             testWrapper.agent.post('/prepare-session/form')
                 .send(sessionData)
                 .end((err) => {
@@ -62,5 +60,59 @@ describe('summary', () => {
                 });
         });
 
+    });
+
+    describe('sendToOrchestrationService()', () => {
+        it('should return to status 500 page when service authority fails', (done) => {
+            const sessionData = minimalCaveatForm;
+            const data = {};
+            servicesMock.expects('authorise').returns(Promise.resolve({
+                name: 'Error',
+                message: 'Unable to find service'
+            }));
+            testWrapper.agent.post('/prepare-session/form')
+                .send(sessionData)
+                .end((err) => {
+                    if (err) {
+                        throw err;
+                    }
+                    testWrapper.testStatus500Page(done, data);
+                });
+        });
+        it('should return to status 500 page when security idam calls fail', (done) => {
+            const sessionData = minimalCaveatForm;
+            const data = {};
+            servicesMock.expects('authorise').returns(Promise.resolve('authorised'));
+            securityMock.expects('getUserToken').returns(Promise.resolve({
+                name: 'Error',
+                message: 'Unable to find service'
+            }));
+            testWrapper.agent.post('/prepare-session/form')
+                .send(sessionData)
+                .end((err) => {
+                    if (err) {
+                        throw err;
+                    }
+                    testWrapper.testStatus500Page(done, data);
+                });
+        });
+        it('should return to status 500 page when orchestration call fails', (done) => {
+            const sessionData = minimalCaveatForm;
+            const data = {};
+            servicesMock.expects('authorise').returns(Promise.resolve('authorised'));
+            securityMock.expects('getUserToken').returns(Promise.resolve('token'));
+            servicesMock.expects('sendToOrchestrationService').returns(Promise.resolve({
+                name: 'Error',
+                message: 'Unable to find service'
+            }));
+            testWrapper.agent.post('/prepare-session/form')
+                .send(sessionData)
+                .end((err) => {
+                    if (err) {
+                        throw err;
+                    }
+                    testWrapper.testStatus500Page(done, data);
+                });
+        });
     });
 });

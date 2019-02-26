@@ -15,7 +15,6 @@
         "firstName": "Mike",
         "lastName": "Samuels"
     },
-    "expirydate": "2019-06-01",
     "payments": [{
         "amount": 220.5,
         "date": "2018-12-03T15:58:44.954+0000",
