@@ -18,8 +18,8 @@ nodejs:
     OVERSEAS_COPIES_FEE_CODE: ${PRO_OVERSEAS_COPIES_FEE_CODE}
     SERVICE_ID: ${PRO_SERVICE_ID}
     SITE_ID: ${PRO_SITE_ID}
-    CAVEATS_USER_NAME: ${CAVEATS_USER_NAME}
-    CAVEATS_USER_PASSWORD: ${CAVEATS_USER_PASSWORD}
+    CAVEAT_USER_NAME: ${CAVEAT_USER_NAME}
+    CAVEAT_USER_PASSWORD: ${CAVEAT_USER_PASSWORD}
     IDAM_API_URL: https://preprod-idamapi.reform.hmcts.net:3511
     IDAM_URL: https://preprod-idamapi.reform.hmcts.net:3511
     IDAM_LOGIN_URL: https://idam.preprod.ccidam.reform.hmcts.net/login
