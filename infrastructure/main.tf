@@ -109,6 +109,16 @@ data "azurerm_key_vault_secret" "s2s_key" {
   vault_uri = "https://s2s-${local.localenv}.vault.azure.net/"
 }
 
+data "azurerm_key_vault_secret" "caveat_user_name" {
+  name      = "caveat-user-name"
+  vault_uri = "${data.azurerm_key_vault.probate_key_vault.vault_uri}"
+}
+
+data "azurerm_key_vault_secret" "caveat_user_password" {
+  name      = "caveat-user-password"
+  vault_uri = "${data.azurerm_key_vault.probate_key_vault.vault_uri}"
+}
+
 module "probate-caveats-fe" {
   source = "git@github.com:hmcts/moj-module-webapp.git?ref=master"
   product = "${var.product}-${var.microservice}"
@@ -188,6 +198,9 @@ module "probate-caveats-fe" {
     OVERSEAS_COPIES_FEE_CODE = "${data.azurerm_key_vault_secret.probate_overseas_application_fee_code.value}"
     SERVICE_ID = "${data.azurerm_key_vault_secret.probate_service_id.value}"
     SITE_ID = "${data.azurerm_key_vault_secret.probate_site_id.value}"
+
+    CAVEAT_USER_NAME = "${data.azurerm_key_vault_secret.caveat_user_name}"
+    CAVEAT_USER_PASSWORD = "${data.azurerm_key_vault_secret.caveat_user_password}"
 
     REFORM_ENVIRONMENT = "${var.reform_envirionment_for_test}"
 
