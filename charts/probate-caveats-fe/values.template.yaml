@@ -1,0 +1,34 @@
+nodejs:
+  applicationPort: 3000
+  environment:
+    PUBLIC_PROTOCOL: https
+    REFORM_TEAM: probate
+    REFORM_SERVICE_NAME: probate-caveats-frontend
+    REFORM_ENVIRONMENT: aat
+    USE_REDIS: true
+    REDIS_USE_TLS: false
+    REDIS_HOST: ${SERVICE_NAME}-redis-master
+    REDIS_PORT: 6379
+    POSTCODE_SERVICE_URL: ${PRO_POSTCODE_SERVICE_URL}
+    POSTCODE_SERVICE_TOKEN: ${PRO_POSTCODE_SERVICE_TOKEN}
+    SURVEY: ${PRO_SURVEY}
+    SURVEY_END_OF_APPLICATION: ${PRO_SURVEY_END_OF_APPLICATIONN}
+    APPLICATION_FEE_CODE: ${PRO_APPLICATION_FEE_CODEL}
+    UK_COPIES_FEE_CODE: ${PRO_UK_COPIES_FEE_CODE}
+    OVERSEAS_COPIES_FEE_CODE: ${PRO_OVERSEAS_COPIES_FEE_CODE}
+    SERVICE_ID: ${PRO_SERVICE_ID}
+    SITE_ID: ${PRO_SITE_ID}
+
+# Don't modify below here
+  image: ${IMAGE_NAME}
+  ingressHost: ${SERVICE_FQDN}
+
+
+redis:
+  cluster:
+    enabled: false
+    slaveCount: 0
+  usePassword: false
+  master:
+    persistence:
+      enabled: false
