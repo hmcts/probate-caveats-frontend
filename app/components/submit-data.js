@@ -1,5 +1,4 @@
 'use strict';
-/*eslint no-warning-comments: [1, { "terms": ["todo"], "location": "anywhere" }]*/
 
 const dateformat = require('dateformat');
 const submitData = (ctx, formdata) => {
@@ -12,7 +11,7 @@ const submitData = (ctx, formdata) => {
     applicant.lastName = formdata.applicant.lastName;
     applicant.email = formdata.applicant.email;
 
-    //TODO This needs to be refactored to produce a full address
+    // This needs to be refactored to produce a full address
     const applicantAddress = {};
     body.applicant.address = applicantAddress;
     applicantAddress.addressLine1 = formdata.applicant.address;
@@ -22,7 +21,7 @@ const submitData = (ctx, formdata) => {
     deceased.firstName = formdata.deceased.firstName;
     deceased.lastName = formdata.deceased.lastName;
 
-    //TODO This needs to be refactored to produce a full address
+    //This needs to be refactored to produce a full address
     const deceasedAddress = {};
     body.deceased.address = deceasedAddress;
     deceasedAddress.addressLine1 = formdata.deceased.address;
