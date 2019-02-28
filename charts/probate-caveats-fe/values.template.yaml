@@ -24,6 +24,7 @@ nodejs:
     IDAM_URL: https://preprod-idamapi.reform.hmcts.net:3511
     IDAM_LOGIN_URL: https://idam.preprod.ccidam.reform.hmcts.net/login
     IDAM_S2S_URL: http://rpe-service-auth-provider-aat.service.core-compute-aat.internal
+    IDAM_SERVICE_KEY: ${IDAM_S2S_SECRET}
 
 # Don't modify below here
   image: ${IMAGE_NAME}
