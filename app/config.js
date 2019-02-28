@@ -31,7 +31,7 @@ module.exports = {
             loginUrl: process.env.IDAM_LOGIN_URL || 'https://localhost:8000/login',
             apiUrl: process.env.IDAM_API_URL || 'http://localhost:4501',
             roles: ['probate-private-beta', 'citizen'],
-            s2s_url: process.env.IDAM_S2S_URL || 'http://localhost:4502/',
+            s2s_url: process.env.IDAM_S2S_URL || 'http://localhost:4502',
             service_name: 'probate_frontend',
             service_key: process.env.IDAM_SERVICE_KEY || 'AAAAAAAAAAAAAAAA',
             probate_oauth2_client: 'probate',

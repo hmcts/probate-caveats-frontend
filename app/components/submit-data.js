@@ -45,8 +45,10 @@ const submitData = (ctx, formdata) => {
     }
 
     const registry = {};
-    body.registry = registry;
-    body.registry.name = getRegistryName();
+    if (formdata.registry) {
+        body.registry = registry;
+        body.registry.name = formdata.registry.name;
+    }
 
     if (formdata.payments) {
         body.payments = formdata.payments;
@@ -54,10 +56,5 @@ const submitData = (ctx, formdata) => {
 
     return body;
 };
-
-//TODO what is the registry allocation algorithum
-function getRegistryName() {
-    return 'Birmingham';
-}
 
 module.exports = submitData;
