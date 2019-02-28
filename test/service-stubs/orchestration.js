@@ -22,6 +22,18 @@ router.post('/' + CHECK_ANSWERS_PDF_URL, (req, res) => {
     });
 });
 
+router.post('/forms/*/submissions', (req, res) => {
+    fs.readFile('test/data/full-caveat-form.json', function (err, data) {
+        if (err) {
+            console.log(err);
+        } else {
+            res.contentType('application/json');
+            res.status(200);
+            res.send(data);
+        }
+    });
+});
+
 app.use(router);
 
 console.log(`Listening on: ${ORCHESTRATION_PORT}`);
