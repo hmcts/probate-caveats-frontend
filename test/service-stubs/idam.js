@@ -3,7 +3,6 @@
 /* eslint no-console: 0 */
 // idam service-service auth stub
 
-const config = require('app/config');
 const express = require('express');
 const app = express();
 const router = express.Router();
@@ -34,4 +33,3 @@ console.log(`Listening on: ${IDAM_STUB_PORT}`);
 const server = app.listen(IDAM_STUB_PORT);
 
 module.exports = server;
-
