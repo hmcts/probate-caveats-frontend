@@ -48,6 +48,9 @@ describe('summary', () => {
                     ccdCase: {
                         id: '123',
                         state: 'state'
+                    },
+                    registry: {
+                        name: 'Birmingham'
                     }
                 }));
             testWrapper.agent.post('/prepare-session/form')

@@ -51,7 +51,10 @@ describe('submitData/index.js', () => {
                 'method': 'online',
                 'reference': 'RC-1543-8527-2465-2900',
                 'transactionId': 'v5bf26kn5rq9rvdq7gsvn7v11d'
-            }]
+            }],
+            registry: {
+                'name': 'Birmingham'
+            }
         };
 
         it('should return the correct formated form', (done) => {
@@ -91,7 +94,10 @@ describe('submitData/index.js', () => {
                 'method': 'online',
                 'reference': 'RC-1543-8527-2465-2900',
                 'transactionId': 'v5bf26kn5rq9rvdq7gsvn7v11d'
-            }]
+            }],
+            registry: {
+                'name': 'Birmingham'
+            }
         };
 
         it('should return the correct formated form', (done) => {
