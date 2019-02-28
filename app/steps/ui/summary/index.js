@@ -67,6 +67,7 @@ class Summary extends Step {
         const result = yield this.sendToOrchestrationService(ctx, errors, formdata, config.payment.applicationFee);
         set(formdata, 'ccdCase.id', result.ccdCase.id);
         set(formdata, 'ccdCase.state', result.ccdCase.state);
+        set(formdata, 'registry.name', result.registry.name);
         return [ctx, errors];
     }
 
