@@ -178,8 +178,8 @@ module "probate-caveats-fe" {
     SERVICE_ID = "${data.azurerm_key_vault_secret.probate_service_id.value}"
     SITE_ID = "${data.azurerm_key_vault_secret.probate_site_id.value}"
 
-    CAVEAT_USER_NAME = "${data.azurerm_key_vault_secret.caveat_user_name}"
-    CAVEAT_USER_PASSWORD = "${data.azurerm_key_vault_secret.caveat_user_password}"
+    CAVEAT_USER_NAME = "${data.azurerm_key_vault_secret.caveat_user_name.value}"
+    CAVEAT_USER_PASSWORD = "${data.azurerm_key_vault_secret.caveat_user_password.value}"
 
     REFORM_ENVIRONMENT = "${var.reform_envirionment_for_test}"
 
