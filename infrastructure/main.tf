@@ -1,27 +1,11 @@
-provider "vault" {
-  //  # It is strongly recommended to configure this provider through the
-  //  # environment variables described above, so that each user can have
-  //  # separate credentials set in the environment.
-  //  #
-  //  # This will default to using $VAULT_ADDR
-  //  # But can be set explicitly
-  address = "https://vault.reform.hmcts.net:6200"
-}
 
 provider "azurerm" {
-  version = "1.19.0"
+  version = "1.22.1"
 }
 
-# data "vault_generic_secret" "idam_frontend_service_key" {
-#   path = "secret/${var.vault_section}/ccidam/service-auth-provider/api/microservice-keys/probate-frontend"
-# }
-
-# data "vault_generic_secret" "idam_frontend_idam_key" {
-#   path = "secret/${var.vault_section}/ccidam/idam-api/oauth2/client-secrets/probate"
-# }
 
 locals {
-  aseName = "${data.terraform_remote_state.core_apps_compute.ase_name[0]}"
+  aseName = "core-compute-${var.env}"
   previewVaultName = "${var.raw_product}-aat"
   nonPreviewVaultName = "${var.raw_product}-${var.env}"
   vaultName = "${(var.env == "preview" || var.env == "spreview") ? local.previewVaultName : local.nonPreviewVaultName}"
@@ -32,13 +16,18 @@ locals {
   // add other services
 }
 
+data "azurerm_subnet" "core_infra_redis_subnet" {
+  name                 = "core-infra-subnet-1-${var.env}"
+  virtual_network_name = "core-infra-vnet-${var.env}"
+  resource_group_name = "core-infra-${var.env}"
+}
 
 module "probate-caveats-fe-redis-cache" {
   source   = "git@github.com:hmcts/moj-module-redis?ref=master"
   product     = "${(var.env == "preview" || var.env == "spreview") ? "${var.product}-${var.microservice}-pr-redis" : "${var.product}-${var.microservice}-redis-cache"}"
   location = "${var.location}"
   env      = "${var.env}"
-  subnetid = "${data.terraform_remote_state.core_apps_infrastructure.subnet_ids[1]}"
+  subnetid = "${data.azurerm_subnet.core_infra_redis_subnet.id}"
   common_tags  = "${var.common_tags}"
 }
 
@@ -47,11 +36,6 @@ data "azurerm_key_vault" "probate_key_vault" {
   resource_group_name = "${local.vaultName}"
 }
 
-
-# data "azurerm_key_vault_secret" "idam_secret_probate" {
-#   name = "ccidam-idam-api-secrets-probate"
-#   vault_uri = "${data.azurerm_key_vault.probate_key_vault.vault_uri}"
-# }
 
 data "azurerm_key_vault_secret" "probate_postcode_service_token" {
   name = "postcode-service-token"
@@ -135,11 +119,6 @@ module "probate-caveats-fe" {
   asp_rg       = "${var.asp_rg}"
 
   app_settings = {
-
-    // Node specific vars
-    //NODE_ENV = "${var.node_env}"
-    //UV_THREADPOOL_SIZE = "64"
-    //NODE_CONFIG_DIR = "${var.node_config_dir}"
 
     // Logging vars
     REFORM_TEAM = "${var.product}"
