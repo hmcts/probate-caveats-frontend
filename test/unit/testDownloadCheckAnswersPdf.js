@@ -4,15 +4,17 @@ const {expect} = require('chai');
 const sinon = require('sinon');
 const downloadCheckAnswersPdf = require('app/middleware/downloadCheckAnswersPdf');
 const pdfServices = require('app/components/pdf-services');
+const security = require('app/components/security');
 
 describe('getCheckAnswersPdf', () => {
     describe('createCheckAnswersPdf()', () => {
-        let pdfServicesStub;
+        let pdfServicesStub, securityStub;
         let req;
         let res;
 
         beforeEach(() => {
             pdfServicesStub = sinon.stub(pdfServices, 'createCheckAnswersPdf');
+            securityStub = sinon.stub(security, 'getRedirectUrl');
             req = {
                 session: {
                     form: sinon.spy()
@@ -31,10 +33,12 @@ describe('getCheckAnswersPdf', () => {
 
         afterEach(() => {
             pdfServicesStub.restore();
+            securityStub.restore();
         });
 
         it('should return a successful download result', (done) => {
             pdfServicesStub.returns(Promise.resolve('pdf buffer'));
+            securityStub.returns('redirect_url');
             downloadCheckAnswersPdf(req, res);
             setTimeout(() => {
                 expect(res.setHeader.calledTwice).to.equal(true);
