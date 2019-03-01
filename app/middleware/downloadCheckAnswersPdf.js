@@ -2,7 +2,7 @@
 
 const commonContent = require('app/resources/en/translation/common');
 const pdfservices = require('app/components/pdf-services');
-const security = require('app/components/security')
+const security = require('app/components/security');
 
 const downloadCheckAnswersPdf = (req, res) => {
     const formdata = req.session.form;

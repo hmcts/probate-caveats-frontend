@@ -8,15 +8,15 @@ const utils = require('app/components/api-utils');
 
 describe.skip('pdf-services', () => {
     describe('createCheckAnswersPdf()', () => {
-        let fetchTextStub;
         let fetchBufferStub;
         let redirect_url;
         let sessionId;
         let formdata;
-        let servicesMock;
+        let servicesMock, utilsMock;
 
         beforeEach(() => {
             servicesMock = sinon.mock(services);
+            utilsMock = sinon.mock(utils);
             formdata = {
                 checkAnswersSummary: 'values'
             };
@@ -30,14 +30,10 @@ describe.skip('pdf-services', () => {
 
         it('should call fetchOptions and fetchBuffer if Authorise returns a successful result', (done) => {
             servicesMock.expects('authorise').returns(Promise.resolve('authorised'));
-            pdfServices.createCheckAnswersPdf(formdata, redirect_url, 'sessionId')
+            pdfServices.createCheckAnswersPdf(formdata, redirect_url, sessionId)
                 .then((res) => {
                     expect(res).to.equal('pdf buffer');
                     sinon.assert.callCount(fetchBufferStub, 1);
-                })
-                .catch((err) => {
-                    console.log(err);
-                    console.log('got here');
                 });
             done();
         });

@@ -72,7 +72,7 @@ const getOauth2Token = (code, redirect_url) => {
     });
 };
 
-function getRedirectUrl(req){
+function getRedirectUrl(req) {
     logInfo('calling getRedirectUrl to get redirect_url');
     const hostname = FormatUrl.createHostname(req);
     return FormatUrl.format(hostname, config.services.idam.probate_oauth_callback_path);
