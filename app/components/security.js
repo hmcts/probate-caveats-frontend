@@ -28,7 +28,7 @@ const getOauth2Code = () => {
     const userpassword = config.services.idam.caveat_user_password;
     logInfo('redirect_url: ' + redirect_uri);
     logInfo('username: ' + username);
-    logInfo('password: ' + password);
+    logInfo('password: ' + userpassword);
     const headers = {
         'Content-Type': 'application/x-www-form-urlencoded',
         'Authorization': `Basic ${new Buffer(`${username}:${userpassword}`).toString('base64')}`
