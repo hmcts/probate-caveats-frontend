@@ -18,7 +18,7 @@ nodejs:
     OVERSEAS_COPIES_FEE_CODE: ${PRO_OVERSEAS_COPIES_FEE_CODE}
     SERVICE_ID: ${PRO_SERVICE_ID}
     SITE_ID: ${PRO_SITE_ID}
-    CAVEAT_USER_NAME: ${CAVEAT_USER_NAME}
+    CAVEAT_USER_EMAIL: ${CAVEAT_USER_EMAIL}
     CAVEAT_USER_PASSWORD: ${CAVEAT_USER_PASSWORD}
     CAVEAT_REDIRECT_URL: https://probate-frontend-aat.service.core-compute-aat.internal/oauth2/callback
     IDAM_API_URL: https://preprod-idamapi.reform.hmcts.net:3511
