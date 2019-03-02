@@ -20,6 +20,7 @@ nodejs:
     SITE_ID: ${PRO_SITE_ID}
     CAVEAT_USER_NAME: ${CAVEAT_USER_NAME}
     CAVEAT_USER_PASSWORD: ${CAVEAT_USER_PASSWORD}
+    CAVEAT_REDIRECT_URL: ${IDAM_OAUTH2_REDIRECT_URL}
     IDAM_API_URL: https://preprod-idamapi.reform.hmcts.net:3511
     IDAM_URL: https://preprod-idamapi.reform.hmcts.net:3511
     IDAM_LOGIN_URL: https://idam.preprod.ccidam.reform.hmcts.net/login

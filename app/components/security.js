@@ -1,18 +1,17 @@
 'use strict';
 
-const FormatUrl = require('app/utils/FormatUrl');
 const utils = require('app/components/api-utils');
 const config = require('app/config');
 const logger = require('app/components/logger');
 const logInfo = (message, sessionId = 'Init') => logger(sessionId).info(message);
 const {URLSearchParams} = require('url');
 
-const getUserToken = (redirect_url) => {
+const getUserToken = () => {
     logInfo('calling getUserToken to get code and token for user');
-    return getOauth2Code(redirect_url)
+    return getOauth2Code()
         .then((result) => {
             checkForError(result);
-            return getOauth2Token(result.code, redirect_url)
+            return getOauth2Token(result.code)
                 .then((result) => {
                     checkForError(result);
                     return result.access_token;
@@ -20,11 +19,11 @@ const getUserToken = (redirect_url) => {
         });
 };
 
-const getOauth2Code = (redirect_url) => {
+const getOauth2Code = () => {
     logInfo('calling getOauth2Code to get code');
     const client_id = config.services.idam.probate_oauth2_client;
     const idam_api_url = config.services.idam.apiUrl;
-    const redirect_uri = redirect_url;
+    const redirect_uri = config.services.idam.caveat_redirectUrl;
     const username = config.services.idam.caveat_user_email;
     const userpassword = config.services.idam.caveat_user_password;
 
@@ -46,12 +45,12 @@ const getOauth2Code = (redirect_url) => {
     });
 };
 
-const getOauth2Token = (code, redirect_url) => {
+const getOauth2Token = (code) => {
     logInfo('calling getOauth2Token to get user token');
     const client_id = config.services.idam.probate_oauth2_client;
     const client_secret = config.services.idam.probate_oauth2_secret;
     const idam_api_url = config.services.idam.apiUrl;
-    const redirect_uri = redirect_url;
+    const redirect_uri = config.services.idam.caveat_redirectUrl;
 
     const headers = {
         'Content-Type': 'application/x-www-form-urlencoded',
@@ -72,12 +71,6 @@ const getOauth2Token = (code, redirect_url) => {
     });
 };
 
-function getRedirectUrl(req) {
-    logInfo('calling getRedirectUrl to get redirect_url');
-    const hostname = FormatUrl.createHostname(req);
-    return FormatUrl.format(hostname, config.services.idam.probate_oauth_callback_path);
-}
-
 function checkForError(result) {
     if (result.name === 'Error') {
         throw new Error(result.message);
@@ -85,6 +78,5 @@ function checkForError(result) {
 }
 
 module.exports = {
-    getUserToken,
-    getRedirectUrl
+    getUserToken
 };

@@ -35,12 +35,6 @@ class Summary extends Step {
         return content;
     }
 
-    getContextData(req) {
-        const ctx = super.getContextData(req);
-        ctx.redirect_url = security.getRedirectUrl(req);
-        return ctx;
-    }
-
     generateFields (ctx, errors, formdata) {
         const fields = {};
         Object.keys(this.steps)
@@ -66,7 +60,7 @@ class Summary extends Step {
         if (serviceAuth.name === 'Error') {
             throw new Error(serviceAuth.message);
         }
-        const userToken = yield security.getUserToken(ctx.redirect_url);
+        const userToken = yield security.getUserToken();
 
         set(ctx, 'serviceAuthorization', serviceAuth);
         set(ctx, 'token', userToken);

@@ -6,8 +6,7 @@ const security = require('app/components/security');
 
 const downloadCheckAnswersPdf = (req, res) => {
     const formdata = req.session.form;
-    const redirect_url = security.getRedirectUrl(req);
-    pdfservices.createCheckAnswersPdf(formdata, redirect_url, req.session.id)
+    pdfservices.createCheckAnswersPdf(formdata, req.session.id)
         .then(result => {
             res.setHeader('Content-Type', 'application/pdf');
             res.setHeader('Content-disposition', 'attachment; filename=checkYourAnswers.pdf');
