@@ -9,19 +9,19 @@ const logger = require('app/components/logger');
 const logInfo = (message, sessionId = 'Init') => logger(sessionId).info(message);
 const security = require('app/components/security');
 
-const createCheckAnswersPdf = (formdata, sessionId) => {
+const createCheckAnswersPdf = (formdata, redirect_url, sessionId) => {
     logInfo('Create check your answers PDF', sessionId);
     return services.authorise()
         .then(serviceToken => {
             const body = {
                 checkAnswersSummary: formdata.checkAnswersSummary
             };
-            return createPDFDocument(formdata, serviceToken, body);
+            return createPDFDocument(formdata, serviceToken, body, redirect_url);
         });
 };
 
-function createPDFDocument(formdata, serviceToken, body) {
-    return security.getUserToken()
+function createPDFDocument(formdata, serviceToken, body, redirect_url) {
+    return security.getUserToken(redirect_url)
         .then((usertoken) => {
             const headers = {
                 'Content-Type': 'application/businessdocument+json',
