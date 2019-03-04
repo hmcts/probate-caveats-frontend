@@ -1,8 +1,5 @@
 {
   "title": "Unable to proceed",
   "header": "Sorry, you can&rsquo;t use the online service",
-  "defaultReason": "Unable to proceed",
-  "notDiedAfterOct2014": "This is a new service and we're still building it. You can't apply for probate online if the person you're applying for died before October 2014.</p><p>Please download the <a rel=\"external noopener\"  href=\"{applicationFormPA1A}\">probate application form (PA1A)</a>, print it out and fill it in.",
-  "notSpouseOrChild": "You can't apply for probate online if you're not the husband, wife, civil partner or child of the person who died.</p><p>Please download the <a rel=\"external noopener\"  href=\"{applicationFormPA1A}\">probate application form (PA1A)</a>, print it out and fill it in.",
-  "otherApplicants": "You will have to complete a paper form if you want to make a joint application. It's not yet possible to do this online.</p><p>Please download the <a rel=\"external noopener\"  href=\"{applicationFormPA1A}\">probate application form (PA1A)</a>, print it out and fill it in."
+  "defaultReason": "Unable to proceed"
 }

@@ -18,12 +18,15 @@ nodejs:
     OVERSEAS_COPIES_FEE_CODE: ${PRO_OVERSEAS_COPIES_FEE_CODE}
     SERVICE_ID: ${PRO_SERVICE_ID}
     SITE_ID: ${PRO_SITE_ID}
-    CAVEAT_USER_NAME: ${CAVEAT_USER_NAME}
+    CAVEAT_USER_EMAIL: ${CAVEAT_USER_EMAIL}
     CAVEAT_USER_PASSWORD: ${CAVEAT_USER_PASSWORD}
+    CAVEAT_REDIRECT_URL: https://probate-frontend-aat.service.core-compute-aat.internal/oauth2/callback
     IDAM_API_URL: https://preprod-idamapi.reform.hmcts.net:3511
     IDAM_URL: https://preprod-idamapi.reform.hmcts.net:3511
     IDAM_LOGIN_URL: https://idam.preprod.ccidam.reform.hmcts.net/login
     IDAM_S2S_URL: http://rpe-service-auth-provider-aat.service.core-compute-aat.internal
+    IDAM_SERVICE_KEY: ${IDAM_S2S_SECRET}
+    IDAM_API_OAUTH2_CLIENT_CLIENT_SECRETS_PROBATE: ${IDAM_SECRET_PROBATE}
 
 # Don't modify below here
   image: ${IMAGE_NAME}

@@ -1,5 +1,6 @@
 module.exports = {
 
+    frontendPublicHttpProtocol: process.env.PUBLIC_PROTOCOL || 'http',
     environment: process.env.REFORM_ENVIRONMENT || 'prod',
     nodeEnvironment: process.env.NODE_ENV,
     gitRevision: process.env.GIT_REVISION,

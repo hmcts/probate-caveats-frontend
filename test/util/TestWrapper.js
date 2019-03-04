@@ -84,6 +84,18 @@ class TestWrapper {
             .catch(done);
     }
 
+    testStatus500Page(done, postData) {
+        this.agent.post(this.pageUrl)
+            .type('form')
+            .send(postData)
+            .expect(500)
+            .then(res => {
+                this.assertContentIsPresent(res.text, 'Sorry, we&rsquo;re having technical problems');
+                done();
+            })
+            .catch(done);
+    }
+
     testContentAfterError(data, contentToCheck, done) {
         this.agent.post(this.pageUrl)
             .send(data)

@@ -41,7 +41,7 @@ List<LinkedHashMap<String, Object>> secrets = [
     secret('probate-overseas-application-fee-code', 'PRO_OVERSEAS_COPIES_FEE_CODE'),
     secret('probate-service-id', 'PRO_SERVICE_ID'),
     secret('probate-site-id', 'PRO_SITE_ID'),
-    secret('caveat-user-name', 'CAVEAT_USER_NAME'),
+    secret('caveat-user-name', 'CAVEAT_USER_EMAIL'),
     secret('caveat-user-password', 'CAVEAT_USER_PASSWORD')
 ]
 

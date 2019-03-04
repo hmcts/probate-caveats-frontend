@@ -9,10 +9,12 @@ const {URLSearchParams} = require('url');
 const getUserToken = () => {
     logInfo('calling getUserToken to get code and token for user');
     return getOauth2Code()
-        .then((res) => {
-            return getOauth2Token(res.code)
-                .then((res) => {
-                    return res.access_token;
+        .then((result) => {
+            checkForError(result);
+            return getOauth2Token(result.code)
+                .then((result) => {
+                    checkForError(result);
+                    return result.access_token;
                 });
         });
 };
@@ -24,7 +26,6 @@ const getOauth2Code = () => {
     const redirect_uri = config.services.idam.caveat_redirectUrl;
     const username = config.services.idam.caveat_user_email;
     const userpassword = config.services.idam.caveat_user_password;
-
     const headers = {
         'Content-Type': 'application/x-www-form-urlencoded',
         'Authorization': `Basic ${new Buffer(`${username}:${userpassword}`).toString('base64')}`
@@ -68,6 +69,12 @@ const getOauth2Token = (code) => {
         headers: headers
     });
 };
+
+function checkForError(result) {
+    if (result.name === 'Error') {
+        throw new Error(result.message);
+    }
+}
 
 module.exports = {
     getUserToken

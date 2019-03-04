@@ -1,84 +1,59 @@
 'use strict';
 
-const {mapValues, get} = require('lodash');
-const steps = require('app/core/initSteps').steps;
-// const ExecutorsWrapper = require('app/wrappers/Executors');
-const dataMap = {
-    applicantFirstName: 'applicant.firstName',
-    applicantLastName: 'applicant.lastName',
-    applicantSameWillName: 'applicant.nameAsOnTheWill',
-    applicantAlias: 'applicant.alias',
-    applicantAliasReason: 'applicant.aliasReason',
-    applicantAddress: 'applicant.address',
-    applicantPostcode: 'applicant.postcode',
-    applicantPhone: 'applicant.phoneNumber',
-    applicantEmail: 'applicantEmail',
-    applicantIsExecutor: 'applicant.executor',
-    deceasedFirstname: 'deceased.firstName',
-    deceasedSurname: 'deceased.lastName',
-    deceasedAliasAssets: 'deceased.alias',
-    deceasedOtherNames: 'deceased.otherNames',
-    deceasedMarriedAfterDateOnWill: 'deceased.married',
-    deceasedAddress: 'deceased.address',
-    deceasedPostcode: 'deceased.postcode',
-    deceasedDod: 'deceased.dod_formattedDate',
-    deceasedDob: 'deceased.dob_formattedDate',
-    deceasedDomicile: 'deceased.domicile',
-    noOfExecutors: 'executors.executorsNumber',
-    dealingWithEstate: 'executors.otherExecutorsApplying',
-    willLeft: 'will.left',
-    willOriginal: 'will.original',
-    willWithCodicils: 'will.codicils',
-    willCodicilsNumber: 'will.codicilsNumber',
-    ihtCompleted: 'iht.completed',
-    ihtForm: 'iht.form',
-    ihtFormId: 'iht.ihtFormId',
-    ihtIdentifier: 'iht.identifier',
-    ihtGrossValue: 'iht.grossValue',
-    ihtNetValue: 'iht.netValue',
-    copiesUK: 'copies.uk',
-    copiesOverseas: 'copies.overseas',
-    totalFee: 'payment.total',
-    paymentReference: 'payment.paymentReference',
-    legalStatement: 'declaration.legalStatement',
-    declaration: 'declaration.declaration',
-    payloadVersion: 'payloadVersion',
-    payment: 'payment',
-    caseId: 'ccdCase.id',
-    caseState: 'ccdCase.state',
-    registry: 'registry',
-    submissionReference: 'submissionReference',
-};
+const dateformat = require('dateformat');
+const submitData = (ctx, formdata) => {
 
-const submitData = (ctx, data) => {
-    const mappedData = mapValues(dataMap, path => get(data, path));
+    const body = {'type': 'Caveat'};
 
-    mappedData.copiesUK = get(data, 'copies.uk', 0);
+    const applicant = {};
+    body.applicant = applicant;
+    applicant.firstName = formdata.applicant.firstName;
+    applicant.lastName = formdata.applicant.lastName;
+    applicant.email = formdata.applicant.email;
 
-    if (get(data, 'assets.assetsoverseas') === steps.AssetsOverseas.generateContent(ctx).optionNo) {
-        mappedData.copiesOverseas = 0;
+    // This needs to be refactored to produce a full address
+    const applicantAddress = {};
+    body.applicant.address = applicantAddress;
+    applicantAddress.addressLine1 = formdata.applicant.address;
+
+    const deceased = {};
+    body.deceased = deceased;
+    deceased.firstName = formdata.deceased.firstName;
+    deceased.lastName = formdata.deceased.lastName;
+
+    //This needs to be refactored to produce a full address
+    const deceasedAddress = {};
+    body.deceased.address = deceasedAddress;
+    deceasedAddress.addressLine1 = formdata.deceased.address;
+
+    body.deceased.dod_date = dateformat(formdata.deceased.dod_date, 'yyyy-mm-dd');
+
+    if (formdata.deceased.dobknown === 'Yes') {
+        body.deceased.dob_date = dateformat(formdata.deceased.dob_date, 'yyyy-mm-dd');
     }
 
-    const ihtMethod = get(data, 'iht.method');
-
-    if (ihtMethod === steps.IhtMethod.generateContent(ctx).paperOption) {
-        mappedData.ihtIdentifier = steps.CopiesOverseas.commonContent().notApplicable;
-    } else {
-        mappedData.ihtIdentifier = get(data, 'iht.identifier');
-        mappedData.ihtForm = 'online';
+    if (formdata.deceased.alias === 'Yes') {
+        body.deceased.otherNames = formdata.deceased.otherNames;
     }
 
-    if (get(data, 'applicant.aliasReason') === 'other') {
-        mappedData.applicantOtherReason = get(data, 'applicant.otherReason');
+    if (formdata.ccdCase) {
+        const ccdCase = {};
+        body.ccdCase = formdata.ccdCase;
+        ccdCase.id = formdata.ccdCase.id;
+        ccdCase.state = formdata.ccdCase.state;
     }
 
-    // const executorsWrapper = new ExecutorsWrapper(data.executors);
-    //
-    // mappedData.noOfApplicants = executorsWrapper.executorsApplying().length;
-    // mappedData.executorsApplying = executorsWrapper.executorsApplying(true);
-    // mappedData.executorsNotApplying = executorsWrapper.executorsNotApplying(true);
+    const registry = {};
+    if (formdata.registry) {
+        body.registry = registry;
+        body.registry.name = formdata.registry.name;
+    }
 
-    return mappedData;
+    if (formdata.payments) {
+        body.payments = formdata.payments;
+    }
+
+    return body;
 };
 
 module.exports = submitData;
