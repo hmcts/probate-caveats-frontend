@@ -44,8 +44,8 @@ const sendToOrchestrationService = (data, ctx) => {
     const headers = {
         'Content-Type': 'application/json',
         'Session-Id': ctx.sessionID,
-        'Authorization': ctx.token,
-        'ServiceAuthorization': ctx.serviceAuthorization
+        'Authorization': ctx.authToken,
+        'ServiceAuthorization': ctx.serviceAuthToken
     };
     const body = submitData(ctx, data);
     const fetchOptions = utils.fetchOptions(body, 'POST', headers);
@@ -58,11 +58,11 @@ const updateCcdCasePaymentStatus = (data, ctx) => {
         'Content-Type': 'application/json',
         'Session-Id': ctx.sessionID,
         'Authorization': ctx.authToken,
-        'UserId': ctx.userId
+        'ServiceAuthorization': ctx.serviceAuthToken
     };
     const body = submitData(ctx, data);
-    const fetchOptions = utils.fetchOptions({submitdata: body}, 'POST', headers);
-    return utils.fetchJson(`${ORCHESTRATION_SERVICE_URL}/updatePaymentStatus`, fetchOptions);
+    const fetchOptions = utils.fetchOptions(body, 'POST', headers);
+    return utils.fetchJson(`${ORCHESTRATION_SERVICE_URL}/forms/${data.applicant.email}/payments`, fetchOptions);
 };
 
 const createPayment = (data, hostname) => {
@@ -75,19 +75,26 @@ const createPayment = (data, hostname) => {
     };
     const body = paymentData.createPaymentData(data);
     const fetchOptions = utils.fetchOptions(body, 'POST', headers);
-    return [utils.fetchJson(CREATE_PAYMENT_SERVICE_URL, fetchOptions), body.reference];
+    logInfo('payment ServiceAuthorization: ' + data.serviceAuthToken);
+    logInfo('payment Authorisation: ' + data.authToken);
+    logInfo('payment return-url: ' + FormatUrl.format(hostname, '/payment-status'));
+    logInfo('body: ' + JSON.stringify(body));
+    return utils.fetchJson(CREATE_PAYMENT_SERVICE_URL, fetchOptions);
 };
 
 const findPayment = (data) => {
     logInfo('findPayment');
     const headers = {
-        'Content-Type': 'application/json',
+        //'Content-Type': 'application/json',
         'Authorization': data.authToken,
         'ServiceAuthorization': data.serviceAuthToken
     };
-
-    const fetchOptions = utils.fetchOptions(data, 'GET', headers);
+    logInfo('payment ServiceAuthorization: ' + data.serviceAuthToken);
+    logInfo('payment Authorisation: ' + data.authToken);
+    logInfo('data: ' + JSON.stringify(data));
+    const fetchOptions = utils.fetchNonBodyOptions('GET', headers);
     const findPaymentUrl = `${CREATE_PAYMENT_SERVICE_URL}/${data.paymentId}`;
+    logInfo('paymentUrl: ' + findPaymentUrl);
     return utils.fetchJson(findPaymentUrl, fetchOptions);
 };
 

@@ -1,0 +1,15 @@
+{
+    "title": "Pay and submit - status",
+    "question": "Thank you",
+    "paragraph": "We&rsquo;ve received your payment and your application.",
+    "paragraph2": "We&rsquo;ve received your application.",
+    "paragraph3": "You don&rsquo;t need to pay as the net value of the estate is less than &pound;5,000.",
+    "callout": "Before your application can be processed, you need to send your documents by post.",
+    "errors": {
+        "update": {
+            "failure": {
+                "summary": "We could not submit your application. Your data has been saved, please try again later."
+            }
+        }
+    }
+}

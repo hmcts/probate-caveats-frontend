@@ -43,15 +43,9 @@ describe('submitData/index.js', () => {
                     }
                 }
             },
-            payments: [{
-                'date': '2018-12-03T15:58:44.954+0000',
-                'amount': 220.5,
-                'siteId': 'P223',
-                'status': 'Success',
-                'method': 'online',
-                'reference': 'RC-1543-8527-2465-2900',
-                'transactionId': 'v5bf26kn5rq9rvdq7gsvn7v11d'
-            }],
+            payment: {
+                'total': 20
+            },
             registry: {
                 'name': 'Birmingham'
             }
@@ -86,15 +80,9 @@ describe('submitData/index.js', () => {
                 'deceasedName': 'Mike Samuels',
                 'address': 'dddd',
             },
-            payments: [{
-                'date': '2018-12-03T15:58:44.954+0000',
-                'amount': 220.5,
-                'siteId': 'P223',
-                'status': 'Success',
-                'method': 'online',
-                'reference': 'RC-1543-8527-2465-2900',
-                'transactionId': 'v5bf26kn5rq9rvdq7gsvn7v11d'
-            }],
+            payment: {
+                'amount': 20
+            },
             registry: {
                 'name': 'Birmingham'
             }

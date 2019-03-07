@@ -1,0 +1,28 @@
+{
+  "title": "Payment - cost breakdown",
+  "heading": "Payment",
+  "applicationFee": "Application fee",
+  "extraCopiesFeeUk" : "UK copies",
+  "extraCopiesFeeOverseas" : "copies for use outside the UK",
+  "total": "Total due",
+  "errors": {
+    "authorisation": {
+      "failure": {
+        "summary": "We could not take your payment, please try again later"
+      }
+    },
+    "payment": {
+      "failure": {
+        "summary": "We could not take your payment, please try again later"
+      }
+    },
+    "submit": {
+      "failure": {
+        "summary": "We could not take your payment, please try again later"
+      },
+      "duplicate": {
+        "summary": "Your application has been submitted, please return to the tasklist to continue"
+      }
+    }
+  }
+}
