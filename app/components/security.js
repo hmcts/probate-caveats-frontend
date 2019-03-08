@@ -16,7 +16,8 @@ const getUserToken = () => {
         .then((result) => {
             checkForError(result);
             return result.access_token;
-        });
+        })
+        .catch((err) => err);
 };
 
 const getOauth2Code = () => {

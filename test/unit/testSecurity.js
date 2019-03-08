@@ -32,7 +32,7 @@ describe('security', () => {
         it('should return an error if idam is not available on first call', (done) => {
             fetchJsonStub.returns(Promise.reject(new Error('FetchError: request to http://localhost:4501/oauth2/authorize')));
             security.getUserToken()
-                .catch((err) => {
+                .then((err) => {
                     expect(err.toLocaleString()).to.equal('Error: FetchError: request to http://localhost:4501/oauth2/authorize');
                     sinon.assert.callCount(fetchJsonStub, 1);
                     done();
@@ -43,7 +43,7 @@ describe('security', () => {
             fetchJsonStub.onFirstCall().returns(Promise.resolve({code: 'KBSsVGrhx3NDeTfd'}));
             fetchJsonStub.returns(Promise.reject(new Error('FetchError: request to http://localhost:4501/oauth2/token')));
             security.getUserToken()
-                .catch((err) => {
+                .then((err) => {
                     expect(err.toLocaleString()).to.equal('Error: FetchError: request to http://localhost:4501/oauth2/token');
                     sinon.assert.callCount(fetchJsonStub, 2);
                     done();

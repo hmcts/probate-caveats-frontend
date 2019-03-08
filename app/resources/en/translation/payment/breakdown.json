@@ -8,7 +8,7 @@
   "errors": {
     "authorisation": {
       "failure": {
-        "summary": "We could not take your payment, please try again later"
+        "summary": "We are not able to continue with your application, please try again later"
       }
     },
     "payment": {

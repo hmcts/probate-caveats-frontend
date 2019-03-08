@@ -135,6 +135,11 @@ class PaymentBreakdown extends Step {
             return;
         }
         const userToken = yield security.getUserToken();
+        if (userToken.name === 'Error') {
+            logger.info(`userToken = ${userToken}`);
+            errors.push(FieldError('authorisation', 'failure', this.resourcePath, ctx));
+            return;
+        }
         set(ctx, 'serviceAuthToken', serviceAuthResult);
         set(ctx, 'authToken', userToken);
         return;
