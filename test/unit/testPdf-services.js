@@ -6,7 +6,7 @@ const pdfServices = require('app/components/pdf-services');
 const services = require('app/components/services');
 const utils = require('app/components/api-utils');
 
-describe.skip('pdf-services', () => {
+describe('pdf-services', () => {
     describe('createCheckAnswersPdf()', () => {
         let fetchBufferStub;
         let redirect_url;
@@ -16,7 +16,7 @@ describe.skip('pdf-services', () => {
 
         beforeEach(() => {
             servicesMock = sinon.mock(services);
-            utilsMock = sinon.mock(utils);
+            fetchBufferStub = sinon.stub(utils,'fetchBuffer');
             formdata = {
                 checkAnswersSummary: 'values'
             };
@@ -26,6 +26,7 @@ describe.skip('pdf-services', () => {
 
         afterEach(() => {
             servicesMock.restore();
+            fetchBufferStub.restore();
         });
 
         it('should call fetchOptions and fetchBuffer if Authorise returns a successful result', (done) => {
@@ -39,7 +40,7 @@ describe.skip('pdf-services', () => {
         });
 
         it('no fetchBuffer call if Authorise returns an error', (done) => {
-            utilsMock.returns(Promise.reject(new Error('not authorised')));
+            servicesMock.expects('authorise').returns(Promise.reject(new Error('not authorised')));
             fetchBufferStub.returns('pdf buffer');
             pdfServices.createCheckAnswersPdf(formdata, redirect_url, 'sessionId')
                 .catch((err) => {
