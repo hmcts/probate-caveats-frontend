@@ -12,6 +12,7 @@ class ThankYou extends Step {
     getContextData(req) {
         const ctx = super.getContextData(req);
         ctx.ccdReferenceNumber = FormatCcdCaseId.format(req.session.form.ccdCase);
+        req.session.destroy();
         return ctx;
     }
 

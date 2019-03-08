@@ -54,7 +54,7 @@ class UIStepRunner {
             let [isValid, errors] = [];
             [isValid, errors] = step.validate(ctx, formdata);
             if (isValid) {
-                yield step.handlePost(ctx, errors, formdata, req.session, FormatUrl.createHostname(req));
+                [ctx, errors] = yield step.handlePost(ctx, errors, formdata, req.session, FormatUrl.createHostname(req));
             }
 
             if (isEmpty(errors)) {

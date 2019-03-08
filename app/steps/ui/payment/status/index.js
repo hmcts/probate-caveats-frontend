@@ -49,91 +49,81 @@ class PaymentStatus extends Step {
     * runnerOptions(ctx, formdata) {
         const options = {};
 
-        if (formdata.paymentPending === 'true' || formdata.paymentPending === 'unknown') {
-            const serviceAuthResult = yield services.authorise();
-
-            if (serviceAuthResult.name === 'Error') {
-                options.redirect = true;
-                options.url = `${this.steps.PaymentBreakdown.constructor.getUrl()}?status=failure`;
-                formdata.paymentPending = 'unknown';
-                return options;
-            }
-
-            const userToken = yield security.getUserToken();
-            set(ctx, 'serviceAuthToken', serviceAuthResult);
-            set(ctx, 'authToken', userToken);
-
-            const data = {
-                authToken: ctx.authToken,
-                serviceAuthToken: ctx.serviceAuthToken,
-                userId: ctx.userId,
-                paymentId: ctx.paymentId
-            };
-
-            const findPaymentResponse = yield services.findPayment(data);
-            logger.info('Payment retrieval in status for paymentId = ' + ctx.paymentId + ' with response = ' + JSON.stringify(findPaymentResponse));
-            const date = typeof findPaymentResponse.date_updated === 'undefined' ? ctx.paymentCreatedDate : findPaymentResponse.date_updated;
-            this.updateFormDataPayment(formdata, findPaymentResponse, date);
-
-            if (this.paymentFailed(findPaymentResponse)) {
-                logger.error('Payment retrieval failed for paymentId = ' + ctx.paymentId + ' with status = ' + findPaymentResponse.status);
-                //services.saveFormData(ctx.regId, formdata, ctx.sessionId);
-                const options = {};
-                options.redirect = true;
-                options.url = `${this.steps.PaymentBreakdown.constructor.getUrl()}?status=failure`;
-                formdata.paymentPending = 'true';
-                return options;
-            }
-
-            const [updateCcdCaseResponse, errors] = yield this.updateCcdCasePaymentStatus(ctx, formdata);
-            this.setErrors(options, errors);
-            set(formdata, 'ccdCase.state', updateCcdCaseResponse.ccdCase.state);
-
-            if (findPaymentResponse.status !== 'Success') {
-                options.redirect = true;
-                options.url = `${this.steps.PaymentBreakdown.constructor.getUrl()}?status=failure`;
-                logger.error('Unable to retrieve a payment response.');
-            } else if (updateCcdCaseResponse.ccdCase.state !== 'CaveatRaised') {
-                options.redirect = false;
-                logger.warn('Did not get a successful case created state.');
-            } else {
-                options.redirect = false;
-                formdata.paymentPending = 'false';
-            }
-        } else {
-            const [updateCcdCaseResponse, errors] = yield this.updateCcdCasePaymentStatus(ctx, formdata);
-            this.setErrors(options, errors);
-            options.redirect = false;
-            set(formdata, 'payment.status', 'not_required');
-            set(formdata, 'ccdCase.state', updateCcdCaseResponse.caseState);
+        // Setup security tokens
+        const securityErrors = yield this.setCtxWithSecurityTokens(ctx);
+        if (securityErrors.length > 0) {
+            options.redirect = true;
+            options.url = `${this.steps.PaymentBreakdown.constructor.getUrl()}?status=failure`;
+            return options;
         }
+
+        const data = {
+            authToken: ctx.authToken,
+            serviceAuthToken: ctx.serviceAuthToken,
+            userId: ctx.userId,
+            paymentId: ctx.paymentId
+        };
+
+        const findPaymentResponse = yield services.findPayment(data);
+        logger.info('Payment retrieval in status for paymentId = ' + ctx.paymentId + ' with response = ' + JSON.stringify(findPaymentResponse));
+        if (findPaymentResponse.name === 'Error') {
+            options.redirect = true;
+            options.url = `${this.steps.PaymentBreakdown.constructor.getUrl()}?status=failure`;
+            return options;
+        }
+
+        const date = typeof findPaymentResponse.date_updated === 'undefined' ? ctx.paymentCreatedDate : findPaymentResponse.date_updated;
+        this.updateFormDataPayment(formdata, findPaymentResponse, date);
+
+        const [updateCcdCaseResponse, updateCcdCaseErrors] = yield this.updateCcdCasePaymentStatus(ctx, formdata);
+        if (updateCcdCaseErrors.length > 0) {
+            logger.error('Update of case payment status failed for paymentId = ' + ctx.paymentId);
+            options.redirect = true;
+            options.url = `${this.steps.PaymentBreakdown.constructor.getUrl()}?status=failure`;
+            return options;
+        }
+
+        if (findPaymentResponse.status !== 'Success') {
+            options.redirect = true;
+            options.url = `${this.steps.PaymentBreakdown.constructor.getUrl()}?status=failure`;
+            logger.error('Status was not Success.');
+            return options;
+        }
+
+        options.redirect = false;
 
         return options;
     }
 
-    paymentFailed(findPaymentResponse) {
-        if (findPaymentResponse.name === 'Error' ||
-            findPaymentResponse.status === 'Initiated' ||
-            findPaymentResponse.status === 'Failed' ||
-            findPaymentResponse.status === 'Cancelled') {
-            return true;
+    * setCtxWithSecurityTokens(ctx) {
+        const serviceAuthResult = yield services.authorise();
+        let errors = [];
+        if (serviceAuthResult.name === 'Error') {
+            logger.info(`serviceAuthResult Error = ${serviceAuthResult}`);
+            errors.push(FieldError('authorisation', 'failure', this.resourcePath, ctx));
+            return errors;
         }
-        return false;
+        const userToken = yield security.getUserToken();
+        set(ctx, 'serviceAuthToken', serviceAuthResult);
+        set(ctx, 'authToken', userToken);
+        return errors;
     }
 
     * updateCcdCasePaymentStatus(ctx, formdata) {
         const submitData = {};
         Object.assign(submitData, formdata);
-        let errors;
+        let errors = [];
         const result = yield services.updateCcdCasePaymentStatus(submitData, ctx);
 
         if (!result.ccdCase.state) {
-            errors = [(FieldError('update', 'failure', this.resourcePath, ctx))];
+            errors.push(FieldError('update', 'failure', this.resourcePath, ctx));
             logger.error('Could not update payment status', result.message);
         } else {
+            set(formdata, 'ccdCase.state', result.ccdCase.state);
             logger.info({tags: 'Analytics'}, 'Payment status update');
             logger.info('Successfully updated payment status to caseState ' + result.ccdCase.state);
         }
+
         return [result, errors];
     }
 

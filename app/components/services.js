@@ -75,10 +75,6 @@ const createPayment = (data, hostname) => {
     };
     const body = paymentData.createPaymentData(data);
     const fetchOptions = utils.fetchOptions(body, 'POST', headers);
-    logInfo('payment ServiceAuthorization: ' + data.serviceAuthToken);
-    logInfo('payment Authorisation: ' + data.authToken);
-    logInfo('payment return-url: ' + FormatUrl.format(hostname, '/payment-status'));
-    logInfo('body: ' + JSON.stringify(body));
     return utils.fetchJson(CREATE_PAYMENT_SERVICE_URL, fetchOptions);
 };
 
@@ -89,12 +85,8 @@ const findPayment = (data) => {
         'Authorization': data.authToken,
         'ServiceAuthorization': data.serviceAuthToken
     };
-    logInfo('payment ServiceAuthorization: ' + data.serviceAuthToken);
-    logInfo('payment Authorisation: ' + data.authToken);
-    logInfo('data: ' + JSON.stringify(data));
     const fetchOptions = utils.fetchNonBodyOptions('GET', headers);
     const findPaymentUrl = `${CREATE_PAYMENT_SERVICE_URL}/${data.paymentId}`;
-    logInfo('paymentUrl: ' + findPaymentUrl);
     return utils.fetchJson(findPaymentUrl, fetchOptions);
 };
 

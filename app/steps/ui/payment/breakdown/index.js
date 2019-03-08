@@ -30,14 +30,17 @@ class PaymentBreakdown extends Step {
     }
 
     * handlePost(ctx, errors, formdata, session, hostname) {
-        [ctx, formdata, errors] = yield this.setCtxWithSecurityTokens(ctx, formdata, errors);
+        set(formdata, 'payment.total', ctx.total);
+
+        // Setup security tokens
+        yield this.setCtxWithSecurityTokens(ctx, errors);
         if (errors.length > 0) {
-            return ctx, errors;
+            return [ctx, errors];
         }
 
+        // If we dont already have a case so create one
         if (!formdata.ccdCase || !formdata.ccdCase.id) {
-            const [result, submissionErrors] = yield this.sendToOrchestrationService(ctx, errors, formdata, ctx.total);
-            errors = errors.concat(submissionErrors);
+            const result= yield this.sendToOrchestrationService(ctx, formdata, errors);
             if (errors.length > 0) {
                 logger.error('Failed to create case in CCD.');
                 return [ctx, errors];
@@ -46,91 +49,98 @@ class PaymentBreakdown extends Step {
             set(formdata, 'ccdCase.state', result.ccdCase.state);
         }
 
-        if (formdata.paymentPending !== 'unknown') {
-            const canCreatePayment = yield this.canCreatePayment(ctx, formdata);
-            logger.info('can create payment: ' + canCreatePayment);
-            if (canCreatePayment) {
-                formdata.paymentPending = 'true';
-
-                if (formdata.creatingPayment !== 'true') {
-                    formdata.creatingPayment = 'true';
-                    const ccdCaseId = get(formdata.ccdCase, 'id');
-                    const data = {
-                        amount: parseFloat(ctx.total),
-                        authToken: ctx.authToken,
-                        serviceAuthToken: ctx.serviceAuthToken,
-                        userId: ctx.userId,
-                        applicationFee: ctx.applicationFee,
-                        copies: ctx.copies,
-                        deceasedLastName: ctx.deceasedLastName,
-                        ccdCaseId: ccdCaseId
-                    };
-
-                    const response = yield services.createPayment(data, hostname);
-                    logger.info(`Payment creation in breakdown with response = ${JSON.stringify(response)}`);
-
-                    if (response.name === 'Error') {
-                        errors.push(FieldError('payment', 'failure', this.resourcePath, ctx));
-                        formdata.creatingPayment = 'false';
-                        return [ctx, errors];
-                    }
-
-                    formdata.creatingPayment = 'false';
-                    set(ctx, 'paymentId', response.reference);
-                    set(ctx, 'paymentCreatedDate', response.date_created);
-                    set(ctx, 'status', response.status);
-
-                   // session.save();
-
-                    this.nextStepUrl = () => response._links.next_url.href;
-                } else {
-                    logger.warn('Skipping - create payment request in progress');
-                }
-
-            } else {
-                formdata.paymentPending = ctx.total === 0 ? 'false' : 'true';
-                delete this.nextStepUrl;
+        // get latest payment status if payment already exists
+        let paymentResponse;
+        const paymentId = get(formdata.payment, 'paymentId');
+        if (paymentId) {
+            const data = {
+                authToken: ctx.authToken,
+                serviceAuthToken: ctx.serviceAuthToken,
+                userId: ctx.userId,
+                paymentId: paymentId
+            };
+            paymentResponse = yield services.findPayment(data);
+            logger.info(`Existing Payment in breakdown with response = ${JSON.stringify(paymentResponse)}`);
+            if (paymentResponse.name === 'Error') {
+                errors.push(FieldError('payment', 'failure', this.resourcePath, ctx));
+                return [ctx, errors];
             }
-        } else {
-            logger.warn('Skipping create payment as authorisation is unknown.');
         }
 
+        // If payment doesn't exist or existing payment has to be recreated
+        if (!paymentId || paymentResponse.status !== 'Success') {
+            const ccdCaseId = get(formdata.ccdCase, 'id');
+            const data = {
+                amount: parseFloat(ctx.total),
+                authToken: ctx.authToken,
+                serviceAuthToken: ctx.serviceAuthToken,
+                userId: ctx.userId,
+                applicationFee: ctx.applicationFee,
+                copies: ctx.copies,
+                deceasedLastName: ctx.deceasedLastName,
+                ccdCaseId: ccdCaseId
+            };
+
+            paymentResponse = yield services.createPayment(data, hostname);
+            logger.info(`New Payment in breakdown with response = ${JSON.stringify(paymentResponse)}`);
+
+            if (paymentResponse.name === 'Error') {
+                errors.push(FieldError('payment', 'failure', this.resourcePath, ctx));
+                return [ctx, errors];
+            }
+        }
+
+        //Ensure that payment details on form are updated to the latest values
+        set(ctx, 'paymentId', paymentResponse.reference);
+        set(ctx, 'paymentCreatedDate', paymentResponse.date_created);
+        set(ctx, 'status', paymentResponse.status);
+
+        // Decide to send to Gov.pay or simply forward to /payment-status
+        if (paymentResponse.status !== 'Success' && this.paymentContainsNextUrl(paymentResponse)) {
+            this.nextStepUrl = () => paymentResponse._links.next_url.href;
+        } else {
+            // this is required since this page is re-entrant for failues on /payment-status
+            this.nextStepUrl = () => this.next(ctx).constructor.getUrl();
+        }
+
+        logger.info('nextStepUrl is: ' + this.nextStepUrl(ctx));
         return [ctx, errors];
+    }
+
+    // indicates that payment needs to be sent to Gov.Pay
+    paymentContainsNextUrl(paymentResponse) {
+        if (paymentResponse._links.next_url) {
+            return true;
+        }
+        return false;
     }
 
     isComplete(ctx, formdata) {
         return [['true', 'false'].includes(formdata.paymentPending), 'inProgress'];
     }
 
-    * setCtxWithSecurityTokens(ctx, formdata, errors) {
+    * setCtxWithSecurityTokens(ctx, errors) {
         const serviceAuthResult = yield services.authorise();
         if (serviceAuthResult.name === 'Error') {
-            logger.info(`serviceAuthResult Error = ${serviceAuthResult}`);
-            const keyword = 'failure';
-            formdata.creatingPayment = null;
-            formdata.paymentPending = null;
-            errors.push(FieldError('authorisation', keyword, this.resourcePath, ctx));
-            return [ctx, formdata, errors];
+            logger.info(`serviceAuthResult = ${serviceAuthResult}`);
+            errors.push(FieldError('authorisation', 'failure', this.resourcePath, ctx));
+            return;
         }
         const userToken = yield security.getUserToken();
         set(ctx, 'serviceAuthToken', serviceAuthResult);
         set(ctx, 'authToken', userToken);
-        return [ctx, formdata, errors];
+        return;
     }
 
-    * sendToOrchestrationService(ctx, errors, formdata, total) {
-        set(formdata, 'payment.total', total);
+    * sendToOrchestrationService(ctx, formdata, errors) {
         const result = yield services.sendToOrchestrationService(formdata, ctx);
         logger.info('sendToOrchestrationService result = ' + JSON.stringify(result));
-
-        if (result.name === 'Error' || result === 'DUPLICATE_SUBMISSION') {
-            const keyword = result === 'DUPLICATE_SUBMISSION' ? 'duplicate' : 'failure';
-            errors.push(FieldError('submit', keyword, this.resourcePath, ctx));
+        if (result.name === 'Error') {
+            errors.push(FieldError('submit', 'failure', this.resourcePath, ctx));
         }
 
         logger.info({tags: 'Analytics'}, 'Application Case Created');
-
-        return [result, errors];
+        return result;
     }
 
     action(ctx, formdata) {
@@ -140,26 +150,8 @@ class PaymentBreakdown extends Step {
         delete ctx.applicationFee;
         delete ctx.serviceAuthToken;
         delete ctx.authToken;
+        delete ctx.total;
         return [ctx, formdata];
-    }
-
-    * canCreatePayment(ctx, formdata) {
-        const paymentId = get(formdata.payment, 'paymentId');
-        if (paymentId) {
-            const data = {
-                authToken: ctx.authToken,
-                serviceAuthToken: ctx.serviceAuthToken,
-                userId: ctx.userId,
-                paymentId: paymentId
-            };
-            const paymentResponse = yield services.findPayment(data);
-            logger.info(`Payment retrieval in breakdown for paymentId = ${paymentId} with response = ${JSON.stringify(paymentResponse)}`);
-            if (typeof paymentResponse === 'undefined') {
-                return true;
-            }
-            return (paymentResponse.status !== 'Initiated') && (paymentResponse.status !== 'Success');
-        }
-        return true;
     }
 
 }
