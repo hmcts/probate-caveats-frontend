@@ -26,7 +26,15 @@ class PaymentBreakdown extends Step {
         ctx.paymentError = get(req, 'query.status');
         ctx.total = config.payment.applicationFee;
         ctx.applicationFee = config.payment.applicationFee;
+        if (req.param('status') === 'failure') {
+            ctx.errors = [];
+            ctx.errors.push(FieldError('status', 'failure', this.resourcePath, ctx));
+        }
         return ctx;
+    }
+
+    handleGet(ctx) {
+        return [ctx, ctx.errors];
     }
 
     * handlePost(ctx, errors, formdata, session, hostname) {

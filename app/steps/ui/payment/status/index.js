@@ -113,28 +113,21 @@ class PaymentStatus extends Step {
         const submitData = {};
         Object.assign(submitData, formdata);
         let errors = [];
-        const result = yield services.updateCcdCasePaymentStatus(submitData, ctx);
-
-        if (!result.ccdCase.state) {
+        const updateCasePaymentStatusResult = yield services.updateCcdCasePaymentStatus(submitData, ctx);
+        if (updateCasePaymentStatusResult.name === 'Error') {
+            logger.error(`updateCaseResult Error = ${updateCasePaymentStatusResult}`);
             errors.push(FieldError('update', 'failure', this.resourcePath, ctx));
-            logger.error('Could not update payment status', result.message);
         } else {
-            set(formdata, 'ccdCase.state', result.ccdCase.state);
+            set(formdata, 'ccdCase.state', updateCasePaymentStatusResult.ccdCase.state);
             logger.info({tags: 'Analytics'}, 'Payment status update');
-            logger.info('Successfully updated payment status to caseState ' + result.ccdCase.state);
+            logger.info('Successfully updated payment status to caseState ' + updateCasePaymentStatusResult.ccdCase.state);
         }
 
-        return [result, errors];
+        return [updateCasePaymentStatusResult, errors];
     }
 
     handleGet(ctx) {
         return [ctx, ctx.errors];
-    }
-
-    setErrors(options, errors) {
-        if (typeof errors !== 'undefined') {
-            options.errors = errors;
-        }
     }
 
     updateFormDataPayment(formdata, findPaymentResponse, date) {
