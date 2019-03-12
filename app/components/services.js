@@ -81,7 +81,7 @@ const createPayment = (data, hostname) => {
 const findPayment = (data) => {
     logInfo('findPayment');
     const headers = {
-        //'Content-Type': 'application/json',
+        'Content-Type': 'application/json',
         'Authorization': data.authToken,
         'ServiceAuthorization': data.serviceAuthToken
     };

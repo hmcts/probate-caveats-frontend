@@ -37,6 +37,9 @@ Scenario('Standard Execution Journey', function* (I) {
     // Summary page
     I.seeSummaryPage();
 
+    // Payment pages
+    I.enterPaymentBreakdown();
+
     // Thank you page -commented out until payments are working
     //I.seeThankYouPage();
 
