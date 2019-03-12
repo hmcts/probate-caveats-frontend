@@ -3,7 +3,6 @@
 const co = require('co');
 const {curry, set, isEmpty, forEach} = require('lodash');
 const mapErrorsToFields = require('app/components/error').mapErrorsToFields;
-const FormatUrl = require('app/utils/FormatUrl');
 
 class UIStepRunner {
 
