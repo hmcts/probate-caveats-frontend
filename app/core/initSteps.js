@@ -1,4 +1,3 @@
-/* eslint no-console: 0 no-unused-vars: 0 */
 'use strict';
 
 const requireDir = require('require-directory');
@@ -8,10 +7,8 @@ const path = require('path');
 const steps = {};
 
 const initStep = filePath => {
-    console.log('filePath: ' + filePath);
     const stepObject = require(filePath);
     const filePathFragments = filePath.search('ui') >= 0 ? filePath.split(`${path.sep}ui${path.sep}`) : filePath.split(`${path.sep}action${path.sep}`);
-    console.log('filePathFragments: ' + filePathFragments[0] + ' : ' + filePathFragments[1]);
     let resourcePath = filePathFragments[1];
     resourcePath = resourcePath.replace(`${path.sep}index.js`, '');
     const section = resourcePath.split(path.sep);
