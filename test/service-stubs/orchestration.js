@@ -35,9 +35,9 @@ router.post('/forms/*/submissions', (req, res) => {
 });
 
 router.post('/forms/*/payments', (req, res) => {
-            res.contentType('application/json');
-            res.status(200);
-            res.send({caseState: 'newState'});
+    res.contentType('application/json');
+    res.status(200);
+    res.send({caseState: 'newState'});
 });
 
 app.use(router);

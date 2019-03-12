@@ -2,15 +2,10 @@
 
 'use strict';
 
-const {expect} = require('chai');
-const PaymentStatus = require('app/steps/ui/payment/status');
 const Thankyou = require('app/steps/ui/thankyou');
 const PaymentBreakdown = require('app/steps/ui/payment/breakdown');
-const config = require('app/config');
 const sinon = require('sinon');
-const testHelpBlockContent = require('test/component/common/testHelpBlockContent');
 const TestWrapper = require('test/util/TestWrapper');
-const utils = require('app/components/api-utils');
 const services = require('app/components/services');
 const security = require('app/components/security');
 
@@ -58,8 +53,8 @@ describe('paymentStatus', () => {
 
         it(`test it redirects to ${expectedNextUrlForThankYou} when payment status is 'Success'`, (done) => {
             servicesMock.expects('findPayment').returns(Promise.resolve({
-                    status: 'Success'
-                }
+                status: 'Success'
+            }
             ));
             const data = {};
             testWrapper.agent.post('/prepare-session/form')

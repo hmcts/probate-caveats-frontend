@@ -2,13 +2,10 @@
 
 'use strict';
 
-const {expect} = require('chai');
 const PaymentStatus = require('app/steps/ui/payment/status');
-const config = require('app/config');
 const sinon = require('sinon');
 const testHelpBlockContent = require('test/component/common/testHelpBlockContent');
 const TestWrapper = require('test/util/TestWrapper');
-const utils = require('app/components/api-utils');
 const services = require('app/components/services');
 const security = require('app/components/security');
 
@@ -52,7 +49,7 @@ describe('paymentBreakdown', () => {
             testWrapper.testContent(done, []);
         });
 
-        it(`test it redirects to fake Gov.Pay page`, (done) => {
+        it('test it redirects to fake Gov.Pay page', (done) => {
             servicesMock.expects('createPayment').returns(Promise.resolve({
                 status: 'initiated',
                 _links: {
@@ -75,8 +72,8 @@ describe('paymentBreakdown', () => {
 
         it(`test it redirects to ${expectedNextUrlForPaymentStatus} when payment status is 'Success'`, (done) => {
             servicesMock.expects('findPayment').returns(Promise.resolve({
-                    status: 'Success'
-                }
+                status: 'Success'
+            }
             ));
             const data = {};
             testWrapper.agent.post('/prepare-session/form')
@@ -93,7 +90,6 @@ describe('paymentBreakdown', () => {
                 });
         });
     });
-
 
     describe('Handle api failures', () => {
 

@@ -5,12 +5,6 @@ const isEmpty = require('lodash').isEmpty;
 const FormatName = require('app/utils/FormatName');
 const CheckAnswersSummaryJSONObjectBuilder = require('app/utils/CheckAnswersSummaryJSONObjectBuilder');
 const checkAnswersSummaryJSONObjBuilder = new CheckAnswersSummaryJSONObjectBuilder();
-const {set} = require('lodash');
-const logger = require('app/components/logger')('Init');
-const FieldError = require('app/components/error');
-const services = require('app/components/services');
-const security = require('app/components/security');
-const config = require('app/config');
 
 class Summary extends Step {
 

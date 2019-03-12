@@ -75,7 +75,7 @@ class PaymentStatus extends Step {
         const date = typeof findPaymentResponse.date_updated === 'undefined' ? ctx.paymentCreatedDate : findPaymentResponse.date_updated;
         this.updateFormDataPayment(formdata, findPaymentResponse, date);
 
-        const [updateCcdCaseResponse, updateCcdCaseErrors] = yield this.updateCcdCasePaymentStatus(ctx, formdata);
+        const updateCcdCaseErrors = yield this.updateCcdCasePaymentStatus(ctx, formdata);
         if (updateCcdCaseErrors.length > 0) {
             logger.error('Update of case payment status failed for paymentId = ' + ctx.paymentId);
             options.redirect = true;
@@ -97,7 +97,7 @@ class PaymentStatus extends Step {
 
     * setCtxWithSecurityTokens(ctx) {
         const serviceAuthResult = yield services.authorise();
-        let errors = [];
+        const errors = [];
         if (serviceAuthResult.name === 'Error') {
             logger.info(`serviceAuthResult Error = ${serviceAuthResult}`);
             errors.push(FieldError('authorisation', 'failure', this.resourcePath, ctx));
@@ -112,7 +112,7 @@ class PaymentStatus extends Step {
     * updateCcdCasePaymentStatus(ctx, formdata) {
         const submitData = {};
         Object.assign(submitData, formdata);
-        let errors = [];
+        const errors = [];
         const updateCasePaymentStatusResult = yield services.updateCcdCasePaymentStatus(submitData, ctx);
         if (updateCasePaymentStatusResult.name === 'Error') {
             logger.error(`updateCaseResult Error = ${updateCasePaymentStatusResult}`);
@@ -123,7 +123,7 @@ class PaymentStatus extends Step {
             logger.info('Successfully updated payment status to caseState ' + updateCasePaymentStatusResult.ccdCase.state);
         }
 
-        return [updateCasePaymentStatusResult, errors];
+        return errors;
     }
 
     handleGet(ctx) {

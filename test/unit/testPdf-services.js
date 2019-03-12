@@ -12,11 +12,11 @@ describe('pdf-services', () => {
         let redirect_url;
         let sessionId;
         let formdata;
-        let servicesMock, utilsMock;
+        let servicesMock;
 
         beforeEach(() => {
             servicesMock = sinon.mock(services);
-            fetchBufferStub = sinon.stub(utils,'fetchBuffer');
+            fetchBufferStub = sinon.stub(utils, 'fetchBuffer');
             formdata = {
                 checkAnswersSummary: 'values'
             };

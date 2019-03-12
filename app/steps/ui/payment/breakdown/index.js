@@ -138,7 +138,7 @@ class PaymentBreakdown extends Step {
         }
         set(ctx, 'serviceAuthToken', serviceAuthResult);
         set(ctx, 'authToken', userToken);
-        return;
+
     }
 
     * sendToOrchestrationService(ctx, formdata, errors) {
