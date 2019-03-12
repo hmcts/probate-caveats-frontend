@@ -26,10 +26,6 @@ class PaymentBreakdown extends Step {
         ctx.paymentError = get(req, 'query.status');
         ctx.total = config.payment.applicationFee;
         ctx.applicationFee = config.payment.applicationFee;
-        if (req.param('status') === 'failure') {
-            ctx.errors = [];
-            ctx.errors.push(FieldError('status', 'failure', this.resourcePath, ctx));
-        }
         return ctx;
     }
 
@@ -150,6 +146,7 @@ class PaymentBreakdown extends Step {
         logger.info('sendToOrchestrationService result = ' + JSON.stringify(result));
         if (result.name === 'Error') {
             errors.push(FieldError('submit', 'failure', this.resourcePath, ctx));
+            return;
         }
 
         logger.info({tags: 'Analytics'}, 'Application Case Created');

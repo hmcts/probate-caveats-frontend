@@ -62,8 +62,5 @@ describe('summary', () => {
                     testWrapper.testRedirect(done, data, expectedNextUrlForThankYou);
                 });
         });
-
     });
-
-
 });
