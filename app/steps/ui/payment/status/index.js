@@ -7,6 +7,7 @@ const FieldError = require('app/components/error');
 const logger = require('app/components/logger')('Init');
 const RedirectRunner = require('app/core/runners/RedirectRunner');
 const {get, set} = require('lodash');
+const config = require('app/config');
 
 class PaymentStatus extends Step {
 
@@ -27,6 +28,9 @@ class PaymentStatus extends Step {
         ctx.regId = req.session.regId;
         ctx.sessionId = req.session.id;
         ctx.errors = req.errors;
+        ctx.telephone = config.serviceline.number;
+        ctx.email = config.serviceline.email;
+        ctx.hours = config.serviceline.hours;
         return ctx;
     }
 
@@ -39,6 +43,9 @@ class PaymentStatus extends Step {
         delete ctx.errors;
         delete ctx.paymentId;
         delete ctx.paymentDue;
+        delete ctx.telephone;
+        delete ctx.email;
+        delete ctx.hours;
         return [ctx, formdata];
     }
 

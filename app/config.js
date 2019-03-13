@@ -92,6 +92,11 @@ module.exports = {
         number: '0300 303 0648',
         hours: 'Monday to Friday, 9am to 5pm'
     },
+    serviceline: {
+        number: '0300 123 7050',
+        email: 'contactprobate@justice.gov.uk',
+        hours: 'Monday to Friday, 9am to 5pm'
+    },
     utils: {
         api: {
             retries: process.env.RETRIES_NUMBER || 10,

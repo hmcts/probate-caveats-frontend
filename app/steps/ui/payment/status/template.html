@@ -5,20 +5,15 @@
 {% endblock %}
 
 {% block form_content %}
-
-    {% if errors == undefined %}
-        {% if fields.paymentDue.value === 'true' %}
-        <p>{{content.paragraph | safe}}</p>
-        {% else %}
-        <p>{{content.paragraph2 | safe}}</p>
-        <p>{{content.paragraph3 | safe}}</p>
-        {% endif %}
-    {% endif %}
+    <p>{{content.paragraph | safe}}</p>
+    <p>{{content.telephone | safe}}</p>
+    <p>{{fields.telephone.value | safe}}</p>
+    <p>{{content.email | safe}}</p>
+    <p>{{fields.email.value | safe}}</p>
+    <p>{{content.hours | safe}}</p>
+    <p>{{fields.hours.value | safe}}</p>
     <div class="panel panel-border-wide">
         <p>{{content.callout | safe}}</p>
-    </div>
-    <div class="form-group">
-        <input class="button" type="submit" value="{{common.continue}}">
     </div>
 {% endblock %}
 {% block save_and_close %}{% endblock %}
