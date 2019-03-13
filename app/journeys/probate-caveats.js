@@ -20,7 +20,9 @@ const stepList = {
     RemoveAlias: 'DeceasedOtherNames',
     DeceasedOtherNames: 'DeceasedAddress',
     DeceasedAddress: 'Summary',
-    Summary: 'ThankYou',
+    Summary: 'PaymentBreakdown',
+    PaymentBreakdown: 'PaymentStatus',
+    PaymentStatus: 'ThankYou',
 
     AddressLookup: 'AddressLookup'
 };

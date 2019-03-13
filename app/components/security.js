@@ -11,12 +11,13 @@ const getUserToken = () => {
     return getOauth2Code()
         .then((result) => {
             checkForError(result);
-            return getOauth2Token(result.code)
-                .then((result) => {
-                    checkForError(result);
-                    return result.access_token;
-                });
-        });
+            return getOauth2Token(result.code);
+        })
+        .then((result) => {
+            checkForError(result);
+            return result.access_token;
+        })
+        .catch((err) => err);
 };
 
 const getOauth2Code = () => {

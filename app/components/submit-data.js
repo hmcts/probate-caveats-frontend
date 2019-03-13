@@ -49,8 +49,10 @@ const submitData = (ctx, formdata) => {
         body.registry.name = formdata.registry.name;
     }
 
-    if (formdata.payments) {
-        body.payments = formdata.payments;
+    if (formdata.payment) {
+        const payments = [];
+        payments.push(formdata.payment);
+        body.payments = payments;
     }
 
     return body;

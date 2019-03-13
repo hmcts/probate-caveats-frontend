@@ -1,0 +1,24 @@
+{% extends "includes/two_thirds_form.html" %}
+
+{% block question %}
+    <h1 class="form-title heading-large">{{content.question}}</h1>
+{% endblock %}
+
+{% block form_content %}
+
+    {% if errors == undefined %}
+        {% if fields.paymentDue.value === 'true' %}
+        <p>{{content.paragraph | safe}}</p>
+        {% else %}
+        <p>{{content.paragraph2 | safe}}</p>
+        <p>{{content.paragraph3 | safe}}</p>
+        {% endif %}
+    {% endif %}
+    <div class="panel panel-border-wide">
+        <p>{{content.callout | safe}}</p>
+    </div>
+    <div class="form-group">
+        <input class="button" type="submit" value="{{common.continue}}">
+    </div>
+{% endblock %}
+{% block save_and_close %}{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "includes/two_thirds_form.html" %}
+
+{% block form_content %}
+    <h1 class="heading-large">
+        {{ content.heading }}
+    </h1>
+    <table class="form-group">
+        <tbody>
+        <tr>
+            <td colspan="2">
+                <div class="grid-row column-two-thirds">
+                    <div class="bold-medium">{{ content.applicationFee | safe }}</div>
+                </div>
+            </td>
+            <td class="change-answer">
+                <div class="font-medium">&pound;{{ fields.applicationFee.value | safe }}</div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <div class="grid-row column-two-thirds">
+                    <div class="bold-medium">{{ content.total | safe }}</div>
+                </div>
+            </td>
+            <td>
+                <div class="font-medium">&pound;{{ fields.applicationFee.value }}</div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="form-group">
+        <input class="button" type="submit" value="{{ common.continue }}">
+    </div>
+{% endblock %}
+{% block save_and_close %}{% endblock %}

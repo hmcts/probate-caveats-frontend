@@ -5,12 +5,6 @@ const isEmpty = require('lodash').isEmpty;
 const FormatName = require('app/utils/FormatName');
 const CheckAnswersSummaryJSONObjectBuilder = require('app/utils/CheckAnswersSummaryJSONObjectBuilder');
 const checkAnswersSummaryJSONObjBuilder = new CheckAnswersSummaryJSONObjectBuilder();
-const {set} = require('lodash');
-const logger = require('app/components/logger')('Init');
-const FieldError = require('app/components/error');
-const services = require('app/components/services');
-const security = require('app/components/security');
-const config = require('app/config');
 
 class Summary extends Step {
 
@@ -53,37 +47,6 @@ class Summary extends Step {
         const formdata = res.req.session.form;
         formdata.checkAnswersSummary = checkAnswersSummaryJSONObjBuilder.build(html);
         res.send(html);
-    }
-
-    * handlePost(ctx, errors, formdata) {
-        const serviceAuth = yield services.authorise();
-        if (serviceAuth.name === 'Error') {
-            throw new Error(serviceAuth.message);
-        }
-        const userToken = yield security.getUserToken();
-
-        set(ctx, 'serviceAuthorization', serviceAuth);
-        set(ctx, 'token', userToken);
-        const result = yield this.sendToOrchestrationService(ctx, errors, formdata, config.payment.applicationFee);
-        set(formdata, 'ccdCase.id', result.ccdCase.id);
-        set(formdata, 'ccdCase.state', result.ccdCase.state);
-        set(formdata, 'registry.name', result.registry.name);
-        return [ctx, errors];
-    }
-
-    * sendToOrchestrationService(ctx, errors, formdata, total) {
-        set(formdata, 'payment.total', total);
-        const result = yield services.sendToOrchestrationService(formdata, ctx);
-        logger.info('sendToOrchestrationService result = ' + JSON.stringify(result));
-
-        if (result.name === 'Error' || result === 'DUPLICATE_SUBMISSION') {
-            const keyword = result === 'DUPLICATE_SUBMISSION' ? 'duplicate' : 'failure';
-            errors.push(FieldError('submit', keyword, this.resourcePath, ctx));
-        }
-
-        logger.info({tags: 'Analytics'}, 'Application Case Created');
-
-        return result;
     }
 
 }
