@@ -20,7 +20,7 @@ nodejs:
     SITE_ID: ${PRO_SITE_ID}
     CAVEAT_USER_EMAIL: ${CAVEAT_USER_EMAIL}
     CAVEAT_USER_PASSWORD: ${CAVEAT_USER_PASSWORD}
-    CAVEAT_REDIRECT_URL: https://probate-caveats-fe-aat-staging.service.core-compute-aat.internal/oauth2/callback
+    CAVEAT_REDIRECT_URL: https://probate-frontend-aat.service.core-compute-aat.internal/oauth2/callback/callback
     IDAM_API_URL: https://preprod-idamapi.reform.hmcts.net:3511
     IDAM_URL: https://preprod-idamapi.reform.hmcts.net:3511
     IDAM_LOGIN_URL: https://idam.preprod.ccidam.reform.hmcts.net/login
