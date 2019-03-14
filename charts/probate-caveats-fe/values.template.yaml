@@ -3,7 +3,7 @@ nodejs:
   environment:
     PUBLIC_PROTOCOL: https
     REFORM_TEAM: probate
-    REFORM_SERVICE_NAME: probate-caveats-frontend
+    REFORM_SERVICE_NAME: probate-frontend
     REFORM_ENVIRONMENT: aat
     USE_REDIS: true
     REDIS_USE_TLS: false
