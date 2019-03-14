@@ -3,7 +3,6 @@
 const Step = require('app/core/steps/Step');
 const services = require('app/components/services');
 const security = require('app/components/security');
-const FieldError = require('app/components/error');
 const logger = require('app/components/logger')('Init');
 const RedirectRunner = require('app/core/runners/RedirectRunner');
 const {get, set} = require('lodash');

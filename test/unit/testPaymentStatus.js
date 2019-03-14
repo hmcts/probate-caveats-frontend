@@ -4,7 +4,6 @@ const initSteps = require('app/core/initSteps');
 const expect = require('chai').expect;
 const steps = initSteps([`${__dirname}/../../app/steps/action/`, `${__dirname}/../../app/steps/ui`]);
 const PaymentStatus = steps.PaymentStatus;
-const he = require('he');
 
 describe('PaymentStatus', () => {
     describe('getUrl()', () => {
@@ -15,12 +14,4 @@ describe('PaymentStatus', () => {
         });
     });
 
-    describe('runnerOptions()', () => {
-        it('should redirect to thankyou page', (done) => {
-            const ctx = {};
-            const formdata = {};
-            const content = PaymentStatus.handleGet(ctx, formdata);
-            done();
-        });
-    });
 });
