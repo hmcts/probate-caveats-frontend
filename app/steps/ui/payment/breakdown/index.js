@@ -118,10 +118,6 @@ class PaymentBreakdown extends Step {
         return false;
     }
 
-    isComplete(ctx, formdata) {
-        return [['true', 'false'].includes(formdata.paymentPending), 'inProgress'];
-    }
-
     * setCtxWithSecurityTokens(ctx, errors) {
         const serviceAuthResult = yield services.authorise();
         if (serviceAuthResult.name === 'Error') {

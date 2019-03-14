@@ -50,10 +50,6 @@ class PaymentStatus extends Step {
         return [ctx, formdata];
     }
 
-    isComplete(ctx, formdata) {
-        return [typeof formdata.payment !== 'undefined' && formdata.ccdCase.state === 'CaveatRaised' && (formdata.payment.status === 'Success' || formdata.payment.status === 'not_required'), 'inProgress'];
-    }
-
     * runnerOptions(ctx, formdata) {
         const options = {};
         options.redirect = false;
