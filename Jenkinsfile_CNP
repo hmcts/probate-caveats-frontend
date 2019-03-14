@@ -6,7 +6,6 @@ import uk.gov.hmcts.contino.Kubectl
 import uk.gov.hmcts.contino.Consul
 
 String product = "probate"
-//String component = "caveats-fe"
 String component = "frontend"
 
 
