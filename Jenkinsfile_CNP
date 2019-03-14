@@ -6,7 +6,7 @@ import uk.gov.hmcts.contino.Kubectl
 import uk.gov.hmcts.contino.Consul
 
 String product = "probate"
-String component = "frontend"
+String component = "caveats-fe"
 
 
 List<LinkedHashMap<String, Object>> secrets = [
