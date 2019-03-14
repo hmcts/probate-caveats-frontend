@@ -23,7 +23,6 @@ class PaymentBreakdown extends Step {
         const ctx = super.getContextData(req);
         const formdata = req.session.form;
         ctx.deceasedLastName = get(formdata.deceased, 'lastName', '');
-        ctx.paymentError = get(req, 'query.status');
         ctx.total = config.payment.applicationFee;
         ctx.applicationFee = config.payment.applicationFee;
         return ctx;
@@ -155,7 +154,6 @@ class PaymentBreakdown extends Step {
 
     action(ctx, formdata) {
         super.action(ctx, formdata);
-        delete ctx.paymentError;
         delete ctx.deceasedLastName;
         delete ctx.applicationFee;
         delete ctx.serviceAuthToken;
