@@ -31,7 +31,7 @@ nodejs:
     PAYMENT_CREATE_URL: http://payment-api-aat.service.core-compute-aat.internal/card-payments
     VALIDATION_SERVICE_URL: http://probate-business-service-aat.service.core-compute-aat.internal/validate
     BUSINESS_DOCUMENT_URL: http://probate-business-service-aat.service.core-compute-aat.internal/businessDocument
-    SUBMIT_SERVICE_URL: http://probate-submit-service-aat.service.core-compute-aat.internal
+    SUBMIT_SERVICE_URL:
     PERSISTENCE_SERVICE_URL: http://probate-persistence-service-aat.service.core-compute-aat.internal/formdata
     FEES_REGISTRY_URL: http://fees-register-api-aat.service.core-compute-aat.internal/fees-register
 
