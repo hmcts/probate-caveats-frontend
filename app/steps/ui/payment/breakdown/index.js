@@ -7,6 +7,7 @@ const {get, set} = require('lodash');
 const logger = require('app/components/logger')('Init');
 const services = require('app/components/services');
 const security = require('app/components/security');
+const formatUrl = require('app/utils/FormatUrl');
 
 class PaymentBreakdown extends Step {
     static getUrl() {
@@ -25,6 +26,7 @@ class PaymentBreakdown extends Step {
         ctx.deceasedLastName = get(formdata.deceased, 'lastName', '');
         ctx.total = config.payment.applicationFee;
         ctx.applicationFee = config.payment.applicationFee;
+        ctx.hostname = formatUrl.createHostname(req);
         return ctx;
     }
 
@@ -125,7 +127,7 @@ class PaymentBreakdown extends Step {
             errors.push(FieldError('authorisation', 'failure', this.resourcePath, ctx));
             return;
         }
-        const userToken = yield security.getUserToken();
+        const userToken = yield security.getUserToken(ctx.hostname);
         if (userToken.name === 'Error') {
             logger.info(`userToken = ${userToken}`);
             errors.push(FieldError('authorisation', 'failure', this.resourcePath, ctx));
@@ -155,6 +157,7 @@ class PaymentBreakdown extends Step {
         delete ctx.serviceAuthToken;
         delete ctx.authToken;
         delete ctx.total;
+        delete ctx.hostname;
         return [ctx, formdata];
     }
 
