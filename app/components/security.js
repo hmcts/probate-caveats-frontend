@@ -10,8 +10,7 @@ const FormatUrl = require('app/utils/FormatUrl');
 const getUserToken = (hostname) => {
     logInfo('calling getUserToken to get code and token for user');
     const redirect_url = FormatUrl.format(hostname, config.services.idam.caveat_redirectUrl);
-
-    return getOauth2Code()
+    return getOauth2Code(redirect_url)
         .then((result) => {
             checkForError(result);
             return getOauth2Token(result.code, redirect_url);
