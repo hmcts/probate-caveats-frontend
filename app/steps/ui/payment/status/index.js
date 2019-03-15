@@ -8,6 +8,7 @@ const RedirectRunner = require('app/core/runners/RedirectRunner');
 const {get, set} = require('lodash');
 const config = require('app/config');
 const Thankyou = require('app/steps/ui/thankyou');
+const formatUrl = require('app/utils/FormatUrl');
 
 class PaymentStatus extends Step {
 
@@ -31,6 +32,7 @@ class PaymentStatus extends Step {
         ctx.telephone = config.serviceline.number;
         ctx.email = config.serviceline.email;
         ctx.hours = config.serviceline.hours;
+        ctx.hostname = formatUrl.createHostname(req);
         return ctx;
     }
 
@@ -46,6 +48,7 @@ class PaymentStatus extends Step {
         delete ctx.telephone;
         delete ctx.email;
         delete ctx.hours;
+        delete ctx.hostname;
         return [ctx, formdata];
     }
 
@@ -99,7 +102,7 @@ class PaymentStatus extends Step {
             logger.info(`serviceAuthResult Error = ${serviceAuthResult}`);
             return true;
         }
-        const userToken = yield security.getUserToken();
+        const userToken = yield security.getUserToken(ctx.hostname);
         if (userToken.name === 'Error') {
             logger.info(`userToken Error = ${userToken}`);
             return true;

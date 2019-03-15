@@ -2,10 +2,12 @@
 
 const commonContent = require('app/resources/en/translation/common');
 const pdfservices = require('app/components/pdf-services');
+const formatUrl = require('app/utils/FormatUrl');
 
 const downloadCheckAnswersPdf = (req, res) => {
     const formdata = req.session.form;
-    pdfservices.createCheckAnswersPdf(formdata, req.session.id)
+    const hostname = formatUrl.createHostname(req);
+    pdfservices.createCheckAnswersPdf(formdata, req.session.id, hostname)
         .then(result => {
             res.setHeader('Content-Type', 'application/pdf');
             res.setHeader('Content-disposition', 'attachment; filename=checkYourAnswers.pdf');
