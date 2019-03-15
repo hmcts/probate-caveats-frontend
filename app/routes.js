@@ -40,7 +40,7 @@ router.use(documentDownloads);
 router.use((req, res, next) => {
     const formdata = req.session.form;
     if (get(formdata, 'payment.status') === 'Success' && !isEqual(req.originalUrl, '/thankyou')) {
-        res.redirect('thankyou');
+        res.redirect('/thankyou');
     } else {
         next();
     }
