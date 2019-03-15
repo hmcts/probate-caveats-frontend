@@ -28,13 +28,16 @@ describe('paymentStatus', () => {
         securityMock.restore();
     });
 
-    testHelpBlockContent.runTest('PaymentStatus');
-
     describe('Verify Content, Errors and Redirection', () => {
 
         beforeEach(() => {
             servicesMock.expects('authorise').returns(Promise.resolve('authorised'));
             securityMock.expects('getUserToken').returns(Promise.resolve('token'));
+        });
+
+        it('test help block content', (done) => {
+            testHelpBlockContent.runTest('PaymentStatus');
+            done();
         });
 
         it('test right content loaded on the page', (done) => {

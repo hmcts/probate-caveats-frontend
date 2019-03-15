@@ -1,8 +1,8 @@
 {
-    "title": "Caveat - status",
+    "title": "Payment - status",
     "question": "Sorry, there is a problem with the service",
     "paragraph": "You need to contact the Probate Registry to complete your application.",
-    "telephone": "Telephone:",
-    "email": "Email:",
-    "hours": "Opening times:"
+    "telephone": "Telephone",
+    "email": "Email",
+    "hours": "Opening times"
 }
