@@ -1,7 +1,7 @@
 nodejs:
   environment:
     PAYMENT_CREATE_URL: http://payment-api-aat.service.core-compute-aat.internal/card-payments
-    ORCHESTRATION_SERVICE_URL: http://probate-orchestrator-service-aat.service.core-compute-aat.internal
+    ORCHESTRATION_SERVICE_URL: http://probate-orchestrator-service-pr-38.service.core-compute-preview.internal
     SERVICES_PERSISTENCE_BASEURL: http://probate-persistence-service-aat.service.core-compute-aat.internal
     SERVICES_NOTIFY_INVITEDATA_INVITELINK: http://probate-frontend-aat.service.core-compute-aat.internal/executors/invitation/
     SERVICES_PDF_SERVICE_URL: http://cmc-pdf-service-aat.service.core-compute-aat.internal
@@ -16,5 +16,5 @@ nodejs:
     IDAM_S2S_AUTH_URL: http://rpe-service-auth-provider-aat.service.core-compute-aat.internal
     VALIDATION_SERVICE_URL: http://probate-business-service-aat.service.core-compute-aat.internal/validate
     BUSINESS_DOCUMENT_URL: http://probate-business-service-aat.service.core-compute-aat.internal/businessDocument
-    SUBMIT_SERVICE_URL: http://probate-submit-service-aat.service.core-compute-aat.internal
+    SUBMIT_SERVICE_URL: http://probate-submit-service-pr-133.service.core-compute-preview.internal
     PERSISTENCE_SERVICE_URL: http://probate-persistence-service-aat.service.core-compute-aat.internal/formdata
