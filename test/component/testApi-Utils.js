@@ -1,6 +1,5 @@
 'use strict';
 
-const chai = require('chai');
 const expect = require('chai').expect;
 const utils = require('app/components/api-utils');
 const config = require('app/config');
@@ -16,7 +15,7 @@ describe('api-utils', () => {
             timeout: config.utils.api.timeout,
             headers: '[object Headers]',
             agent: null,
-            body: "{\"key\":\"data\"}"
+            body: '{"key":"data"}'
         };
 
         const data = {
