@@ -80,27 +80,15 @@ const fetchOptions = (data, method, headers, proxy) => {
         mode: 'cors',
         redirect: 'follow',
         follow: 10,
-        timeout: 10000,
-        body: JSON.stringify(data),
+        timeout: config.utils.api.timeout,
+        body: method === 'POST' ? JSON.stringify(data) : null,
         headers: new fetch.Headers(headers),
         agent: proxy ? new HttpsProxyAgent(proxy) : null
     };
 };
 
-const fetchNonBodyOptions = (method, headers, proxy) => {
-    return {
-        method: method,
-        mode: 'cors',
-        redirect: 'follow',
-        follow: 10,
-        timeout: 10000,
-        headers: new fetch.Headers(headers),
-        agent: proxy ? new HttpsProxyAgent(proxy) : null
-    };
-};
 module.exports = {
     fetchOptions: fetchOptions,
-    fetchNonBodyOptions: fetchNonBodyOptions,
     fetchJson: fetchJson,
     asyncFetch: asyncFetch,
     fetchText: fetchText,

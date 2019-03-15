@@ -25,11 +25,8 @@ const getUserToken = (hostname) => {
 const getOauth2Code = (redirect_url) => {
     logInfo('calling getOauth2Code to get code');
     const client_id = config.services.idam.probate_oauth2_client;
-    logInfo('client_id:' + client_id + ':');
     const idam_api_url = config.services.idam.apiUrl;
-    logInfo('idam_api_url:' + idam_api_url + ':');
     const redirect_uri = redirect_url;
-    logInfo('redirect_url:' + redirect_url + ':');
     const username = config.services.idam.caveat_user_email;
     const userpassword = config.services.idam.caveat_user_password;
     const headers = {

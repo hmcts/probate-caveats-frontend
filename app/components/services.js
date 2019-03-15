@@ -85,7 +85,7 @@ const findPayment = (data) => {
         'Authorization': data.authToken,
         'ServiceAuthorization': data.serviceAuthToken
     };
-    const fetchOptions = utils.fetchNonBodyOptions('GET', headers);
+    const fetchOptions = utils.fetchOptions({},'GET', headers);
     const findPaymentUrl = `${CREATE_PAYMENT_SERVICE_URL}/${data.paymentId}`;
     return utils.fetchJson(findPaymentUrl, fetchOptions);
 };

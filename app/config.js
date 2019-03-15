@@ -99,7 +99,8 @@ module.exports = {
     utils: {
         api: {
             retries: process.env.RETRIES_NUMBER || 10,
-            retryDelay: process.env.RETRY_DELAY || 1000
+            retryDelay: process.env.RETRY_DELAY || 1000,
+            timeout: 30000
         }
     },
     payment: {
