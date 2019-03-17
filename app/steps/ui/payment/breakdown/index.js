@@ -35,6 +35,9 @@ class PaymentBreakdown extends Step {
     }
 
     * handlePost(ctx, errors, formdata, session, hostname) {
+        // this is required since this page is re-entrant for failues on /payment-status
+        this.nextStepUrl = () => this.next(ctx).constructor.getUrl();
+
         set(formdata, 'payment.total', ctx.total);
 
         // Setup security tokens
@@ -70,10 +73,13 @@ class PaymentBreakdown extends Step {
                 errors.push(FieldError('payment', 'failure', this.resourcePath, ctx));
                 return [ctx, errors];
             }
+            if (paymentResponse.status === 'Success') {
+                return [ctx, errors];
+            }
         }
 
-        // If payment doesn't exist or existing payment has to be recreated
-        if (!paymentId || paymentResponse.status !== 'Success') {
+        // Does payment have to be recreated
+        if (!paymentId || !this.paymentContainsNextUrl(paymentResponse)) {
             const ccdCaseId = get(formdata.ccdCase, 'id');
             const data = {
                 amount: parseFloat(ctx.total),
@@ -101,18 +107,15 @@ class PaymentBreakdown extends Step {
         set(ctx, 'status', paymentResponse.status);
 
         // Decide to send to Gov.pay or simply forward to /payment-status
-        if (paymentResponse.status !== 'Success' && this.paymentContainsNextUrl(paymentResponse)) {
+        if (this.paymentContainsNextUrl(paymentResponse)) {
             this.nextStepUrl = () => paymentResponse._links.next_url.href;
-        } else {
-            // this is required since this page is re-entrant for failues on /payment-status
-            this.nextStepUrl = () => this.next(ctx).constructor.getUrl();
         }
 
         logger.info('nextStepUrl is: ' + this.nextStepUrl(ctx));
         return [ctx, errors];
     }
 
-    // indicates that payment needs to be sent to Gov.Pay
+    // indicates that payment needs to be sent or re-sent to Gov.Pay
     paymentContainsNextUrl(paymentResponse) {
         if (paymentResponse._links.next_url) {
             return true;
