@@ -10,7 +10,7 @@ deployment_env = "preprod"
 feature_toggles_api_url = "http://rpe-feature-toggle-api-demo.service.core-compute-demo.internal"
 
 idam_service_api = "http://rpe-service-auth-provider-demo.service.core-compute-demo.internal"
-idam_user_host = "http://betaPreProdccidamAppLB.reform.hmcts.net:4501"
+idam_user_host = "https://preprod-idamapi.reform.hmcts.net:3511"
 
 packages_environment = "preprod"
 packages_version = "3.0.0"
