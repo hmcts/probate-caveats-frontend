@@ -16,6 +16,7 @@ packages_environment = "test"
 packages_version = "3.0.0"
 
 payment_create_url = "https://test.payments.reform.hmcts.net:4421/users/userId/payments"
+orchestration_service_url = "https://probate-orchestrator-service-sandbox.service.core-compute-sandbox.internal"
 
 probate_deployment_env = "test"
 

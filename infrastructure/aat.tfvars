@@ -17,6 +17,7 @@ packages_environment = "preprod"
 packages_version = "3.0.0"
 
 payment_create_url = "https://preprod.payments.reform.hmcts.net:4401/users/userId/payments"
+orchestration_service_url = "https://probate-orchestrator-service-aat.service.core-compute-aat.internal"
 
 probate_deployment_env = "test"
 
