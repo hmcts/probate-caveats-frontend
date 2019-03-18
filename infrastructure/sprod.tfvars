@@ -10,7 +10,7 @@ deployment_env = "test"
 feature_toggles_api_url = "http://rpe-feature-toggle-api-sprod.service.core-compute-sprod.internal"
 
 idam_service_api = "http://rpe-service-auth-provider-sprod.service.core-compute-sprod.internal"
-idam_user_host = "http://betaDevBccidamAppLB.reform.hmcts.net"
+idam_user_host = "https://preprod-idamapi.reform.hmcts.net:3511"
 
 packages_environment = "test"
 packages_version = "3.0.0"
