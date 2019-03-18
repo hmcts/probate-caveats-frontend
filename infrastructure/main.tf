@@ -93,7 +93,7 @@ data "azurerm_key_vault_secret" "s2s_key" {
   vault_uri = "https://s2s-${local.localenv}.vault.azure.net/"
 }
 
-data "azurerm_key_vault_secret" "caveat_user_email" {
+data "azurerm_key_vault_secret" "caveat_user_name" {
   name      = "caveat-user-name"
   vault_uri = "${data.azurerm_key_vault.probate_key_vault.vault_uri}"
 }
