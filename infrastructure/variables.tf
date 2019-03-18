@@ -198,7 +198,7 @@ variable "website_local_cache_sizeinmb" {
   default = "0"
 }
 
-variable "caveat_user_email" {
+variable "caveat_user_name" {
   type = "string"
 }
 
