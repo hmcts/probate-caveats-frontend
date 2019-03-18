@@ -7,6 +7,7 @@ const {get, set} = require('lodash');
 const logger = require('app/components/logger')('Init');
 const services = require('app/components/services');
 const security = require('app/components/security');
+const formatUrl = require('app/utils/FormatUrl');
 
 class PaymentBreakdown extends Step {
     static getUrl() {
@@ -23,9 +24,9 @@ class PaymentBreakdown extends Step {
         const ctx = super.getContextData(req);
         const formdata = req.session.form;
         ctx.deceasedLastName = get(formdata.deceased, 'lastName', '');
-        ctx.paymentError = get(req, 'query.status');
         ctx.total = config.payment.applicationFee;
         ctx.applicationFee = config.payment.applicationFee;
+        ctx.hostname = formatUrl.createHostname(req);
         return ctx;
     }
 
@@ -34,6 +35,9 @@ class PaymentBreakdown extends Step {
     }
 
     * handlePost(ctx, errors, formdata, session, hostname) {
+        // this is required since this page is re-entrant for failues on /payment-status
+        this.nextStepUrl = () => this.next(ctx).constructor.getUrl();
+
         set(formdata, 'payment.total', ctx.total);
 
         // Setup security tokens
@@ -69,10 +73,13 @@ class PaymentBreakdown extends Step {
                 errors.push(FieldError('payment', 'failure', this.resourcePath, ctx));
                 return [ctx, errors];
             }
+            if (paymentResponse.status === 'Success') {
+                return [ctx, errors];
+            }
         }
 
-        // If payment doesn't exist or existing payment has to be recreated
-        if (!paymentId || paymentResponse.status !== 'Success') {
+        // Does payment have to be recreated
+        if (!paymentId || !this.paymentContainsNextUrl(paymentResponse)) {
             const ccdCaseId = get(formdata.ccdCase, 'id');
             const data = {
                 amount: parseFloat(ctx.total),
@@ -100,27 +107,20 @@ class PaymentBreakdown extends Step {
         set(ctx, 'status', paymentResponse.status);
 
         // Decide to send to Gov.pay or simply forward to /payment-status
-        if (paymentResponse.status !== 'Success' && this.paymentContainsNextUrl(paymentResponse)) {
+        if (this.paymentContainsNextUrl(paymentResponse)) {
             this.nextStepUrl = () => paymentResponse._links.next_url.href;
-        } else {
-            // this is required since this page is re-entrant for failues on /payment-status
-            this.nextStepUrl = () => this.next(ctx).constructor.getUrl();
         }
 
         logger.info('nextStepUrl is: ' + this.nextStepUrl(ctx));
         return [ctx, errors];
     }
 
-    // indicates that payment needs to be sent to Gov.Pay
+    // indicates that payment needs to be sent or re-sent to Gov.Pay
     paymentContainsNextUrl(paymentResponse) {
         if (paymentResponse._links.next_url) {
             return true;
         }
         return false;
-    }
-
-    isComplete(ctx, formdata) {
-        return [['true', 'false'].includes(formdata.paymentPending), 'inProgress'];
     }
 
     * setCtxWithSecurityTokens(ctx, errors) {
@@ -130,7 +130,7 @@ class PaymentBreakdown extends Step {
             errors.push(FieldError('authorisation', 'failure', this.resourcePath, ctx));
             return;
         }
-        const userToken = yield security.getUserToken();
+        const userToken = yield security.getUserToken(ctx.hostname);
         if (userToken.name === 'Error') {
             logger.info(`userToken = ${userToken}`);
             errors.push(FieldError('authorisation', 'failure', this.resourcePath, ctx));
@@ -155,12 +155,12 @@ class PaymentBreakdown extends Step {
 
     action(ctx, formdata) {
         super.action(ctx, formdata);
-        delete ctx.paymentError;
         delete ctx.deceasedLastName;
         delete ctx.applicationFee;
         delete ctx.serviceAuthToken;
         delete ctx.authToken;
         delete ctx.total;
+        delete ctx.hostname;
         return [ctx, formdata];
     }
 

@@ -5,20 +5,9 @@
 {% endblock %}
 
 {% block form_content %}
-
-    {% if errors == undefined %}
-        {% if fields.paymentDue.value === 'true' %}
-        <p>{{content.paragraph | safe}}</p>
-        {% else %}
-        <p>{{content.paragraph2 | safe}}</p>
-        <p>{{content.paragraph3 | safe}}</p>
-        {% endif %}
-    {% endif %}
-    <div class="panel panel-border-wide">
-        <p>{{content.callout | safe}}</p>
-    </div>
-    <div class="form-group">
-        <input class="button" type="submit" value="{{common.continue}}">
-    </div>
+    <p>{{content.paragraph}}</p>
+    <p>{{content.telephone}}:<br>{{fields.telephone.value}}</p>
+    <p>{{content.email}}:<br><a href="mailto: {{fields.email.value}}">{{fields.email.value}}</a></p>
+    <p>{{content.hours}}:<br>{{fields.hours.value}}</p>
 {% endblock %}
 {% block save_and_close %}{% endblock %}

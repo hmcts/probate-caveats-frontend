@@ -4,6 +4,7 @@ const config = require('app/config');
 const router = require('express').Router();
 const initSteps = require('app/core/initSteps');
 const logger = require('app/components/logger');
+const {get, isEqual} = require('lodash');
 const documentDownloads = require('app/documentDownloads');
 
 router.all('*', (req, res, next) => {
@@ -35,6 +36,15 @@ router.use((req, res, next) => {
 });
 
 router.use(documentDownloads);
+
+router.use((req, res, next) => {
+    const formdata = req.session.form;
+    if (get(formdata, 'payment.status') === 'Success' && !isEqual(req.originalUrl, '/thankyou')) {
+        res.redirect('/thankyou');
+    } else {
+        next();
+    }
+});
 
 const steps = initSteps([`${__dirname}/steps/action/`, `${__dirname}/steps/ui/`]);
 

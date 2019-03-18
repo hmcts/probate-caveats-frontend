@@ -37,10 +37,9 @@ module.exports = {
             service_key: process.env.IDAM_SERVICE_KEY || 'AAAAAAAAAAAAAAAA',
             probate_oauth2_client: 'probate',
             probate_oauth2_secret: process.env.IDAM_API_OAUTH2_CLIENT_CLIENT_SECRETS_PROBATE || '123456',
-            probate_oauth_callback_path: '/oauth2/callback',
             caveat_user_email: process.env.CAVEAT_USER_EMAIL || 'testusername1@test.com',
             caveat_user_password: process.env.CAVEAT_USER_PASSWORD || 'password',
-            caveat_redirectUrl: process.env.CAVEAT_REDIRECT_URL || 'http://localhost:3451/oauth2/callback'
+            caveat_redirectUrl: '/oauth2/callback'
         },
         payment: {
             createPaymentUrl: process.env.PAYMENT_CREATE_URL || 'http://localhost:8383/card-payments',
@@ -92,10 +91,16 @@ module.exports = {
         number: '0300 303 0648',
         hours: 'Monday to Friday, 9am to 5pm'
     },
+    serviceline: {
+        number: '0300 123 7050',
+        email: 'contactprobate@justice.gov.uk',
+        hours: 'Monday to Friday, 9am to 5pm'
+    },
     utils: {
         api: {
             retries: process.env.RETRIES_NUMBER || 10,
-            retryDelay: process.env.RETRY_DELAY || 1000
+            retryDelay: process.env.RETRY_DELAY || 1000,
+            timeout: 30000
         }
     },
     payment: {

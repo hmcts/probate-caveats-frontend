@@ -19,7 +19,8 @@ describe('getCheckAnswersPdf', () => {
                 },
                 log: {
                     error: sinon.spy()
-                }
+                },
+                get: sinon.spy()
             };
             res = {
                 render: sinon.spy(),

@@ -8,6 +8,7 @@ const sinon = require('sinon');
 const TestWrapper = require('test/util/TestWrapper');
 const services = require('app/components/services');
 const security = require('app/components/security');
+const testHelpBlockContent = require('test/component/common/testHelpBlockContent');
 
 describe('paymentStatus', () => {
     let testWrapper;
@@ -28,47 +29,155 @@ describe('paymentStatus', () => {
     });
 
     describe('Verify Content, Errors and Redirection', () => {
-        //testHelpBlockContent.runTest('PaymentStatus');
 
-        it.skip('test right content loaded on the page', (done) => {
+        beforeEach(() => {
+            servicesMock.expects('authorise').returns(Promise.resolve('authorised'));
+            securityMock.expects('getUserToken').returns(Promise.resolve('token'));
+        });
+
+        it('test help block content', (done) => {
+            testHelpBlockContent.runTest('PaymentStatus');
+            done();
+        });
+
+        it('test right content loaded on the page', (done) => {
             testWrapper.testContent(done, []);
         });
 
-        it.skip(`test it redirects to ${expectedNextUrlForPaymentBreakdown} page when security failure`, (done) => {
-            servicesMock.expects('authorise').returns(Promise.resolve({
-                name: 'Error',
-                message: 'Unable to find service'
-            }));
-
-            const data = {};
-            testWrapper.agent.post('/prepare-session/form')
-                .send()
-                .end((err) => {
-                    if (err) {
-                        throw err;
-                    }
-                    testWrapper.testRedirect(done, data, 'payment_url');
-                });
-        });
-
-        it(`test it redirects to ${expectedNextUrlForThankYou} when payment status is 'Success'`, (done) => {
+        it(`test it redirects to ${expectedNextUrlForPaymentBreakdown} page when payment status is failed`, (done) => {
             servicesMock.expects('findPayment').returns(Promise.resolve({
-                status: 'Success'
-            }
-            ));
+                status: 'Failed'
+            }));
+            servicesMock.expects('updateCcdCasePaymentStatus').returns(Promise.resolve({
+                ccdCase: {
+                    state: 'Success'
+                }
+            }));
             const data = {};
             testWrapper.agent.post('/prepare-session/form')
                 .send({
                     payment: {
                         paymentId: '12345',
-                        status: 'success'
+                        status: 'initiated'
                     }
                 })
                 .end((err) => {
                     if (err) {
                         throw err;
                     }
-                    testWrapper.testRedirect(done, data, expectedNextUrlForThankYou);
+                    testWrapper.testGetRedirect(done, data, expectedNextUrlForPaymentBreakdown);
+                });
+        });
+
+        it(`test it redirects to ${expectedNextUrlForThankYou} when payment status is 'Success'`, (done) => {
+            servicesMock.expects('findPayment').returns(Promise.resolve({
+                status: 'Success'
+            }));
+            servicesMock.expects('updateCcdCasePaymentStatus').returns(Promise.resolve({
+                ccdCase: {
+                    state: 'Success'
+                }
+            }));
+            const data = {};
+            testWrapper.agent.post('/prepare-session/form')
+                .send({
+                    payment: {
+                        paymentId: '12345',
+                        status: 'initiated'
+                    }
+                })
+                .end((err) => {
+                    if (err) {
+                        throw err;
+                    }
+                    testWrapper.testGetRedirect(done, data, expectedNextUrlForThankYou);
+                });
+        });
+    });
+
+    describe('Verify handling of failed apis', () => {
+
+        it('Test failure of authorise api call', (done) => {
+            servicesMock.expects('authorise').returns(Promise.resolve({
+                name: 'Error'
+            }));
+            testWrapper.agent.post('/prepare-session/form')
+                .send({
+                    payment: {
+                        paymentId: '12345',
+                        status: 'initiated'
+                    }
+                })
+                .end((err) => {
+                    if (err) {
+                        throw err;
+                    }
+                    testWrapper.testContent(done, []);
+                });
+        });
+
+        it('Test failure of getUserToken api call', (done) => {
+            servicesMock.expects('authorise').returns(Promise.resolve('authorised'));
+            securityMock.expects('getUserToken').returns(Promise.resolve({
+                name: 'Error'
+            }));
+            testWrapper.agent.post('/prepare-session/form')
+                .send({
+                    payment: {
+                        paymentId: '12345',
+                        status: 'initiated'
+                    }
+                })
+                .end((err) => {
+                    if (err) {
+                        throw err;
+                    }
+                    testWrapper.testContent(done, []);
+                });
+        });
+
+        it('Test failure of findPayment api call', (done) => {
+            servicesMock.expects('authorise').returns(Promise.resolve('authorised'));
+            securityMock.expects('getUserToken').returns(Promise.resolve('token'));
+            servicesMock.expects('findPayment').returns(Promise.resolve({
+                name: 'Error'
+            }));
+            testWrapper.agent.post('/prepare-session/form')
+                .send({
+                    payment: {
+                        paymentId: '12345',
+                        status: 'initiated'
+                    }
+                })
+                .end((err) => {
+                    if (err) {
+                        throw err;
+                    }
+                    testWrapper.testContent(done, []);
+                });
+        });
+
+        it('Test failure of updateCcdCasePaymentStatus api call', (done) => {
+            servicesMock.expects('authorise').returns(Promise.resolve('authorised'));
+            securityMock.expects('getUserToken').returns(Promise.resolve('token'));
+            servicesMock.expects('findPayment').returns(Promise.resolve({
+                status: 'Success'
+            }));
+            servicesMock.expects('updateCcdCasePaymentStatus').returns(Promise.resolve({
+                name: 'Error'
+            }));
+            testWrapper.agent.post('/prepare-session/form')
+                .send({
+                    payment: {
+                        paymentId: '12345',
+                        status: 'initiated'
+                    }
+                })
+                .end((err) => {
+                    if (err) {
+                        throw err;
+                    }
+                    testWrapper.testContent(done, []);
                 });
         });
     });
