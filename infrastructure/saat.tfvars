@@ -10,7 +10,7 @@ deployment_env = "test"
 feature_toggles_api_url = "http://rpe-feature-toggle-api-demo.service.core-compute-demo.internal"
 
 idam_service_api = "http://rpe-service-auth-provider-saat.service.core-compute-saat.internal"
-idam_user_host = "http://betaDevBccidamAppLB.reform.hmcts.net"
+idam_user_host = "https://preprod-idamapi.reform.hmcts.net:3511"
 
 packages_environment = "test"
 packages_version = "3.0.0"
