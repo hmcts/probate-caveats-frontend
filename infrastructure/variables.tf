@@ -197,3 +197,7 @@ variable "website_local_cache_sizeinmb" {
   type = "string"
   default = "0"
 }
+
+variable "orchestration_service_url" {
+    type = "string"
+}
