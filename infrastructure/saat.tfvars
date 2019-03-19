@@ -16,7 +16,7 @@ packages_environment = "test"
 packages_version = "3.0.0"
 
 payment_create_url = "http://payment-api-saat.service.core-compute-saat.internal/card-payments"
-orchestration_service_url = "https://probate-orchestrator-service-saat.service.core-compute-saat.internal"
+orchestration_service_url = "http://probate-orchestrator-service-saat.service.core-compute-saat.internal"
 
 probate_deployment_env = "test"
 

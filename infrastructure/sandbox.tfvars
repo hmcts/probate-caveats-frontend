@@ -16,7 +16,7 @@ packages_environment = "test"
 packages_version = "3.0.0"
 
 payment_create_url = "http://payment-api-sandbox.service.core-compute-sandbox.internal/card-payments"
-orchestration_service_url = "https://probate-orchestrator-service-sandbox.service.core-compute-sandbox.internal"
+orchestration_service_url = "http://probate-orchestrator-service-sandbox.service.core-compute-sandbox.internal"
 
 probate_deployment_env = "test"
 
