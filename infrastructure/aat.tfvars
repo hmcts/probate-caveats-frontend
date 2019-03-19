@@ -21,7 +21,7 @@ orchestration_service_url = "https://probate-orchestrator-service-aat.service.co
 
 probate_deployment_env = "test"
 
-probate_frontend_https = "true"
+probate_frontend_https = "false"
 probate_frontend_port = "3101"
 probate_frontend_use_auth = "false"
 probate_frontend_use_idam = "false"
