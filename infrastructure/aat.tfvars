@@ -17,7 +17,7 @@ packages_environment = "preprod"
 packages_version = "3.0.0"
 
 payment_create_url = "http://payment-api-aat.service.core-compute-aat.internal/card-payments"
-orchestration_service_url = "https://probate-orchestrator-service-aat.service.core-compute-aat.internal"
+orchestration_service_url = "http://probate-orchestrator-service-aat.service.core-compute-aat.internal"
 
 probate_deployment_env = "test"
 
