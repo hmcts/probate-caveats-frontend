@@ -17,7 +17,7 @@ packages_version = "3.0.0"
 
 probate_deployment_env = "test"
 
-probate_frontend_https = "true"
+probate_frontend_https = "false"
 probate_frontend_use_auth = "false"
 probate_frontend_port = "3101"
 probate_frontend_use_idam = "true"
@@ -26,7 +26,8 @@ probate_frontend_use_redis = "true"
 probate_google_track_id = "UA-93598808-1"
 probate_private_beta_auth_url = "https://idam.preprod.ccidam.reform.hmcts.net/login"
 
-payment_create_url = "https://preprod.payments.reform.hmcts.net:4401/users/userId/payments"
+payment_create_url = "http://payment-api-demo.service.core-compute-demo.internal/card-payments"
+orchestration_service_url = "http://probate-orchestrator-service-demo.service.core-compute-demo.internal"
 
 reform_envirionment_for_test = "demo"
 

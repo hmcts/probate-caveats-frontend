@@ -15,7 +15,8 @@ idam_user_host = "https://preprod-idamapi.reform.hmcts.net:3511"
 packages_environment = "test"
 packages_version = "3.0.0"
 
-payment_create_url = "https://test.payments.reform.hmcts.net:4421/users/userId/payments"
+payment_create_url = "http://payment-api-saat.service.core-compute-saat.internal/card-payments"
+orchestration_service_url = "https://probate-orchestrator-service-saat.service.core-compute-saat.internal"
 
 probate_deployment_env = "test"
 
