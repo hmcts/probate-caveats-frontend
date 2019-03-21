@@ -116,5 +116,6 @@ module.exports = {
     healthEndpoint: '/health',
     appInsights: {
         instrumentationKey: process.env.APPINSIGHTS_INSTRUMENTATION_KEY
-    }
+    },
+    whitelistedPagesForStartPageRedirect: ['/start-page', '/applicant-name']
 };

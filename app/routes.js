@@ -4,7 +4,7 @@ const config = require('app/config');
 const router = require('express').Router();
 const initSteps = require('app/core/initSteps');
 const logger = require('app/components/logger');
-const {get, isEqual} = require('lodash');
+const {get, includes, isEqual} = require('lodash');
 const documentDownloads = require('app/documentDownloads');
 const lockPaymentAttempt = require('app/middleware/lockPaymentAttempt');
 const uuidv4 = require('uuid/v4');
@@ -46,6 +46,16 @@ router.use((req, res, next) => {
     const formdata = req.session.form;
     if (get(formdata, 'payment.status') === 'Success' && !isEqual(req.originalUrl, '/thankyou')) {
         res.redirect('/thankyou');
+    } else {
+        next();
+    }
+});
+
+router.get('/*', (req, res, next) => {
+    const formdata = req.session.form;
+    if (!includes(config.whitelistedPagesForStartPageRedirect, req.originalUrl) &&
+        !get(formdata, 'applicant')) {
+        res.redirect('/start-page');
     } else {
         next();
     }
