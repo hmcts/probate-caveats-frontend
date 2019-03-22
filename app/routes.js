@@ -6,6 +6,7 @@ const initSteps = require('app/core/initSteps');
 const logger = require('app/components/logger');
 const {get, isEqual} = require('lodash');
 const documentDownloads = require('app/documentDownloads');
+const uuidv4 = require('uuid/v4');
 
 router.all('*', (req, res, next) => {
     req.log = logger(req.sessionID);
@@ -17,7 +18,7 @@ router.use((req, res, next) => {
     if (!req.session.form) {
         req.session.form = {
             payloadVersion: config.payloadVersion,
-            applicationId: req.session.regId
+            applicationId: uuidv4()
         };
         req.session.back = [];
     }

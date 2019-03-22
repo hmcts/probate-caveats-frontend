@@ -2,6 +2,7 @@
 
 const UIStepRunner = require('app/core/runners/UIStepRunner');
 const co = require('co');
+const uuidv4 = require('uuid');
 
 class RedirectRunner extends UIStepRunner {
 
@@ -13,7 +14,7 @@ class RedirectRunner extends UIStepRunner {
 
             if (!req.session.form.applicationId) {
                 req.log.error('req.session.form.applicationId does not exist');
-                req.session.form.applicationId = req.session.regId;
+                req.session.form.applicationId = uuidv4();
             }
 
             const options = yield step.runnerOptions(ctx, req.session.form);
