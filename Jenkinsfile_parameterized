@@ -1,5 +1,5 @@
 #!groovy
-//noinspection GroovyUnusedAssignment
+////noinspection GroovyUnusedAssignment
 @Library("Infrastructure") _
 import uk.gov.hmcts.contino.Kubectl
 
