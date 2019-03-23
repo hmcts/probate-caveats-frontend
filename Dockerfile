@@ -28,3 +28,4 @@ COPY --from=build ${WORKDIR}/server.js ${WORKDIR}/app.js ${WORKDIR}/git.properti
 EXPOSE 3000
 CMD ["yarn", "start" ]
 CMD ["/usr/local/bin/npm", "install", "-g", "traffic-light" ]
+CMD ["traffic-light", "--port", "4000"]
