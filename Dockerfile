@@ -19,7 +19,6 @@ COPY . ./
 RUN yarn install \
     && yarn setup \
     && rm -rf /opt/app/.git
-RUN ["/usr/local/bin/npm", "install", "-g", "traffic-light" ]
 
 # ---- Runtime image ----
 FROM base as runtime
