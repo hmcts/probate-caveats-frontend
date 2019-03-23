@@ -19,6 +19,7 @@ COPY . ./
 RUN yarn install \
     && yarn setup \
     && rm -rf /opt/app/.git
+RUN ["/usr/local/bin/npm", "install", "-g", "traffic-light" ]
 
 # ---- Runtime image ----
 FROM base as runtime
@@ -27,5 +28,4 @@ COPY --from=build ${WORKDIR}/public public/
 COPY --from=build ${WORKDIR}/server.js ${WORKDIR}/app.js ${WORKDIR}/git.properties.json ./
 EXPOSE 3000
 CMD ["yarn", "start" ]
-RUN ["/usr/local/bin/npm", "install", "-g", "traffic-light" ]
-RUN "traffic-light --port 4000"
+#RUN "traffic-light --port 4000"
