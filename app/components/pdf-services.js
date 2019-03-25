@@ -25,7 +25,7 @@ function createPDFDocument(formdata, serviceToken, body, hostname) {
         .then((usertoken) => {
             const headers = {
                 'Content-Type': 'application/businessdocument+json',
-                'Session-Id': formdata.applicantEmail,
+                'Session-Id': formdata.applicationId,
                 'Authorization': usertoken,
                 'ServiceAuthorization': serviceToken
             };

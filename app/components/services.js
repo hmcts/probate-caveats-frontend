@@ -49,7 +49,7 @@ const sendToOrchestrationService = (data, ctx) => {
     };
     const body = submitData(ctx, data);
     const fetchOptions = utils.fetchOptions(body, 'POST', headers);
-    return utils.fetchJson(`${ORCHESTRATION_SERVICE_URL}/forms/${data.applicant.email}/submissions`, fetchOptions);
+    return utils.fetchJson(`${ORCHESTRATION_SERVICE_URL}/forms/${data.applicationId}/submissions`, fetchOptions);
 };
 
 const updateCcdCasePaymentStatus = (data, ctx) => {
@@ -62,7 +62,7 @@ const updateCcdCasePaymentStatus = (data, ctx) => {
     };
     const body = submitData(ctx, data);
     const fetchOptions = utils.fetchOptions(body, 'POST', headers);
-    return utils.fetchJson(`${ORCHESTRATION_SERVICE_URL}/forms/${data.applicant.email}/payments`, fetchOptions);
+    return utils.fetchJson(`${ORCHESTRATION_SERVICE_URL}/forms/${data.applicationId}/payments`, fetchOptions);
 };
 
 const createPayment = (data, hostname) => {
