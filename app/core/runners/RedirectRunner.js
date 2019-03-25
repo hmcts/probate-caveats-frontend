@@ -2,7 +2,7 @@
 
 const UIStepRunner = require('app/core/runners/UIStepRunner');
 const co = require('co');
-const uuidv4 = require('uuid');
+const uuidv4 = require('uuid/v4');
 
 class RedirectRunner extends UIStepRunner {
 
