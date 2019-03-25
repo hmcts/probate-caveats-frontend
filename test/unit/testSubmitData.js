@@ -17,7 +17,7 @@ describe('submitData/index.js', () => {
                 'freeTextAddress': 'dddd',
                 'address': 'dddd'
             },
-            applicationId : 'zq1675whyui',
+            applicationId: 'zq1675whyui',
             ccdCase: {
                 'id': 1535574519543819,
                 'state': 'CaseCreated'
@@ -68,7 +68,7 @@ describe('submitData/index.js', () => {
                 'email': 'blah@gmail.com',
                 'address': 'aaaa'
             },
-            applicationId : 'zq1675whyui',
+            applicationId: 'zq1675whyui',
             deceased: {
                 'firstName': 'Mike',
                 'lastName': 'Samuels',
