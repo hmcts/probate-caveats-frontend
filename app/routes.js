@@ -6,6 +6,7 @@ const initSteps = require('app/core/initSteps');
 const logger = require('app/components/logger');
 const {get, isEqual} = require('lodash');
 const documentDownloads = require('app/documentDownloads');
+const lockPaymentAttempt = require('app/middleware/lockPaymentAttempt');
 const uuidv4 = require('uuid/v4');
 
 router.all('*', (req, res, next) => {
@@ -38,20 +39,7 @@ router.use((req, res, next) => {
 
 router.use(documentDownloads);
 
-router.post('/payment-breakdown', (req, res, next) => {
-    const session = req.session;
-    const applicationId = session.form.applicationId;
-    if (session.paymentLock === 'Locked') {
-        req.log.info('Ignoring 2nd attempt for: ' + applicationId);
-        res.sendStatus(204);
-    } else {
-        req.log.info('Locking payment: ' + applicationId);
-        session.paymentLock = 'Locked';
-        req.session.save();
-        next();
-    }
-
-});
+router.post('/payment-breakdown', lockPaymentAttempt);
 
 router.use((req, res, next) => {
     const formdata = req.session.form;
