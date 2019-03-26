@@ -30,9 +30,6 @@ describe('paymentStatus', () => {
 
     describe('Verify Content, Errors and Redirection', () => {
 
-        beforeEach(() => {
-        });
-
         it('test help block content', (done) => {
             testHelpBlockContent.runTest('PaymentStatus');
             done();

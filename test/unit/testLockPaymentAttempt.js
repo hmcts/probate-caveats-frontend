@@ -25,9 +25,6 @@ describe('lockPaymentAttempt', () => {
         next = sinon.stub();
     });
 
-    afterEach(() => {
-    });
-
     it('should allow first lock attempt on applicationId to succeed', (done) => {
         lockPaymentAttempt(req, res, next);
         expect(req.log.info.firstCall.args[0]).to.equal('Locking payment: 123');
