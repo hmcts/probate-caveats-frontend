@@ -69,26 +69,6 @@ describe('paymentBreakdown', () => {
                     testWrapper.testRedirect(done, data, 'payment_url');
                 });
         });
-
-        it(`test it redirects to ${expectedNextUrlForPaymentStatus} when payment status is 'Success'`, (done) => {
-            servicesMock.expects('findPayment').returns(Promise.resolve({
-                status: 'Success'
-            }
-            ));
-            const data = {};
-            testWrapper.agent.post('/prepare-session/form')
-                .send({
-                    payment: {
-                        paymentId: '12345',
-                        status: 'success'
-                    }})
-                .end((err) => {
-                    if (err) {
-                        throw err;
-                    }
-                    testWrapper.testRedirect(done, data, expectedNextUrlForPaymentStatus);
-                });
-        });
     });
 
     describe('Handle api failures', () => {
