@@ -1,5 +1,5 @@
 # ---- Base image ----
-FROM node:8.12.0-slim as base
+FROM node:8.15.1-stretch-slim as base
 RUN yarn config set proxy "$http_proxy" && yarn config set https-proxy "$https_proxy"
 
 ENV WORKDIR /opt/app
@@ -13,10 +13,6 @@ RUN yarn install --production  \
 
 # ---- Build image ----
 FROM base as build
-RUN cat /etc/apt/sources.list
-RUN echo 'deb http://deb.debian.org/debian jessie main' > /etc/apt/sources.list
-RUN echo 'deb http://security.debian.org/debian-security jessie/updates main' > /etc/apt/sources.list
-
 RUN apt-get update \
  && apt-get install --assume-yes git bzip2
 COPY . ./
