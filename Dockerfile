@@ -13,6 +13,7 @@ RUN yarn install --production  \
 
 # ---- Build image ----
 FROM base as build
+RUN cat /etc/apt/sources.list
 RUN echo 'deb http://deb.debian.org/debian jessie main' > /etc/apt/sources.list
 RUN echo 'deb http://security.debian.org/debian-security jessie/updates main' > /etc/apt/sources.list
 
