@@ -13,7 +13,8 @@ RUN yarn install --production  \
 
 # ---- Build image ----
 FROM base as build
-RUN apt-get update && apt-get install -y bzip2 git
+#RUN apt-get update && apt-get install -y bzip2 git
+RUN apt-get install -y bzip2 git
 COPY . ./
 RUN yarn install \
     && yarn setup \
