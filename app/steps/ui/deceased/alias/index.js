@@ -27,8 +27,7 @@ class DeceasedAlias extends ValidationStep {
     }
 
     handlePost(ctx, errors) {
-        const hasAlias = (new DeceasedWrapper(ctx.deceased)).hasAlias();
-        if (!hasAlias) {
+        if (ctx.alias !== this.content.optionYes) {
             delete ctx.otherNames;
         }
         return [ctx, errors];
