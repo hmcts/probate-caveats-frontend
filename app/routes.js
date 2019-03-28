@@ -6,6 +6,7 @@ const initSteps = require('app/core/initSteps');
 const logger = require('app/components/logger');
 const {get, isEqual} = require('lodash');
 const documentDownloads = require('app/documentDownloads');
+const lockPaymentAttempt = require('app/middleware/lockPaymentAttempt');
 const uuidv4 = require('uuid/v4');
 
 router.all('*', (req, res, next) => {
@@ -37,6 +38,8 @@ router.use((req, res, next) => {
 });
 
 router.use(documentDownloads);
+
+router.post('/payment-breakdown', lockPaymentAttempt);
 
 router.use((req, res, next) => {
     const formdata = req.session.form;
