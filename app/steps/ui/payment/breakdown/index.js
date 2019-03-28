@@ -40,46 +40,25 @@ class PaymentBreakdown extends Step {
 
         set(formdata, 'payment.total', ctx.total);
 
-        // Setup security tokens
-        yield this.setCtxWithSecurityTokens(ctx, errors);
-        if (errors.length > 0) {
-            return [ctx, errors];
-        }
-
-        // If we dont already have a case so create one
-        if (!formdata.ccdCase || !formdata.ccdCase.id) {
-            const result= yield this.sendToOrchestrationService(ctx, formdata, errors);
+        try {
+            // Setup security tokens
+            yield this.setCtxWithSecurityTokens(ctx, errors);
             if (errors.length > 0) {
-                logger.error('Failed to create case in CCD.');
                 return [ctx, errors];
             }
-            set(formdata, 'ccdCase.id', result.ccdCase.id);
-            set(formdata, 'ccdCase.state', result.ccdCase.state);
-        }
 
-        // get latest payment status if payment already exists
-        let paymentResponse;
-        const paymentId = get(formdata.payment, 'paymentId');
-        if (paymentId) {
-            const data = {
-                authToken: ctx.authToken,
-                serviceAuthToken: ctx.serviceAuthToken,
-                userId: ctx.userId,
-                paymentId: paymentId
-            };
-            paymentResponse = yield services.findPayment(data);
-            logger.info(`Existing Payment in breakdown with response = ${JSON.stringify(paymentResponse)}`);
-            if (paymentResponse.name === 'Error') {
-                errors.push(FieldError('payment', 'failure', this.resourcePath, ctx));
-                return [ctx, errors];
+            // If we dont already have a case so create one
+            if (!formdata.ccdCase || !formdata.ccdCase.id) {
+                const result = yield this.sendToOrchestrationService(ctx, formdata, errors);
+                if (errors.length > 0) {
+                    logger.error('Failed to create case in CCD.');
+                    return [ctx, errors];
+                }
+                set(formdata, 'ccdCase.id', result.ccdCase.id);
+                set(formdata, 'ccdCase.state', result.ccdCase.state);
             }
-            if (paymentResponse.status === 'Success') {
-                return [ctx, errors];
-            }
-        }
 
-        // Does payment have to be recreated
-        if (!paymentId || !this.paymentContainsNextUrl(paymentResponse)) {
+            // create payment
             const ccdCaseId = get(formdata.ccdCase, 'id');
             const data = {
                 amount: parseFloat(ctx.total),
@@ -91,36 +70,33 @@ class PaymentBreakdown extends Step {
                 deceasedLastName: ctx.deceasedLastName,
                 ccdCaseId: ccdCaseId
             };
-
-            paymentResponse = yield services.createPayment(data, hostname);
+            const paymentResponse = yield services.createPayment(data, hostname);
             logger.info(`New Payment in breakdown with response = ${JSON.stringify(paymentResponse)}`);
-
             if (paymentResponse.name === 'Error') {
                 errors.push(FieldError('payment', 'failure', this.resourcePath, ctx));
                 return [ctx, errors];
             }
-        }
 
-        //Ensure that payment details on form are updated to the latest values
-        set(ctx, 'paymentId', paymentResponse.reference);
-        set(ctx, 'paymentCreatedDate', paymentResponse.date_created);
-        set(ctx, 'status', paymentResponse.status);
+            //Ensure that payment details on form are updated to the latest values
+            set(ctx, 'paymentId', paymentResponse.reference);
+            set(ctx, 'paymentCreatedDate', paymentResponse.date_created);
+            set(ctx, 'status', paymentResponse.status);
 
-        // Decide to send to Gov.pay or simply forward to /payment-status
-        if (this.paymentContainsNextUrl(paymentResponse)) {
+            // Forward toGov.pay
             this.nextStepUrl = () => paymentResponse._links.next_url.href;
-        }
 
-        logger.info('nextStepUrl is: ' + this.nextStepUrl(ctx));
-        return [ctx, errors];
+            logger.info('nextStepUrl is: ' + this.nextStepUrl(ctx));
+            return [ctx, errors];
+        } finally {
+            this.unlockPayment(session);
+        }
     }
 
-    // indicates that payment needs to be sent or re-sent to Gov.Pay
-    paymentContainsNextUrl(paymentResponse) {
-        if (paymentResponse._links.next_url) {
-            return true;
-        }
-        return false;
+    unlockPayment(session) {
+        const applicationId = session.form.applicationId;
+        logger.info('Unlocking applicationId: ' + applicationId);
+        session.paymentLock = 'Unlocked';
+        session.save();
     }
 
     * setCtxWithSecurityTokens(ctx, errors) {
@@ -138,7 +114,6 @@ class PaymentBreakdown extends Step {
         }
         set(ctx, 'serviceAuthToken', serviceAuthResult);
         set(ctx, 'authToken', userToken);
-
     }
 
     * sendToOrchestrationService(ctx, formdata, errors) {
@@ -148,7 +123,6 @@ class PaymentBreakdown extends Step {
             errors.push(FieldError('submit', 'failure', this.resourcePath, ctx));
             return;
         }
-
         logger.info({tags: 'Analytics'}, 'Application Case Created');
         return result;
     }
@@ -157,8 +131,6 @@ class PaymentBreakdown extends Step {
         super.action(ctx, formdata);
         delete ctx.deceasedLastName;
         delete ctx.applicationFee;
-        delete ctx.serviceAuthToken;
-        delete ctx.authToken;
         delete ctx.total;
         delete ctx.hostname;
         return [ctx, formdata];

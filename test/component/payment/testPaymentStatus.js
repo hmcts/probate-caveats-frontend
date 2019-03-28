@@ -30,11 +30,6 @@ describe('paymentStatus', () => {
 
     describe('Verify Content, Errors and Redirection', () => {
 
-        beforeEach(() => {
-            servicesMock.expects('authorise').returns(Promise.resolve('authorised'));
-            securityMock.expects('getUserToken').returns(Promise.resolve('token'));
-        });
-
         it('test help block content', (done) => {
             testHelpBlockContent.runTest('PaymentStatus');
             done();
@@ -96,45 +91,6 @@ describe('paymentStatus', () => {
     });
 
     describe('Verify handling of failed apis', () => {
-
-        it('Test failure of authorise api call', (done) => {
-            servicesMock.expects('authorise').returns(Promise.resolve({
-                name: 'Error'
-            }));
-            testWrapper.agent.post('/prepare-session/form')
-                .send({
-                    payment: {
-                        paymentId: '12345',
-                        status: 'initiated'
-                    }
-                })
-                .end((err) => {
-                    if (err) {
-                        throw err;
-                    }
-                    testWrapper.testContent(done, []);
-                });
-        });
-
-        it('Test failure of getUserToken api call', (done) => {
-            servicesMock.expects('authorise').returns(Promise.resolve('authorised'));
-            securityMock.expects('getUserToken').returns(Promise.resolve({
-                name: 'Error'
-            }));
-            testWrapper.agent.post('/prepare-session/form')
-                .send({
-                    payment: {
-                        paymentId: '12345',
-                        status: 'initiated'
-                    }
-                })
-                .end((err) => {
-                    if (err) {
-                        throw err;
-                    }
-                    testWrapper.testContent(done, []);
-                });
-        });
 
         it('Test failure of findPayment api call', (done) => {
             servicesMock.expects('authorise').returns(Promise.resolve('authorised'));

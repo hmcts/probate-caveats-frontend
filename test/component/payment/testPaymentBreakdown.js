@@ -2,7 +2,6 @@
 
 'use strict';
 
-const PaymentStatus = require('app/steps/ui/payment/status');
 const sinon = require('sinon');
 const testHelpBlockContent = require('test/component/common/testHelpBlockContent');
 const TestWrapper = require('test/util/TestWrapper');
@@ -11,7 +10,6 @@ const security = require('app/components/security');
 
 describe('paymentBreakdown', () => {
     let testWrapper;
-    const expectedNextUrlForPaymentStatus = PaymentStatus.getUrl();
     let servicesMock, securityMock;
 
     beforeEach(() => {
@@ -67,26 +65,6 @@ describe('paymentBreakdown', () => {
                         throw err;
                     }
                     testWrapper.testRedirect(done, data, 'payment_url');
-                });
-        });
-
-        it(`test it redirects to ${expectedNextUrlForPaymentStatus} when payment status is 'Success'`, (done) => {
-            servicesMock.expects('findPayment').returns(Promise.resolve({
-                status: 'Success'
-            }
-            ));
-            const data = {};
-            testWrapper.agent.post('/prepare-session/form')
-                .send({
-                    payment: {
-                        paymentId: '12345',
-                        status: 'success'
-                    }})
-                .end((err) => {
-                    if (err) {
-                        throw err;
-                    }
-                    testWrapper.testRedirect(done, data, expectedNextUrlForPaymentStatus);
                 });
         });
     });

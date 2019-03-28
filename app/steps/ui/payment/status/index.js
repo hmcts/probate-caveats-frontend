@@ -2,7 +2,6 @@
 
 const Step = require('app/core/steps/Step');
 const services = require('app/components/services');
-const security = require('app/components/security');
 const logger = require('app/components/logger')('Init');
 const RedirectRunner = require('app/core/runners/RedirectRunner');
 const {get, set} = require('lodash');
@@ -33,11 +32,14 @@ class PaymentStatus extends Step {
         ctx.email = config.serviceline.email;
         ctx.hours = config.serviceline.hours;
         ctx.hostname = formatUrl.createHostname(req);
+        ctx.serviceAuthToken = get(formdata, 'payment.serviceAuthToken');
+        ctx.authToken = get(formdata, 'payment.authToken');
         return ctx;
     }
 
     action(ctx, formdata) {
         super.action(ctx, formdata);
+        delete ctx.serviceAuthToken;
         delete ctx.authToken;
         delete ctx.userId;
         delete ctx.regId;
@@ -56,19 +58,12 @@ class PaymentStatus extends Step {
         const options = {};
         options.redirect = false;
 
-        // Setup security tokens
-        const securityErrors = yield this.setCtxWithSecurityTokens(ctx);
-        if (securityErrors) {
-            return options;
-        }
-
         const data = {
             authToken: ctx.authToken,
             serviceAuthToken: ctx.serviceAuthToken,
             userId: ctx.userId,
             paymentId: ctx.paymentId
         };
-
         const findPaymentResponse = yield services.findPayment(data);
         logger.info('Payment retrieval in status for paymentId = ' + ctx.paymentId + ' with response = ' + JSON.stringify(findPaymentResponse));
         if (findPaymentResponse.name === 'Error') {
@@ -94,22 +89,6 @@ class PaymentStatus extends Step {
         }
 
         return options;
-    }
-
-    * setCtxWithSecurityTokens(ctx) {
-        const serviceAuthResult = yield services.authorise();
-        if (serviceAuthResult.name === 'Error') {
-            logger.info(`serviceAuthResult Error = ${serviceAuthResult}`);
-            return true;
-        }
-        const userToken = yield security.getUserToken(ctx.hostname);
-        if (userToken.name === 'Error') {
-            logger.info(`userToken Error = ${userToken}`);
-            return true;
-        }
-        set(ctx, 'serviceAuthToken', serviceAuthResult);
-        set(ctx, 'authToken', userToken);
-        return false;
     }
 
     * updateCcdCasePaymentStatus(ctx, formdata) {

@@ -74,7 +74,7 @@ const getOauth2Token = (code, redirect_url) => {
 
 function checkForError(result) {
     if (result.name === 'Error') {
-        throw new Error(result.message);
+        throw result;
     }
 }
 
