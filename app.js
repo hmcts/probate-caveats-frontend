@@ -139,6 +139,11 @@ exports.init = function() {
     }));
 
     app.use((req, res, next) => {
+        req.session.cookie.secure = req.protocol === 'https';
+        next();
+    });
+
+    app.use((req, res, next) => {
         if (!req.session) {
             return next(new Error('Unable to reach redis'));
         }
@@ -156,7 +161,6 @@ exports.init = function() {
     app.use(function (req, res, next) {
         res.locals.serviceName = commonContent.serviceName;
         res.locals.cookieText = commonContent.cookieText;
-
         res.locals.releaseVersion = 'v' + releaseVersion;
         next();
     });
