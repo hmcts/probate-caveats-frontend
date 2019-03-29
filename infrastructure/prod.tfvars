@@ -33,14 +33,7 @@ probate_frontend_use_idam = "true"
 probate_frontend_use_redis = "true"
 
 
-probate_business_service_url = "http://probate-business-service-prod.service.core-compute-prod.internal/validate"
-
-probate_business_service_document_url = "http://probate-business-service-prod.service.core-compute-prod.internal/businessDocument"
-
-probate_submit_service_url = "http://probate-submit-service-prod.service.core-compute-prod.internal"
-
-probate_persistence_service_url = "http://probate-persistence-service-prod.service.core-compute-prod.internal/formdata"
-
+orchestration_service_url = "http://probate-orchestrator-service-prod.service.core-compute-prod.internal"
 probate_fees_registry_service_url = "https://fees-register-api.platform.hmcts.net/fees-register"
 
 feature_toggles_api_url = "http://rpe-feature-toggle-api-prod.service.core-compute-prod.internal"
