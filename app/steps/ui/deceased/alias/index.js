@@ -1,7 +1,6 @@
 'use strict';
 
 const ValidationStep = require('app/core/steps/ValidationStep');
-const DeceasedWrapper = require('app/wrappers/Deceased');
 const FormatName = require('app/utils/FormatName');
 
 class DeceasedAlias extends ValidationStep {
@@ -27,8 +26,7 @@ class DeceasedAlias extends ValidationStep {
     }
 
     handlePost(ctx, errors) {
-        const hasAlias = (new DeceasedWrapper(ctx.deceased)).hasAlias();
-        if (!hasAlias) {
+        if (ctx.alias !== this.content.optionYes) {
             delete ctx.otherNames;
         }
         return [ctx, errors];
