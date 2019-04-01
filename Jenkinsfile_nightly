@@ -1,0 +1,72 @@
+#!groovy
+
+properties([
+        pipelineTriggers([cron('00 20 * * *')]),
+        parameters([
+                string(name: 'ENVIRONMENT', defaultValue: 'aat', description: 'Environment to test'),
+                string(name: 'URL_TO_TEST', defaultValue: 'https://probate-caveats-fe-aat.service.core-compute-aat.internal', description: 'The URL you want to run these tests against'),
+        ])
+])
+
+@Library("Infrastructure") _
+
+String product = "probate"
+String component = "caveats-fe"
+
+List<LinkedHashMap<String, Object>> secrets = [
+    secret('testIdamBaseUrl', 'IDAM_API_URL'),
+    secret('testIdamLoginUrl', 'IDAM_LOGIN_URL'),
+    secret('testUseIdam', 'USE_IDAM'),
+    secret('testInviteIdListUrl', 'INVITE_ID_LIST_URL'),
+    secret('testPinUrl', 'PIN_URL'),
+    secret('testInvitationUrl', 'INVITATION_URL'),
+    secret('testIdamAddUserUrl', 'IDAM_ADD_USER_URL'),
+    secret('testIdamRole', 'IDAM_CITIZEN_ROLE'),
+    secret('testIdamUserGroup', 'IDAM_USER_GROUP'),
+    secret('testCitizenDomain', 'CITIZEN_EMAIL_DOMAIN'),
+    secret('testEnvEmailAddress', 'TEST_EMAIL_ADDRESS'),
+    secret('testEnvMobileNumber', 'TEST_MOBILE_NUMBER'),
+    secret('testTerms', 'TERMS_AND_CONDITIONS'),
+    secret('testSurvey', 'SURVEY'),
+    secret('testsurveyEndOfApplication', 'SURVEY_END_OF_APPLICATION'),
+    secret('testUseGovPay', 'USE_GOV_PAY'),
+    secret('testPostcodeServiceUrl', 'POSTCODE_SERVICE_URL'),
+    secret('testPostCodeAddressToken', 'ADDRESS_TOKEN'),
+    secret('testRunE2ETest', 'RUN_E2E_TEST'),
+    secret('testValidationServiceUrl', 'TEST_VALIDATION_SERVICE_URL'),
+    secret('idam-secret-probate', 'IDAM_SECRET_PROBATE'),
+    secret('idam-s2s-secret', 'IDAM_S2S_SECRET'),
+    secret('postcode-service-url', 'PRO_POSTCODE_SERVICE_URL'),
+    secret('postcode-service-token', 'PRO_POSTCODE_SERVICE_TOKEN'),
+    secret('probate-survey', 'PRO_SURVEY'),
+    secret('probate-survey-end', 'PRO_SURVEY_END_OF_APPLICATION'),
+    secret('probate-application-fee-code', 'PRO_APPLICATION_FEE_CODE'),
+    secret('probate-uk-application-fee-code', 'PRO_UK_COPIES_FEE_CODE'),
+    secret('probate-overseas-application-fee-code', 'PRO_OVERSEAS_COPIES_FEE_CODE'),
+    secret('probate-service-id', 'PRO_SERVICE_ID'),
+    secret('probate-site-id', 'PRO_SITE_ID')
+]
+
+static LinkedHashMap<String, Object> secret(String secretName, String envVar) {
+  [ $class: 'AzureKeyVaultSecret',
+    secretType: 'Secret',
+    name: secretName,
+    version: '',
+    envVariable: envVar
+  ]
+}
+
+withNightlyPipeline("nodejs", product, component) {
+    env.TEST_URL = params.URL_TO_TEST
+    env.TEST_E2E_URL = params.URL_TO_TEST
+    setVaultName('probate')
+    loadVaultSecrets(secrets)
+    enableFullFunctionalTest()
+    enableSecurityScan()
+
+    after('fullFunctionalTest') {
+        steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'output/**/*'
+    }
+
+    //    enableSlackNotifications('#div-dev')  // can be turned back on once the overnight functionality is working fully
+}

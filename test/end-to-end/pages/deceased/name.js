@@ -8,6 +8,5 @@ module.exports = function (firstName, lastName) {
     I.seeCurrentUrlEquals(pageUnderTest.getUrl());
     I.fillField('#firstName', firstName);
     I.fillField('lastName', lastName);
-
-    I.click(commonContent.continue);
+    I.waitForNavigationToComplete(`input[value="${commonContent.saveAndContinue}"]`);
 };

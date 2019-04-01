@@ -8,6 +8,5 @@ module.exports = function (answer = 'Yes') {
 
     I.seeCurrentUrlEquals(pageUnderTest.getUrl());
     I.click(`#alias-option${answer}`);
-
-    I.click(commonContent.continue);
+    I.waitForNavigationToComplete(`input[value="${commonContent.saveAndContinue}"]`);
 };

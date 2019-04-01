@@ -38,8 +38,14 @@ Scenario('Standard Execution Journey', function* (I) {
     I.seeSummaryPage();
 
     // Payment pages
-    I.enterPaymentBreakdown();
-
+    //I.enterPaymentBreakdown();
+    I.seePaymentBreakdownPage();
+    if (TestConfigurator.getUseGovPay() === 'true') {
+        I.seeGovUkPaymentPage();
+        I.seeGovUkConfirmPage();
+    }
+    // Thank You
+    I.seeThankYouPage();
     // Thank you page -commented out until payments are working
     //I.seeThankYouPage();
 
