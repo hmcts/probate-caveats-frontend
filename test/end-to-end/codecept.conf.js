@@ -5,23 +5,43 @@ exports.config = {
     'output': './output',
     'helpers': {
         'Puppeteer': {
-            'url': testConfig.TestFrontendUrl || 'http://localhost:3000',
+            'url': testConfig.TestE2EFrontendUrl || 'http://localhost:3000',
             'waitForTimeout': 60000,
-            'waitForAction': 2000,
-            'getPageTimeout': 60000,
-            'show': false,
-            'waitForNavigation': 'networkidle0',
+            'getPageTimeout': 20000,
+            'show': true,
+            'waitForNavigation': ['domcontentloaded', 'networkidle0'],
             'chrome': {
                 'ignoreHTTPSErrors': true,
-                'ignore-certificate-errors': true
-            }
+                'ignore-certificate-errors': true,
+                'defaultViewport': {
+                    'width': 1280,
+                    'height': 960
+                },
+                args: [
+                    '--no-sandbox',
+                    '--proxy-server=proxyout.reform.hmcts.net:8080',
+                    '--proxy-bypass-list=*beta*LB.reform.hmcts.net',
+                    '--window-size=1440,1400'
+                ]
+            },
         },
         'PuppeteerHelper': {
             'require': './helpers/PuppeteerHelper.js'
-        }
+        },
     },
     'include': {
         'I': './pages/steps.js'
+    },
+    'plugins': {
+        'autoDelay': {
+            'enabled': true
+        }
+    },
+    'multiple': {
+        'parallel': {
+            // Splits tests into 2 chunks
+            'chunks': 2
+        }
     },
     'mocha': {
         'reporterOptions': {
@@ -32,3 +52,4 @@ exports.config = {
     },
     'name': 'Codecept Tests'
 };
+
