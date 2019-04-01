@@ -53,7 +53,7 @@ const sendToOrchestrationService = (data, ctx) => {
 };
 
 const updateCcdCasePaymentStatus = (data, ctx) => {
-    logInfo('updateCcdCasePaymentStatus');
+    logInfo('update case payment status');
     const headers = {
         'Content-Type': 'application/json',
         'Session-Id': ctx.sessionID,
@@ -79,7 +79,7 @@ const createPayment = (data, hostname) => {
 };
 
 const findPayment = (data) => {
-    logInfo('findPayment');
+    logInfo(`findPayment for id: ${data.paymentId}`);
     const headers = {
         'Content-Type': 'application/json',
         'Authorization': data.authToken,
@@ -91,7 +91,7 @@ const findPayment = (data) => {
 };
 
 const authorise = () => {
-    logInfo('authorise');
+    logInfo('authorise for serviceAuthToken called');
     const headers = {
         'Content-Type': 'application/json'
     };

@@ -27,6 +27,7 @@ class PaymentBreakdown extends Step {
         ctx.total = config.payment.applicationFee;
         ctx.applicationFee = config.payment.applicationFee;
         ctx.hostname = formatUrl.createHostname(req);
+        ctx.applicationId = get(formdata, 'applicationId');
         return ctx;
     }
 
@@ -51,7 +52,7 @@ class PaymentBreakdown extends Step {
             if (!formdata.ccdCase || !formdata.ccdCase.id) {
                 const result = yield this.sendToOrchestrationService(ctx, formdata, errors);
                 if (errors.length > 0) {
-                    logger.error('Failed to create case in CCD.');
+                    logger.error(`Failed to create case in CCD for applicationId: ${formdata.applicationId}`);
                     return [ctx, errors];
                 }
                 set(formdata, 'ccdCase.id', result.ccdCase.id);
@@ -71,7 +72,7 @@ class PaymentBreakdown extends Step {
                 ccdCaseId: ccdCaseId
             };
             const paymentResponse = yield services.createPayment(data, hostname);
-            logger.info(`New Payment in breakdown with response = ${JSON.stringify(paymentResponse)}`);
+            logger.info(`New Payment reference: ${paymentResponse.reference} for applicationId: ${formdata.applicationId}`);
             if (paymentResponse.name === 'Error') {
                 errors.push(FieldError('payment', 'failure', this.resourcePath, ctx));
                 return [ctx, errors];
@@ -102,27 +103,28 @@ class PaymentBreakdown extends Step {
     * setCtxWithSecurityTokens(ctx, errors) {
         const serviceAuthResult = yield services.authorise();
         if (serviceAuthResult.name === 'Error') {
-            logger.info(`serviceAuthResult = ${serviceAuthResult}`);
+            logger.info(`ApplicationId: ${ctx.applicationId} failed to obtain serviceAuthToken`);
             errors.push(FieldError('authorisation', 'failure', this.resourcePath, ctx));
             return;
         }
-        const userToken = yield security.getUserToken(ctx.hostname);
-        if (userToken.name === 'Error') {
-            logger.info(`userToken = ${userToken}`);
+        const authToken = yield security.getUserToken(ctx.hostname);
+        if (authToken.name === 'Error') {
+            logger.info(`ApplicationId: ${ctx.applicationId} failed to obtain authToken`);
             errors.push(FieldError('authorisation', 'failure', this.resourcePath, ctx));
             return;
         }
         set(ctx, 'serviceAuthToken', serviceAuthResult);
-        set(ctx, 'authToken', userToken);
+        set(ctx, 'authToken', authToken);
     }
 
     * sendToOrchestrationService(ctx, formdata, errors) {
         const result = yield services.sendToOrchestrationService(formdata, ctx);
-        logger.info('sendToOrchestrationService result = ' + JSON.stringify(result));
         if (result.name === 'Error') {
+            logger.info(`ApplicationId: ${formdata.applicationId} failed to create case`);
             errors.push(FieldError('submit', 'failure', this.resourcePath, ctx));
             return;
         }
+        logger.info(`Case created: ${result.ccdCase.id} for applicationId: ${formdata.applicationId}`);
         logger.info({tags: 'Analytics'}, 'Application Case Created');
         return result;
     }
@@ -133,6 +135,7 @@ class PaymentBreakdown extends Step {
         delete ctx.applicationFee;
         delete ctx.total;
         delete ctx.hostname;
+        delete ctx.applicationId;
         return [ctx, formdata];
     }
 
