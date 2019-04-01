@@ -27,9 +27,7 @@ module.exports = function () {
         seeGovUkConfirmPage: steps.payment.govukconfirmpayment,
         seePaymentStatusPage: steps.payment.paymentstatus,
 
-
         // enterPaymentBreakdown: steps.payment.breakdown,
-
 
         // Temp stop page to represent end of journey
         seeThankYouPage: steps.thankyou.thankyou
