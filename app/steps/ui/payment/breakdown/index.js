@@ -27,6 +27,7 @@ class PaymentBreakdown extends Step {
         ctx.total = config.payment.applicationFee;
         ctx.applicationFee = config.payment.applicationFee;
         ctx.hostname = formatUrl.createHostname(req);
+        ctx.applicationId = get(formdata, 'applicationId');
         return ctx;
     }
 
@@ -102,13 +103,13 @@ class PaymentBreakdown extends Step {
     * setCtxWithSecurityTokens(ctx, errors) {
         const serviceAuthResult = yield services.authorise();
         if (serviceAuthResult.name === 'Error') {
-            logger.info(`ApplicationId: ${formdata.applicationId} failed to obtain serviceAuthToken`);
+            logger.info(`ApplicationId: ${ctx.applicationId} failed to obtain serviceAuthToken`);
             errors.push(FieldError('authorisation', 'failure', this.resourcePath, ctx));
             return;
         }
         const authToken = yield security.getUserToken(ctx.hostname);
         if (authToken.name === 'Error') {
-            logger.info(`ApplicationId: ${formdata.applicationId} failed to obtain authToken`);
+            logger.info(`ApplicationId: ${ctx.applicationId} failed to obtain authToken`);
             errors.push(FieldError('authorisation', 'failure', this.resourcePath, ctx));
             return;
         }
@@ -134,6 +135,7 @@ class PaymentBreakdown extends Step {
         delete ctx.applicationFee;
         delete ctx.total;
         delete ctx.hostname;
+        delete ctx.applicationId;
         return [ctx, formdata];
     }
 
