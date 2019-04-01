@@ -65,12 +65,11 @@ class PaymentStatus extends Step {
             paymentId: ctx.paymentId
         };
         const findPaymentResponse = yield services.findPayment(data);
-        logger.info('Payment retrieval in status for paymentId = ' + ctx.paymentId + ' with response = ' + JSON.stringify(findPaymentResponse));
         if (findPaymentResponse.name === 'Error') {
-            logger.error('Unable to find payment status for paymentId: ' + ctx.paymentId);
+            logger.error(`Unable to find payment status for paymentId: ${ctx.paymentId}`);
             return options;
         }
-
+        logger.info(`Existing payment paymentId = ${ctx.paymentId} with response = ${findPaymentResponse.status}`);
         const date = typeof findPaymentResponse.date_updated === 'undefined' ? ctx.paymentCreatedDate : findPaymentResponse.date_updated;
         this.updateFormDataPayment(formdata, findPaymentResponse, date);
 
@@ -82,10 +81,10 @@ class PaymentStatus extends Step {
         options.redirect = true;
         if (findPaymentResponse.status !== 'Success') {
             options.url = `${this.steps.PaymentBreakdown.constructor.getUrl()}`;
-            logger.error('Payment Status was not Success, so returning to breakdown page.');
+            logger.error(`Payment Status was not Success, so returning to breakdown page for applicationId: ${formdata.applicationId}`);
         } else {
             options.url = Thankyou.getUrl();
-            logger.info('Payment Status was Success');
+            logger.info(`Payment Status was Success for applicationId: ${formdata.applicationId}`);
         }
 
         return options;
@@ -98,12 +97,12 @@ class PaymentStatus extends Step {
 
         if (updateCasePaymentStatusResult.name === 'Error') {
             logger.error(`updateCaseResult Error = ${updateCasePaymentStatusResult}`);
-            logger.error('Update of case payment status failed for paymentId = ' + ctx.paymentId);
+            logger.error(`Update of case payment status failed for paymentId: ${ctx.paymentId}`);
             return true;
         }
         set(formdata, 'ccdCase.state', updateCasePaymentStatusResult.ccdCase.state);
-        logger.info({tags: 'Analytics'}, 'Payment status update');
-        logger.info('Successfully updated payment status to caseState ' + updateCasePaymentStatusResult.ccdCase.state);
+        logger.info({tags: 'Analytics'}, 'Caveat payment status updated');
+        logger.info(`Successfully updated Caveat case ${formdata.ccdCase.id} with payment status ${updateCasePaymentStatusResult.ccdCase.state}`);
 
         return false;
     }

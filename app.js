@@ -139,11 +139,6 @@ exports.init = function() {
     }));
 
     app.use((req, res, next) => {
-        req.session.cookie.secure = req.protocol === 'https';
-        next();
-    });
-
-    app.use((req, res, next) => {
         if (!req.session) {
             return next(new Error('Unable to reach redis'));
         }
@@ -169,6 +164,12 @@ exports.init = function() {
     if (useHttps === 'true') {
         app.use(utils.forceHttps);
     }
+
+    app.use((req, res, next) => {
+        req.session.cookie.secure = req.protocol === 'https';
+        next();
+    });
+
 
     app.use('/health', healthcheck);
 

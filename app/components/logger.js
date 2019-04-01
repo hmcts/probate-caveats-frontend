@@ -6,7 +6,7 @@ const {Logger} = require('@hmcts/nodejs-logging');
 let logger;
 
 const log = () => {
-    return (logger) ? logger : Logger.getLogger('eligibility-frontend');
+    return (logger) ? logger : Logger.getLogger('caveat-frontend');
 };
 
 module.exports = log;
