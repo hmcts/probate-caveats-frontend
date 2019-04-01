@@ -170,6 +170,7 @@ exports.init = function() {
         next();
     });
 
+
     app.use('/health', healthcheck);
 
     app.use('/', (req, res, next) => {

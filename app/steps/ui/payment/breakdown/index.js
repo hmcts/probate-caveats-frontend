@@ -103,13 +103,13 @@ class PaymentBreakdown extends Step {
     * setCtxWithSecurityTokens(ctx, errors) {
         const serviceAuthResult = yield services.authorise();
         if (serviceAuthResult.name === 'Error') {
-            logger.info(`ApplicationId: ${ctx.applicationId} failed to obtain serviceAuthToken`);
+            logger.info(`ApplicationId: ${formdata.applicationId} failed to obtain serviceAuthToken`);
             errors.push(FieldError('authorisation', 'failure', this.resourcePath, ctx));
             return;
         }
         const authToken = yield security.getUserToken(ctx.hostname);
         if (authToken.name === 'Error') {
-            logger.info(`ApplicationId: ${ctx.applicationId} failed to obtain authToken`);
+            logger.info(`ApplicationId: ${formdata.applicationId} failed to obtain authToken`);
             errors.push(FieldError('authorisation', 'failure', this.resourcePath, ctx));
             return;
         }

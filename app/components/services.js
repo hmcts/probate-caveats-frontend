@@ -53,7 +53,7 @@ const sendToOrchestrationService = (data, ctx) => {
 };
 
 const updateCcdCasePaymentStatus = (data, ctx) => {
-    logInfo('update case payment status');
+    logInfo(`update case payment status`);
     const headers = {
         'Content-Type': 'application/json',
         'Session-Id': ctx.sessionID,
