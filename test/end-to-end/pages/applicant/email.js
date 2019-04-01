@@ -7,6 +7,5 @@ module.exports = function (email) {
     const I = this;
     I.seeCurrentUrlEquals(pageUnderTest.getUrl());
     I.fillField('#email', email);
-
-    I.click(commonContent.continue);
+    I.waitForNavigationToComplete(`input[value="${commonContent.saveAndContinue}"]`);
 };

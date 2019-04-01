@@ -20,7 +20,14 @@ module.exports = function () {
         enterDeceasedOtherNames: steps.deceased.othernames,
         enterDeceasedAddressManually: steps.deceased.address,
         seeSummaryPage: steps.summary.summary,
-        enterPaymentBreakdown: steps.payment.breakdown,
+
+        // Payment
+        seePaymentBreakdownPage: steps.payment.paymentbreakdown,
+        seeGovUkPaymentPage: steps.payment.govukpayment,
+        seeGovUkConfirmPage: steps.payment.govukconfirmpayment,
+        seePaymentStatusPage: steps.payment.paymentstatus,
+
+        // enterPaymentBreakdown: steps.payment.breakdown,
 
         // Temp stop page to represent end of journey
         seeThankYouPage: steps.thankyou.thankyou
