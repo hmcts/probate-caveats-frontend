@@ -104,6 +104,8 @@ li.task-item {
 
 .notice {
   clear: left;
+  margin-bottom: em(20);
+  padding-left: 50px;
 
   p {
     padding-left: 50px;
@@ -207,8 +209,4 @@ div.declaration-grid-item {
     margin-top: 0;
     margin-bottom: 0;
   }
-}
-
-.notice {
-  padding-left: 50px;
 }
