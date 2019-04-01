@@ -37,7 +37,7 @@ describe('lockPaymentAttempt', () => {
     it('should redirect on subsequent lock attempts on applicationId', (done) => {
         req.session.paymentLock = 'Locked';
         lockPaymentAttempt(req, res, next);
-        expect(req.log.info.firstCall.args[0]).to.equal('Ignoring 2nd attempt for: 123');
+        expect(req.log.info.firstCall.args[0]).to.equal('Ignoring 2nd locking attempt for: 123');
         sinon.assert.callCount(req.session.save, 0);
         expect(req.session.paymentLock).to.equal('Locked');
         sinon.assert.callCount(res.sendStatus, 1);
