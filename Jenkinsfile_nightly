@@ -64,7 +64,7 @@ withNightlyPipeline("nodejs", product, component) {
     enableFullFunctionalTest()
     enableSecurityScan()
     after('build') {
-        sh 'mkdir -p functional-output`
+        sh 'mkdir -p functional-output'
     }    
         
 
