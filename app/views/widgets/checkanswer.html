@@ -8,7 +8,7 @@
     {% if item.visible %}
     {% if item.answer%}{% set complete = true  %}{% endif %}
         <div class="check-your-answers__row">
-            <dt class="check-your-answers__question">{{item.question | safe}}</dt>
+            <dd class="check-your-answers__question">{{item.question | safe}}</dd>
             {% if answerIsCollection %}
             <dd class="check-your-answers__answer">
                 {% for answ in item.answer %}
