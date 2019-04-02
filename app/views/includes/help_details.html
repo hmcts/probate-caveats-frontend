@@ -3,8 +3,8 @@
         <summary><span class="summary help-details-summary">{{common.helpTitle}}</span></summary>
         <div class="panel panel-border-narrow">
             <p>{{common.helpText | safe}}</p>
-            <p>{{common.contactTelLabel | replace('{helpLineNumber}', helpline.number)}} {{common.contactOpeningTimes | replace('{openingTimes}', helpline.hours)}}</p>
-            <p>{{common.helpEmailLabel}} {{common.contactEmailAddress | safe }}</p>
+            <p>{{common.contactTelLabel}}: {{helpline.number}} ({{helpline.hours}})</p>
+            <p>{{common.helpEmailLabel}}: <a href="mailto:{{helpline.email}}">{{helpline.email}}</a></p>
         </div>
     </details>
 {% endblock %}

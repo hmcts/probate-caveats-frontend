@@ -36,9 +36,7 @@
   "fifth" : "Fifth",
   "helpTitle" : "Do you need help?",
   "helpText" : "You can call or email us if you&rsquo;re having problems with this service.",
-  "contactTelLabel" : "Phone: {helpLineNumber}",
-  "contactOpeningTimes" : "({openingTimes})",
-  "helpEmailLabel" : "Email:",
-  "contactEmailAddress" : "<a href=\"mailto:online_application@justice.gov.uk\">online_application@justice.gov.uk</a>",
+  "contactTelLabel" : "Phone",
+  "helpEmailLabel" : "Email",
   "or": "or"
 }
