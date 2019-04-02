@@ -65,6 +65,7 @@ withNightlyPipeline("nodejs", product, component) {
     //enableSecurityScan()
     after('build') {
         sh 'mkdir -p functional-output'
+        sh 'yarn setup'
         sh 'yarn test-accessibility'
     }    
         
