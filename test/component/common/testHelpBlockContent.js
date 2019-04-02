@@ -2,7 +2,6 @@
 
 const TestWrapper = require('test/util/TestWrapper');
 const common = require('app/resources/en/translation/common');
-const config = require('app/config');
 
 class TestHelpBlockContent {
     static runTest(page) {
