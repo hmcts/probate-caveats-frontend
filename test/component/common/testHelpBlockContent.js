@@ -11,11 +11,12 @@ class TestHelpBlockContent {
             it('test help block content is loaded on page', (done) => {
                 testWrapper.agent.get(testWrapper.pageUrl)
                     .then(() => {
-                        const playbackData = {};
-                        playbackData.helpTitle = common.helpTitle;
-                        playbackData.helpText = common.helpText;
-                        playbackData.contactTelLabel = common.contactTelLabel;
-                        playbackData.helpEmailLabel = common.helpEmailLabel;
+                        const playbackData = {
+                            helpTitle: common.helpTitle,
+                            helpText: common.helpText,
+                            contactTelLabel: common.contactTelLabel,
+                            helpEmailLabel: common.helpEmailLabel
+                        };
 
                         testWrapper.testDataPlayback(done, playbackData);
                     })
