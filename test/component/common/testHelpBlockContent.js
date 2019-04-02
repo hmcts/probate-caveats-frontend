@@ -15,10 +15,8 @@ class TestHelpBlockContent {
                         const playbackData = {};
                         playbackData.helpTitle = common.helpTitle;
                         playbackData.helpText = common.helpText;
-                        playbackData.contactTelLabel = common.contactTelLabel.replace('{helpLineNumber}', config.helpline.number);
-                        playbackData.contactOpeningTimes = common.contactOpeningTimes.replace('{openingTimes}', config.helpline.hours);
+                        playbackData.contactTelLabel = common.contactTelLabel;
                         playbackData.helpEmailLabel = common.helpEmailLabel;
-                        playbackData.contactEmailAddress = common.contactEmailAddress;
 
                         testWrapper.testDataPlayback(done, playbackData);
                     })
