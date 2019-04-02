@@ -62,7 +62,7 @@ withNightlyPipeline("nodejs", product, component) {
     setVaultName('probate')
     loadVaultSecrets(secrets)
     enableFullFunctionalTest()
-    enableSecurityScan()
+    //enableSecurityScan()
     after('build') {
         sh 'mkdir -p functional-output'
     }    
