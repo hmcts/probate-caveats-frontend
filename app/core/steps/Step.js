@@ -26,7 +26,7 @@ class Step {
         return `${this.templatePath}/template`;
     }
 
-    constructor(steps, section = null, resourcePath, i18next) {
+    constructor(steps, section, resourcePath, i18next) {
         this.steps = steps;
         this.section = section;
         this.resourcePath = resourcePath;
