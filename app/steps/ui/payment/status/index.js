@@ -83,10 +83,10 @@ class PaymentStatus extends Step {
         options.redirect = true;
         if (findPaymentResponse.status !== 'Success') {
             options.url = `${this.steps.PaymentBreakdown.constructor.getUrl()}`;
-            logError(`Payment Status was not Success, so returning to breakdown page`,formdata.applicationId);
+            logError('Payment Status was not Success, so returning to breakdown page', formdata.applicationId);
         } else {
             options.url = Thankyou.getUrl();
-            logInfo(`Payment Status was Success`, formdata.applicationId);
+            logInfo('Payment Status was Success', formdata.applicationId);
         }
 
         return options;

@@ -6,7 +6,6 @@ const config = require('app/config');
 const {get, set} = require('lodash');
 const logger = require('app/components/logger');
 const logInfo = (message, applicationId = 'Unknown') => logger(applicationId).info(message);
-const logError = (message, applicationId = 'Unknown') => logger(applicationId).error(message);
 const services = require('app/components/services');
 const security = require('app/components/security');
 const formatUrl = require('app/utils/FormatUrl');
@@ -105,13 +104,13 @@ class PaymentBreakdown extends Step {
     * setCtxWithSecurityTokens(ctx, errors) {
         const serviceAuthResult = yield services.authorise(ctx.applicationId);
         if (serviceAuthResult.name === 'Error') {
-            logInfo(`failed to obtain serviceAuthToken`, ctx.applicationId);
+            logInfo('failed to obtain serviceAuthToken', ctx.applicationId);
             errors.push(FieldError('authorisation', 'failure', this.resourcePath, ctx));
             return;
         }
         const authToken = yield security.getUserToken(ctx.hostname, ctx.applicationId);
         if (authToken.name === 'Error') {
-            logInfo(`failed to obtain authToken`, ctx.applicationId);
+            logInfo('failed to obtain authToken', ctx.applicationId);
             errors.push(FieldError('authorisation', 'failure', this.resourcePath, ctx));
             return;
         }
@@ -122,7 +121,7 @@ class PaymentBreakdown extends Step {
     * sendToOrchestrationService(ctx, formdata, errors) {
         const result = yield services.sendToOrchestrationService(formdata, ctx);
         if (result.name === 'Error') {
-            logInfo(`Failed to create case`, formdata.applicationId);
+            logInfo('Failed to create case', formdata.applicationId);
             errors.push(FieldError('submit', 'failure', this.resourcePath, ctx));
             return;
         }
