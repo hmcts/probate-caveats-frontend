@@ -14,7 +14,8 @@ class PuppeteerHelper extends Helper {
         await Promise.all([
             page.waitForNavigation(), // The promise resolves after navigation has finished
             page.click(locator) // Clicking the link will indirectly cause a navigation
-        ]);
+        ])
+            .catch((err) => err);
 
     }
 }
