@@ -16,7 +16,7 @@ const serviceName = config.services.idam.service_name;
 const secret = config.services.idam.service_key;
 const FEATURE_TOGGLE_URL = config.featureToggles.url;
 const logger = require('app/components/logger');
-const logInfo = (message, sessionId = 'Init') => logger(sessionId).info(message);
+const logInfo = (message, applicationId = 'Init') => logger(applicationId).info(message);
 
 const findAddress = (postcode) => {
     logInfo('findAddress');
@@ -40,7 +40,7 @@ const featureToggle = (featureToggleKey) => {
 };
 
 const sendToOrchestrationService = (data, ctx) => {
-    logInfo('submitToOrchestrationService');
+    logInfo('submitToOrchestrationService', data.applicationId);
     const headers = {
         'Content-Type': 'application/json',
         'Session-Id': ctx.sessionID,
@@ -53,7 +53,7 @@ const sendToOrchestrationService = (data, ctx) => {
 };
 
 const updateCcdCasePaymentStatus = (data, ctx) => {
-    logInfo('update case payment status');
+    logInfo('update case payment status', data.applicationId);
     const headers = {
         'Content-Type': 'application/json',
         'Session-Id': ctx.sessionID,
@@ -66,7 +66,7 @@ const updateCcdCasePaymentStatus = (data, ctx) => {
 };
 
 const createPayment = (data, hostname) => {
-    logInfo('createPayment');
+    logInfo('createPayment', data.applicationId);
     const headers = {
         'Content-Type': 'application/json',
         'Authorization': data.authToken,
@@ -78,8 +78,8 @@ const createPayment = (data, hostname) => {
     return utils.fetchJson(CREATE_PAYMENT_SERVICE_URL, fetchOptions);
 };
 
-const findPayment = (data) => {
-    logInfo(`findPayment for id: ${data.paymentId}`);
+const findPayment = (data, applicationId) => {
+    logInfo(`findPayment for id: ${data.paymentId}`, applicationId);
     const headers = {
         'Content-Type': 'application/json',
         'Authorization': data.authToken,
@@ -90,8 +90,8 @@ const findPayment = (data) => {
     return utils.fetchJson(findPaymentUrl, fetchOptions);
 };
 
-const authorise = () => {
-    logInfo('authorise for serviceAuthToken called');
+const authorise = (applicationId) => {
+    logInfo('authorise for serviceAuthToken called', applicationId);
     const headers = {
         'Content-Type': 'application/json'
     };

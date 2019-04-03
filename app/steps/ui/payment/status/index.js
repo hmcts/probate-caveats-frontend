@@ -2,7 +2,9 @@
 
 const Step = require('app/core/steps/Step');
 const services = require('app/components/services');
-const logger = require('app/components/logger')('Init');
+const logger = require('app/components/logger');
+const logInfo = (message, applicationId = 'Unknown') => logger(applicationId).info(message);
+const logError = (message, applicationId = 'Unknown') => logger(applicationId).error(message);
 const RedirectRunner = require('app/core/runners/RedirectRunner');
 const {get, set} = require('lodash');
 const config = require('app/config');
@@ -64,12 +66,12 @@ class PaymentStatus extends Step {
             userId: ctx.userId,
             paymentId: ctx.paymentId
         };
-        const findPaymentResponse = yield services.findPayment(data);
+        const findPaymentResponse = yield services.findPayment(data, formdata.applicationId);
         if (findPaymentResponse.name === 'Error') {
-            logger.error(`Unable to find payment status for paymentId: ${ctx.paymentId}`);
+            logError(`Unable to find payment status for paymentId: ${ctx.paymentId}`, formdata.applicationId);
             return options;
         }
-        logger.info(`Existing payment paymentId = ${ctx.paymentId} with response = ${findPaymentResponse.status}`);
+        logInfo(`Existing payment paymentId = ${ctx.paymentId} with response = ${findPaymentResponse.status}`, formdata.applicationId);
         const date = typeof findPaymentResponse.date_updated === 'undefined' ? ctx.paymentCreatedDate : findPaymentResponse.date_updated;
         this.updateFormDataPayment(formdata, findPaymentResponse, date);
 
@@ -81,10 +83,10 @@ class PaymentStatus extends Step {
         options.redirect = true;
         if (findPaymentResponse.status !== 'Success') {
             options.url = `${this.steps.PaymentBreakdown.constructor.getUrl()}`;
-            logger.error(`Payment Status was not Success, so returning to breakdown page for applicationId: ${formdata.applicationId}`);
+            logError(`Payment Status was not Success, so returning to breakdown page`,formdata.applicationId);
         } else {
             options.url = Thankyou.getUrl();
-            logger.info(`Payment Status was Success for applicationId: ${formdata.applicationId}`);
+            logInfo(`Payment Status was Success`, formdata.applicationId);
         }
 
         return options;
@@ -96,13 +98,13 @@ class PaymentStatus extends Step {
         const updateCasePaymentStatusResult = yield services.updateCcdCasePaymentStatus(submitData, ctx);
 
         if (updateCasePaymentStatusResult.name === 'Error') {
-            logger.error(`updateCaseResult Error = ${updateCasePaymentStatusResult}`);
-            logger.error(`Update of case payment status failed for paymentId: ${ctx.paymentId}`);
+            logError(`updateCaseResult Error = ${updateCasePaymentStatusResult}`, formdata.applicationId);
+            logError(`Update of case payment status failed for paymentId: ${ctx.paymentId}`, formdata.applicationId);
             return true;
         }
         set(formdata, 'ccdCase.state', updateCasePaymentStatusResult.ccdCase.state);
-        logger.info({tags: 'Analytics'}, 'Caveat payment status updated');
-        logger.info(`Successfully updated Caveat case ${formdata.ccdCase.id} with payment status ${updateCasePaymentStatusResult.ccdCase.state}`);
+        logInfo({tags: 'Analytics Caveat case payment status updated'}, formdata.applicationId);
+        logInfo(`Successfully updated Caveat case ${formdata.ccdCase.id} with payment status ${updateCasePaymentStatusResult.ccdCase.state}`, formdata.applicationId);
 
         return false;
     }

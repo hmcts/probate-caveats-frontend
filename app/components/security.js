@@ -3,16 +3,16 @@
 const utils = require('app/components/api-utils');
 const config = require('app/config');
 const logger = require('app/components/logger');
-const logInfo = (message, sessionId = 'Init') => logger(sessionId).info(message);
+const logInfo = (message, applicationId = 'Unknown') => logger(applicationId).info(message);
 const {URLSearchParams} = require('url');
 const FormatUrl = require('app/utils/FormatUrl');
 
-const getUserToken = (hostname) => {
+const getUserToken = (hostname, applicationId) => {
     const redirect_url = FormatUrl.format(hostname, config.services.idam.caveat_redirectUrl);
-    return getOauth2Code(redirect_url)
+    return getOauth2Code(redirect_url, applicationId)
         .then((result) => {
             checkForError(result);
-            return getOauth2Token(result.code, redirect_url);
+            return getOauth2Token(result.code, redirect_url, applicationId);
         })
         .then((result) => {
             checkForError(result);
@@ -21,8 +21,8 @@ const getUserToken = (hostname) => {
         .catch((err) => err);
 };
 
-const getOauth2Code = (redirect_url) => {
-    logInfo('calling getOauth2Code to get code');
+const getOauth2Code = (redirect_url, applicationId) => {
+    logInfo('calling getOauth2Code to get code', applicationId);
     const client_id = config.services.idam.probate_oauth2_client;
     const idam_api_url = config.services.idam.apiUrl;
     const redirect_uri = redirect_url;
@@ -45,8 +45,8 @@ const getOauth2Code = (redirect_url) => {
     });
 };
 
-const getOauth2Token = (code, redirect_url) => {
-    logInfo('calling getOauth2Token to get auth token');
+const getOauth2Token = (code, redirect_url, applicationId) => {
+    logInfo('calling getOauth2Token to get auth token', applicationId);
     const client_id = config.services.idam.probate_oauth2_client;
     const client_secret = config.services.idam.probate_oauth2_secret;
     const idam_api_url = config.services.idam.apiUrl;
