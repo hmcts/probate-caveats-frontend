@@ -95,17 +95,9 @@ variable "probate_frontend_public_port" {
   default = "443"
 }
 
-variable "probate_frontend_port" {
-  default = "3001"
-}
-
 variable "ga_tracking_url" {
   description = "Google Analytics tracking URL"
   default = "http://www.google-analytics.com/collect"
-}
-
-variable "use_auth" {
-  default = "false"
 }
 
 variable "redis_use_tls" {
@@ -123,19 +115,11 @@ variable "frontend_service_name" {
   default = "probate-caveats-frontend"
 }
 
-variable "probate_frontend_use_redis" {
+variable "caveat_frontend_use_redis" {
   default = "false"
 }
 
-variable "probate_frontend_https" {
-  default = "false"
-}
-
-variable "probate_frontend_use_auth" {
-  default = "false"
-}
-
-variable "probate_frontend_use_idam" {
+variable "caveat_frontend_https" {
   default = "false"
 }
 
@@ -143,21 +127,13 @@ variable "idam_user_host" {
   type = "string"
 }
 
-variable "probate_private_beta_auth_url" {
-  default = "/login"
-}
-
-variable "probate_frontend_protocol" {
+variable "caveat_frontend_protocol" {
   default = "https"
 }
 
 
-variable "probate_google_track_id" {
+variable "caveat_google_track_id" {
   description = "Google Analytics tracking ID"
-}
-
-variable "probate_deployment_env" {
-  type = "string"
 }
 
 variable "reform_team" {

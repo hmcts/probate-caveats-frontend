@@ -10,32 +10,23 @@ deployment_env = "preprod"
 feature_toggles_api_url = "http://rpe-feature-toggle-api-demo.service.core-compute-demo.internal"
 
 idam_service_api = "http://rpe-service-auth-provider-demo.service.core-compute-demo.internal"
-idam_user_host = "https://preprod-idamapi.reform.hmcts.net:3511"
+idam_user_host = "https://idam-api.platform.hmcts.net"
+payment_create_url = "http://payment-api-demo.service.core-compute-demo.internal/card-payments"
+orchestration_service_url = "http://probate-orchestrator-service-demo.service.core-compute-demo.internal"
 
 packages_environment = "preprod"
 packages_version = "3.0.0"
 
-probate_deployment_env = "test"
+caveat_frontend_https = "false"
+caveat_frontend_use_redis = "true"
 
-probate_frontend_https = "false"
-probate_frontend_use_auth = "false"
-probate_frontend_port = "3101"
-probate_frontend_use_idam = "true"
-probate_frontend_use_redis = "true"
-
-probate_google_track_id = "UA-93598808-1"
-probate_private_beta_auth_url = "https://idam.preprod.ccidam.reform.hmcts.net/login"
-
-payment_create_url = "http://payment-api-demo.service.core-compute-demo.internal/card-payments"
-orchestration_service_url = "http://probate-orchestrator-service-demo.service.core-compute-demo.internal"
+caveat_google_track_id = "UA-93598808-5"
 
 reform_envirionment_for_test = "demo"
 
 vault_section = "preprod"
 
 //unused vars?
-probate_frontend_hostname = "probate-frontend-demo.service.core-compute-demo.internal"
 outbound_proxy = ""
 probate_redis_url = "betaPreProdprobatecache01.reform.hmcts.net"
 f5_redis_listen_port = "6379"
-payment_return_url = "https://probate-frontend-demo.service.core-compute-demo.internal/payment-status"
