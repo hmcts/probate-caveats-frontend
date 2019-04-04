@@ -15,8 +15,6 @@ String component = "caveats-fe"
 
 List<LinkedHashMap<String, Object>> secrets = [
     secret('testIdamBaseUrl', 'IDAM_API_URL'),
-    secret('testIdamLoginUrl', 'IDAM_LOGIN_URL'),
-    secret('testUseIdam', 'USE_IDAM'),
     secret('testInviteIdListUrl', 'INVITE_ID_LIST_URL'),
     secret('testPinUrl', 'PIN_URL'),
     secret('testInvitationUrl', 'INVITATION_URL'),
@@ -41,8 +39,6 @@ List<LinkedHashMap<String, Object>> secrets = [
     secret('probate-survey', 'PRO_SURVEY'),
     secret('probate-survey-end', 'PRO_SURVEY_END_OF_APPLICATION'),
     secret('probate-application-fee-code', 'PRO_APPLICATION_FEE_CODE'),
-    secret('probate-uk-application-fee-code', 'PRO_UK_COPIES_FEE_CODE'),
-    secret('probate-overseas-application-fee-code', 'PRO_OVERSEAS_COPIES_FEE_CODE'),
     secret('probate-service-id', 'PRO_SERVICE_ID'),
     secret('probate-site-id', 'PRO_SITE_ID')
 ]
@@ -67,8 +63,8 @@ withNightlyPipeline("nodejs", product, component) {
         sh 'mkdir -p functional-output'
         sh 'yarn setup'
         sh 'yarn test-accessibility'
-    }    
-        
+    }
+
 
     after('fullFunctionalTest') {
         steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'output/**/*'

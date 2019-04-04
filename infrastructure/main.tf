@@ -62,16 +62,6 @@ data "azurerm_key_vault_secret" "probate_application_fee_code" {
   vault_uri = "${data.azurerm_key_vault.probate_key_vault.vault_uri}"
 }
 
-data "azurerm_key_vault_secret" "probate_uk_application_fee_code" {
-  name = "probate-uk-application-fee-code"
-  vault_uri = "${data.azurerm_key_vault.probate_key_vault.vault_uri}"
-}
-
-data "azurerm_key_vault_secret" "probate_overseas_application_fee_code" {
-  name = "probate-overseas-application-fee-code"
-  vault_uri = "${data.azurerm_key_vault.probate_key_vault.vault_uri}"
-}
-
 data "azurerm_key_vault_secret" "probate_service_id" {
   name = "probate-service-id"
   vault_uri = "${data.azurerm_key_vault.probate_key_vault.vault_uri}"
@@ -134,30 +124,25 @@ module "probate-caveats-fe" {
     DEPLOYMENT_ENV="${var.deployment_env}"
 
     // Frontend web details
-    PUBLIC_PROTOCOL ="${var.probate_frontend_protocol}"
+    PUBLIC_PROTOCOL ="${var.caveat_frontend_protocol}"
 
     // Service name
     SERVICE_NAME = "${var.frontend_service_name}"
 
-    USE_HTTPS =  "${var.probate_frontend_https}"
-    USE_AUTH = "${var.probate_frontend_use_auth}"
-    GA_TRACKING_ID = "${var.probate_google_track_id}"
+    USE_HTTPS =  "${var.caveat_frontend_https}"
+    GA_TRACKING_ID = "${var.caveat_google_track_id}"
 
     // REDIS
-    USE_REDIS = "${var.probate_frontend_use_redis}"
+    USE_REDIS = "${var.caveat_frontend_use_redis}"
     REDIS_USE_TLS = "${var.redis_use_tls}"
     REDIS_HOST      = "${module.probate-caveats-fe-redis-cache.host_name}"
     REDIS_PORT      = "${module.probate-caveats-fe-redis-cache.redis_port}"
     REDIS_PASSWORD  = "${module.probate-caveats-fe-redis-cache.access_key}"
 
     // IDAM
-    USE_IDAM = "${var.probate_frontend_use_idam}"
     IDAM_API_URL = "${var.idam_user_host}"
-    IDAM_LOGIN_URL = "${var.probate_private_beta_auth_url}"
     IDAM_S2S_URL = "${var.idam_service_api}"
-    //IDAM_SERVICE_KEY = "${data.vault_generic_secret.idam_frontend_service_key.data["value"]}"
     IDAM_SERVICE_KEY = "${data.azurerm_key_vault_secret.s2s_key.value}"
-    //IDAM_API_OAUTH2_CLIENT_CLIENT_SECRETS_PROBATE = "${data.vault_generic_secret.idam_frontend_idam_key.data["value"]}"
     IDAM_API_OAUTH2_CLIENT_CLIENT_SECRETS_PROBATE = "${data.azurerm_key_vault_secret.idam_secret_probate.value}"
 
     //  PAYMENT
@@ -165,17 +150,13 @@ module "probate-caveats-fe" {
     ORCHESTRATION_SERVICE_URL = "${var.orchestration_service_url}"
 
     // POSTCODE
-    //POSTCODE_SERVICE_URL = "${data.vault_generic_secret.probate_postcode_service_url.data["value"]}"
     POSTCODE_SERVICE_URL = "${data.azurerm_key_vault_secret.probate_postcode_service_url.value}"
-    //POSTCODE_SERVICE_TOKEN = "${data.vault_generic_secret.probate_postcode_service_token.data["value"]}"
     POSTCODE_SERVICE_TOKEN = "${data.azurerm_key_vault_secret.probate_postcode_service_token.value}"
 
 
     SURVEY = "${data.azurerm_key_vault_secret.probate_survey.value}"
     SURVEY_END_OF_APPLICATION = "${data.azurerm_key_vault_secret.probate_survey_end.value}"
     APPLICATION_FEE_CODE = "${data.azurerm_key_vault_secret.probate_application_fee_code.value}"
-    UK_COPIES_FEE_CODE = "${data.azurerm_key_vault_secret.probate_uk_application_fee_code.value}"
-    OVERSEAS_COPIES_FEE_CODE = "${data.azurerm_key_vault_secret.probate_overseas_application_fee_code.value}"
     SERVICE_ID = "${data.azurerm_key_vault_secret.probate_service_id.value}"
     SITE_ID = "${data.azurerm_key_vault_secret.probate_site_id.value}"
 

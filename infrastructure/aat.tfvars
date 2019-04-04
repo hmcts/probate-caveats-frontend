@@ -12,32 +12,22 @@ feature_toggles_api_url = "http://rpe-feature-toggle-api-demo.service.core-compu
 
 idam_service_api = "http://rpe-service-auth-provider-aat.service.core-compute-aat.internal"
 idam_user_host = "https://idam-api.aat.platform.hmcts.net"
+payment_create_url = "http://payment-api-aat.service.core-compute-aat.internal/card-payments"
+orchestration_service_url = "http://probate-orchestrator-service-aat.service.core-compute-aat.internal"
 
 packages_environment = "preprod"
 packages_version = "3.0.0"
 
-payment_create_url = "http://payment-api-aat.service.core-compute-aat.internal/card-payments"
-orchestration_service_url = "http://probate-orchestrator-service-aat.service.core-compute-aat.internal"
+caveat_frontend_https = "false"
+caveat_frontend_use_redis = "true"
 
-probate_deployment_env = "test"
-
-probate_frontend_https = "false"
-probate_frontend_port = "3101"
-probate_frontend_use_auth = "false"
-probate_frontend_use_idam = "false"
-probate_frontend_use_redis = "true"
-
-probate_google_track_id = "UA-93598808-1"
-
-probate_private_beta_auth_url = "https://idam.preprod.ccidam.reform.hmcts.net/login"
+caveat_google_track_id = "UA-93598808-5"
 
 reform_envirionment_for_test = "aat"
 
 vault_section = "preprod"
 
 //unused?
-probate_frontend_hostname = "probate-frontend-aat-staging.service.core-compute-aat.internal"
 outbound_proxy = ""
 probate_redis_url = "betaPreProdprobatecache01.reform.hmcts.net"
 f5_redis_listen_port = "6379"
-payment_return_url = "https://probate-frontend-aat-staging.service.core-compute-aat.internal/payment-status"
