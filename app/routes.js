@@ -10,7 +10,8 @@ const lockPaymentAttempt = require('app/middleware/lockPaymentAttempt');
 const uuidv4 = require('uuid/v4');
 
 router.all('*', (req, res, next) => {
-    req.log = logger(req.sessionID);
+    const applicationId = get(req.session.form, 'applicationId', 'init');
+    req.log = logger(applicationId);
     req.log.info(`Processing ${req.method} for ${req.originalUrl}`);
     next();
 });

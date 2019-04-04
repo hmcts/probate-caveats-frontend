@@ -47,7 +47,7 @@ const asyncFetch = (url, fetchOptions, parseBody) => {
                 resolve(body);
             })
             .catch(err => {
-                logger.error(`Error${err}`);
+                logger.error(`${err}`);
                 reject(Error(err));
             });
     });

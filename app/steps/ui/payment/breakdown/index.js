@@ -4,7 +4,8 @@ const Step = require('app/core/steps/Step');
 const FieldError = require('app/components/error');
 const config = require('app/config');
 const {get, set} = require('lodash');
-const logger = require('app/components/logger')('Init');
+const logger = require('app/components/logger');
+const logInfo = (message, applicationId = 'Unknown') => logger(applicationId).info(message);
 const services = require('app/components/services');
 const security = require('app/components/security');
 const formatUrl = require('app/utils/FormatUrl');
@@ -52,7 +53,6 @@ class PaymentBreakdown extends Step {
             if (!formdata.ccdCase || !formdata.ccdCase.id) {
                 const result = yield this.sendToOrchestrationService(ctx, formdata, errors);
                 if (errors.length > 0) {
-                    logger.error(`Failed to create case in CCD for applicationId: ${formdata.applicationId}`);
                     return [ctx, errors];
                 }
                 set(formdata, 'ccdCase.id', result.ccdCase.id);
@@ -69,10 +69,11 @@ class PaymentBreakdown extends Step {
                 applicationFee: ctx.applicationFee,
                 copies: ctx.copies,
                 deceasedLastName: ctx.deceasedLastName,
-                ccdCaseId: ccdCaseId
+                ccdCaseId: ccdCaseId,
+                applicationId: ctx.applicationId
             };
             const paymentResponse = yield services.createPayment(data, hostname);
-            logger.info(`New Payment reference: ${paymentResponse.reference} for applicationId: ${formdata.applicationId}`);
+            logInfo(`New Payment reference: ${paymentResponse.reference}`, formdata.applicationId);
             if (paymentResponse.name === 'Error') {
                 errors.push(FieldError('payment', 'failure', this.resourcePath, ctx));
                 return [ctx, errors];
@@ -86,7 +87,7 @@ class PaymentBreakdown extends Step {
             // Forward toGov.pay
             this.nextStepUrl = () => paymentResponse._links.next_url.href;
 
-            logger.info('nextStepUrl is: ' + this.nextStepUrl(ctx));
+            logInfo('nextStepUrl is: ' + this.nextStepUrl(ctx), formdata.applicationId);
             return [ctx, errors];
         } finally {
             this.unlockPayment(session);
@@ -95,21 +96,21 @@ class PaymentBreakdown extends Step {
 
     unlockPayment(session) {
         const applicationId = session.form.applicationId;
-        logger.info('Unlocking applicationId: ' + applicationId);
+        logInfo('Unlocking applicationId', applicationId);
         session.paymentLock = 'Unlocked';
         session.save();
     }
 
     * setCtxWithSecurityTokens(ctx, errors) {
-        const serviceAuthResult = yield services.authorise();
+        const serviceAuthResult = yield services.authorise(ctx.applicationId);
         if (serviceAuthResult.name === 'Error') {
-            logger.info(`ApplicationId: ${ctx.applicationId} failed to obtain serviceAuthToken`);
+            logInfo('failed to obtain serviceAuthToken', ctx.applicationId);
             errors.push(FieldError('authorisation', 'failure', this.resourcePath, ctx));
             return;
         }
-        const authToken = yield security.getUserToken(ctx.hostname);
+        const authToken = yield security.getUserToken(ctx.hostname, ctx.applicationId);
         if (authToken.name === 'Error') {
-            logger.info(`ApplicationId: ${ctx.applicationId} failed to obtain authToken`);
+            logInfo('failed to obtain authToken', ctx.applicationId);
             errors.push(FieldError('authorisation', 'failure', this.resourcePath, ctx));
             return;
         }
@@ -120,12 +121,12 @@ class PaymentBreakdown extends Step {
     * sendToOrchestrationService(ctx, formdata, errors) {
         const result = yield services.sendToOrchestrationService(formdata, ctx);
         if (result.name === 'Error') {
-            logger.info(`ApplicationId: ${formdata.applicationId} failed to create case`);
+            logInfo('Failed to create case', formdata.applicationId);
             errors.push(FieldError('submit', 'failure', this.resourcePath, ctx));
             return;
         }
-        logger.info(`Case created: ${result.ccdCase.id} for applicationId: ${formdata.applicationId}`);
-        logger.info({tags: 'Analytics'}, 'Application Case Created');
+        logInfo(`Case created: ${result.ccdCase.id}`, formdata.applicationId);
+        logInfo({tags: 'Analytics Application Case Created'}, formdata.applicationId);
         return result;
     }
 

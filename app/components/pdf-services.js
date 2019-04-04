@@ -11,7 +11,7 @@ const security = require('app/components/security');
 
 const createCheckAnswersPdf = (formdata, sessionId, hostname) => {
     logInfo('Create check your answers PDF', sessionId);
-    return services.authorise()
+    return services.authorise(formdata.applicationId)
         .then(serviceToken => {
             const body = {
                 checkAnswersSummary: formdata.checkAnswersSummary
@@ -21,7 +21,7 @@ const createCheckAnswersPdf = (formdata, sessionId, hostname) => {
 };
 
 function createPDFDocument(formdata, serviceToken, body, hostname) {
-    return security.getUserToken(hostname)
+    return security.getUserToken(hostname, formdata.applicationId)
         .then((usertoken) => {
             const headers = {
                 'Content-Type': 'application/businessdocument+json',
