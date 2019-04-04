@@ -1,15 +1,13 @@
 {{checkanswer(
     items = [{
-            question: content.ApplicantName.firstName,
-            answer: fields.applicant.firstName.value,
-            visible: true
-        },
-        {
-            question: content.ApplicantName.lastName,
-            answer: fields.applicant.lastName.value,
-            visible: true
-        }
-    ],
+        question: content.ApplicantName.firstName,
+        answer: fields.applicant.firstName.value,
+        visible: true
+    }, {
+        question: content.ApplicantName.lastName,
+        answer: fields.applicant.lastName.value,
+        visible: true
+    }],
     url = content.ApplicantName.url,
     common = common,
     alreadyDeclared = 'false'
@@ -36,4 +34,3 @@
     common = common,
     alreadyDeclared = 'false'
 )}}
-
