@@ -3,11 +3,14 @@
 const utils = require('app/components/api-utils');
 const config = require('app/config');
 const logger = require('app/components/logger');
-const logInfo = (message, applicationId = 'Init') => logger(applicationId).info(message);
 
 class FeatureToggle {
+    log(message, level = 'info') {
+        logger('Init')[level](message);
+    }
+
     get(featureToggleKey) {
-        logInfo('Get feature toggle');
+        this.log('Get feature toggle');
         const url = `${config.featureToggles.url}${config.featureToggles.path}/${featureToggleKey}`;
         const headers = {
             'Content-Type': 'application/json'
