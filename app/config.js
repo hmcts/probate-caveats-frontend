@@ -6,7 +6,8 @@ module.exports = {
     gitRevision: process.env.GIT_REVISION,
     featureToggles: {
         url: process.env.FEATURE_TOGGLES_API_URL || 'http://localhost:8282',
-        path: process.env.FEATURE_TOGGLES_PATH || '/api/ff4j/check'
+        path: process.env.FEATURE_TOGGLES_PATH || '/api/ff4j/check',
+        caveats_shutter_toggle: 'caveats-fe-shutter'
     },
     app: {
         useHttps: process.env.USE_HTTPS || 'false',
@@ -46,6 +47,11 @@ module.exports = {
             serviceAuthorization: process.env.PAYMENT_SERVICE_AUTHORIZATION || 'dummy_token',
             userId: process.env.PAYMENT_USER_ID || 999999999,
             returnUrlPath: '/payment-status'
+        },
+        persistence: {
+            url: process.env.PERSISTENCE_SERVICE_URL || 'http://localhost:8282/formdata',
+            port: 8282,
+            path: '/formdata'
         }
     },
     redis: {

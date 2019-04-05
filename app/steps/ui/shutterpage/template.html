@@ -1,0 +1,27 @@
+{% extends "includes/layout.html" %}
+
+{% block page_title %}
+    {{ content.title }}
+{% endblock %}
+
+{% set displaySignOutLink = 'false' %}
+
+{% block content %}
+    <main id="content" role="main">
+        {% include "includes/phase_banner_beta.html" %}
+
+        <div class="grid-row">
+            <div class="column-two-thirds">
+                <h1 class="form-title heading-large">{{ content.header }}</h1>
+                <p>{{ content.paragraph1 }}</p>
+                <p>{{ content.paragraph2 }}</p>
+                <p>{{ content.paragraph3 | replace('{applyForProbate}', links.applyForProbate) | safe }}</p>
+                <p>{{ content.paragraph4 }}</p>
+                <p>
+                    {{ common.contactTelLabel | replace('{helpLineNumber}', helpline.number) }} {{ common.contactOpeningTimes | replace('{openingTimes}', helpline.hours) }}<br>
+                    {{ common.helpEmailLabel }} {{ common.contactEmailAddress | safe }}
+                </p>
+            </div>
+        </div>
+    </main>
+{% endblock %}
