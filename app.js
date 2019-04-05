@@ -96,7 +96,7 @@ exports.init = function() {
         policy: 'origin'
     }));
 
-    app.use(helmet.noCache);
+    app.use(helmet.noCache());
 
     app.use(helmet.xssFilter({setOnOldIE: true}));
 
