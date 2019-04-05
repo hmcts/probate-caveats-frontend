@@ -15,11 +15,11 @@
                 <h1 class="form-title heading-large">{{ content.header }}</h1>
                 <p>{{ content.paragraph1 }}</p>
                 <p>{{ content.paragraph2 }}</p>
-                <p>{{ content.paragraph3 | replace('{applyForProbate}', links.applyForProbate) | safe }}</p>
+                <p>{{ content.paragraph3 | replace('{stopGrantOfRepresentation}', links.stopGrantOfRepresentation) | safe }}</p>
                 <p>{{ content.paragraph4 }}</p>
                 <p>
-                    {{ common.contactTelLabel | replace('{helpLineNumber}', helpline.number) }} {{ common.contactOpeningTimes | replace('{openingTimes}', helpline.hours) }}<br>
-                    {{ common.helpEmailLabel }} {{ common.contactEmailAddress | safe }}
+                    {{ common.contactTelLabel}}: {{ helpline.number }} ({{ helpline.hours }})<br>
+                    {{ common.helpEmailLabel }}: <a href="mailto:{{ helpline.email }}">{{ helpline.email }}</a>
                 </p>
             </div>
         </div>

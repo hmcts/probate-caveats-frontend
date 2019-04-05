@@ -90,7 +90,8 @@ module.exports = {
         applicationFormPA1A: '/public/pdf/probate-application-form-pa1a.pdf',
         applicationFormPA1P: '/public/pdf/probate-application-form-pa1p.pdf',
         whoInheritsLink: 'https://www.gov.uk/inherits-someone-dies-without-will',
-        citizenAdvice: 'https://www.citizensadvice.org.uk/'
+        citizenAdvice: 'https://www.citizensadvice.org.uk/',
+        stopGrantOfRepresentation: 'https://www.gov.uk/wills-probate-inheritance/stopping-a-grant-of-representation'
     },
     helpline: {
         number: '0300 303 0648',

@@ -1,16 +1,19 @@
 'use strict';
 
-const Service = require('./Service');
+const utils = require('app/components/api-utils');
+const config = require('app/config');
+const logger = require('app/components/logger');
+const logInfo = (message, applicationId = 'Init') => logger(applicationId).info(message);
 
-class FeatureToggle extends Service {
+class FeatureToggle {
     get(featureToggleKey) {
-        this.log('Get feature toggle');
-        const url = `${this.endpoint}${this.config.featureToggles.path}/${featureToggleKey}`;
+        logInfo('Get feature toggle');
+        const url = `${config.featureToggles.url}${config.featureToggles.path}/${featureToggleKey}`;
         const headers = {
             'Content-Type': 'application/json'
         };
-        const fetchOptions = this.fetchOptions({}, 'GET', headers);
-        return this.fetchText(url, fetchOptions);
+        const fetchOptions = utils.fetchOptions({}, 'GET', headers);
+        return utils.fetchText(url, fetchOptions);
     }
 }
 
