@@ -49,6 +49,23 @@ module.exports = {
         addressPostcode: 'SW1A1AA'
     },
 
+    redis: {
+        host: process.env.REDIS_HOST || 'localhost',
+        port: process.env.REDIS_PORT || 6379,
+        password: process.env.REDIS_PASSWORD || 'dummy_password',
+        useTLS: process.env.REDIS_USE_TLS || 'false',
+        enabled: process.env.USE_REDIS || 'false',
+        secret: process.env.REDIS_SECRET || 'OVERWRITE_THIS',
+        proxy: true,
+        resave: false,
+        saveUninitialized: false,
+        cookie: {
+            secure: false,
+            httpOnly: true,
+            sameSite: 'lax'
+        }
+    },
+
     validation: {
         url: process.env.TEST_VALIDATION_SERVICE_URL || 'http://localhost:8080/validate'
     },
@@ -62,7 +79,7 @@ module.exports = {
         cookies: '/cookies',
         terms: process.env.TERMS_AND_CONDITIONS,
         survey: process.env.SURVEY,
-        surveyEndOfApplication: process.env.SURVEY_END_OF_APPLICATION,
+        surveyEndOfApplication: process.env.SURVEY_END_OF_APPLICATION || 'https://www.smartsurvey.co.uk/',
         privacy: '/privacy-policy',
         contact: '/contact-us',
         callCharges: 'https://www.gov.uk/call-charges',
@@ -79,9 +96,14 @@ module.exports = {
     },
     helpline: {
         number: '0300 303 0648',
-        hours: 'Monday to Friday, 9:30am to 5pm'
+        email: 'contactprobate@justice.gov.uk',
+        hours: 'Monday to Friday, 9am to 5pm'
     },
-
+    serviceline: {
+        number: '0300 123 7050',
+        email: 'contactprobate@justice.gov.uk',
+        hours: 'Monday to Friday, 9am to 5pm'
+    },
     pact: {
         pactBrokerUrl: process.env.PACT_BROKER_URL || 'http://localhost:80'
     },
