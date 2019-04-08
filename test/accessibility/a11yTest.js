@@ -8,9 +8,9 @@ const initSteps = require('app/core/initSteps');
 const {endsWith} = require('lodash');
 const commonContent = require('app/resources/en/translation/common');
 const stepsToExclude = ['AddAlias', 'RemoveAlias', 'AddressLookup', 'Summary', 'PaymentStatus'];
-let app = require('test/accessibility/app').init();
+const app = require('test/accessibility/app').init();
 
-const steps = initSteps([`../steps/action/`, `../steps/ui/`]);
+const steps = initSteps(['../steps/action/', '../steps/ui/']);
 Object.keys(steps)
     .filter(stepName => stepsToExclude.includes(stepName))
     .forEach(stepName => delete steps[stepName]);
