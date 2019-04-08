@@ -38,7 +38,7 @@ redis:
       enabled: false
 
 rpe-feature-toggle-api:
-  image: hmcts.azurecr.io/hmcts/rpe-feature-toggle-api:latest
+  image: hmcts.azurecr.io/hmcts/rpe-feature-toggle-api:1.0.0
   releaseNameOverride: ${SERVICE_NAME}-ftr-tgl-api
   importer:
     cron:
