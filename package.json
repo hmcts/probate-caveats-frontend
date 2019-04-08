@@ -106,7 +106,7 @@
     "puppeteer": "^1.4.0",
     "rewire": "^4.0.1",
     "selenium-standalone": "^5.7.2",
-    "sinon": "^7.2.2",
+    "sinon": "^1.17.5",
     "sinon-chai": "^3.3.0",
     "sonar-scanner": "3.0.3",
     "sonarqube-scanner": "^1.1.0",

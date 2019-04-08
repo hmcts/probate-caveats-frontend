@@ -1,0 +1,23 @@
+{% extends "includes/layout.html" %}
+
+{% set displaySignOutLink = 'false' %}
+
+{% block content %}
+    <main id="content" role="main">
+        {% include "includes/phase_banner_beta.html" %}
+
+        <div class="grid-row">
+            <div class="column-two-thirds">
+                <h1 class="form-title heading-large">{{ content.header }}</h1>
+                <p>{{ content.paragraph1 }}</p>
+                <p>{{ content.paragraph2 }}</p>
+                <p>{{ content.paragraph3 | replace('{stopGrantOfRepresentation}', links.stopGrantOfRepresentation) | safe }}</p>
+                <p>{{ content.paragraph4 }}</p>
+                <p>
+                    {{ common.contactTelLabel}}: {{ helpline.number }} ({{ helpline.hours }})<br>
+                    {{ common.helpEmailLabel }}: <a href="mailto:{{ helpline.email }}">{{ helpline.email }}</a>
+                </p>
+            </div>
+        </div>
+    </main>
+{% endblock %}
