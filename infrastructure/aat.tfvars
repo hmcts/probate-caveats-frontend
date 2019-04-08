@@ -8,7 +8,7 @@ external_host_name = "probate-caveats.aat.platform.hmcts.net"
 capacity = "2"
 deployment_env = "preprod"
 
-feature_toggles_api_url = "http://rpe-feature-toggle-api-demo.service.core-compute-demo.internal"
+feature_toggles_api_url = "http://rpe-feature-toggle-api-aat.service.core-compute-aat.internal"
 
 idam_service_api = "http://rpe-service-auth-provider-aat.service.core-compute-aat.internal"
 idam_user_host = "https://idam-api.aat.platform.hmcts.net"
