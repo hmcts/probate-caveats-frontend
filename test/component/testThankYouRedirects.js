@@ -10,7 +10,7 @@ describe('ThankYou router redirects', () => {
     describe('Verify router will redirect to /thankyou page when payment status is success', () => {
         for (const step in steps) {
             ((step) => {
-                if (step.name != 'ThankYou') {
+                if (step.name !== 'ThankYou') {
                     it('test route after a payment success', (done) => {
                         testWrapper = new TestWrapper(step.name);
                         testWrapper.agent.post('/prepare-session/form')
@@ -31,6 +31,6 @@ describe('ThankYou router redirects', () => {
                     });
                 }
             })(steps[step]);
-        };
+        }
     });
 });
