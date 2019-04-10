@@ -36,7 +36,12 @@ describe('paymentStatus', () => {
         });
 
         it('test right content loaded on the page', (done) => {
-            testWrapper.testContent(done, []);
+            const sessionData = {applicant: 'value'};
+            testWrapper.agent.post('/prepare-session/form')
+                .send(sessionData)
+                .end(() => {
+                    testWrapper.testContent(done);
+                });
         });
 
         it(`test it redirects to ${expectedNextUrlForPaymentBreakdown} page when payment status is failed`, (done) => {
@@ -51,6 +56,7 @@ describe('paymentStatus', () => {
             const data = {};
             testWrapper.agent.post('/prepare-session/form')
                 .send({
+                    applicant: 'value',
                     payment: {
                         paymentId: '12345',
                         status: 'initiated'
@@ -76,6 +82,7 @@ describe('paymentStatus', () => {
             const data = {};
             testWrapper.agent.post('/prepare-session/form')
                 .send({
+                    applicant: 'value',
                     payment: {
                         paymentId: '12345',
                         status: 'initiated'
@@ -100,6 +107,7 @@ describe('paymentStatus', () => {
             }));
             testWrapper.agent.post('/prepare-session/form')
                 .send({
+                    applicant: 'value',
                     payment: {
                         paymentId: '12345',
                         status: 'initiated'
@@ -124,6 +132,7 @@ describe('paymentStatus', () => {
             }));
             testWrapper.agent.post('/prepare-session/form')
                 .send({
+                    applicant: 'value',
                     payment: {
                         paymentId: '12345',
                         status: 'initiated'

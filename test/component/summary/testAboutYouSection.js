@@ -20,14 +20,21 @@ describe('summary-about-you-section', () => {
     describe('Verify Content, Errors and Redirection', () => {
 
         it('test correct content loaded on the summary page about you section, when no data is entered', (done) => {
+            testWrapper.agent.post('/prepare-session/form')
+                .send(sessionData)
+                .end((err) => {
+                    if (err) {
+                        throw err;
+                    }
 
-            const playbackData = {};
-            playbackData.name = applicantContent.name.firstName;
-            playbackData.name = applicantContent.name.lastName;
-            playbackData.emailAddress = applicantContent.email.question;
-            playbackData.applicantAddress = applicantContent.address.question;
+                    const playbackData = {};
+                    playbackData.name = applicantContent.name.firstName;
+                    playbackData.name = applicantContent.name.lastName;
+                    playbackData.emailAddress = applicantContent.email.question;
+                    playbackData.applicantAddress = applicantContent.address.question;
 
-            testWrapper.testDataPlayback(done, playbackData);
+                    testWrapper.testDataPlayback(done, playbackData);
+                });
         });
 
         it('test correct content loaded on the summary page about you section, when section is complete', (done) => {

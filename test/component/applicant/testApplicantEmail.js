@@ -20,7 +20,12 @@ describe('applicant-email', () => {
         testHelpBlockContent.runTest('ApplicantEmail');
 
         it('test content loaded on the page', (done) => {
-            testWrapper.testContent(done);
+            const sessionData = {applicant: 'value'};
+            testWrapper.agent.post('/prepare-session/form')
+                .send(sessionData)
+                .end(() => {
+                    testWrapper.testContent(done);
+                });
         });
 
         it('test error message displayed for missing data', (done) => {
