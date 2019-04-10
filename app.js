@@ -173,7 +173,7 @@ exports.init = function() {
 
     app.use('/health', healthcheck);
 
-    app.use('/', (req, res, next) => {
+    app.use(`${config.app.basePath}/`, (req, res, next) => {
         if (req.query.id && req.query.id !== req.session.regId) {
             delete req.session.form;
         }
@@ -193,11 +193,11 @@ exports.init = function() {
         const server = https.createServer(sslOptions, app);
 
         http = server.listen(port, () => {
-            console.log(`Application started: http://localhost:${port}`);
+            console.log(`Application started: http://localhost:${port}${config.app.basePath}`);
         });
     } else {
         http = app.listen(port, () => {
-            console.log(`Application started: http://localhost:${port}`);
+            console.log(`Application started: http://localhost:${port}${config.app.basePath}`);
         });
     }
 

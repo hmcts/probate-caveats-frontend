@@ -2,6 +2,7 @@
 
 const TestWrapper = require('test/util/TestWrapper');
 const config = require('app/config');
+const basePath = config.app.basePath;
 const content = require('app/resources/en/translation/thankyou');
 
 describe('thank-you', () => {
@@ -18,7 +19,7 @@ describe('thank-you', () => {
     describe('Verify Content, Errors and Redirection', () => {
         it('test content loaded on the page when CCD Case ID not present', (done) => {
             const sessionData = {};
-            testWrapper.agent.post('/prepare-session/form')
+            testWrapper.agent.post(`${basePath}/prepare-session/form`)
                 .send(sessionData)
                 .end(() => {
                     const contentData = {
@@ -36,7 +37,7 @@ describe('thank-you', () => {
                     state: 'CaseCreated'
                 }
             };
-            testWrapper.agent.post('/prepare-session/form')
+            testWrapper.agent.post(`${basePath}/prepare-session/form`)
                 .send(sessionData)
                 .end(() => {
                     const contentData = {

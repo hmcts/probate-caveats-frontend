@@ -15,6 +15,10 @@ class PaymentBreakdown extends Step {
         return '/payment-breakdown';
     }
 
+    nextStepUrl(req, ctx) {
+        return config.app.basePath + this.next(req, ctx).constructor.getUrl();
+    }
+
     generateFields(ctx, errors) {
         const fields = super.generateFields(ctx, errors);
         set(fields, 'applicationFee.value', config.payment.applicationFee);

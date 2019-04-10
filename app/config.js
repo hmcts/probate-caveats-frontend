@@ -12,15 +12,16 @@ module.exports = {
     app: {
         useHttps: process.env.USE_HTTPS || 'false',
         port: process.env.PORT || '3000',
-        useCSRFProtection: 'true'
+        useCSRFProtection: 'true',
+        basePath: process.env.APP_BASE_PATH || '/caveats'
     },
     services: {
         postcode: {
-            url: process.env.POSTCODE_SERVICE_URL || 'http://localhost:8585/find-address',
+            url: process.env.POSTCODE_SERVICE_URL || 'http://localhost:8585/caveats/find-address',
             token: process.env.POSTCODE_SERVICE_TOKEN,
             proxy: process.env.http_proxy,
             port: 8585,
-            path: '/find-address'
+            path: '/caveats/find-address'
         },
         orchestration: {
             url: process.env.ORCHESTRATION_SERVICE_URL || 'http://localhost:8888',

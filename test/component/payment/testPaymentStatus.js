@@ -9,11 +9,13 @@ const TestWrapper = require('test/util/TestWrapper');
 const services = require('app/components/services');
 const security = require('app/components/security');
 const testHelpBlockContent = require('test/component/common/testHelpBlockContent');
+const config = require('app/config');
+const basePath = config.app.basePath;
 
 describe('paymentStatus', () => {
     let testWrapper;
-    const expectedNextUrlForThankYou = Thankyou.getUrl();
-    const expectedNextUrlForPaymentBreakdown = PaymentBreakdown.getUrl();
+    const expectedNextUrlForThankYou = basePath + Thankyou.getUrl();
+    const expectedNextUrlForPaymentBreakdown = basePath + PaymentBreakdown.getUrl();
     let servicesMock, securityMock;
 
     beforeEach(() => {
@@ -29,7 +31,6 @@ describe('paymentStatus', () => {
     });
 
     describe('Verify Content, Errors and Redirection', () => {
-
         it('test help block content', (done) => {
             testHelpBlockContent.runTest('PaymentStatus');
             done();
@@ -49,7 +50,7 @@ describe('paymentStatus', () => {
                 }
             }));
             const data = {};
-            testWrapper.agent.post('/prepare-session/form')
+            testWrapper.agent.post(`${basePath}/prepare-session/form`)
                 .send({
                     payment: {
                         paymentId: '12345',
@@ -74,7 +75,7 @@ describe('paymentStatus', () => {
                 }
             }));
             const data = {};
-            testWrapper.agent.post('/prepare-session/form')
+            testWrapper.agent.post(`${basePath}/prepare-session/form`)
                 .send({
                     payment: {
                         paymentId: '12345',
@@ -98,7 +99,7 @@ describe('paymentStatus', () => {
             servicesMock.expects('findPayment').returns(Promise.resolve({
                 name: 'Error'
             }));
-            testWrapper.agent.post('/prepare-session/form')
+            testWrapper.agent.post(`${basePath}/prepare-session/form`)
                 .send({
                     payment: {
                         paymentId: '12345',
@@ -122,7 +123,7 @@ describe('paymentStatus', () => {
             servicesMock.expects('updateCcdCasePaymentStatus').returns(Promise.resolve({
                 name: 'Error'
             }));
-            testWrapper.agent.post('/prepare-session/form')
+            testWrapper.agent.post(`${basePath}/prepare-session/form`)
                 .send({
                     payment: {
                         paymentId: '12345',

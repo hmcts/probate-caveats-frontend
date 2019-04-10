@@ -7,6 +7,8 @@ const deceasedData = require('test/data/deceased');
 const deceasedContent = requireDir(module, '../../../app/resources/en/translation/deceased');
 const summaryContent = require('app/resources/en/translation/summary');
 const FormatName = require('app/utils/FormatName');
+const config = require('app/config');
+const basePath = config.app.basePath;
 
 describe('summary-deceased-section', () => {
     let testWrapper, sessionData;
@@ -34,7 +36,7 @@ describe('summary-deceased-section', () => {
         });
 
         it('test data is played back correctly on the deceased with no alias section of the summary page', (done) => {
-            testWrapper.agent.post('/prepare-session/form')
+            testWrapper.agent.post(`${basePath}/prepare-session/form`)
                 .send(sessionData)
                 .end((err) => {
                     if (err) {
@@ -69,7 +71,7 @@ describe('summary-deceased-section', () => {
                     }
                 }
             };
-            testWrapper.agent.post('/prepare-session/form')
+            testWrapper.agent.post(`${basePath}/prepare-session/form`)
                 .send(sessionData)
                 .end((err) => {
                     if (err) {

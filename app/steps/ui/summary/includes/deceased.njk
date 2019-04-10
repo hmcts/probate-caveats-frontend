@@ -10,6 +10,7 @@
     }],
     url = content.DeceasedName.url,
     common = common,
+    basePath = basePath,
     alreadyDeclared = 'false'
 )}}
 
@@ -21,6 +22,7 @@
     }],
     url = content.DeceasedDod.url,
     common = common,
+    basePath = basePath,
     alreadyDeclared = 'false'
 )}}
 
@@ -32,6 +34,7 @@
     }],
     url = content.DeceasedDobKnown.url,
     common = common,
+    basePath = basePath,
     alreadyDeclared = 'false'
 )}}
 
@@ -44,6 +47,7 @@
         }],
         url = content.DeceasedDob.url,
         common = common,
+        basePath = basePath,
         alreadyDeclared = 'false'
     )}}
 {% endif %}
@@ -56,6 +60,7 @@
     }],
     url = content.DeceasedAlias.url,
     common = common,
+    basePath = basePath,
     alreadyDeclared = 'false'
 )}}
 
@@ -71,7 +76,7 @@
         </td>
         <td class="check-your-answers__change">
             {% if fields.summary.alreadyDeclared.value == 'false' %}
-                <a href="{{content.DeceasedOtherNames.url}}">{{common.change}}</a>
+                <a href="{{basePath}}{{content.DeceasedOtherNames.url}}">{{common.change}}</a>
             {%endif%}
         </td>
     </tr>
@@ -85,5 +90,6 @@
     }],
     url = content.DeceasedAddress.url,
     common = common,
+    basePath = basePath,
     alreadyDeclared = 'false'
 )}}

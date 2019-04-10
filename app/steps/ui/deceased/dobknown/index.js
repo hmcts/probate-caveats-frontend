@@ -1,5 +1,6 @@
 'use strict';
 
+const config = require('app/config');
 const ValidationStep = require('../../../../core/steps/ValidationStep');
 const json = require('app/resources/en/translation/deceased/dobknown');
 const FormatName = require('app/utils/FormatName');
@@ -8,6 +9,10 @@ class DeceasedDobKnown extends ValidationStep {
 
     static getUrl() {
         return '/deceased-dob-known';
+    }
+
+    nextStepUrl(req, ctx) {
+        return config.app.basePath + this.next(req, ctx).constructor.getUrl();
     }
 
     nextStepOptions() {

@@ -1,5 +1,6 @@
 'use strict';
 
+const config = require('app/config');
 const DeceasedOtherNames = require('app/steps/ui/deceased/othernames/index');
 const {set, isEmpty} = require('lodash');
 const ActionStepRunner = require('app/core/runners/ActionStepRunner');
@@ -8,6 +9,10 @@ class AddAlias extends DeceasedOtherNames {
 
     static getUrl() {
         return '/other-names/add';
+    }
+
+    nextStepUrl(req, ctx) {
+        return config.app.basePath + this.next(req, ctx).constructor.getUrl();
     }
 
     constructor(steps, section, templatePath, i18next, schema) {

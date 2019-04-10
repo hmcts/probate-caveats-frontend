@@ -1,5 +1,6 @@
 'use strict';
 
+const config = require('app/config');
 const {isEmpty} = require('lodash');
 const ValidationStep = require('app/core/steps/ValidationStep');
 const services = require('app/components/services');
@@ -15,8 +16,8 @@ class AddressLookup extends ValidationStep {
         return new ActionStepRunner();
     }
 
-    next() {
-        return this.steps[this.referrer];
+    nextStepUrl() {
+        return config.app.basePath + this.steps[this.referrer].constructor.getUrl();
     }
 
     * handlePost (ctx, errors, formdata) {

@@ -1,4 +1,4 @@
-{% macro checkanswer(items, url, common, alreadyDeclared, answerIsCollection, answerIsGroup) %}
+{% macro checkanswer(items, url, common, basePath, alreadyDeclared, answerIsCollection, answerIsGroup) %}
     {% set anyVisibleItems = items | selectattr("visible") | length %}
     {% if anyVisibleItems %}
         {% set complete = false %}
@@ -11,7 +11,7 @@
                         <td class="check-your-answers__answer">
                             {% for answ in item.answer %}
                                 <div class="check-your-answers__row">
-                                {{ answ | safe }}
+                                    {{ answ | safe }}
                                 </div>
                             {% endfor %}
                         </td>
@@ -21,7 +21,7 @@
                     <td class="check-your-answers__change">
                         {% if alreadyDeclared === 'false' %}
                             {% set actionLink = common.change if complete else common.answer %}
-                            <a href="{{ url }}">{{ actionLink }}</a>
+                            <a href="{{ basePath }}{{ url }}">{{ actionLink }}</a>
                         {% endif %}
                     </td>
                 </tr>

@@ -5,10 +5,12 @@ const DeceasedName = require('app/steps/ui/deceased/name/index');
 const testAddressData = require('test/data/find-address');
 const formatAddress = address => address.replace(/\n/g, ' ');
 const testHelpBlockContent = require('test/component/common/testHelpBlockContent.js');
+const config = require('app/config');
+const basePath = config.app.basePath;
 
 describe('applicant-address', () => {
     let testWrapper;
-    const expectedNextUrlForDeceasedName = DeceasedName.getUrl();
+    const expectedNextUrlForDeceasedName = basePath + DeceasedName.getUrl();
 
     beforeEach(() => {
         testWrapper = new TestWrapper('ApplicantAddress');

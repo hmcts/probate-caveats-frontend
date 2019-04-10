@@ -3,10 +3,12 @@
 const TestWrapper = require('test/util/TestWrapper');
 const Summary = require('app/steps/ui/summary/index');
 const testHelpBlockContent = require('test/component/common/testHelpBlockContent.js');
+const config = require('app/config');
+const basePath = config.app.basePath;
 
 describe('deceased-address', () => {
     let testWrapper;
-    const expectedNextUrlForSummary = Summary.getUrl();
+    const expectedNextUrlForSummary = basePath + Summary.getUrl();
 
     beforeEach(() => {
         testWrapper = new TestWrapper('DeceasedAddress');
@@ -28,7 +30,7 @@ describe('deceased-address', () => {
                 }
             };
 
-            testWrapper.agent.post('/prepare-session/form')
+            testWrapper.agent.post(`${basePath}/prepare-session/form`)
                 .send(sessionData)
                 .end(() => {
                     const contentData = {deceasedName: 'Jason Smith'};

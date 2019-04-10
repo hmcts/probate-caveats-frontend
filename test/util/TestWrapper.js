@@ -5,6 +5,7 @@ const {expect, assert} = require('chai');
 const app = require('app');
 const routes = require('app/routes');
 const config = require('app/config');
+const basePath = config.app.basePath;
 const request = require('supertest');
 const journeyMap = require('app/core/journeyMap');
 const {steps} = require('app/core/initSteps');
@@ -12,7 +13,7 @@ const {steps} = require('app/core/initSteps');
 class TestWrapper {
     constructor(stepName) {
         this.pageToTest = steps[stepName];
-        this.pageUrl = this.pageToTest.constructor.getUrl();
+        this.pageUrl = basePath + this.pageToTest.constructor.getUrl();
 
         this.content = require(`app/resources/en/translation/${this.pageToTest.resourcePath}`);
         routes.post('/prepare-session/:path', (req, res) => {
@@ -23,7 +24,6 @@ class TestWrapper {
             Object.assign(req.session, req.body);
             res.send('OK');
         });
-
         routes.post('/prepare-session-field/:field/:value', (req, res) => {
             set(req.session, req.params.field, req.params.value);
             res.send('OK');
@@ -70,7 +70,7 @@ class TestWrapper {
         const expectedErrors = cloneDeep(isEmpty(onlyKeys) ? contentErrors : filter(contentErrors, (value, key) => onlyKeys.includes(key)));
         assert.isNotEmpty(expectedErrors);
         this.substituteErrorsContent(data, expectedErrors, type);
-        this.agent.post(`${this.pageUrl}`)
+        this.agent.post(this.pageUrl)
             .type('form')
             .send(data)
             .expect('Content-type', 'text/html; charset=utf-8')

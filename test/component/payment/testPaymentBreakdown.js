@@ -7,6 +7,8 @@ const testHelpBlockContent = require('test/component/common/testHelpBlockContent
 const TestWrapper = require('test/util/TestWrapper');
 const services = require('app/components/services');
 const security = require('app/components/security');
+const config = require('app/config');
+const basePath = config.app.basePath;
 
 describe('paymentBreakdown', () => {
     let testWrapper;
@@ -25,7 +27,6 @@ describe('paymentBreakdown', () => {
     });
 
     describe('Verify Content, Errors and Redirection', () => {
-
         beforeEach(() => {
             servicesMock.expects('authorise').returns(Promise.resolve('authorised'));
             securityMock.expects('getUserToken').returns(Promise.resolve('token'));
@@ -58,7 +59,7 @@ describe('paymentBreakdown', () => {
             }));
 
             const data = {};
-            testWrapper.agent.post('/prepare-session/form')
+            testWrapper.agent.post(`${basePath}/prepare-session/form`)
                 .send()
                 .end((err) => {
                     if (err) {
@@ -77,7 +78,7 @@ describe('paymentBreakdown', () => {
                 name: 'Error',
                 message: 'Unable to find service'
             }));
-            testWrapper.agent.post('/prepare-session/form')
+            testWrapper.agent.post(`${basePath}/prepare-session/form`)
                 .send()
                 .end((err) => {
                     if (err) {
@@ -94,7 +95,7 @@ describe('paymentBreakdown', () => {
                 name: 'Error',
                 message: 'Unable to find service'
             }));
-            testWrapper.agent.post('/prepare-session/form')
+            testWrapper.agent.post(`${basePath}/prepare-session/form`)
                 .send()
                 .end((err) => {
                     if (err) {
@@ -112,7 +113,7 @@ describe('paymentBreakdown', () => {
                 name: 'Error',
                 message: 'Unable to find service'
             }));
-            testWrapper.agent.post('/prepare-session/form')
+            testWrapper.agent.post(`${basePath}/prepare-session/form`)
                 .send()
                 .end((err) => {
                     if (err) {
@@ -139,7 +140,7 @@ describe('paymentBreakdown', () => {
             servicesMock.expects('findPayment').returns(Promise.resolve({
                 name: 'Error',
                 message: 'Unable to find service'}));
-            testWrapper.agent.post('/prepare-session/form')
+            testWrapper.agent.post(`${basePath}/prepare-session/form`)
                 .send({
                     payment: {
                         paymentId: 12345
@@ -170,7 +171,7 @@ describe('paymentBreakdown', () => {
             servicesMock.expects('createPayment').returns(Promise.resolve({
                 name: 'Error',
                 message: 'Unable to find service'}));
-            testWrapper.agent.post('/prepare-session/form')
+            testWrapper.agent.post(`${basePath}/prepare-session/form`)
                 .send()
                 .end((err) => {
                     if (err) {

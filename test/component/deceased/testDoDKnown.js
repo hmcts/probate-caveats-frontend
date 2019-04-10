@@ -4,13 +4,14 @@ const TestWrapper = require('test/util/TestWrapper');
 const DeceasedAlias = require('app/steps/ui/deceased/alias/index');
 const DeceasedDob = require('app/steps/ui/deceased/dob/index');
 const testHelpBlockContent = require('test/component/common/testHelpBlockContent.js');
-
+const config = require('app/config');
+const basePath = config.app.basePath;
 const nock = require('nock');
 
 describe('deceased-dob-known', () => {
     let testWrapper;
-    const expectedNextUrlForDeceasedDob = DeceasedDob.getUrl();
-    const expectedNextUrlForDeceasedAlias = DeceasedAlias.getUrl();
+    const expectedNextUrlForDeceasedDob = basePath + DeceasedDob.getUrl();
+    const expectedNextUrlForDeceasedAlias = basePath + DeceasedAlias.getUrl();
 
     beforeEach(() => {
         testWrapper = new TestWrapper('DeceasedDobKnown');
@@ -32,7 +33,7 @@ describe('deceased-dob-known', () => {
                 }
             };
 
-            testWrapper.agent.post('/prepare-session/form')
+            testWrapper.agent.post(`${basePath}/prepare-session/form`)
                 .send(sessionData)
                 .end(() => {
                     const contentData = {deceasedName: 'Jason Smith'};

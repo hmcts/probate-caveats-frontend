@@ -21,6 +21,10 @@ class PaymentStatus extends Step {
         return '/payment-status';
     }
 
+    nextStepUrl(req, ctx) {
+        return config.app.basePath + this.next(req, ctx).constructor.getUrl();
+    }
+
     getContextData(req) {
         const ctx = super.getContextData(req);
         const formdata = req.session.form;

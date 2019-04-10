@@ -4,10 +4,12 @@ const TestWrapper = require('test/util/TestWrapper');
 const {set} = require('lodash');
 const DeceasedAddress = require('app/steps/ui/deceased/address/index');
 const testHelpBlockContent = require('test/component/common/testHelpBlockContent.js');
+const config = require('app/config');
+const basePath = config.app.basePath;
 
 describe('deceased-othernames', () => {
     let testWrapper, sessionData;
-    const expectedNextUrlForDeceasedAddress = DeceasedAddress.getUrl();
+    const expectedNextUrlForDeceasedAddress = basePath + DeceasedAddress.getUrl();
 
     beforeEach(() => {
         testWrapper = new TestWrapper('DeceasedOtherNames');
@@ -27,7 +29,7 @@ describe('deceased-othernames', () => {
 
             const excludeKeys = ['otherName', 'removeName'];
 
-            testWrapper.agent.post('/prepare-session/form')
+            testWrapper.agent.post(`${basePath}/prepare-session/form`)
                 .send(sessionData)
                 .end(() => {
                     const contentData = {deceasedName: 'John Doe'};
@@ -44,7 +46,7 @@ describe('deceased-othernames', () => {
             set(sessionData, 'deceased.otherNames.name_1.firstName', 'Henry');
             set(sessionData, 'deceased.otherNames.name_1.lastName', 'Hat');
 
-            testWrapper.agent.post('/prepare-session/form')
+            testWrapper.agent.post(`${basePath}/prepare-session/form`)
                 .send(sessionData)
                 .end(() => {
                     const contentData = {
@@ -82,7 +84,7 @@ describe('deceased-othernames', () => {
             set(data, 'otherNames.name_0.firstName', 'John');
             set(data, 'otherNames.name_0.lastName', 'Doe');
 
-            testWrapper.agent.post('/prepare-session/form')
+            testWrapper.agent.post(`${basePath}/prepare-session/form`)
                 .send(sessionData)
                 .end(() => {
                     testWrapper.testRedirect(done, data, expectedNextUrlForDeceasedAddress);

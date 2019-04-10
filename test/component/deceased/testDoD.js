@@ -3,12 +3,13 @@
 const TestWrapper = require('test/util/TestWrapper');
 const DeceasedDobKnown = require('app/steps/ui/deceased/dobknown/index');
 const testHelpBlockContent = require('test/component/common/testHelpBlockContent.js');
-
+const config = require('app/config');
+const basePath = config.app.basePath;
 const nock = require('nock');
 
 describe('deceased-dod', () => {
     let testWrapper;
-    const expectedNextUrlForDeceasedDobKnown = DeceasedDobKnown.getUrl();
+    const expectedNextUrlForDeceasedDobKnown = basePath + DeceasedDobKnown.getUrl();
 
     beforeEach(() => {
         testWrapper = new TestWrapper('DeceasedDod');
@@ -101,7 +102,7 @@ describe('deceased-dod', () => {
                 dod_year: '2000'
             };
 
-            testWrapper.agent.post('/prepare-session/form')
+            testWrapper.agent.post(`${basePath}/prepare-session/form`)
                 .send(sessionData)
                 .end(() => {
                     testWrapper.testErrors(done, data, 'dodBeforeDob', errorsToTest);
