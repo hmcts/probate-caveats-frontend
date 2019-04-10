@@ -1,11 +1,12 @@
 'use strict';
 
+const config = require('app/config');
 const commonContent = require('app/resources/en/translation/common');
 const pageUnderTest = require('app/steps/ui/deceased/othernames/index');
 
 module.exports = function (noOfAliases) {
     const I = this;
-    I.seeCurrentUrlEquals(pageUnderTest.getUrl());
+    I.seeCurrentUrlEquals(config.app.basePath + pageUnderTest.getUrl());
     let i = 1;
 
     while (i <= noOfAliases) {
