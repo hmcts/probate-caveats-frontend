@@ -19,7 +19,7 @@ describe('StartPage router redirects', () => {
                         testWrapper.destroy();
                     });
                 })(steps[step]);
-            }
+            };
         }
     });
 });

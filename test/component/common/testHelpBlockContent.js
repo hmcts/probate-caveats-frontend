@@ -27,9 +27,9 @@ class TestHelpBlockContent {
                             })
                             .catch(err => {
                                 done(err);
-                            });
+                        });
                     });
-            });
+                });
 
             testWrapper.destroy();
         });
