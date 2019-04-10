@@ -1,15 +1,26 @@
 'use strict';
 
+const initSteps = require('app/core/initSteps');
 const expect = require('chai').expect;
-const DeceasedName = require('app/steps/ui/deceased/name/index');
+const steps = initSteps([`${__dirname}/../../app/steps/action/`, `${__dirname}/../../app/steps/ui`]);
+const DeceasedName = steps.DeceasedName;
 
 describe('DeceasedName', () => {
     describe('getUrl()', () => {
         it('should return the correct url', (done) => {
-            const url = DeceasedName.getUrl();
+            const url = DeceasedName.constructor.getUrl();
             expect(url).to.equal('/deceased-name');
             done();
         });
     });
 
+    describe('nextStepUrl()', () => {
+        it('should return url for the next step if there are codicils', (done) => {
+            const req = {};
+            const ctx = {};
+            const nextStepUrl = DeceasedName.nextStepUrl(req, ctx);
+            expect(nextStepUrl).to.equal('/deceased-dod');
+            done();
+        });
+    });
 });

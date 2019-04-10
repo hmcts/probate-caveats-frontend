@@ -13,7 +13,7 @@ module.exports = {
         useHttps: process.env.USE_HTTPS || 'false',
         port: process.env.PORT || '3000',
         useCSRFProtection: 'true',
-        basePath: process.env.APP_BASE_PATH || '/'
+        basePath: process.env.APP_BASE_PATH || ''
     },
     services: {
         postcode: {

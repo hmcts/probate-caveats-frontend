@@ -15,6 +15,16 @@ describe('DeceasedDob', () => {
         });
     });
 
+    describe('nextStepUrl()', () => {
+        it('should return url for the next step if there are codicils', (done) => {
+            const req = {};
+            const ctx = {};
+            const nextStepUrl = DeceasedDob.nextStepUrl(req, ctx);
+            expect(nextStepUrl).to.equal('/deceased-alias');
+            done();
+        });
+    });
+
     describe('dateName()', () => {
         it('should return the correct dateName value', (done) => {
             const dateName = DeceasedDob.dateName();
