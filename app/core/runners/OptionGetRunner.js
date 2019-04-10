@@ -1,13 +1,15 @@
 'use strict';
 
 const UIStepRunner = require('app/core/runners/UIStepRunner');
+const config = require('app/config');
+const basePath = config.app.basePath;
 
 class OptionGetRunner extends UIStepRunner {
 
     handleGet(step, req, res) {
         if (req.params[0] === 'redirect') {
             const ctx = step.getContextData(req);
-            res.redirect(step.nextStepUrl(ctx));
+            res.redirect(basePath + step.nextStepUrl(ctx));
         } else {
             super.handleGet(step, req, res);
         }

@@ -3,6 +3,8 @@
 const UIStepRunner = require('app/core/runners/UIStepRunner');
 const co = require('co');
 const uuidv4 = require('uuid/v4');
+const config = require('app/config');
+const basePath = config.app.basePath;
 
 class RedirectRunner extends UIStepRunner {
 
@@ -19,7 +21,7 @@ class RedirectRunner extends UIStepRunner {
 
             const options = yield step.runnerOptions(ctx, req.session.form);
             if (options.redirect) {
-                res.redirect(options.url);
+                res.redirect(basePath + options.url);
             } else {
                 req.errors = options.errors;
                 return originalHandleGet(step, req, res);

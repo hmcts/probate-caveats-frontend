@@ -9,7 +9,6 @@
                 {{ common.errorSummaryHeading | safe }}
             </h2>
             <ul class="error-summary-list">
-
                 {% for index, otherNameErros in errors %}
                     {% for error in otherNameErros %}
                         <li><a href="#otherNames_{{ index }}_{{ error.param }}">{{ error.msg.summary | safe }}</a></li>
@@ -60,7 +59,7 @@
     {% endfor %}
     <div class="form-group">
         <input {% if hasOtherNames %}autofocus="autofocus"{% endif %} class="button-secondary" type="submit"
-               formaction="/other-names/add" value="{{ content.addAnotherName }}">
+               formaction="{{ basePath }}/other-names/add" value="{{ content.addAnotherName }}">
     </div>
     <div class="form-group">
         <input class="button" type="submit" value="{{ common.continue }}">

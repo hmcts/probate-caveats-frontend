@@ -4,6 +4,8 @@ const co = require('co');
 const {curry, set, isEmpty, forEach} = require('lodash');
 const mapErrorsToFields = require('app/components/error').mapErrorsToFields;
 const FormatUrl = require('app/utils/FormatUrl');
+const config = require('app/config');
+const basePath = config.app.basePath;
 
 class UIStepRunner {
 
@@ -31,7 +33,7 @@ class UIStepRunner {
                 session.back.push(step.constructor.getUrl());
             }
             const common = step.commonContent();
-            res.render(step.template, {content, fields, errors, common}, (err, html) => {
+            res.render(step.template, {content, fields, errors, common, basePath}, (err, html) => {
                 if (err) {
                     req.log.error(err);
                     return res.status(500).render('errors/500');
@@ -68,7 +70,7 @@ class UIStepRunner {
                     session.back.push(step.constructor.getUrl());
                 }
 
-                res.redirect(nextStepUrl);
+                res.redirect(basePath + nextStepUrl);
             } else {
                 forEach(errors, (error) =>
                     req.log.info({type: 'Validation Message', url: step.constructor.getUrl()}, JSON.stringify(error))
@@ -77,7 +79,7 @@ class UIStepRunner {
                 let fields = step.generateFields(ctx, errors, formdata);
                 fields = mapErrorsToFields(fields, errors);
                 const common = step.commonContent();
-                res.render(step.template, {content, fields, errors, common});
+                res.render(step.template, {content, fields, errors, common, basePath});
             }
         }).catch((error) => {
             req.log.error(error);

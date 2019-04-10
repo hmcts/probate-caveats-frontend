@@ -32,7 +32,7 @@ router.use((req, res, next) => {
 
 router.get('/', (req, res) => {
     req.log.info({tags: 'Analytics'}, 'Application Started');
-    res.redirect('start-page');
+    res.redirect(`${config.app.basePath}/start-page`);
 });
 
 router.use((req, res, next) => {
@@ -48,7 +48,7 @@ router.post('/payment-breakdown', lockPaymentAttempt);
 router.use((req, res, next) => {
     const formdata = req.session.form;
     if (get(formdata, 'payment.status') === 'Success' && !isEqual(req.originalUrl, '/thankyou')) {
-        res.redirect('/thankyou');
+        res.redirect(`${config.app.basePath}/thankyou`);
     } else {
         next();
     }

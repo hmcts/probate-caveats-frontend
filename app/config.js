@@ -12,7 +12,8 @@ module.exports = {
     app: {
         useHttps: process.env.USE_HTTPS || 'false',
         port: process.env.PORT || '3000',
-        useCSRFProtection: 'true'
+        useCSRFProtection: 'true',
+        basePath: process.env.APP_BASE_PATH || '/caveats'
     },
     services: {
         postcode: {
