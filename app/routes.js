@@ -43,7 +43,7 @@ router.use((req, res, next) => {
 
 router.use(documentDownloads);
 
-router.post('/payment-breakdown', lockPaymentAttempt);
+router.post(`${config.app.basePath}/payment-breakdown`, lockPaymentAttempt);
 
 router.use((req, res, next) => {
     const formdata = req.session.form;

@@ -15,7 +15,6 @@ describe('contact-us', () => {
     });
 
     describe('Verify Content, Errors and Redirection', () => {
-
         it('test right content loaded on the page', (done) => {
             const excludeKeys = [];
 

@@ -10,6 +10,7 @@ const {endsWith} = require('lodash');
 const commonContent = require('app/resources/en/translation/common');
 const stepsToExclude = ['AddAlias', 'RemoveAlias', 'AddressLookup', 'Summary', 'PaymentStatus', 'ShutterPage'];
 const steps = initSteps.steps;
+const config = require('app/config');
 
 Object.keys(steps)
     .filter(stepName => stepsToExclude.includes(stepName))
@@ -30,15 +31,14 @@ for (const step in steps) {
                 .replace(/\)/g, '\\)');
 
             before((done) => {
-
                 server = app.init();
                 agent = request.agent(server.app);
                 co(function* () {
                     let urlSuffix = '';
-                    if (endsWith(agent.get(step.constructor.getUrl()), '*')) {
+                    if (endsWith(agent.get(config.app.basePath + step.constructor.getUrl()), '*')) {
                         urlSuffix = '/0';
                     }
-                    results = yield a11y(agent.get(step.constructor.getUrl()).url + urlSuffix, title);
+                    results = yield a11y(agent.get(config.app.basePath + step.constructor.getUrl()).url + urlSuffix, title);
                 })
                     .then(done, done)
                     .catch((error) => {

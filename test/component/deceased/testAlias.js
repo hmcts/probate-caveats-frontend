@@ -4,11 +4,13 @@ const TestWrapper = require('test/util/TestWrapper');
 const DeceasedOtherNames = require('app/steps/ui/deceased/othernames/index');
 const DeceasedAddress = require('app/steps/ui/deceased/address/index');
 const testHelpBlockContent = require('test/component/common/testHelpBlockContent.js');
+const config = require('app/config');
+const basePath = config.app.basePath;
 
 describe('deceased-alias', () => {
     let testWrapper;
-    const expectedNextUrlForDeceasedOtherNames = DeceasedOtherNames.getUrl();
-    const expectedNextUrlForDeceasedAddress = DeceasedAddress.getUrl();
+    const expectedNextUrlForDeceasedOtherNames = basePath + DeceasedOtherNames.getUrl();
+    const expectedNextUrlForDeceasedAddress = basePath + DeceasedAddress.getUrl();
 
     beforeEach(() => {
         testWrapper = new TestWrapper('DeceasedAlias');
@@ -30,7 +32,7 @@ describe('deceased-alias', () => {
             };
             const excludeContent = ['theDeceased'];
 
-            testWrapper.agent.post('/prepare-session/form')
+            testWrapper.agent.post(`${basePath}/prepare-session/form`)
                 .send(sessionData)
                 .end(() => {
 

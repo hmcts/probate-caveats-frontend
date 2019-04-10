@@ -3,10 +3,12 @@
 const TestWrapper = require('test/util/TestWrapper');
 const DeceasedDoD = require('app/steps/ui/deceased/dod/index');
 const testHelpBlockContent = require('test/component/common/testHelpBlockContent.js');
+const config = require('app/config');
+const basePath = config.app.basePath;
 
 describe('deceased-name', () => {
     let testWrapper;
-    const expectedNextUrlForDeceasedDoD = DeceasedDoD.getUrl();
+    const expectedNextUrlForDeceasedDoD = basePath + DeceasedDoD.getUrl();
 
     beforeEach(() => {
         testWrapper = new TestWrapper('DeceasedName');

@@ -1,5 +1,6 @@
 'use strict';
 
+const config = require('app/config');
 const AddressStep = require('app/core/steps/AddressStep');
 const FormatName = require('app/utils/FormatName');
 
@@ -7,6 +8,10 @@ class DeceasedAddress extends AddressStep {
 
     static getUrl() {
         return '/deceased-address';
+    }
+
+    nextStepUrl(req, ctx) {
+        return config.app.basePath + this.next(req, ctx).constructor.getUrl();
     }
 
     generateContent(ctx, formdata) {

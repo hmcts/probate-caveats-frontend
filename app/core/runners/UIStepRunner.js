@@ -70,7 +70,7 @@ class UIStepRunner {
                     session.back.push(step.constructor.getUrl());
                 }
 
-                res.redirect(basePath + nextStepUrl);
+                res.redirect(nextStepUrl);
             } else {
                 forEach(errors, (error) =>
                     req.log.info({type: 'Validation Message', url: step.constructor.getUrl()}, JSON.stringify(error))

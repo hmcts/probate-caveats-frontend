@@ -2,8 +2,6 @@
 
 const co = require('co');
 const {curry} = require('lodash');
-const config = require('app/config');
-const basePath = config.app.basePath;
 
 class ActionStepRunner {
 
@@ -30,7 +28,7 @@ class ActionStepRunner {
 
             const next = step.next(ctx);
             step.action(ctx, formdata);
-            res.redirect(basePath + next.constructor.getUrl());
+            res.redirect(next.constructor.getUrl());
         }).catch((error) => {
             req.log.error(error);
             res.status(500).render('errors/500');

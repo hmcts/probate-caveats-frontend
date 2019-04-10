@@ -3,10 +3,12 @@
 const TestWrapper = require('test/util/TestWrapper');
 const ApplicantEmail = require('app/steps/ui/applicant/email/index');
 const testHelpBlockContent = require('test/component/common/testHelpBlockContent.js');
+const config = require('app/config');
+const basePath = config.app.basePath;
 
 describe('applicant-name', () => {
     let testWrapper;
-    const expectedNextUrlForApplicantEmail = ApplicantEmail.getUrl();
+    const expectedNextUrlForApplicantEmail = basePath + ApplicantEmail.getUrl();
 
     beforeEach(() => {
         testWrapper = new TestWrapper('ApplicantName');

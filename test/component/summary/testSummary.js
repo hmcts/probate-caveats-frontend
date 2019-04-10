@@ -8,10 +8,12 @@ const minimalCaveatForm = require('test/data/unit/minimalcaveatform');
 const sinon = require('sinon');
 const services = require('app/components/services');
 const security = require('app/components/security');
+const config = require('app/config');
+const basePath = config.app.basePath;
 
 describe('summary', () => {
     let testWrapper;
-    const expectedNextUrlForThankYou = PaymentBreakdown.getUrl();
+    const expectedNextUrlForThankYou = basePath + PaymentBreakdown.getUrl();
     let servicesMock, securityMock;
 
     beforeEach(() => {
@@ -53,7 +55,7 @@ describe('summary', () => {
                         name: 'Birmingham'
                     }
                 }));
-            testWrapper.agent.post('/prepare-session/form')
+            testWrapper.agent.post(`${basePath}/prepare-session/form`)
                 .send(sessionData)
                 .end((err) => {
                     if (err) {

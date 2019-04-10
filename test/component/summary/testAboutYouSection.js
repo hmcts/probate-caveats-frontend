@@ -4,6 +4,8 @@ const requireDir = require('require-directory');
 const TestWrapper = require('test/util/TestWrapper');
 const applicantData = require('test/data/applicant');
 const applicantContent = requireDir(module, '../../../app/resources/en/translation/applicant');
+const config = require('app/config');
+const basePath = config.app.basePath;
 
 describe('summary-about-you-section', () => {
     let testWrapper, sessionData;
@@ -18,9 +20,7 @@ describe('summary-about-you-section', () => {
     });
 
     describe('Verify Content, Errors and Redirection', () => {
-
         it('test correct content loaded on the summary page about you section, when no data is entered', (done) => {
-
             const playbackData = {};
             playbackData.name = applicantContent.name.firstName;
             playbackData.name = applicantContent.name.lastName;
@@ -31,7 +31,7 @@ describe('summary-about-you-section', () => {
         });
 
         it('test correct content loaded on the summary page about you section, when section is complete', (done) => {
-            testWrapper.agent.post('/prepare-session/form')
+            testWrapper.agent.post(`${basePath}/prepare-session/form`)
                 .send(sessionData)
                 .end((err) => {
                     if (err) {
