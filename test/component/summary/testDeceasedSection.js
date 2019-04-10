@@ -22,15 +22,20 @@ describe('summary-deceased-section', () => {
 
     describe('Verify Content, Errors and Redirection', () => {
         it('test correct content loaded on deceased section of the summary page , when no data is entered', (done) => {
-            const playbackData = {
-                firstName: deceasedContent.name.firstName,
-                lastName: deceasedContent.name.lastName,
-                alias: deceasedContent.alias.question.replace('{deceasedName}', deceasedContent.alias.theDeceased),
-                dobKnown: deceasedContent.dobknown.question.replace('{deceasedName}', ''),
-                dod: deceasedContent.dod.question,
-                address: deceasedContent.address.question.replace('{deceasedName}', ''),
-            };
-            testWrapper.testDataPlayback(done, playbackData);
+            const sessionData = {applicant: 'value'};
+            testWrapper.agent.post('/prepare-session/form')
+                .send(sessionData)
+                .end(() => {
+                    const playbackData = {
+                        firstName: deceasedContent.name.firstName,
+                        lastName: deceasedContent.name.lastName,
+                        alias: deceasedContent.alias.question.replace('{deceasedName}', deceasedContent.alias.theDeceased),
+                        dobKnown: deceasedContent.dobknown.question.replace('{deceasedName}', ''),
+                        dod: deceasedContent.dod.question,
+                        address: deceasedContent.address.question.replace('{deceasedName}', ''),
+                    };
+                    testWrapper.testDataPlayback(done, playbackData);
+                });
         });
 
         it('test data is played back correctly on the deceased with no alias section of the summary page', (done) => {
@@ -57,14 +62,15 @@ describe('summary-deceased-section', () => {
 
         it('test data is played back correctly on the deceased with alias section of the summary page', (done) => {
             const sessionData = {
-                'deceased': {
-                    'firstName': 'Joe',
-                    'lastName': 'Bloggs',
-                    'alias': 'Yes',
-                    'otherNames': {
-                        'name_0': {
-                            'firstName': 'new_died_firstname',
-                            'lastName': 'new_died_lastname'
+                applicant: 'value',
+                deceased: {
+                    firstName: 'Joe',
+                    lastName: 'Bloggs',
+                    alias: 'Yes',
+                    otherNames: {
+                        name_0: {
+                            firstName: 'new_died_firstname',
+                            lastName: 'new_died_lastname'
                         }
                     }
                 }

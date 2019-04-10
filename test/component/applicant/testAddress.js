@@ -19,11 +19,16 @@ describe('applicant-address', () => {
     });
 
     describe('Verify Content, Errors and Redirection', () => {
-        testHelpBlockContent.runTest('ApplicantAddress');
+        testHelpBlockContent.runTest('ApplicantAddress', true);
 
         it('test right content loaded on the page', (done) => {
             const excludeKeys = ['selectAddress'];
-            testWrapper.testContent(done, excludeKeys);
+            const sessionData = {applicant: 'value'};
+            testWrapper.agent.post('/prepare-session/form')
+                .send(sessionData)
+                .end(() => {
+                    testWrapper.testContent(done, excludeKeys);
+                });
         });
 
         it('test error messages displayed for missing data', (done) => {

@@ -23,6 +23,7 @@ describe('deceased-alias', () => {
 
         it('test right content loaded on the page', (done) => {
             const sessionData = {
+                applicant: 'value',
                 deceased: {
                     firstName: 'John',
                     lastName: 'Doe'
