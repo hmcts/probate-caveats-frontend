@@ -6,11 +6,12 @@ const steps = initSteps.steps;
 
 describe('ThankYou router redirects', () => {
     let testWrapper;
+    const stepsToExclude = ['ThankYou', 'ShutterPage'];
 
     describe('Verify router will redirect to /thankyou page when payment status is success', () => {
         for (const step in steps) {
             ((step) => {
-                if (step.name !== 'ThankYou') {
+                if (!stepsToExclude.includes(step.name)) {
                     it('test route after a payment success', (done) => {
                         testWrapper = new TestWrapper(step.name);
                         testWrapper.agent.post('/prepare-session/form')
