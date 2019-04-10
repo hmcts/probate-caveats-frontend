@@ -22,8 +22,12 @@ describe('deceased-name', () => {
         testHelpBlockContent.runTest('DeceasedName');
 
         it('test right content loaded on the page', (done) => {
-
-            testWrapper.testContent(done, []);
+            const sessionData = {applicant: 'value'};
+            testWrapper.agent.post('/prepare-session/form')
+                .send(sessionData)
+                .end(() => {
+                    testWrapper.testContent(done);
+                });
         });
 
         it('test errors message displayed for missing data', (done) => {

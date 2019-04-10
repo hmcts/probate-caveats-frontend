@@ -24,6 +24,7 @@ describe('deceased-othernames', () => {
         testHelpBlockContent.runTest('DeceasedOtherNames');
 
         it('test right content loaded on the page', (done) => {
+            set(sessionData, 'applicant', 'value');
             set(sessionData, 'deceased.firstName', 'John');
             set(sessionData, 'deceased.lastName', 'Doe');
 
@@ -39,6 +40,7 @@ describe('deceased-othernames', () => {
         });
 
         it('test right content loaded on the page when deceased has other names', (done) => {
+            set(sessionData, 'applicant', 'value');
             set(sessionData, 'deceased.firstName', 'John');
             set(sessionData, 'deceased.lastName', 'Doe');
             set(sessionData, 'deceased.otherNames.name_0.firstName', 'James');

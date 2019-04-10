@@ -33,11 +33,20 @@ describe('summary', () => {
         testHelpBlockContent.runTest('Summary');
 
         it('test content loaded on the page', (done) => {
-            const contentToExclude = [
-                'otherNamesLabel',
-                'title'
-            ];
-            testWrapper.testContent(done, contentToExclude);
+            const sessionData = {applicant: 'value'};
+            testWrapper.agent.post('/prepare-session/form')
+                .send(sessionData)
+                .end((err) => {
+                    if (err) {
+                        throw err;
+                    }
+                    const contentToExclude = [
+                        'otherNamesLabel',
+                        'title'
+                    ];
+                    testWrapper.testContent(done, contentToExclude);
+                });
+
         });
 
         it(`test it redirects to end of journey page: ${expectedNextUrlForThankYou}`, (done) => {
