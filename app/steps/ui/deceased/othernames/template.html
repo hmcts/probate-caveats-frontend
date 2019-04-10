@@ -32,8 +32,7 @@
             {% if index !== 'name_0' %}
                 {% set hasOtherNames = true %}
                 <span class="heading-medium">{{ content.otherName }}</span>
-                <input class="button-secondary" type="submit" formaction="/other-names/remove/{{ index }}"
-                       value="{{ content.removeName }}">
+                <input class="button-secondary" type="submit" formaction="{{ basePath }}/other-names/remove/{{ index }}" value="{{ content.removeName }}">
             {% else %}
                 <legend class="visually-hidden">
                     {{ content.question | safe }}
@@ -58,8 +57,7 @@
         </fieldset>
     {% endfor %}
     <div class="form-group">
-        <input {% if hasOtherNames %}autofocus="autofocus"{% endif %} class="button-secondary" type="submit"
-               formaction="{{ basePath }}/other-names/add" value="{{ content.addAnotherName }}">
+        <input {% if hasOtherNames %}autofocus="autofocus"{% endif %} class="button-secondary" type="submit" formaction="{{ basePath }}/other-names/add" value="{{ content.addAnotherName }}">
     </div>
     <div class="form-group">
         <input class="button" type="submit" value="{{ common.continue }}">

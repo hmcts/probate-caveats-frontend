@@ -17,11 +17,11 @@ module.exports = {
     },
     services: {
         postcode: {
-            url: process.env.POSTCODE_SERVICE_URL || 'http://localhost:8585/find-address',
+            url: process.env.POSTCODE_SERVICE_URL || 'http://localhost:8585/caveats/find-address',
             token: process.env.POSTCODE_SERVICE_TOKEN,
             proxy: process.env.http_proxy,
             port: 8585,
-            path: '/find-address'
+            path: '/caveats/find-address'
         },
         orchestration: {
             url: process.env.ORCHESTRATION_SERVICE_URL || 'http://localhost:8888',

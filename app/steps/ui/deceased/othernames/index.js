@@ -16,17 +16,6 @@ class DeceasedOtherNames extends ValidationStep {
         return config.app.basePath + this.next(req, ctx).constructor.getUrl();
     }
 
-    nextStepOptions() {
-        const nextStepOptions = {
-            options: [{
-                key: 'deceasedMarriedAfterDateOnCodicilOrWill',
-                value: true,
-                choice: 'deceasedMarriedAfterDateOnCodicilOrWill'
-            }]
-        };
-        return nextStepOptions;
-    }
-
     getContextData(req) {
         const ctx = super.getContextData(req);
         if (!ctx.otherNames) {
