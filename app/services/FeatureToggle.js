@@ -9,14 +9,18 @@ class FeatureToggle {
         logger('Init')[level](message);
     }
 
-    get(featureToggleKey) {
+    async get(featureToggleKey) {
         this.log('Get feature toggle');
         const url = `${config.featureToggles.url}${config.featureToggles.path}/${featureToggleKey}`;
         const headers = {
             'Content-Type': 'application/json'
         };
         const fetchOptions = utils.fetchOptions({}, 'GET', headers);
-        return utils.fetchText(url, fetchOptions);
+        const result = await utils.fetchText(url, fetchOptions);
+        if (result.name === 'Error') {
+            return 'false';
+        }
+        return result;
     }
 }
 
