@@ -2,7 +2,7 @@ module.exports = {
 
     TestIdamBaseUrl: process.env.IDAM_API_URL || 'https://idam-api.aat.platform.hmcts.net',
     TestFrontendUrl: process.env.TEST_URL || 'http://localhost:3000',
-    TestE2EFrontendUrl: process.env.TEST_E2E_URL ||process.env.TEST_URL,
+    TestE2EFrontendUrl: process.env.TEST_E2E_URL || process.env.TEST_URL,
     TestUseSidam: process.env.USE_SIDAM || 'true',
     TestUseGovPay: process.env.USE_GOV_PAY || 'true',
     TestInviteIdListUrl: process.env.INVITE_ID_LIST_URL || '/inviteIdList',
@@ -18,6 +18,7 @@ module.exports = {
     TestRetryScenarios: process.env.RETRY_SCENARIOS || 0,
     TestDocumentToUpload: 'uploadDocuments/test_file_for_document_upload.png',
     TestWaitForDocumentUpload: 60,
+    TestBasePath: '/caveats',
 
     postcodeLookup: {
         token: process.env.ADDRESS_TOKEN,
