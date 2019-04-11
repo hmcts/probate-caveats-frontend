@@ -8,7 +8,8 @@ const initSteps = require('app/core/initSteps');
 const {endsWith} = require('lodash');
 const commonContent = require('app/resources/en/translation/common');
 const stepsToExclude = ['AddAlias', 'RemoveAlias', 'AddressLookup', 'Summary', 'PaymentStatus'];
-const app = require('test/accessibility/app').init();
+let app = require('test/accessibility/app').init();
+const config = require('app/config');
 
 const steps = initSteps(['../steps/action/', '../steps/ui/']);
 Object.keys(steps)
