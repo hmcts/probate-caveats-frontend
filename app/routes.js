@@ -47,7 +47,7 @@ router.post(`${config.app.basePath}/payment-breakdown`, lockPaymentAttempt);
 
 router.use((req, res, next) => {
     const formdata = req.session.form;
-    if (get(formdata, 'payment.status') === 'Success' && !isEqual(req.originalUrl, '/thankyou')) {
+    if (get(formdata, 'payment.status') === 'Success' && !isEqual(req.originalUrl, `${config.app.basePath}/thankyou`)) {
         res.redirect(`${config.app.basePath}/thankyou`);
     } else {
         next();

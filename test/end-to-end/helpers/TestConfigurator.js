@@ -14,7 +14,7 @@ class TestConfigurator {
         this.testDeleteUserUrl = this.testAddUserUrl + '/';
         this.role = testConfig.TestIdamRole;
         this.paymentEnvironments = testConfig.paymentEnvironments;
-        this.TestFrontendUrl = testConfig.TestFrontendUrl;
+        this.TestFrontendUrl = testConfig.TestFrontendUrl+testConfig.TestBasePath;
         this.useGovPay = testConfig.TestUseGovPay;
         this.retryScenarios = testConfig.TestRetryScenarios;
     }

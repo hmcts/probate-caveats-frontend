@@ -171,5 +171,8 @@ module "probate-caveats-fe" {
     // Cache
     WEBSITE_LOCAL_CACHE_OPTION = "${var.website_local_cache_option}"
     WEBSITE_LOCAL_CACHE_SIZEINMB = "${var.website_local_cache_sizeinmb}"
+
+    APP_BASE_PATH = "/caveats"
+    POSTCODE_SERVICE_PATH = "/caveats/find-address"
   }
 }
