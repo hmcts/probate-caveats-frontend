@@ -5,7 +5,6 @@ const pageUnderTest = require('app/steps/ui/deceased/name/index');
 
 module.exports = function (firstName, lastName) {
     const I = this;
-
     I.seeCurrentUrlEquals(pageUnderTest.getUrl());
     I.fillField('#firstName', firstName);
     I.fillField('lastName', lastName);

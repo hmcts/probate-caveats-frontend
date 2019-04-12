@@ -18,6 +18,7 @@ module.exports = {
     TestRetryScenarios: process.env.RETRY_SCENARIOS || 0,
     TestDocumentToUpload: 'uploadDocuments/test_file_for_document_upload.png',
     TestWaitForDocumentUpload: 60,
+    TestBasePath: '/caveats',
 
     postcodeLookup: {
         token: process.env.ADDRESS_TOKEN,

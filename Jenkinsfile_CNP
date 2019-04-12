@@ -51,55 +51,18 @@ static LinkedHashMap<String, Object> secret(String secretName, String envVar) {
 }
 
 withPipeline("nodejs", product, component) {
+  // env.APP_BASE_PATH = "/caveats"
+  // env.POSTCODE_SERVICE_PATH = "/caveats/find-address"
   after('build') {
     sh 'yarn setup'
   }
+  
   before('buildinfra:prod') {
     error 'Deliberately breaking pipeline to prevent prod deployment'
-  }
+  } 
 
   enableDockerBuild()
   installCharts()
-  before('smoketest:aks') {
-    // workaround to fix SIDAM whitelisting for PR AKS URLs
-    try {
-      def encodedServiceName = 'Probate'
-      def aksUrlToWhitelist = env.TEST_URL + '/oauth2/callback'
-      sh('curl -X PATCH https://idam-api.aat.platform.hmcts.net/testing-support/services/' + encodedServiceName +
-              ' -H \'Content-Type: application/json\'' +
-              ' -H \'cache-control: no-cache\'' +
-              ' -d \'[{' +
-              '"operation":"add",' +
-              '"field":"redirect_uri",' +
-              '"value":"' + aksUrlToWhitelist + '"' +
-              '}]\'')
-    } catch (err) {
-      notifyBuildEvent channel: notificationsChannel, color: 'warning', message: 'Failed to update SIDAM PR whitelisting'
-    }
-  }
-//  //if (env.CHANGE_TITLE && !env.CHANGE_TITLE.startsWith('[PREVIEW]')) {
-
-//    enableDeployToAKS()
-////  }
-//
-//  after('aksdeploy') {
-//    def subscription = env.SUBSCRIPTION_NAME
-//    def aksServiceName = "${product}-${component}-${env.BRANCH_NAME}".toLowerCase()
-//    def aksDomain = "${(env.SUBSCRIPTION_NAME in ['nonprod', 'prod']) ? 'service.core-compute-preview.internal' : 'service.core-compute-saat.internal'}"
-//
-//    def kubectl = new Kubectl(this, subscription, aksServiceName)
-//
-//    def ingressIP = kubectl.getServiceLoadbalancerIP("traefik", "kube-system")
-//
-//    def consul = new Consul(this)
-//
-//    consul.registerDns("feature-toggle-api-${aksServiceName}", ingressIP)
-//
-//
-//    env.FEATURE_TOGGLES_API_URL="https://feature-toggle-api-${aksServiceName}.${aksDomain}"
-//    echo "${env.FEATURE_TOGGLES_API_URL}"
-//  }
-
 
   setVaultName('probate')
   loadVaultSecrets(secrets)
