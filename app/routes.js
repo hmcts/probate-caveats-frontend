@@ -64,46 +64,6 @@ router.get('/*', (req, res, next) => {
     }
 });
 
-router.get('/*', (req, res, next) => {
-    const formdata = req.session.form;
-    if (!includes(config.whitelistedPagesForStartPageRedirect, req.originalUrl) &&
-        !get(formdata, 'applicant')) {
-        res.redirect('/start-page');
-    } else {
-        next();
-    }
-});
-
-router.get('/*', (req, res, next) => {
-    const formdata = req.session.form;
-    if (!includes(config.whitelistedPagesForStartPageRedirect, req.originalUrl) &&
-        !get(formdata, 'applicant')) {
-        res.redirect('/start-page');
-    } else {
-        next();
-    }
-});
-
-router.get('/*', (req, res, next) => {
-    const formdata = req.session.form;
-    if (!includes(config.whitelistedPagesForStartPageRedirect, req.originalUrl) &&
-        !get(formdata, 'applicant')) {
-        res.redirect('/start-page');
-    } else {
-        next();
-    }
-});
-
-router.get('/*', (req, res, next) => {
-    const formdata = req.session.form;
-    if (!includes(config.whitelistedPagesForStartPageRedirect, req.originalUrl) &&
-        !get(formdata, 'applicant')) {
-        res.redirect('/start-page');
-    } else {
-        next();
-    }
-});
-
 const steps = initSteps([`${__dirname}/steps/action/`, `${__dirname}/steps/ui/`]);
 
 Object.entries(steps).forEach(([, step]) => {
