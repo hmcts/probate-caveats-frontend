@@ -58,7 +58,7 @@ router.get('/*', (req, res, next) => {
     const formdata = req.session.form;
     if (!includes(config.whitelistedPagesForStartPageRedirect, req.originalUrl) &&
         !get(formdata, 'applicant')) {
-        res.redirect('/start-page');
+        res.redirect(`${config.app.basePath}/start-page`);
     } else {
         next();
     }
