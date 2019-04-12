@@ -48,7 +48,7 @@ module.exports = {
             authorization: process.env.PAYMENT_AUTHORIZATION || 'dummy_token',
             serviceAuthorization: process.env.PAYMENT_SERVICE_AUTHORIZATION || 'dummy_token',
             userId: process.env.PAYMENT_USER_ID || 999999999,
-            returnUrlPath: '/payment-status'
+            returnUrlPath: process.env.PAYMENT_RETURN_PATH || '/payment-status'
         },
         persistence: {
             url: process.env.PERSISTENCE_SERVICE_URL || 'http://localhost:8282/formdata',
