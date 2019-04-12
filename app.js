@@ -171,6 +171,7 @@ exports.init = function() {
         app.use(utils.forceHttps);
     }
 
+    app.use('/health', healthcheck);
     app.use(`${config.app.basePath}/health`, healthcheck);
 
     app.use(`${config.app.basePath}/`, (req, res, next) => {
