@@ -21,7 +21,7 @@ describe('applicant-address', () => {
     });
 
     describe('Verify Content, Errors and Redirection', () => {
-        testHelpBlockContent.runTest('ApplicantAddress', true);
+        testHelpBlockContent.runTest('ApplicantAddress');
 
         it('test right content loaded on the page', (done) => {
             const excludeKeys = ['selectAddress'];
