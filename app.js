@@ -172,6 +172,7 @@ exports.init = function() {
     }
 
     app.use('/health', healthcheck);
+    app.use(`${config.app.basePath}/health`, healthcheck);
 
     app.use(`${config.app.basePath}/`, (req, res, next) => {
         if (req.query.id && req.query.id !== req.session.regId) {
