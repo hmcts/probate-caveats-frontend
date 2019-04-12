@@ -4,14 +4,14 @@ const co = require('co');
 const request = require('supertest');
 const a11y = require('test/util/a11y');
 const {expect} = require('chai');
-const app = require('app');
 const initSteps = require('app/core/initSteps');
 const {endsWith} = require('lodash');
 const commonContent = require('app/resources/en/translation/common');
-const stepsToExclude = ['AddAlias', 'RemoveAlias', 'AddressLookup', 'Summary', 'PaymentStatus', 'ShutterPage'];
-const steps = initSteps.steps;
+const stepsToExclude = ['AddAlias', 'RemoveAlias', 'AddressLookup', 'Summary', 'PaymentStatus'];
+const app = require('test/accessibility/app').init();
 const config = require('app/config');
 
+const steps = initSteps(['../steps/action/', '../steps/ui/']);
 Object.keys(steps)
     .filter(stepName => stepsToExclude.includes(stepName))
     .forEach(stepName => delete steps[stepName]);
@@ -21,8 +21,9 @@ for (const step in steps) {
 
         let results;
 
+        app.get(step.constructor.getUrl(), step.runner().GET(step));
+
         describe(`Verify accessibility for the page ${step.name}`, () => {
-            let server = null;
             let agent = null;
             const title = `${step.content.title} - ${commonContent.serviceName}`
                 .replace(/&lsquo;/g, '‘')
@@ -31,8 +32,8 @@ for (const step in steps) {
                 .replace(/\)/g, '\\)');
 
             before((done) => {
-                server = app.init();
-                agent = request.agent(server.app);
+
+                agent = request(app);
                 co(function* () {
                     let urlSuffix = '';
                     if (endsWith(agent.get(config.app.basePath + step.constructor.getUrl()), '*')) {
@@ -47,7 +48,7 @@ for (const step in steps) {
             });
 
             after(function (done) {
-                server.http.close();
+                //request.http.close();
                 done();
             });
 

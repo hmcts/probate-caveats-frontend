@@ -18,8 +18,8 @@ describe('thank-you', () => {
 
     describe('Verify Content, Errors and Redirection', () => {
         it('test content loaded on the page when CCD Case ID not present', (done) => {
-            const sessionData = {};
-            testWrapper.agent.post(`${basePath}/prepare-session/form`)
+            const sessionData = {applicant: 'value'};
+            testWrapper.agent.post('/prepare-session/form')
                 .send(sessionData)
                 .end(() => {
                     const contentData = {
@@ -32,6 +32,7 @@ describe('thank-you', () => {
 
         it('test content loaded on the page when CCD Case ID present', (done) => {
             const sessionData = {
+                applicant: 'value',
                 ccdCase: {
                     id: '1234-5678-9012-3456',
                     state: 'CaseCreated'

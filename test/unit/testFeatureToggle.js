@@ -28,6 +28,7 @@ describe('FeatureToggle', () => {
 
             featureToggle.checkToggle(params).then(() => {
                 expect(params.callback.calledOnce).to.equal(true);
+                expect(params.callback.firstCall.args[0].isEnabled).to.equal(true);
                 revert();
                 done();
             });
@@ -36,7 +37,7 @@ describe('FeatureToggle', () => {
         it('should call next() with an error when the api returns an error', (done) => {
             const revert = FeatureToggle.__set__('FeatureToggleService', class {
                 get() {
-                    return Promise.reject(new Error());
+                    return Promise.resolve('false');
                 }
             });
             const params = {
@@ -48,13 +49,13 @@ describe('FeatureToggle', () => {
                 res: {},
                 next: sinon.spy(),
                 featureToggleKey: 'document_upload',
-                callback: () => true
+                callback: sinon.spy()
             };
             const featureToggle = new FeatureToggle();
 
             featureToggle.checkToggle(params).then(() => {
-                expect(params.next.calledOnce).to.equal(true);
-                expect(params.next.calledWith(new Error())).to.equal(true);
+                expect(params.next.calledOnce).to.equal(false);
+                expect(params.callback.firstCall.args[0].isEnabled).to.equal(false);
                 revert();
                 done();
             });
