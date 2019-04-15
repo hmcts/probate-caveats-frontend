@@ -125,12 +125,11 @@ module.exports = {
     appInsights: {
         instrumentationKey: process.env.APPINSIGHTS_INSTRUMENTATION_KEY
     },
-    /*eslint no-useless-concat: 0*/
-    whitelistedPagesForStartPageRedirect: [process.env.APP_BASE_PATH || '' + '/start-page',
-        process.env.APP_BASE_PATH || '' + '/applicant-name',
-        process.env.APP_BASE_PATH || '' + '/cookies',
-        process.env.APP_BASE_PATH || '' + '/privacy-policy',
-        process.env.APP_BASE_PATH || '' + '/terms-conditions',
-        process.env.APP_BASE_PATH || '' + '/contact-us',
-        process.env.APP_BASE_PATH || '' + '/offline']
+    whitelistedPagesForStartPageRedirect: [(process.env.APP_BASE_PATH || '') + '/start-page',
+        (process.env.APP_BASE_PATH || '') + '/applicant-name',
+        (process.env.APP_BASE_PATH || '') + '/cookies',
+        (process.env.APP_BASE_PATH || '') + '/privacy-policy',
+        (process.env.APP_BASE_PATH || '') + '/terms-conditions',
+        (process.env.APP_BASE_PATH || '') + '/contact-us',
+        (process.env.APP_BASE_PATH || '') + '/offline']
 };
