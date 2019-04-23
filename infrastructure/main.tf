@@ -10,10 +10,6 @@ locals {
   nonPreviewVaultName = "${var.raw_product}-${var.env}"
   vaultName = "${(var.env == "preview" || var.env == "spreview") ? local.previewVaultName : local.nonPreviewVaultName}"
   localenv = "${(var.env == "preview" || var.env == "spreview") ? "aat": "${var.env}"}"
-  //once Backend is up in CNP need to get the
-  //localBusinessServiceUrl = "http://probate-business-service-${var.env}.service.${local.aseName}.internal"
-  //businessServiceUrl = "${var.env == "preview" ? "http://probate-business-service-aat.service.core-compute-aat.internal" : local.localClaimStoreUrl}"
-  // add other services
   caveat_internal_base_url = "http://probate-caveats-fe-${local.local_env}.service.core-compute-${local.local_env}.internal"
 }
 
