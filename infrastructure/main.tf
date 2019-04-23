@@ -10,7 +10,7 @@ locals {
   nonPreviewVaultName = "${var.raw_product}-${var.env}"
   vaultName = "${(var.env == "preview" || var.env == "spreview") ? local.previewVaultName : local.nonPreviewVaultName}"
   localenv = "${(var.env == "preview" || var.env == "spreview") ? "aat": "${var.env}"}"
-  caveat_internal_base_url = "http://probate-caveats-fe-${local.local_env}.service.core-compute-${local.local_env}.internal"
+  caveat_internal_base_url = "http://probate-caveats-fe-${local.localenv}.service.core-compute-${local.localenv}.internal"
 }
 
 data "azurerm_subnet" "core_infra_redis_subnet" {
