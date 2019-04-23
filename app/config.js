@@ -41,6 +41,7 @@ module.exports = {
             probate_oauth2_secret: process.env.IDAM_API_OAUTH2_CLIENT_CLIENT_SECRETS_PROBATE || '123456',
             caveat_user_email: process.env.CAVEAT_USER_EMAIL || 'testusername1@test.com',
             caveat_user_password: process.env.CAVEAT_USER_PASSWORD || 'password',
+            caveat_redirect_base_url: process.env.CAVEAT_REDIRECT_BASE_URL || 'http://localhost:3000',
             caveat_redirectUrl: '/oauth2/callback'
         },
         payment: {
@@ -48,7 +49,7 @@ module.exports = {
             authorization: process.env.PAYMENT_AUTHORIZATION || 'dummy_token',
             serviceAuthorization: process.env.PAYMENT_SERVICE_AUTHORIZATION || 'dummy_token',
             userId: process.env.PAYMENT_USER_ID || 999999999,
-            returnUrlPath: process.env.PAYMENT_RETURN_PATH || '/payment-status'
+            returnUrlPath: process.env.PAY_RETURN_URL || '/payment-status'
         },
         persistence: {
             url: process.env.PERSISTENCE_SERVICE_URL || 'http://localhost:8282/formdata',
