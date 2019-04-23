@@ -60,7 +60,7 @@ withPipeline("nodejs", product, component) {
 //  before('buildinfra:prod') {
 //    error 'Deliberately breaking pipeline to prevent prod deployment'
 //  }
-
+//
   enableDockerBuild()
   installCharts()
 
