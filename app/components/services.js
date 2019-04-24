@@ -73,7 +73,7 @@ const createPayment = (data, hostname) => {
         'Content-Type': 'application/json',
         'Authorization': data.authToken,
         'ServiceAuthorization': data.serviceAuthToken,
-        'return-url': FormatUrl.format( (externalHostNameUrl || hostname), config.services.payment.returnUrlPath)
+        'return-url': FormatUrl.format((externalHostNameUrl || hostname), config.services.payment.returnUrlPath)
     };
     const body = paymentData.createPaymentData(data);
     const fetchOptions = utils.fetchOptions(body, 'POST', headers);
