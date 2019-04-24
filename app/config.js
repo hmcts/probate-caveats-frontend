@@ -5,6 +5,7 @@ module.exports = {
     environment: process.env.REFORM_ENVIRONMENT || 'prod',
     nodeEnvironment: process.env.NODE_ENV,
     gitRevision: process.env.GIT_REVISION,
+    externalHostNameUrl: process.env.EXTERNAL_HOSTNAME_URL || '',
     featureToggles: {
         url: process.env.FEATURE_TOGGLES_API_URL || 'http://localhost:8282',
         path: process.env.FEATURE_TOGGLES_PATH || '/api/ff4j/check',

@@ -173,5 +173,6 @@ module "probate-caveats-fe" {
     POSTCODE_SERVICE_PATH = "/caveats/find-address"
     PAY_RETURN_URL = "/caveats/payment-status"
     CAVEAT_REDIRECT_BASE_URL = "${local.caveat_internal_base_url}"
+    EXTERNAL_HOSTNAME_URL = "${local.external_hostName_url}"
   }
 }

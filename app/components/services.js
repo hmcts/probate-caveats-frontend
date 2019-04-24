@@ -13,6 +13,7 @@ const TOKEN = config.services.postcode.token;
 const PROXY = config.services.postcode.proxy;
 const SERVICE_AUTHORISATION_URL = `${config.services.idam.s2s_url}/lease`;
 const serviceName = config.services.idam.service_name;
+const externalHostNameUrl = config.externalHostNameUrl;
 const secret = config.services.idam.service_key;
 const FEATURE_TOGGLE_URL = config.featureToggles.url;
 const logger = require('app/components/logger');
@@ -72,8 +73,7 @@ const createPayment = (data, hostname) => {
         'Content-Type': 'application/json',
         'Authorization': data.authToken,
         'ServiceAuthorization': data.serviceAuthToken,
-        'return-url': FormatUrl.format('https://probate.aat.platfrom.hmcts.net', config.services.payment.returnUrlPath)
-        //'return-url': FormatUrl.format(hostname, config.services.payment.returnUrlPath)
+        'return-url': FormatUrl.format( (externalHostNameUrl || hostname), config.services.payment.returnUrlPath)
     };
     const body = paymentData.createPaymentData(data);
     const fetchOptions = utils.fetchOptions(body, 'POST', headers);
