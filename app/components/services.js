@@ -67,11 +67,13 @@ const updateCcdCasePaymentStatus = (data, ctx) => {
 
 const createPayment = (data, hostname) => {
     logInfo('createPayment', data.applicationId);
+    logInfo('hostname', hostname);
     const headers = {
         'Content-Type': 'application/json',
         'Authorization': data.authToken,
         'ServiceAuthorization': data.serviceAuthToken,
-        'return-url': FormatUrl.format(hostname, config.services.payment.returnUrlPath)
+        'return-url': FormatUrl.format('https://probate.aat.platfrom.hmcts.net', config.services.payment.returnUrlPath)
+        //'return-url': FormatUrl.format(hostname, config.services.payment.returnUrlPath)
     };
     const body = paymentData.createPaymentData(data);
     const fetchOptions = utils.fetchOptions(body, 'POST', headers);
