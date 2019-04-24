@@ -171,7 +171,7 @@ module "probate-caveats-fe" {
 
     APP_BASE_PATH = "/caveats"
     POSTCODE_SERVICE_PATH = "/caveats/find-address"
-    PAY_RETURN_URL = "/caveats/payment-status"
+    PAY_RETURN_URL = "https://probate.aat.platfrom.hmcts.net/caveats/payment-status"
     CAVEAT_REDIRECT_BASE_URL = "${local.caveat_internal_base_url}"
   }
 }
