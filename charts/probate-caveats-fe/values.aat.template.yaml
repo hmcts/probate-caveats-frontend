@@ -5,3 +5,4 @@ nodejs:
     IDAM_API_URL: https://idam-api.aat.platform.hmcts.net
     IDAM_S2S_URL: http://rpe-service-auth-provider-aat.service.core-compute-aat.internal
     CAVEAT_REDIRECT_BASE_URL: http://probate-caveats-fe-aat.service.core-compute-aat.internal
+    PAY_RETURN_URL: https://probate.aat.platfrom.hmcts.net/caveats/payment-status
