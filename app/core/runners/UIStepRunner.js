@@ -3,7 +3,6 @@
 const co = require('co');
 const {curry, set, isEmpty, forEach} = require('lodash');
 const mapErrorsToFields = require('app/components/error').mapErrorsToFields;
-const FormatUrl = require('app/utils/FormatUrl');
 const config = require('app/config');
 const basePath = config.app.basePath;
 
@@ -54,10 +53,9 @@ class UIStepRunner {
             let formdata = session.form;
             let ctx = step.getContextData(req);
             let [isValid, errors] = [];
-            const hostname = FormatUrl.createHostname(req);
             [isValid, errors] = step.validate(ctx, formdata);
             if (isValid) {
-                [ctx, errors] = yield step.handlePost(ctx, errors, formdata, session, hostname);
+                [ctx, errors] = yield step.handlePost(ctx, errors, formdata, session);
             }
 
             if (isEmpty(errors)) {

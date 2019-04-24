@@ -40,8 +40,8 @@ class PaymentBreakdown extends Step {
         return [ctx, ctx.errors];
     }
 
-    * handlePost(ctx, errors, formdata, session, hostname) {
-        // this is required since this page is re-entrant for failues on /payment-status
+    * handlePost(ctx, errors, formdata, session) {
+        // this is required since this page is re-entrant for failures on /payment-status
         this.nextStepUrl = () => this.next(ctx).constructor.getUrl();
 
         set(formdata, 'payment.total', ctx.total);
@@ -76,7 +76,7 @@ class PaymentBreakdown extends Step {
                 ccdCaseId: ccdCaseId,
                 applicationId: ctx.applicationId
             };
-            const paymentResponse = yield services.createPayment(data, hostname);
+            const paymentResponse = yield services.createPayment(data);
             logInfo(`New Payment reference: ${paymentResponse.reference}`, formdata.applicationId);
             if (paymentResponse.name === 'Error') {
                 errors.push(FieldError('payment', 'failure', this.resourcePath, ctx));

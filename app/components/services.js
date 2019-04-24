@@ -5,7 +5,6 @@ const config = require('app/config');
 const submitData = require('app/components/submit-data');
 const paymentData = require('app/components/payment-data');
 const otp = require('otp');
-const FormatUrl = require('app/utils/FormatUrl');
 const ORCHESTRATION_SERVICE_URL = config.services.orchestration.url;
 const POSTCODE_SERVICE_URL = config.services.postcode.url;
 const CREATE_PAYMENT_SERVICE_URL = config.services.payment.createPaymentUrl;
@@ -65,13 +64,13 @@ const updateCcdCasePaymentStatus = (data, ctx) => {
     return utils.fetchJson(`${ORCHESTRATION_SERVICE_URL}/forms/${data.applicationId}/payments`, fetchOptions);
 };
 
-const createPayment = (data, hostname) => {
+const createPayment = (data) => {
     logInfo('createPayment', data.applicationId);
     const headers = {
         'Content-Type': 'application/json',
         'Authorization': data.authToken,
         'ServiceAuthorization': data.serviceAuthToken,
-        'return-url': FormatUrl.format(hostname, config.services.payment.returnUrlPath)
+        'return-url': config.services.payment.returnUrlPath
     };
     const body = paymentData.createPaymentData(data);
     const fetchOptions = utils.fetchOptions(body, 'POST', headers);
