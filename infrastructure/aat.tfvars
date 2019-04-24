@@ -14,7 +14,7 @@ idam_service_api = "http://rpe-service-auth-provider-aat.service.core-compute-aa
 idam_user_host = "https://idam-api.aat.platform.hmcts.net"
 payment_create_url = "http://payment-api-aat.service.core-compute-aat.internal/card-payments"
 orchestration_service_url = "http://probate-orchestrator-service-aat.service.core-compute-aat.internal"
-external_hostName_url = "https://probate.aat.platfrom.hmcts.net"
+external_hostName_url = "https://probate.aat.platform.hmcts.net"
 
 packages_environment = "preprod"
 packages_version = "3.0.0"
