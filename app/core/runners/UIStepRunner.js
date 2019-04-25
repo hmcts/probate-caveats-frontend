@@ -4,8 +4,6 @@ const co = require('co');
 const {curry, set, isEmpty, forEach} = require('lodash');
 const mapErrorsToFields = require('app/components/error').mapErrorsToFields;
 const FormatUrl = require('app/utils/FormatUrl');
-const config = require('app/config');
-const basePath = config.app.basePath;
 
 class UIStepRunner {
 
@@ -33,7 +31,7 @@ class UIStepRunner {
                 session.back.push(step.constructor.getUrl());
             }
             const common = step.commonContent();
-            res.render(step.template, {content, fields, errors, common, basePath}, (err, html) => {
+            res.render(step.template, {content, fields, errors, common}, (err, html) => {
                 if (err) {
                     req.log.error(err);
                     return res.status(500).render('errors/500');
@@ -79,7 +77,7 @@ class UIStepRunner {
                 let fields = step.generateFields(ctx, errors, formdata);
                 fields = mapErrorsToFields(fields, errors);
                 const common = step.commonContent();
-                res.render(step.template, {content, fields, errors, common, basePath});
+                res.render(step.template, {content, fields, errors, common});
             }
         }).catch((error) => {
             req.log.error(error);
