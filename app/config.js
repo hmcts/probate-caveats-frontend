@@ -127,11 +127,14 @@ module.exports = {
     appInsights: {
         instrumentationKey: process.env.APPINSIGHTS_INSTRUMENTATION_KEY
     },
-    whitelistedPagesForStartPageRedirect: [(process.env.APP_BASE_PATH || '') + '/start-page',
+    whitelistedPagesForStartPageRedirect: [
+        (process.env.APP_BASE_PATH || '') + '/public',
+        (process.env.APP_BASE_PATH || '') + '/start-page',
         (process.env.APP_BASE_PATH || '') + '/applicant-name',
         (process.env.APP_BASE_PATH || '') + '/cookies',
         (process.env.APP_BASE_PATH || '') + '/privacy-policy',
         (process.env.APP_BASE_PATH || '') + '/terms-conditions',
         (process.env.APP_BASE_PATH || '') + '/contact-us',
-        (process.env.APP_BASE_PATH || '') + '/offline']
+        (process.env.APP_BASE_PATH || '') + '/offline'
+    ]
 };

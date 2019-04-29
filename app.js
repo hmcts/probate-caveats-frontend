@@ -5,6 +5,7 @@
 const logger = require('app/components/logger');
 const path = require('path');
 const express = require('express');
+const rewrite = require('express-urlrewrite');
 const session = require('express-session');
 const nunjucks = require('express-nunjucks');
 const routes = require(`${__dirname}/app/routes`);
@@ -47,8 +48,11 @@ exports.init = function() {
         'links': config.links,
         'helpline': config.helpline,
         'applicationFee': config.payment.applicationFee,
-        'nonce': uuid
+        'nonce': uuid,
+        'basePath': config.app.basePath
     };
+
+    app.use(rewrite(`${globals.basePath}/public/*`, '/public/$1'));
 
     const njk = nunjucks(app, {
         autoescape: true,
@@ -122,7 +126,7 @@ exports.init = function() {
 
     // Send assetPath to all views
     app.use((req, res, next) => {
-        res.locals.asset_path = '/public/';
+        res.locals.asset_path = `${globals.basePath}/public/`;
         next();
     });
 
