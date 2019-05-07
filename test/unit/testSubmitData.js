@@ -14,8 +14,9 @@ describe('submitData/index.js', () => {
                 'lastName': 'Smith',
                 'email': 'blah@gmail.com',
                 'addressFound': 'none',
-                'freeTextAddress': 'dddd',
-                'address': 'dddd'
+                'address': {
+                    'addressLine1': 'dddd'
+                }
             },
             applicationId: 'zq1675whyui',
             ccdCase: {
@@ -35,8 +36,9 @@ describe('submitData/index.js', () => {
                 'alias': 'Yes',
                 'deceasedName': 'Mike Samuels',
                 'addressknown': 'Yes',
-                'freeTextAddress': 'ffff',
-                'address': 'ffff',
+                'address': {
+                    'addressLine1': 'ffff'
+                },
                 'otherNames': {
                     'name_0': {
                         'firstName': 'King',
@@ -66,7 +68,9 @@ describe('submitData/index.js', () => {
                 'firstName': 'Jason',
                 'lastName': 'Smith',
                 'email': 'blah@gmail.com',
-                'address': 'aaaa'
+                'address': {
+                    'addressLine1': 'aaaa'
+                }
             },
             applicationId: 'zq1675whyui',
             deceased: {
@@ -80,7 +84,9 @@ describe('submitData/index.js', () => {
                 'dobknown': 'No',
                 'alias': 'No',
                 'deceasedName': 'Mike Samuels',
-                'address': 'dddd',
+                'address': {
+                    'addressLine1': 'dddd'
+                },
             },
             payment: {
                 'amount': 20

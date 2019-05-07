@@ -1,6 +1,6 @@
 {% extends "includes/two_thirds_form.html" %}
 
-{% from "widgets/textfields.html" import textField, textarea %}
+{% from "widgets/textfields.html" import textField, textFieldNoLabel %}
 {% from "widgets/addresslookup.html" import addressFinder %}
 
 {% block question %}
@@ -21,16 +21,49 @@
             'ApplicantAddress'
         ) }}
         <div class="form-group">
-            <details {{ "open" if fields.freeTextAddress }}>
-                <summary><span class="summary">{{ content.enterManually }}</span></summary>
-                <div class="panel panel-border-narrow">
-                    {{ textarea(
-                        name = 'freeTextAddress',
-                        field = fields.freeTextAddress,
-                        text = content.enterManually,
-                        size = 8
-                    ) }}
-                </div>
+            <details id="details-panel" {{ "open" if fields.addressLine1 }}>
+            <summary id="details-summary"><span class="summary">{{ content.enterManually }}</span></summary>
+            <div class="panel panel-border-narrow">
+                {{ textField(
+                    name = 'addressLine1',
+                    text = content.addressLabel,
+                    field = fields.addressLine1,
+                    size = 150
+                ) }}
+                {{ textFieldNoLabel(
+                    name = 'addressLine2',
+                    field = fields.addressLine2,
+                    width = '3-4',
+                    size = 50
+                ) }}
+                {{ textFieldNoLabel(
+                    name = 'addressLine3',
+                    field = fields.addressLine3,
+                    width = '3-4',
+                    size = 50
+                ) }}
+                {{ textField(
+                    name = 'postTown',
+                    text = content.postTown,
+                    field = fields.postTown,
+                    width = '3-4',
+                    size = 50
+                ) }}
+                {{ textField(
+                    name = 'newPostCode',
+                    text = content.postcode,
+                    field = fields.newPostCode,
+                    width = '1-3',
+                    size = 14
+                ) }}
+                {{ textField(
+                    name = 'country',
+                    text = content.country,
+                    field = fields.country,
+                    width = '3-4',
+                    size = 50
+                ) }}
+            </div>
             </details>
         </div>
     </fieldset>

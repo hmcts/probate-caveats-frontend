@@ -39,43 +39,20 @@ describe('deceased-address', () => {
                 });
         });
 
-        it('test address schema validation when no address search has been done', (done) => {
+        it('test error messages displayed for missing data', (done) => {
             const data = {addressFound: 'none'};
 
-            testWrapper.testErrors(done, data, 'required', ['postcodeLookup']);
-        });
-
-        it('test address schema validation when address search is successful, but no address is selected/entered', (done) => {
-            const data = {addressFound: 'true'};
-
-            testWrapper.testErrors(done, data, 'oneOf', ['crossField']);
-
-        });
-
-        it('test address schema validation when address search is successful, and two addresses are provided', (done) => {
-            const data = {
-                addressFound: 'true',
-                freeTextAddress: 'free text address',
-                postcodeAddress: 'postcode address'
-            };
-
-            testWrapper.testErrors(done, data, 'oneOf', ['crossField']);
-        });
-
-        it('test address schema validation when address search is unsuccessful', (done) => {
-            const data = {
-                addressFound: 'false'
-            };
-
-            testWrapper.testErrors(done, data, 'required', ['freeTextAddress']);
+            testWrapper.testErrors(done, data, 'required', ['addressLine1', 'postTown', 'newPostCode']);
         });
 
         it(`test it redirects to summary page: ${expectedNextUrlForSummary}`, (done) => {
             const data = {
-                postcode: 'ea1 eaf',
-                postcodeAddress: '102 Petty France'
+                addressLine1: 'value',
+                postTown: 'value',
+                newPostCode: 'value'
             };
             testWrapper.testRedirect(done, data, expectedNextUrlForSummary);
         });
+
     });
 });
