@@ -54,9 +54,15 @@ describe('AddressStep', () => {
 
     describe('handlePost()', () => {
         describe('should return ctx and errors', () => {
-            it('when postcodeAddress exists', (done) => {
+            it('when address exists', (done) => {
                 ctxToTest = {
-                    postcodeAddress: '1 Red Road, London, LL1 1LL',
+                    addressLine1: '1 Red Road',
+                    addressLine2: '',
+                    addressLine3: '',
+                    postTown: 'London',
+                    newPostCode: 'LL1 1LL',
+                    county: '',
+                    country: '',
                     referrer: 'executorApplicant',
                     postcode: 'll1 1ll',
                     addresses: [
@@ -67,36 +73,33 @@ describe('AddressStep', () => {
                 const addressStep = new AddressStep(steps, section, templatePath, i18next, schema);
                 const ctx = addressStep.handlePost(ctxToTest, null);
                 expect(ctx).to.deep.equal([{
-                    address: '1 Red Road, London, LL1 1LL',
-                    postcode: 'LL1 1LL',
-                    postcodeAddress: '1 Red Road, London, LL1 1LL',
+                    addressLine1: '1 Red Road',
+                    addressLine2: '',
+                    addressLine3: '',
+                    postTown: 'London',
+                    newPostCode: 'LL1 1LL',
+                    county: '',
+                    country: '',
+                    address: {
+                        addressLine1: '1 Red Road',
+                        addressLine2: '',
+                        addressLine3: '',
+                        formattedAddress: '1 Red Road London LL1 1LL ',
+                        county: '',
+                        country: '',
+                        postTown: 'London',
+                        postCode: 'LL1 1LL'
+                    },
+                    postcode: 'll1 1ll',
                     addresses: [
                         {address: '1 Red Road, London, LL1 1LL'},
                         {address: '2 Green Road, London, LL2 2LL'}
-                    ]
+                    ],
+                    referrer: 'executorApplicant',
                 }, null]);
                 done();
             });
 
-            it('when freeTextAddress exists', (done) => {
-                ctxToTest = {
-                    freeTextAddress: '1 Red Road, London, LL1 1LL',
-                    referrer: 'executorApplicant',
-                    postcode: 'll1 1ll',
-                    addresses: [
-                        {address: '1 Red Road, London, LL1 1LL'},
-                        {address: '2 Green Road, London, LL2 2LL'}
-                    ]
-                };
-                const addressStep = new AddressStep(steps, section, templatePath, i18next, schema);
-                const ctx = addressStep.handlePost(ctxToTest, null);
-                expect(ctx).to.deep.equal([{
-                    address: '1 Red Road, London, LL1 1LL',
-                    postcode: 'LL1 1LL',
-                    freeTextAddress: '1 Red Road, London, LL1 1LL'
-                }, null]);
-                done();
-            });
         });
     });
 });

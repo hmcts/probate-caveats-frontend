@@ -3,6 +3,8 @@
     "firstName": "dean",
     "lastName": "plummer",
     "email": "dean.plummer@email.com",
-    "address": "Ministry of Justice Seventh Floor 102 Petty France London SW1H 9AJ"
+    "address": {
+      "formattedAddress": "Ministry of Justice Seventh Floor 102 Petty France London SW1H 9AJ"
+    }
   }
 }

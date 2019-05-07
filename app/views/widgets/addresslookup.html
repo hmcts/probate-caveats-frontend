@@ -20,9 +20,43 @@
                 <option value="">{{content.selectAddress}}</option>
                 {% for address in fields.addresses.value %}
                     {% set formattedAddress = address.formatted_address | replace("\n"," ") %}
-                    <option {{ "selected" if formattedAddress === fields.postcodeAddress.value }}>{{formattedAddress}}</option>
+                    <option value="{{ loop.index0 }}" {{ "selected" if formattedAddress === fields.postcodeAddress.value }}>{{formattedAddress}}</option>
                 {% endfor %}
             </select>
         </div>
     {% endif %}
+
+    <script nonce="{{ nonce }}">
+        if (document.getElementById('postcodeAddress')) {
+            const addresses = [
+                {% for address in fields.addresses.value %}
+            {% set formattedAddress = address.formatted_address | replace('\n', '###') %}
+            '{{ formattedAddress }}',
+            {% endfor %}
+        ];
+
+            document.getElementById('postcodeAddress').addEventListener('change', function(e) {
+                let address = addresses[e.target.value].split('###');
+                const city = address[address.length - 2];
+                const postcode = address[address.length - 1];
+
+                address.length = address.length - 2;
+
+                if (address[3] !== undefined) {
+                    address[2] = address[3] + ', ' + address[2];
+                }
+
+                document.getElementById('addressLine1').value = address[0];
+                document.getElementById('addressLine2').value = address[1] || '';
+                document.getElementById('addressLine3').value = address[2] || '';
+                document.getElementById('postTown').value = city;
+                document.getElementById('newPostCode').value = postcode;
+                document.getElementById('country').value = 'United Kingdom';
+
+                document.getElementById('details-panel').setAttribute('open', null);
+                document.getElementById('details-summary').setAttribute('aria-expanded', true);
+                document.getElementById('details-content-0').setAttribute('aria-hidden', false);
+            });
+        }
+    </script>
 {% endmacro %}

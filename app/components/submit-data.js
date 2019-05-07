@@ -12,20 +12,14 @@ const submitData = (ctx, formdata) => {
     applicant.lastName = formdata.applicant.lastName;
     applicant.email = formdata.applicant.email;
 
-    // This needs to be refactored to produce a full address
-    const applicantAddress = {};
-    body.applicant.address = applicantAddress;
-    applicantAddress.addressLine1 = formdata.applicant.address;
+    body.applicant.address = formdata.applicant.address;
 
     const deceased = {};
     body.deceased = deceased;
     deceased.firstName = formdata.deceased.firstName;
     deceased.lastName = formdata.deceased.lastName;
 
-    //This needs to be refactored to produce a full address
-    const deceasedAddress = {};
-    body.deceased.address = deceasedAddress;
-    deceasedAddress.addressLine1 = formdata.deceased.address;
+    body.deceased.address = formdata.deceased.address;
 
     body.deceased.dod_date = dateformat(formdata.deceased.dod_date, 'yyyy-mm-dd');
 

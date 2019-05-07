@@ -58,6 +58,7 @@ describe('summary-deceased-section', () => {
                         address: deceasedContent.address.question
                     };
                     Object.assign(playbackData, deceasedData.deceased);
+                    playbackData.address = deceasedData.deceased.address.formattedAddress;
                     testWrapper.testDataPlayback(done, playbackData);
                 });
         });
