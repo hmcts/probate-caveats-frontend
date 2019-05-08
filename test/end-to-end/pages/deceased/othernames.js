@@ -14,6 +14,7 @@ module.exports = function (noOfAliases) {
             I.fillField('#otherNames_name_'+ (i-1) + '_lastName', 'alias_lastnames_' + i);
         } else {
             I.click('Add another name');
+            I.wait(10);
             I.fillField('#otherNames_name_'+ (i-1) + '_firstName', 'alias_firstnames_' + i);
             I.fillField('#otherNames_name_'+ (i-1) + '_lastName', 'alias_lastnames_' + i);
         }
