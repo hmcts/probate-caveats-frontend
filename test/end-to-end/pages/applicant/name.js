@@ -5,7 +5,6 @@ const pageUnderTest = require('app/steps/ui/applicant/name/index');
 
 module.exports = function (firstname, lastname) {
     const I = this;
-    console.log('this is the url '+ pageUnderTest.getUrl());
     I.seeCurrentUrlEquals(pageUnderTest.getUrl());
     I.fillField('#firstName', firstname);
     I.fillField('#lastName', lastname);
