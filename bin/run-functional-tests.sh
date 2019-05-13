@@ -3,13 +3,7 @@ set -ex
 
 export TEST_E2E_URL=$(echo ${TEST_URL})
 
-if [ "$RUN_E2E_TEST" = true ] ;
-then
-    yarn test-e2e
-else
-    mkdir -p output
-    touch output/mochawesome.html
-fi
+yarn test-e2e
 
 #below 2 lines for function test output in cnp pipeline
 mkdir -p functional-output
