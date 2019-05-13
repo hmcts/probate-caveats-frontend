@@ -31,7 +31,7 @@
             const addresses = [
                 {% for address in fields.addresses.value %}
             {% set formattedAddress = address.formatted_address | replace('\n', '###') %}
-            '{{ formattedAddress }}',
+            '{{ formattedAddress | safe }}',
             {% endfor %}
         ];
 
