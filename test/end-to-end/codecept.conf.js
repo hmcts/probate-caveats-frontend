@@ -5,7 +5,7 @@ exports.config = {
     'output': './output',
     'helpers': {
         'Puppeteer': {
-            'url': testConfig.TestE2EFrontendUrl || 'http://localhost:3000',
+            'url': testConfig.TestE2EFrontendUrl + testConfig.TestBasePath || 'http://localhost:3000',
             'waitForTimeout': 60000,
             'getPageTimeout': 20000,
             'show': false,
