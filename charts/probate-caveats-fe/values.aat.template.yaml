@@ -5,3 +5,39 @@ nodejs:
     IDAM_API_URL: https://idam-api.aat.platform.hmcts.net
     IDAM_S2S_URL: http://rpe-service-auth-provider-aat.service.core-compute-aat.internal
     CAVEAT_REDIRECT_BASE_URL: http://probate-caveats-fe-aat.service.core-compute-aat.internal
+    FEATURE_TOGGLES_API_URL: http://${SERVICE_NAME}-ftr-tgl-api
+    REDIS_HOST: ${SERVICE_NAME}-redis-master
+    POSTCODE_SERVICE_URL: ${PRO_POSTCODE_SERVICE_URL}
+    POSTCODE_SERVICE_TOKEN: ${PRO_POSTCODE_SERVICE_TOKEN}
+    SURVEY: ${PRO_SURVEY}
+    SURVEY_END_OF_APPLICATION: ${PRO_SURVEY_END_OF_APPLICATION}
+    APPLICATION_FEE_CODE: ${PRO_APPLICATION_FEE_CODE}
+    SERVICE_ID: ${PRO_SERVICE_ID}
+    SITE_ID: ${PRO_SITE_ID}
+    CAVEAT_USER_EMAIL: ${CAVEAT_USER_EMAIL}
+    CAVEAT_USER_PASSWORD: ${CAVEAT_USER_PASSWORD}
+    IDAM_SERVICE_KEY: ${IDAM_S2S_SECRET}
+    IDAM_API_OAUTH2_CLIENT_CLIENT_SECRETS_PROBATE: ${IDAM_SECRET_PROBATE}
+
+
+  image: ${IMAGE_NAME}
+  ingressHost: ${SERVICE_FQDN}
+
+idam-pr:
+  service:
+    name: Probate # this is the label (name) of the service as configured in IDAM. If unsure, see below.
+    redirect_uri: https://${SERVICE_FQDN}/oauth2/callback # this is the application callback URL where IDAM will send back the authentication code. SERVICE_FQDN is injected by Jenkins.
+
+rpe-feature-toggle-api:
+  #  image: hmcts.azurecr.io/hmcts/rpe-feature-toggle-api:latest
+  releaseNameOverride: ${SERVICE_NAME}-ftr-tgl-api
+  java:
+    releaseNameOverride: ${SERVICE_NAME}-ftr-tgl-api
+    ingressIP: ${INGRESS_IP}
+    consulIP: ${CONSUL_LB_IP}
+    registerAdditionalDns:
+      enabled: true
+      primaryIngressHost: ${SERVICE_FQDN}
+      prefix: ftr-tgl
+    environment:
+      FEATURES_DB_HOST: ${SERVICE_NAME}-ft-db
