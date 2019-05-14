@@ -34,7 +34,7 @@ List<LinkedHashMap<String, Object>> secrets = [
     secret('testUseGovPay', 'USE_GOV_PAY'),
     secret('testPostcodeServiceUrl', 'POSTCODE_SERVICE_URL'),
     secret('testPostCodeAddressToken', 'ADDRESS_TOKEN'),
-    secret('testRunE2ETest', 'RUN_E2E_TEST'),
+    // secret('testRunE2ETest', 'RUN_E2E_TEST'),
     secret('testValidationServiceUrl', 'TEST_VALIDATION_SERVICE_URL'),
     secret('idam-secret-probate', 'IDAM_SECRET_PROBATE'),
     secret('idam-s2s-secret', 'IDAM_S2S_SECRET'),
@@ -64,6 +64,7 @@ withParameterizedPipeline('nodejs', product, component, params.ENVIRONMENT, slot
   }
 
   loadVaultSecrets(secrets)
+  env.RUN_E2E_TEST = true
 	/*
   after('functionalTest:saat') {
 	sh "mkdir functional-output"
