@@ -29,7 +29,60 @@ describe('AddressStep', () => {
         };
     });
 
+    describe('isComplete()', () => {
+
+        it('should return true if address exists on context', (done) => {
+            const addressStep = new AddressStep(steps, section, templatePath, i18next, schema);
+            const ctx = {address: {}};
+            const [stepComplete, progressFlag] = addressStep.isComplete(ctx);
+            expect(stepComplete).to.equal(true);
+            expect(progressFlag).to.equal('inProgress');
+            done();
+        });
+
+        it('should return false if address does not exists on context', (done) => {
+            const addressStep = new AddressStep(steps, section, templatePath, i18next, schema);
+            const ctx = {};
+            const [stepComplete, progressFlag] = addressStep.isComplete(ctx);
+            expect(stepComplete).to.equal(false);
+            expect(progressFlag).to.equal('inProgress');
+            done();
+        });
+    });
+
     describe('handleGet()', () => {
+
+        it('should break address type into separate fields for display', (done) => {
+            const addressStep = new AddressStep(steps, section, templatePath, i18next, schema);
+            ctxToTest = {address: {
+                    addressLine1: 'line1',
+                    addressLine2: 'line2',
+                    addressLine3: 'line3',
+                    postTown: 'town',
+                    postCode: 'postCode',
+                    country: 'country'
+                }};
+            const ctx = addressStep.handleGet(ctxToTest, null);
+            expect(ctx).to.deep.equal([{
+                address: {
+                    addressLine1: 'line1',
+                    addressLine2: 'line2',
+                    addressLine3: 'line3',
+                    postTown: 'town',
+                    postCode: 'postCode',
+                    country: 'country'
+                },
+                addressLine1: 'line1',
+                addressLine2: 'line2',
+                addressLine3: 'line3',
+                county: '',
+                postTown: 'town',
+                newPostCode: 'postCode',
+                country: 'country'
+            }]);
+            done();
+        });
+
         it('should return ctx when there are no errors', (done) => {
             const addressStep = new AddressStep(steps, section, templatePath, i18next, schema);
             const ctx = addressStep.handleGet(ctxToTest, null);
@@ -53,53 +106,29 @@ describe('AddressStep', () => {
     });
 
     describe('handlePost()', () => {
-        describe('should return ctx and errors', () => {
-            it('when address exists', (done) => {
-                ctxToTest = {
-                    addressLine1: '1 Red Road',
-                    addressLine2: '',
-                    addressLine3: '',
-                    postTown: 'London',
-                    newPostCode: 'LL1 1LL',
-                    county: '',
-                    country: '',
-                    referrer: 'executorApplicant',
-                    postcode: 'll1 1ll',
-                    addresses: [
-                        {address: '1 Red Road, London, LL1 1LL'},
-                        {address: '2 Green Road, London, LL2 2LL'}
-                    ]
-                };
-                const addressStep = new AddressStep(steps, section, templatePath, i18next, schema);
-                const ctx = addressStep.handlePost(ctxToTest, null);
-                expect(ctx).to.deep.equal([{
-                    addressLine1: '1 Red Road',
-                    addressLine2: '',
-                    addressLine3: '',
-                    postTown: 'London',
-                    newPostCode: 'LL1 1LL',
-                    county: '',
-                    country: '',
-                    address: {
-                        addressLine1: '1 Red Road',
-                        addressLine2: '',
-                        addressLine3: '',
-                        formattedAddress: '1 Red Road London LL1 1LL ',
-                        county: '',
-                        country: '',
-                        postTown: 'London',
-                        postCode: 'LL1 1LL'
-                    },
-                    postcode: 'll1 1ll',
-                    addresses: [
-                        {address: '1 Red Road, London, LL1 1LL'},
-                        {address: '2 Green Road, London, LL2 2LL'}
-                    ],
-                    referrer: 'executorApplicant',
-                }, null]);
-                done();
+        it('should return formatted address when an address exists', (done) => {
+            ctxToTest = {
+                addressLine1: 'line1',
+                addressLine2: 'line2',
+                addressLine3: 'line3',
+                postTown: 'town',
+                county: 'county',
+                newPostCode: 'postcode',
+                country: 'country'
+            };
+            const addressStep = new AddressStep(steps, section, templatePath, i18next, schema);
+            const ctx = addressStep.handlePost(ctxToTest, null);
+            expect(ctx[0].address).to.deep.equal({
+                addressLine1: 'line1',
+                addressLine2: 'line2',
+                addressLine3: 'line3',
+                formattedAddress: 'line1 line2 line3 town postcode county country ',
+                postTown: 'town',
+                postCode: 'postcode',
+                county: 'county',
+                country: 'country'
             });
-
+            done();
         });
     });
 });
