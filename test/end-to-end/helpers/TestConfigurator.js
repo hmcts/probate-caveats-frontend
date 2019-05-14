@@ -5,7 +5,7 @@ const testConfig = require('test/config.js');
 class TestConfigurator {
 
     constructor() {
-        this.testBaseUrl = testConfig.TestIdamBaseUrl;
+        this.testBaseUrl = testConfig.TestE2EFrontendUrl + testConfig.TestBasePath;
         this.useIdam = testConfig.TestUseIdam;
         this.setTestCitizenName();
         this.testCitizenDomain = testConfig.TestCitizenDomain.replace('/@', '@');
