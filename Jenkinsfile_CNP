@@ -53,7 +53,7 @@ static LinkedHashMap<String, Object> secret(String secretName, String envVar) {
 withPipeline("nodejs", product, component) {
   // env.APP_BASE_PATH = "/caveats"
   // env.POSTCODE_SERVICE_PATH = "/caveats/find-address"
-  env.RUN_E2E_TEST = true
+  env.RUN_E2E_TEST = "true"
   after('build') {
     sh 'yarn setup'
   }
