@@ -55,13 +55,13 @@ describe('AddressStep', () => {
         it('should break address type into separate fields for display', (done) => {
             const addressStep = new AddressStep(steps, section, templatePath, i18next, schema);
             ctxToTest = {address: {
-                    addressLine1: 'line1',
-                    addressLine2: 'line2',
-                    addressLine3: 'line3',
-                    postTown: 'town',
-                    postCode: 'postCode',
-                    country: 'country'
-                }};
+                addressLine1: 'line1',
+                addressLine2: 'line2',
+                addressLine3: 'line3',
+                postTown: 'town',
+                postCode: 'postCode',
+                country: 'country'
+            }};
             const ctx = addressStep.handleGet(ctxToTest, null);
             expect(ctx).to.deep.equal([{
                 address: {
