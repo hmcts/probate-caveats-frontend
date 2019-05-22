@@ -31,6 +31,9 @@ idam-pr:
 postgresql:
   enabled: true # for rpe-feature-toggle-api
 
+postgresql:
+  enabled: true # for rpe-feature-toggle-api
+
 rpe-feature-toggle-api:
   #  image: hmcts.azurecr.io/hmcts/rpe-feature-toggle-api:latest
   releaseNameOverride: ${SERVICE_NAME}-ftr-tgl-api
