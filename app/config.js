@@ -136,6 +136,7 @@ module.exports = {
         (process.env.APP_BASE_PATH || '') + '/privacy-policy',
         (process.env.APP_BASE_PATH || '') + '/terms-conditions',
         (process.env.APP_BASE_PATH || '') + '/contact-us',
+        (process.env.APP_BASE_PATH || '') + '/health/liveness',
         (process.env.APP_BASE_PATH || '') + '/offline'
     ]
 };
