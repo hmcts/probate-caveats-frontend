@@ -1,0 +1,38 @@
+tags:
+  - idam-pr
+
+nodejs:
+  applicationPort: 3000
+  livenessPath: /caveats/health/liveness
+  environment:
+    PUBLIC_PROTOCOL: https
+    REFORM_TEAM: probate
+    REFORM_SERVICE_NAME: probate-caveats-frontend
+    REFORM_ENVIRONMENT: aat
+    USE_REDIS: true
+    REDIS_USE_TLS: false
+    REDIS_PORT: 6379
+    APP_BASE_PATH: "/caveats"
+    POSTCODE_SERVICE_PATH: "/caveats/find-address"
+    PAY_RETURN_URL: "/caveats/payment-status"
+
+  image: 'https://hmcts.azurecr.io/hmcts/probate-caveats-fe:latest'
+
+redis:
+  cluster:
+    enabled: false
+    slaveCount: 0
+  usePassword: false
+  master:
+    persistence:
+      enabled: false
+
+rpe-feature-toggle-api:
+#  image: hmcts.azurecr.io/hmcts/rpe-feature-toggle-api:latest
+  importer:
+    cron:
+      enabled: false
+    oneoff:
+      enabled: false
+  postgresql:
+    postgresqlDatabase: hmcts

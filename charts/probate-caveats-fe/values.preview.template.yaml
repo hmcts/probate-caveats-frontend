@@ -1,18 +1,12 @@
-tags:
-  - idam-pr
-
 nodejs:
-  applicationPort: 3000
   environment:
-    PUBLIC_PROTOCOL: https
-    REFORM_TEAM: probate
+    PAYMENT_CREATE_URL: http://payment-api-aat.service.core-compute-aat.internal/card-payments
+    ORCHESTRATION_SERVICE_URL: http://probate-orchestrator-service-aat.service.core-compute-aat.internal
+    IDAM_API_URL: https://idam-api.aat.platform.hmcts.net
+    IDAM_S2S_URL: http://rpe-service-auth-provider-aat.service.core-compute-aat.internal
+    CAVEAT_REDIRECT_BASE_URL: http://probate-caveats-fe-aat.service.core-compute-aat.internal
     FEATURE_TOGGLES_API_URL: http://${SERVICE_NAME}-ftr-tgl-api
-    REFORM_SERVICE_NAME: probate-caveats-frontend
-    REFORM_ENVIRONMENT: aat
-    USE_REDIS: true
-    REDIS_USE_TLS: false
     REDIS_HOST: ${SERVICE_NAME}-redis-master
-    REDIS_PORT: 6379
     POSTCODE_SERVICE_URL: ${PRO_POSTCODE_SERVICE_URL}
     POSTCODE_SERVICE_TOKEN: ${PRO_POSTCODE_SERVICE_TOKEN}
     SURVEY: ${PRO_SURVEY}
@@ -22,14 +16,10 @@ nodejs:
     SITE_ID: ${PRO_SITE_ID}
     CAVEAT_USER_EMAIL: ${CAVEAT_USER_EMAIL}
     CAVEAT_USER_PASSWORD: ${CAVEAT_USER_PASSWORD}
-    APP_BASE_PATH: "/caveats"
-    POSTCODE_SERVICE_PATH: "/caveats/find-address"
-    PAY_RETURN_URL: "/caveats/payment-status"
-
     IDAM_SERVICE_KEY: ${IDAM_S2S_SECRET}
     IDAM_API_OAUTH2_CLIENT_CLIENT_SECRETS_PROBATE: ${IDAM_SECRET_PROBATE}
 
-# Don't modify below here
+
   image: ${IMAGE_NAME}
   ingressHost: ${SERVICE_FQDN}
 
@@ -38,23 +28,12 @@ idam-pr:
     name: Probate # this is the label (name) of the service as configured in IDAM. If unsure, see below.
     redirect_uri: https://${SERVICE_FQDN}/oauth2/callback # this is the application callback URL where IDAM will send back the authentication code. SERVICE_FQDN is injected by Jenkins.
 
-redis:
-  cluster:
-    enabled: false
-    slaveCount: 0
-  usePassword: false
-  master:
-    persistence:
-      enabled: false
+postgresql:
+  enabled: true # for rpe-feature-toggle-api
 
 rpe-feature-toggle-api:
-#  image: hmcts.azurecr.io/hmcts/rpe-feature-toggle-api:latest
+  #  image: hmcts.azurecr.io/hmcts/rpe-feature-toggle-api:latest
   releaseNameOverride: ${SERVICE_NAME}-ftr-tgl-api
-  importer:
-    cron:
-      enabled: false
-    oneoff:
-      enabled: false
   java:
     releaseNameOverride: ${SERVICE_NAME}-ftr-tgl-api
     ingressIP: ${INGRESS_IP}
@@ -63,11 +42,4 @@ rpe-feature-toggle-api:
       enabled: true
       primaryIngressHost: ${SERVICE_FQDN}
       prefix: ftr-tgl
-    environment:
-      FEATURES_DB_HOST: ${SERVICE_NAME}-ft-db
-      ADMIN_USERNAME_TEST: admin@example.com
-      ADMIN_PASSWORD_TEST: Password12
-      EDITOR_USERNAME_TEST: editor@example.com
-      EDITOR_PASSWORD_TEST: Password12
-  postgresql:
-    postgresqlDatabase: hmcts
+
