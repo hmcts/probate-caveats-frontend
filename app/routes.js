@@ -68,7 +68,6 @@ router.get('/health/liveness', (req, res) => {
     res.json({status: 'UP'});
 });
 
-
 const steps = initSteps([`${__dirname}/steps/action/`, `${__dirname}/steps/ui/`]);
 
 Object.entries(steps).forEach(([, step]) => {
