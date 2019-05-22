@@ -64,7 +64,7 @@ router.get('/*', (req, res, next) => {
     }
 });
 
-router.get('/health/liveness', (req, res) => {
+router.get(`${config.app.basePath}/health/liveness`, (req, res) => {
     res.json({status: 'UP'});
 });
 
