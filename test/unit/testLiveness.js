@@ -10,7 +10,7 @@ describe('Liveness check', () => {
             const server = app.init();
             const agent = request.agent(server.app);
             agent.get('/caveats/health/liveness')
-                .expect(200)
+                .expect(302)
                 .end((err, res) => {
                     server.http.close();
                     if (err) {
