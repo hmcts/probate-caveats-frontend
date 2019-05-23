@@ -123,8 +123,8 @@ module.exports = {
         version: process.env.version || '1',
         currency: process.env.currency || 'GBP'
     },
-    liveness: '/health/*',
-    healthEndpoint: '/health*',
+    livenessEndpoint: '/health/liveness',
+    healthEndpoint: '/health',
     appInsights: {
         instrumentationKey: process.env.APPINSIGHTS_INSTRUMENTATION_KEY
     },
@@ -136,6 +136,7 @@ module.exports = {
         (process.env.APP_BASE_PATH || '') + '/privacy-policy',
         (process.env.APP_BASE_PATH || '') + '/terms-conditions',
         (process.env.APP_BASE_PATH || '') + '/contact-us',
-        (process.env.APP_BASE_PATH || '') + '/offline'
+        (process.env.APP_BASE_PATH || '') + '/offline',
+        (process.env.APP_BASE_PATH || '') + '/health/liveness'
     ]
 };
