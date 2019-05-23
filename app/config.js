@@ -124,7 +124,7 @@ module.exports = {
         currency: process.env.currency || 'GBP'
     },
     liveness: '/health/*',
-    healthEndpoint: '/health',
+    healthEndpoint: '/health*',
     appInsights: {
         instrumentationKey: process.env.APPINSIGHTS_INSTRUMENTATION_KEY
     },
