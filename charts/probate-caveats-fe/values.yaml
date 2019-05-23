@@ -3,7 +3,6 @@ tags:
 
 nodejs:
   applicationPort: 3000
-  livenessPath: /health
   environment:
     PUBLIC_PROTOCOL: https
     REFORM_TEAM: probate
