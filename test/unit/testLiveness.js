@@ -6,11 +6,11 @@ const request = require('supertest');
 const config = require('app/config');
 
 describe('Liveness check', () => {
-    describe(`${config.app.basePath}${config.livenessEndpoint} endpoint`, () => {
+    describe(`${config.livenessEndpoint} endpoint`, () => {
         it('should return the correct params', (done) => {
             const server = app.init();
             const agent = request.agent(server.app);
-            agent.get(`${config.app.basePath}${config.livenessEndpoint}`)
+            agent.get(`${config.livenessEndpoint}`)
                 .expect(200)
                 .end((err, res) => {
                     server.http.close();
