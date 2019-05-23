@@ -19,7 +19,7 @@ module.exports = {
     TestDocumentToUpload: 'uploadDocuments/test_file_for_document_upload.png',
     TestWaitForDocumentUpload: 60,
     TestBasePath: process.env.APP_BASE_PATH || '',
-    
+
     postcodeLookup: {
         token: process.env.ADDRESS_TOKEN,
         url: process.env.POSTCODE_SERVICE_URL,
