@@ -26,7 +26,7 @@ List<LinkedHashMap<String, Object>> secrets = [
     secret('testUseGovPay', 'USE_GOV_PAY'),
     secret('testPostcodeServiceUrl', 'POSTCODE_SERVICE_URL'),
     secret('testPostCodeAddressToken', 'ADDRESS_TOKEN'),
-    secret('testRunE2ETest', 'RUN_E2E_TEST'),
+    // secret('testRunE2ETest', 'RUN_E2E_TEST'),
     secret('testValidationServiceUrl', 'TEST_VALIDATION_SERVICE_URL'),
     secret('idam-secret-probate', 'IDAM_SECRET_PROBATE'),
     secret('idam-s2s-secret', 'IDAM_S2S_SECRET'),
@@ -53,6 +53,7 @@ static LinkedHashMap<String, Object> secret(String secretName, String envVar) {
 withPipeline("nodejs", product, component) {
   // env.APP_BASE_PATH = "/caveats"
   // env.POSTCODE_SERVICE_PATH = "/caveats/find-address"
+  env.RUN_E2E_TEST = true
   after('build') {
     sh 'yarn setup'
   }

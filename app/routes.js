@@ -71,4 +71,8 @@ Object.entries(steps).forEach(([, step]) => {
     router.post(step.constructor.getUrl(), step.runner().POST(step));
 });
 
+router.get('/health/liveness', (req, res) => {
+    res.json({status: 'UP'});
+});
+
 module.exports = router;

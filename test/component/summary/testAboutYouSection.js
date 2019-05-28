@@ -53,7 +53,7 @@ describe('summary-about-you-section', () => {
                     playbackData.applicantAddress = applicantContent.address.question;
 
                     Object.assign(playbackData, applicantData.applicant);
-
+                    playbackData.address = applicantData.applicant.address.formattedAddress;
                     testWrapper.testDataPlayback(done, playbackData);
                 });
         });

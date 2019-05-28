@@ -14,6 +14,19 @@
     </div>
 {% endmacro %}
 
+{% macro textFieldNoLabel(text, hint, name, field, size) %}
+<div class="form-group {{ 'form-group-error' if field.error }}">
+    {% if hint %}
+    <p class="form-hint no-link">{{hint}}</p>
+    {% endif %}
+
+    {{ fieldError(field) }}
+
+    <label class="visually-hidden" for="{{name}}">{{text}}</label>
+    <input type="text" class="form-control {{ 'form-control-error' if field.error }} form-control-3-4" id="{{name}}" name="{{name}}" value="{{field.value | safe}}" maxlength="{{size}}">
+</div>
+{% endmacro %}
+
 {% macro passwordField(id=name, text, hint, name, field, size, width) %}
     <div class="form-group {{ 'form-group-error' if field.error }}">
         {{ fieldError(field) }}

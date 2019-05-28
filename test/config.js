@@ -1,23 +1,13 @@
 module.exports = {
 
-    TestIdamBaseUrl: process.env.IDAM_API_URL || 'https://idam-api.aat.platform.hmcts.net',
     TestFrontendUrl: process.env.TEST_URL || 'http://localhost:3000',
-    TestE2EFrontendUrl: process.env.TEST_E2E_URL || 'https://probate.aat.platform.hmcts.net/caveats',
-    TestUseSidam: process.env.USE_SIDAM || 'true',
-    TestUseGovPay: process.env.USE_GOV_PAY || 'true',
-    TestInviteIdListUrl: process.env.INVITE_ID_LIST_URL || '/inviteIdList',
-    TestPinUrl: process.env.PIN_URL || '/pin',
-    TestInvitationUrl: process.env.INVITATION_URL || '/executors/invitation',
-    TestIdamAddUserUrl: process.env.IDAM_ADD_USER_URL || '/testing-support/accounts',
-    TestIdamUserGroup: process.env.IDAM_USER_GROUP || 'probate-private-beta',
-    TestIdamRole: process.env.IDAM_CITIZEN_ROLE || 'citizen',
-    TestCitizenDomain: process.env.CITIZEN_EMAIL_DOMAIN || '/@probateTest.com',
-    TestUseProxy: process.env.TEST_USE_PROXY || 'true',
-    TestProxy: process.env.TEST_PROXY || 'socks5:proxyout.reform.hmcts.net:8080',
+    TestE2EFrontendUrl: process.env.TEST_E2E_URL || 'https://localhost:3000',
+    TestUseGovPay: process.env.USE_GOV_PAY || 'false',
     TestRetryFeatures: process.env.RETRY_FEATURES || 3,
     TestRetryScenarios: process.env.RETRY_SCENARIOS || 0,
-    TestDocumentToUpload: 'uploadDocuments/test_file_for_document_upload.png',
-    TestWaitForDocumentUpload: 60,
+    TestOutputDir: process.env.E2E_OUTPUT_DIR || './output',
+    TestPathToRun: './paths/**/*.js',
+    TestShowBrowser: false,
     TestBasePath: '/caveats',
 
     postcodeLookup: {

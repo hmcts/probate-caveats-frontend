@@ -22,9 +22,20 @@
                 <p>{{ content.successParagraph1 | safe }}</p>
                 <p>{{ content.successParagraph2 | safe }}</p>
 
+                <div class="margin-bottom50">
+                    <h2 class="heading-medium">{{ content.saveYourApplication }}</h2>
+                    <p>{{ content.saveParagraph1 }}</p>
+                    <p class="save-this-page-link">
+                        <em class="icon icon-file-download"></em>
+                        <a class="anchor-margin-left" id="checkAnswerHref" href="{{ basePath }}/check-answers-pdf">{{ content.checkAnswersPdf }}</a>
+                    </p>
+                </div>
+
                 <div class="panel panel-border-wide">
                     <p>{{ content.successParagraph3 | replace('{citizenAdvice}', links.citizenAdvice) | safe }}</p>
                 </div>
+
+
 
                 <a href="{{ links.surveyEndOfApplication | safe }}">{{ content.survey | safe }}</a>
             </div>
