@@ -1,13 +1,13 @@
 module.exports = {
 
     TestFrontendUrl: process.env.TEST_URL || 'http://localhost:3000',
-    TestE2EFrontendUrl: process.env.TEST_E2E_URL || 'https://localhost:3000',
+    TestE2EFrontendUrl: process.env.TEST_E2E_URL || 'http://probate-caveats-fe-aat-staging.service.core-compute-aat.internal',
     TestUseGovPay: process.env.USE_GOV_PAY || 'false',
     TestRetryFeatures: process.env.RETRY_FEATURES || 3,
     TestRetryScenarios: process.env.RETRY_SCENARIOS || 0,
     TestOutputDir: process.env.E2E_OUTPUT_DIR || './output',
     TestPathToRun: './paths/**/*.js',
-    TestShowBrowser: false,
+    TestShowBrowser: true,
     TestBasePath: '/caveats',
 
     postcodeLookup: {
