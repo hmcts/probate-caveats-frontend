@@ -2,9 +2,9 @@ module.exports = {
 
     TestIdamBaseUrl: process.env.IDAM_API_URL || 'https://idam-api.aat.platform.hmcts.net',
     TestFrontendUrl: process.env.TEST_URL || 'http://localhost:3000',
-    TestE2EFrontendUrl: process.env.TEST_E2E_URL || 'https://probate.aat.platform.hmcts.net',
+    TestE2EFrontendUrl: process.env.TEST_E2E_URL || 'https://probate-caveats-fe-pr-120.service.core-compute-preview.internal',
     TestUseSidam: process.env.USE_SIDAM || 'true',
-    TestUseGovPay: process.env.USE_GOV_PAY || 'true',
+    TestUseGovPay: 'true',
     TestInviteIdListUrl: process.env.INVITE_ID_LIST_URL || '/inviteIdList',
     TestPinUrl: process.env.PIN_URL || '/pin',
     TestInvitationUrl: process.env.INVITATION_URL || '/executors/invitation',
