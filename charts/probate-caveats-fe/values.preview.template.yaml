@@ -23,6 +23,10 @@ nodejs:
   image: ${IMAGE_NAME}
   ingressHost: ${SERVICE_FQDN}
 
+  postgresql:
+  enabled: true # for rpe-feature-toggle-api
+
+
 idam-pr:
   service:
     name: Probate # this is the label (name) of the service as configured in IDAM. If unsure, see below.
