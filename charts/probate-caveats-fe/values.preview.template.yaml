@@ -1,7 +1,7 @@
 nodejs:
   environment:
     PAYMENT_CREATE_URL: http://payment-api-aat.service.core-compute-aat.internal/card-payments
-    ORCHESTRATION_SERVICE_URL: http://probate-orchestrator-service-aat.service.core-compute-aat.internal
+    ORCHESTRATION_SERVICE_URL: http://probate-orchestrator-service-pr-69.service.core-compute-preview.internal
     IDAM_API_URL: https://idam-api.aat.platform.hmcts.net
     IDAM_S2S_URL: http://rpe-service-auth-provider-aat.service.core-compute-aat.internal
     CAVEAT_REDIRECT_BASE_URL: http://probate-caveats-fe-aat.service.core-compute-aat.internal
