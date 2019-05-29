@@ -32,7 +32,7 @@ Scenario('Standard Execution Journey', function* (I) {
         I.seeGovUkConfirmPage();
     }
     // Thank You
-    I.seeThankYouPage();
+    //I.seeThankYouPage();
 }).retry(TestConfigurator.getRetryScenarios());
 
 Scenario('Stop and Continuation of Main applicant journey:', function* (I) {
