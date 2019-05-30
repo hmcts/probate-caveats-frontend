@@ -23,7 +23,7 @@ nodejs:
   image: ${IMAGE_NAME}
   ingressHost: ${SERVICE_FQDN}
 
-  postgresql:
+postgresql:
   enabled: true # for rpe-feature-toggle-api
 
 
