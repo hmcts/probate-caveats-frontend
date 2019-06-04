@@ -45,9 +45,10 @@ router.use(documentDownloads);
 
 router.post(`${config.app.basePath}/payment-breakdown`, lockPaymentAttempt);
 
-router.use((req, res, next) => {
+router.get('/*', (req, res, next) => {
     const formdata = req.session.form;
-    if (get(formdata, 'payment.status') === 'Success' && !isEqual(req.originalUrl, `${config.app.basePath}/thankyou`)) {
+    if (!includes(config.whiteListedPagesForThankyou, req.originalUrl) &&
+        get(formdata, 'payment.status') === 'Success') {
         res.redirect(`${config.app.basePath}/thankyou`);
     } else {
         next();
@@ -57,8 +58,18 @@ router.use((req, res, next) => {
 router.get('/*', (req, res, next) => {
     const formdata = req.session.form;
     if (!includes(config.whitelistedPagesForStartPageRedirect, req.originalUrl) &&
-        !get(formdata, 'applicant')) {
+        get(formdata, 'applicant.firstName', '') === '') {
         res.redirect(`${config.app.basePath}/start-page`);
+    } else {
+        next();
+    }
+});
+
+router.get('/*', (req, res, next) => {
+    const formdata = req.session.form;
+    if (!includes(config.whiteListedPagesForPaymentBreakdown, req.originalUrl) &&
+        get(formdata, 'ccdCase.id', '') !== '') {
+        res.redirect(`${config.app.basePath}/payment-breakdown`);
     } else {
         next();
     }

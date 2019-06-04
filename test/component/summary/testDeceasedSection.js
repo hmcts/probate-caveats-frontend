@@ -24,7 +24,10 @@ describe('summary-deceased-section', () => {
 
     describe('Verify Content, Errors and Redirection', () => {
         it('test correct content loaded on deceased section of the summary page , when no data is entered', (done) => {
-            const sessionData = {applicant: 'value'};
+            const sessionData = {applicant: {
+                firstName: 'value'
+                }
+            };
             testWrapper.agent.post('/prepare-session/form')
                 .send(sessionData)
                 .end(() => {
@@ -65,7 +68,9 @@ describe('summary-deceased-section', () => {
 
         it('test data is played back correctly on the deceased with alias section of the summary page', (done) => {
             const sessionData = {
-                applicant: 'value',
+                applicant: {
+                    firstName: 'value'
+                },
                 deceased: {
                     firstName: 'Joe',
                     lastName: 'Bloggs',

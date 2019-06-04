@@ -25,7 +25,7 @@ describe('applicant-address', () => {
 
         it('test right content loaded on the page', (done) => {
             const excludeKeys = ['selectAddress'];
-            const sessionData = {applicant: 'value'};
+            const sessionData = {applicant: {firstName: 'value'}};
             testWrapper.agent.post('/prepare-session/form')
                 .send(sessionData)
                 .end(() => {
@@ -50,6 +50,7 @@ describe('applicant-address', () => {
 
         it('test the address dropdown box displays all addresses when the user returns to the page', (done) => {
             const sessionData = {
+                firstName: 'value',
                 addressLine1: 'value',
                 postTown: 'value',
                 newPostCode: 'value',

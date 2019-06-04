@@ -138,5 +138,27 @@ module.exports = {
         (process.env.APP_BASE_PATH || '') + '/contact-us',
         (process.env.APP_BASE_PATH || '') + '/offline',
         (process.env.APP_BASE_PATH || '') + '/health/liveness'
+    ],
+    whiteListedPagesForThankyou: [
+        (process.env.APP_BASE_PATH || '') + '/public',
+        (process.env.APP_BASE_PATH || '') + '/cookies',
+        (process.env.APP_BASE_PATH || '') + '/privacy-policy',
+        (process.env.APP_BASE_PATH || '') + '/terms-conditions',
+        (process.env.APP_BASE_PATH || '') + '/contact-us',
+        (process.env.APP_BASE_PATH || '') + '/offline',
+        (process.env.APP_BASE_PATH || '') + '/health/liveness',
+        (process.env.APP_BASE_PATH || '') + '/thankyou'
+    ],
+    whiteListedPagesForPaymentBreakdown: [
+        (process.env.APP_BASE_PATH || '') + '/public',
+        (process.env.APP_BASE_PATH || '') + '/cookies',
+        (process.env.APP_BASE_PATH || '') + '/privacy-policy',
+        (process.env.APP_BASE_PATH || '') + '/terms-conditions',
+        (process.env.APP_BASE_PATH || '') + '/contact-us',
+        (process.env.APP_BASE_PATH || '') + '/offline',
+        (process.env.APP_BASE_PATH || '') + '/health/liveness',
+        (process.env.APP_BASE_PATH || '') + '/payment-breakdown',
+        (process.env.APP_BASE_PATH || '') + '/payment-status',
+        (process.env.APP_BASE_PATH || '') + '/thankyou'
     ]
 };

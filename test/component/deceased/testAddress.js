@@ -24,7 +24,9 @@ describe('deceased-address', () => {
         it('test right content loaded on the page', (done) => {
             const excludeKeys = ['selectAddress'];
             const sessionData = {
-                applicant: 'value',
+                applicant: {
+                    firstName: 'value'
+                },
                 deceased: {
                     firstName: 'Jason',
                     lastName: 'Smith'
