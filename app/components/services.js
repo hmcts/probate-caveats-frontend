@@ -69,11 +69,13 @@ const updateCcdCasePaymentStatus = (data, ctx) => {
 const createPayment = (data, hostname) => {
     logInfo('createPayment', data.applicationId);
     logInfo('hostname', hostname);
+    const paymentUpdatesCallback = config.services.orchestrator.url + config.services.orchestrator.paths.payment_updates;
     const headers = {
         'Content-Type': 'application/json',
         'Authorization': data.authToken,
         'ServiceAuthorization': data.serviceAuthToken,
-        'return-url': FormatUrl.format((externalHostNameUrl || hostname), config.services.payment.returnUrlPath)
+        'return-url': FormatUrl.format((externalHostNameUrl || hostname), config.services.payment.returnUrlPath),
+        'service-callback-url': paymentUpdatesCallback
     };
     const body = paymentData.createPaymentData(data);
     const fetchOptions = utils.fetchOptions(body, 'POST', headers);
