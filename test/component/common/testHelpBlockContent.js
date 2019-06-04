@@ -12,7 +12,7 @@ class TestHelpBlockContent {
             it('test help block content is loaded on page', (done) => {
                 const sessionData = {applicant: {
                     firstName: 'value'
-                    }
+                }
                 };
                 testWrapper.agent.post('/prepare-session/form')
                     .send(sessionData)

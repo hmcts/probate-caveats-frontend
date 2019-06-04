@@ -39,7 +39,7 @@ describe('paymentStatus', () => {
         it('test right content loaded on the page', (done) => {
             const sessionData = {applicant: {
                 firstName: 'value'
-                }
+            }
             };
             testWrapper.agent.post('/prepare-session/form')
                 .send(sessionData)
