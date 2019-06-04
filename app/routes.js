@@ -50,24 +50,10 @@ router.get('/*', (req, res, next) => {
     if (!includes(config.whiteListedPagesForThankyou, req.originalUrl) &&
         get(formdata, 'payment.status') === 'Success') {
         res.redirect(`${config.app.basePath}/thankyou`);
-    } else {
-        next();
-    }
-});
-
-router.get('/*', (req, res, next) => {
-    const formdata = req.session.form;
-    if (!includes(config.whitelistedPagesForStartPageRedirect, req.originalUrl) &&
+    } else if (!includes(config.whitelistedPagesForStartPageRedirect, req.originalUrl) &&
         get(formdata, 'applicant.firstName', '') === '') {
         res.redirect(`${config.app.basePath}/start-page`);
-    } else {
-        next();
-    }
-});
-
-router.get('/*', (req, res, next) => {
-    const formdata = req.session.form;
-    if (!includes(config.whiteListedPagesForPaymentBreakdown, req.originalUrl) &&
+    } else if (!includes(config.whiteListedPagesForPaymentBreakdown, req.originalUrl) &&
         get(formdata, 'ccdCase.id', '') !== '') {
         res.redirect(`${config.app.basePath}/payment-breakdown`);
     } else {
