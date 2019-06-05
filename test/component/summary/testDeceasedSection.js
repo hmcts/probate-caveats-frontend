@@ -24,9 +24,10 @@ describe('summary-deceased-section', () => {
 
     describe('Verify Content, Errors and Redirection', () => {
         it('test correct content loaded on deceased section of the summary page , when no data is entered', (done) => {
-            const sessionData = {applicant: {
-                firstName: 'value'
-            }
+            const sessionData = {
+                applicant: {
+                    firstName: 'value'
+                }
             };
             testWrapper.agent.post('/prepare-session/form')
                 .send(sessionData)
