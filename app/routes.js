@@ -4,7 +4,7 @@ const config = require('app/config');
 const router = require('express').Router();
 const initSteps = require('app/core/initSteps');
 const logger = require('app/components/logger');
-const {get, includes, isEqual} = require('lodash');
+const {get, includes} = require('lodash');
 const documentDownloads = require('app/documentDownloads');
 const lockPaymentAttempt = require('app/middleware/lockPaymentAttempt');
 const uuidv4 = require('uuid/v4');
@@ -45,20 +45,17 @@ router.use(documentDownloads);
 
 router.post(`${config.app.basePath}/payment-breakdown`, lockPaymentAttempt);
 
-router.use((req, res, next) => {
-    const formdata = req.session.form;
-    if (get(formdata, 'payment.status') === 'Success' && !isEqual(req.originalUrl, `${config.app.basePath}/thankyou`)) {
-        res.redirect(`${config.app.basePath}/thankyou`);
-    } else {
-        next();
-    }
-});
-
 router.get('/*', (req, res, next) => {
     const formdata = req.session.form;
-    if (!includes(config.whitelistedPagesForStartPageRedirect, req.originalUrl) &&
-        !get(formdata, 'applicant')) {
+    if (!includes(config.whiteListedPagesForThankyou, req.originalUrl) &&
+        get(formdata, 'payment.status') === 'Success') {
+        res.redirect(`${config.app.basePath}/thankyou`);
+    } else if (!includes(config.whitelistedPagesForStartPageRedirect, req.originalUrl) &&
+        get(formdata, 'applicant.firstName', '') === '') {
         res.redirect(`${config.app.basePath}/start-page`);
+    } else if (!includes(config.whiteListedPagesForPaymentBreakdown, req.originalUrl) &&
+        get(formdata, 'ccdCase.id', '') !== '') {
+        res.redirect(`${config.app.basePath}/payment-breakdown`);
     } else {
         next();
     }

@@ -1,5 +1,7 @@
 {
-  "applicant": "value",
+  "applicant": {
+    "firstName": "value"
+  },
   "deceased": {
     "firstName": "Joe",
     "lastName": "Bloggs",

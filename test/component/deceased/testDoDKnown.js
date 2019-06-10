@@ -27,7 +27,9 @@ describe('deceased-dob-known', () => {
 
         it('test right content loaded on the page', (done) => {
             const sessionData = {
-                applicant: 'value',
+                applicant: {
+                    firstName: 'value'
+                },
                 deceased: {
                     firstName: 'Jason',
                     lastName: 'Smith'
