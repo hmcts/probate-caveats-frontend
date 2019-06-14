@@ -69,8 +69,7 @@ const updateCcdCasePaymentStatus = (data, ctx) => {
 const createPayment = (data, hostname) => {
     logInfo('createPayment', data.applicationId);
     logInfo('hostname', hostname);
-    const paymentUpdatesCallback = config.services.orchestration.url 
-        + config.services.orchestration.paths.payment_updates;
+    const paymentUpdatesCallback = config.services.orchestration.url + config.services.orchestration.paths.payment_updates;
     const headers = {
         'Content-Type': 'application/json',
         'Authorization': data.authToken,
