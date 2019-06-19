@@ -29,18 +29,16 @@ class AddressLookup extends ValidationStep {
         referrerData.postcode = ctx.postcode;
         if (isEmpty(errors)) {
             const addresses = yield services.findAddress(ctx.postcode);
-            if (!isEmpty(addresses)) {
+            if (!isEmpty(addresses.addresses)) {
                 referrerData.addresses = addresses.addresses;
                 referrerData.addressFound = 'true';
                 for (const key in referrerData.addresses) {
-                    logger.info(`Address: ${referrerData.addresses[key].formattedAddress}`);
                     referrerData.addresses[key].formattedAddress = stringUtils
                         .updateLookupFormattedAddress(
                             referrerData.addresses[key].formattedAddress,
                             referrerData.addresses[key].postcode
                         );
-
-                    logger.info(`New Address: ${referrerData.addresses[key].formattedAddress}`);
+                    logger.debug(`Found address from PO lookup: ${referrerData.addresses[key].formattedAddress}`);
                 }
 
             } else {
