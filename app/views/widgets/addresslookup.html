@@ -19,7 +19,7 @@
             <select id="postcodeAddress" class="form-control form-control-1-2" name="postcodeAddress" value="{{fields.address.value}}">
                 <option value="">{{content.selectAddress}}</option>
                 {% for address in fields.addresses.value %}
-                    {% set formattedAddress = address.formatted_address | replace("\n"," ") %}
+                    {% set formattedAddress = address.formattedAddress | replace(","," ") %}
                     <option value="{{ loop.index0 }}" {{ "selected" if formattedAddress === fields.postcodeAddress.value }}>{{formattedAddress}}</option>
                 {% endfor %}
             </select>
@@ -30,10 +30,10 @@
         if (document.getElementById('postcodeAddress')) {
             const addresses = [
                 {% for address in fields.addresses.value %}
-            {% set formattedAddress = address.formatted_address | replace('\n', '###') %}
-            '{{ formattedAddress | safe }}',
-            {% endfor %}
-        ];
+                    {% set formattedAddress = address.formattedAddress | replace(',', '###') %}
+                    '{{ formattedAddress | safe }}',
+                {% endfor %}
+            ];
 
             document.getElementById('postcodeAddress').addEventListener('change', function(e) {
                 let address = addresses[e.target.value].split('###');

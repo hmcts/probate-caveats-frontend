@@ -4,8 +4,10 @@ const config = require('app/config');
 const {isEmpty} = require('lodash');
 const ValidationStep = require('app/core/steps/ValidationStep');
 const services = require('app/components/services');
+const stringUtils = require('app/components/string-utils');
 const ActionStepRunner = require('app/core/runners/ActionStepRunner');
 const FieldError = require('app/components/error');
+const logger = require('app/components/logger')('Init');
 
 class AddressLookup extends ValidationStep {
     static getUrl() {
@@ -28,8 +30,19 @@ class AddressLookup extends ValidationStep {
         if (isEmpty(errors)) {
             const addresses = yield services.findAddress(ctx.postcode);
             if (!isEmpty(addresses)) {
-                referrerData.addresses = addresses;
+                referrerData.addresses = addresses.addresses;
                 referrerData.addressFound = 'true';
+                for (const key in referrerData.addresses) {
+                    logger.info(`Address: ${referrerData.addresses[key].formattedAddress}`);
+                    referrerData.addresses[key].formattedAddress = stringUtils
+                        .updateLookupFormattedAddress(
+                            referrerData.addresses[key].formattedAddress, 
+                            referrerData.addresses[key].postcode
+                        );
+
+                    logger.info(`New Address: ${referrerData.addresses[key].formattedAddress}`);
+                }
+
             } else {
                 referrerData.addressFound = 'false';
                 referrerData.errors = [FieldError('postcode', 'noAddresses', this.resourcePath, ctx)];
