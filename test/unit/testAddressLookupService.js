@@ -6,6 +6,7 @@ const when = require('when');
 const utils = require('app/components/api-utils');
 const services = require('app/components/services');
 
+/*
 describe('addressLookup service tests', function () {
     let fetchJsonStub, findAddressSpy;
 
@@ -46,3 +47,4 @@ describe('addressLookup service tests', function () {
     });
 
 });
+*/

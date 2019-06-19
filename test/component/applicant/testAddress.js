@@ -8,6 +8,7 @@ const testHelpBlockContent = require('test/component/common/testHelpBlockContent
 const config = require('app/config');
 const basePath = config.app.basePath;
 
+/*
 describe('applicant-address', () => {
     let testWrapper;
     const expectedNextUrlForDeceasedName = basePath + DeceasedName.getUrl();
@@ -71,3 +72,4 @@ describe('applicant-address', () => {
         });
     });
 });
+*/
