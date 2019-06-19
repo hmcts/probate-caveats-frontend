@@ -36,7 +36,7 @@ class AddressLookup extends ValidationStep {
                     logger.info(`Address: ${referrerData.addresses[key].formattedAddress}`);
                     referrerData.addresses[key].formattedAddress = stringUtils
                         .updateLookupFormattedAddress(
-                            referrerData.addresses[key].formattedAddress, 
+                            referrerData.addresses[key].formattedAddress,
                             referrerData.addresses[key].postcode
                         );
 

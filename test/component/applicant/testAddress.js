@@ -1,5 +1,6 @@
 'use strict';
 
+/*
 const TestWrapper = require('test/util/TestWrapper');
 const DeceasedName = require('app/steps/ui/deceased/name/index');
 const testAddressData = require('test/data/find-address');
@@ -8,7 +9,6 @@ const testHelpBlockContent = require('test/component/common/testHelpBlockContent
 const config = require('app/config');
 const basePath = config.app.basePath;
 
-/*
 describe('applicant-address', () => {
     let testWrapper;
     const expectedNextUrlForDeceasedName = basePath + DeceasedName.getUrl();
