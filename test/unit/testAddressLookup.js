@@ -1,4 +1,5 @@
-/*
+'use strict';
+
 const initSteps = require('app/core/initSteps'),
     assert = require('chai').assert,
     sinon = require('sinon'),
@@ -7,11 +8,9 @@ const initSteps = require('app/core/initSteps'),
 const co = require('co');
 
 describe('AddressLookup', function () {
-
     const steps = initSteps([__dirname + '/../../app/steps/action/', __dirname + '/../../app/steps/ui']);
 
     describe('handlePost', function () {
-
         let findAddressStub;
 
         beforeEach(function () {
@@ -23,8 +22,14 @@ describe('AddressLookup', function () {
         });
 
         it('Adds addresses to formdata', function (done) {
-
-            const expectedResponse = ['address 1', 'address 2'];
+            const expectedResponse = [{
+                formattedAddress: "MINISTRY OF JUSTICE,SEVENTH FLOOR,103 PETTY FRANCE,LONDON,SW1H 9AJ",
+                postcode: "SW1H 9AJ"
+            },
+            { 
+                formattedAddress: "MINISTRY OF JUSTICE,SEVENTH FLOOR,102 PETTY FRANCE,LONDON,SW1H 9AJ",
+                postcode: "SW1H 9AJ"
+            }];
             findAddressStub.returns(when(expectedResponse));
 
             const AddressLookup = steps.AddressLookup;
@@ -44,11 +49,11 @@ describe('AddressLookup', function () {
         });
 
         it('Creates an error if address not found', function (done) {
-
             const expectedResponse = {};
             findAddressStub.returns(when(expectedResponse));
 
             const AddressLookup = steps.AddressLookup;
+
             let ctx = {
                 referrer: 'ApplicantAddress',
                 postcode: 'wibble'
@@ -70,7 +75,6 @@ describe('AddressLookup', function () {
 
     describe('getReferrerData', function () {
         it('It gets the referer data section from the formdata', function () {
-
             const AddressLookup = steps.AddressLookup;
 
             const ctx = {'referrer': 'ApplicantAddress'};
@@ -104,5 +108,3 @@ describe('AddressLookup', function () {
         });
     });
 });
-
-*/

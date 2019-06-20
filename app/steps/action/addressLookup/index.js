@@ -27,10 +27,11 @@ class AddressLookup extends ValidationStep {
         let referrerData = this.getReferrerData(ctx, formdata);
         referrerData = this.pruneReferrerData(referrerData);
         referrerData.postcode = ctx.postcode;
+
         if (isEmpty(errors)) {
             const addresses = yield services.findAddress(ctx.postcode);
-            if (!isEmpty(addresses.addresses)) {
-                referrerData.addresses = addresses.addresses;
+            if (!isEmpty(addresses)) {
+                referrerData.addresses = addresses;
                 referrerData.addressFound = 'true';
                 for (const key in referrerData.addresses) {
                     referrerData.addresses[key].formattedAddress = stringUtils

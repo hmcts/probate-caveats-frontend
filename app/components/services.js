@@ -16,12 +16,28 @@ const externalHostNameUrl = config.externalHostNameUrl;
 const secret = config.services.idam.service_key;
 const FEATURE_TOGGLE_URL = config.featureToggles.url;
 const logger = require('app/components/logger');
+const logError = (message, applicationId = 'Init') => logger(applicationId).error(message);
 const logInfo = (message, applicationId = 'Init') => logger(applicationId).info(message);
 const osPlacesClient = new OSPlacesClient(POSTCODE_SERVICE_TOKEN);
 
 const findAddress = (postcode) => {
     logInfo('findAddress');
-    return osPlacesClient.lookupByPostcode(postcode);
+    return new Promise((resolve, reject) => {
+        osPlacesClient.lookupByPostcode(postcode)
+            .then(res => {
+                logError(`lookupByPostcode returned: ${JSON.stringify(res)}`);
+                if (!res.valid || !res.addresses) {
+                    logError(`Postcode lookup failed with status: ${res.httpStatus}`);
+                    reject(new Error("Failed to retrieve address list"));
+                } else {
+                    resolve(res.addresses);
+                }
+            })
+            .catch(err => {
+                logError(`lookupByPostcode error: ${err}`);
+                reject(Error(err));
+            });
+    });
 };
 
 const featureToggle = (featureToggleKey) => {
