@@ -29,22 +29,27 @@ class AddressLookup extends ValidationStep {
         referrerData.postcode = ctx.postcode;
 
         if (isEmpty(errors)) {
-            const addresses = yield services.findAddress(ctx.postcode);
-            if (!isEmpty(addresses)) {
-                referrerData.addresses = addresses;
-                referrerData.addressFound = 'true';
-                for (const key in referrerData.addresses) {
-                    referrerData.addresses[key].formattedAddress = stringUtils
-                        .updateLookupFormattedAddress(
-                            referrerData.addresses[key].formattedAddress,
-                            referrerData.addresses[key].postcode
-                        );
-                    logger.debug(`Found address from PO lookup: ${referrerData.addresses[key].formattedAddress}`);
+            try {
+                const addresses = yield services.findAddress(ctx.postcode);
+                if (!isEmpty(addresses)) {
+                    referrerData.addresses = addresses;
+                    referrerData.addressFound = 'true';
+                    for (const key in referrerData.addresses) {
+                        referrerData.addresses[key].formattedAddress = stringUtils
+                            .updateLookupFormattedAddress(
+                                referrerData.addresses[key].formattedAddress,
+                                referrerData.addresses[key].postcode
+                            );
+                    }
+                } else {
+                    logger.error(`No addresses found for postcode: ${ctx.postcode}`);
+                    referrerData.addressFound = 'false';
+                    referrerData.errors = [FieldError('postcode', 'noAddresses', this.resourcePath, ctx)];
                 }
-
-            } else {
+            } catch (e) {
+                logger.error(`An error occured likely to be an invalid postcode for : ${ctx.postcode}`);
                 referrerData.addressFound = 'false';
-                referrerData.errors = [FieldError('postcode', 'noAddresses', this.resourcePath, ctx)];
+                referrerData.errors = [FieldError('postcode', 'invalid', this.resourcePath, ctx)];
             }
         } else {
             referrerData.errors = errors;

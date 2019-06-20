@@ -25,17 +25,16 @@ const findAddress = (postcode) => {
     return new Promise((resolve, reject) => {
         osPlacesClient.lookupByPostcode(postcode)
             .then(res => {
-                logError(`lookupByPostcode returned: ${JSON.stringify(res)}`);
-                if (!res.valid || !res.addresses) {
-                    logError(`Postcode lookup failed with status: ${res.httpStatus}`);
-                    reject(new Error('Failed to retrieve address list'));
-                } else {
+                if (res.valid) {
                     resolve(res.addresses);
+                } else {
+                    logError('Postcode invalid returning empty list');
+                    resolve({});
                 }
             })
             .catch(err => {
-                logError(`lookupByPostcode error: ${err}`);
-                reject(Error(err));
+                logError(`Postcode lookup failed to run: ${err}`);
+                reject(new Error('Failed to retrieve address list'));
             });
     });
 };

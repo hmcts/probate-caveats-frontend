@@ -57,23 +57,20 @@ describe('addressLookup service tests', function () {
             .catch(done);
     });
 
-    it('Should retrieve a response where valid is false', function (done) {
-        lookupByPostcodeStub.returns(when({valid: true, httpStatus: 200}));
+    it('Should retrieve an empty list for a non valid response.', function (done) {
+        lookupByPostcodeStub.returns(when({valid: false, httpStatus: 200}));
 
         services.findAddress('postcode')
-            .then(() => {
-                done(new Error('Expected method to reject.'));
-            })
-            .catch((err) => {
+            .then(function(actualResponse) {
                 sinon.assert.alwaysCalledWith(findAddressSpy, 'postcode');
-                assert.equal(err, expectedError);
+                assert.equal('{}', JSON.stringify(actualResponse));
                 done();
             })
             .catch(done);
     });
 
     it('Should fail to retrieve the address list', function (done) {
-        lookupByPostcodeStub.returns(when({}));
+        lookupByPostcodeStub.returns(Promise.reject(expectedError));
 
         services.findAddress('postcode')
             .then(() => {
