@@ -23,12 +23,12 @@ describe('AddressLookup', function () {
 
         it('Adds addresses to formdata', function (done) {
             const expectedResponse = [{
-                formattedAddress: "MINISTRY OF JUSTICE,SEVENTH FLOOR,103 PETTY FRANCE,LONDON,SW1H 9AJ",
-                postcode: "SW1H 9AJ"
+                formattedAddress: 'MINISTRY OF JUSTICE,SEVENTH FLOOR,103 PETTY FRANCE,LONDON,SW1H 9AJ',
+                postcode: 'SW1H 9AJ'
             },
-            { 
-                formattedAddress: "MINISTRY OF JUSTICE,SEVENTH FLOOR,102 PETTY FRANCE,LONDON,SW1H 9AJ",
-                postcode: "SW1H 9AJ"
+            {
+                formattedAddress: 'MINISTRY OF JUSTICE,SEVENTH FLOOR,102 PETTY FRANCE,LONDON,SW1H 9AJ',
+                postcode: 'SW1H 9AJ'
             }];
             findAddressStub.returns(when(expectedResponse));
 

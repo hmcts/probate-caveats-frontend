@@ -8,25 +8,26 @@ const services = require('app/components/services');
 const OSPlacesClient = require('@hmcts/os-places-client').OSPlacesClient;
 
 const osPlacesClientResponse =
-    {valid: true,
-    addresses: [{
-        formattedAddress: "MINISTRY OF JUSTICE,SEVENTH FLOOR,103 PETTY FRANCE,LONDON,SW1H 9AJ",
-        postcode: "SW1H 9AJ"
-    },
     {
-        formattedAddress: "MINISTRY OF JUSTICE,SEVENTH FLOOR,102 PETTY FRANCE,LONDON,SW1H 9AJ",
-        postcode: "SW1H 9AJ"
-    }]
-};
+        valid: true,
+        addresses: [{
+            formattedAddress: 'MINISTRY OF JUSTICE,SEVENTH FLOOR,103 PETTY FRANCE,LONDON,SW1H 9AJ',
+            postcode: 'SW1H 9AJ'
+        },
+        {
+            formattedAddress: 'MINISTRY OF JUSTICE,SEVENTH FLOOR,102 PETTY FRANCE,LONDON,SW1H 9AJ',
+            postcode: 'SW1H 9AJ'
+        }]
+    };
 
-const expectedResponse = [{ 
-        formattedAddress: "MINISTRY OF JUSTICE,SEVENTH FLOOR,103 PETTY FRANCE,LONDON,SW1H 9AJ", 
-        postcode: "SW1H 9AJ"  
-    },
-    { 
-        formattedAddress: "MINISTRY OF JUSTICE,SEVENTH FLOOR,102 PETTY FRANCE,LONDON,SW1H 9AJ", 
-        postcode: "SW1H 9AJ"  
-    }];
+const expectedResponse = [{
+    formattedAddress: 'MINISTRY OF JUSTICE,SEVENTH FLOOR,103 PETTY FRANCE,LONDON,SW1H 9AJ',
+    postcode: 'SW1H 9AJ'
+},
+{
+    formattedAddress: 'MINISTRY OF JUSTICE,SEVENTH FLOOR,102 PETTY FRANCE,LONDON,SW1H 9AJ',
+    postcode: 'SW1H 9AJ'
+}];
 
 const expectedError = 'Error: Failed to retrieve address list';
 
@@ -60,30 +61,29 @@ describe('addressLookup service tests', function () {
         lookupByPostcodeStub.returns(when({valid: true, httpStatus: 200}));
 
         services.findAddress('postcode')
-            .then((response) => {
-                done(new Error('Expected method to reject.'))
+            .then(() => {
+                done(new Error('Expected method to reject.'));
             })
             .catch((err) => {
                 sinon.assert.alwaysCalledWith(findAddressSpy, 'postcode');
                 assert.equal(err, expectedError);
                 done();
-              })
+            })
             .catch(done);
     });
 
     it('Should fail to retrieve the address list', function (done) {
-        const expectedErrorObj = new Error("");
         lookupByPostcodeStub.returns(when({}));
 
         services.findAddress('postcode')
-            .then((response) => {
-                done(new Error('Expected method to reject.'))
+            .then(() => {
+                done(new Error('Expected method to reject.'));
             })
             .catch((err) => {
                 sinon.assert.alwaysCalledWith(findAddressSpy, 'postcode');
                 assert.equal(err, expectedError);
                 done();
-              })
+            })
             .catch(done);
     });
 

@@ -28,7 +28,7 @@ const findAddress = (postcode) => {
                 logError(`lookupByPostcode returned: ${JSON.stringify(res)}`);
                 if (!res.valid || !res.addresses) {
                     logError(`Postcode lookup failed with status: ${res.httpStatus}`);
-                    reject(new Error("Failed to retrieve address list"));
+                    reject(new Error('Failed to retrieve address list'));
                 } else {
                     resolve(res.addresses);
                 }
