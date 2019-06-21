@@ -2,7 +2,7 @@
 const TestWrapper = require('test/util/TestWrapper');
 const DeceasedName = require('app/steps/ui/deceased/name/index');
 const testAddressData = require('test/data/find-address');
-const formatAddress = address => address.replace(/,/g, ' ');
+const formatAddress = address => address.replace(/,/g, ', ');
 const testHelpBlockContent = require('test/component/common/testHelpBlockContent.js');
 const config = require('app/config');
 const basePath = config.app.basePath;
