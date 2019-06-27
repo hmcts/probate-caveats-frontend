@@ -35,7 +35,7 @@ data "azurerm_key_vault" "probate_key_vault" {
 
 
 data "azurerm_key_vault_secret" "probate_postcode_service_token" {
-  name = "postcode-service-token"
+  name = "postcode-service-token2"
   vault_uri = "${data.azurerm_key_vault.probate_key_vault.vault_uri}"
 }
 
