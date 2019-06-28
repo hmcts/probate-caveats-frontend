@@ -19,11 +19,7 @@ module.exports = {
     },
     services: {
         postcode: {
-            url: process.env.POSTCODE_SERVICE_URL || 'http://localhost:8585/find-address',
-            token: process.env.POSTCODE_SERVICE_TOKEN,
-            proxy: process.env.http_proxy,
-            port: 8585,
-            path: process.env.POSTCODE_SERVICE_PATH || '/find-address'
+            token: process.env.POSTCODE_SERVICE_TOKEN
         },
         orchestration: {
             url: process.env.ORCHESTRATION_SERVICE_URL || 'http://localhost:8888',
@@ -139,5 +135,27 @@ module.exports = {
         (process.env.APP_BASE_PATH || '') + '/contact-us',
         (process.env.APP_BASE_PATH || '') + '/offline',
         (process.env.APP_BASE_PATH || '') + '/health/liveness'
+    ],
+    whiteListedPagesForThankyou: [
+        (process.env.APP_BASE_PATH || '') + '/public',
+        (process.env.APP_BASE_PATH || '') + '/cookies',
+        (process.env.APP_BASE_PATH || '') + '/privacy-policy',
+        (process.env.APP_BASE_PATH || '') + '/terms-conditions',
+        (process.env.APP_BASE_PATH || '') + '/contact-us',
+        (process.env.APP_BASE_PATH || '') + '/offline',
+        (process.env.APP_BASE_PATH || '') + '/health/liveness',
+        (process.env.APP_BASE_PATH || '') + '/thankyou'
+    ],
+    whiteListedPagesForPaymentBreakdown: [
+        (process.env.APP_BASE_PATH || '') + '/public',
+        (process.env.APP_BASE_PATH || '') + '/cookies',
+        (process.env.APP_BASE_PATH || '') + '/privacy-policy',
+        (process.env.APP_BASE_PATH || '') + '/terms-conditions',
+        (process.env.APP_BASE_PATH || '') + '/contact-us',
+        (process.env.APP_BASE_PATH || '') + '/offline',
+        (process.env.APP_BASE_PATH || '') + '/health/liveness',
+        (process.env.APP_BASE_PATH || '') + '/payment-breakdown',
+        (process.env.APP_BASE_PATH || '') + '/payment-status',
+        (process.env.APP_BASE_PATH || '') + '/thankyou'
     ]
 };

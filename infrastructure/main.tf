@@ -35,7 +35,7 @@ data "azurerm_key_vault" "probate_key_vault" {
 
 
 data "azurerm_key_vault_secret" "probate_postcode_service_token" {
-  name = "postcode-service-token"
+  name = "postcode-service-token2"
   vault_uri = "${data.azurerm_key_vault.probate_key_vault.vault_uri}"
 }
 
@@ -164,7 +164,7 @@ module "probate-caveats-fe" {
 
     FEATURE_TOGGLES_API_URL = "${var.feature_toggles_api_url}"
 
-    TESTING = "TESTING"
+    //TESTING = "TESTING"
     // Cache
     WEBSITE_LOCAL_CACHE_OPTION = "${var.website_local_cache_option}"
     WEBSITE_LOCAL_CACHE_SIZEINMB = "${var.website_local_cache_sizeinmb}"

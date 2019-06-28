@@ -32,7 +32,9 @@ describe('thank-you', () => {
 
         it('test content loaded on the page when CCD Case ID present', (done) => {
             const sessionData = {
-                applicant: 'value',
+                applicant: {
+                    firstName: 'value'
+                },
                 ccdCase: {
                     id: '1234-5678-9012-3456',
                     state: 'CaseCreated'

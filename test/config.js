@@ -11,9 +11,7 @@ module.exports = {
     TestBasePath: '/caveats',
 
     postcodeLookup: {
-        token: process.env.ADDRESS_TOKEN,
-        url: process.env.POSTCODE_SERVICE_URL,
-        endpoint: process.env.POSTCODE_SERVICE_ENDPOINT || '/addresses',
+        token: process.env.POSTCODE_SERVICE_TOKEN,
         contentType: 'application/json',
         singleAddressPostcode: 'SW1A 1AA',
         singleOrganisationName: 'BUCKINGHAM PALACE',

@@ -37,7 +37,11 @@ describe('paymentStatus', () => {
         });
 
         it('test right content loaded on the page', (done) => {
-            const sessionData = {applicant: 'value'};
+            const sessionData = {
+                applicant: {
+                    firstName: 'value'
+                }
+            };
             testWrapper.agent.post('/prepare-session/form')
                 .send(sessionData)
                 .end(() => {
@@ -57,7 +61,9 @@ describe('paymentStatus', () => {
             const data = {};
             testWrapper.agent.post(`${basePath}/prepare-session/form`)
                 .send({
-                    applicant: 'value',
+                    applicant: {
+                        firstName: 'value'
+                    },
                     payment: {
                         paymentId: '12345',
                         status: 'initiated'
@@ -83,7 +89,9 @@ describe('paymentStatus', () => {
             const data = {};
             testWrapper.agent.post(`${basePath}/prepare-session/form`)
                 .send({
-                    applicant: 'value',
+                    applicant: {
+                        firstName: 'value'
+                    },
                     payment: {
                         paymentId: '12345',
                         status: 'initiated'
@@ -108,7 +116,9 @@ describe('paymentStatus', () => {
             }));
             testWrapper.agent.post(`${basePath}/prepare-session/form`)
                 .send({
-                    applicant: 'value',
+                    applicant: {
+                        firstName: 'value'
+                    },
                     payment: {
                         paymentId: '12345',
                         status: 'initiated'
@@ -133,7 +143,9 @@ describe('paymentStatus', () => {
             }));
             testWrapper.agent.post(`${basePath}/prepare-session/form`)
                 .send({
-                    applicant: 'value',
+                    applicant: {
+                        firstName: 'value'
+                    },
                     payment: {
                         paymentId: '12345',
                         status: 'initiated'
