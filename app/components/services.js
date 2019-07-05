@@ -83,7 +83,7 @@ const createPayment = (data, hostname) => {
         'Content-Type': 'application/json',
         'Authorization': data.authToken,
         'ServiceAuthorization': data.serviceAuthToken,
-        'return-url': FormatUrl.format((externalHostNameUrl || hostname), config.services.payment.returnUrlPath),
+        'return-url': FormatUrl.format((hostname.includes('.internal')?hostname:(externalHostNameUrl || hostname)), config.services.payment.returnUrlPath)
         'service-callback-url': paymentUpdatesCallback
     };
     const body = paymentData.createPaymentData(data);
