@@ -19,17 +19,14 @@ module.exports = {
     },
     services: {
         postcode: {
-            url: process.env.POSTCODE_SERVICE_URL || 'http://localhost:8585/find-address',
-            token: process.env.POSTCODE_SERVICE_TOKEN,
-            proxy: process.env.http_proxy,
-            port: 8585,
-            path: process.env.POSTCODE_SERVICE_PATH || '/find-address'
+            token: process.env.POSTCODE_SERVICE_TOKEN
         },
         orchestration: {
             url: process.env.ORCHESTRATION_SERVICE_URL || 'http://localhost:8888',
             port: 8888,
             paths: {
-                checkanswerspdf: 'documents/generate/checkAnswersSummary'
+                checkanswerspdf: 'documents/generate/checkAnswersSummary',
+                payment_updates: '/payment-updates'
             }
         },
         idam: {

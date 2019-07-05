@@ -1,9 +1,8 @@
 'use strict';
-
 const TestWrapper = require('test/util/TestWrapper');
 const DeceasedName = require('app/steps/ui/deceased/name/index');
 const testAddressData = require('test/data/find-address');
-const formatAddress = address => address.replace(/\n/g, ' ');
+const formatAddress = address => address.replace(/,/g, ', ');
 const testHelpBlockContent = require('test/component/common/testHelpBlockContent.js');
 const config = require('app/config');
 const basePath = config.app.basePath;
@@ -55,7 +54,7 @@ describe('applicant-address', () => {
                 postTown: 'value',
                 newPostCode: 'value',
                 postcode: testAddressData[1].postcode,
-                postcodeAddress: formatAddress(testAddressData[1].formatted_address),
+                postcodeAddress: formatAddress(testAddressData[1].formattedAddress),
                 addresses: testAddressData
             };
             testWrapper.agent
@@ -63,7 +62,7 @@ describe('applicant-address', () => {
                 .send(sessionData)
                 .end(() => {
                     const contentToCheck = testAddressData.map((address, index) => {
-                        const formattedAddress = formatAddress(address.formatted_address);
+                        const formattedAddress = formatAddress(address.formattedAddress);
                         return `<option value="${index}" ${formattedAddress === sessionData.postcodeAddress ? 'selected' : ''}>${formattedAddress}</option>`;
                     });
                     testWrapper.testDataPlayback(done, contentToCheck);

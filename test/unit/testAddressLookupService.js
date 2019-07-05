@@ -1,45 +1,84 @@
 /*global describe, it, before, beforeEach, after, afterEach */
+
 'use strict';
 const assert = require('chai').assert;
 const sinon = require('sinon');
 const when = require('when');
-const utils = require('app/components/api-utils');
 const services = require('app/components/services');
+const OSPlacesClient = require('@hmcts/os-places-client').OSPlacesClient;
+
+const osPlacesClientResponse =
+    {
+        valid: true,
+        addresses: [{
+            formattedAddress: 'MINISTRY OF JUSTICE,SEVENTH FLOOR,103 PETTY FRANCE,LONDON,SW1H 9AJ',
+            postcode: 'SW1H 9AJ'
+        },
+        {
+            formattedAddress: 'MINISTRY OF JUSTICE,SEVENTH FLOOR,102 PETTY FRANCE,LONDON,SW1H 9AJ',
+            postcode: 'SW1H 9AJ'
+        }]
+    };
+
+const expectedResponse = [{
+    formattedAddress: 'MINISTRY OF JUSTICE,SEVENTH FLOOR,103 PETTY FRANCE,LONDON,SW1H 9AJ',
+    postcode: 'SW1H 9AJ'
+},
+{
+    formattedAddress: 'MINISTRY OF JUSTICE,SEVENTH FLOOR,102 PETTY FRANCE,LONDON,SW1H 9AJ',
+    postcode: 'SW1H 9AJ'
+}];
+
+const expectedError = 'Error: Failed to retrieve address list';
 
 describe('addressLookup service tests', function () {
-    let fetchJsonStub, findAddressSpy;
+    let lookupByPostcodeStub, findAddressSpy;
 
     beforeEach(function () {
-        fetchJsonStub = sinon.stub(utils, 'fetchJson');
         findAddressSpy = sinon.spy(services, 'findAddress');
+        lookupByPostcodeStub = sinon
+            .stub(OSPlacesClient.prototype, 'lookupByPostcode');
     });
 
     afterEach(function () {
-        fetchJsonStub.restore();
+        lookupByPostcodeStub.restore();
         findAddressSpy.restore();
     });
 
     it('Should successfully retrieve address list with postcode', function (done) {
-        const expectedResponse = ['address 1', 'address 2'];
-        fetchJsonStub.returns(when(expectedResponse));
+        lookupByPostcodeStub.returns(when(osPlacesClientResponse));
 
         services.findAddress('postcode')
             .then(function(actualResponse) {
                 sinon.assert.alwaysCalledWith(findAddressSpy, 'postcode');
-                assert.strictEqual(expectedResponse, actualResponse);
+                assert.strictEqual(JSON.stringify(expectedResponse), JSON.stringify(actualResponse));
+                done();
+            })
+            .catch(done);
+    });
+
+    it('Should retrieve an empty list for a non valid response.', function (done) {
+        lookupByPostcodeStub.returns(when({valid: false, httpStatus: 200}));
+
+        services.findAddress('postcode')
+            .then(function(actualResponse) {
+                sinon.assert.alwaysCalledWith(findAddressSpy, 'postcode');
+                assert.equal('{}', JSON.stringify(actualResponse));
                 done();
             })
             .catch(done);
     });
 
     it('Should fail to retrieve the address list', function (done) {
-        const expectedError = new Error('Failed to retrieve address list');
-        fetchJsonStub.returns(when(expectedError));
+        lookupByPostcodeStub.returns(Promise.reject(expectedError));
 
         services.findAddress('postcode')
-            .then(function(actualError) {
+            .then(() => {
+                done(new Error('Expected method to reject.'));
+            })
+            .catch((err) => {
                 sinon.assert.alwaysCalledWith(findAddressSpy, 'postcode');
-                assert.strictEqual(expectedError, actualError);
+                assert.equal(err, expectedError);
                 done();
             })
             .catch(done);
