@@ -149,7 +149,7 @@ describe('CheckAnswersSummaryJSONObjectBuilder', function () {
             assertQuestionAndAnswer(aboutThePersonWhoDiedSection.questionAndAnswers[0], 'First name(s)', 'Graham');
             assertQuestionAndAnswer(aboutThePersonWhoDiedSection.questionAndAnswers[1], 'Last name(s)', 'Greene');
             assertQuestionAndAnswer(aboutThePersonWhoDiedSection.questionAndAnswers[2], 'Was Graham Greene known by any other names?', 'Yes');
-            assertQuestionAndAnswer(aboutThePersonWhoDiedSection.questionAndAnswers[3], 'Names used by the deceased', 'alt first name 1 alt last name 1                                    alt first name 2 alt last name 2');
+            assertQuestionAndAnswer(aboutThePersonWhoDiedSection.questionAndAnswers[3], 'Names used by the deceased', 'alt first name 1 alt last name 1\n                \n                \n                    alt first name 2 alt last name 2');
 
             done();
         });
