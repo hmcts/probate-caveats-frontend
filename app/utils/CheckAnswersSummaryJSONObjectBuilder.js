@@ -34,15 +34,14 @@ class CheckAnswersSummaryJSONObjectBuilder {
 function buildQuestionAndAnswers($element, section) {
     const question = $element.children('.check-your-answers__question');
     const answer = $element.children('.check-your-answers__answer');
+    const answer_row = answer.children('.check-your-answers__row');
     const questionAndAnswer = {};
 
     questionAndAnswer.question = question.text();
     questionAndAnswer.answers = [];
-    const children = answer.children('.check-your-answers__row');
-    if (children.length > 0) {
-        for (const answerChild of Object.entries(children)) {
-            questionAndAnswer.answers.push(answerChild.textContent);
-        }
+    if (answer_row.length > 0) {
+        questionAndAnswer.answers.push(answer_row.text().trim()
+            .replace(/[\n\r]/g, ''));
     } else {
         questionAndAnswer.answers.push(answer.text());
     }
