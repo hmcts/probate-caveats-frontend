@@ -40,9 +40,9 @@ function buildQuestionAndAnswers($element, section) {
     questionAndAnswer.question = question.text();
     questionAndAnswer.answers = [];
     if (answer_row.length > 0) {
-        const rows = answer_row.children
-        questionAndAnswer.answers.push(answer_row.parent().text().trim());
-            //.replace(/[\n\r]/g, ''));
+        questionAndAnswer.answers.push(answer_row.parent().text()
+            .trim());
+        //.replace(/[\n\r]/g, ''));
     } else {
         questionAndAnswer.answers.push(answer.text());
     }
