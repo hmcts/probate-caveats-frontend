@@ -67,10 +67,7 @@ const html = `
         </tr>
         <tr class="check-your-answers__row">
             <th class="check-your-answers__question">Was Graham Greene known by any other names?</th>
-                <td class="check-your-answers__answer">Yes</td>
-            <td class="check-your-answers__change">
-                <a href="/deceased-alias">Change</a>
-            </td>
+            <td class="check-your-answers__answer">Yes</td>
         </tr>
         <tr class="check-your-answers__row">
             <th class="check-your-answers__question">Names used by the deceased</th>
@@ -81,8 +78,6 @@ const html = `
                 <div class="check-your-answers__row">
                     alt first name 2 alt last name 2
                 </div>
-            </td>
-            <td class="check-your-answers__change">
             </td>
         </tr>
     </table>
