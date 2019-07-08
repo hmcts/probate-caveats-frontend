@@ -40,8 +40,13 @@ function buildQuestionAndAnswers($element, section) {
     questionAndAnswer.question = question.text();
     questionAndAnswer.answers = [];
     if (answer_rows.length > 0) {
-        questionAndAnswer.answers.push(answer_rows.parent().text()
-            .replace(/ \n| {3}/g, ''));
+        const rows = answer_rows.parent().text()
+            .split('\n');
+        for (let i = 0; i < rows.length; ++i) {
+            if (rows[i].trim().length > 0) {
+                questionAndAnswer.answers.push(rows[i].trim());
+            }
+        }
     } else {
         questionAndAnswer.answers.push(answer.text());
     }

@@ -149,7 +149,8 @@ describe('CheckAnswersSummaryJSONObjectBuilder', function () {
             assertQuestionAndAnswer(aboutThePersonWhoDiedSection.questionAndAnswers[0], 'First name(s)', 'Graham');
             assertQuestionAndAnswer(aboutThePersonWhoDiedSection.questionAndAnswers[1], 'Last name(s)', 'Greene');
             assertQuestionAndAnswer(aboutThePersonWhoDiedSection.questionAndAnswers[2], 'Was Graham Greene known by any other names?', 'Yes');
-            assertQuestionAndAnswer(aboutThePersonWhoDiedSection.questionAndAnswers[3], 'Names used by the deceased', '\n  alt first name 1 alt last name 1\n  alt first name 2 alt last name 2\n');
+            const answers = ['alt first name 1 alt last name 1', 'alt first name 2 alt last name 2'];
+            assertQuestionAndAnswers(aboutThePersonWhoDiedSection.questionAndAnswers[3], 'Names used by the deceased', answers, 2);
 
             done();
         });
@@ -165,6 +166,15 @@ describe('CheckAnswersSummaryJSONObjectBuilder', function () {
         assert.isArray(questionAndAnswers.answers);
         assert.lengthOf(questionAndAnswers.answers, 1);
         assertPropertyExistsAndIsEqualTo(questionAndAnswers.answers[0], answer);
+    }
+
+    function assertQuestionAndAnswers(questionAndAnswers, question, answers, length) {
+        assertPropertyExistsAndIsEqualTo(questionAndAnswers.question, question);
+        assert.isArray(questionAndAnswers.answers);
+        assert.lengthOf(questionAndAnswers.answers, length);
+        for (let i = 0; i < length; i++) {
+            assertPropertyExistsAndIsEqualTo(questionAndAnswers.answers[i], answers[i]);
+        }
     }
 
 });
