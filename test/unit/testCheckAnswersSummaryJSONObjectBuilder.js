@@ -65,6 +65,21 @@ const html = `
             <th class="check-your-answers__question">Last name(s)</th>
             <td class="check-your-answers__answer">Greene</td>
         </tr>
+        <tr class="check-your-answers__row">
+            <th class="check-your-answers__question">Was Graham Greene known by any other names?</th>
+            <td class="check-your-answers__answer">Yes</td>
+        </tr>
+        <tr class="check-your-answers__row">
+            <th class="check-your-answers__question">Names used by the deceased</th>
+            <td class="check-your-answers__answer">
+                <div class="check-your-answers__row">
+                    alt first name 1 alt last name 1
+                </div>
+                <div class="check-your-answers__row">
+                    alt first name 2 alt last name 2
+                </div>
+            </td>
+        </tr>
     </table>
   </body>
 </html>`;
@@ -125,10 +140,13 @@ describe('CheckAnswersSummaryJSONObjectBuilder', function () {
             assertPropertyExistsAndIsEqualTo(aboutThePersonWhoDiedSection.type, 'heading-medium');
 
             assert.isArray(aboutThePersonWhoDiedSection.questionAndAnswers);
-            assert.lengthOf(aboutThePersonWhoDiedSection.questionAndAnswers, 2, 'About The Person Who Died Section array has 2 questionsAndAnswers');
-
+            assert.lengthOf(aboutThePersonWhoDiedSection.questionAndAnswers, 4, 'About The Person Who Died Section array has 2 questionsAndAnswers');
             assertQuestionAndAnswer(aboutThePersonWhoDiedSection.questionAndAnswers[0], 'First name(s)', 'Graham');
             assertQuestionAndAnswer(aboutThePersonWhoDiedSection.questionAndAnswers[1], 'Last name(s)', 'Greene');
+            assertQuestionAndAnswer(aboutThePersonWhoDiedSection.questionAndAnswers[2], 'Was Graham Greene known by any other names?', 'Yes');
+            const answers = ['alt first name 1 alt last name 1', 'alt first name 2 alt last name 2'];
+            assertQuestionAndAnswers(aboutThePersonWhoDiedSection.questionAndAnswers[3], 'Names used by the deceased', answers, 2);
+
             done();
         });
     });
@@ -144,4 +162,14 @@ describe('CheckAnswersSummaryJSONObjectBuilder', function () {
         assert.lengthOf(questionAndAnswers.answers, 1);
         assertPropertyExistsAndIsEqualTo(questionAndAnswers.answers[0], answer);
     }
+
+    function assertQuestionAndAnswers(questionAndAnswers, question, answers, length) {
+        assertPropertyExistsAndIsEqualTo(questionAndAnswers.question, question);
+        assert.isArray(questionAndAnswers.answers);
+        assert.lengthOf(questionAndAnswers.answers, length);
+        for (let i = 0; i < length; i++) {
+            assertPropertyExistsAndIsEqualTo(questionAndAnswers.answers[i], answers[i]);
+        }
+    }
+
 });
