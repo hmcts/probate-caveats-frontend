@@ -31,7 +31,7 @@
     "security": "NODE_PATH=. nsp check",
     "test:functional": "./bin/run-functional-tests.sh",
     "test:fullfunctional": "./bin/run-functional-tests.sh",
-    "test:codecov-upload": "NODE_ENV=test  NODE_PATH=. istanbul cover _mocha './test/**/test*.js' -- -R spec && codecov",
+    "test:codecov-upload": "NODE_ENV=test NODE_PATH=. istanbul cover _mocha './test/**/test*.js' -- -R spec && codecov",
     "test:coverage": "NODE_ENV=test NODE_PATH=. istanbul cover _mocha './test/**/test*.js'",
     "test:stryker": "NODE_PATH=. stryker run ",
     "test:mutation": "NODE_PATH=. stryker run test/mutation/mutation_unittests.conf.js",
