@@ -10,6 +10,7 @@
             <h1 class="form-title heading-large">{{ content.header1 }}</h1>
 
             <p>{{ content.paragraph1 | safe }}</p>
+            <p>{{ content.paragraph11 | replace('{applicationFormPA8A}', links.applicationFormPA8A) | safe }}</p>
             <p>{{ content.paragraph2 | safe }}</p>
             {{ unorderedList([
                 content.bullet1,
