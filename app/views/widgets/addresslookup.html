@@ -1,12 +1,12 @@
 {% from "widgets/fielderror.html" import fieldError %}
 
 {% macro addressFinder(fields,content,basePath,step) %}
-    <div class="form-group {{ 'form-group-error' if fields.postcode.error }}">
+    <div class="form-group {{ "form-group-error" if fields.postcode.error }}">
         <label for="postcode">{{content.postcode}}</label>
 
         {{ fieldError(fields.postcode) }}
 
-        <input type="text" class="form-control {{ 'form-control-error' if fields.postcode.error }} form-control-1-4" id="postcode" name="postcode" value="{{fields.postcode.value}}">
+        <input type="text" class="form-control {{ "form-control-error" if fields.postcode.error }} form-control-1-4" id="postcode" name="postcode" value="{{fields.postcode.value}}">
         <input type="hidden" id="referrer" name="referrer" value="{{step}}">
         <input {% if fields.addresses %}autofocus="autofocus"{% endif %} type="submit" class="button-secondary" formaction="{{ basePath }}/find-address" name="findaddress" value="{{content.findAddress}}">
     </div>
@@ -30,7 +30,7 @@
         if (document.getElementById('postcodeAddress')) {
             const addresses = [
                 {% for address in fields.addresses.value %}
-                    '{{ address.formattedAddress | replace("'", "\'") | replace(",", "###") | safe}}',
+                    '{{ address.formattedAddress | replace("\'", "\\\'") | replace(",", "###") | safe}}',
                 {% endfor %}
             ];
 
