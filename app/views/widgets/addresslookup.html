@@ -30,8 +30,7 @@
         if (document.getElementById('postcodeAddress')) {
             const addresses = [
                 {% for address in fields.addresses.value %}
-                    {% set formattedAddress = address.formattedAddress | replace(',', '###') %}
-                    '{{ formattedAddress | safe }}',
+                    '{{ address.formattedAddress | replace('\'', '\\\'') | replace(',', '###') | safe}}',
                 {% endfor %}
             ];
 
