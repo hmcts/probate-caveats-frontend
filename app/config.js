@@ -92,7 +92,11 @@ module.exports = {
         whoInheritsLink: 'https://www.gov.uk/inherits-someone-dies-without-will',
         citizenAdvice: 'https://www.citizensadvice.org.uk/',
         stopGrantOfRepresentation: 'https://www.gov.uk/wills-probate-inheritance/stopping-a-grant-of-representation',
-        openGovernmentLicence: 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/'
+        openGovernmentLicence: 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/',
+        goodThingsFoundation: 'https://www.goodthingsfoundation.org',
+        subjectAccessRequest: 'https://www.gov.uk/government/publications/request-your-personal-data-from-moj',
+        complaintsProcedure: 'https://www.gov.uk/government/organisations/hm-courts-and-tribunals-service/about/complaints-procedure',
+        informationCommissionersOffice: 'https://ico.org.uk/global/contact-us'
     },
     helpline: {
         number: '0300 303 0648',
