@@ -1,7 +1,7 @@
 {
   "title": "Terms and conditions",
   "heading1": "Terms and conditions",
-  "paragraph1": "By using this service you&rsquo;re agreeing to the following terms of use. This includes the <a rel=\"noopener\" href=\"{privacyLink}\">privacy policy</a>.",
+  "paragraph1": "By using this service you&rsquo;re agreeing to the following terms of use. This includes the <a href=\"{privacyLink}\" rel=\"noopener\" aria-label=\"privacy policy\">privacy policy</a>.",
 
   "whoWeAreHeading": "Who we are",
   "whoWeAreParagraph1": "This service is managed by Her Majesty&rsquo;s Courts and Tribunals service.",
@@ -12,9 +12,9 @@
   "informationProvidedParagraph2": "You should answer the questions in the service based on your circumstances, and seek legal advice if you need it.",
 
   "dataSharingStoringHeading": "Sharing and storing data",
-  "dataSharingStoringParagraph1": "Our <a rel=\"noopener\" href=\"{privacyLink}\">privacy policy</a> explains where your data is stored, and who it is shared with.",
-  "dataSharingStoringParagraph2": "Our <a rel=\"noopener\" href=\"{cookiesLink}\">cookie policy</a> explains how this service uses and stores cookies.",
- 
+  "dataSharingStoringParagraph1": "Our <a href=\"{privacyLink}\" rel=\"noopener\" aria-label=\"privacy policy\">privacy policy</a> explains where your data is stored, and who it is shared with.",
+  "dataSharingStoringParagraph2": "Our <a href=\"{cookiesLink}\" rel=\"noopener\" aria-label=\"cookie policy\">cookie policy</a> explains how this service uses and stores cookies.",
+
   "lawsApplicableHeading": "Laws applying to this service",
   "lawsApplicableParagraph1": "Your use of this service and any dispute arising from its use will be governed by and construed in accordance with the laws of England and Wales, including but not limited to the:",
   "lawsApplicable-item1": "Computer Misuse Act 1990",
@@ -42,7 +42,7 @@
   "personalInformation-item6": "genetic data or biometric data",
   "personalInformation-item7": "health data",
   "personalInformationParagraph3": "You give us your consent to processing this information for the purpose of dealing with your application.",
-  "personalInformationParagraph4": "For more information about how we collect and store your personal data, see the <a rel=\"noopener\" href=\"{privacyLink}\">privacy policy</a>.",
+  "personalInformationParagraph4": "For more information about how we collect and store your personal data, see the <a href=\"{privacyLink}\" rel=\"noopener\" aria-label=\"privacy policy\">privacy policy</a>.",
 
   "disclaimerHeading": "Disclaimer",
   "disclaimerParagraph1": "While we make every effort to keep GOV.UK up to date, we don&rsquo;t provide any guarantees, conditions or warranties that the information will be:",
@@ -73,10 +73,9 @@
   "disclaimer-item20": "death or personal injury arising from our negligence",
   "disclaimer-item21": "fraudulent misrepresentation",
   "disclaimer-item22": "any other liability which cannot be excluded or limited under applicable law",
-  
+
   "contactHeading": "Contact us",
   "contactParagraph1": "Phone: {helpLineNumber}",
   "contactParagraph2": "{helpLineHours}",
-  "contactParagraph3": "<a rel=\"external noopener\" href=\"{callChargesLink}\">Find out about call charges</a>"
-
+  "contactParagraph3": "<a href=\"{callChargesLink}\" target=\"_blank\" rel=\"external noopener\" aria-label=\"Find out about call charges\">Find out about call charges</a>"
 }

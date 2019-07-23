@@ -28,14 +28,14 @@ describe('deceased-othernames', () => {
             set(sessionData, 'deceased.firstName', 'John');
             set(sessionData, 'deceased.lastName', 'Doe');
 
-            const excludeKeys = ['otherName', 'removeName'];
+            const excludeContent = ['otherName', 'removeName'];
 
             testWrapper.agent.post(`${basePath}/prepare-session/form`)
                 .send(sessionData)
                 .end(() => {
                     const contentData = {deceasedName: 'John Doe'};
 
-                    testWrapper.testContent(done, excludeKeys, contentData);
+                    testWrapper.testContent(done, excludeContent, contentData);
                 });
         });
 
