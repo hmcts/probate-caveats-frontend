@@ -77,10 +77,10 @@ module.exports = {
     gaTrackingId: process.env.GA_TRACKING_ID || 'UA-93598808-5',
     enableTracking: process.env.ENABLE_TRACKING || 'true',
     links: {
-        cookies: '/cookies',
-        privacy: '/privacy-policy',
-        terms: '/terms-conditions',
-        contact: '/contact-us',
+        cookies: '/caveats/cookies',
+        privacy: '/caveats/privacy-policy',
+        terms: '/caveats/terms-conditions',
+        contact: '/caveats/contact-us',
         callCharges: 'https://www.gov.uk/call-charges',
         howToManageCookies: 'https://www.aboutcookies.org',
         googlePrivacyPolicy: 'https://www.google.com/policies/privacy/partners/',
@@ -88,11 +88,15 @@ module.exports = {
         mojPersonalInformationCharter: 'https://www.gov.uk/government/organisations/ministry-of-justice/about/personal-information-charter',
         survey: process.env.SURVEY || 'https://www.smartsurvey.co.uk/',
         surveyEndOfApplication: process.env.SURVEY_END_OF_APPLICATION || 'https://www.smartsurvey.co.uk/',
-        applicationFormPA1A: '/public/pdf/probate-application-form-pa1a.pdf',
-        applicationFormPA1P: '/public/pdf/probate-application-form-pa1p.pdf',
+        applicationFormPA8A: 'https://www.gov.uk/government/publications/form-pa8a-caveat-application-form',
         whoInheritsLink: 'https://www.gov.uk/inherits-someone-dies-without-will',
         citizenAdvice: 'https://www.citizensadvice.org.uk/',
-        stopGrantOfRepresentation: 'https://www.gov.uk/wills-probate-inheritance/stopping-a-grant-of-representation'
+        stopGrantOfRepresentation: 'https://www.gov.uk/wills-probate-inheritance/stopping-a-grant-of-representation',
+        openGovernmentLicence: 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/',
+        goodThingsFoundation: 'https://www.goodthingsfoundation.org',
+        subjectAccessRequest: 'https://www.gov.uk/government/publications/request-your-personal-data-from-moj',
+        complaintsProcedure: 'https://www.gov.uk/government/organisations/hm-courts-and-tribunals-service/about/complaints-procedure',
+        informationCommissionersOffice: 'https://ico.org.uk/global/contact-us'
     },
     helpline: {
         number: '0300 303 0648',
