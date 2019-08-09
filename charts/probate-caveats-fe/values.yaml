@@ -19,7 +19,7 @@ nodejs:
     POSTCODE_SERVICE_PATH: "/caveats/find-address"
     PAY_RETURN_URL: "/caveats/payment-status"
 
-  image: 'https://hmcts.azurecr.io/hmcts/probate-caveats-fe:latest'
+  image: hmctspublic.azurecr.io/probate/caveats-fe:latest
 
 redis:
   cluster:
