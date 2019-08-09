@@ -23,12 +23,7 @@ const lookupFees = async (req, res, next) => {
 
     services.feesLookup(data, authToken, applicantId)
         .then((res) => {
-            if (res.fee_amount) {
-                set(formdata, 'payment.feeStatus', false);
-            } else {
-                set(formdata, 'payment.feeStatus', true);
-                set(formdata, 'payment.total', res.fee_amount);
-            }
+            set(formdata, 'payment.total', res.fee_amount);
             next();
         });
 };
