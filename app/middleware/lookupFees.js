@@ -23,10 +23,29 @@ const lookupFees = async (req, res, next) => {
 
     const authToken = await security.getUserToken(formatUrl.createHostname(req), applicantId);
 
-    const fee = await services.feesLookup(data, authToken, applicantId);
-    set(formdata, 'payment.total', fee.total);
-    logInfo('log fee total', fee.total);
-    next();
+    services.feesLookup(data, authToken, applicantId)
+        .then((res) => {
+            logInfo('FEE TOTAL', res.fee_amount);
+            if (identifyAnyErrors(res)) {
+                set(formdata, 'payment.status', false);
+            } else {
+                set(formdata, 'payment.status', true);
+                set(formdata, 'payment.total', res.fee_amount);
+            }
+            next();
+        });
 };
+
+/*
+ * if no fee_amount is returned, we assume an error has occurred
+ * this caters for 404 type messages etc.
+ */
+function identifyAnyErrors(res) {
+    if (res.fee_amount) {
+        return false;
+    }
+    return true;
+}
+
 
 module.exports = lookupFees;
