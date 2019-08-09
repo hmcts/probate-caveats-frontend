@@ -47,5 +47,4 @@ function identifyAnyErrors(res) {
     return true;
 }
 
-
 module.exports = lookupFees;
