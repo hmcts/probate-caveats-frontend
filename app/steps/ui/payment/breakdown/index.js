@@ -30,7 +30,7 @@ class PaymentBreakdown extends Step {
         const formdata = req.session.form;
         ctx.deceasedLastName = get(formdata.deceased, 'lastName', '');
         ctx.total = config.payment.applicationFee;
-        ctx.applicationFee = config.payment.applicationFee;
+        ctx.applicationFee = get(formdata.payment, 'total');
         ctx.hostname = formatUrl.createHostname(req);
         ctx.applicationId = get(formdata, 'applicationId');
         return ctx;
