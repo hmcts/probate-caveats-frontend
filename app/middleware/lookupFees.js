@@ -24,8 +24,8 @@ const lookupFees = async (req, res, next) => {
     const authToken = await security.getUserToken(formatUrl.createHostname(req), applicantId);
 
     const fee = await services.feesLookup(data, authToken, applicantId);
-    set(formdata, 'payment.total', fee);
-    logInfo('log fee total', fee);
+    set(formdata, 'payment.total', fee.total);
+    logInfo('log fee total', fee.total);
     next();
 };
 
