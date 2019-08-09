@@ -118,7 +118,8 @@ const authorise = (applicationId) => {
     return utils.fetchText(SERVICE_AUTHORISATION_URL, fetchOptions);
 };
 
-const feesLookup = (data, authToken) => {
+const feesLookup = (data, authToken, applicationId) => {
+    logInfo('get fee total', applicationId);
     const headers = {
         'Content-Type': 'application/json',
         'Authorization': authToken
