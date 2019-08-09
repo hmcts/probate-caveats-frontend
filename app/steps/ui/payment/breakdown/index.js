@@ -29,8 +29,8 @@ class PaymentBreakdown extends Step {
         const ctx = super.getContextData(req);
         const formdata = req.session.form;
         ctx.deceasedLastName = get(formdata.deceased, 'lastName', '');
-        ctx.total = config.payment.applicationFee;
-        ctx.applicationFee = get(formdata.payment, 'total');
+        ctx.total = get(formdata, 'payment.applicationFee');
+        ctx.applicationFee = get(formdata, 'payment.applicationFee');
         ctx.hostname = formatUrl.createHostname(req);
         ctx.applicationId = get(formdata, 'applicationId');
         return ctx;
@@ -43,8 +43,6 @@ class PaymentBreakdown extends Step {
     * handlePost(ctx, errors, formdata, session, hostname) {
         // this is required since this page is re-entrant for failues on /payment-status
         this.nextStepUrl = () => this.next(ctx).constructor.getUrl();
-
-        set(formdata, 'payment.total', ctx.total);
 
         try {
             // Setup security tokens
