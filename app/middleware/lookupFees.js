@@ -1,6 +1,6 @@
 'use strict';
 
-const {get,set} = require('lodash');
+const {get, set} = require('lodash');
 const formatUrl = require('app/utils/FormatUrl');
 const services = require('app/components/services');
 const security = require('app/components/security');
