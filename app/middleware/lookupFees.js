@@ -4,8 +4,6 @@ const {get, set} = require('lodash');
 const formatUrl = require('app/utils/FormatUrl');
 const services = require('app/components/services');
 const security = require('app/components/security');
-const logger = require('app/components/logger');
-const logInfo = (message, applicationId = 'Unknown') => logger(applicationId).info(message);
 
 const lookupFees = async (req, res, next) => {
     const session = req.session;
@@ -25,8 +23,12 @@ const lookupFees = async (req, res, next) => {
 
     services.feesLookup(data, authToken, applicantId)
         .then((res) => {
-            logInfo('FEE TOTAL', res.fee_amount);
-            set(formdata, 'payment.total', res.fee_amount);
+            if (res.fee_amount) {
+                set(formdata, 'payment.feeStatus', false);
+            } else {
+                set(formdata, 'payment.feeStatus', true);
+                set(formdata, 'payment.total', res.fee_amount);
+            }
             next();
         });
 };

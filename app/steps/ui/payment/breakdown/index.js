@@ -21,7 +21,7 @@ class PaymentBreakdown extends Step {
 
     generateFields(ctx, errors) {
         const fields = super.generateFields(ctx, errors);
-        set(fields, 'applicationFee.value', config.payment.applicationFee);
+        set(fields, 'applicationFee.value', ctx.applicationFee);
         return fields;
     }
 
