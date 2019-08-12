@@ -1,6 +1,6 @@
 'use strict';
 
-const Cookies = require('app/steps/ui/cookies/index');
+const Cookies = require('app/steps/ui/static/cookies/index');
 const expect = require('chai').expect;
 
 describe('cookies/index.js', () => {

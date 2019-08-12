@@ -8,7 +8,7 @@ class CheckAnswersSummaryJSONObjectBuilder {
         const $ = cheerio.load(html);
         const summary = {};
         summary.sections = [];
-        const sections = $('.govuk-heading-l, .heading-medium, .heading-small, .check-your-answers__row');
+        const sections = $('.govuk-heading-l, .govuk-heading-m, .govuk-heading-s, .check-your-answers__row');
         const mainParagraph = $('#main-heading-content');
         summary.mainParagraph = mainParagraph.text();
         let section;
@@ -17,11 +17,11 @@ class CheckAnswersSummaryJSONObjectBuilder {
             if ($element.hasClass('govuk-heading-l')) {
                 summary.pageTitle = $element.text();
             }
-            if ($element.hasClass('heading-medium')) {
-                section = buildSection(section, $element, summary, 'heading-medium');
+            if ($element.hasClass('govuk-heading-m')) {
+                section = buildSection(section, $element, summary, 'govuk-heading-m');
             }
-            if ($element.hasClass('heading-small')) {
-                section = buildSection(section, $element, summary, 'heading-small');
+            if ($element.hasClass('govuk-heading-s')) {
+                section = buildSection(section, $element, summary, 'govuk-heading-s');
             }
             if ($element.hasClass('check-your-answers__row') && $element.children().length > 0) {
                 buildQuestionAndAnswers($element, section);

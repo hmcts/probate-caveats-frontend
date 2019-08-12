@@ -5,7 +5,7 @@
 {% block error_summary %}
     {% if errors %}
         <div class="error-summary" role="group" aria-labelledby="error-summary-heading" tabindex="-1">
-            <h2 class="heading-medium error-summary-heading" id="error-summary-heading">
+            <h2 class="govuk-heading-m error-summary-heading" id="error-summary-heading">
                 {{ common.errorSummaryHeading | safe }}
             </h2>
             <ul class="error-summary-list">
@@ -31,7 +31,7 @@
         <fieldset>
             {% if index !== 'name_0' %}
                 {% set hasOtherNames = true %}
-                <span class="heading-medium">{{ content.otherName }}</span>
+                <span class="govuk-heading-m">{{ content.otherName }}</span>
                 <input class="button-secondary" type="submit" formaction="{{ basePath }}/other-names/remove/{{ index }}" value="{{ content.removeName }}">
             {% else %}
                 <legend class="visually-hidden">

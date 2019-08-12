@@ -11,7 +11,7 @@ const html = `
     <h1 class="govuk-heading-l">Check your answers</h1>
     <p id="main-heading-content">Check the information below carefully. This will form a record of your application for probate. It will also be stored as a public record, and will be able to be viewed online.</p>
     
-    <h2 class="heading-medium">The will</h2>
+    <h2 class="govuk-heading-m">The will</h2>
     <table class="check-your-answers check-your-answers--long">
         <tr class="check-your-answers__row">
             <th class="check-your-answers__question">Did the person who died leave a will?</th>
@@ -23,7 +23,7 @@ const html = `
         </tr>
     </table>
 
-    <h2 class="heading-medium">Inheritance tax</h2>
+    <h2 class="govuk-heading-m">Inheritance tax</h2>
     <table class="check-your-answers check-your-answers--long">
         <tr class="check-your-answers__row">
             <th class="check-your-answers__question">Has an Inheritance Tax (IHT) form been filled in?</th>
@@ -35,7 +35,7 @@ const html = `
         </tr>
     </table>
 
-    <h2 class="heading-medium">The executors</h2>
+    <h2 class="govuk-heading-m">The executors</h2>
     <table class="check-your-answers check-your-answers--long">
         <tr class="check-your-answers__row">
             <th class="check-your-answers__question">How many past and present executors are named on the will and any updates (&lsquo;codicils&rsquo;)?</th>
@@ -43,7 +43,7 @@ const html = `
         </tr>
     </table>
 
-    <h3 class="heading-small">About you</h3>
+    <h3 class="govuk-heading-s">About you</h3>
     <table class="check-your-answers check-your-answers--long">
         <tr class="check-your-answers__row">
             <th class="check-your-answers__question">First name(s)</th>
@@ -55,7 +55,7 @@ const html = `
         </tr>
     </table>
 
-    <h2 class="heading-medium">About the person who died</h2>
+    <h2 class="govuk-heading-m">About the person who died</h2>
     <table class="check-your-answers check-your-answers--long">
         <tr class="check-your-answers__row">
             <th class="check-your-answers__question">First name(s)</th>
@@ -101,7 +101,7 @@ describe('CheckAnswersSummaryJSONObjectBuilder', function () {
 
             const willSection = checkAnswersSummary.sections[0];
             assertPropertyExistsAndIsEqualTo(willSection.title, 'The will');
-            assertPropertyExistsAndIsEqualTo(willSection.type, 'heading-medium');
+            assertPropertyExistsAndIsEqualTo(willSection.type, 'govuk-heading-m');
             assert.isArray(willSection.questionAndAnswers);
             assert.lengthOf(willSection.questionAndAnswers, 2, 'Will Section array has 2 questionsAndAnswers');
 
@@ -110,7 +110,7 @@ describe('CheckAnswersSummaryJSONObjectBuilder', function () {
 
             const ihtSection = checkAnswersSummary.sections[1];
             assertPropertyExistsAndIsEqualTo(ihtSection.title, 'Inheritance tax');
-            assertPropertyExistsAndIsEqualTo(ihtSection.type, 'heading-medium');
+            assertPropertyExistsAndIsEqualTo(ihtSection.type, 'govuk-heading-m');
 
             assert.isArray(ihtSection.questionAndAnswers);
             assert.lengthOf(ihtSection.questionAndAnswers, 2, 'IHT Section array has 2 questionsAndAnswers');
@@ -120,7 +120,7 @@ describe('CheckAnswersSummaryJSONObjectBuilder', function () {
 
             const executorsSection = checkAnswersSummary.sections[2];
             assertPropertyExistsAndIsEqualTo(executorsSection.title, 'The executors');
-            assertPropertyExistsAndIsEqualTo(executorsSection.type, 'heading-medium');
+            assertPropertyExistsAndIsEqualTo(executorsSection.type, 'govuk-heading-m');
 
             assert.isArray(executorsSection.questionAndAnswers);
             assert.lengthOf(executorsSection.questionAndAnswers, 1, 'Executors Section array has 1 questionsAndAnswers');
@@ -128,7 +128,7 @@ describe('CheckAnswersSummaryJSONObjectBuilder', function () {
 
             const aboutYouSection = checkAnswersSummary.sections[3];
             assertPropertyExistsAndIsEqualTo(aboutYouSection.title, 'About you');
-            assertPropertyExistsAndIsEqualTo(aboutYouSection.type, 'heading-small');
+            assertPropertyExistsAndIsEqualTo(aboutYouSection.type, 'govuk-heading-s');
 
             assert.isArray(aboutYouSection.questionAndAnswers);
             assert.lengthOf(aboutYouSection.questionAndAnswers, 2, 'About You Section array has 2 questionsAndAnswers');
@@ -137,7 +137,7 @@ describe('CheckAnswersSummaryJSONObjectBuilder', function () {
 
             const aboutThePersonWhoDiedSection = checkAnswersSummary.sections[4];
             assertPropertyExistsAndIsEqualTo(aboutThePersonWhoDiedSection.title, 'About the person who died');
-            assertPropertyExistsAndIsEqualTo(aboutThePersonWhoDiedSection.type, 'heading-medium');
+            assertPropertyExistsAndIsEqualTo(aboutThePersonWhoDiedSection.type, 'govuk-heading-m');
 
             assert.isArray(aboutThePersonWhoDiedSection.questionAndAnswers);
             assert.lengthOf(aboutThePersonWhoDiedSection.questionAndAnswers, 4, 'About The Person Who Died Section array has 2 questionsAndAnswers');
