@@ -3,7 +3,6 @@
   "question": "Do you know {deceasedName}&rsquo;s date of birth?",
   "optionYes": "Yes",
   "optionNo": "No",
-  "legend": "Please enter date of birth",
 
   "errors": {
     "dobknown": {

@@ -1,21 +1,39 @@
 {% extends "includes/two_thirds_form.html" %}
 
-{% from "widgets/textfields.html" import textField %}
-{% from "widgets/radiobuttons.html" import optionsRadio %}
-
-{% block question %}
-    <h1 class="govuk-heading-l">{{ content.question | safe }}</h1>
-{% endblock %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
 
 {% block form_content %}
-    {{ optionsRadio(content,
-        name = 'dobknown',
-        field = fields.dobknown,
-        options = ['optionYes', 'optionNo'],
-        legend = content.legend,
-        inline = true
-    ) }}
-    <div class="form-group">
-        <input class="button" type="submit" value="{{ common.continue }}">
+    {{ govukRadios({
+        classes: "govuk-radios--inline",
+        idPrefix: "dobknown",
+        name: "dobknown",
+        fieldset: {
+            legend: {
+                text: content.question | safe,
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+            }
+        },
+        errorMessage: { text: fields.dobknown.errorMessage.message | safe } if fields.dobknown.errorMessage,
+        items: [
+            {
+                value: content["optionYes"],
+                text: content["optionYes"],
+                checked: true if fields.dobknown.value == content["optionYes"] | escape
+            },
+            {
+                value: content["optionNo"],
+                text: content["optionNo"],
+                checked: true if fields.dobknown.value == content["optionNo"] | escape
+            }
+        ]
+    }) }}
+
+    <div class="govuk-form-group">
+        {{ govukButton({
+            text: common.continue,
+            preventDoubleClick: true
+        }) }}
     </div>
 {% endblock %}
