@@ -1,23 +1,59 @@
 {% extends "includes/two_thirds_form.html" %}
 
-{% from "widgets/dates.html" import date %}
-
-{% block question %}
-    <h1 class="govuk-heading-l">{{ content.question }}</h1>
-{% endblock %}
+{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
 
 {% block form_content %}
-    {{ date(
-        name = 'dob',
-        day = fields.dob_day,
-        month = fields.dob_month,
-        year  = fields.dob_year,
-        date = fields.dob_date,
-        maxyear = currentYear,
-        legend = content.legend,
-        hint = content.questionHint
-    ) }}
-    <div class="form-group">
-        <input class="button" type="submit" value="{{ common.continue }}">
+    {% if errors %}
+        {% set inlineErrors = {
+            text:
+            (
+            (fields["dob-date"].errorMessage.message + "<br>" if fields["dob-date"].errorMessage) +
+            (fields["dob-day"].errorMessage.message + "<br>" if fields["dob-day"].errorMessage) +
+            (fields["dob-month"].errorMessage.message + "<br>" if fields["dob-month"].errorMessage) +
+            (fields["dob-year"].errorMessage.message + "<br>" if fields["dob-year"].errorMessage)
+            ) | safe
+        } %}
+    {% endif %}
+
+    {{ govukDateInput({
+        id: "dob",
+        namePrefix: "dob",
+        fieldset: {
+            legend: {
+                text: content.question,
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+            }
+        },
+        hint: {
+            text: content.questionHint
+        },
+        errorMessage: inlineErrors,
+        items: [
+            {
+                classes: "govuk-input--width-2" + (" govuk-input--error" if fields["dob-day"].error or fields["dob-date"].error),
+                name: "day",
+                value: fields["dob-day"].value
+            },
+            {
+                classes: "govuk-input--width-2" + (" govuk-input--error" if fields["dob-month"].error or fields["dob-date"].error),
+                name: "month",
+                value: fields["dob-month"].value
+            },
+            {
+                classes: "govuk-input--width-4" + (" govuk-input--error" if fields["dob-year"].error or fields["dob-date"].error),
+                name: "year",
+                value: fields["dob-year"].value
+            }
+        ]
+    }) }}
+
+    <div class="govuk-form-group">
+        {{ govukButton({
+            text: common.saveAndContinue,
+            preventDoubleClick: true
+        }) }}
     </div>
 {% endblock %}

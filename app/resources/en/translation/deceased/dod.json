@@ -5,7 +5,7 @@
   "legend": "Please enter date of death",
 
   "errors": {
-    "dod_day": {
+    "dod-day": {
       "required": {
         "summary": "You haven&rsquo;t entered the day that they died",
         "message": "Enter the day they died"
@@ -15,7 +15,7 @@
         "message": "Enter a valid day of death"
       }
     },
-    "dod_month": {
+    "dod-month": {
       "required": {
         "summary": "You haven&rsquo;t entered the month that they died",
         "message": "Enter the month they died"
@@ -25,7 +25,7 @@
         "message": "Enter a valid month of death"
       }
     },
-    "dod_year": {
+    "dod-year": {
       "required": {
         "summary": "You haven&rsquo;t entered the year that they died",
         "message": "Enter the year they died"
@@ -35,7 +35,7 @@
         "message": "Enter a valid year of death"
       }
     },
-    "dod_date": {
+    "dod-date": {
       "invalid": {
         "summary": "You need to enter a valid date of death",
         "message": "Enter a valid date of death"

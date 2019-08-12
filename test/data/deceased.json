@@ -6,9 +6,9 @@
     "firstName": "Joe",
     "lastName": "Bloggs",
     "alias": "No",
-    "dod_formattedDate": "12 December 2016",
+    "dod-formattedDate": "12 December 2016",
     "dobknown": "Yes",
-    "dob_formattedDate": "12 December 1990",
+    "dob-formattedDate": "12 December 1990",
     "address": {
       "formattedAddress": "102 Petty France London SW1 1HA"
     }
