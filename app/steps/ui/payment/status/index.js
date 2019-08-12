@@ -8,7 +8,7 @@ const logError = (message, applicationId = 'Unknown') => logger(applicationId).e
 const RedirectRunner = require('app/core/runners/RedirectRunner');
 const {get, set} = require('lodash');
 const config = require('app/config');
-const Thankyou = require('app/steps/ui/thank-you');
+const Thankyou = require('app/steps/ui/thankyou');
 const formatUrl = require('app/utils/FormatUrl');
 
 class PaymentStatus extends Step {
