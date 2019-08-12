@@ -19,12 +19,6 @@ class PaymentBreakdown extends Step {
         return config.app.basePath + this.next(req, ctx).constructor.getUrl();
     }
 
-    // generateFields(ctx, errors) {
-    //     const fields = super.generateFields(ctx, errors);
-    //     set(fields, 'applicationFee.value', config.payment.applicationFee);
-    //     return fields;
-    // }
-
     getContextData(req) {
         const ctx = super.getContextData(req);
         const formdata = req.session.form;
@@ -36,7 +30,6 @@ class PaymentBreakdown extends Step {
 
     handleGet(ctx, formdata) {
         const fee = get(formdata.payment, 'total');
-
         ctx.applicationFee = fee;
         ctx.total = Number.isInteger(fee) ? fee : parseFloat(fee).toFixed(2);
         return [ctx, ctx.errors];
@@ -45,8 +38,6 @@ class PaymentBreakdown extends Step {
     * handlePost(ctx, errors, formdata, session, hostname) {
         // this is required since this page is re-entrant for failues on /payment-status
         this.nextStepUrl = () => this.next(ctx).constructor.getUrl();
-
-        // set(formdata, 'payment.total', ctx.total);
 
         try {
             // Setup security tokens
