@@ -1,34 +1,32 @@
 {% extends "includes/two_thirds_form.html" %}
 
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% set tableRows = [] %}
+{% set tableRows = (tableRows.push([
+    { text: content.applicationFee | safe },
+    { text: ("&pound;" + fields.applicationFee.value) | safe }
+]), tableRows) %}
+{% set tableRows = (tableRows.push([
+    { text: content.total | safe },
+    { text: ("&pound;" + fields.total.value) | safe }
+]), tableRows) %}
+
 {% block form_content %}
-    <h1 class="govuk-heading-l">
-        {{ content.heading }}
-    </h1>
-    <table class="form-group">
-        <tbody>
-        <tr>
-            <td colspan="2">
-                <div class="grid-row column-two-thirds">
-                    <div class="bold-medium">{{ content.applicationFee | safe }}</div>
-                </div>
-            </td>
-            <td class="change-answer">
-                <div class="font-medium">&pound;{{ fields.applicationFee.value | safe }}</div>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <div class="grid-row column-two-thirds">
-                    <div class="bold-medium">{{ content.total | safe }}</div>
-                </div>
-            </td>
-            <td>
-                <div class="font-medium">&pound;{{ fields.applicationFee.value }}</div>
-            </td>
-        </tr>
-        </tbody>
-    </table>
-    <div class="form-group">
-        <input class="button" type="submit" value="{{ common.continue }}">
+    <h1 class="govuk-heading-l">{{ content.heading }}</h1>
+
+    {{ govukTable({
+        caption: content.heading,
+        captionClasses: "govuk-visually-hidden",
+        firstCellIsHeader: true,
+        rows: tableRows
+    }) }}
+
+    <div class="govuk-form-group">
+        {{ govukButton({
+            text: common.saveAndContinue,
+            preventDoubleClick: true
+        }) }}
     </div>
 {% endblock %}
