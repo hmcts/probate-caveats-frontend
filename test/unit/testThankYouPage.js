@@ -9,7 +9,7 @@ describe('ThankYou', () => {
     describe('getUrl()', () => {
         it('should return the correct url', (done) => {
             const url = ThankYou.constructor.getUrl();
-            expect(url).to.equal('/thankyou');
+            expect(url).to.equal('/thank-you');
             done();
         });
     });

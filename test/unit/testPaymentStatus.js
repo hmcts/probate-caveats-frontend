@@ -19,7 +19,7 @@ describe('PaymentStatus', () => {
             const req = {};
             const ctx = {};
             const nextStepUrl = PaymentStatus.nextStepUrl(req, ctx);
-            expect(nextStepUrl).to.equal('/thankyou');
+            expect(nextStepUrl).to.equal('/thank-you');
             done();
         });
     });

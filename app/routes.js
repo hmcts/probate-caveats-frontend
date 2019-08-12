@@ -49,7 +49,7 @@ router.get('/*', (req, res, next) => {
     const formdata = req.session.form;
     if (!includes(config.whiteListedPagesForThankyou, req.originalUrl) &&
         get(formdata, 'payment.status') === 'Success') {
-        res.redirect(`${config.app.basePath}/thankyou`);
+        res.redirect(`${config.app.basePath}/thank-you`);
     } else if (!includes(config.whitelistedPagesForStartPageRedirect, req.originalUrl) &&
         get(formdata, 'applicant.firstName', '') === '') {
         res.redirect(`${config.app.basePath}/start-page`);

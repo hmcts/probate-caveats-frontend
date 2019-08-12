@@ -148,7 +148,7 @@ module.exports = {
         (process.env.APP_BASE_PATH || '') + '/contact-us',
         (process.env.APP_BASE_PATH || '') + '/offline',
         (process.env.APP_BASE_PATH || '') + '/health/liveness',
-        (process.env.APP_BASE_PATH || '') + '/thankyou'
+        (process.env.APP_BASE_PATH || '') + '/thank-you'
     ],
     whiteListedPagesForPaymentBreakdown: [
         (process.env.APP_BASE_PATH || '') + '/public',
@@ -160,6 +160,6 @@ module.exports = {
         (process.env.APP_BASE_PATH || '') + '/health/liveness',
         (process.env.APP_BASE_PATH || '') + '/payment-breakdown',
         (process.env.APP_BASE_PATH || '') + '/payment-status',
-        (process.env.APP_BASE_PATH || '') + '/thankyou'
+        (process.env.APP_BASE_PATH || '') + '/thank-you'
     ]
 };
