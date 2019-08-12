@@ -1,33 +1,41 @@
 {% extends "includes/layout.html" %}
 
+{% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
+
 {% block content %}
-<main id="content" role="main">
-
-    {% include "includes/phase_banner_beta.html" %}
-
-    <div class="grid-row">
-
-        <div class="{{column_width | default('column-two-thirds')}}">
-
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
             {% block error_summary %}
-                {% include "includes/error_summary.html" %}
-            {% endblock %}
+                {% if errors %}
+                    {% set errorList = [] %}
+                    {% for item in errors %}
+                        {% set errorList = (errorList.push({
+                            href: item.href,
+                            text: item.msg.summary | safe
+                        }), errorList) %}
+                    {% endfor %}
 
-            {% block question %}{% endblock %}
+                    {{ govukErrorSummary({
+                        "titleText": common.errorSummaryHeading,
+                        "errorList": errorList
+                    }) }}
+                {% endif %}
+            {% endblock %}
 
             {% block page_content %}{% endblock %}
 
-            <form class="form" method="post" action="{{basePath}}{{pageUrl}}" novalidate>
-                <input type="hidden" name="_csrf" value="{{csrfToken}}">
+            <form class="form" method="post" action="{{ pageUrl }}" novalidate>
+                <input type="hidden" name="_csrf" value="{{ csrfToken }}">
                 {% block form_content %}{% endblock %}
             </form>
 
-            {% block save_and_close %}<p><a href="/sign-out">{{common.saveAndClose}}</a></p>{% endblock %}
+            {% block save_and_close %}
+                <p class="govuk-body"><a href="/sign-out" class="govuk-link">{{ common.saveAndClose }}</a></p>
+            {% endblock %}
 
             {% block executor_summary %}{% endblock %}
 
             {% include "includes/help_details.html" %}
         </div>
     </div>
-</main>
 {% endblock %}

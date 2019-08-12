@@ -1,194 +1,23 @@
-// Related items
-// (These styles will be moved to GOV.UK elements, duplicating here for now.)
-.govuk-related-items {
-  margin-top: $gutter;
-  border-top: 10px solid $govuk-blue;
-  padding-top: 5px;
-
-  .heading-medium {
-    margin-top: 0.3em;
-    margin-bottom: 0.5em
-  }
-
-  li {
-    margin-bottom: 10px;
-    list-style-type: none;
-  }
-}
-
-// Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
-.button-secondary {
-  @include button($grey-3);
-}
-
-// Tasklist page start
-li.task-item {
-  border-top: 1px solid $grey-2;
-  line-height: 1.5;
-  padding: 20px 0 10px 0;
-
-  .task-item-header {
-    overflow: hidden;
-
-    .heading-medium {
-      margin: 10px 0;
-      display: flex;
-
-      @include media(tablet) {
-        float: left;
-        width: 100%;
-        margin-top: 0;
-      }
-      @include media(desktop) {
-        float: left;
-        width: 65%;
-        margin-top: 0;
-      }
-
-      .task-list-section-number {
-        float: left;
-      }
-    }
-    .task-unavailable {
-      background-color: $grey-2;
-      color: $black;
-      float: left;
-      margin-bottom: 10px;
-      text-transform: none;
-      letter-spacing: 0;
-
-      @include media(tablet) {
-        margin-left: 35px;
-        margin-bottom: 15px;
-        float:left;
-      }
-      @include media(desktop) {
-        float: right;
-        margin-left: 0;
-      }
-    }
-    .task-completed {
-      float: left;
-      margin-bottom: 10px;
-      text-transform: none;
-
-      @include media(tablet) {
-        float:left;
-        margin-left: 35px;
-      }
-
-      @include media(desktop) {
-        float: right;
-      }
-    }
-  }
-  .task-list-items {
-    margin-bottom: 0;
-  }
-}
-// Tasklist page end
-
-// Helper CSS start
-
-.word-wrap {
-  word-wrap: break-word;
-}
-
-// Prevent any item from being a link (e.g. numbers rendered on a cellular device)
-.no-link {
-  pointer-events: none;
-  text-decoration: none;
-}
-
-// Helper CSS end
-
-.notice {
-  clear: left;
-  margin-bottom: em(20);
-  padding-left: 50px;
+#contact-us-for-help {
+  margin-top: 50px;
 
   p {
-    padding-left: 50px;
+    margin: 0;
+
+    & + h4 {
+      margin-top: 25px;
+    }
   }
-
-  strong {
-    padding-left: 15px;
-  }
-
-  &.co-applicant {
-    margin-top: 50px;
-  }
-}
-
-.help-details {
-  margin-top: 50px;
-}
-
-.help-details-summary {
-  font-size: 16px;
 }
 
 .inset-page {
-  border-width: em(3);
+  border-width: 3px;
   border-style: solid;
-  background-color: #f8f8f8;
-  border-color: #bfc1c3;
+  background-color: govuk-colour("light-grey");
+  border-color: govuk-colour("mid-grey");
   margin: 0 0 30px 0;
-  padding: em(50);
-  padding-top: em(35);
-}
-
-p.declaration-item {
-  text-align: left;
-}
-div.declaration-header {
-  text-align: center;
-  margin-top: 5px;
-  margin-bottom: 5px;
-}
-div.declaration-wrapper {
-  @include media(tablet) {
-    display: grid;
-    grid-column-gap: 50px;
-    grid-template-columns: 3fr 1fr;
-    width: calc(133% + 50px);
-  }
-}
-div.declaration-grid-item {
-  text-align: left;
-}
-
-#global-header .header-proposition #sign-out-header {
-  @include bold-16;
-  margin-top: 4px;
-  float: right;
-  color: $white;
-  text-decoration: none;
-}
-
-@include media(tablet) {
-  #global-header .header-proposition #sign-out-header {
-    @include bold-19;
-    margin-top: 2px;
-  }
-}
-
-#global-header .header-proposition a#sign-out-header:hover {
-  text-decoration: underline;
-}
-
-#global-header .header-proposition a#sign-out-header:focus {
-  color: $black;
-}
-
-.check-your-answers__question {
-  font-weight: inherit;
-}
-
-.check-your-answers__answer {
-  .check-your-answers__row {
-    border-bottom: none;
-  }
+  padding: govuk-spacing(8);
+  padding-top: govuk-spacing(7);
 }
 
 .save-this-page-link {
@@ -204,9 +33,38 @@ div.declaration-grid-item {
 }
 
 .govuk-box-highlight {
-  .heading-xlarge,
-  .font-large {
+  .govuk-heading-xl,
+  .govuk-\!-font-size-36 {
     margin-top: 0;
     margin-bottom: 0;
+  }
+}
+
+.govuk-heading-l {
+  word-break: break-word;
+}
+
+.word-wrap {
+  word-wrap: break-word;
+}
+
+.word-break {
+  word-break: break-word;
+}
+
+.find-address-button,
+.executor-header {
+  margin-bottom: 0;
+}
+
+.icon {
+  display: inline-block;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+
+  &.icon-file-download {
+    width: 30px;
+    height: 39px;
+    background-image: url("/public/images/icon-file-download.png");
   }
 }

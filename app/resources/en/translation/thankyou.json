@@ -5,7 +5,7 @@
   "successHeading1": "What happens next",
   "successParagraph1": "You have completed your application to stop a grant of probate (caveat).",
   "successParagraph2": "We&rsquo;ll send you an email within 5 working days to confirm what&rsquo;s happened.",
-  "successParagraph3": "You may want to talk to a solicitor or contact <a href=\"{citizenAdvice}\" target=\"_blank\" rel=\"external noopener\" aria-label=\"Citizen Advice\">Citizen Advice</a> to get advice.",
+  "successParagraph3": "You may want to talk to a solicitor or contact <a href=\"{citizenAdvice}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener\" aria-label=\"Citizen Advice\">Citizen Advice</a> to get advice.",
   "survey" : "This is a new service – your feedback will help us to improve it.",
   "saveYourApplication": "Save your application",
   "saveParagraph1": "You can save or print these documents for your reference.",

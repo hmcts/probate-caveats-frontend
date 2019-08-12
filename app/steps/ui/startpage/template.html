@@ -1,17 +1,16 @@
 {% extends "includes/layout.html" %}
 
+{% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
 {% from "widgets/lists.html" import unorderedList %}
 
 {% block content %}
-    <main id="content" role="main">
-        {% include "includes/phase_banner_beta.html" %}
-
-        <div class="column-two-thirds">
-            <h1 class="form-title heading-large">{{ content.header1 }}</h1>
-
-            <p>{{ content.paragraph1 | safe }}</p>
-            <p>{{ content.paragraph11 | replace('{applicationFormPA8A}', links.applicationFormPA8A) | safe }}</p>
-            <p>{{ content.paragraph2 | safe }}</p>
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-l">{{ content.header1 }}</h1>
+            <p class="govuk-body">{{ content.paragraph1 | safe }}</p>
+            <p class="govuk-body">{{ content.paragraph11 | replace('{applicationFormPA8A}', globals.links.applicationFormPA8A) | safe }}</p>
+            <p class="govuk-body">{{ content.paragraph2 | safe }}</p>
             {{ unorderedList([
                 content.bullet1,
                 content.bullet2,
@@ -19,41 +18,40 @@
                 content.bullet4,
                 content.bullet5,
                 content.bullet6,
-                content.bullet7 | replace('{whoInheritsLink}', links.whoInheritsLink),
+                content.bullet7 | replace('{whoInheritsLink}', globals.links.whoInheritsLink),
                 content.bullet8,
                 content.bullet9
             ]) }}
 
-            <p>{{ content.paragraph3 | safe }}</p>
-            <p>{{ content.paragraph4 | safe }}</p>
-            <p>{{ content.paragraph5 | safe }}</p>
+            <p class="govuk-body">{{ content.paragraph3 | safe }}</p>
+            <p class="govuk-body">{{ content.paragraph4 | safe }}</p>
+            <p class="govuk-body">{{ content.paragraph5 | safe }}</p>
 
-            <div class="notice">
-                <em class="icon icon-important">
-                    <span class="visually-hidden">Warning</span>
-                </em>
-                <strong class="bold-small">
-                    {{ content.paragraph6 | safe }}
-                </strong>
-            </div>
+            {{ govukWarningText({
+                text: content.paragraph6 | safe,
+                iconFallbackText: "Warning"
+            }) }}
 
-            <p>{{ content.paragraph9 }}</p>
-            <p>{{ content.paragraph10 }}</p>
+            <p class="govuk-body">{{ content.paragraph9 }}</p>
+            <p class="govuk-body">{{ content.paragraph10 }}</p>
 
-            <h2 class="form-title heading-medium">{{ content.header2 }}</h2>
+            <h2 class="govuk-heading-m">{{ content.header2 }}</h2>
             {{ unorderedList([
                 content.bullet10,
                 content.bullet11,
                 content.bullet12
             ]) }}
 
-            <h2 class="form-title heading-medium">{{ content.header3 }}</h2>
-            <p>{{ content.paragraph7 | replace('{feesCost}', applicationFee) | safe }}</p>
-            <p>{{ content.paragraph8 | safe }}</p>
-
-            <div class="form-group">
-                <p><a href="{{ basePath }}/applicant-name" class="button button-start">{{ common.start }}</a></p>
-            </div>
+            <h2 class="govuk-heading-m">{{ content.header3 }}</h2>
+            <p class="govuk-body">{{ content.paragraph7 | replace('{feesCost}', globals.applicationFee) | safe }}</p>
+            <p class="govuk-body">{{ content.paragraph8 | safe }}</p>
         </div>
-    </main>
+    </div>
+    <div class="govuk-form-group">
+        {{ govukButton({
+            text: common.start,
+            href: (gloabls.basePath if globals.basePath) + "/applicant-name",
+            isStartButton: true
+        }) }}
+    </div>
 {% endblock %}

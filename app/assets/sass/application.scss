@@ -1,12 +1,40 @@
-// Path to assets for use with the file-url function
-// in the govuk frontend toolkit's url-helpers partial
 $path: "/public/images/";
 
-// Import GOV.UK elements from /govuk-modules/, this will import the frontend toolkit and some base styles.
-// Take a look in /govuk-modules/_govuk-elements.scss to see which files are imported.
-@import 'govuk-elements';
+// Import GOV.UK Frontend
+@import "node_modules/govuk-frontend/govuk/settings/all";
+@import "node_modules/govuk-frontend/govuk/core/all";
+@import "node_modules/govuk-frontend/govuk/objects/all";
+@import "node_modules/govuk-frontend/govuk/components/button/button";
+@import "node_modules/govuk-frontend/govuk/components/checkboxes/checkboxes";
+@import "node_modules/govuk-frontend/govuk/components/date-input/date-input";
+@import "node_modules/govuk-frontend/govuk/components/details/details";
+@import "node_modules/govuk-frontend/govuk/components/error-message/error-message";
+@import "node_modules/govuk-frontend/govuk/components/error-summary/error-summary";
+@import "node_modules/govuk-frontend/govuk/components/fieldset/fieldset";
+@import "node_modules/govuk-frontend/govuk/components/footer/footer";
+@import "node_modules/govuk-frontend/govuk/components/header/header";
+@import "node_modules/govuk-frontend/govuk/components/hint/hint";
+@import "node_modules/govuk-frontend/govuk/components/input/input";
+@import "node_modules/govuk-frontend/govuk/components/inset-text/inset-text";
+@import "node_modules/govuk-frontend/govuk/components/panel/panel";
+@import "node_modules/govuk-frontend/govuk/components/phase-banner/phase-banner";
+@import "node_modules/govuk-frontend/govuk/components/radios/radios";
+@import "node_modules/govuk-frontend/govuk/components/select/select";
+@import "node_modules/govuk-frontend/govuk/components/skip-link/skip-link";
+@import "node_modules/govuk-frontend/govuk/components/summary-list/summary-list";
+@import "node_modules/govuk-frontend/govuk/components/table/table";
+@import "node_modules/govuk-frontend/govuk/components/tag/tag";
+@import "node_modules/govuk-frontend/govuk/components/textarea/textarea";
+@import "node_modules/govuk-frontend/govuk/components/warning-text/warning-text";
+@import "node_modules/govuk-frontend/govuk/utilities/all";
+@import "node_modules/govuk-frontend/govuk/overrides/all";
 
-@import 'patterns/check-your-answers';
-@import 'patterns/task-list';
+@import "patterns/cookie-bar";
+@import "patterns/header";
+@import "patterns/hint";
+@import "patterns/radios";
 
-@import 'application-common.scss';
+@import "patterns/task-list";
+@import "patterns/check-your-answers";
+
+@import "application-common.scss";

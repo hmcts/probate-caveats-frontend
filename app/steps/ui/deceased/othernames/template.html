@@ -20,7 +20,7 @@
 {% endblock %}
 
 {% block question %}
-    <h1 class="form-title heading-large">{{ content.question | replace('{deceasedName}', fields.deceasedFullName.value) | safe }}</h1>
+    <h1 class="govuk-heading-l">{{ content.question | replace('{deceasedName}', fields.deceasedFullName.value) | safe }}</h1>
 {% endblock %}
 
 {% block form_content %}

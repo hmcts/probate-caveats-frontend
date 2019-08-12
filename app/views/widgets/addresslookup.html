@@ -1,36 +1,36 @@
+{% from "govuk/components/button/macro.njk" import govukButton %}
 {% from "widgets/fielderror.html" import fieldError %}
 
-{% macro addressFinder(fields,content,basePath,step) %}
-    <div class="form-group {{ "form-group-error" if fields.postcode.error }}">
-        <label for="postcode">{{content.postcode}}</label>
+{% macro addressFinder(fields,content,step) %}
+    <div class="govuk-form-group {{ "govuk-form-group--error" if fields.postcode.error }}">
+        <label for="postcode" class="govuk-label">{{ content.postcode }}</label>
 
         {{ fieldError(fields.postcode) }}
 
-        <input type="text" class="form-control {{ "form-control-error" if fields.postcode.error }} form-control-1-4" id="postcode" name="postcode" value="{{fields.postcode.value}}">
-        <input type="hidden" id="referrer" name="referrer" value="{{step}}">
-        <input {% if fields.addresses %}autofocus="autofocus"{% endif %} type="submit" class="button-secondary" formaction="{{ basePath }}/find-address" name="findaddress" value="{{content.findAddress}}">
+        <input type="text" class="govuk-input govuk-!-width-one-quarter {{ "govuk-input--error" if fields.postcode.error }}" id="postcode" name="postcode" value="{{ fields.postcode.value }}">
+        <input type="hidden" id="referrer" name="referrer" value="{{ step }}">
+        <input type="submit" data-prevent-double-click="true" class="govuk-button govuk-button--secondary find-address-button" formaction="/find-address" name="findaddress" value="{{ content.findAddress }}">
+        <input type="hidden" id="addressFound" name="addressFound" value="{{ fields.addressFound.value if fields.addressFound else "none" }}">
     </div>
 
-    <input type="hidden" id="addressFound" name="addressFound" value="{{ fields.addressFound.value if fields.addressFound else 'none' }}">
-
     {% if fields.addresses %}
-        <div class="form-group">
-            <label for="postcodeAddress">{{content.addressLabel}}</label>
-            <select id="postcodeAddress" class="form-control form-control-1-2" name="postcodeAddress" value="{{fields.address.value}}">
-                <option value="">{{content.selectAddress}}</option>
+        <div class="govuk-form-group">
+            <label for="postcodeAddress" class="govuk-label">{{ content.addressLabel }}</label>
+            <select id="postcodeAddress" class="govuk-select" name="postcodeAddress" value="{{ fields.address.value }}">
+                <option value="">{{ content.selectAddress }}</option>
                 {% for address in fields.addresses.value %}
                     {% set formattedAddress = address.formattedAddress | replace(",",", ") %}
-                    <option value="{{ loop.index0 }}" {{ "selected" if formattedAddress === fields.postcodeAddress.value }}>{{formattedAddress}}</option>
+                    <option value="{{ loop.index0 }}" {{ "selected" if formattedAddress === fields.postcodeAddress.value }}>{{ formattedAddress }}</option>
                 {% endfor %}
             </select>
         </div>
     {% endif %}
 
-    <script nonce="{{ nonce }}">
+    <script nonce="{{ globals.nonce }}">
         if (document.getElementById('postcodeAddress')) {
             const addresses = [
                 {% for address in fields.addresses.value %}
-                    '{{ address.formattedAddress | replace("\'", "\\\'") | replace(",", "###") | safe}}',
+                '{{ address.formattedAddress | replace("\'", "\\\'") | replace(",", "###") | safe}}',
                 {% endfor %}
             ];
 
@@ -52,9 +52,9 @@
                 document.getElementById('newPostCode').value = postcode;
                 document.getElementById('country').value = 'United Kingdom';
 
-                document.getElementById('details-panel').setAttribute('open', null);
-                document.getElementById('details-summary').setAttribute('aria-expanded', true);
-                document.getElementById('details-content-0').setAttribute('aria-hidden', false);
+                document.getElementById('details-panel').setAttribute('open', true);
+                document.getElementById('details-panel').getElementsByClassName('govuk-details__summary')[0].setAttribute('aria-expanded', true);
+                document.getElementById('details-panel').getElementsByClassName('govuk-details__text')[0].setAttribute('aria-hidden', false);
             });
         }
     </script>

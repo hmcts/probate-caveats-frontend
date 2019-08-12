@@ -69,14 +69,6 @@ exports.init = function() {
 
     app.use(rewrite(`${globals.basePath}/public/*`, '/public/$1'));
 
-    const njk = nunjucks(app, {
-        autoescape: true,
-        watch: true,
-        noCache: true,
-        globals: globals
-    });
-    filters(njk.env);
-
     app.enable('trust proxy');
 
     // Security library helmet to verify 11 smaller middleware functions
@@ -122,6 +114,7 @@ exports.init = function() {
     // Middleware to serve static assets
     app.use('/public/stylesheets', express.static(`${__dirname}/public/stylesheets`));
     app.use('/public/images', express.static(`${__dirname}/app/assets/images`));
+    app.use('/public/javascripts/govuk-frontend', express.static(`${__dirname}/node_modules/govuk-frontend`, {cacheControl: true, setHeaders: (res, path) => res.setHeader('Cache-Control', 'max-age=604800')}));
     app.use('/public/javascripts', express.static(`${__dirname}/app/assets/javascripts`));
     app.use('/public/pdf', express.static(`${__dirname}/app/assets/pdf`));
     app.use('/assets', express.static(`${__dirname}/node_modules/govuk-frontend/govuk/assets`, {cacheControl: true, setHeaders: (res, path) => res.setHeader('Cache-Control', 'max-age=604800')}));

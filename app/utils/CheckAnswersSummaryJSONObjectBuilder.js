@@ -8,13 +8,13 @@ class CheckAnswersSummaryJSONObjectBuilder {
         const $ = cheerio.load(html);
         const summary = {};
         summary.sections = [];
-        const sections = $('.heading-large, .heading-medium, .heading-small, .check-your-answers__row');
+        const sections = $('.govuk-heading-l, .heading-medium, .heading-small, .check-your-answers__row');
         const mainParagraph = $('#main-heading-content');
         summary.mainParagraph = mainParagraph.text();
         let section;
         for (const sectElement of Object.entries(sections)) {
             const $element = $(sectElement);
-            if ($element.hasClass('heading-large')) {
+            if ($element.hasClass('govuk-heading-l')) {
                 summary.pageTitle = $element.text();
             }
             if ($element.hasClass('heading-medium')) {

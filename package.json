@@ -46,6 +46,7 @@
     "find-address-stub": "NODE_PATH=. node test/service-stubs/find-address.js"
   },
   "dependencies": {
+    "@hmcts/ctsc-web-chat": "^0.3.8",
     "@hmcts/nodejs-logging": "^3.0.0",
     "@hmcts/os-places-client": "^1.0.4",
     "ajv": "^4.11.8",
@@ -96,7 +97,7 @@
     "mocha": "^3.5.3",
     "mocha-jenkins-reporter": "^0.4.2",
     "mochawesome": "^4.0.1",
-    "nock": "^9.3.0",
+    "nock": "^10.0.6",
     "nodemon": "^1.19.1",
     "nsp": "^3.2.1",
     "pa11y": "^4.13.2",

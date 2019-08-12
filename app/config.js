@@ -1,6 +1,6 @@
+'use strict';
 
 module.exports = {
-
     frontendPublicHttpProtocol: process.env.PUBLIC_PROTOCOL || 'http',
     environment: process.env.REFORM_ENVIRONMENT || 'prod',
     nodeEnvironment: process.env.NODE_ENV,
@@ -101,12 +101,12 @@ module.exports = {
     helpline: {
         number: '0300 303 0648',
         email: 'contactprobate@justice.gov.uk',
-        hours: 'Monday to Friday, 9am to 5pm'
+        hours: 'Monday to Friday, 9:30am to 5pm'
     },
     serviceline: {
         number: '0300 123 7050',
         email: 'contactprobate@justice.gov.uk',
-        hours: 'Monday to Friday, 9am to 5pm'
+        hours: 'Monday to Friday, 9:30am to 5pm'
     },
     utils: {
         api: {

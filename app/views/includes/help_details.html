@@ -1,10 +1,20 @@
+{% from "govuk/components/details/macro.njk" import govukDetails %}
+
 {% block help_info %}
-    <details class="help-panel help-details">
-        <summary><span class="summary help-details-summary">{{common.helpTitle}}</span></summary>
-        <div class="panel panel-border-narrow">
-            <p>{{common.helpText | safe}}</p>
-            <p>{{common.contactTelLabel}}: {{helpline.number}} ({{helpline.hours}})</p>
-            <p>{{common.helpEmailLabel}}: <a href="mailto:{{helpline.email}}">{{helpline.email}}</a></p>
-        </div>
-    </details>
+    {% set helpContent = "<p class=\"govuk-heading-s\">" + (common.helpHeading1) + "</p>" %}
+    {% set helpContent = helpContent + "<p class=\"govuk-body\">" + globals.helpline.number + "</p>" %}
+    {% set helpContent = helpContent + "<p class=\"govuk-body\">" + globals.helpline.hours + "</p>" %}
+    {% set helpContent = helpContent + "<p class=\"govuk-heading-s\">" + (common.helpHeading2) + "</p>" %}
+    {% set helpContent = helpContent + "<p class=\"govuk-body\">" + (common.helpEmailLabel | replace("{contactEmailAddress}", globals.links.contactEmailAddress)) + "</p>" %}
+
+    {% if fields.featureToggles.value.webchat == "true" %}
+        {% set helpContent = helpContent + "<p class=\"govuk-heading-s\" id=\"ctsc-web-chat-header\">" + (common.helpHeading3) + "</p>" %}
+        {% set helpContent = helpContent + "<div id=\"ctsc-web-chat\"></div>" %}
+    {% endif %}
+
+    {{ govukDetails({
+        summaryText: common.helpTitle,
+        text: helpContent | safe,
+        id: "contact-us-for-help"
+    }) }}
 {% endblock %}

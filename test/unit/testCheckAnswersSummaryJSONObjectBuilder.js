@@ -8,7 +8,7 @@ let checkAnswersSummaryJSONObjBuilder;
 const html = `
 <!DOCTYPE html>
   <body>
-    <h1 class="heading-large">Check your answers</h1>
+    <h1 class="govuk-heading-l">Check your answers</h1>
     <p id="main-heading-content">Check the information below carefully. This will form a record of your application for probate. It will also be stored as a public record, and will be able to be viewed online.</p>
     
     <h2 class="heading-medium">The will</h2>

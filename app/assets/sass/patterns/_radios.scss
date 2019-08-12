@@ -1,0 +1,20 @@
+/*
+Radio Buttons
+*/
+
+@include govuk-media-query($from: tablet) {
+  .govuk-radios--inline {
+    &.govuk-radios--conditional {
+      .govuk-radios__item {
+        display: inline-block;
+        margin-right: govuk-spacing(4);
+      }
+
+      .govuk-radios__conditional {
+        clear: left;
+        margin-left: 0;
+        margin-top: govuk-spacing(2);
+      }
+    }
+  }
+}

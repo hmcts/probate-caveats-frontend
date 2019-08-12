@@ -9,7 +9,7 @@
   "bullet4": "the will was not properly signed and witnessed",
   "bullet5": "the person applying for probate refuses to share a copy of the will with you",
   "bullet6": "you are in dispute with the person applying or you think they are not suitable to carry out the instructions in the will",
-  "bullet7": "you think the person applying is not eligible to apply if there is no will (see <a href=\"{whoInheritsLink}\" target=\"_blank\" rel=\"external noopener\" aria-label=\"who inherits if there is no will\">who inherits if there is no will</a>)",
+  "bullet7": "you think the person applying is not eligible to apply if there is no will (see <a href=\"{whoInheritsLink}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener\" aria-label=\"who inherits if there is no will\">who inherits if there is no will</a>)",
   "bullet8":  "you are entitled to apply but have not been included in the application",
   "bullet9": "the person who died got married or entered into a civil partnership after the will was signed",
   "paragraph3": "These are the most common reasons, but there may be others too.",
@@ -25,5 +25,5 @@
   "paragraph8": "You&rsquo;ll need to pay online by debit or credit card.",
   "paragraph9": "It takes one working day for your request to stop applications in progress.",
   "paragraph10": "If an application is approved on the same day you make the request, it will not be stopped. But you will stop any future applications for probate made on the estate for 6 months.",
-  "paragraph11": "You can only stop a grant of probate online if you are a personal applicant. If you are a legal representative applying on behalf of someone else <a href=\"{applicationFormPA8A}\" target=\"_blank\" rel=\"external noopener\" aria-label=\"use the paper form\">use the paper form</a>."
+  "paragraph11": "You can only stop a grant of probate online if you are a personal applicant. If you are a legal representative applying on behalf of someone else <a href=\"{applicationFormPA8A}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener\" aria-label=\"use the paper form\">use the paper form</a>."
 }
