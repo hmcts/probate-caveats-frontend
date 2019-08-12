@@ -13,8 +13,7 @@
     ],
     url = content.DeceasedName.url,
     common = common,
-    basePath = basePath,
-    alreadyDeclared = "false"
+    basePath = basePath
 )}}
 
 {{checkanswer(
@@ -27,8 +26,7 @@
     ],
     url = content.DeceasedDod.url,
     common = common,
-    basePath = basePath,
-    alreadyDeclared = "false"
+    basePath = basePath
 )}}
 
 {{checkanswer(
@@ -41,8 +39,7 @@
     ],
     url = content.DeceasedDobKnown.url,
     common = common,
-    basePath = basePath,
-    alreadyDeclared = "false"
+    basePath = basePath
 )}}
 
 {% if fields.deceased.dobknown.value === "Yes" %}
@@ -56,8 +53,7 @@
         ],
         url = content.DeceasedDob.url,
         common = common,
-        basePath = basePath,
-        alreadyDeclared = "false"
+        basePath = basePath
     )}}
 {% endif %}
 
@@ -71,8 +67,7 @@
     ],
     url = content.DeceasedAlias.url,
     common = common,
-    basePath = basePath,
-    alreadyDeclared = "false"
+    basePath = basePath
 )}}
 
 {% if fields.deceased.otherNames.value.length > 0 %}
@@ -86,9 +81,7 @@
             {% endfor %}
         </dd>
         <dd class="govuk-summary-list__actions">
-            {% if fields.summary.alreadyDeclared.value == "false" %}
-                <a href="{{ basePath }}{{ content.DeceasedOtherNames.url }}" class="govuk-link">{{ common.change }}</a>
-            {%endif%}
+            <a href="{{ basePath }}{{ content.DeceasedOtherNames.url }}" class="govuk-link">{{ common.change }}</a>
         </dd>
     </div>
 {% endif %}
@@ -101,6 +94,5 @@
     }],
     url = content.DeceasedAddress.url,
     common = common,
-    basePath = basePath,
-    alreadyDeclared = "false"
+    basePath = basePath
 )}}

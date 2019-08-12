@@ -1,4 +1,4 @@
-{% macro checkanswer(items, url, common, basePath, alreadyDeclared, answerIsCollection, answerIsGroup, isComplete) %}
+{% macro checkanswer(items, url, common, basePath, answerIsCollection, answerIsGroup, isComplete) %}
     {% set anyVisibleItems = items | selectattr("visible") | length %}
     {% if anyVisibleItems %}
         {% for item in items %}
@@ -18,10 +18,8 @@
                         <dd class="govuk-summary-list__value">{{ item.answer | safe }}</dd>
                     {% endif %}
                     <dd class="govuk-summary-list__actions">
-                        {% if alreadyDeclared == "false" %}
-                            {% set actionLink = common.change if complete else common.answer %}
-                            <a class="govuk-link" href="{{ basePath }}{{ url }}">{{ actionLink }}</a>
-                        {% endif %}
+                        {% set actionLink = common.change if complete else common.answer %}
+                        <a class="govuk-link" href="{{ basePath }}{{ url }}">{{ actionLink }}</a>
                     </dd>
                 </div>
             {% endif %}
