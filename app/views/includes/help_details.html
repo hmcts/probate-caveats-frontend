@@ -5,7 +5,7 @@
     {% set helpContent = helpContent + "<p class=\"govuk-body\">" + globals.helpline.number + "</p>" %}
     {% set helpContent = helpContent + "<p class=\"govuk-body\">" + globals.helpline.hours + "</p>" %}
     {% set helpContent = helpContent + "<p class=\"govuk-heading-s\">" + (common.helpHeading2) + "</p>" %}
-    {% set helpContent = helpContent + "<p class=\"govuk-body\">" + (common.helpEmailLabel | replace("{contactEmailAddress}", globals.links.contactEmailAddress)) + "</p>" %}
+    {% set helpContent = helpContent + "<p class=\"govuk-body\">" + (common.helpEmailLabel | replace("{contactEmailAddress}", globals.helpline.email)) + "</p>" %}
 
     {% if fields.featureToggles.value.webchat == "true" %}
         {% set helpContent = helpContent + "<p class=\"govuk-heading-s\" id=\"ctsc-web-chat-header\">" + (common.helpHeading3) + "</p>" %}
