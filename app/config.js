@@ -9,7 +9,9 @@ module.exports = {
     featureToggles: {
         url: process.env.FEATURE_TOGGLES_API_URL || 'http://localhost:8282',
         path: process.env.FEATURE_TOGGLES_PATH || '/api/ff4j/check',
-        caveats_shutter_toggle: 'probate-caveats-fe-shutter'
+        caveats_shutter_toggle: 'probate-caveats-fe-shutter',
+        webchat: 'probate-caveats-webchat',
+        appwideToggles: ['webchat']
     },
     app: {
         useHttps: process.env.USE_HTTPS || 'false',

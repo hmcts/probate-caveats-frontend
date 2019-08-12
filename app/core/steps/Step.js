@@ -4,6 +4,8 @@ const {mapValues, map, reduce, escape, isObject, isEmpty} = require('lodash');
 const UIStepRunner = require('app/core/runners/UIStepRunner');
 const journeyMap = require('app/core/journeyMap');
 const mapErrorsToFields = require('app/components/error').mapErrorsToFields;
+const config = require('app/config');
+const FeatureToggle = require('app/utils/FeatureToggle');
 
 class Step {
 
@@ -49,6 +51,7 @@ class Step {
         Object.assign(ctx, session.form[this.section] || {});
         ctx.sessionID = req.sessionID;
         ctx = Object.assign(ctx, req.body);
+        ctx = FeatureToggle.appwideToggles(req, ctx, config.featureToggles.appwideToggles);
         return ctx;
     }
 
