@@ -1,85 +1,96 @@
 {{checkanswer(
-    items = [{
-        question: content.DeceasedName.firstName,
-        answer: fields.deceased.firstName.value,
-        visible: true
-    }, {
-       question: content.DeceasedName.lastName,
-       answer: fields.deceased.lastName.value,
-       visible: true
-    }],
+    items = [
+        {
+            question: content.DeceasedName.firstName,
+            answer: fields.deceased.firstName.value,
+            visible: true
+        },
+        {
+           question: content.DeceasedName.lastName,
+           answer: fields.deceased.lastName.value,
+           visible: true
+        }
+    ],
     url = content.DeceasedName.url,
     common = common,
     basePath = basePath,
-    alreadyDeclared = 'false'
+    alreadyDeclared = "false"
 )}}
 
 {{checkanswer(
-    items = [{
-        question: content.DeceasedDod.question,
-        answer: fields.deceased["dod-formattedDate"].value,
-        visible: true
-    }],
+    items = [
+        {
+            question: content.DeceasedDod.question,
+            answer: fields.deceased["dod-formattedDate"].value,
+            visible: true
+        }
+    ],
     url = content.DeceasedDod.url,
     common = common,
     basePath = basePath,
-    alreadyDeclared = 'false'
+    alreadyDeclared = "false"
 )}}
 
 {{checkanswer(
-    items = [{
-        question: content.DeceasedDobKnown.question,
-        answer: fields.deceased.dobknown.value,
-        visible: true
-    }],
+    items = [
+        {
+            question: content.DeceasedDobKnown.question,
+            answer: fields.deceased.dobknown.value,
+            visible: true
+        }
+    ],
     url = content.DeceasedDobKnown.url,
     common = common,
     basePath = basePath,
-    alreadyDeclared = 'false'
+    alreadyDeclared = "false"
 )}}
 
-{% if fields.deceased.dobknown.value === 'Yes' %}
+{% if fields.deceased.dobknown.value === "Yes" %}
     {{checkanswer(
-        items = [{
-            question: content.DeceasedDob.question,
-            answer: fields.deceased["dob-formattedDate"].value,
-            visible: true
-        }],
+        items = [
+            {
+                question: content.DeceasedDob.question,
+                answer: fields.deceased["dob-formattedDate"].value,
+                visible: true
+            }
+        ],
         url = content.DeceasedDob.url,
         common = common,
         basePath = basePath,
-        alreadyDeclared = 'false'
+        alreadyDeclared = "false"
     )}}
 {% endif %}
 
 {{checkanswer(
-    items = [{
-        question: content.DeceasedAlias.question,
-        answer: fields.deceased.alias.value,
-        visible: true
-    }],
+    items = [
+        {
+            question: content.DeceasedAlias.question,
+            answer: fields.deceased.alias.value,
+            visible: true
+        }
+    ],
     url = content.DeceasedAlias.url,
     common = common,
     basePath = basePath,
-    alreadyDeclared = 'false'
+    alreadyDeclared = "false"
 )}}
 
 {% if fields.deceased.otherNames.value.length > 0 %}
-    <tr class="check-your-answers__row">
-        <th class="check-your-answers__question">{{content.Summary.otherNamesLabel | safe}}</th>
-        <td class="check-your-answers__answer">
+    <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">{{content.Summary.otherNamesLabel | safe}}</dt>
+        <dd class="govuk-summary-list__value">
             {% for index, otherName in fields.deceased.otherNames.value %}
-                <div class="check-your-answers__row">
-                    {{otherName.firstName.value | safe}} {{otherName.lastName.value | safe}}
+                <div class="govuk-summary-list__row">
+                    {{ otherName.firstName.value | safe }} {{ otherName.lastName.value | safe }}
                 </div>
             {% endfor %}
-        </td>
-        <td class="check-your-answers__change">
-            {% if fields.summary.alreadyDeclared.value == 'false' %}
-                <a href="{{basePath}}{{content.DeceasedOtherNames.url}}">{{common.change}}</a>
+        </dd>
+        <dd class="govuk-summary-list__actions">
+            {% if fields.summary.alreadyDeclared.value == "false" %}
+                <a href="{{ basePath }}{{ content.DeceasedOtherNames.url }}" class="govuk-link">{{ common.change }}</a>
             {%endif%}
-        </td>
-    </tr>
+        </dd>
+    </div>
 {% endif %}
 
 {{checkanswer(
@@ -91,5 +102,5 @@
     url = content.DeceasedAddress.url,
     common = common,
     basePath = basePath,
-    alreadyDeclared = 'false'
+    alreadyDeclared = "false"
 )}}

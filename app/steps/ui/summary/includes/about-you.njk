@@ -1,39 +1,46 @@
 {{checkanswer(
-    items = [{
-        question: content.ApplicantName.firstName,
-        answer: fields.applicant.firstName.value,
-        visible: true
-    }, {
-        question: content.ApplicantName.lastName,
-        answer: fields.applicant.lastName.value,
-        visible: true
-    }],
+    items = [
+        {
+            question: content.ApplicantName.firstName,
+            answer: fields.applicant.firstName.value,
+            visible: true
+        },
+        {
+            question: content.ApplicantName.lastName,
+            answer: fields.applicant.lastName.value,
+            visible: true
+        }
+    ],
     url = content.ApplicantName.url,
     common = common,
     basePath = basePath,
-    alreadyDeclared = 'false'
+    alreadyDeclared = "false"
 )}}
 
 {{checkanswer(
-    items = [{
-        question: content.ApplicantEmail.question,
-        answer: fields.applicant.email.value,
-        visible: true
-    }],
+    items = [
+        {
+            question: content.ApplicantEmail.question,
+            answer: fields.applicant.email.value,
+            visible: true
+        }
+    ],
     url = content.ApplicantEmail.url,
     common = common,
     basePath = basePath,
-    alreadyDeclared = 'false'
+    alreadyDeclared = "false"
 )}}
 
 {{checkanswer(
-    items = [{
-        question: content.ApplicantAddress.question,
-        answer: fields.applicant.address.value.formattedAddress,
-        visible: true
-    }],
+    items = [
+        {
+            question: content.ApplicantAddress.question,
+            answer: fields.applicant.address.value.formattedAddress,
+            visible: true
+        }
+    ],
     url = content.ApplicantAddress.url,
     common = common,
     basePath = basePath,
-    alreadyDeclared = 'false'
+    alreadyDeclared = "false"
 )}}
