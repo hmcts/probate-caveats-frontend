@@ -1,4 +1,4 @@
-{% extends "includes/two_thirds_form.html" %}
+{% extends "includes/layout.html" %}
 
 {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
 {% from "govuk/components/button/macro.njk" import govukButton %}
@@ -7,7 +7,7 @@
 {% set title = content.Summary.title %}
 
 {% block content %}
-    <div class="form-group">
+    <div id="check-your-answers">
         <p class="govuk-body" id="main-heading-content">{{ content.Summary.checkCarefully }}</p>
 
         <h2 class="govuk-heading-m">{{ content.Summary.aboutYouHeading | safe }}</h2>
@@ -29,7 +29,7 @@
     <div class="govuk-form-group">
         {{ govukButton({
             text: common.saveAndContinue,
-            href: "/summary/redirect",
+            href: "/payment-breakdown",
             isStartButton: true
         }) }}
     </div>
