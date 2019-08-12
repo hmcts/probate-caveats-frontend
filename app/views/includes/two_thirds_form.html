@@ -29,10 +29,6 @@
                 {% block form_content %}{% endblock %}
             </form>
 
-            {% block save_and_close %}
-                <p class="govuk-body"><a href="/sign-out" class="govuk-link">{{ common.saveAndClose }}</a></p>
-            {% endblock %}
-
             {% block executor_summary %}{% endblock %}
 
             {% include "includes/help_details.html" %}
