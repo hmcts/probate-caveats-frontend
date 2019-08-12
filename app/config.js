@@ -9,6 +9,7 @@ module.exports = {
     featureToggles: {
         url: process.env.FEATURE_TOGGLES_API_URL || 'http://localhost:8282',
         path: process.env.FEATURE_TOGGLES_PATH || '/api/ff4j/check',
+        port: 8292,
         caveats_shutter_toggle: 'probate-caveats-fe-shutter',
         webchat: 'probate-caveats-webchat',
         appwideToggles: ['webchat']
