@@ -7,7 +7,8 @@ const path = require('path');
 const express = require('express');
 const rewrite = require('express-urlrewrite');
 const session = require('express-session');
-const nunjucks = require('express-nunjucks');
+const nunjucks = require('nunjucks');
+const filters = require('app/components/filters.js');
 const routes = require(`${__dirname}/app/routes`);
 const favicon = require('serve-favicon');
 const bodyParser = require('body-parser');
@@ -38,19 +39,33 @@ exports.init = function() {
 
     // Application settings
     app.set('view engine', 'html');
-    app.set('views', ['app/steps', 'app/views', 'node_modules/govuk_template_jinja/views/layouts']);
+    app.set('views', ['app/steps', 'app/views']);
 
-    const filters = require('app/components/filters.js');
+    const njkEnv = nunjucks.configure([
+        'app/steps',
+        'app/views',
+        'node_modules/govuk-frontend/',
+        'node_modules/govuk-frontend/components/'
+    ], {
+        autoescape: true,
+        watch: true,
+        noCache: true
+    });
+
     const globals = {
-        'currentYear': new Date().getFullYear(),
-        'gaTrackingId': config.gaTrackingId,
-        'enableTracking': config.enableTracking,
-        'links': config.links,
-        'helpline': config.helpline,
-        'applicationFee': config.payment.applicationFee,
-        'nonce': uuid,
-        'basePath': config.app.basePath
+        currentYear: new Date().getFullYear(),
+        gaTrackingId: config.gaTrackingId,
+        enableTracking: config.enableTracking,
+        links: config.links,
+        helpline: config.helpline,
+        applicationFee: config.payment.applicationFee,
+        nonce: uuid,
+        basePath: config.app.basePath
     };
+    njkEnv.addGlobal('globals', globals);
+
+    filters(njkEnv);
+    njkEnv.express(app);
 
     app.use(rewrite(`${globals.basePath}/public/*`, '/public/$1'));
 
@@ -109,12 +124,10 @@ exports.init = function() {
     app.use('/public/images', express.static(`${__dirname}/app/assets/images`));
     app.use('/public/javascripts', express.static(`${__dirname}/app/assets/javascripts`));
     app.use('/public/pdf', express.static(`${__dirname}/app/assets/pdf`));
-    app.use('/public', express.static(`${__dirname}/node_modules/govuk_template_jinja/assets`));
-    app.use('/public', express.static(`${__dirname}/node_modules/govuk_frontend_toolkit`));
-    app.use('/public/images/icons', express.static(`${__dirname}/node_modules/govuk_frontend_toolkit/images`));
+    app.use('/assets', express.static(`${__dirname}/node_modules/govuk-frontend/govuk/assets`, {cacheControl: true, setHeaders: (res, path) => res.setHeader('Cache-Control', 'max-age=604800')}));
 
     // Elements refers to icon folder instead of images folder
-    app.use(favicon(path.join(__dirname, 'node_modules', 'govuk_template_jinja', 'assets', 'images', 'favicon.ico')));
+    app.use(favicon(path.join(__dirname, 'node_modules', 'govuk-frontend', 'govuk', 'assets', 'images', 'favicon.ico')));
 
     // Support for parsing data in POSTs
     app.use(bodyParser.json());
