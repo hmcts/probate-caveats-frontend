@@ -25,6 +25,7 @@ const appInsights = require('applicationinsights');
 const commonContent = require('app/resources/en/translation/common');
 const uuidv4 = require('uuid/v4');
 const uuid = uuidv4();
+const featureToggles = require('app/featureToggles');
 
 exports.init = function() {
     const app = express();
@@ -60,7 +61,14 @@ exports.init = function() {
         helpline: config.helpline,
         applicationFee: config.payment.applicationFee,
         nonce: uuid,
-        basePath: config.app.basePath
+        basePath: config.app.basePath,
+        webChat: {
+            chatId: config.webChat.chatId,
+            tenant: config.webChat.tenant,
+            buttonNoAgents: config.webChat.buttonNoAgents,
+            buttonAgentsBusy: config.webChat.buttonAgentsBusy,
+            buttonServiceClosed: config.webChat.buttonServiceClosed
+        }
     };
     njkEnv.addGlobal('globals', globals);
 
@@ -112,6 +120,7 @@ exports.init = function() {
     app.use(helmet.xssFilter({setOnOldIE: true}));
 
     // Middleware to serve static assets
+    app.use('/webchat', express.static(`${__dirname}/node_modules/@hmcts/ctsc-web-chat/assets`, {cacheControl: true, setHeaders: (res, path) => res.setHeader('Cache-Control', 'max-age=604800')}));
     app.use('/public/stylesheets', express.static(`${__dirname}/public/stylesheets`));
     app.use('/public/images', express.static(`${__dirname}/app/assets/images`));
     app.use('/public/javascripts/govuk-frontend', express.static(`${__dirname}/node_modules/govuk-frontend`, {cacheControl: true, setHeaders: (res, path) => res.setHeader('Cache-Control', 'max-age=604800')}));
@@ -196,6 +205,8 @@ exports.init = function() {
         req.session.regId = req.query.id || req.session.regId || req.sessionID;
         next();
     }, routes);
+
+    app.use(featureToggles);
 
     // Start the app
     let http;
