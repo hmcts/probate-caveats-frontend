@@ -1,12 +1,19 @@
 {% extends "includes/two_thirds_form.html" %}
 
-{% block question %}
-    <h1 class="govuk-heading-l">{{content.question}}</h1>
-{% endblock %}
-
 {% block form_content %}
-    <p>{{content.paragraph}}</p>
-    <p>{{content.telephone}}:<br>{{fields.telephone.value}}</p>
-    <p>{{content.email}}:<br><a href="mailto: {{fields.email.value}}">{{fields.email.value}}</a></p>
-    <p>{{content.hours}}:<br>{{fields.hours.value}}</p>
+    <h1 class="govuk-heading-l">{{ content.question }}</h1>
+
+    <p class="govuk-body">{{ content.paragraph }}</p>
+    <p class="govuk-body">
+        {{ content.telephone }}:<br>
+        {{ fields.telephone.value }}
+    </p>
+    <p class="govuk-body">
+        {{ content.email }}:<br>
+        <a href="mailto: {{ fields.email.value }}" class="govuk-link">{{ fields.email.value }}</a>
+    </p>
+    <p class="govuk-body">
+        {{ content.hours }}:<br>
+        {{ fields.hours.value }}
+    </p>
 {% endblock %}
