@@ -1,26 +1,26 @@
-<script src="{{ basePath }}/public/javascripts/jquery-1.11.3.js"></script>
+<script src="{{ globals.basePath }}/public/javascripts/jquery-1.11.3.js"></script>
 
-<script src="{{ basePath }}/public/javascripts/govuk-frontend/govuk/all.js"></script>
+<script src="{{ globals.basePath }}/public/javascripts/govuk-frontend/govuk/all.js"></script>
 <script nonce="{{ globals.nonce }}">window.GOVUKFrontend.initAll()</script>
 
 {% if enableTracking === 'true' %}
     <script nonce="{{ globals.nonce }}">
         var gatrackingid = "{{gaTrackingId}}";
     </script>
-    <script src="{{ basePath }}/public/javascripts/ga-tracking.js"></script>
+    <script src="{{ globals.basePath }}/public/javascripts/ga-tracking.js"></script>
     <noscript>
-        <img src="{{ basePath }}/public/images/noJS.png" width="1" height="1" alt="No JS">
+        <img src="{{ globals.basePath }}/public/images/noJS.png" width="1" height="1" alt="No JS">
     </noscript>
 {% endif %}
 
-<script src="{{ basePath }}/public/javascripts/cookie.js"></script>
+<script src="{{ globals.basePath }}/public/javascripts/cookie.js"></script>
 
 <!--[if lte IE 9]>
-<script src="{{ basePath }}/public/javascripts/form-polyfill.js"></script>
+<script src="{{ globals.basePath }}/public/javascripts/form-polyfill.js"></script>
 <![endif]-->
 
 {% if fields.featureToggles.value.webchat == "true" %}
-    <script src="{{ basePath }}/webchat/javascript/hmcts-webchat.js"></script>
+    <script src="{{ globals.basePath }}/webchat/javascript/hmcts-webchat.js"></script>
     <script nonce="{{ globals.nonce }}">
         webchat_init({
             uuid: 'script_{{ globals.webChat.chatId }}',
