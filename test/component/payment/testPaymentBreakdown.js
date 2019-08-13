@@ -77,7 +77,10 @@ describe('paymentBreakdown', () => {
 
             const data = {};
             testWrapper.agent.post(`${basePath}/prepare-session/form`)
-                .send()
+                .send({fees: {
+                        status: 'success',
+                        total: 20
+                    }})
                 .end((err) => {
                     if (err) {
                         throw err;
@@ -96,7 +99,10 @@ describe('paymentBreakdown', () => {
                 message: 'Unable to find service'
             }));
             testWrapper.agent.post(`${basePath}/prepare-session/form`)
-                .send()
+                .send({fees: {
+                        status: 'success',
+                        total: 20
+                    }})
                 .end((err) => {
                     if (err) {
                         throw err;
@@ -113,7 +119,10 @@ describe('paymentBreakdown', () => {
                 message: 'Unable to find service'
             }));
             testWrapper.agent.post(`${basePath}/prepare-session/form`)
-                .send()
+                .send({fees: {
+                        status: 'success',
+                        total: 20
+                    }})
                 .end((err) => {
                     if (err) {
                         throw err;
@@ -131,7 +140,10 @@ describe('paymentBreakdown', () => {
                 message: 'Unable to find service'
             }));
             testWrapper.agent.post(`${basePath}/prepare-session/form`)
-                .send()
+                .send({fees: {
+                        status: 'success',
+                        total: 20
+                    }})
                 .end((err) => {
                     if (err) {
                         throw err;
@@ -161,6 +173,10 @@ describe('paymentBreakdown', () => {
                 .send({
                     payment: {
                         paymentId: 12345
+                    },
+                    fees: {
+                        status: 'success',
+                        total: 20
                     }
                 })
                 .end((err) => {
@@ -189,7 +205,10 @@ describe('paymentBreakdown', () => {
                 name: 'Error',
                 message: 'Unable to find service'}));
             testWrapper.agent.post(`${basePath}/prepare-session/form`)
-                .send()
+                .send({fees: {
+                        status: 'success',
+                        total: 20
+                    }})
                 .end((err) => {
                     if (err) {
                         throw err;

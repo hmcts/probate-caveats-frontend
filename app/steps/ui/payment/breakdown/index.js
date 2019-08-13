@@ -9,6 +9,7 @@ const logInfo = (message, applicationId = 'Unknown') => logger(applicationId).in
 const services = require('app/components/services');
 const security = require('app/components/security');
 const formatUrl = require('app/utils/FormatUrl');
+const FeesLookup = require('app/utils/FeesLookup');
 
 class PaymentBreakdown extends Step {
     static getUrl() {
@@ -47,6 +48,16 @@ class PaymentBreakdown extends Step {
         this.nextStepUrl = () => this.next(ctx).constructor.getUrl();
 
         try {
+            const feesLookup = new FeesLookup(formdata.applicationId, hostname);
+            const confirmFees = yield feesLookup.lookup();
+            this.checkFeesStatus(confirmFees);
+            const originalFees = formdata.fees;
+            if (confirmFees.total !== originalFees.total) {
+                throw new Error(`Error calculated fees totals have changed from ${originalFees.total} to ${confirmFees.total}`);
+            }
+            ctx.total = originalFees.total;
+            ctx.applicationFee = originalFees.total;
+
             // Setup security tokens
             yield this.setCtxWithSecurityTokens(ctx, errors);
             if (errors.length > 0) {
