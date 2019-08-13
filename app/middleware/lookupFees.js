@@ -15,6 +15,7 @@ const lookupFees = (req, res, next) => {
         .then((res) => {
             set(formdata, 'payment.total', res.total);
             set(formdata, 'fees', res);
+            session.form = formdata;
             next();
         });
 };
