@@ -29,7 +29,7 @@ class PaymentBreakdown extends Step {
     }
 
     handleGet(ctx, formdata) {
-        const fee = get(formdata.payment, 'total');
+        const fee = get(formdata.fees, 'total');
         ctx.applicationFee = fee;
         ctx.total = Number.isInteger(fee) ? fee : parseFloat(fee).toFixed(2);
         return [ctx, ctx.errors];
