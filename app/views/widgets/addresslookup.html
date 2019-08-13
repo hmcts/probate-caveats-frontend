@@ -1,7 +1,7 @@
 {% from "govuk/components/button/macro.njk" import govukButton %}
 {% from "widgets/fielderror.html" import fieldError %}
 
-{% macro addressFinder(fields,content,step) %}
+{% macro addressFinder(fields,content,basePath,step) %}
     <div class="govuk-form-group {{ "govuk-form-group--error" if fields.postcode.error }}">
         <label for="postcode" class="govuk-label">{{ content.postcode }}</label>
 
@@ -9,7 +9,7 @@
 
         <input type="text" class="govuk-input govuk-!-width-one-quarter {{ "govuk-input--error" if fields.postcode.error }}" id="postcode" name="postcode" value="{{ fields.postcode.value }}">
         <input type="hidden" id="referrer" name="referrer" value="{{ step }}">
-        <input type="submit" data-prevent-double-click="true" class="govuk-button govuk-button--secondary find-address-button" formaction="/find-address" name="findaddress" value="{{ content.findAddress }}">
+        <input type="submit" data-prevent-double-click="true" class="govuk-button govuk-button--secondary find-address-button" formaction="{{ basePath }}/find-address" name="findaddress" value="{{ content.findAddress }}">
         <input type="hidden" id="addressFound" name="addressFound" value="{{ fields.addressFound.value if fields.addressFound else "none" }}">
     </div>
 
