@@ -78,9 +78,9 @@ describe('paymentBreakdown', () => {
             const data = {};
             testWrapper.agent.post(`${basePath}/prepare-session/form`)
                 .send({fees: {
-                        status: 'success',
-                        total: 20
-                    }})
+                    status: 'success',
+                    total: 20
+                }})
                 .end((err) => {
                     if (err) {
                         throw err;
@@ -100,9 +100,9 @@ describe('paymentBreakdown', () => {
             }));
             testWrapper.agent.post(`${basePath}/prepare-session/form`)
                 .send({fees: {
-                        status: 'success',
-                        total: 20
-                    }})
+                    status: 'success',
+                    total: 20
+                }})
                 .end((err) => {
                     if (err) {
                         throw err;
@@ -120,9 +120,9 @@ describe('paymentBreakdown', () => {
             }));
             testWrapper.agent.post(`${basePath}/prepare-session/form`)
                 .send({fees: {
-                        status: 'success',
-                        total: 20
-                    }})
+                    status: 'success',
+                    total: 20
+                }})
                 .end((err) => {
                     if (err) {
                         throw err;
@@ -141,9 +141,9 @@ describe('paymentBreakdown', () => {
             }));
             testWrapper.agent.post(`${basePath}/prepare-session/form`)
                 .send({fees: {
-                        status: 'success',
-                        total: 20
-                    }})
+                    status: 'success',
+                    total: 20
+                }})
                 .end((err) => {
                     if (err) {
                         throw err;
@@ -206,9 +206,9 @@ describe('paymentBreakdown', () => {
                 message: 'Unable to find service'}));
             testWrapper.agent.post(`${basePath}/prepare-session/form`)
                 .send({fees: {
-                        status: 'success',
-                        total: 20
-                    }})
+                    status: 'success',
+                    total: 20
+                }})
                 .end((err) => {
                     if (err) {
                         throw err;
