@@ -30,7 +30,7 @@
     <div class="govuk-form-group">
         {{ govukButton({
             text: common.saveAndContinue,
-            href: "/payment-breakdown",
+            href: (globals.basePath if globals.basePath) + "/payment-breakdown",
             isStartButton: true
         }) }}
     </div>
