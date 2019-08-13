@@ -13,7 +13,8 @@ const lookupFees = (req, res, next) => {
 
     feesLookup.lookup()
         .then((res) => {
-            set(formdata, 'payment.total', res.fee_amount);
+            set(formdata, 'payment.total', res.total);
+            set(formdata, 'fees', res);
             next();
         });
 };

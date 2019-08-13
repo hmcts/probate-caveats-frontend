@@ -19,10 +19,37 @@ class FeesLookup {
         };
     }
 
-    async lookup() {
-        const authToken = await security.getUserToken(this.hostname, this.applicantId);
-        return services.feesLookup(this.data, authToken, this.applicantId);
+    lookup() {
+        return createCall(this.hostname, this.applicantId, this.data)
     }
+}
+
+async function createCall(hostname, applicantId, data) {
+    const fees = {
+        status: 'success',
+        total: 0
+    };
+    const authToken = await security.getUserToken(hostname, applicantId);
+    await services.feesLookup(data, authToken, applicantId)
+        .then(res => {
+            if (identifyAnyErrors(res)) {
+                fees.status = 'failed';
+            } else {
+                fees.total = res.fee_amount;
+            }
+        });
+    return fees;
+}
+
+/*
+ * if no fee_amount is returned, we assume an error has occurred
+ * this caters for 404 type messages etc.
+ */
+function identifyAnyErrors(res) {
+    if (res.fee_amount) {
+        return false;
+    }
+    return true;
 }
 
 module.exports = FeesLookup;
