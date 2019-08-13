@@ -1,3 +1,5 @@
+// eslint-disable-line max-lines
+
 'use strict';
 
 const sinon = require('sinon');
@@ -7,6 +9,8 @@ const services = require('app/components/services');
 const security = require('app/components/security');
 const config = require('app/config');
 const basePath = config.app.basePath;
+const FeesLookup = require('app/utils/FeesLookup');
+let feesLookup;
 
 describe('paymentBreakdown', () => {
     let testWrapper;
@@ -16,12 +20,18 @@ describe('paymentBreakdown', () => {
         testWrapper = new TestWrapper('PaymentBreakdown');
         servicesMock = sinon.mock(services);
         securityMock = sinon.mock(security);
+        feesLookup = sinon.stub(FeesLookup.prototype, 'lookup');
+        feesLookup.returns(Promise.resolve({
+            status: 'success',
+            total: 20
+        }));
     });
 
     afterEach(() => {
         testWrapper.destroy();
         servicesMock.restore();
         securityMock.restore();
+        feesLookup.restore();
     });
 
     describe('Verify Content, Errors and Redirection', () => {
