@@ -20,7 +20,7 @@ class FeesLookup {
     }
 
     lookup() {
-        return createCall(this.hostname, this.applicantId, this.data)
+        return createCall(this.hostname, this.applicantId, this.data);
     }
 }
 
