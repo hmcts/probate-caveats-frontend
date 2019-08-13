@@ -1,6 +1,5 @@
 'use strict';
 
-const security = require('app/components/security');
 const services = require('app/components/services');
 
 class FeesLookup {
