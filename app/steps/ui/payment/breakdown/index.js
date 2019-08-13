@@ -29,10 +29,17 @@ class PaymentBreakdown extends Step {
     }
 
     handleGet(ctx, formdata) {
-        const fee = get(formdata.fees, 'total');
-        ctx.applicationFee = fee;
-        ctx.total = Number.isInteger(fee) ? fee : parseFloat(fee).toFixed(2);
+        const fees = formdata.fees;
+        this.checkFeesStatus(fees);
+        ctx.applicationFee = fees.total;
+        ctx.total = Number.isInteger(fees.total) ? fees.total : parseFloat(fees.total).toFixed(2);
         return [ctx, ctx.errors];
+    }
+
+    checkFeesStatus(fees) {
+        if (fees.status !== 'success') {
+            throw new Error('Unable to calculate fees from Fees Api');
+        }
     }
 
     * handlePost(ctx, errors, formdata, session, hostname) {
