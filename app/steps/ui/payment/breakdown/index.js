@@ -23,15 +23,18 @@ class PaymentBreakdown extends Step {
     getContextData(req) {
         const ctx = super.getContextData(req);
         const formdata = req.session.form;
+
         ctx.deceasedLastName = get(formdata.deceased, 'lastName', '');
         ctx.hostname = formatUrl.createHostname(req);
         ctx.applicationId = get(formdata, 'applicationId');
+        ctx.authToken = req.authToken;
         return ctx;
     }
 
     handleGet(ctx, formdata) {
         const fees = formdata.fees;
         this.checkFeesStatus(fees);
+
         ctx.applicationFee = fees.total;
         ctx.total = Number.isInteger(fees.total) ? fees.total : parseFloat(fees.total).toFixed(2);
         return [ctx, ctx.errors];
@@ -49,7 +52,7 @@ class PaymentBreakdown extends Step {
 
         try {
             const feesLookup = new FeesLookup(formdata.applicationId, hostname);
-            const confirmFees = yield feesLookup.lookup();
+            const confirmFees = yield feesLookup.lookup(ctx.authToken);
             this.checkFeesStatus(confirmFees);
             const originalFees = formdata.fees;
             if (confirmFees.total !== originalFees.total) {

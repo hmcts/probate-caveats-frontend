@@ -11,7 +11,7 @@ const lookupFees = (req, res, next) => {
     const hostname = formatUrl.createHostname(req);
     const feesLookup = new FeesLookup(applicantId, hostname);
 
-    feesLookup.lookup()
+    feesLookup.lookup(req.authToken)
         .then((res) => {
             set(formdata, 'payment.total', res.total);
             formdata.fees = res;

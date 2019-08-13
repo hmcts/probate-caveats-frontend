@@ -19,17 +19,17 @@ class FeesLookup {
         };
     }
 
-    lookup() {
-        return createCall(this.hostname, this.applicantId, this.data);
+    lookup(authToken) {
+        return createCall(this.hostname, this.applicantId, this.data, authToken);
     }
 }
 
-async function createCall(hostname, applicantId, data) {
+async function createCall(hostname, applicantId, data, authToken) {
     const fees = {
         status: 'success',
         total: 0
     };
-    const authToken = await security.getUserToken(hostname, applicantId);
+
     await services.feesLookup(data, authToken, applicantId)
         .then(res => {
             if (identifyAnyErrors(res)) {
