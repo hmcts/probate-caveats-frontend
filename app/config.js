@@ -91,6 +91,7 @@ module.exports = {
         privacy: (process.env.APP_BASE_PATH || '') + '/privacy-policy',
         terms: (process.env.APP_BASE_PATH || '') + '/terms-conditions',
         contact: (process.env.APP_BASE_PATH || '') + '/contact-us',
+        contactEmailAddress: 'contactprobate@justice.gov.uk',
         callCharges: 'https://www.gov.uk/call-charges',
         howToManageCookies: 'https://www.aboutcookies.org',
         googlePrivacyPolicy: 'https://www.google.com/policies/privacy/partners/',

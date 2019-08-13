@@ -1,12 +1,10 @@
-/*global require, module, process */
-
 'use strict';
 
 const {Logger} = require('@hmcts/nodejs-logging');
 let logger;
 
-const log = (id) => {
-    return (logger) ? logger : Logger.getLogger(`caveat-frontend ${id}`);
+const log = (sessionId) => {
+    return (logger) ? logger : Logger.getLogger(`caveat-frontend, sessionId: ${sessionId}`);
 };
 
 module.exports = log;

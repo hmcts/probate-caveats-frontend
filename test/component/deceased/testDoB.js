@@ -123,6 +123,5 @@ describe('deceased-dob', () => {
 
             testWrapper.testRedirect(done, data, expectedNextUrlForDeceasedAlias);
         });
-
     });
 });

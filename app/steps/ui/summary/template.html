@@ -8,6 +8,7 @@
 
 {% block content %}
     <div id="check-your-answers">
+        <h1 class="govuk-heading-l">{{ content.Summary.heading }}</h1>
         <p class="govuk-body" id="main-heading-content">{{ content.Summary.checkCarefully }}</p>
 
         <h2 class="govuk-heading-m">{{ content.Summary.aboutYouHeading | safe }}</h2>
@@ -33,4 +34,6 @@
             isStartButton: true
         }) }}
     </div>
+
+    {% include "includes/help_details.html" %}
 {% endblock %}

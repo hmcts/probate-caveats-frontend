@@ -7,28 +7,18 @@ const DeceasedDod = steps.DeceasedDod;
 const content = require('app/resources/en/translation/deceased/dod');
 
 describe('DeceasedDod', () => {
+    describe('dateName()', () => {
+        it('should return the date names array', (done) => {
+            const dateName = DeceasedDod.dateName();
+            expect(dateName).to.deep.equal(['dod']);
+            done();
+        });
+    });
+
     describe('getUrl()', () => {
         it('should return the correct url', (done) => {
             const url = DeceasedDod.constructor.getUrl();
             expect(url).to.equal('/deceased-dod');
-            done();
-        });
-    });
-
-    describe('nextStepUrl()', () => {
-        it('should return url for the next step if there are codicils', (done) => {
-            const req = {};
-            const ctx = {};
-            const nextStepUrl = DeceasedDod.nextStepUrl(req, ctx);
-            expect(nextStepUrl).to.equal('/deceased-dob-known');
-            done();
-        });
-    });
-
-    describe('dateName()', () => {
-        it('should return the correct dateName()', (done) => {
-            const dateName = DeceasedDod.dateName();
-            expect(dateName).to.equal('dod');
             done();
         });
     });
@@ -69,7 +59,8 @@ describe('DeceasedDod', () => {
             [ctx, errors] = DeceasedDod.handlePost(ctx, errors, formdata, session);
             expect(errors).to.deep.equal([
                 {
-                    param: 'dod-date',
+                    field: 'dod-date',
+                    href: '#dod-date',
                     msg: {
                         summary: content.errors['dod-date'].dateInFuture.summary,
                         message: content.errors['dod-date'].dateInFuture.message
@@ -96,7 +87,8 @@ describe('DeceasedDod', () => {
             [ctx, errors] = DeceasedDod.handlePost(ctx, errors, formdata, session);
             expect(errors).to.deep.equal([
                 {
-                    param: 'dod-date',
+                    field: 'dod-date',
+                    href: '#dod-date',
                     msg: {
                         summary: content.errors['dod-date'].dodBeforeDob.summary,
                         message: content.errors['dod-date'].dodBeforeDob.message
@@ -106,5 +98,4 @@ describe('DeceasedDod', () => {
             done();
         });
     });
-
 });

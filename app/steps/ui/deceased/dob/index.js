@@ -14,7 +14,6 @@ class DeceasedDob extends DateStep {
         return config.app.basePath + this.next(req, ctx).constructor.getUrl();
     }
 
-
     dateName() {
         return ['dob'];
     }

@@ -34,7 +34,7 @@
                 </div>
 
                 <div class="panel panel-border-wide">
-                    <p class="govuk-body">{{ content.successParagraph3 | replace('{citizenAdvice}', links.citizenAdvice) | safe }}</p>
+                    <p class="govuk-body">{{ content.successParagraph3 | replace('{citizenAdvice}', globals.links.citizenAdvice) | safe }}</p>
                 </div>
 
                 <a href="{{ globals.links.surveyEndOfApplication | safe }}" class="govuk-link" target="_blank" rel="external noopener">{{ content.survey | safe }}</a>

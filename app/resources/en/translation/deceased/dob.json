@@ -2,7 +2,6 @@
   "title": "Deceased date of birth",
   "question": "What was their date of birth?",
   "questionHint": "For example, 31 03 1945",
-  "legend": "Please enter date of birth",
 
   "errors": {
     "dob-day": {
