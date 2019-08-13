@@ -45,8 +45,7 @@ exports.init = function() {
     const njkEnv = nunjucks.configure([
         'app/steps',
         'app/views',
-        'node_modules/govuk-frontend/',
-        'node_modules/govuk-frontend/components/'
+        'node_modules/govuk-frontend/'
     ], {
         autoescape: true,
         watch: true,
