@@ -3,7 +3,7 @@ const sinon = require('sinon');
 const lookupPaymentFees = require('app/middleware/lookupPaymentFees');
 const FeesLookup = require('app/utils/FeesLookup');
 
-describe.only('lookupPaymentFees', () => {
+describe('lookupPaymentFees', () => {
     let req, res, next;
     let feesLookupStub;
 
@@ -49,4 +49,4 @@ describe.only('lookupPaymentFees', () => {
             done();
         }, 10);
     });
-})
+});
