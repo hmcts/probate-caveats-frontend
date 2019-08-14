@@ -1,6 +1,8 @@
 'use strict';
 
 const services = require('app/components/services');
+const logger = require('app/components/logger');
+const logInfo = (message, applicationId = 'Init') => logger(applicationId).info(message);
 
 class FeesLookup {
 
@@ -28,7 +30,7 @@ async function createCall(hostname, applicantId, data, authToken) {
         status: 'success',
         total: 0
     };
-
+    logInfo(`Sending fee request to API with the following payload: ${data}`, applicantId);
     await services.feesLookup(data, authToken, applicantId)
         .then(res => {
             if (identifyAnyErrors(res)) {
