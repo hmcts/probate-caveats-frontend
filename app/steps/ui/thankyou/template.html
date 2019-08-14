@@ -33,9 +33,9 @@
                     </p>
                 </div>
 
-                <div class="panel panel-border-wide">
-                    <p class="govuk-body">{{ content.successParagraph3 | replace('{citizenAdvice}', globals.links.citizenAdvice) | safe }}</p>
-                </div>
+                {{ govukInsetText({
+                    text: content.successParagraph3 | replace('{citizenAdvice}', globals.links.citizenAdvice) | safe
+                }) }}
 
                 <a href="{{ globals.links.surveyEndOfApplication | safe }}" class="govuk-link" target="_blank" rel="external noopener">{{ content.survey | safe }}</a>
             </div>
