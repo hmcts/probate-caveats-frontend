@@ -39,5 +39,12 @@
   "helpHeading2": "Email",
   "helpHeading3": "Web chat",
   "helpEmailLabel" : "Email us at <a href=\"mailto:{contactEmailAddress}\" class=\"govuk-link\" tabindex=\"-1\">{contactEmailAddress}</a>.",
-  "or": "or"
+  "or": "or",
+  "chatDown": "The web chat service is temporarily unavailable, please try again later.",
+  "chatWithAnAgent": "Chat online with an agent",
+  "noAgentsAvailable": "No agents are available, please try again later.",
+  "allAgentsBusy": "All our web chat agents are busy helping other people. Please try again later or contact us using one of the ways above.",
+  "chatClosed": "Web chat is now closed.\nOpening hours are {chatOpeningHours}.",
+  "chatAlreadyOpen": "A web chat window is already open.",
+  "chatOpeningHours": "Monday to Friday, 9:30am to 5pm"
 }
