@@ -4,7 +4,7 @@ const {set} = require('lodash');
 const formatUrl = require('app/utils/FormatUrl');
 const FeesLookup = require('app/utils/FeesLookup');
 
-const lookupFees = (req, res, next) => {
+const lookupPaymentFees = (req, res, next) => {
     const session = req.session;
     const formdata = session.form;
     const applicantId = formdata.applicantId;
@@ -20,4 +20,4 @@ const lookupFees = (req, res, next) => {
         });
 };
 
-module.exports = lookupFees;
+module.exports = lookupPaymentFees;

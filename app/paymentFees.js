@@ -1,8 +1,8 @@
 'use strict';
 
 const router = require('express').Router();
-const lookupFees = require('app/middleware/lookupFees');
+const lookupPaymentFees = require('app/middleware/lookupPaymentFees');
 
-router.get('/payment-breakdown', (req, res, next) => lookupFees(req, res, next));
+router.get('/payment-breakdown', (req, res, next) => lookupPaymentFees(req, res, next));
 
 module.exports = router;
