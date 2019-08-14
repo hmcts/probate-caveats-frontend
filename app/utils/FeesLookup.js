@@ -30,7 +30,7 @@ async function createCall(hostname, applicantId, data, authToken) {
         status: 'success',
         total: 0
     };
-    logInfo(`Sending fee request to API with the following payload: ${data}`, applicantId);
+    logInfo(`Sending fee request to api with the following payload: ${JSON.stringify(data)}`, applicantId);
     await services.feesLookup(data, authToken, applicantId)
         .then(res => {
             if (identifyAnyErrors(res)) {
