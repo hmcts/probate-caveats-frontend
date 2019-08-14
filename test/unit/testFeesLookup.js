@@ -7,7 +7,7 @@ const sinon = require('sinon');
 const utils = require('app/components/api-utils');
 const services = require('app/components/services');
 
-describe.only('FeesCalculator', () => {
+describe('FeesCalculator', () => {
     describe('lookup()', () => {
         let feesLookup;
         let servicesMock;
