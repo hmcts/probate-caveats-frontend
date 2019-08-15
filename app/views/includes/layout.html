@@ -25,7 +25,7 @@
     homepageUrl: "#",
     containerClasses: "govuk-width-container",
     serviceName: serviceName,
-    serviceUrl: "/"
+    serviceUrl: (globals.basePath if globals.basePath) + "/"
   }) }}
 {% endblock %}
 
