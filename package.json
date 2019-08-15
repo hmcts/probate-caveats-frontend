@@ -42,7 +42,8 @@
     "//": "The below scripts are just stubs, don't use them in production",
     "orchestration-stub": "NODE_PATH=. node test/service-stubs/orchestration.js",
     "s2s-stub": "NODE_PATH=. node test/service-stubs/s2s.js",
-    "idam-stub": "NODE_PATH=. node test/service-stubs/idam.js"
+    "idam-stub": "NODE_PATH=. node test/service-stubs/idam.js",
+    "feature-toggles-stub": "NODE_PATH=. node test/service-stubs/feature-toggles.js"
   },
   "dependencies": {
     "@hmcts/ctsc-web-chat": "^0.3.8",
