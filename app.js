@@ -25,7 +25,6 @@ const appInsights = require('applicationinsights');
 const commonContent = require('app/resources/en/translation/common');
 const uuidv4 = require('uuid/v4');
 const uuid = uuidv4();
-const featureToggles = require('app/featureToggles');
 
 exports.init = function() {
     const app = express();
@@ -206,8 +205,6 @@ exports.init = function() {
         req.session.regId = req.query.id || req.session.regId || req.sessionID;
         next();
     }, routes);
-
-    app.use(featureToggles);
 
     // Start the app
     let http;

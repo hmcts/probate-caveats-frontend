@@ -52,6 +52,7 @@ class Step {
         ctx.sessionID = req.sessionID;
         ctx = Object.assign(ctx, req.body);
         ctx = FeatureToggle.appwideToggles(req, ctx, config.featureToggles.appwideToggles);
+
         return ctx;
     }
 

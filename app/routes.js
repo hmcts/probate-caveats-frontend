@@ -9,8 +9,10 @@ const documentDownloads = require('app/documentDownloads');
 const lockPaymentAttempt = require('app/middleware/lockPaymentAttempt');
 const uuidv4 = require('uuid/v4');
 const shutter = require('app/shutter');
+const featureToggles = require('app/featureToggles');
 
 router.use(shutter);
+router.use(featureToggles);
 
 router.all('*', (req, res, next) => {
     const applicationId = get(req.session.form, 'applicationId', 'init');
