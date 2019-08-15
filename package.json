@@ -46,7 +46,7 @@
     "feature-toggles-stub": "NODE_PATH=. node test/service-stubs/feature-toggles.js"
   },
   "dependencies": {
-    "@hmcts/ctsc-web-chat": "^0.3.8",
+    "@hmcts/ctsc-web-chat": "^0.3.9",
     "@hmcts/nodejs-logging": "^3.0.0",
     "@hmcts/os-places-client": "^1.0.4",
     "ajv": "^4.11.8",
