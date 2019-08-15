@@ -16,8 +16,8 @@
         "address": {
             "addressLine1": "ffff"
         },
-        "dob-date": "1977-01-01",
-        "dod-date": "2018-11-20",
+        "dob_date": "1977-01-01",
+        "dod_date": "2018-11-20",
         "firstName": "Mike",
         "lastName": "Samuels",
         "otherNames": {
