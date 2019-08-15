@@ -13,13 +13,13 @@ class UIStepRunner {
     }
 
     handleGet(step, req, res) {
-
-        return co(function* () {
+        return co(function * () {
             let errors = null;
             const session = req.session;
             const formdata = session.form;
             let ctx = step.getContextData(req);
-            [ctx, errors] = yield step.handleGet(ctx, formdata);
+            const featureToggles = session.featureToggles;
+            [ctx, errors] = yield step.handleGet(ctx, formdata, featureToggles);
             forEach(errors, (error) =>
                 req.log.info({type: 'Validation Message', url: step.constructor.getUrl()}, JSON.stringify(error))
             );
@@ -46,20 +46,20 @@ class UIStepRunner {
     }
 
     handlePost(step, req, res) {
-
-        return co(function* () {
+        return co(function * () {
             const session = req.session;
             let formdata = session.form;
-            let ctx = step.getContextData(req);
+            let ctx = step.getContextData(req, res);
             let [isValid, errors] = [];
             const hostname = FormatUrl.createHostname(req);
             [isValid, errors] = step.validate(ctx, formdata);
+            const featureToggles = session.featureToggles;
             if (isValid) {
-                [ctx, errors] = yield step.handlePost(ctx, errors, formdata, session, hostname);
+                [ctx, errors] = yield step.handlePost(ctx, errors, formdata, session, hostname, featureToggles);
             }
 
             if (isEmpty(errors)) {
-                const nextStepUrl = step.nextStepUrl(ctx);
+                const nextStepUrl = step.nextStepUrl(req, ctx);
                 [ctx, formdata] = step.action(ctx, formdata);
 
                 set(formdata, step.section, ctx);
