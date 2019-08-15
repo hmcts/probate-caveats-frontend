@@ -12,7 +12,7 @@
         "address": {
             "addressLine1": "dddd"
         },
-        "dod-date": "2018-11-20",
+        "dod_date": "2018-11-20",
         "firstName": "Mike",
         "lastName": "Samuels"
     },
