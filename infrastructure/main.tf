@@ -90,6 +90,30 @@ data "azurerm_key_vault_secret" "caveat_user_password" {
   vault_uri = "${data.azurerm_key_vault.probate_key_vault.vault_uri}"
 }
 
+data "azurerm_key_vault_secret" "probate_webchat_id" {
+  name = "probate-webchat-id"
+  vault_uri = "${data.azurerm_key_vault.probate_key_vault.vault_uri}"
+}
+
+data "azurerm_key_vault_secret" "probate_webchat_tenant" {
+  name = "probate-webchat-tenant"
+  vault_uri = "${data.azurerm_key_vault.probate_key_vault.vault_uri}"
+}
+
+data "azurerm_key_vault_secret" "probate_webchat_button_no_agents" {
+  name = "probate-webchat-button-no-agents"
+  vault_uri = "${data.azurerm_key_vault.probate_key_vault.vault_uri}"
+}
+data "azurerm_key_vault_secret" "probate_webchat_button_busy" {
+  name = "probate-webchat-button-busy"
+  vault_uri = "${data.azurerm_key_vault.probate_key_vault.vault_uri}"
+}
+
+data "azurerm_key_vault_secret" "probate_webchat_button_service_closed" {
+  name = "probate-webchat-button-service-closed"
+  vault_uri = "${data.azurerm_key_vault.probate_key_vault.vault_uri}"
+}
+
 module "probate-caveats-fe" {
   source = "git@github.com:hmcts/moj-module-webapp.git?ref=master"
   product = "${var.product}-${var.microservice}"
@@ -164,6 +188,12 @@ module "probate-caveats-fe" {
 
     FEATURE_TOGGLES_API_URL = "${var.feature_toggles_api_url}"
 
+    // Web Chat
+    WEBCHAT_CHAT_ID = "${data.azurerm_key_vault_secret.probate_webchat_id.value}"
+    WEBCHAT_TENANT = "${data.azurerm_key_vault_secret.probate_webchat_tenant.value}"
+    WEBCHAT_BUTTON_NO_AGENTS = "${data.azurerm_key_vault_secret.probate_webchat_button_no_agents.value}"
+    WEBCHAT_BUTTON_AGENTS_BUSY = "${data.azurerm_key_vault_secret.probate_webchat_button_busy.value}"
+    WEBCHAT_BUTTON_SERVICE_CLOSED = "${data.azurerm_key_vault_secret.probate_webchat_button_service_closed.value}"
     //TESTING = "TESTING"
     // Cache
     WEBSITE_LOCAL_CACHE_OPTION = "${var.website_local_cache_option}"
