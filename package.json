@@ -86,7 +86,7 @@
     "validator": "^11.1.0"
   },
   "devDependencies": {
-    "codacy-coverage": "^3.4.0",
+    "codacy-coverage": "3.2.0",
     "codecov": "^4.0.0-0",
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
