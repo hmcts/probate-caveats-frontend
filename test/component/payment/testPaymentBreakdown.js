@@ -1,5 +1,3 @@
-// eslint-disable-line max-lines
-
 'use strict';
 
 const sinon = require('sinon');

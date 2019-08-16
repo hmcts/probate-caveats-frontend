@@ -6,7 +6,7 @@ const FormatCcdCaseId = require('app/utils/FormatCcdCaseId');
 class ThankYou extends Step {
 
     static getUrl () {
-        return '/thankyou';
+        return '/thank-you';
     }
 
     getContextData(req) {

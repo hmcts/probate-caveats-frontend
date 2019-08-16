@@ -15,30 +15,29 @@ class DeceasedDod extends DateStep {
     }
 
     dateName() {
-        return 'dod';
+        return ['dod'];
     }
 
     handlePost(ctx, errors, formdata, session) {
         let dob;
-        if (session.form.deceased && session.form.deceased.dob_year && session.form.deceased.dob_month && session.form.deceased.dob_day) {
-            dob = new Date(`${session.form.deceased.dob_year}-${session.form.deceased.dob_month}-${session.form.deceased.dob_day}`);
+        if (session.form.deceased && session.form.deceased['dob-year'] && session.form.deceased['dob-month'] && session.form.deceased['dob-day']) {
+            dob = new Date(`${session.form.deceased['dob-year']}-${session.form.deceased['dob-month']}-${session.form.deceased['dob-day']}`);
             dob.setHours(0, 0, 0, 0);
         }
 
-        const dod = new Date(`${ctx.dod_year}-${ctx.dod_month}-${ctx.dod_day}`);
+        const dod = new Date(`${ctx['dod-year']}-${ctx['dod-month']}-${ctx['dod-day']}`);
 
         const today = new Date();
         today.setHours(0, 0, 0, 0);
 
         if (dod > today) {
-            errors.push(FieldError('dod_date', 'dateInFuture', this.resourcePath, this.generateContent()));
+            errors.push(FieldError('dod-date', 'dateInFuture', this.resourcePath, this.generateContent()));
         } else if (typeof dob === 'object' && dob >= dod) {
-            errors.push(FieldError('dod_date', 'dodBeforeDob', this.resourcePath, this.generateContent()));
+            errors.push(FieldError('dod-date', 'dodBeforeDob', this.resourcePath, this.generateContent()));
         }
 
         return [ctx, errors];
     }
-
 }
 
 module.exports = DeceasedDod;

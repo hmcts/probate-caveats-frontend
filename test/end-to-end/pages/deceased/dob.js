@@ -7,8 +7,8 @@ module.exports = function (day, month, year) {
     const I = this;
 
     I.seeCurrentUrlEquals(pageUnderTest.getUrl());
-    I.fillField('#dob_day', day);
-    I.fillField('#dob_month', month);
-    I.fillField('#dob_year', year);
+    I.fillField('#dob-day', day);
+    I.fillField('#dob-month', month);
+    I.fillField('#dob-year', year);
     I.waitForNavigationToComplete(`input[value="${commonContent.saveAndContinue}"]`);
 };

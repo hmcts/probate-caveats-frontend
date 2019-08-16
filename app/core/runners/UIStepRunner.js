@@ -13,8 +13,7 @@ class UIStepRunner {
     }
 
     handleGet(step, req, res) {
-
-        return co(function* () {
+        return co(function * () {
             let errors = null;
             const session = req.session;
             const formdata = session.form;
@@ -46,8 +45,7 @@ class UIStepRunner {
     }
 
     handlePost(step, req, res) {
-
-        return co(function* () {
+        return co(function * () {
             const session = req.session;
             let formdata = session.form;
             let ctx = step.getContextData(req);

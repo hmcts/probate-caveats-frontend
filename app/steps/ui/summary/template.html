@@ -1,41 +1,39 @@
-{% extends "includes/two_thirds_form.html" %}
+{% extends "includes/layout.html" %}
 
-{% from "widgets/checkanswer.html" import checkanswer %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "widgets/checkanswer.njk" import checkanswer %}
 
-{% set column_width = "column-full" %}
+{% set title = content.Summary.title %}
 
-{% block question %}
-    <h1 class="form-title heading-large">{{ content.Summary.heading }}</h1>
-{% endblock %}
+{% block content %}
+    <div id="check-your-answers">
+        <h1 class="govuk-heading-l">{{ content.Summary.heading }}</h1>
+        <p class="govuk-body" id="main-heading-content">{{ content.Summary.checkCarefully }}</p>
 
-{% block form_content %}
-    <div class="form-group">
-        <p id="main-heading-content">{{ content.Summary.checkCarefully }}</p>
+        <h2 class="govuk-heading-m">{{ content.Summary.aboutYouHeading | safe }}</h2>
+        <dl class="govuk-summary-list">
+            {% include "ui/summary/includes/about-you.njk" %}
+        </dl>
 
-        <h2 class="heading-medium">{{ content.Summary.aboutYouHeading | safe }}</h2>
-        <table class="check-your-answers check-your-answers--long">
-            <caption class="visually-hidden">{{ content.Summary.aboutYouHeading | safe }}</caption>
-            <tbody>
-                {% include "ui/summary/includes/about-you.njk" %}
-            </tbody>
-        </table>
-
-        <h2 class="heading-medium">{{ content.Summary.deceasedHeading | safe }}</h2>
-        <table class="check-your-answers check-your-answers--long">
-            <caption class="visually-hidden">{{ content.Summary.deceasedHeading | safe }}</caption>
-            <tbody>
-                {% include "ui/summary/includes/deceased.njk" %}
-            </tbody>
-        </table>
+        <h2 class="govuk-heading-m">{{ content.Summary.deceasedHeading | safe }}</h2>
+        <dl class="govuk-summary-list">
+            {% include "ui/summary/includes/deceased.njk" %}
+        </dl>
     </div>
 
-    <p class="save-this-page-link">
+    <p class="govuk-body save-this-page-link">
         <em class="icon icon-file-download"></em>
-        <a class="anchor-margin-left" id="checkAnswerHref" href="{{ basePath }}/check-answers-pdf">{{ content.Summary.checkAnswersPdf }}</a>
+        <a class="govuk-link anchor-margin-left" id="checkAnswerHref" href="{{ globals.basePath }}/check-answers-pdf">{{ content.Summary.checkAnswersPdf }}</a>
     </p>
 
-    <div class="form-group">
-        <input class="button button-start" type="submit" value="{{ common.continue }}">
+    <div class="govuk-form-group">
+        {{ govukButton({
+            text: common.saveAndContinue,
+            href: (globals.basePath if globals.basePath) + "/payment-breakdown",
+            isStartButton: true
+        }) }}
     </div>
+
+    {% include "includes/help_details.html" %}
 {% endblock %}
-{% block save_and_close %}{% endblock %}

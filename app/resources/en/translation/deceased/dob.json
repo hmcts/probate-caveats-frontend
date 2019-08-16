@@ -2,10 +2,9 @@
   "title": "Deceased date of birth",
   "question": "What was their date of birth?",
   "questionHint": "For example, 31 03 1945",
-  "legend": "Please enter date of birth",
 
   "errors": {
-    "dob_day": {
+    "dob-day": {
       "required": {
         "summary": "You haven&rsquo;t entered the day that they were born",
         "message": "Enter the day they were born"
@@ -15,7 +14,7 @@
         "message": "Enter a valid day of birth"
       }
     },
-    "dob_month": {
+    "dob-month": {
       "required": {
         "summary": "You haven&rsquo;t entered the month that they were born",
         "message": "Enter the month they were born"
@@ -25,7 +24,7 @@
         "message": "Enter a valid month of birth"
       }
     },
-    "dob_year": {
+    "dob-year": {
       "required": {
         "summary": "You haven&rsquo;t entered the year that they were born",
         "message": "Enter the year they were born"
@@ -35,7 +34,7 @@
         "message": "Enter a valid year of birth"
       }
     },
-    "dob_date": {
+    "dob-date": {
       "invalid": {
         "summary": "You need to enter a valid date of birth",
         "message": "Enter a valid date of birth"

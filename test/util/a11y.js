@@ -1,7 +1,9 @@
+'use strict';
+
 const pa11y = require('pa11y');
 const console = require('console');
 const pa11yRun = pa11y({
-    hideElements: '.govuk-box-highlight, #logo, #footer, link[rel=mask-icon], .skipAccessTest, .button',
+    hideElements: '.govuk-box-highlight, .govuk-header__logo, .govuk-footer, link[rel=mask-icon], .govuk-skip-link, .govuk-button--start, .govuk-visually-hidden, .govuk-warning-text__assistive',
     log: {
         error: console.error.bind(console)
     }

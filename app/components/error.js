@@ -1,13 +1,15 @@
 'use strict';
 
-const {filter, isEqual, map, uniqWith, forEach} = require('lodash');
+const {filter, isEqual, map, uniqWith} = require('lodash');
 const i18next = require('i18next');
 
 const FieldError = (param, keyword, resourcePath, contentCtx) => {
     const key = `errors.${param}.${keyword}`;
     const errorPath = `${resourcePath.replace('/', '.')}.${key}`;
+
     return {
-        param: param,
+        field: param,
+        href: `#${param}`,
         msg: {
             summary: i18next.t(`${errorPath}.summary`, contentCtx),
             message: i18next.t(`${errorPath}.message`, contentCtx)
@@ -30,6 +32,9 @@ const generateErrors = (errs, ctx, formdata, errorPath, lang = 'en') => {
                 return FieldError(param, 'required', errorPath);
             }
             [, param] = e.dataPath.split('.');
+
+            param = stripBrackets(param, e);
+
             return FieldError(param, 'invalid', errorPath);
 
         } catch (e) {
@@ -39,14 +44,41 @@ const generateErrors = (errs, ctx, formdata, errorPath, lang = 'en') => {
     return uniqWith(errors, isEqual);
 };
 
+const stripBrackets = (param, e) => {
+    if (!param && e.dataPath.includes('[\'') && e.dataPath.includes('\']')) {
+        return e.dataPath.replace(/\['|']/g, '');
+    }
+    return param;
+};
+
+const populateErrors = (errors) => {
+    let err = [];
+
+    if (Array.isArray(errors[0])) {
+        errors.forEach((error) => {
+            error[1].forEach((e) => {
+                err.push(e);
+            });
+        });
+    } else {
+        err = errors;
+    }
+
+    return err;
+};
+
 const mapErrorsToFields = (fields, errors = []) => {
-    forEach(errors, (e) => {
-        if (!fields[e.param]) {
-            fields[e.param] = {};
+    const err = populateErrors(errors);
+
+    err.forEach((e) => {
+        if (!fields[e.field]) {
+            fields[e.field] = {};
         }
-        fields[e.param].error = true;
-        fields[e.param].errorMessage = e.msg;
+        fields[e.field].error = true;
+        fields[e.field].errorMessage = e.msg;
+        fields[e.field].href = e.href;
     });
+
     return fields;
 };
 

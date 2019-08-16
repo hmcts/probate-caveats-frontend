@@ -3,29 +3,29 @@
   "id": "deceased-dod",
   "type": "object",
   "properties": {
-    "dod_day": {
+    "dod-day": {
       "type": "integer",
       "minimum": 1,
       "maximum": 31
     },
-    "dod_month": {
+    "dod-month": {
       "type": "integer",
       "minimum": 1,
       "maximum": 12
     },
-    "dod_year": {
+    "dod-year": {
       "type": "integer",
       "minimum": 1000,
       "maximum": 9999
     },
-    "dod_date": {
+    "dod-date": {
       "type": "string",
       "format": "date-time"
     }
   },
   "required": [
-    "dod_day",
-    "dod_month",
-    "dod_year"
+    "dod-day",
+    "dod-month",
+    "dod-year"
   ]
 }

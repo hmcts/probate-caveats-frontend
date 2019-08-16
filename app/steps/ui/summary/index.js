@@ -45,6 +45,12 @@ class Summary extends Step {
                 }
             });
         fields[this.section] = super.generateFields(ctx, errors, formdata);
+
+        if (ctx) {
+            fields.featureToggles = {};
+            fields.featureToggles.value = ctx.featureToggles;
+        }
+
         return fields;
     }
 

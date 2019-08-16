@@ -18,7 +18,6 @@ Object.keys(steps)
 
 for (const step in steps) {
     ((step) => {
-
         let results;
 
         app.get(step.constructor.getUrl(), step.runner().GET(step));
@@ -32,8 +31,8 @@ for (const step in steps) {
                 .replace(/\)/g, '\\)');
 
             before((done) => {
-
                 agent = request(app);
+
                 co(function* () {
                     let urlSuffix = '';
                     if (endsWith(agent.get(config.app.basePath + step.constructor.getUrl()), '*')) {

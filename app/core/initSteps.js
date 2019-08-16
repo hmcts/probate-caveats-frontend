@@ -41,7 +41,7 @@ const initSteps = (stepLocations) => {
 
     stepLocations.forEach((location) => {
         const calculatePath = path => {
-            if (/index.js$/.test(path)) {
+            if ((/index.js$/).test(path)) {
                 const step = initStep(path);
                 steps[step.name] = step;
                 return true;
