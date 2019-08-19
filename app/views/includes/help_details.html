@@ -8,7 +8,7 @@
     {% if fields.featureToggles.value.webforms == "true" %}
         {% set helpContent = helpContent + "<p class=\"govuk-heading-s\">" + (common.helpHeadingOnlineForm) + "</p>" %}
         {% set helpContent = helpContent + "<p class=\"govuk-body\">" + (common.sendUsAMessage | replace('{webForms}', globals.links.webForms) | safe) + " " + common.opensInNewWindow + ".</p>" %}
-        {% set helpContent = helpContent + "<p class=\"govuk-body\">" + common.responseTime | safe + ".</p>" %}
+        {% set helpContent = helpContent + "<p class=\"govuk-body\">" + common.responseTime | safe + "</p>" %}
     {% else %}
         {% set helpContent = helpContent + "<p class=\"govuk-heading-s\">" + (common.helpHeadingEmail) + "</p>" %}
         {% set helpContent = helpContent + "<p class=\"govuk-body\">" + (common.helpEmailLabel | replace("{contactEmailAddress}", globals.links.contactEmailAddress)) + "</p>" %}
