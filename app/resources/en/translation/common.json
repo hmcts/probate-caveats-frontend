@@ -40,7 +40,7 @@
   "helpHeadingOnlineForm": "Online form",
   "helpHeadingWebchat": "Web chat",
   "helpEmailLabel" : "Email us at <a href=\"mailto:{contactEmailAddress}\" class=\"govuk-link\" tabindex=\"-1\">{contactEmailAddress}</a>.",
-  "sendUsAMessage": "<a href=\"{webForms}\" rel=\"external\" target=\"_blank\" aria-label=\"send us a message\">Send us a message</a>",
+  "sendUsAMessage": "<a href=\"{webForms}\" rel=\"external\" target=\"_blank\" aria-label=\"send us a message\" class=\"govuk-link\">Send us a message</a>",
   "opensInNewWindow": "(opens in a new window)",
   "responseTime": "We&rsquo;ll get back to you within 10 days.",
   "or": "or",
