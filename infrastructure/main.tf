@@ -11,6 +11,7 @@ locals {
   vaultName = "${(var.env == "preview" || var.env == "spreview") ? local.previewVaultName : local.nonPreviewVaultName}"
   localenv = "${(var.env == "preview" || var.env == "spreview") ? "aat": "${var.env}"}"
   caveat_internal_base_url = "http://probate-caveats-fe-${local.localenv}.service.core-compute-${local.localenv}.internal"
+  ctsc_web_form_url = "http://ctsc-web-forms-ui-${local.localenv}.service.core-compute-${local.localenv}.internal?serviceId=probate"
 }
 
 data "azurerm_subnet" "core_infra_redis_subnet" {

@@ -12,7 +12,8 @@ module.exports = {
         port: 8292,
         caveats_shutter_toggle: 'probate-caveats-fe-shutter',
         webchat: 'probate-caveats-webchat',
-        appwideToggles: ['webchat']
+        webforms: 'probate-caveats-webforms',
+        appwideToggles: ['webchat', 'webforms']
     },
     app: {
         useHttps: process.env.USE_HTTPS || 'false',

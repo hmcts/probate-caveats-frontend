@@ -11,6 +11,7 @@ nodejs:
     PUBLIC_PROTOCOL: https
     REFORM_TEAM: probate
     REFORM_SERVICE_NAME: probate-caveats-frontend
+    WEBFORMS : http://ctsc-web-forms-ui-aat.service.core-compute-aat.internal?serviceId=probate
     REFORM_ENVIRONMENT: aat
     USE_REDIS: true
     REDIS_USE_TLS: false

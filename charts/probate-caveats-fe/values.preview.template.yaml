@@ -6,6 +6,7 @@ nodejs:
     IDAM_S2S_URL: http://rpe-service-auth-provider-aat.service.core-compute-aat.internal
     CAVEAT_REDIRECT_BASE_URL: http://probate-caveats-fe-aat.service.core-compute-aat.internal
     FEATURE_TOGGLES_API_URL: http://${SERVICE_NAME}-ftr-tgl-api
+    WEBFORMS : http://ctsc-web-forms-ui-aat.service.core-compute-aat.internal?serviceId=probate
     REDIS_HOST: ${SERVICE_NAME}-redis-master
     POSTCODE_SERVICE_URL: ${PRO_POSTCODE_SERVICE_URL}
     POSTCODE_SERVICE_TOKEN: ${PRO_POSTCODE_SERVICE_TOKEN}
