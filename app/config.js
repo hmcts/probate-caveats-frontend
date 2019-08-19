@@ -58,7 +58,7 @@ module.exports = {
             path: '/formdata'
         },
         feesRegister: {
-            url: process.env.FEES_REGISTRY_URL || 'http://localhost:4411/fees-register',
+            url: process.env.FEES_REGISTRY_URL || 'http://localhost:4411/Venkat-fees-register',
             port: 4411,
             paths: {
                 fees: '/fees',
