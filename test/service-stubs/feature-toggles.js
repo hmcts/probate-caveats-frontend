@@ -10,7 +10,7 @@ const featureTogglesPort = config.featureToggles.port;
 const featureToggles = {
     'probate-caveats-fe-shutter': true,
     'probate-caveats-webchat': true,
-    'probate-webforms': true
+    'probate-caveats-webforms': true
 };
 
 Object.entries(featureToggles).forEach(([key, value]) => {
