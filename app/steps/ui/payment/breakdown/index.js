@@ -9,6 +9,7 @@ const logInfo = (message, applicationId = 'Unknown') => logger(applicationId).in
 const services = require('app/components/services');
 const security = require('app/components/security');
 const formatUrl = require('app/utils/FormatUrl');
+const FeesLookup = require('app/utils/FeesLookup');
 
 class PaymentBreakdown extends Step {
     static getUrl() {
@@ -19,34 +20,47 @@ class PaymentBreakdown extends Step {
         return config.app.basePath + this.next(req, ctx).constructor.getUrl();
     }
 
-    generateFields(ctx, errors) {
-        const fields = super.generateFields(ctx, errors);
-        set(fields, 'applicationFee.value', config.payment.applicationFee);
-        return fields;
-    }
-
     getContextData(req) {
         const ctx = super.getContextData(req);
         const formdata = req.session.form;
+
         ctx.deceasedLastName = get(formdata.deceased, 'lastName', '');
-        ctx.total = config.payment.applicationFee;
-        ctx.applicationFee = config.payment.applicationFee;
         ctx.hostname = formatUrl.createHostname(req);
         ctx.applicationId = get(formdata, 'applicationId');
+        ctx.authToken = req.authToken;
         return ctx;
     }
 
-    handleGet(ctx) {
+    handleGet(ctx, formdata) {
+        const fees = formdata.fees;
+        this.checkFeesStatus(fees);
+
+        ctx.applicationFee = fees.total;
+        ctx.total = Number.isInteger(fees.total) ? fees.total : parseFloat(fees.total).toFixed(2);
         return [ctx, ctx.errors];
+    }
+
+    checkFeesStatus(fees) {
+        if (fees.status !== 'success') {
+            throw new Error('Unable to calculate fees from Fees Api');
+        }
     }
 
     * handlePost(ctx, errors, formdata, session, hostname) {
         // this is required since this page is re-entrant for failues on /payment-status
         this.nextStepUrl = () => this.next(ctx).constructor.getUrl();
 
-        set(formdata, 'payment.total', ctx.total);
-
         try {
+            const feesLookup = new FeesLookup(formdata.applicationId, hostname);
+            const confirmFees = yield feesLookup.lookup(ctx.authToken);
+            this.checkFeesStatus(confirmFees);
+            const originalFees = formdata.fees;
+            if (confirmFees.total !== originalFees.total) {
+                throw new Error(`Error calculated fees totals have changed from ${originalFees.total} to ${confirmFees.total}`);
+            }
+            ctx.total = originalFees.total;
+            ctx.applicationFee = originalFees.total;
+
             // Setup security tokens
             yield this.setCtxWithSecurityTokens(ctx, errors);
             if (errors.length > 0) {
@@ -66,7 +80,7 @@ class PaymentBreakdown extends Step {
             // create payment
             const ccdCaseId = get(formdata.ccdCase, 'id');
             const data = {
-                amount: parseFloat(ctx.total),
+                amount: ctx.total,
                 authToken: ctx.authToken,
                 serviceAuthToken: ctx.serviceAuthToken,
                 userId: ctx.userId,
