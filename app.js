@@ -128,8 +128,8 @@ exports.init = function() {
         policy: 'origin'
     }));
 
+    app.use(helmet.referrerPolicy({policy: 'unsafe-url'}));
     app.use(helmet.noCache());
-
     app.use(helmet.xssFilter({setOnOldIE: true}));
 
     const caching = {cacheControl: true, setHeaders: (res) => res.setHeader('Cache-Control', 'max-age=604800')};
