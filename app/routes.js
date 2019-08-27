@@ -6,6 +6,7 @@ const initSteps = require('app/core/initSteps');
 const logger = require('app/components/logger');
 const {get, includes} = require('lodash');
 const documentDownloads = require('app/documentDownloads');
+const paymentFees = require('app/paymentFees');
 const lockPaymentAttempt = require('app/middleware/lockPaymentAttempt');
 const uuidv4 = require('uuid/v4');
 const shutter = require('app/shutter');
@@ -44,6 +45,7 @@ router.use((req, res, next) => {
 });
 
 router.use(documentDownloads);
+router.use(paymentFees);
 
 router.post(`${config.app.basePath}/payment-breakdown`, lockPaymentAttempt);
 

@@ -153,6 +153,7 @@ module "probate-caveats-fe" {
 
     USE_HTTPS =  "${var.caveat_frontend_https}"
     GA_TRACKING_ID = "${var.caveat_google_track_id}"
+    FEES_REGISTRY_URL = "${var.probate_fees_registry_service_url}"
 
     // REDIS
     USE_REDIS = "${var.caveat_frontend_use_redis}"
