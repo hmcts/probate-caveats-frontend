@@ -8,8 +8,8 @@ import uk.gov.hmcts.contino.Consul
 String product = "probate"
 String component = "caveats-fe"
 
-
-List<LinkedHashMap<String, Object>> secrets = [
+def secrets = [
+  'probate-${env}': [
     secret('testIdamBaseUrl', 'IDAM_API_URL'),
     secret('testInviteIdListUrl', 'INVITE_ID_LIST_URL'),
     secret('testPinUrl', 'PIN_URL'),
@@ -39,6 +39,7 @@ List<LinkedHashMap<String, Object>> secrets = [
     secret('probate-site-id', 'PRO_SITE_ID'),
     secret('caveat-user-name', 'CAVEAT_USER_EMAIL'),
     secret('caveat-user-password', 'CAVEAT_USER_PASSWORD')
+  ]
 ]
 
 static LinkedHashMap<String, Object> secret(String secretName, String envVar) {
@@ -65,7 +66,7 @@ withPipeline("nodejs", product, component) {
   enableDockerBuild()
   installCharts()
 
-  setVaultName('probate')
+  //setVaultName('probate')
   loadVaultSecrets(secrets)
   enableSlackNotifications('#probate-jenkins')
   after('functionalTest:aat') {
