@@ -11,6 +11,7 @@ locals {
   vaultName = "${(var.env == "preview" || var.env == "spreview") ? local.previewVaultName : local.nonPreviewVaultName}"
   localenv = "${(var.env == "preview" || var.env == "spreview") ? "aat": "${var.env}"}"
   caveat_internal_base_url = "http://probate-caveats-fe-${local.localenv}.service.core-compute-${local.localenv}.internal"
+  probate_fees_registry_service_url = "http://fees-register-api-${local.localenv}.service.core-compute-${local.localenv}.internal/fees-register"
   ctsc_web_form_url = "http://ctsc-web-forms-ui-${local.localenv}.service.core-compute-${local.localenv}.internal?serviceId=probate"
 }
 
@@ -153,7 +154,7 @@ module "probate-caveats-fe" {
 
     USE_HTTPS =  "${var.caveat_frontend_https}"
     GA_TRACKING_ID = "${var.caveat_google_track_id}"
-    FEES_REGISTRY_URL = "${var.probate_fees_registry_service_url}"
+    FEES_REGISTRY_URL = "${local.probate_fees_registry_service_url}"
 
     // REDIS
     USE_REDIS = "${var.caveat_frontend_use_redis}"
