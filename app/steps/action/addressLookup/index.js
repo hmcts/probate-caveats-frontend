@@ -32,7 +32,6 @@ class AddressLookup extends ValidationStep {
             try {
                 const addresses = yield services.findAddress(ctx.postcode);
                 if (!isEmpty(addresses)) {
-                    logger.error(`Addresses found for postcode: ${ctx.postcode}`);
                     referrerData.addresses = addresses;
                     referrerData.addressFound = 'true';
                     for (const key in referrerData.addresses) {
@@ -43,12 +42,10 @@ class AddressLookup extends ValidationStep {
                             );
                     }
                 } else {
-                    logger.error(`No addresses found for postcode: ${ctx.postcode}`);
                     referrerData.addressFound = 'false';
                     referrerData.errors = [FieldError('postcode', 'noAddresses', this.resourcePath, ctx)];
                 }
             } catch (e) {
-                logger.error(`An error occurred likely to be an invalid postcode for : ${ctx.postcode}`);
                 referrerData.addressFound = 'false';
                 referrerData.errors = [FieldError('postcode', 'invalid', this.resourcePath, ctx)];
             }
