@@ -22,7 +22,7 @@ class AddressLookup extends ValidationStep {
         return config.app.basePath + this.steps[this.referrer].constructor.getUrl();
     }
 
-    * handlePost (ctx, errors, formdata) {
+    * handlePost(ctx, errors, formdata) {
         this.referrer = ctx.referrer;
         let referrerData = this.getReferrerData(ctx, formdata);
         referrerData = this.pruneReferrerData(referrerData);
@@ -32,6 +32,7 @@ class AddressLookup extends ValidationStep {
             try {
                 const addresses = yield services.findAddress(ctx.postcode);
                 if (!isEmpty(addresses)) {
+                    logger.error(`Addresses found for postcode: ${ctx.postcode}`);
                     referrerData.addresses = addresses;
                     referrerData.addressFound = 'true';
                     for (const key in referrerData.addresses) {
@@ -47,7 +48,7 @@ class AddressLookup extends ValidationStep {
                     referrerData.errors = [FieldError('postcode', 'noAddresses', this.resourcePath, ctx)];
                 }
             } catch (e) {
-                logger.error(`An error occured likely to be an invalid postcode for : ${ctx.postcode}`);
+                logger.error(`An error occurred likely to be an invalid postcode for : ${ctx.postcode}`);
                 referrerData.addressFound = 'false';
                 referrerData.errors = [FieldError('postcode', 'invalid', this.resourcePath, ctx)];
             }
