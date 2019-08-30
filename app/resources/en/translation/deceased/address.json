@@ -24,7 +24,7 @@
     },
     "postTown": {
       "required": {
-        "summary": "summary": "You haven&rsquo;t entered the town or city",
+        "summary": "You haven&rsquo;t entered the town or city",
         "message": "Enter a town or city"
       },
       "invalid": {
@@ -34,7 +34,7 @@
     },
     "newPostCode": {
       "required": {
-        "summary": "summary": "You haven&rsquo;t entered the postcode",
+        "summary": "You haven&rsquo;t entered the postcode",
         "message": "Enter a postcode"
       },
       "invalid": {
