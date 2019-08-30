@@ -10,7 +10,7 @@
         <input type="text" class="govuk-input govuk-!-width-one-quarter {{ "govuk-input--error" if fields.postcode.error }}" id="postcode" name="postcode" value="{{ fields.postcode.value }}">
         <input type="hidden" id="referrer" name="referrer" value="{{ step }}">
         <input type="hidden" id="addressFound" name="addressFound" value="{{ fields.addressFound.value if fields.addressFound else "none" }}">
-        <button type="submit" data-prevent-double-click="true" class="govuk-button govuk-button--secondary find-address-button" id="findAddress" formaction="/find-address" disabled>{{ content.findAddress }}</button>
+        <button type="submit" data-prevent-double-click="true" class="govuk-button govuk-button--secondary find-address-button" id="findAddress" formaction="{{ basePath }}/find-address" disabled>{{ content.findAddress }}</button>
     </div>
 
     {% if fields.addresses %}
