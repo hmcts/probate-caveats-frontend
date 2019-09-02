@@ -4,7 +4,7 @@ const initSteps = require('app/core/initSteps');
 const assert = require('chai').assert;
 
 describe('AddAlias', () => {
-    const steps = initSteps([`${__dirname}'/../../app/steps/action/`, `${__dirname}/../../app/steps/ui`]);
+    const steps = initSteps([`${__dirname}/../../app/steps/action/`, `${__dirname}/../../app/steps/ui`]);
 
     describe('handlePost', () => {
         it('Adds other names to formdata', (done) => {

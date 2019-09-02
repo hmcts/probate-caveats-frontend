@@ -3,7 +3,7 @@
 const TestWrapper = require('test/util/TestWrapper');
 const DeceasedAlias = require('app/steps/ui/deceased/alias/index');
 const DeceasedDob = require('app/steps/ui/deceased/dob/index');
-const testHelpBlockContent = require('test/component/common/testHelpBlockContent.js');
+const testCommonContent = require('test/component/common/testCommonContent.js');
 const config = require('app/config');
 const basePath = config.app.basePath;
 const nock = require('nock');
@@ -23,7 +23,7 @@ describe('deceased-dob-known', () => {
     });
 
     describe('Verify Content, Errors and Redirection', () => {
-        testHelpBlockContent.runTest('DeceasedDobKnown');
+        testCommonContent.runTest('DeceasedDobKnown');
 
         it('test right content loaded on the page', (done) => {
             const sessionData = {
@@ -40,13 +40,13 @@ describe('deceased-dob-known', () => {
                 .send(sessionData)
                 .end(() => {
                     const contentData = {deceasedName: 'Jason Smith'};
-                    testWrapper.testContent(done, [], contentData);
+
+                    testWrapper.testContent(done, contentData);
                 });
         });
 
         it('test errors message displayed for missing data', (done) => {
-            const data = {};
-            testWrapper.testErrors(done, data, 'required', []);
+            testWrapper.testErrors(done, {}, 'required', []);
         });
 
         it(`test it redirects to deceased dob known: ${expectedNextUrlForDeceasedDob}`, (done) => {

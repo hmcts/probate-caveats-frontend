@@ -2,7 +2,7 @@
 
 const TestWrapper = require('test/util/TestWrapper');
 const ApplicantEmail = require('app/steps/ui/applicant/email/index');
-const testHelpBlockContent = require('test/component/common/testHelpBlockContent.js');
+const testCommonContent = require('test/component/common/testCommonContent.js');
 const config = require('app/config');
 const basePath = config.app.basePath;
 
@@ -19,7 +19,7 @@ describe('applicant-name', () => {
     });
 
     describe('Verify Content, Errors and Redirection', () => {
-        testHelpBlockContent.runTest('ApplicantName');
+        testCommonContent.runTest('ApplicantName');
 
         it('test content loaded on the page', (done) => {
             testWrapper.testContent(done);

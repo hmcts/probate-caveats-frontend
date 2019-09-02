@@ -3,7 +3,7 @@
 'use strict';
 
 const sinon = require('sinon');
-const testHelpBlockContent = require('test/component/common/testHelpBlockContent');
+const testCommonContent = require('test/component/common/testCommonContent');
 const TestWrapper = require('test/util/TestWrapper');
 const services = require('app/components/services');
 const security = require('app/components/security');
@@ -50,7 +50,7 @@ describe('paymentBreakdown', () => {
                 }));
         });
 
-        testHelpBlockContent.runTest('PaymentBreakdown');
+        testCommonContent.runTest('PaymentBreakdown');
 
         it('test right content loaded on the page', (done) => {
             const sessionData = {
@@ -58,6 +58,7 @@ describe('paymentBreakdown', () => {
                     firstName: 'value'
                 }
             };
+
             testWrapper.agent.post('/prepare-session/form')
                 .send(sessionData)
                 .end(() => {
@@ -112,7 +113,6 @@ describe('paymentBreakdown', () => {
         });
 
         it('test error message when idam authentication fails', (done) => {
-            const data = {};
             servicesMock.expects('authorise').returns(Promise.resolve('authorised'));
             securityMock.expects('getUserToken').returns(Promise.resolve({
                 name: 'Error',
@@ -127,12 +127,11 @@ describe('paymentBreakdown', () => {
                     if (err) {
                         throw err;
                     }
-                    testWrapper.testErrors(done, data, 'failure', ['authorisation']);
+                    testWrapper.testErrors(done, {}, 'failure', ['authorisation']);
                 });
         });
 
         it('test error message when orchestration service fails', (done) => {
-            const data = {};
             servicesMock.expects('authorise').returns(Promise.resolve('authorised'));
             securityMock.expects('getUserToken').returns(Promise.resolve('token'));
             servicesMock.expects('sendToOrchestrationService').returns(Promise.resolve({
@@ -148,7 +147,7 @@ describe('paymentBreakdown', () => {
                     if (err) {
                         throw err;
                     }
-                    testWrapper.testErrors(done, data, 'failure', ['submit']);
+                    testWrapper.testErrors(done, {}, 'failure', ['submit']);
                 });
         });
 
@@ -188,7 +187,6 @@ describe('paymentBreakdown', () => {
         });
 
         it('test error message when createPayment service call fails', (done) => {
-            const data = {};
             servicesMock.expects('authorise').returns(Promise.resolve('authorised'));
             securityMock.expects('getUserToken').returns(Promise.resolve('token'));
             servicesMock.expects('sendToOrchestrationService').returns(
@@ -213,7 +211,7 @@ describe('paymentBreakdown', () => {
                     if (err) {
                         throw err;
                     }
-                    testWrapper.testErrors(done, data, 'failure', ['payment']);
+                    testWrapper.testErrors(done, {}, 'failure', ['payment']);
                 });
         });
     });
