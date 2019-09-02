@@ -19,28 +19,26 @@
 <script src="{{ globals.basePath }}/public/javascripts/form-polyfill.js"></script>
 <![endif]-->
 
-{% if fields.featureToggles.value.webchat == "true" %}
-    <script src="{{ globals.basePath }}/webchat/javascript/hmcts-webchat.js"></script>
-    <script nonce="{{ globals.nonce }}">
-        webchat_init({
-            uuid: 'script_{{ globals.webChat.chatId }}',
-            tenant: '{{ globals.webChat.tenant }}',
-            channel: 'Probate',
-            stylesheetURL: 'https://' + window.location.hostname + '/webchat/css/hmcts-webchat-gds-v3.css',
-            busHandlerURL: 'https://' + window.location.hostname + '/webchat/javascript/hmcts-webchat-busHandler.js',
-            btnNoAgents: '/{{ globals.webChat.tenant }}/button_{{ globals.webChat.buttonNoAgents }}/img/logo',
-            btnAgentsBusy: '/{{ globals.webChat.tenant }}/button_{{ globals.webChat.buttonAgentsBusy }}/img/logo',
-            btnServiceClosed: '/{{ globals.webChat.tenant }}/button_{{ globals.webChat.buttonServiceClosed }}/img/logo',
-            chatDownAction: 'showMessage',
-            chatLinkFocusable: false,
-            textChatDown: '{{ common.chatDown | replace("\n", "\\n") }}',
-            textChatClosed: '{{ common.chatClosed | replace("\n", "\\n") | replace("{chatOpeningHours}", common.chatOpeningHours) }}',
-            textChatWithAnAgent: '{{ common.chatWithAnAgent | replace("\n", "\\n") }}',
-            textNoAgentsAvailable: '{{ common.noAgentsAvailable | replace("\n", "\\n") }}',
-            textAllAgentsBusy: '{{ common.allAgentsBusy | replace("\n", "\\n") }}',
-            textChatAlreadyOpen: '{{ common.chatAlreadyOpen | replace("\\n", "\\\\n") }}',
-            textAdditional: '{{ common.chatOpeningHours | replace("\n", "\\n") }}.',
-            gdsMajorVersion: 3
-        });
-    </script>
-{% endif %}
+<script src="{{ globals.basePath }}/webchat/javascript/hmcts-webchat.js"></script>
+<script nonce="{{ globals.nonce }}">
+    webchat_init({
+        uuid: 'script_{{ globals.webChat.chatId }}',
+        tenant: '{{ globals.webChat.tenant }}',
+        channel: 'Probate',
+        stylesheetURL: 'https://' + window.location.hostname + '/webchat/css/hmcts-webchat-gds-v3.css',
+        busHandlerURL: 'https://' + window.location.hostname + '/webchat/javascript/hmcts-webchat-busHandler.js',
+        btnNoAgents: '/{{ globals.webChat.tenant }}/button_{{ globals.webChat.buttonNoAgents }}/img/logo',
+        btnAgentsBusy: '/{{ globals.webChat.tenant }}/button_{{ globals.webChat.buttonAgentsBusy }}/img/logo',
+        btnServiceClosed: '/{{ globals.webChat.tenant }}/button_{{ globals.webChat.buttonServiceClosed }}/img/logo',
+        chatDownAction: 'showMessage',
+        chatLinkFocusable: false,
+        textChatDown: '{{ common.chatDown | replace("\n", "\\n") }}',
+        textChatClosed: '{{ common.chatClosed | replace("\n", "\\n") | replace("{chatOpeningHours}", common.chatOpeningHours) }}',
+        textChatWithAnAgent: '{{ common.chatWithAnAgent | replace("\n", "\\n") }}',
+        textNoAgentsAvailable: '{{ common.noAgentsAvailable | replace("\n", "\\n") }}',
+        textAllAgentsBusy: '{{ common.allAgentsBusy | replace("\n", "\\n") }}',
+        textChatAlreadyOpen: '{{ common.chatAlreadyOpen | replace("\\n", "\\\\n") }}',
+        textAdditional: '{{ common.chatOpeningHours | replace("\n", "\\n") }}.',
+        gdsMajorVersion: 3
+    });
+</script>
