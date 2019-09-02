@@ -11,9 +11,8 @@ module.exports = {
         path: process.env.FEATURE_TOGGLES_PATH || '/api/ff4j/check',
         port: 8292,
         caveats_shutter_toggle: 'probate-caveats-fe-shutter',
-        webchat: 'probate-caveats-webchat',
         webforms: 'probate-caveats-webforms',
-        appwideToggles: ['webchat', 'webforms']
+        appwideToggles: ['webforms']
     },
     app: {
         useHttps: process.env.USE_HTTPS || 'false',

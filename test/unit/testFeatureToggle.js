@@ -183,12 +183,11 @@ describe('FeatureToggle', () => {
         });
 
         it('should add all appwide toggles to ctx when present', (done) => {
-            const appwideToggles = ['webchat', 'webforms'];
+            const appwideToggles = ['test_toggle'];
             const req = {
                 session: {
                     featureToggles: {
-                        webchat: true,
-                        webforms: false
+                        test_toggle: false
                     }
                 }
             };
@@ -198,8 +197,7 @@ describe('FeatureToggle', () => {
 
             expect(ctx).to.deep.equal({
                 featureToggles: {
-                    webchat: 'true',
-                    webforms: 'false'
+                    test_toggle: 'false'
                 }
             });
             done();

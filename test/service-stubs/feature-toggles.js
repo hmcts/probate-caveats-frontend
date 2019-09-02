@@ -8,8 +8,7 @@ const app = express();
 const featureTogglesPort = config.featureToggles.port;
 
 const featureToggles = {
-    'probate-caveats-fe-shutter': true,
-    'probate-caveats-webchat': true,
+    'probate-caveats-fe-shutter': false,
     'probate-caveats-webforms': true
 };
 
