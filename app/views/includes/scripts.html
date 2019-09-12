@@ -19,14 +19,14 @@
 <script src="{{ globals.basePath }}/public/javascripts/form-polyfill.js"></script>
 <![endif]-->
 
-<script src="{{ globals.basePath }}/webchat/javascript/hmcts-webchat.js"></script>
+<script src="{{ globals.basePath }}/public/webchat/javascript/hmcts-webchat.js"></script>
 <script nonce="{{ globals.nonce }}">
     webchat_init({
         uuid: 'script_{{ globals.webChat.chatId }}',
         tenant: '{{ globals.webChat.tenant }}',
         channel: 'Probate',
-        stylesheetURL: 'https://' + window.location.hostname + '/webchat/css/hmcts-webchat-gds-v3.css',
-        busHandlerURL: 'https://' + window.location.hostname + '/webchat/javascript/hmcts-webchat-busHandler.js',
+        stylesheetURL: 'https://' + window.location.hostname + '/public/webchat/css/hmcts-webchat-gds-v3.css',
+        busHandlerURL: 'https://' + window.location.hostname + '/public/webchat/javascript/hmcts-webchat-busHandler.js',
         btnNoAgents: '/{{ globals.webChat.tenant }}/button_{{ globals.webChat.buttonNoAgents }}/img/logo',
         btnAgentsBusy: '/{{ globals.webChat.tenant }}/button_{{ globals.webChat.buttonAgentsBusy }}/img/logo',
         btnServiceClosed: '/{{ globals.webChat.tenant }}/button_{{ globals.webChat.buttonServiceClosed }}/img/logo',
