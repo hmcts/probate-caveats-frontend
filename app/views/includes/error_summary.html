@@ -1,0 +1,14 @@
+{% if errors and errors.length > 0 %}
+    {% set errorList = [] %}
+    {% for item in errors %}
+        {% set errorList = (errorList.push({
+            href: item.href,
+            text: item.msg.summary | safe
+        }), errorList) %}
+    {% endfor %}
+
+    {{ govukErrorSummary({
+        "titleText": common.errorSummaryHeading,
+        "errorList": errorList
+    }) }}
+{% endif %}

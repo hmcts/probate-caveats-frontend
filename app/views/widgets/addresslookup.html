@@ -10,7 +10,7 @@
         <input type="text" class="govuk-input govuk-!-width-one-quarter {{ "govuk-input--error" if fields.postcode.error }}" id="postcode" name="postcode" value="{{ fields.postcode.value }}">
         <input type="hidden" id="referrer" name="referrer" value="{{ step }}">
         <input type="hidden" id="addressFound" name="addressFound" value="{{ fields.addressFound.value if fields.addressFound else "none" }}">
-        <button type="submit" data-prevent-double-click="true" class="govuk-button govuk-button--secondary find-address-button" id="findAddress" formaction="{{ basePath }}/find-address" disabled>{{ content.findAddress }}</button>
+        <button type="submit" data-prevent-double-click="true" class="govuk-button govuk-button--secondary find-address-button" id="findAddress">{{ content.findAddress }}</button>
     </div>
 
     {% if fields.addresses %}
@@ -28,21 +28,10 @@
 
     <script nonce="{{ globals.nonce }}">
         (function() {
-            const postcodeField = document.getElementById('postcode');
-            const postcodeAddressSelect = document.getElementById('postcodeAddress');
-            const findAddressButton = document.getElementById('findAddress');
-
-            postcodeField.addEventListener('focus', function(e) {
-                findAddressButton.removeAttribute('disabled');
-            });
-            postcodeAddressSelect.addEventListener('focus', function(e) {
-                findAddressButton.setAttribute('disabled', true);
-            });
-
             if (document.getElementById('postcodeAddress')) {
                 const addresses = [
                     {% for address in fields.addresses.value %}
-                    '{{ address.formattedAddress | replace("\'", "\\\'") | replace(",", "###") | safe}}',
+                        '{{ address.formattedAddress | replace("\'", "\\\'") | replace(",", "###") | safe}}',
                     {% endfor %}
                 ];
                 document.getElementById('postcodeAddress').addEventListener('change', function(e) {
