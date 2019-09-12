@@ -4,7 +4,6 @@ const express = require('express');
 const app = express();
 const session = require('express-session');
 const nunjucks = require('nunjucks');
-const filters = require('app/components/filters.js');
 const config = require('test/config');
 const commonContent = require('app/resources/en/translation/common');
 
@@ -24,14 +23,15 @@ exports.init = function() {
         next();
     });
 
+    const isDev = app.get('env') === 'development';
+
     const njkEnv = nunjucks.configure([
         'app/steps',
         'app/views',
         'node_modules/govuk-frontend/'
     ], {
-        autoescape: true,
-        watch: true,
-        noCache: true
+        noCache: isDev,
+        express: app
     });
 
     const globals = {
@@ -42,9 +42,6 @@ exports.init = function() {
         helpline: config.helpline
     };
     njkEnv.addGlobal('globals', globals);
-
-    filters(njkEnv);
-    njkEnv.express(app);
 
     // Add variables that are available in all views
     app.use(function (req, res, next) {
