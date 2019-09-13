@@ -2,7 +2,7 @@
 
 const TestWrapper = require('test/util/TestWrapper');
 const Summary = require('app/steps/ui/summary/index');
-const testHelpBlockContent = require('test/component/common/testHelpBlockContent.js');
+const testCommonContent = require('test/component/common/testCommonContent.js');
 const config = require('app/config');
 const basePath = config.app.basePath;
 
@@ -19,10 +19,10 @@ describe('deceased-address', () => {
     });
 
     describe('Verify Content, Errors and Redirection', () => {
-        testHelpBlockContent.runTest('DeceasedAddress');
+        testCommonContent.runTest('DeceasedAddress');
 
         it('test right content loaded on the page', (done) => {
-            const excludeContent = ['selectAddress'];
+            const contentToExclude = ['selectAddress'];
             const sessionData = {
                 applicant: {
                     firstName: 'value'
@@ -37,7 +37,8 @@ describe('deceased-address', () => {
                 .send(sessionData)
                 .end(() => {
                     const contentData = {deceasedName: 'Jason Smith'};
-                    testWrapper.testContent(done, excludeContent, contentData);
+
+                    testWrapper.testContent(done, contentData, contentToExclude);
                 });
         });
 
@@ -55,6 +56,5 @@ describe('deceased-address', () => {
             };
             testWrapper.testRedirect(done, data, expectedNextUrlForSummary);
         });
-
     });
 });

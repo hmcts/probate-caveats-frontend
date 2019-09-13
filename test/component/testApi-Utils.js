@@ -34,6 +34,5 @@ describe('api-utils', () => {
             expect(fetchOptions.body).to.equal(expectedFetchOptions.body);
             done();
         });
-
     });
 });

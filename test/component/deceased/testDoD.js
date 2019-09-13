@@ -2,7 +2,7 @@
 
 const TestWrapper = require('test/util/TestWrapper');
 const DeceasedDobKnown = require('app/steps/ui/deceased/dobknown/index');
-const testHelpBlockContent = require('test/component/common/testHelpBlockContent.js');
+const testCommonContent = require('test/component/common/testCommonContent.js');
 const config = require('app/config');
 const basePath = config.app.basePath;
 const nock = require('nock');
@@ -21,7 +21,7 @@ describe('deceased-dod', () => {
     });
 
     describe('Verify Content, Errors and Redirection', () => {
-        testHelpBlockContent.runTest('DeceasedDod');
+        testCommonContent.runTest('DeceasedDod');
 
         it('test right content loaded on the page', (done) => {
             const sessionData = {applicant: {firstName: 'value'}};
@@ -34,9 +34,8 @@ describe('deceased-dod', () => {
 
         it('test error message displayed for missing data', (done) => {
             const errorsToTest = ['dod-day', 'dod-month', 'dod-year'];
-            const data = {};
 
-            testWrapper.testErrors(done, data, 'required', errorsToTest);
+            testWrapper.testErrors(done, {}, 'required', errorsToTest);
         });
 
         it('test error message displayed for invalid day', (done) => {

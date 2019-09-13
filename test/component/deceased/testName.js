@@ -2,7 +2,7 @@
 
 const TestWrapper = require('test/util/TestWrapper');
 const DeceasedDoD = require('app/steps/ui/deceased/dod/index');
-const testHelpBlockContent = require('test/component/common/testHelpBlockContent.js');
+const testCommonContent = require('test/component/common/testCommonContent.js');
 const config = require('app/config');
 const basePath = config.app.basePath;
 
@@ -19,7 +19,7 @@ describe('deceased-name', () => {
     });
 
     describe('Verify Content, Errors and Redirection', () => {
-        testHelpBlockContent.runTest('DeceasedName');
+        testCommonContent.runTest('DeceasedName');
 
         it('test right content loaded on the page', (done) => {
             const sessionData = {applicant: {firstName: 'value'}};
@@ -31,10 +31,7 @@ describe('deceased-name', () => {
         });
 
         it('test errors message displayed for missing data', (done) => {
-
-            const data = {};
-
-            testWrapper.testErrors(done, data, 'required', []);
+            testWrapper.testErrors(done, {}, 'required', []);
 
         });
 
@@ -44,6 +41,7 @@ describe('deceased-name', () => {
                 firstName: '<dee',
                 lastName: 'ceased'
             };
+
             testWrapper.testErrors(done, data, 'invalid', errorsToTest);
         });
 
@@ -53,6 +51,7 @@ describe('deceased-name', () => {
                 firstName: 'dee',
                 lastName: '<ceased'
             };
+
             testWrapper.testErrors(done, data, 'invalid', errorsToTest);
         });
 
@@ -61,6 +60,7 @@ describe('deceased-name', () => {
                 firstName: 'Bob',
                 lastName: 'Smith'
             };
+
             testWrapper.testRedirect(done, data, expectedNextUrlForDeceasedDoD);
         });
 

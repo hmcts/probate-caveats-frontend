@@ -3,7 +3,7 @@ const TestWrapper = require('test/util/TestWrapper');
 const DeceasedName = require('app/steps/ui/deceased/name/index');
 const testAddressData = require('test/data/find-address');
 const formatAddress = address => address.replace(/,/g, ', ');
-const testHelpBlockContent = require('test/component/common/testHelpBlockContent.js');
+const testCommonContent = require('test/component/common/testCommonContent.js');
 const config = require('app/config');
 const basePath = config.app.basePath;
 
@@ -20,15 +20,16 @@ describe('applicant-address', () => {
     });
 
     describe('Verify Content, Errors and Redirection', () => {
-        testHelpBlockContent.runTest('ApplicantAddress');
+        testCommonContent.runTest('ApplicantAddress');
 
         it('test right content loaded on the page', (done) => {
             const excludeContent = ['selectAddress'];
             const sessionData = {applicant: {firstName: 'value'}};
+
             testWrapper.agent.post('/prepare-session/form')
                 .send(sessionData)
                 .end(() => {
-                    testWrapper.testContent(done, excludeContent);
+                    testWrapper.testContent(done, {}, excludeContent);
                 });
         });
 
@@ -44,6 +45,7 @@ describe('applicant-address', () => {
                 postTown: 'value',
                 newPostCode: 'value'
             };
+
             testWrapper.testRedirect(done, data, expectedNextUrlForDeceasedName);
         });
 

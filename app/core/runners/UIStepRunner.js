@@ -2,7 +2,6 @@
 
 const co = require('co');
 const {curry, set, isEmpty, forEach} = require('lodash');
-const mapErrorsToFields = require('app/components/error').mapErrorsToFields;
 const FormatUrl = require('app/utils/FormatUrl');
 
 class UIStepRunner {
@@ -72,8 +71,7 @@ class UIStepRunner {
                     req.log.info({type: 'Validation Message', url: step.constructor.getUrl()}, JSON.stringify(error))
                 );
                 const content = step.generateContent(ctx, formdata);
-                let fields = step.generateFields(ctx, errors, formdata);
-                fields = mapErrorsToFields(fields, errors);
+                const fields = step.generateFields(ctx, errors, formdata);
                 const common = step.commonContent();
                 res.render(step.template, {content, fields, errors, common});
             }
