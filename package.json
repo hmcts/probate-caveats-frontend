@@ -63,7 +63,7 @@
     "express-session": "^1.16.2",
     "express-urlrewrite": "^1.2.0",
     "file-type": "^12.1.0",
-    "govuk-frontend": "^3.0.0",
+    "govuk-frontend": "^3.2.0",
     "helmet": "3.20.0",
     "https-proxy-agent": "^2.2.2",
     "i18next": "^17.0.11",
@@ -82,6 +82,7 @@
     "require-directory": "^2.1.1",
     "serve-favicon": "^2.5.0",
     "stryker": "^1.0.1",
+    "superagent": "^5.1.0",
     "uuid": "^3.3.2",
     "validator": "^11.1.0"
   },
@@ -91,7 +92,7 @@
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
     "codeceptjs": "^2.2.1",
-    "eslint": "^5.16.0",
+    "eslint": "^6.1.0",
     "eslint-plugin-mocha": "^6.0.0",
     "istanbul": "^1.1.0-alpha.1",
     "mocha": "^3.5.3",
@@ -114,7 +115,6 @@
     "stryker-javascript-mutator": "^0.14.1",
     "stryker-mocha-framework": "^0.15.1",
     "stryker-mocha-runner": "^0.17.1",
-    "superagent": "^5.1.0",
     "supertest": "^4.0.2",
     "watch": "^1.0.2",
     "when": "^3.7.8"

@@ -16,13 +16,13 @@ describe('start-page', () => {
 
     describe('Verify Content, Errors and Redirection', () => {
         it('test right content loaded on the page', (done) => {
-            const excludeContent = [
+            const contentToExclude = [
                 'bullet7',
                 'paragraph7'
             ];
             const contentData = {applicationFormPA8A: config.links.applicationFormPA8A};
 
-            testWrapper.testContent(done, excludeContent, contentData);
+            testWrapper.testContent(done, contentData, contentToExclude);
         });
     });
 });

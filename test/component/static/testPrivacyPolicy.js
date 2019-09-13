@@ -27,7 +27,7 @@ describe('privacy-policy', () => {
                 informationCommissionersOfficeLink: config.links.informationCommissionersOffice
             };
 
-            testWrapper.testContent(done, [], contentData);
+            testWrapper.testContent(done, contentData);
         });
     });
 });
