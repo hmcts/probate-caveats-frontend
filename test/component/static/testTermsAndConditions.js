@@ -25,7 +25,7 @@ describe('terms-conditions', () => {
                 callChargesLink: config.links.callCharges
             };
 
-            testWrapper.testContent(done, [], contentData);
+            testWrapper.testContent(done, contentData);
         });
     });
 });

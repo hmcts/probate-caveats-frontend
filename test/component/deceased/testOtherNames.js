@@ -1,9 +1,8 @@
 'use strict';
 
 const TestWrapper = require('test/util/TestWrapper');
-const {set} = require('lodash');
 const DeceasedAddress = require('app/steps/ui/deceased/address/index');
-const testHelpBlockContent = require('test/component/common/testHelpBlockContent.js');
+const testCommonContent = require('test/component/common/testCommonContent.js');
 const config = require('app/config');
 const basePath = config.app.basePath;
 
@@ -13,7 +12,6 @@ describe('deceased-othernames', () => {
 
     beforeEach(() => {
         testWrapper = new TestWrapper('DeceasedOtherNames');
-        sessionData = {};
     });
 
     afterEach(() => {
@@ -21,32 +19,49 @@ describe('deceased-othernames', () => {
     });
 
     describe('Verify Content, Errors and Redirection', () => {
-        testHelpBlockContent.runTest('DeceasedOtherNames');
+        testCommonContent.runTest('DeceasedOtherNames');
 
         it('test right content loaded on the page', (done) => {
-            set(sessionData, 'applicant.firstName', 'value');
-            set(sessionData, 'deceased.firstName', 'John');
-            set(sessionData, 'deceased.lastName', 'Doe');
-
-            const excludeContent = ['otherName', 'removeName'];
+            const sessionData = {
+                applicant: {
+                    firstName: 'value'
+                },
+                deceased: {
+                    firstName: 'John',
+                    lastName: 'Doe'
+                }
+            };
+            const contentToExclude = ['otherName', 'removeName'];
 
             testWrapper.agent.post(`${basePath}/prepare-session/form`)
                 .send(sessionData)
                 .end(() => {
                     const contentData = {deceasedName: 'John Doe'};
 
-                    testWrapper.testContent(done, excludeContent, contentData);
+                    testWrapper.testContent(done, contentData, contentToExclude);
                 });
         });
 
         it('test right content loaded on the page when deceased has other names', (done) => {
-            set(sessionData, 'applicant.firstName', 'value');
-            set(sessionData, 'deceased.firstName', 'John');
-            set(sessionData, 'deceased.lastName', 'Doe');
-            set(sessionData, 'deceased.otherNames.name_0.firstName', 'James');
-            set(sessionData, 'deceased.otherNames.name_0.lastName', 'Miller');
-            set(sessionData, 'deceased.otherNames.name_1.firstName', 'Henry');
-            set(sessionData, 'deceased.otherNames.name_1.lastName', 'Hat');
+            const sessionData = {
+                applicant: {
+                    firstName: 'value'
+                },
+                deceased: {
+                    firstName: 'John',
+                    lastName: 'Doe',
+                    otherNames: {
+                        name_0: {
+                            firstName: 'James',
+                            lastName: 'Miller'
+                        },
+                        name_1: {
+                            firstName: 'Henry',
+                            lastName: 'Hat'
+                        }
+                    }
+                }
+            };
 
             testWrapper.agent.post(`${basePath}/prepare-session/form`)
                 .send(sessionData)
@@ -55,36 +70,49 @@ describe('deceased-othernames', () => {
                         deceasedName: 'John Doe'
                     };
 
-                    testWrapper.testContent(done, [], contentData);
+                    testWrapper.testContent(done, contentData);
                 });
         });
 
         it('test otherNames schema validation when no data is entered', (done) => {
-            const data = {};
-
-            testWrapper.testErrors(done, data, 'required', []);
+            testWrapper.testErrors(done, {}, 'required', []);
         });
 
         it('test otherNames schema validation when invalid firstname is entered', (done) => {
-            const data = {};
-            set(data, 'otherNames.name_0.firstName', '<John');
-            set(data, 'otherNames.name_0.lastName', 'Doe');
+            const data = {
+                otherNames: {
+                    name_0: {
+                        firstName: '<John',
+                        lastName: 'Doe'
+                    }
+                }
+            };
 
             testWrapper.testErrors(done, data, 'invalid', ['firstName']);
         });
 
         it('test otherNames schema validation when invalid lastname is entered', (done) => {
-            const data = {};
-            set(data, 'otherNames.name_0.firstName', 'John');
-            set(data, 'otherNames.name_0.lastName', '<Doe');
+            const data = {
+                otherNames: {
+                    name_0: {
+                        firstName: 'John',
+                        lastName: '<Doe'
+                    }
+                }
+            };
 
             testWrapper.testErrors(done, data, 'invalid', ['lastName']);
         });
 
         it(`test it redirects to deceased address page: ${expectedNextUrlForDeceasedAddress}`, (done) => {
-            const data = {};
-            set(data, 'otherNames.name_0.firstName', 'John');
-            set(data, 'otherNames.name_0.lastName', 'Doe');
+            const data = {
+                otherNames: {
+                    name_0: {
+                        firstName: 'John',
+                        lastName: 'Doe'
+                    }
+                }
+            };
 
             testWrapper.agent.post(`${basePath}/prepare-session/form`)
                 .send(sessionData)

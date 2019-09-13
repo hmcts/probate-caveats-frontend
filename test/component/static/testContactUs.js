@@ -22,7 +22,7 @@ describe('contact-us', () => {
                 callChargesLink: config.links.callCharges
             };
 
-            testWrapper.testContent(done, [], contentData);
+            testWrapper.testContent(done, contentData);
         });
     });
 });

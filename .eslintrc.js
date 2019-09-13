@@ -264,6 +264,7 @@ module.exports = {
             "error",
             "as-needed"
         ],
+        "require-atomic-updates": "off",
         "require-await": "error",
         "require-jsdoc": "off",
         "rest-spread-spacing": "error",
