@@ -14,7 +14,7 @@
   "errors": {
     "addressLine1": {
       "required": {
-        "summary": "You haven&rsquo;t entered the first line of the address",
+        "summary": "Enter the first line of the address",
         "message": "Enter the first line of the address"
       },
       "invalid": {
@@ -24,7 +24,7 @@
     },
     "postTown": {
       "required": {
-        "summary": "You haven&rsquo;t entered the town or city",
+        "summary": "Enter a town or city",
         "message": "Enter a town or city"
       },
       "invalid": {
@@ -34,12 +34,12 @@
     },
     "newPostCode": {
       "required": {
-        "summary": "You haven&rsquo;t entered the postcode",
+        "summary": "Enter a postcode",
         "message": "Enter a postcode"
       },
       "invalid": {
-        "summary": "You haven&rsquo;t entered a complete postcode",
-        "message": "Enter a postcode that is 2-14 characters long"
+        "summary": "Please enter minimum length for post code",
+        "message": "2 - 14 characters"
       }
     }
   }
