@@ -8,7 +8,7 @@ const services = require('app/components/services');
 const co = require('co');
 
 describe('AddressLookup', function () {
-    const steps = initSteps([__dirname + '/../../app/steps/action/', __dirname + '/../../app/steps/ui']);
+    const steps = initSteps([`${__dirname}/../../app/steps/action/`, `${__dirname}/../../app/steps/ui`]);
 
     describe('handlePost', function () {
         let findAddressStub;

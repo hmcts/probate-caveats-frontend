@@ -8,7 +8,7 @@ const sinon = require('sinon');
 const TestWrapper = require('test/util/TestWrapper');
 const services = require('app/components/services');
 const security = require('app/components/security');
-const testHelpBlockContent = require('test/component/common/testHelpBlockContent');
+const testCommonContent = require('test/component/common/testCommonContent');
 const config = require('app/config');
 const basePath = config.app.basePath;
 
@@ -32,7 +32,7 @@ describe('paymentStatus', () => {
 
     describe('Verify Content, Errors and Redirection', () => {
         it('test help block content', (done) => {
-            testHelpBlockContent.runTest('PaymentStatus');
+            testCommonContent.runTest('PaymentStatus');
             done();
         });
 
@@ -58,7 +58,6 @@ describe('paymentStatus', () => {
                     state: 'Success'
                 }
             }));
-            const data = {};
             testWrapper.agent.post(`${basePath}/prepare-session/form`)
                 .send({
                     applicant: {
@@ -73,7 +72,7 @@ describe('paymentStatus', () => {
                     if (err) {
                         throw err;
                     }
-                    testWrapper.testGetRedirect(done, data, expectedNextUrlForPaymentBreakdown);
+                    testWrapper.testGetRedirect(done, {}, expectedNextUrlForPaymentBreakdown);
                 });
         });
 
@@ -86,7 +85,6 @@ describe('paymentStatus', () => {
                     state: 'Success'
                 }
             }));
-            const data = {};
             testWrapper.agent.post(`${basePath}/prepare-session/form`)
                 .send({
                     applicant: {
@@ -101,7 +99,7 @@ describe('paymentStatus', () => {
                     if (err) {
                         throw err;
                     }
-                    testWrapper.testGetRedirect(done, data, expectedNextUrlForThankYou);
+                    testWrapper.testGetRedirect(done, {}, expectedNextUrlForThankYou);
                 });
         });
     });
@@ -128,7 +126,7 @@ describe('paymentStatus', () => {
                     if (err) {
                         throw err;
                     }
-                    testWrapper.testContent(done, []);
+                    testWrapper.testContent(done);
                 });
         });
 
@@ -155,7 +153,7 @@ describe('paymentStatus', () => {
                     if (err) {
                         throw err;
                     }
-                    testWrapper.testContent(done, []);
+                    testWrapper.testContent(done);
                 });
         });
     });

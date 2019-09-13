@@ -29,6 +29,7 @@ describe('summary-deceased-section', () => {
                     firstName: 'value'
                 }
             };
+
             testWrapper.agent.post('/prepare-session/form')
                 .send(sessionData)
                 .end(() => {
@@ -40,6 +41,7 @@ describe('summary-deceased-section', () => {
                         dod: deceasedContent.dod.question,
                         address: deceasedContent.address.question.replace('{deceasedName}', ''),
                     };
+
                     testWrapper.testDataPlayback(done, playbackData);
                 });
         });
@@ -63,6 +65,7 @@ describe('summary-deceased-section', () => {
                     };
                     Object.assign(playbackData, deceasedData.deceased);
                     playbackData.address = deceasedData.deceased.address.formattedAddress;
+
                     testWrapper.testDataPlayback(done, playbackData);
                 });
         });
@@ -99,6 +102,7 @@ describe('summary-deceased-section', () => {
                         othernamesfirstname: sessionData.deceased.otherNames.name_0.firstName,
                         othernameslastname: sessionData.deceased.otherNames.name_0.lastName
                     };
+
                     testWrapper.testDataPlayback(done, playbackData);
                 });
         });

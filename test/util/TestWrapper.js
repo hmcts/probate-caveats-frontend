@@ -33,7 +33,7 @@ class TestWrapper {
         this.agent = request.agent(this.server.app);
     }
 
-    testContent(done, excludeKeys = [], data) {
+    testContent(done, data, excludeKeys = []) {
         const contentToCheck = cloneDeep(filter(this.content, (value, key) => !excludeKeys.includes(key) && key !== 'errors'));
         const substitutedContent = this.substituteContent(data, contentToCheck);
         const res = this.agent.get(this.pageUrl);
@@ -43,10 +43,10 @@ class TestWrapper {
                 this.assertContentIsPresent(response.text, substitutedContent);
                 done();
             })
-            .catch(done);
+            .catch(() => done());
     }
 
-    testDataPlayback(done, data, excludeKeys = []) {
+    testDataPlayback(done, data = {}, excludeKeys = []) {
         const res = this.agent.get(this.pageUrl);
         const dataToCheck = cloneDeep(filter(data, (value, key) => !excludeKeys.includes(key) && key !== 'errors'));
 
@@ -55,7 +55,7 @@ class TestWrapper {
                 this.assertContentIsPresent(response.text, dataToCheck);
                 done();
             })
-            .catch(done);
+            .catch(() => done());
     }
 
     testContentNotPresent(done, data) {
@@ -64,7 +64,7 @@ class TestWrapper {
                 this.assertContentIsNotPresent(response.text, data);
                 done();
             })
-            .catch(done);
+            .catch(() => done());
     }
 
     testErrors(done, data, type, onlyKeys = []) {
@@ -83,7 +83,7 @@ class TestWrapper {
                 });
                 done();
             })
-            .catch(done);
+            .catch(() => done());
     }
 
     testStatus500Page(done, postData) {
@@ -95,7 +95,7 @@ class TestWrapper {
                 this.assertContentIsPresent(res.text, 'Sorry, we&rsquo;re having technical problems');
                 done();
             })
-            .catch(done);
+            .catch(() => done());
     }
 
     testContentAfterError(data, contentToCheck, done) {
@@ -106,17 +106,17 @@ class TestWrapper {
                 this.assertContentIsPresent(res.text, contentToCheck);
                 done();
             })
-            .catch(done);
+            .catch(() => done());
     }
 
-    testRedirect(done, postData, expectedNextUrl) {
+    testRedirect(done, data, expectedNextUrl) {
         this.agent.post(this.pageUrl)
             .type('form')
-            .send(postData)
+            .send(data)
             .expect('location', expectedNextUrl)
             .expect(302)
             .then(() => done())
-            .catch(done);
+            .catch(() => done());
     }
 
     testGetRedirect(done, postData, expectedNextUrl) {
@@ -126,7 +126,7 @@ class TestWrapper {
             .expect('location', expectedNextUrl)
             .expect(302)
             .then(() => done())
-            .catch(done);
+            .catch(() => done());
     }
 
     nextStep(data = {}) {
@@ -134,50 +134,53 @@ class TestWrapper {
     }
 
     substituteContent(data, contentToSubstitute) {
-        forEach(Object.entries(contentToSubstitute), ([key, contentValue]) => {
-            contentValue = contentValue.replace(/\n/g, '<br />\n');
-            if (contentValue.match(/\{(.*?)\}/g)) {
-                forEach(contentValue.match(/\{(.*?)\}/g), (placeholder) => {
-                    const placeholderRegex = new RegExp(placeholder, 'g');
-                    placeholder = placeholder.replace(/[{}]/g, '');
-                    if (Array.isArray(data[placeholder])) {
-                        forEach(data[placeholder], (contentData) => {
-                            const contentValueReplace = contentValue.replace(placeholderRegex, contentData);
-                            contentToSubstitute.push(contentValueReplace);
-                        });
-                        contentToSubstitute[key] = 'undefined';
-                    } else {
-                        contentValue = contentValue.replace(placeholderRegex, data[placeholder]);
-                        contentToSubstitute[key] = contentValue;
-                    }
-                });
-            } else {
-                contentToSubstitute[key] = contentValue;
-            }
-        });
+        Object.entries(contentToSubstitute)
+            .forEach(([key, contentValue]) => {
+                contentValue = contentValue.replace(/\n/g, '<br />\n');
+                const contentValueMatch = contentValue.match(/{(.*?)}/g);
+                if (contentValueMatch) {
+                    contentValueMatch.forEach(placeholder => {
+                        if (Array.isArray(data[placeholder])) {
+                            data[placeholder].forEach(contentData => {
+                                const contentValueReplace = contentValue.replace(placeholder, contentData);
+                                contentToSubstitute.push(contentValueReplace);
+                            });
+                            contentToSubstitute[key] = 'undefined';
+                        } else {
+                            contentValue = contentValue.replace(placeholder, data[placeholder]);
+                            contentToSubstitute[key] = contentValue;
+                        }
+                    });
+                } else {
+                    contentToSubstitute[key] = contentValue;
+                }
+            });
         return contentToSubstitute.filter(content => content !== 'undefined');
     }
 
     substituteErrorsContent(data, contentToSubstitute, type) {
-        forEach(Object.entries(contentToSubstitute), ([contentKey, contentValue]) => {
-            forEach(Object.entries(contentValue[type]), ([errorMessageKey, errorMessageValue]) => {
-                forEach(errorMessageValue.match(/\{(.*?)\}/g), (placeholder) => {
-                    const placeholderRegex = new RegExp(placeholder, 'g');
-                    contentToSubstitute[contentKey][type][errorMessageKey] = contentToSubstitute[contentKey][type][errorMessageKey].replace(placeholderRegex, data[placeholder]);
-                });
+        Object.entries(contentToSubstitute).forEach(([contentKey, contentValue]) => {
+            Object.entries(contentValue[type]).forEach(([errorMessageKey, errorMessageValue]) => {
+                const errorMessageValueMatch = errorMessageValue.match(/{(.*?)}/g);
+                if (errorMessageValueMatch) {
+                    errorMessageValueMatch.forEach(placeholder => {
+                        const placeholderRegex = new RegExp(placeholder, 'g');
+                        contentToSubstitute[contentKey][type][errorMessageKey] = contentToSubstitute[contentKey][type][errorMessageKey].replace(placeholderRegex, data[placeholder]);
+                    });
+                }
             });
         });
     }
 
     assertContentIsPresent(actualContent, expectedContent) {
-        forEach(expectedContent, (value) => {
+        expectedContent.forEach(value => {
             expect(actualContent.toLowerCase()).to.contain(value.toString().toLowerCase());
         });
     }
 
     assertContentIsNotPresent(actualContent, expectedContent) {
-        forEach(expectedContent, (value) => {
-            expect(actualContent.toLowerCase()).to.not.contain(value.toString().toLowerCase());
+        Object.entries(expectedContent).forEach(contentValue => {
+            expect(actualContent.toLowerCase()).to.not.contain(contentValue.toString().toLowerCase());
         });
     }
 

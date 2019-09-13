@@ -40,6 +40,7 @@ describe('thank-you', () => {
                     state: 'CaseCreated'
                 }
             };
+
             testWrapper.agent.post(`${basePath}/prepare-session/form`)
                 .send(sessionData)
                 .end(() => {
@@ -49,7 +50,7 @@ describe('thank-you', () => {
                         citizenAdvice: config.links.citizenAdvice
                     };
 
-                    testWrapper.testContent(done, [], contentData);
+                    testWrapper.testContent(done, contentData);
                 });
         });
     });
