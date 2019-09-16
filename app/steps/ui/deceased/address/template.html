@@ -13,7 +13,7 @@
                 {% include "includes/error_summary.html" %}
             {% endblock %}
 
-            <form class="form" method="post" action="{{ gloabls.basePath }}/find-address" novalidate>
+            <form class="form" method="post" action="{{ globals.basePath }}/find-address" novalidate>
                 <input type="hidden" name="_csrf" value="{{ csrfToken }}">
                 {% call govukFieldset({
                     legend: {
@@ -31,7 +31,7 @@
                 {% endcall %}
             </form>
 
-            <form class="form" method="post" action="{{ pageUrl }}" novalidate>
+            <form class="form" method="post" action="{{ globals.basePath }}{{ pageUrl }}" novalidate>
                 <input type="hidden" name="_csrf" value="{{ csrfToken }}">
                 {% call govukFieldset({
                     legend: {
