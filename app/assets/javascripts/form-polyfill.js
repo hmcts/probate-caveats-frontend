@@ -1,4 +1,4 @@
-
+(function() {
     var _input = document.createElement('input');
 
     if (!('formTarget' in _input && 'formAction' in _input)) {
@@ -28,4 +28,5 @@
             $form.attr('target', formTarget);
             $form.attr('action', formAction);
         });
-    };
+    }
+})();
