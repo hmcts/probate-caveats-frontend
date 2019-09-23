@@ -1,13 +1,13 @@
 'use strict';
 
-const ContactUs = require('app/steps/ui/startpage/index');
+const StartApply = require('app/steps/ui/startapply/index');
 const expect = require('chai').expect;
 
-describe('start/index.js', () => {
+describe('startapply/index.js', () => {
     describe('getUrl()', () => {
         it('should return the correct url', (done) => {
-            const url = ContactUs.getUrl();
-            expect(url).to.equal('/start-page');
+            const url = StartApply.getUrl();
+            expect(url).to.equal('/start-apply');
             done();
         });
     });

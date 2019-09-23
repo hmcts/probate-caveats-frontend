@@ -7,7 +7,7 @@ module.exports = function () {
 
     return actor({
         // Start application
-        startApplication: steps.startpage.startpage,
+        startApplication: steps.startapply.startapply,
 
         enterApplicantName: steps.applicant.name,
         enterApplicantEmail: steps.applicant.email,
