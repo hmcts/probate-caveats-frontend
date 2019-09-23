@@ -3,11 +3,11 @@
 const TestWrapper = require('test/util/TestWrapper');
 const config = require('app/config');
 
-describe('start-page', () => {
+describe('start-apply', () => {
     let testWrapper;
 
     beforeEach(() => {
-        testWrapper = new TestWrapper('StartPage');
+        testWrapper = new TestWrapper('StartApply');
     });
 
     afterEach(() => {

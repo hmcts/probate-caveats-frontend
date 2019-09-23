@@ -12,7 +12,7 @@ describe('ThankYou router redirects', () => {
         for (const step in steps) {
             ((step) => {
                 if (!stepsToExclude.includes(step.name)) {
-                    it('test route after a payment success', (done) => {
+                    it(`test route after a payment success for page [${step}]`, (done) => {
                         testWrapper = new TestWrapper(step.name);
                         testWrapper.agent.post('/prepare-session/form')
                             .send({
