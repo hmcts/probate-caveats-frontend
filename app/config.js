@@ -148,9 +148,9 @@ module.exports = {
     appInsights: {
         instrumentationKey: process.env.APPINSIGHTS_INSTRUMENTATION_KEY
     },
-    whitelistedPagesForStartPageRedirect: [
+    whitelistedPagesForStartApplyPageRedirect: [
         (process.env.APP_BASE_PATH || '') + '/public',
-        (process.env.APP_BASE_PATH || '') + '/start-page',
+        (process.env.APP_BASE_PATH || '') + '/start-apply',
         (process.env.APP_BASE_PATH || '') + '/applicant-name',
         (process.env.APP_BASE_PATH || '') + '/cookies',
         (process.env.APP_BASE_PATH || '') + '/privacy-policy',
