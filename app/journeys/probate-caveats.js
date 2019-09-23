@@ -1,7 +1,7 @@
 'use strict';
 
 const stepList = {
-    StartPage: 'ApplicantName',
+    StartApply: 'ApplicantName',
     ApplicantName: 'ApplicantEmail',
     ApplicantEmail: 'ApplicantAddress',
     ApplicantAddress: 'DeceasedName',

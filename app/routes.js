@@ -35,7 +35,7 @@ router.use((req, res, next) => {
 
 router.get('/', (req, res) => {
     req.log.info({tags: 'Analytics'}, 'Application Started');
-    res.redirect(`${config.app.basePath}/start-page`);
+    res.redirect(`${config.app.basePath}/start-apply`);
 });
 
 router.use((req, res, next) => {
@@ -54,9 +54,9 @@ router.get('/*', (req, res, next) => {
     if (!includes(config.whiteListedPagesForThankyou, req.originalUrl) &&
         get(formdata, 'payment.status') === 'Success') {
         res.redirect(`${config.app.basePath}/thank-you`);
-    } else if (!includes(config.whitelistedPagesForStartPageRedirect, req.originalUrl) &&
+    } else if (!includes(config.whitelistedPagesForStartApplyPageRedirect, req.originalUrl) &&
         get(formdata, 'applicant.firstName', '') === '') {
-        res.redirect(`${config.app.basePath}/start-page`);
+        res.redirect(`${config.app.basePath}/start-apply`);
     } else if (!includes(config.whiteListedPagesForPaymentBreakdown, req.originalUrl) &&
         get(formdata, 'ccdCase.id', '') !== '') {
         res.redirect(`${config.app.basePath}/payment-breakdown`);
