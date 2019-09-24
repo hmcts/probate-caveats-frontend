@@ -95,7 +95,7 @@ module.exports = {
         buttonServiceClosed: process.env.WEBCHAT_BUTTON_SERVICE_CLOSED || '4639879315d19f67c3c1055.15174024',
     },
     links: {
-        accessibility: '/accessibility-statement',
+        accessibility: (process.env.APP_BASE_PATH || '') + '/accessibility-statement',
         cookies: (process.env.APP_BASE_PATH || '') + '/cookies',
         privacy: (process.env.APP_BASE_PATH || '') + '/privacy-policy',
         terms: (process.env.APP_BASE_PATH || '') + '/terms-conditions',
