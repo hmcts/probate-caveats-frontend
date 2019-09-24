@@ -54,14 +54,10 @@
             {{ unorderedList([content["list4-item1"] | replace("{applicationFormPA15}", globals.links.applicationFormPA15), content["list4-item2"], content["list4-item3"], content["list4-item4"] | replace("{deathReportedToCoroner}", globals.links.deathReportedToCoroner), content["list4-item5"]]) }}
 
             <h2 class="govuk-heading-m">{{ content.heading10 }}</h2>
-            <p class="govuk-body">{{ content.paragraph21 }}</p>
-            <p class="govuk-body">{{ content.paragraph22 }}</p>
             {{ govukInsetText({
                 text: content.paragraph23 | safe
             }) }}
-            <p class="govuk-body">{{ content.paragraph24 }}</p>
             <p class="govuk-body">{{ content.paragraph25 }}</p>
-            {{ unorderedList([content["list5-item1"] | replace("{probateStartApplyLink}", globals.links.probateStartApplyLink), content["list5-item2"] | replace("{caveatsStartApplyLink}", globals.links.caveatsStartApplyLink)]) }}
             <p class="govuk-body">{{ content.paragraph26 }}</p>
             <p class="govuk-body">{{ content.paragraph27 }}</p>
 

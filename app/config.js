@@ -121,9 +121,7 @@ module.exports = {
         deathReportedToCoroner: 'https://www.gov.uk/after-a-death/when-a-death-is-reported-to-a-coroner',
         myAbilityLink: 'https://mcmw.abilitynet.org.uk/',
         equalityAdvisorLink: 'https://www.equalityadvisoryservice.com/',
-        wcag21Link: 'https://www.w3.org/TR/WCAG21/',
-        probateStartApplyLink: 'https://www.apply-for-probate.service.gov.uk/start-apply',
-        caveatsStartApplyLink: 'https://www.apply-for-probate.service.gov.uk/caveats/start-apply'
+        wcag21Link: 'https://www.w3.org/TR/WCAG21/'
     },
     helpline: {
         number: '0300 303 0648',
