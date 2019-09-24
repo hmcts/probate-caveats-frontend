@@ -21,7 +21,7 @@ data "azurerm_subnet" "core_infra_redis_subnet" {
 }
 
 module "probate-caveats-fe-redis-cache" {
-  source   = "git@github.com:hmcts/moj-module-redis?ref=master"
+  source   = "git@github.com:hmcts/cnp-module-redis?ref=master"
   product     = "${(var.env == "preview" || var.env == "spreview") ? "${var.product}-${var.microservice}-pr-redis" : "${var.product}-${var.microservice}-redis-cache"}"
   location = "${var.location}"
   env      = "${var.env}"
@@ -116,7 +116,7 @@ data "azurerm_key_vault_secret" "probate_webchat_button_service_closed" {
 }
 
 module "probate-caveats-fe" {
-  source = "git@github.com:hmcts/moj-module-webapp.git?ref=master"
+  source = "git@github.com:hmcts/cnp-module-webapp?ref=master"
   product = "${var.product}-${var.microservice}"
   location = "${var.location}"
   env = "${var.env}"
