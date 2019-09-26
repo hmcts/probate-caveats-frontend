@@ -6,11 +6,11 @@
         "message": "Please enter a postcode"
       },
       "invalid": {
-        "summary": "Postcode is invalid",
-        "message": "Postcode is invalid"
+        "summary": "You entered an invalid postcode",
+        "message": "Please enter a valid postcode"
       },
       "noAddresses": {
-        "summary": "No addresses found. Enter a postcode to search again",
+        "summary": "No addresses found, enter a postcode to search again",
         "message": "Please enter a valid postcode"
       }
     }
