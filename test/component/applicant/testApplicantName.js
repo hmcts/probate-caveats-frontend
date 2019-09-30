@@ -34,10 +34,19 @@ describe('applicant-name', () => {
             testWrapper.testErrors(done, data, 'required', errorsToTest);
         });
 
+        it('test error message displayed for required firstName if stripped out by sanitiser', (done) => {
+            const errorsToTest = ['firstName'];
+            const data = {
+                firstName: '<dave>',
+                lastName: 'bassett'
+            };
+            testWrapper.testErrors(done, data, 'required', errorsToTest);
+        });
+
         it('test error message displayed for invalid firstName', (done) => {
             const errorsToTest = ['firstName'];
             const data = {
-                firstName: '<dave',
+                firstName: 'dave>',
                 lastName: 'bassett'
             };
             testWrapper.testErrors(done, data, 'invalid', errorsToTest);
@@ -47,7 +56,7 @@ describe('applicant-name', () => {
             const errorsToTest = ['lastName'];
             const data = {
                 firstName: 'dave',
-                lastName: '<bassett'
+                lastName: '>bassett'
             };
             testWrapper.testErrors(done, data, 'invalid', errorsToTest);
         });

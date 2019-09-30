@@ -38,7 +38,7 @@ describe('deceased-name', () => {
         it('test errors message displayed for invalid firstName', (done) => {
             const errorsToTest = ['firstName'];
             const data = {
-                firstName: '<dee',
+                firstName: '>dee',
                 lastName: 'ceased'
             };
 
@@ -49,7 +49,7 @@ describe('deceased-name', () => {
             const errorsToTest = ['lastName'];
             const data = {
                 firstName: 'dee',
-                lastName: '<ceased'
+                lastName: '>ceased'
             };
 
             testWrapper.testErrors(done, data, 'invalid', errorsToTest);
