@@ -24,6 +24,7 @@ const appInsights = require('applicationinsights');
 const commonContent = require('app/resources/en/translation/common');
 const uuidv4 = require('uuid/v4');
 const uuid = uuidv4();
+const sanitizeRequestBody = require('app/middleware/sanitizeRequestBody');
 
 exports.init = function() {
     const app = express();
@@ -201,6 +202,8 @@ exports.init = function() {
     if (useHttps === 'true') {
         app.use(utils.forceHttps);
     }
+
+    app.post('*', sanitizeRequestBody);
 
     app.use('/health', healthcheck);
 

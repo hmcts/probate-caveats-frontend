@@ -82,7 +82,7 @@ describe('deceased-othernames', () => {
             const data = {
                 otherNames: {
                     name_0: {
-                        firstName: '<John',
+                        firstName: '>John',
                         lastName: 'Doe'
                     }
                 }
@@ -96,7 +96,7 @@ describe('deceased-othernames', () => {
                 otherNames: {
                     name_0: {
                         firstName: 'John',
-                        lastName: '<Doe'
+                        lastName: '>Doe'
                     }
                 }
             };
