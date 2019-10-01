@@ -96,6 +96,7 @@ module.exports = {
         buttonServiceClosed: process.env.WEBCHAT_BUTTON_SERVICE_CLOSED || '4639879315d19f67c3c1055.15174024',
     },
     links: {
+        accessibility: (process.env.APP_BASE_PATH || '') + '/accessibility-statement',
         cookies: (process.env.APP_BASE_PATH || '') + '/cookies',
         privacy: (process.env.APP_BASE_PATH || '') + '/privacy-policy',
         terms: (process.env.APP_BASE_PATH || '') + '/terms-conditions',
@@ -117,7 +118,12 @@ module.exports = {
         goodThingsFoundation: 'https://www.goodthingsfoundation.org',
         subjectAccessRequest: 'https://www.gov.uk/government/publications/request-your-personal-data-from-moj',
         complaintsProcedure: 'https://www.gov.uk/government/organisations/hm-courts-and-tribunals-service/about/complaints-procedure',
-        informationCommissionersOffice: 'https://ico.org.uk/global/contact-us'
+        informationCommissionersOffice: 'https://ico.org.uk/global/contact-us',
+        applicationFormPA15: 'https://www.gov.uk/government/publications/form-pa15-apply-for-renunciation-will',
+        deathReportedToCoroner: 'https://www.gov.uk/after-a-death/when-a-death-is-reported-to-a-coroner',
+        myAbilityLink: 'https://mcmw.abilitynet.org.uk/',
+        equalityAdvisorLink: 'https://www.equalityadvisoryservice.com/',
+        wcag21Link: 'https://www.w3.org/TR/WCAG21/'
     },
     helpline: {
         number: '0300 303 0648',
@@ -154,6 +160,7 @@ module.exports = {
         (process.env.APP_BASE_PATH || '') + '/public',
         (process.env.APP_BASE_PATH || '') + '/start-apply',
         (process.env.APP_BASE_PATH || '') + '/applicant-name',
+        (process.env.APP_BASE_PATH || '') + '/accessibility-statement',
         (process.env.APP_BASE_PATH || '') + '/cookies',
         (process.env.APP_BASE_PATH || '') + '/privacy-policy',
         (process.env.APP_BASE_PATH || '') + '/terms-conditions',
@@ -163,6 +170,7 @@ module.exports = {
     ],
     whiteListedPagesForThankyou: [
         (process.env.APP_BASE_PATH || '') + '/public',
+        (process.env.APP_BASE_PATH || '') + '/accessibility-statement',
         (process.env.APP_BASE_PATH || '') + '/cookies',
         (process.env.APP_BASE_PATH || '') + '/privacy-policy',
         (process.env.APP_BASE_PATH || '') + '/terms-conditions',
@@ -173,6 +181,7 @@ module.exports = {
     ],
     whiteListedPagesForPaymentBreakdown: [
         (process.env.APP_BASE_PATH || '') + '/public',
+        (process.env.APP_BASE_PATH || '') + '/accessibility-statement',
         (process.env.APP_BASE_PATH || '') + '/cookies',
         (process.env.APP_BASE_PATH || '') + '/privacy-policy',
         (process.env.APP_BASE_PATH || '') + '/terms-conditions',
