@@ -62,6 +62,17 @@ class FeatureToggle {
         params.next();
     }
 
+    static appwideToggles(req, ctx, appwideToggles) {
+        if (appwideToggles.length) {
+            ctx.featureToggles = {};
+            appwideToggles.forEach((toggleKey) => {
+                ctx.featureToggles[toggleKey] = FeatureToggle.isEnabled(req.session.featureToggles, toggleKey).toString();
+            });
+        }
+
+        return ctx;
+    }
+
     static isEnabled(featureToggles, key) {
         if (featureToggles && featureToggles[key]) {
             return true;

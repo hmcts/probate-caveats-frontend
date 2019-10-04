@@ -1,21 +1,16 @@
 {% extends "includes/layout.html" %}
 
-{% block page_title %}
-Sorry, we&rsquo;re having technical problems
-{% endblock %}
+{% set displaySignOutLink = "false" %}
+
+{% set title = "Sorry, we&rsquo;re having technical problems" %}
 
 {% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-l">Sorry, we&rsquo;re having technical problems</h1>
+            <p class="govuk-body">Please try again in a few minutes</p>
 
-<main id="content" role="main">
-
-    {% include "includes/phase_banner_beta.html" %}
-
-    <div class="grid-row">
-        <div class="column-two-thirds">
-            <h1 class="form-title heading-large">Sorry, we&rsquo;re having technical problems</h1>
-            <p>Please try again in a few minutes</p>
+            {% include "includes/help_details.html" %}
         </div>
     </div>
-</main>
-
 {% endblock %}

@@ -1,26 +1,38 @@
 {% extends "includes/two_thirds_form.html" %}
 
-{% from "widgets/textfields.html" import textField %}
-
-{% block question %}
-    <h1 class="form-title heading-large">{{ content.question }}</h1>
-{% endblock %}
+{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
 
 {% block form_content %}
-    <p class="form-hint">{{ content.explanation1 | safe }}</p>
-    <fieldset>
-        <legend class="visually-hidden">
-            {{ content.question | safe }}
-        </legend>
-        {{ textField(
-            name = 'email',
-            field = fields.email,
-            text = content.email,
-            size = 255
-        ) }}
-    </fieldset>
-    <div class="form-group">
-        <input class="button" type="submit" value="{{ common.continue }}">
+    {% call govukFieldset({
+        legend: {
+            text: content.question,
+            classes: "govuk-fieldset__legend--l",
+            isPageHeading: true
+        }
+    }) %}
+        <p class="govuk-hint">{{ content.explanation1 | safe }}</p>
+
+        {{ govukInput({
+            label: {
+                text: content.email
+            },
+            id: "email",
+            name: "email",
+            value: fields.email.value | safe,
+            errorMessage: { text: fields.email.errorMessage.message } if fields.email.errorMessage,
+            attributes: {
+                maxlength: 255
+            },
+            classes: "govuk-!-width-three-quarters"
+        }) }}
+    {% endcall %}
+
+    <div class="govuk-form-group">
+        {{ govukButton({
+            text: common.saveAndContinue,
+            preventDoubleClick: true
+        }) }}
     </div>
 {% endblock %}
-{% block save_and_close %}{% endblock %}

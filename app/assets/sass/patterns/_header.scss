@@ -1,0 +1,31 @@
+/*
+Header
+*/
+
+.govuk-header__content {
+  .govuk-header__menu-button {
+    display: none;
+  }
+
+  nav {
+    float: right;
+
+    .govuk-header__navigation {
+      display: block;
+      margin-bottom: 0;
+    }
+
+    .govuk-header__navigation-item {
+      border-bottom: none;
+      padding: 0;
+
+      @include govuk-media-query($from: desktop) {
+        padding: 5px 0;
+      }
+    }
+
+    a {
+      @include govuk-font(19, $weight: bold);
+    }
+  }
+}

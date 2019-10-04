@@ -1,7 +1,19 @@
-<h2 class="visuallyhidden">{{common.supportLinks}}</h2>
-<ul>
-  <li><a href="{{basePath}}{{links.cookies}}">{{common.cookies}}</a></li>
-  <li><a href="{{basePath}}{{links.privacy}}">{{common.privacyPolicy}}</a></li>
-  <li><a href="{{basePath}}{{links.terms}}">{{common.termsAndConditions}}</a></li>
-  <li><a href="{{basePath}}{{links.contact}}">{{common.contactUs}}</a></li>
-</ul>
+{% block footer %}
+  {{ govukFooter({
+    meta: {
+      items: [{
+        href: globals.links.cookies,
+        text: common.cookies
+      }, {
+        href: globals.links.privacy,
+        text: common.privacyPolicy
+      }, {
+        href: globals.links.terms,
+        text: common.termsAndConditions
+      }, {
+        href: globals.links.contact,
+        text: common.contactUs
+      }]
+    }
+  }) }}
+{% endblock %}

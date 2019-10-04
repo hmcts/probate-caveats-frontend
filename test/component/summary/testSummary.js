@@ -44,11 +44,11 @@ describe('summary', () => {
                     if (err) {
                         throw err;
                     }
-                    const contentToExclude = [
+                    const excludeContent = [
                         'otherNamesLabel',
                         'title'
                     ];
-                    testWrapper.testContent(done, contentToExclude);
+                    testWrapper.testContent(done, excludeContent);
                 });
 
         });

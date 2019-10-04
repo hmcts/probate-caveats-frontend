@@ -1,15 +1,18 @@
+'use strict';
 
 module.exports = {
-
     frontendPublicHttpProtocol: process.env.PUBLIC_PROTOCOL || 'http',
     environment: process.env.REFORM_ENVIRONMENT || 'prod',
     nodeEnvironment: process.env.NODE_ENV,
     gitRevision: process.env.GIT_REVISION,
     externalHostNameUrl: process.env.EXTERNAL_HOSTNAME_URL || '',
     featureToggles: {
-        url: process.env.FEATURE_TOGGLES_API_URL || 'http://localhost:8282',
+        url: process.env.FEATURE_TOGGLES_API_URL || 'http://localhost:8292',
         path: process.env.FEATURE_TOGGLES_PATH || '/api/ff4j/check',
-        caveats_shutter_toggle: 'probate-caveats-fe-shutter'
+        port: 8292,
+        caveats_shutter_toggle: 'probate-caveats-fe-shutter',
+        webchat: 'probate-caveats-webchat',
+        appwideToggles: ['webchat']
     },
     app: {
         useHttps: process.env.USE_HTTPS || 'false',
@@ -53,6 +56,15 @@ module.exports = {
             url: process.env.PERSISTENCE_SERVICE_URL || 'http://localhost:8282/formdata',
             port: 8282,
             path: '/formdata'
+        },
+        feesRegister: {
+            url: process.env.FEES_REGISTRY_URL || 'http://localhost:4411/fees-register',
+            port: 4411,
+            paths: {
+                fees: '/fees',
+                feesLookup: '/fees/lookup'
+            },
+            ihtMinAmt: 5000
         }
     },
     redis: {
@@ -76,33 +88,45 @@ module.exports = {
     hostname: process.env.FRONTEND_HOSTNAME || 'localhost:3000',
     gaTrackingId: process.env.GA_TRACKING_ID || 'UA-93598808-5',
     enableTracking: process.env.ENABLE_TRACKING || 'true',
+    webChat: {
+        chatId: process.env.WEBCHAT_CHAT_ID || '3077733355d19fd430f23c7.02555395',
+        tenant: process.env.WEBCHAT_TENANT || 'c2FuZGJveGhtY3RzMDE',
+        buttonNoAgents: process.env.WEBCHAT_BUTTON_NO_AGENTS || '20599210435d19f59cdc3e95.94551214',
+        buttonAgentsBusy: process.env.WEBCHAT_BUTTON_AGENTS_BUSY || '8752254635d19f5bb21ff07.71234899',
+        buttonServiceClosed: process.env.WEBCHAT_BUTTON_SERVICE_CLOSED || '4639879315d19f67c3c1055.15174024',
+    },
     links: {
-        cookies: '/cookies',
-        privacy: '/privacy-policy',
-        terms: '/terms-conditions',
-        contact: '/contact-us',
+        cookies: (process.env.APP_BASE_PATH || '') + '/cookies',
+        privacy: (process.env.APP_BASE_PATH || '') + '/privacy-policy',
+        terms: (process.env.APP_BASE_PATH || '') + '/terms-conditions',
+        contact: (process.env.APP_BASE_PATH || '') + '/contact-us',
+        contactEmailAddress: 'contactprobate@justice.gov.uk',
         callCharges: 'https://www.gov.uk/call-charges',
         howToManageCookies: 'https://www.aboutcookies.org',
         googlePrivacyPolicy: 'https://www.google.com/policies/privacy/partners/',
         googleAnalyticsOptOut: 'https://tools.google.com/dlpage/gaoptout/',
         mojPersonalInformationCharter: 'https://www.gov.uk/government/organisations/ministry-of-justice/about/personal-information-charter',
-        survey: process.env.SURVEY || 'https://www.smartsurvey.co.uk/',
-        surveyEndOfApplication: process.env.SURVEY_END_OF_APPLICATION || 'https://www.smartsurvey.co.uk/',
-        applicationFormPA1A: '/public/pdf/probate-application-form-pa1a.pdf',
-        applicationFormPA1P: '/public/pdf/probate-application-form-pa1p.pdf',
+        survey: process.env.SURVEY || 'https://www.smartsurvey.co.uk/s/Probate_Feedback/',
+        surveyEndOfApplication: process.env.SURVEY_END_OF_APPLICATION || 'https://www.smartsurvey.co.uk/s/Probate_ExitSurvey/',
+        applicationFormPA8A: 'https://www.gov.uk/government/publications/form-pa8a-caveat-application-form',
         whoInheritsLink: 'https://www.gov.uk/inherits-someone-dies-without-will',
         citizenAdvice: 'https://www.citizensadvice.org.uk/',
-        stopGrantOfRepresentation: 'https://www.gov.uk/wills-probate-inheritance/stopping-a-grant-of-representation'
+        stopGrantOfRepresentation: 'https://www.gov.uk/wills-probate-inheritance/stopping-a-grant-of-representation',
+        openGovernmentLicence: 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/',
+        goodThingsFoundation: 'https://www.goodthingsfoundation.org',
+        subjectAccessRequest: 'https://www.gov.uk/government/publications/request-your-personal-data-from-moj',
+        complaintsProcedure: 'https://www.gov.uk/government/organisations/hm-courts-and-tribunals-service/about/complaints-procedure',
+        informationCommissionersOffice: 'https://ico.org.uk/global/contact-us'
     },
     helpline: {
         number: '0300 303 0648',
         email: 'contactprobate@justice.gov.uk',
-        hours: 'Monday to Friday, 9am to 5pm'
+        hours: 'Monday to Friday, 9:30am to 5pm'
     },
     serviceline: {
         number: '0300 123 7050',
         email: 'contactprobate@justice.gov.uk',
-        hours: 'Monday to Friday, 9am to 5pm'
+        hours: 'Monday to Friday, 9:30am to 5pm'
     },
     utils: {
         api: {
@@ -144,7 +168,7 @@ module.exports = {
         (process.env.APP_BASE_PATH || '') + '/contact-us',
         (process.env.APP_BASE_PATH || '') + '/offline',
         (process.env.APP_BASE_PATH || '') + '/health/liveness',
-        (process.env.APP_BASE_PATH || '') + '/thankyou'
+        (process.env.APP_BASE_PATH || '') + '/thank-you'
     ],
     whiteListedPagesForPaymentBreakdown: [
         (process.env.APP_BASE_PATH || '') + '/public',
@@ -156,6 +180,6 @@ module.exports = {
         (process.env.APP_BASE_PATH || '') + '/health/liveness',
         (process.env.APP_BASE_PATH || '') + '/payment-breakdown',
         (process.env.APP_BASE_PATH || '') + '/payment-status',
-        (process.env.APP_BASE_PATH || '') + '/thankyou'
+        (process.env.APP_BASE_PATH || '') + '/thank-you'
     ]
 };

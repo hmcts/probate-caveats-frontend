@@ -9,6 +9,8 @@ const services = require('app/components/services');
 const security = require('app/components/security');
 const config = require('app/config');
 const basePath = config.app.basePath;
+const FeesLookup = require('app/utils/FeesLookup');
+let feesLookup;
 
 describe('paymentBreakdown', () => {
     let testWrapper;
@@ -18,12 +20,18 @@ describe('paymentBreakdown', () => {
         testWrapper = new TestWrapper('PaymentBreakdown');
         servicesMock = sinon.mock(services);
         securityMock = sinon.mock(security);
+        feesLookup = sinon.stub(FeesLookup.prototype, 'lookup');
+        feesLookup.returns(Promise.resolve({
+            status: 'success',
+            total: 20
+        }));
     });
 
     afterEach(() => {
         testWrapper.destroy();
         servicesMock.restore();
         securityMock.restore();
+        feesLookup.restore();
     });
 
     describe('Verify Content, Errors and Redirection', () => {
@@ -69,7 +77,10 @@ describe('paymentBreakdown', () => {
 
             const data = {};
             testWrapper.agent.post(`${basePath}/prepare-session/form`)
-                .send()
+                .send({fees: {
+                    status: 'success',
+                    total: 20
+                }})
                 .end((err) => {
                     if (err) {
                         throw err;
@@ -88,7 +99,10 @@ describe('paymentBreakdown', () => {
                 message: 'Unable to find service'
             }));
             testWrapper.agent.post(`${basePath}/prepare-session/form`)
-                .send()
+                .send({fees: {
+                    status: 'success',
+                    total: 20
+                }})
                 .end((err) => {
                     if (err) {
                         throw err;
@@ -105,7 +119,10 @@ describe('paymentBreakdown', () => {
                 message: 'Unable to find service'
             }));
             testWrapper.agent.post(`${basePath}/prepare-session/form`)
-                .send()
+                .send({fees: {
+                    status: 'success',
+                    total: 20
+                }})
                 .end((err) => {
                     if (err) {
                         throw err;
@@ -123,7 +140,10 @@ describe('paymentBreakdown', () => {
                 message: 'Unable to find service'
             }));
             testWrapper.agent.post(`${basePath}/prepare-session/form`)
-                .send()
+                .send({fees: {
+                    status: 'success',
+                    total: 20
+                }})
                 .end((err) => {
                     if (err) {
                         throw err;
@@ -153,6 +173,10 @@ describe('paymentBreakdown', () => {
                 .send({
                     payment: {
                         paymentId: 12345
+                    },
+                    fees: {
+                        status: 'success',
+                        total: 20
                     }
                 })
                 .end((err) => {
@@ -181,7 +205,10 @@ describe('paymentBreakdown', () => {
                 name: 'Error',
                 message: 'Unable to find service'}));
             testWrapper.agent.post(`${basePath}/prepare-session/form`)
-                .send()
+                .send({fees: {
+                    status: 'success',
+                    total: 20
+                }})
                 .end((err) => {
                     if (err) {
                         throw err;

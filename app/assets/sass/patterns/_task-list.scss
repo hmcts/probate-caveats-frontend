@@ -1,79 +1,76 @@
-// Task list pattern
-
-// Override column width for tablet and up
-.column-minimum {
-  @include media(tablet) {
-    min-width: 600px;
-  }
-}
-
-// Spacing to the left of the task list
-$task-list-indent: 35px;
+/*
+Task List
+*/
 
 .task-list {
-  margin-top: $gutter;
-  @include media(tablet) {
-    margin-top: ($gutter * 2);
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: govuk-spacing(8);
+
+  .govuk-button {
+    margin-bottom: 0;
+  }
+
+  .govuk-tag {
+    margin-bottom: govuk-spacing(3);
+    margin-left: govuk-spacing(5);
+    margin-right: 0;
+
+    @include govuk-media-query($from: desktop) {
+      float: right;
+      margin-left: 0;
+      padding-top: 3px;
+    }
+
+    &.task-completed {
+    }
+
+    &.task-unavailable {
+      background-color: govuk-colour("mid-grey");
+      color: govuk-colour("black");
+    }
   }
 }
 
+.task-item {
+  border-top: 1px solid govuk-colour("mid-grey");
+  line-height: 1.5;
+  padding: 20px 0 10px 0;
+
+  &:last-child {
+    border-bottom: 1px solid govuk-colour("mid-grey");
+  }
+}
 
 .task-list-section {
+  @include govuk-font(24, $weight: bold);
   display: table;
+  float: left;
+  margin-bottom: govuk-spacing(3);
+  margin-top: 0;
+  width: 100%;
 
-  @include bold-24;
-  padding-bottom: ($gutter / 6);
+  @include govuk-media-query($from: desktop) {
+    width: 64%;
+  }
 }
 
 .task-list-section-number {
+  width: govuk-spacing(5);
+  padding-right: 0;
   display: table-cell;
-  padding-right: ($gutter / 6);
 
-  @include media(tablet) {
-    min-width: $task-list-indent;
-    padding-right: 0;
+  @include govuk-media-query($from: desktop) {
+    width: govuk-spacing(8);
   }
 }
-
 
 .task-list-items {
-  margin-bottom: $gutter;
-  @include media(tablet) {
-    margin-bottom: ($gutter * 2);
+  clear: both;
+  padding-left: govuk-spacing(5);
+
+  @include govuk-media-query($from: desktop) {
+    padding-left: govuk-spacing(8);
   }
-
-  @include media(tablet) {
-    padding-left: $task-list-indent;
-  }
-}
-
-.task-list-item {
-  border-bottom: 1px solid $border-colour;
-  padding-top: $gutter-one-third;
-  padding-bottom: $gutter-one-third;
-  @extend %contain-floats;
-}
-
-.task-list-item:first-child {
-  border-top: 1px solid $border-colour;
-}
-
-
-.task-name {
-  width: $two-thirds;
-  float: left;
-}
-
-.task-completed {
-  @include phase-tag;
-
-  float: right;
-  margin-right: 0;
-  padding-top: 3px;
-}
-
-.task-unavailable {
-  @include phase-tag;
-  margin-right: 0;
-  padding-top: 3px;
 }

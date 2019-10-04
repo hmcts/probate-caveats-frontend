@@ -1,6 +1,6 @@
 'use strict';
 
-const ContactUs = require('app/steps/ui/contact/index');
+const ContactUs = require('app/steps/ui/static/contact/index');
 const expect = require('chai').expect;
 
 describe('contact/index.js', () => {

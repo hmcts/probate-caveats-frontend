@@ -1,6 +1,7 @@
 'use strict';
 
 const TestWrapper = require('test/util/TestWrapper');
+const config = require('app/config');
 
 describe('start-page', () => {
     let testWrapper;
@@ -15,11 +16,13 @@ describe('start-page', () => {
 
     describe('Verify Content, Errors and Redirection', () => {
         it('test right content loaded on the page', (done) => {
-            const excludeKeys = [
+            const excludeContent = [
                 'bullet7',
                 'paragraph7'
             ];
-            testWrapper.testContent(done, excludeKeys);
+            const contentData = {applicationFormPA8A: config.links.applicationFormPA8A};
+
+            testWrapper.testContent(done, excludeContent, contentData);
         });
     });
 });

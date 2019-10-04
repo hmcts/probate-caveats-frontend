@@ -3,7 +3,6 @@
   "question": "Was {deceasedName} known by any other names?",
   "optionYes": "Yes",
   "optionNo": "No",
-  "legend": "Did the person who died have assets in another name?",
   "paragraph1": "This may help us match your application with the application for a grant of probate",
   "theDeceased": "the deceased",
   "errors": {

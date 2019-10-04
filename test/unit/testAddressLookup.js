@@ -1,10 +1,10 @@
 'use strict';
 
-const initSteps = require('app/core/initSteps'),
-    assert = require('chai').assert,
-    sinon = require('sinon'),
-    when = require('when'),
-    services = require('app/components/services');
+const initSteps = require('app/core/initSteps');
+const assert = require('chai').assert;
+const sinon = require('sinon');
+const when = require('when');
+const services = require('app/components/services');
 const co = require('co');
 
 describe('AddressLookup', function () {

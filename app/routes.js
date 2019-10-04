@@ -6,11 +6,14 @@ const initSteps = require('app/core/initSteps');
 const logger = require('app/components/logger');
 const {get, includes} = require('lodash');
 const documentDownloads = require('app/documentDownloads');
+const paymentFees = require('app/paymentFees');
 const lockPaymentAttempt = require('app/middleware/lockPaymentAttempt');
 const uuidv4 = require('uuid/v4');
 const shutter = require('app/shutter');
+const featureToggles = require('app/featureToggles');
 
 router.use(shutter);
+router.use(featureToggles);
 
 router.all('*', (req, res, next) => {
     const applicationId = get(req.session.form, 'applicationId', 'init');
@@ -42,6 +45,7 @@ router.use((req, res, next) => {
 });
 
 router.use(documentDownloads);
+router.use(paymentFees);
 
 router.post(`${config.app.basePath}/payment-breakdown`, lockPaymentAttempt);
 
@@ -49,7 +53,7 @@ router.get('/*', (req, res, next) => {
     const formdata = req.session.form;
     if (!includes(config.whiteListedPagesForThankyou, req.originalUrl) &&
         get(formdata, 'payment.status') === 'Success') {
-        res.redirect(`${config.app.basePath}/thankyou`);
+        res.redirect(`${config.app.basePath}/thank-you`);
     } else if (!includes(config.whitelistedPagesForStartPageRedirect, req.originalUrl) &&
         get(formdata, 'applicant.firstName', '') === '') {
         res.redirect(`${config.app.basePath}/start-page`);

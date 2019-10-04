@@ -22,7 +22,7 @@ describe('deceased-address', () => {
         testHelpBlockContent.runTest('DeceasedAddress');
 
         it('test right content loaded on the page', (done) => {
-            const excludeKeys = ['selectAddress'];
+            const excludeContent = ['selectAddress'];
             const sessionData = {
                 applicant: {
                     firstName: 'value'
@@ -37,7 +37,7 @@ describe('deceased-address', () => {
                 .send(sessionData)
                 .end(() => {
                     const contentData = {deceasedName: 'Jason Smith'};
-                    testWrapper.testContent(done, excludeKeys, contentData);
+                    testWrapper.testContent(done, excludeContent, contentData);
                 });
         });
 

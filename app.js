@@ -7,7 +7,8 @@ const path = require('path');
 const express = require('express');
 const rewrite = require('express-urlrewrite');
 const session = require('express-session');
-const nunjucks = require('express-nunjucks');
+const nunjucks = require('nunjucks');
+const filters = require('app/components/filters.js');
 const routes = require(`${__dirname}/app/routes`);
 const favicon = require('serve-favicon');
 const bodyParser = require('body-parser');
@@ -38,29 +39,41 @@ exports.init = function() {
 
     // Application settings
     app.set('view engine', 'html');
-    app.set('views', ['app/steps', 'app/views', 'node_modules/govuk_template_jinja/views/layouts']);
+    app.set('views', ['app/steps', 'app/views']);
 
-    const filters = require('app/components/filters.js');
-    const globals = {
-        'currentYear': new Date().getFullYear(),
-        'gaTrackingId': config.gaTrackingId,
-        'enableTracking': config.enableTracking,
-        'links': config.links,
-        'helpline': config.helpline,
-        'applicationFee': config.payment.applicationFee,
-        'nonce': uuid,
-        'basePath': config.app.basePath
-    };
-
-    app.use(rewrite(`${globals.basePath}/public/*`, '/public/$1'));
-
-    const njk = nunjucks(app, {
+    const njkEnv = nunjucks.configure([
+        'app/steps',
+        'app/views',
+        'node_modules/govuk-frontend/'
+    ], {
         autoescape: true,
         watch: true,
-        noCache: true,
-        globals: globals
+        noCache: true
     });
-    filters(njk.env);
+
+    const globals = {
+        currentYear: new Date().getFullYear(),
+        gaTrackingId: config.gaTrackingId,
+        enableTracking: config.enableTracking,
+        links: config.links,
+        helpline: config.helpline,
+        applicationFee: config.payment.applicationFee,
+        nonce: uuid,
+        basePath: config.app.basePath,
+        webChat: {
+            chatId: config.webChat.chatId,
+            tenant: config.webChat.tenant,
+            buttonNoAgents: config.webChat.buttonNoAgents,
+            buttonAgentsBusy: config.webChat.buttonAgentsBusy,
+            buttonServiceClosed: config.webChat.buttonServiceClosed
+        }
+    };
+    njkEnv.addGlobal('globals', globals);
+
+    filters(njkEnv);
+    njkEnv.express(app);
+
+    app.use(rewrite(`${globals.basePath}/public/*`, '/public/$1'));
 
     app.enable('trust proxy');
 
@@ -78,17 +91,32 @@ exports.init = function() {
                 '\'sha256-AaA9Rn5LTFZ5vKyp3xOfFcP4YbyOjvWn2up8IKHVAKk=\'',
                 '\'sha256-G29/qSW/JHHANtFhlrZVDZW1HOkCDRc78ggbqwwIJ2g=\'',
                 'www.google-analytics.com',
+                'vcc-eu4.8x8.com',
+                'vcc-eu4b.8x8.com',
                 `'nonce-${uuid}'`
             ],
             connectSrc: ['\'self\''],
             mediaSrc: ['\'self\''],
-            frameSrc: ['\'none\''],
-            imgSrc: ['\'self\'', 'www.google-analytics.com'],
+            frameSrc: [
+                'vcc-eu4.8x8.com',
+                'vcc-eu4b.8x8.com'
+            ],
+            imgSrc: [
+                '\'self\'',
+                'www.google-analytics.com',
+                'vcc-eu4.8x8.com',
+                'vcc-eu4b.8x8.com'
+            ],
+            styleSrc: [
+                '\'self\'',
+                '\'unsafe-inline\''
+            ],
             frameAncestors: ['\'self\'']
         },
         browserSniff: true,
         setAllHeaders: true
     }));
+
     // Http public key pinning
     app.use(helmet.hpkp({
         maxAge: 900,
@@ -104,17 +132,19 @@ exports.init = function() {
 
     app.use(helmet.xssFilter({setOnOldIE: true}));
 
+    const caching = {cacheControl: true, setHeaders: (res) => res.setHeader('Cache-Control', 'max-age=604800')};
+
     // Middleware to serve static assets
-    app.use('/public/stylesheets', express.static(`${__dirname}/public/stylesheets`));
-    app.use('/public/images', express.static(`${__dirname}/app/assets/images`));
-    app.use('/public/javascripts', express.static(`${__dirname}/app/assets/javascripts`));
+    app.use(`${config.app.basePath}/webchat`, express.static(`${__dirname}/node_modules/@hmcts/ctsc-web-chat/assets`, caching));
+    app.use('/public/stylesheets', express.static(`${__dirname}/public/stylesheets`, caching));
+    app.use('/public/images', express.static(`${__dirname}/app/assets/images`, caching));
+    app.use('/public/javascripts/govuk-frontend', express.static(`${__dirname}/node_modules/govuk-frontend`, caching));
+    app.use('/public/javascripts', express.static(`${__dirname}/app/assets/javascripts`, caching));
     app.use('/public/pdf', express.static(`${__dirname}/app/assets/pdf`));
-    app.use('/public', express.static(`${__dirname}/node_modules/govuk_template_jinja/assets`));
-    app.use('/public', express.static(`${__dirname}/node_modules/govuk_frontend_toolkit`));
-    app.use('/public/images/icons', express.static(`${__dirname}/node_modules/govuk_frontend_toolkit/images`));
+    app.use('/assets', express.static(`${__dirname}/node_modules/govuk-frontend/govuk/assets`, caching));
 
     // Elements refers to icon folder instead of images folder
-    app.use(favicon(path.join(__dirname, 'node_modules', 'govuk_template_jinja', 'assets', 'images', 'favicon.ico')));
+    app.use(favicon(path.join(__dirname, 'node_modules', 'govuk-frontend', 'govuk', 'assets', 'images', 'favicon.ico')));
 
     // Support for parsing data in POSTs
     app.use(bodyParser.json());

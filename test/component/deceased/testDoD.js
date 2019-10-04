@@ -33,78 +33,78 @@ describe('deceased-dod', () => {
         });
 
         it('test error message displayed for missing data', (done) => {
-            const errorsToTest = ['dod_day', 'dod_month', 'dod_year'];
+            const errorsToTest = ['dod-day', 'dod-month', 'dod-year'];
             const data = {};
 
             testWrapper.testErrors(done, data, 'required', errorsToTest);
         });
 
         it('test error message displayed for invalid day', (done) => {
-            const errorsToTest = ['dod_day'];
-            const data = {dod_day: '32', dod_month: '09', dod_year: '2000'};
+            const errorsToTest = ['dod-day'];
+            const data = {'dod-day': '32', 'dod-month': '09', 'dod-year': '2000'};
 
             testWrapper.testErrors(done, data, 'invalid', errorsToTest);
         });
 
         it('test error message displayed for invalid month', (done) => {
-            const errorsToTest = ['dod_month'];
-            const data = {dod_day: '13', dod_month: '14', dod_year: '2000'};
+            const errorsToTest = ['dod-month'];
+            const data = {'dod-day': '13', 'dod-month': '14', 'dod-year': '2000'};
 
             testWrapper.testErrors(done, data, 'invalid', errorsToTest);
         });
 
         it('test error message displayed for non-numeric day', (done) => {
-            const errorsToTest = ['dod_day'];
-            const data = {dod_day: 'ab', dod_month: '09', dod_year: '2000'};
+            const errorsToTest = ['dod-day'];
+            const data = {'dod-day': 'ab', 'dod-month': '09', 'dod-year': '2000'};
 
             testWrapper.testErrors(done, data, 'invalid', errorsToTest);
         });
 
         it('test error message displayed for non-numeric month', (done) => {
-            const errorsToTest = ['dod_month'];
-            const data = {dod_day: '13', dod_month: 'ab', dod_year: '2000'};
+            const errorsToTest = ['dod-month'];
+            const data = {'dod-day': '13', 'dod-month': 'ab', 'dod-year': '2000'};
 
             testWrapper.testErrors(done, data, 'invalid', errorsToTest);
         });
 
         it('test error message displayed for non-numeric year', (done) => {
-            const errorsToTest = ['dod_year'];
-            const data = {dod_day: '13', dod_month: '12', dod_year: '20ab'};
+            const errorsToTest = ['dod-year'];
+            const data = {'dod-day': '13', 'dod-month': '12', 'dod-year': '20ab'};
 
             testWrapper.testErrors(done, data, 'invalid', errorsToTest);
         });
 
         it('test error message displayed for three digits in year field', (done) => {
-            const errorsToTest = ['dod_year'];
-            const data = {dod_day: '12', dod_month: '9', dod_year: '200'};
+            const errorsToTest = ['dod-year'];
+            const data = {'dod-day': '12', 'dod-month': '9', 'dod-year': '200'};
 
             testWrapper.testErrors(done, data, 'invalid', errorsToTest);
         });
 
         it('test error message displayed for date in the future', (done) => {
-            const errorsToTest = ['dod_date'];
+            const errorsToTest = ['dod-date'];
             const data = {
-                dod_day: '12',
-                dod_month: '9',
-                dod_year: '3000'
+                'dod-day': '12',
+                'dod-month': '9',
+                'dod-year': '3000'
             };
 
             testWrapper.testErrors(done, data, 'dateInFuture', errorsToTest);
         });
 
         it('test error message displayed for DoD before DoB', (done) => {
-            const errorsToTest = ['dod_date'];
+            const errorsToTest = ['dod-date'];
             const sessionData = {
                 deceased: {
-                    dob_day: '12',
-                    dob_month: '9',
-                    dob_year: '2002'
+                    'dob-day': '12',
+                    'dob-month': '9',
+                    'dob-year': '2002'
                 }
             };
             const data = {
-                dod_day: '01',
-                dod_month: '01',
-                dod_year: '2000'
+                'dod-day': '01',
+                'dod-month': '01',
+                'dod-year': '2000'
             };
 
             testWrapper.agent.post(`${basePath}/prepare-session/form`)
@@ -116,13 +116,12 @@ describe('deceased-dod', () => {
 
         it(`test it redirects to deceased dob known: ${expectedNextUrlForDeceasedDobKnown}`, (done) => {
             const data = {
-                dod_day: '01',
-                dod_month: '01',
-                dod_year: '2000'
+                'dod-day': '01',
+                'dod-month': '01',
+                'dod-year': '2000'
             };
 
             testWrapper.testRedirect(done, data, expectedNextUrlForDeceasedDobKnown);
         });
-
     });
 });

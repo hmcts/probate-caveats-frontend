@@ -18,8 +18,9 @@ nodejs:
     APP_BASE_PATH: "/caveats"
     POSTCODE_SERVICE_PATH: "/caveats/find-address"
     PAY_RETURN_URL: "/caveats/payment-status"
+    FEES_REGISTRY_URL: http://fees-register-api-aat.service.core-compute-aat.internal/fees-register
 
-  image: 'https://hmcts.azurecr.io/hmcts/probate-caveats-fe:latest'
+  image: hmctspublic.azurecr.io/probate/caveats-fe:latest
 
 redis:
   cluster:

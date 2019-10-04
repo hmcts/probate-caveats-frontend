@@ -13,7 +13,8 @@ properties([
 String product = "probate"
 String component = "caveats-fe"
 
-List<LinkedHashMap<String, Object>> secrets = [
+def secrets = [
+  'probate-${params.ENVIRONMENT}': [
     secret('testIdamBaseUrl', 'IDAM_API_URL'),
     secret('testInviteIdListUrl', 'INVITE_ID_LIST_URL'),
     secret('testPinUrl', 'PIN_URL'),
@@ -41,6 +42,7 @@ List<LinkedHashMap<String, Object>> secrets = [
     secret('probate-application-fee-code', 'PRO_APPLICATION_FEE_CODE'),
     secret('probate-service-id', 'PRO_SERVICE_ID'),
     secret('probate-site-id', 'PRO_SITE_ID')
+  ]
 ]
 
 static LinkedHashMap<String, Object> secret(String secretName, String envVar) {
@@ -55,7 +57,7 @@ static LinkedHashMap<String, Object> secret(String secretName, String envVar) {
 withNightlyPipeline("nodejs", product, component) {
     env.TEST_URL = params.URL_TO_TEST
     env.TEST_E2E_URL = params.URL_TO_TEST
-    setVaultName('probate')
+
     loadVaultSecrets(secrets)
     enableFullFunctionalTest()
     //enableSecurityScan()

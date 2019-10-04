@@ -1,20 +1,46 @@
-<script src="{{basePath}}/public/javascripts/jquery-1.11.3.js"></script>
+<script src="{{ globals.basePath }}/public/javascripts/jquery-1.11.3.js"></script>
 
-<!-- govuk_frontend_toolkit js -->
-<script src="{{basePath}}/public/javascripts/vendor/polyfills/bind.js"></script>
-<script src="{{basePath}}/public/javascripts/govuk/details.polyfill.js"></script>
-<script src="{{basePath}}/public/javascripts/govuk/shim-links-with-button-role.js"></script>
-<script src="{{basePath}}/public/javascripts/govuk/show-hide-content.js"></script>
-
-<script src="{{basePath}}/public/javascripts/application.js"></script>
+<script src="{{ globals.basePath }}/public/javascripts/govuk-frontend/govuk/all.js"></script>
+<script nonce="{{ globals.nonce }}">window.GOVUKFrontend.initAll()</script>
 
 {% if enableTracking === 'true' %}
-    <script nonce="{{nonce}}">
+    <script nonce="{{ globals.nonce }}">
         var gatrackingid = "{{gaTrackingId}}";
     </script>
-    <script src="{{basePath}}/public/javascripts/ga-tracking.js"></script>
+    <script src="{{ globals.basePath }}/public/javascripts/ga-tracking.js"></script>
+    <noscript>
+        <img src="{{ globals.basePath }}/public/images/noJS.png" width="1" height="1" alt="No JS">
+    </noscript>
 {% endif %}
 
+<script src="{{ globals.basePath }}/public/javascripts/cookie.js"></script>
+
 <!--[if lte IE 9]>
-<script src="{{basePath}}/public/javascripts/form-polyfill.js"></script>
+<script src="{{ globals.basePath }}/public/javascripts/form-polyfill.js"></script>
 <![endif]-->
+
+{% if fields.featureToggles.value.webchat == "true" %}
+    <script src="{{ globals.basePath }}/webchat/javascript/hmcts-webchat.js"></script>
+    <script nonce="{{ globals.nonce }}">
+        webchat_init({
+            uuid: 'script_{{ globals.webChat.chatId }}',
+            tenant: '{{ globals.webChat.tenant }}',
+            channel: 'Probate',
+            stylesheetURL: 'https://' + window.location.hostname + '/webchat/css/hmcts-webchat-gds-v3.css',
+            busHandlerURL: 'https://' + window.location.hostname + '/webchat/javascript/hmcts-webchat-busHandler.js',
+            btnNoAgents: '/{{ globals.webChat.tenant }}/button_{{ globals.webChat.buttonNoAgents }}/img/logo',
+            btnAgentsBusy: '/{{ globals.webChat.tenant }}/button_{{ globals.webChat.buttonAgentsBusy }}/img/logo',
+            btnServiceClosed: '/{{ globals.webChat.tenant }}/button_{{ globals.webChat.buttonServiceClosed }}/img/logo',
+            chatDownAction: 'showMessage',
+            chatLinkFocusable: false,
+            textChatDown: '{{ common.chatDown | replace("\n", "\\n") }}',
+            textChatClosed: '{{ common.chatClosed | replace("\n", "\\n") | replace("{chatOpeningHours}", common.chatOpeningHours) }}',
+            textChatWithAnAgent: '{{ common.chatWithAnAgent | replace("\n", "\\n") }}',
+            textNoAgentsAvailable: '{{ common.noAgentsAvailable | replace("\n", "\\n") }}',
+            textAllAgentsBusy: '{{ common.allAgentsBusy | replace("\n", "\\n") }}',
+            textChatAlreadyOpen: '{{ common.chatAlreadyOpen | replace("\\n", "\\\\n") }}',
+            textAdditional: '{{ common.chatOpeningHours | replace("\n", "\\n") }}.',
+            gdsMajorVersion: 3
+        });
+    </script>
+{% endif %}

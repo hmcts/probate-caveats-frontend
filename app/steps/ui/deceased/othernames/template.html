@@ -1,66 +1,97 @@
 {% extends "includes/two_thirds_form.html" %}
 
-{% from "widgets/textfields.html" import textField %}
+{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
 
 {% block error_summary %}
     {% if errors %}
-        <div class="error-summary" role="group" aria-labelledby="error-summary-heading" tabindex="-1">
-            <h2 class="heading-medium error-summary-heading" id="error-summary-heading">
-                {{ common.errorSummaryHeading | safe }}
-            </h2>
-            <ul class="error-summary-list">
-                {% for index, otherNameErros in errors %}
-                    {% for error in otherNameErros %}
-                        <li><a href="#otherNames_{{ index }}_{{ error.param }}">{{ error.msg.summary | safe }}</a></li>
+        <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="error-summary">
+            <h2 class="govuk-error-summary__title" id="error-summary-title">{{ common.errorSummaryHeading | safe }}</h2>
+            <div class="govuk-error-summary__body">
+                <ul class="govuk-list govuk-error-summary__list">
+                    <li>
+                        {% for index, otherNameErrors in errors %}
+                        {% for error in otherNameErrors %}
+                    <li><a href="#otherNames_{{ index }}_{{ error.field }}">{{ error.msg.summary | safe }}</a></li>
                     {% endfor %}
-                {% endfor %}
-            </ul>
+                    {% endfor %}
+                    </li>
+                </ul>
+            </div>
         </div>
     {% endif %}
 {% endblock %}
 
-{% block question %}
-    <h1 class="form-title heading-large">{{ content.question | replace('{deceasedName}', fields.deceasedFullName.value) | safe }}</h1>
-{% endblock %}
-
 {% block form_content %}
-    <p class="form-hint">{{ content.explanation1 }}</p>
-
     {% set hasOtherNames = false %}
     {% for index, otherName in fields.otherNames.value %}
-        <fieldset>
-            {% if index !== 'name_0' %}
+        {% call govukFieldset({
+            legend: {
+                text: (content.question | replace("{deceasedName}", fields.deceasedFullName.value) if index == "name_0" else content.otherName) | safe,
+                classes: ("govuk-fieldset__legend--l" if index == "name_0" else "govuk-fieldset__legend--m"),
+                isPageHeading: (true if index == "name_0" else false)
+            }
+        }) %}
+            {% if index !== "name_0" %}
                 {% set hasOtherNames = true %}
-                <span class="heading-medium">{{ content.otherName }}</span>
-                <input class="button-secondary" type="submit" formaction="{{ basePath }}/other-names/remove/{{ index }}" value="{{ content.removeName }}">
-            {% else %}
-                <legend class="visually-hidden">
-                    {{ content.question | safe }}
-                </legend>
+                {{ govukButton({
+                    text: content.removeName,
+                    preventDoubleClick: true,
+                    classes: "govuk-button--secondary",
+                    attributes: {
+                        formaction: (globals.basePath if globals.basePath) + "/other-names/remove/" + index
+                    }
+                }) }}
             {% endif %}
-            {{ textField(
-                id = 'otherNames_'+index+'_firstName',
-                name = 'otherNames['+index+'][firstName]',
-                field = otherName['firstName'],
-                text = content.firstName,
-                hint = content.firstNameHint,
-                size = 30
-            ) }}
-            {{ textField(
-                id = 'otherNames_'+index+'_lastName',
-                name = 'otherNames['+index+'][lastName]',
-                field = otherName['lastName'],
-                text = content.lastName,
-                hint = content.lastNameHint,
-                size = 30
-            ) }}
-        </fieldset>
+
+            {{ govukInput({
+                label: {
+                    text: content.firstName
+                },
+                id: "otherNames_" + index + "_firstName",
+                name: "otherNames[" + index + "][firstName]",
+                value: otherName["firstName"].value | safe,
+                errorMessage: { text: otherName["firstName"].errorMessage.message | safe } if otherName["firstName"].errorMessage,
+                attributes: {
+                    maxlength: 100
+                },
+                classes: "govuk-!-width-three-quarters",
+                hint: {
+                    text: content.firstNameHint
+                }
+            }) }}
+            {{ govukInput({
+                label: {
+                    text: content.lastName
+                },
+                id: "otherNames_" + index + "_lastName",
+                name: "otherNames[" + index + "][lastName]",
+                value: otherName["lastName"].value | safe,
+                errorMessage: { text: otherName["lastName"].errorMessage.message | safe } if otherName["lastName"].errorMessage,
+                attributes: {
+                    maxlength: 100
+                },
+                classes: "govuk-!-width-three-quarters"
+            }) }}
+        {% endcall %}
     {% endfor %}
-    <div class="form-group">
-        <input {% if hasOtherNames %}autofocus="autofocus"{% endif %} class="button-secondary" type="submit" formaction="{{ basePath }}/other-names/add" value="{{ content.addAnotherName }}">
+
+    <div class="govuk-form-group">
+        {{ govukButton({
+            text: content.addAnotherName,
+            preventDoubleClick: true,
+            classes: "govuk-button--secondary",
+            attributes: {
+                formaction: (globals.basePath if globals.basePath) + "/other-names/add"
+            }
+        }) }}
     </div>
-    <div class="form-group">
-        <input class="button" type="submit" value="{{ common.continue }}">
+
+    <div class="govuk-form-group">
+        {{ govukButton({
+            text: common.saveAndContinue,
+            preventDoubleClick: true
+        }) }}
     </div>
 {% endblock %}
-{% block save_and_close %}{% endblock %}

@@ -1,24 +1,22 @@
-/*global describe, it, before, beforeEach, after, afterEach */
-
 'use strict';
+
 const assert = require('chai').assert;
 const sinon = require('sinon');
 const when = require('when');
 const services = require('app/components/services');
 const OSPlacesClient = require('@hmcts/os-places-client').OSPlacesClient;
 
-const osPlacesClientResponse =
+const osPlacesClientResponse = {
+    valid: true,
+    addresses: [{
+        formattedAddress: 'MINISTRY OF JUSTICE,SEVENTH FLOOR,103 PETTY FRANCE,LONDON,SW1H 9AJ',
+        postcode: 'SW1H 9AJ'
+    },
     {
-        valid: true,
-        addresses: [{
-            formattedAddress: 'MINISTRY OF JUSTICE,SEVENTH FLOOR,103 PETTY FRANCE,LONDON,SW1H 9AJ',
-            postcode: 'SW1H 9AJ'
-        },
-        {
-            formattedAddress: 'MINISTRY OF JUSTICE,SEVENTH FLOOR,102 PETTY FRANCE,LONDON,SW1H 9AJ',
-            postcode: 'SW1H 9AJ'
-        }]
-    };
+        formattedAddress: 'MINISTRY OF JUSTICE,SEVENTH FLOOR,102 PETTY FRANCE,LONDON,SW1H 9AJ',
+        postcode: 'SW1H 9AJ'
+    }]
+};
 
 const expectedResponse = [{
     formattedAddress: 'MINISTRY OF JUSTICE,SEVENTH FLOOR,103 PETTY FRANCE,LONDON,SW1H 9AJ',
@@ -83,5 +81,4 @@ describe('addressLookup service tests', function () {
             })
             .catch(done);
     });
-
 });

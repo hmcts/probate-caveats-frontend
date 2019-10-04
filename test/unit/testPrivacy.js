@@ -1,6 +1,6 @@
 'use strict';
 
-const Privacy = require('app/steps/ui/privacy/index');
+const Privacy = require('app/steps/ui/static/privacy/index');
 const expect = require('chai').expect;
 
 describe('privacy/index.js', () => {

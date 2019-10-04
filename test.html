@@ -1,0 +1,26 @@
+<h3>test regex for address</h3>
+<script>
+
+    //var formattedAddress = 'FLAT 1.3, ZIGGURAT BUILDING 60-66, SAFFRON HILL, LONDON, EC1N 8QX';
+    //var formattedAddress = 'FLAT 15, 55-59, SAFFRON HILL, LONDON, EC1N 8QX';
+    var formattedAddress = "1a, EGMONT'S ROAD, MIDDLESBROUGH, TS4 2HT";
+    var postcode = "TS4 2HT";
+
+    document.write('original: ' + formattedAddress + '<br/>');
+
+
+    //formattedAddress = formattedAddress.replace(/(,?)(\s*)([0-9-.]+),/g, '$1$2$3');
+    //formattedAddress = formattedAddress.replace(/(^|,)(\s*)([0-9-.]+[A-Z]*),/gi, '$1$2$3');
+    //formattedAddress = formattedAddress.replace(/\s*,\s*/g, ',');
+
+    const formattedPostcode = postcode.replace(/[A-Z]+/gi, capitalize);
+    formattedAddress = formattedAddress.replace(/[A-Z]+/gi, capitalize);
+    formattedAddress = formattedAddress.replace(formattedPostcode, postcode);
+    formattedAddress = formattedAddress.replace(/(^|,)(\s*)([0-9-.]+[A-Z]*),/gi, '$1$2$3');
+    formattedAddress = formattedAddress.replace(/\s*,\s*/g, ',');
+    //return formattedAddress;
+
+    document.write('<h2>formattedAddress: ' + formattedAddress + '</h2>');
+</script>
+
+

@@ -1,43 +1,43 @@
 {% extends "includes/layout.html" %}
 
+{% from "govuk/components/panel/macro.njk" import govukPanel %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
 {% block content %}
-    <main id="content" role="main">
-        {% include "includes/phase_banner_beta.html" %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            {% set referenceNumberHtml %}
+                {% if fields.ccdReferenceNumber.value !== "" %}
+                    <p class="govuk-!-font-size-36 govuk-!-font-weight-bold">
+                        <span class="govuk-!-font-size-24 govuk-!-font-weight-bold">{{ content.referenceNumber | safe }}</span><br>
+                        <strong class="govuk-!-font-weight-bold" aria-label="{{ fields.ccdReferenceNumberAccessible.value }}">{{ fields.ccdReferenceNumber.value }}</strong>
+                    </p>
+                {% endif %}
+            {% endset -%}
 
-        <div class="grid-row">
-            <div class="column-two-thirds">
-                <div class="govuk-box-highlight">
-                    <h1 class="heading-xlarge">
-                        {{ content.header | safe }}
-                    </h1>
-                    {% if fields.ccdReferenceNumber.value !== '' %}
-                        <p class="font-large">
-                            <span class="font-medium">{{ content.referenceNumber | safe }}</span><br>
-                            <strong class="bold">{{ fields.ccdReferenceNumber.value }}</strong>
-                        </p>
-                    {% endif %}
-                </div>
+            {{ govukPanel({
+                titleText: content.header | safe,
+                html: referenceNumberHtml
+            }) }}
 
-                <h2 class="heading-medium">{{ content.successHeading1 | safe }}</h2>
-                <p>{{ content.successParagraph1 | safe }}</p>
-                <p>{{ content.successParagraph2 | safe }}</p>
+            <h2 class="govuk-heading-m">{{ content.successHeading1 | safe }}</h2>
+                <p class="govuk-body">{{ content.successParagraph1 | safe }}</p>
+                <p class="govuk-body">{{ content.successParagraph2 | safe }}</p>
 
                 <div class="margin-bottom50">
-                    <h2 class="heading-medium">{{ content.saveYourApplication }}</h2>
-                    <p>{{ content.saveParagraph1 }}</p>
-                    <p class="save-this-page-link">
+                    <h2 class="govuk-heading-m">{{ content.saveYourApplication }}</h2>
+                    <p class="govuk-body">{{ content.saveParagraph1 }}</p>
+                    <p class="govuk-body">
                         <em class="icon icon-file-download"></em>
-                        <a class="anchor-margin-left" id="checkAnswerHref" href="{{ basePath }}/check-answers-pdf">{{ content.checkAnswersPdf }}</a>
+                        <a class="govuk-link anchor-margin-left" id="checkAnswerHref" href="{{ globals.basePath }}/check-answers-pdf">{{ content.checkAnswersPdf }}</a>
                     </p>
                 </div>
 
-                <div class="panel panel-border-wide">
-                    <p>{{ content.successParagraph3 | replace('{citizenAdvice}', links.citizenAdvice) | safe }}</p>
-                </div>
+                {{ govukInsetText({
+                    text: content.successParagraph3 | replace('{citizenAdvice}', globals.links.citizenAdvice) | safe
+                }) }}
 
-
-
-                <a href="{{ links.surveyEndOfApplication | safe }}">{{ content.survey | safe }}</a>
+                <a href="{{ globals.links.surveyEndOfApplication | safe }}" class="govuk-link" target="_blank" rel="external noopener noreferrer">{{ content.survey | safe }}</a>
             </div>
         </div>
     </main>

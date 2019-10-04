@@ -8,7 +8,7 @@ describe('ThankYou router redirects', () => {
     let testWrapper;
     const stepsToExclude = ['ThankYou', 'ShutterPage', 'ContactUs', 'Cookies', 'PrivacyPolicy', 'TermsConditions'];
 
-    describe('Verify router will redirect to /thankyou page when payment status is success', () => {
+    describe('Verify router will redirect to /thank-you page when payment status is success', () => {
         for (const step in steps) {
             ((step) => {
                 if (!stepsToExclude.includes(step.name)) {
@@ -26,7 +26,7 @@ describe('ThankYou router redirects', () => {
                                 if (err) {
                                     throw err;
                                 }
-                                testWrapper.testGetRedirect(done, {}, '/thankyou');
+                                testWrapper.testGetRedirect(done, {}, '/thank-you');
                             });
                         testWrapper.destroy();
                     });

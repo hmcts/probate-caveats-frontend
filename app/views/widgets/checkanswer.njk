@@ -1,0 +1,28 @@
+{% macro checkanswer(items, url, common, basePath, answerIsCollection, answerIsGroup, isComplete) %}
+    {% set anyVisibleItems = items | selectattr("visible") | length %}
+    {% if anyVisibleItems %}
+        {% for item in items %}
+            {% if item.visible %}
+                {% set complete = true if isComplete !== false and item.answer else false %}
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">{{ item.question | safe }}</dt>
+                    {% if answerIsCollection %}
+                        <dd class="govuk-summary-list__value">
+                            {% for answ in item.answer %}
+                                <div class="govuk-summary-list__row">
+                                    {{ answ | safe }}
+                                </div>
+                            {% endfor %}
+                        </dd>
+                    {% else %}
+                        <dd class="govuk-summary-list__value">{{ item.answer | safe }}</dd>
+                    {% endif %}
+                    <dd class="govuk-summary-list__actions">
+                        {% set actionLink = common.change if complete else common.answer %}
+                        <a class="govuk-link" href="{{ basePath }}{{ url }}">{{ actionLink }}</a>
+                    </dd>
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+{% endmacro %}
