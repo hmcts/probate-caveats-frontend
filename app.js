@@ -133,12 +133,12 @@ exports.init = function() {
 
     // Middleware to serve static assets
     app.use(`${config.app.basePath}/public/webchat`, express.static(`${__dirname}/node_modules/@hmcts/ctsc-web-chat/assets`, caching));
-    app.use('/public/stylesheets', express.static(`${__dirname}/public/stylesheets`, caching));
-    app.use('/public/images', express.static(`${__dirname}/app/assets/images`, caching));
-    app.use('/public/javascripts/govuk-frontend', express.static(`${__dirname}/node_modules/govuk-frontend`, caching));
-    app.use('/public/javascripts', express.static(`${__dirname}/app/assets/javascripts`, caching));
-    app.use('/public/pdf', express.static(`${__dirname}/app/assets/pdf`));
-    app.use('/assets', express.static(`${__dirname}/node_modules/govuk-frontend/govuk/assets`, caching));
+    app.use(`${config.app.basePath}/public/stylesheets`, express.static(`${__dirname}/public/stylesheets`, caching));
+    app.use(`${config.app.basePath}/public/images`, express.static(`${__dirname}/app/assets/images`, caching));
+    app.use(`${config.app.basePath}/public/javascripts/govuk-frontend`, express.static(`${__dirname}/node_modules/govuk-frontend`, caching));
+    app.use(`${config.app.basePath}/public/javascripts`, express.static(`${__dirname}/app/assets/javascripts`, caching));
+    app.use(`${config.app.basePath}/public/pdf`, express.static(`${__dirname}/app/assets/pdf`));
+    app.use(`${config.app.basePath}/assets`, express.static(`${__dirname}/node_modules/govuk-frontend/govuk/assets`, caching));
 
     // Elements refers to icon folder instead of images folder
     app.use(favicon(path.join(__dirname, 'node_modules', 'govuk-frontend', 'govuk', 'assets', 'images', 'favicon.ico')));
