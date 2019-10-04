@@ -136,6 +136,7 @@ exports.init = function() {
     app.use('/public/stylesheets', express.static(`${__dirname}/public/stylesheets`, caching));
     app.use('/public/images', express.static(`${__dirname}/app/assets/images`, caching));
     app.use('/public/javascripts/govuk-frontend', express.static(`${__dirname}/node_modules/govuk-frontend`, caching));
+    app.use('/public/javascripts/jquery', express.static(`${__dirname}/node_modules/jquery/dist`, caching));
     app.use('/public/javascripts', express.static(`${__dirname}/app/assets/javascripts`, caching));
     app.use('/public/pdf', express.static(`${__dirname}/app/assets/pdf`));
     app.use('/assets', express.static(`${__dirname}/node_modules/govuk-frontend/govuk/assets`, caching));
