@@ -60,6 +60,7 @@ exports.init = function() {
         applicationFee: config.payment.applicationFee,
         nonce: uuid,
         basePath: config.app.basePath,
+        dirname: __dirname,
         webChat: {
             chatId: config.webChat.chatId,
             tenant: config.webChat.tenant,
