@@ -206,5 +206,6 @@ module "probate-caveats-fe" {
     PAY_RETURN_URL = "/caveats/payment-status"
     CAVEAT_REDIRECT_BASE_URL = "${local.caveat_internal_base_url}"
     EXTERNAL_HOSTNAME_URL = "${var.external_hostName_url}"
+    ENABLE_TRACKING = "${var.enable_tracking}"
   }
 }
