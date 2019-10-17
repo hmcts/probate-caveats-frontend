@@ -3,7 +3,7 @@
 
 {% if globals.enableTracking === 'true' %}
     <script nonce="{{ globals.nonce }}">
-        var gatrackingid = "{{gaTrackingId}}";
+        var gatrackingid = "{{ globals.gaTrackingId }}";
     </script>
     <script src="{{ globals.basePath }}/public/javascripts/ga-tracking.js"></script>
     <noscript>
