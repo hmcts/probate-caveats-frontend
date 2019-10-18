@@ -13,10 +13,7 @@ const createCheckAnswersPdf = (formdata, sessionId, hostname) => {
     logInfo('Create check your answers PDF', sessionId);
     return services.authorise(formdata.applicationId)
         .then(serviceToken => {
-            const body = {
-                checkAnswersSummary: formdata.checkAnswersSummary
-            };
-            return createPDFDocument(formdata, serviceToken, body, hostname);
+            return createPDFDocument(formdata.checkAnswersSummary, serviceToken, body, hostname);
         });
 };
 
