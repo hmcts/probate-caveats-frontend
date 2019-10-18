@@ -131,6 +131,9 @@ variable "caveat_frontend_protocol" {
   default = "https"
 }
 
+variable "enable_tracking" {
+  default = "true"
+}
 
 variable "caveat_google_track_id" {
   description = "Google Analytics tracking ID"
