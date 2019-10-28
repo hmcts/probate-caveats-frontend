@@ -13,7 +13,7 @@
                 {% include "includes/error_summary.html" %}
             {% endblock %}
 
-            <form class="form" method="post" action="{{ globals.basePath }}/find-address" novalidate>
+            <form class="form" method="post" autocomplete="off" action="{{ globals.basePath }}/find-address" novalidate>
                 <input type="hidden" name="_csrf" value="{{ csrfToken }}">
                 {% call govukFieldset({
                     legend: {
@@ -32,7 +32,7 @@
                 {% endcall %}
             </form>
 
-            <form class="form" method="post" action="{{ globals.basePath }}{{ pageUrl }}" novalidate>
+            <form class="form" method="post" autocomplete="off" action="{{ globals.basePath }}{{ pageUrl }}" novalidate>
                 <input type="hidden" name="_csrf" value="{{ csrfToken }}">
                 {% call govukFieldset({
                     legend: {
@@ -66,7 +66,8 @@
                                 attributes: {
                                     maxlength: 150
                                 },
-                                classes: "govuk-!-width-three-quarters"
+                                classes: "govuk-!-width-three-quarters",
+                                autocomplete: "none"
                             }) }}
                             {{ govukInput({
                                 label: {
@@ -79,7 +80,8 @@
                                 attributes: {
                                     maxlength: 50
                                 },
-                                classes: "govuk-!-width-three-quarters"
+                                classes: "govuk-!-width-three-quarters",
+                                autocomplete: "none"
                             }) }}
                             {{ govukInput({
                                 label: {
@@ -92,7 +94,8 @@
                                 attributes: {
                                     maxlength: 50
                                 },
-                                classes: "govuk-!-width-three-quarters"
+                                classes: "govuk-!-width-three-quarters",
+                                autocomplete: "none"
                             }) }}
                             {{ govukInput({
                                 label: {
@@ -105,7 +108,8 @@
                                 attributes: {
                                     maxlength: 50
                                 },
-                                classes: "govuk-!-width-three-quarters"
+                                classes: "govuk-!-width-three-quarters",
+                                autocomplete: "none"
                             }) }}
                             {{ govukInput({
                                 label: {
@@ -118,7 +122,8 @@
                                 attributes: {
                                     maxlength: 14
                                 },
-                                classes: "govuk-!-width-one-quarter"
+                                classes: "govuk-!-width-one-quarter",
+                                autocomplete: "none"
                             }) }}
                             {{ govukInput({
                                 label: {
@@ -130,7 +135,8 @@
                                 attributes: {
                                     maxlength: 50
                                 },
-                                classes: "govuk-!-width-three-quarters"
+                                classes: "govuk-!-width-three-quarters",
+                                autocomplete: "none"
                             }) }}
                         </div>
                     </details>
