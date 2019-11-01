@@ -81,11 +81,12 @@ const createPayment = (data, hostname) => {
     logInfo('createPayment', data.applicationId);
     logInfo('hostname', hostname);
     const paymentUpdatesCallback = config.services.orchestration.url + config.services.orchestration.paths.payment_updates;
+    const pay_return_host_url = (hostname.indexOf('.internal') >= 0) ? hostname:(externalHostNameUrl || hostname);
     const headers = {
         'Content-Type': 'application/json',
         'Authorization': data.authToken,
         'ServiceAuthorization': data.serviceAuthToken,
-        'return-url': FormatUrl.format((externalHostNameUrl || hostname), config.services.payment.returnUrlPath),
+        'return-url': FormatUrl.format(pay_return_host_url, config.services.payment.returnUrlPath),
         'service-callback-url': paymentUpdatesCallback
     };
     const body = paymentData.createPaymentData(data);
