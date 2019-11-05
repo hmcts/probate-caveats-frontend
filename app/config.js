@@ -123,16 +123,6 @@ module.exports = {
         equalityAdvisorLink: 'https://www.equalityadvisoryservice.com/',
         wcag21Link: 'https://www.w3.org/TR/WCAG21/'
     },
-    helpline: {
-        number: '0300 303 0648',
-        email: 'contactprobate@justice.gov.uk',
-        hours: 'Monday to Friday, 9:30am to 5pm'
-    },
-    serviceline: {
-        number: '0300 123 7050',
-        email: 'contactprobate@justice.gov.uk',
-        hours: 'Monday to Friday, 9:30am to 5pm'
-    },
     utils: {
         api: {
             retries: process.env.RETRIES_NUMBER || 10,

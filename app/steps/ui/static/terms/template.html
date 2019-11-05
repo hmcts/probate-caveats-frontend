@@ -50,8 +50,8 @@
             {{ unorderedList([content["disclaimer-item20"], content["disclaimer-item21"], content["disclaimer-item22"]]) }}
 
             <h2 class="govuk-heading-m">{{ content.contactHeading }}</h2>
-            <p class="govuk-body">{{ content.contactParagraph1 | replace("{helpLineNumber}", globals.helpline.number) }}</p>
-            <p class="govuk-body">{{ content.contactParagraph2 | replace("{helpLineHours}", globals.helpline.hours) }}</p>
+            <p class="govuk-body">{{ content.contactParagraph1 | replace("{helpLineNumber}", common.helpTelephoneNumber) }}</p>
+            <p class="govuk-body">{{ content.contactParagraph2 | replace("{helpLineHours}", common.helpTelephoneOpeningHours) }}</p>
             <p class="govuk-body">{{ content.contactParagraph3 | replace("{callChargesLink}", globals.links.callCharges) | safe }}</p>
         </div>
     </div>
