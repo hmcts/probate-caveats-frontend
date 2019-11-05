@@ -15,7 +15,8 @@ const downloadCheckAnswersPdf = (req, res) => {
         })
         .catch(err => {
             req.log.error(err.toLocaleString());
-            res.status(500).render('errors/500', {common: commonContent});
+            res.status(500);
+            res.render('errors/500', {common: commonContent});
         });
 };
 

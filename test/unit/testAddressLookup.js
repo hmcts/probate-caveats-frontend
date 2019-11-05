@@ -54,6 +54,9 @@ describe('AddressLookup', function () {
 
             const AddressLookup = steps.AddressLookup;
 
+            const session = {
+                language: 'en'
+            };
             let ctx = {
                 referrer: 'ApplicantAddress',
                 postcode: 'wibble'
@@ -62,7 +65,7 @@ describe('AddressLookup', function () {
             const formdata = {applicant: {'someThingToLookFor': 'someThingToLookFor'}};
 
             co(function* () {
-                [ctx, errors] = yield AddressLookup.handlePost(ctx, errors, formdata);
+                [ctx, errors] = yield AddressLookup.handlePost(ctx, errors, formdata, session);
                 assert.equal(formdata.applicant.addressFound, 'false');
                 assert.exists(formdata.applicant.errors[0], 'key not found');
                 done();
