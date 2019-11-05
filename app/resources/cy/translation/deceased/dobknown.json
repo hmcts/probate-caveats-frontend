@@ -1,0 +1,15 @@
+{
+  "title": "Deceased date of birth",
+  "question": "Do you know {deceasedName}&rsquo;s date of birth?",
+  "optionYes": "Yes",
+  "optionNo": "No",
+
+  "errors": {
+    "dobknown": {
+      "required": {
+        "summary": "Answer the question about the date of birth",
+        "message": "Select yes if you know the date of birth"
+      }
+    }
+  }
+}
