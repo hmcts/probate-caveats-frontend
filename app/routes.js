@@ -39,6 +39,13 @@ router.get('/', (req, res) => {
 });
 
 router.use((req, res, next) => {
+    const steps = initSteps([`${__dirname}/steps/action/`, `${__dirname}/steps/ui`], req.session.language);
+
+    Object.entries(steps).forEach(([, step]) => {
+        router.get(step.constructor.getUrl(), step.runner().GET(step));
+        router.post(step.constructor.getUrl(), step.runner().POST(step));
+    });
+
     res.locals.session = req.session;
     res.locals.pageUrl = req.url;
     next();
@@ -63,13 +70,6 @@ router.get('/*', (req, res, next) => {
     } else {
         next();
     }
-});
-
-const steps = initSteps([`${__dirname}/steps/action/`, `${__dirname}/steps/ui/`]);
-
-Object.entries(steps).forEach(([, step]) => {
-    router.get(step.constructor.getUrl(), step.runner().GET(step));
-    router.post(step.constructor.getUrl(), step.runner().POST(step));
 });
 
 router.get('/health/liveness', (req, res) => {

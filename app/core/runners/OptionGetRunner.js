@@ -14,9 +14,10 @@ class OptionGetRunner extends UIStepRunner {
     }
 
     handlePost(step, req, res) {
+        const commonContent = require(`app/resources/${req.session.language}/translation/common`);
+
         req.log.error('Post operation not defined for OptionGetRunner');
-        res.status(404);
-        res.render('errors/404');
+        res.status(404).render('errors/404', {common: commonContent});
     }
 }
 

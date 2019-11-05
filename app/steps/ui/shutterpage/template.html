@@ -10,7 +10,7 @@
             <p class="govuk-body">{{ content.paragraph4 }}</p>
             <p class="govuk-body">
                 {{ common.helpHeading1 | safe }}: {{ common.helpTelephoneNumber | safe }} ({{ common.helpTelephoneOpeningHours | safe }})<br>
-                {{ common.helpEmailLabel | replace("{contactEmailAddress}", globals.links.contactEmailAddress) | safe }}
+                {{ common.helpEmailLabel | replace("{contactEmailAddress}", common.helpEmail) | safe }}
             </p>
         </div>
     </div>
