@@ -14,7 +14,8 @@ class ActionStepRunner {
         const commonContent = require(`app/resources/${req.session.language}/translation/common`);
 
         req.log.error(`GET operation not defined for ${step.name} step`);
-        res.status(404).render('errors/404', {common: commonContent});
+        res.status(404);
+        res.render('errors/404', {common: commonContent});
     }
 
     handlePost(step, req, res) {
