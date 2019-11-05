@@ -30,7 +30,7 @@ describe('DeceasedAlias', () => {
             expect(nextStepOptions).to.deep.equal({
                 options: [{
                     key: 'alias',
-                    value: 'Yes',
+                    value: 'optionYes',
                     choice: 'assetsInOtherNames'
                 }]
             });
@@ -62,7 +62,7 @@ describe('DeceasedAlias', () => {
                 sessionID: 'dummy_sessionId',
                 otherNames: 'i exist',
                 deceased: {
-                    alias: 'No',
+                    alias: 'optionNo',
                     firstName: 'Jason',
                     lastName: 'Smith'
                 },

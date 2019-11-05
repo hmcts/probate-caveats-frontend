@@ -42,7 +42,7 @@
     basePath = globals.basePath
 )}}
 
-{% if fields.deceased.dobknown.value === "Yes" %}
+{% if fields.deceased.dobknown.value == "optionYes" %}
     {{checkanswer(
         items = [
             {

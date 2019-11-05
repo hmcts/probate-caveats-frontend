@@ -51,7 +51,7 @@ describe('deceased-alias', () => {
 
         it(`test it redirects to deceased other names page: ${expectedNextUrlForDeceasedOtherNames}`, (done) => {
             const data = {
-                alias: 'Yes'
+                alias: 'optionYes'
             };
 
             testWrapper.testRedirect(done, data, expectedNextUrlForDeceasedOtherNames);
@@ -59,7 +59,7 @@ describe('deceased-alias', () => {
 
         it(`test it redirects to deceased address page: ${expectedNextUrlForDeceasedAddress}`, (done) => {
             const data = {
-                alias: 'No'
+                alias: 'optionNo'
             };
 
             testWrapper.testRedirect(done, data, expectedNextUrlForDeceasedAddress);

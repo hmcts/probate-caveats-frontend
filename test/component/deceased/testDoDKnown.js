@@ -51,7 +51,7 @@ describe('deceased-dob-known', () => {
 
         it(`test it redirects to deceased dob known: ${expectedNextUrlForDeceasedDob}`, (done) => {
             const data = {
-                dobknown: 'Yes'
+                dobknown: 'optionYes'
             };
 
             testWrapper.testRedirect(done, data, expectedNextUrlForDeceasedDob);
@@ -59,7 +59,7 @@ describe('deceased-dob-known', () => {
 
         it(`test it redirects to deceased dob not known: ${expectedNextUrlForDeceasedAlias}`, (done) => {
             const data = {
-                dobknown: 'No'
+                dobknown: 'optionNo'
             };
 
             testWrapper.testRedirect(done, data, expectedNextUrlForDeceasedAlias);

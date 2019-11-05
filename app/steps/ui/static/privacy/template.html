@@ -10,9 +10,9 @@
 
             <h2 class="govuk-heading-m">{{ content.whoManagesThisServiceHeading }}</h2>
             <p class="govuk-body">{{ content.whoManagesThisServiceParagraph1 }}</p>
-            <p class="govuk-body">{{ content.whoManagesThisServiceParagraph2 | replace('{mojPersonalInformationCharterLink}', globals.links.mojPersonalInformationCharter) | safe }}</p>
+            <p class="govuk-body">{{ content.whoManagesThisServiceParagraph2 | replace("{mojPersonalInformationCharterLink}", globals.links.mojPersonalInformationCharter) | safe }}</p>
             <p class="govuk-body">{{ content.whoManagesThisServiceParagraph3 }}</p>
-            <p class="govuk-body">{{ content.whoManagesThisServiceParagraph4 | replace('{termsLink}', globals.links.terms) | safe }}</p>
+            <p class="govuk-body">{{ content.whoManagesThisServiceParagraph4 | replace("{termsLink}", globals.links.terms) | safe }}</p>
 
             <h2 class="govuk-heading-m">{{ content.whyWeCollectDataHeading }}</h2>
             <p class="govuk-body">{{ content.whyWeCollectDataParagraph1 }}</p>
@@ -26,7 +26,7 @@
             <h2 class="govuk-heading-m">{{ content.usingYourDataHeading }}</h2>
             <p class="govuk-body">{{ content.usingYourDataParagraph1 | safe }}</p>
             <p class="govuk-body">{{ content.usingYourDataParagraph2 }}</p>
-            <p class="govuk-body">{{ content.usingYourDataParagraph3 | replace('{cookiesLink}', globals.links.cookies) | safe }}</p>
+            <p class="govuk-body">{{ content.usingYourDataParagraph3 | replace("{cookiesLink}", globals.links.cookies) | safe }}</p>
             {{ unorderedList([content["usingYourData-item1"], content["usingYourData-item2"], content["usingYourData-item3"], content["usingYourData-item4"]]) }}
 
             <h2 class="govuk-heading-m">{{ content.storingYourDataHeading1 }}</h2>
@@ -38,9 +38,9 @@
 
             <h2 class="govuk-heading-m">{{ content.sharingYourDataHeading1 }}</h2>
             <p class="govuk-body">{{ content.sharingYourDataParagraph1 }}</p>
-            <p class="govuk-body">{{ content.sharingYourDataParagraph2 | replace('{goodThingsFoundationLink}', globals.links.goodThingsFoundation) | safe }}</p>
+            <p class="govuk-body">{{ content.sharingYourDataParagraph2 | replace("{goodThingsFoundationLink}", globals.links.goodThingsFoundation) | safe }}</p>
             <p class="govuk-body">{{ content.sharingYourDataParagraph3 }}</p>
-            <p class="govuk-body">{{ content.sharingYourDataParagraph4 | replace('{termsLink}', globals.links.terms) | safe }}</p>
+            <p class="govuk-body">{{ content.sharingYourDataParagraph4 | replace("{termsLink}", globals.links.terms) | safe }}</p>
             <h3 class="govuk-heading-s">{{ content.sharingYourDataHeading2 }}</h3>
             <p class="govuk-body">{{ content.sharingYourDataParagraph5 }}</p>
 
@@ -48,17 +48,17 @@
             <p class="govuk-body">{{ content.yourRightsParagraph1 }}</p>
             {{ unorderedList([content["yourRights-item1"], content["yourRights-item2"], content["yourRights-item3"], content["yourRights-item4"]]) }}
             <p class="govuk-body">{{ content.yourRightsParagraph2 }}</p>
-            {{ unorderedList([content["yourRights-item5"] | replace('{subjectAccessRequestLink}', globals.links.subjectAccessRequest), content["yourRights-item6"]]) }}
+            {{ unorderedList([content["yourRights-item5"] | replace("{subjectAccessRequestLink}", globals.links.subjectAccessRequest), content["yourRights-item6"]]) }}
             <p class="govuk-body">{{ content.yourRightsParagraph3 }}</p>
             {{ unorderedList([content["yourRights-item7"], content["yourRights-item8"], content["yourRights-item9"], content["yourRights-item10"]]) }}
             <p class="govuk-body">{{ content.yourRightsParagraph4 }}</p>
             {{ unorderedList([content["yourRights-item11"], content["yourRights-item12"]]) }}
 
             <h2 class="govuk-heading-m">{{ content.howToComplainHeading }}</h2>
-            <p class="govuk-body">{{ content.howToComplainParagraph1 | replace('{complaintsProcedureLink}', globals.links.complaintsProcedure) | safe }}</p>
+            <p class="govuk-body">{{ content.howToComplainParagraph1 | replace("{complaintsProcedureLink}", globals.links.complaintsProcedure) | safe }}</p>
             <p class="govuk-body">{{ content.howToComplainParagraph2 }}</p>
             <p class="govuk-body">{{ content.howToComplainParagraph3 | safe }}</p>
-            <p class="govuk-body">{{ content.howToComplainParagraph4 | replace('{informationCommissionersOfficeLink}', globals.links.informationCommissionersOffice) | safe }}</p>
+            <p class="govuk-body">{{ content.howToComplainParagraph4 | replace("{informationCommissionersOfficeLink}", globals.links.informationCommissionersOffice) | safe }}</p>
         </div>
     </div>
 {% endblock %}

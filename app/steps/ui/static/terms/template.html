@@ -6,7 +6,7 @@
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
             <h1 class="govuk-heading-l">{{ content.heading1 }}</h1>
-            <p class="govuk-body">{{ content.paragraph1 | replace('{privacyLink}', globals.links.privacy) | safe }}</p>
+            <p class="govuk-body">{{ content.paragraph1 | replace("{privacyLink}", globals.links.privacy) | safe }}</p>
 
             <h2 class="govuk-heading-m">{{ content.whoWeAreHeading }}</h2>
             <p class="govuk-body">{{ content.whoWeAreParagraph1 | safe }}</p>
@@ -17,8 +17,8 @@
             <p class="govuk-body">{{ content.informationProvidedParagraph2 }}</p>
 
             <h2 class="govuk-heading-m">{{ content.dataSharingStoringHeading }}</h2>
-            <p class="govuk-body">{{ content.dataSharingStoringParagraph1 | replace('{privacyLink}', globals.links.privacy) | safe }}</p>
-            <p class="govuk-body">{{ content.dataSharingStoringParagraph2 | replace('{cookiesLink}', globals.links.cookies) | safe }}</p>
+            <p class="govuk-body">{{ content.dataSharingStoringParagraph1 | replace("{privacyLink}", globals.links.privacy) | safe }}</p>
+            <p class="govuk-body">{{ content.dataSharingStoringParagraph2 | replace("{cookiesLink}", globals.links.cookies) | safe }}</p>
 
             <h2 class="govuk-heading-m">{{ content.lawsApplicableHeading }}</h2>
             <p class="govuk-body">{{ content.lawsApplicableParagraph1 }}</p>
@@ -35,7 +35,7 @@
             <p class="govuk-body">{{ content.personalInformationParagraph2 }}</p>
             {{ unorderedList([content["personalInformation-item1"], content["personalInformation-item2"], content["personalInformation-item3"], content["personalInformation-item4"], content["personalInformation-item5"], content["personalInformation-item6"], content["personalInformation-item7"]]) }}
             <p class="govuk-body">{{ content.personalInformationParagraph3 }}</p>
-            <p class="govuk-body">{{ content.personalInformationParagraph4 | replace('{privacyLink}', globals.links.privacy) | safe }}</p>
+            <p class="govuk-body">{{ content.personalInformationParagraph4 | replace("{privacyLink}", globals.links.privacy) | safe }}</p>
 
             <h2 class="govuk-heading-m">{{ content.disclaimerHeading }}</h2>
             <p class="govuk-body">{{ content.disclaimerParagraph1 | safe }}</p>
@@ -50,9 +50,9 @@
             {{ unorderedList([content["disclaimer-item20"], content["disclaimer-item21"], content["disclaimer-item22"]]) }}
 
             <h2 class="govuk-heading-m">{{ content.contactHeading }}</h2>
-            <p class="govuk-body">{{ content.contactParagraph1 | replace('{helpLineNumber}', globals.helpline.number) }}</p>
-            <p class="govuk-body">{{ content.contactParagraph2 | replace('{helpLineHours}', globals.helpline.hours) }}</p>
-            <p class="govuk-body">{{ content.contactParagraph3 | replace('{callChargesLink}', globals.links.callCharges) | safe }}</p>
+            <p class="govuk-body">{{ content.contactParagraph1 | replace("{helpLineNumber}", globals.helpline.number) }}</p>
+            <p class="govuk-body">{{ content.contactParagraph2 | replace("{helpLineHours}", globals.helpline.hours) }}</p>
+            <p class="govuk-body">{{ content.contactParagraph3 | replace("{callChargesLink}", globals.links.callCharges) | safe }}</p>
         </div>
     </div>
 {% endblock %}

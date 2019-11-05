@@ -18,7 +18,7 @@
 
 {% block header %}
   <div id="global-cookie-message">
-    <p class="govuk-body">{{ cookieText | replace('{cookiesLink}', globals.links.cookies) | safe }}</p>
+    <p class="govuk-body">{{ cookieText | replace("{cookiesLink}", globals.links.cookies) | safe }}</p>
   </div>
 
   {{ govukHeader({
