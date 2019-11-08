@@ -4,6 +4,7 @@ const initSteps = require('app/core/initSteps');
 const expect = require('chai').expect;
 const steps = initSteps([`${__dirname}/../../app/steps/action/`, `${__dirname}/../../app/steps/ui`]);
 const DeceasedAlias = steps.DeceasedAlias;
+const content = require('app/resources/en/translation/deceased/alias');
 
 describe('DeceasedAlias', () => {
     describe('getUrl()', () => {
@@ -56,23 +57,40 @@ describe('DeceasedAlias', () => {
         });
     });
 
-    describe('handlePost()', () => {
-        it('should remove otherNames property from ctx', (done) => {
+    describe('action()', () => {
+        it('removes the correct values from the context when the deceased has an alias', (done) => {
+            let formdata = {};
             let ctx = {
-                sessionID: 'dummy_sessionId',
-                otherNames: 'i exist',
-                deceased: {
-                    alias: 'No',
-                    firstName: 'Jason',
-                    lastName: 'Smith'
-                },
-                session: {form: {}},
-                body: {}
+                alias: content.optionYes,
+                otherNames: {
+                    name_0: {firstName: 'FN1', lastName: 'LN1'},
+                    name_1: {firstName: 'FN2', lastName: 'LN2'}
+                }
             };
-            let errors = {};
-            expect(ctx.otherNames);
-            [ctx, errors] = DeceasedAlias.handlePost(ctx, errors);
-            expect(!ctx.otherNames);
+            [ctx, formdata] = DeceasedAlias.action(ctx, formdata);
+            expect(ctx).to.deep.equal({
+                alias: content.optionYes,
+                otherNames: {
+                    name_0: {firstName: 'FN1', lastName: 'LN1'},
+                    name_1: {firstName: 'FN2', lastName: 'LN2'}
+                }
+            });
+            done();
+        });
+
+        it('removes the correct values from the context when the deceased has no alias', (done) => {
+            let formdata = {};
+            let ctx = {
+                alias: content.optionNo,
+                otherNames: {
+                    name_0: {firstName: 'FN1', lastName: 'LN1'},
+                    name_1: {firstName: 'FN2', lastName: 'LN2'}
+                }
+            };
+            [ctx, formdata] = DeceasedAlias.action(ctx, formdata);
+            expect(ctx).to.deep.equal({
+                alias: content.optionNo
+            });
             done();
         });
     });

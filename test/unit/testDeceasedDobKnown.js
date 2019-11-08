@@ -5,6 +5,7 @@ const expect = require('chai').expect;
 const steps = initSteps([`${__dirname}/../../app/steps/action/`, `${__dirname}/../../app/steps/ui`]);
 const DeceasedDobKnown = steps.DeceasedDobKnown;
 const he = require('he');
+const content = require('app/resources/en/translation/deceased/dobknown');
 
 describe('DeceasedDobKnown', () => {
     describe('getUrl()', () => {
@@ -56,4 +57,41 @@ describe('DeceasedDobKnown', () => {
         });
     });
 
+    describe('action()', () => {
+        it('removes the correct values from the context when the deceased is not known', (done) => {
+            let formdata = {};
+            let ctx = {
+                'dobknown': content.optionNo,
+                'dob-date': '1 Mar 1950',
+                'dob-day': 1,
+                'dob-month': 3,
+                'dob-year': 1950
+            };
+            [ctx, formdata] = DeceasedDobKnown.action(ctx, formdata);
+            expect(ctx).to.deep.equal({
+                'dobknown': content.optionNo,
+            });
+            done();
+        });
+
+        it('removes the correct values from the context when the deceased dob is known', (done) => {
+            let formdata = {};
+            let ctx = {
+                'dobknown': content.optionYes,
+                'dob-date': '1 Mar 1950',
+                'dob-day': 1,
+                'dob-month': 3,
+                'dob-year': 1950
+            };
+            [ctx, formdata] = DeceasedDobKnown.action(ctx, formdata);
+            expect(ctx).to.deep.equal({
+                'dobknown': content.optionYes,
+                'dob-date': '1 Mar 1950',
+                'dob-day': 1,
+                'dob-month': 3,
+                'dob-year': 1950
+            });
+            done();
+        });
+    });
 });

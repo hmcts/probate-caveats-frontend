@@ -3,6 +3,7 @@
 const config = require('app/config');
 const ValidationStep = require('app/core/steps/ValidationStep');
 const FormatName = require('app/utils/FormatName');
+const content = require('app/resources/en/translation/deceased/dobknown');
 
 class DeceasedAlias extends ValidationStep {
 
@@ -30,13 +31,12 @@ class DeceasedAlias extends ValidationStep {
         return ctx;
     }
 
-    handlePost(ctx, errors) {
-        if (ctx.alias !== this.content.optionYes) {
+    action(ctx, formdata) {
+        if (ctx.alias === content.optionNo) {
             delete ctx.otherNames;
         }
-        return [ctx, errors];
+        return [ctx, formdata];
     }
-
 }
 
 module.exports = DeceasedAlias;
