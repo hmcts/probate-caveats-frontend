@@ -42,11 +42,11 @@ class AddressLookup extends ValidationStep {
                     }
                 } else {
                     referrerData.addressFound = 'false';
-                    referrerData.errors = [FieldError('postcode', 'noAddresses', this.resourcePath, ctx, session.language)];
+                    referrerData.errors = [FieldError('postcode', 'noAddresses', this.resourcePath, this.generateContent(ctx, {}, session.language), session.language)];
                 }
             } catch (e) {
                 referrerData.addressFound = 'false';
-                referrerData.errors = [FieldError('postcode', 'invalid', this.resourcePath, ctx, session.language)];
+                referrerData.errors = [FieldError('postcode', 'invalid', this.resourcePath, this.generateContent(ctx, {}, session.language), session.language)];
             }
         } else {
             referrerData.errors = errors;
