@@ -1,7 +1,7 @@
 'use strict';
 
 const initSteps = require('app/core/initSteps');
-const assert = require('chai').assert;
+const {assert, expect} = require('chai');
 const sinon = require('sinon');
 const when = require('when');
 const services = require('app/components/services');
@@ -9,6 +9,7 @@ const co = require('co');
 
 describe('AddressLookup', function () {
     const steps = initSteps([`${__dirname}/../../app/steps/action/`, `${__dirname}/../../app/steps/ui`]);
+    const AddressLookup = steps.AddressLookup;
 
     describe('handlePost', function () {
         let findAddressStub;
@@ -32,7 +33,6 @@ describe('AddressLookup', function () {
             }];
             findAddressStub.returns(when(expectedResponse));
 
-            const AddressLookup = steps.AddressLookup;
             let ctx = {
                 referrer: 'ApplicantAddress',
                 postcode: 'SW1H 9AJ'
@@ -51,8 +51,6 @@ describe('AddressLookup', function () {
         it('Creates an error if address not found', function (done) {
             const expectedResponse = {};
             findAddressStub.returns(when(expectedResponse));
-
-            const AddressLookup = steps.AddressLookup;
 
             const session = {
                 language: 'en'
@@ -74,12 +72,36 @@ describe('AddressLookup', function () {
                     done(err);
                 });
         });
+
+        it('Returns the errors in referrerData if errors present', function (done) {
+            const expectedResponse = {};
+            findAddressStub.returns(when(expectedResponse));
+
+            const session = {
+                language: 'en'
+            };
+            let ctx = {
+                referrer: 'ApplicantAddress',
+                postcode: 'wibble'
+            };
+            let errors = {
+                error: 'sample error'
+            };
+            const formdata = {applicant: {someThingToLookFor: 'someThingToLookFor'}};
+
+            co(function* () {
+                [ctx, errors] = yield AddressLookup.handlePost(ctx, errors, formdata, session);
+                expect(formdata).to.deep.equal({applicant: {someThingToLookFor: 'someThingToLookFor', postcode: 'wibble', errors: {error: 'sample error'}}});
+                done();
+            })
+                .catch((err) => {
+                    done(err);
+                });
+        });
     });
 
     describe('getReferrerData', function () {
         it('It gets the referer data section from the formdata', function () {
-            const AddressLookup = steps.AddressLookup;
-
             const ctx = {'referrer': 'ApplicantAddress'};
             const formdata = {applicant: {'someThingToLookFor': 'someThingToLookFor'}};
             const ret = AddressLookup.getReferrerData(ctx, formdata);
@@ -87,9 +109,6 @@ describe('AddressLookup', function () {
         });
 
         it('It creates the referer data section from the formdata if one does not exist', function () {
-
-            const AddressLookup = steps.AddressLookup;
-
             const ctx = {'referrer': 'ApplicantAddress'};
             const formdata = {};
             const ret = AddressLookup.getReferrerData(ctx, formdata);
@@ -99,7 +118,6 @@ describe('AddressLookup', function () {
 
     describe('pruneReferrerData', function () {
         it('It deletes the referer data', function () {
-            const AddressLookup = steps.AddressLookup;
             const referrerData = {
                 addresses: 'addresses',
                 addressFound: 'addressFound',
