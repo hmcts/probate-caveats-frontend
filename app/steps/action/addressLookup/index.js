@@ -17,8 +17,8 @@ class AddressLookup extends ValidationStep {
         return new ActionStepRunner();
     }
 
-    nextStepUrl() {
-        return config.app.basePath + this.steps[this.referrer].constructor.getUrl();
+    next() {
+        return this.steps[this.referrer];
     }
 
     * handlePost(ctx, errors, formdata, session) {

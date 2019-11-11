@@ -42,7 +42,7 @@ class Step {
     }
 
     nextStepUrl(ctx) {
-        return this.next(ctx).constructor.getUrl();
+        return config.app.basePath + this.next(ctx).constructor.getUrl();
     }
 
     getContextData(req) {
