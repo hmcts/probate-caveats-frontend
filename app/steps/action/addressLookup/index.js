@@ -1,6 +1,5 @@
 'use strict';
 
-const config = require('app/config');
 const {isEmpty} = require('lodash');
 const ValidationStep = require('app/core/steps/ValidationStep');
 const services = require('app/components/services');
