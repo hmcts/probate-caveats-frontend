@@ -1,7 +1,5 @@
 {% extends "includes/layout.html" %}
 
-{% set displaySignOutLink = "false" %}
-
 {% set title = "Not Authorised" %}
 
 {% block content %}
@@ -13,4 +11,13 @@
             {% include "includes/help_details.html" %}
         </div>
     </div>
+{% endblock %}
+
+{% block beforeContent %}
+    {{ govukPhaseBanner({
+        tag: {
+            text: common.phase
+        },
+        html: common.feedback | replace("{smartSurveyFeedbackUrl}", globals.links.survey) | replace("{currentPageUrl}", '403') | safe
+    }) }}
 {% endblock %}
