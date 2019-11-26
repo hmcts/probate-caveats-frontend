@@ -126,12 +126,7 @@ module.exports = {
     helpline: {
         number: '0300 303 0648',
         email: 'contactprobate@justice.gov.uk',
-        hours: 'Monday to Friday, 9:30am to 5pm'
-    },
-    serviceline: {
-        number: '0300 123 7050',
-        email: 'contactprobate@justice.gov.uk',
-        hours: 'Monday to Friday, 9:30am to 5pm'
+        hours: 'Monday to Friday, 8:00am to 8:00pm.<br>Saturday, 8:00am to 2:00pm'
     },
     utils: {
         api: {

@@ -47,5 +47,5 @@
   "allAgentsBusy": "All our web chat agents are busy helping other people. Please try again later or contact us using one of the ways above.",
   "chatClosed": "Web chat is now closed.\nOpening hours are {chatOpeningHours}.",
   "chatAlreadyOpen": "A web chat window is already open.",
-  "chatOpeningHours": "Monday to Friday, 9:30am to 5pm"
+  "chatOpeningHours": "Monday to Friday, 8:00am to 8:00pm.<br>Saturday, 8:00am to 2:00pm"
 }
