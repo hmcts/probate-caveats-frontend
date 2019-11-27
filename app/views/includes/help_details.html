@@ -2,10 +2,10 @@
 
 {% block help_info %}
     {% set helpContent = "<p class=\"govuk-heading-s\">" + (common.helpHeading1) + "</p>" %}
-    {% set helpContent = helpContent + "<p class=\"govuk-body\">" + globals.helpline.number + "</p>" %}
-    {% set helpContent = helpContent + "<p class=\"govuk-body\">" + globals.helpline.hours + ".</p>" %}
+    {% set helpContent = helpContent + "<p class=\"govuk-body\">" + common.helpTelephoneNumber + "</p>" %}
+    {% set helpContent = helpContent + "<p class=\"govuk-body\">" + common.helpTelephoneOpeningHours + ".</p>" %}
     {% set helpContent = helpContent + "<p class=\"govuk-heading-s\">" + (common.helpHeading2) + "</p>" %}
-    {% set helpContent = helpContent + "<p class=\"govuk-body\">" + (common.helpEmailLabel | replace("{contactEmailAddress}", globals.helpline.email)) + "</p>" %}
+    {% set helpContent = helpContent + "<p class=\"govuk-body\">" + (common.helpEmailLabel | replace("{contactEmailAddress}", common.helpEmail)) + "</p>" %}
 
     {% set helpContent = helpContent + "<p class=\"govuk-heading-s\" id=\"ctsc-web-chat-header\">" + (common.helpHeading3) + "</p>" %}
     {% set helpContent = helpContent + "<div id=\"ctsc-web-chat\"></div>" %}

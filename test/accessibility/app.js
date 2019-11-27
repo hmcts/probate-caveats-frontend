@@ -18,6 +18,7 @@ exports.init = function() {
         secret: 'secret'
     }));
     app.use((req, res, next) => {
+        req.session.language = 'en';
         req.session.form = {};
         req.session.back = [];
         next();

@@ -9,7 +9,7 @@
         <div class="govuk-grid-column-two-thirds">
             <h1 class="govuk-heading-l">{{ content.header1 }}</h1>
             <p class="govuk-body">{{ content.paragraph1 | safe }}</p>
-            <p class="govuk-body">{{ content.paragraph11 | replace('{applicationFormPA8A}', globals.links.applicationFormPA8A) | safe }}</p>
+            <p class="govuk-body">{{ content.paragraph11 | replace("{applicationFormPA8A}", globals.links.applicationFormPA8A) | safe }}</p>
             <p class="govuk-body">{{ content.paragraph2 | safe }}</p>
             {{ unorderedList([
                 content.bullet1,
@@ -18,7 +18,7 @@
                 content.bullet4,
                 content.bullet5,
                 content.bullet6,
-                content.bullet7 | replace('{whoInheritsLink}', globals.links.whoInheritsLink),
+                content.bullet7 | replace("{whoInheritsLink}", globals.links.whoInheritsLink),
                 content.bullet8,
                 content.bullet9
             ]) }}
@@ -43,7 +43,7 @@
             ]) }}
 
             <h2 class="govuk-heading-m">{{ content.header3 }}</h2>
-            <p class="govuk-body">{{ content.paragraph7 | replace('{feesCost}', globals.applicationFee) | safe }}</p>
+            <p class="govuk-body">{{ content.paragraph7 | replace("{feesCost}", globals.applicationFee) | safe }}</p>
             <p class="govuk-body">{{ content.paragraph8 | safe }}</p>
         </div>
     </div>

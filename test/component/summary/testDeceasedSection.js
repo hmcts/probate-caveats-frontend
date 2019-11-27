@@ -78,7 +78,7 @@ describe('summary-deceased-section', () => {
                 deceased: {
                     firstName: 'Joe',
                     lastName: 'Bloggs',
-                    alias: 'Yes',
+                    alias: 'optionYes',
                     otherNames: {
                         name_0: {
                             firstName: 'new_died_firstname',

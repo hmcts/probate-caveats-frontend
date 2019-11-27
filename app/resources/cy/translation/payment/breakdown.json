@@ -1,0 +1,26 @@
+{
+  "title": "Payment - cost breakdown",
+  "heading": "Payment",
+  "applicationFee": "Application fee",
+  "total": "Total due",
+  "errors": {
+    "authorisation": {
+      "failure": {
+        "summary": "We are not able to continue with your application, please try again later",
+        "message": ""
+      }
+    },
+    "payment": {
+      "failure": {
+        "summary": "We could not take your payment, please try again later",
+        "message": ""
+      }
+    },
+    "submit": {
+      "failure": {
+        "summary": "We are not able to continue with your application, please try again later",
+        "message": ""
+      }
+    }
+  }
+}

@@ -2,7 +2,6 @@
 
 const config = require('app/config');
 const ValidationStep = require('../../../../core/steps/ValidationStep');
-const json = require('app/resources/en/translation/deceased/dobknown');
 const FormatName = require('app/utils/FormatName');
 
 class DeceasedDobKnown extends ValidationStep {
@@ -18,14 +17,14 @@ class DeceasedDobKnown extends ValidationStep {
     nextStepOptions() {
         const nextStepOptions = {
             options: [
-                {key: 'dobknown', value: json.optionYes, choice: 'dobknown'}
+                {key: 'dobknown', value: 'optionYes', choice: 'dobknown'}
             ]
         };
         return nextStepOptions;
     }
 
-    generateContent(ctx, formdata) {
-        const content = super.generateContent(ctx, formdata);
+    generateContent(ctx, formdata, language) {
+        const content = super.generateContent(ctx, formdata, language);
         const deceasedName = FormatName.format(formdata.deceased);
         content.question = content.question.replace('{deceasedName}', deceasedName);
         return content;

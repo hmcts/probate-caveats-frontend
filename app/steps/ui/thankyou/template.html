@@ -34,7 +34,7 @@
                 </div>
 
                 {{ govukInsetText({
-                    text: content.successParagraph3 | replace('{citizenAdvice}', globals.links.citizenAdvice) | safe
+                    text: content.successParagraph3 | replace("{citizenAdvice}", globals.links.citizenAdvice) | safe
                 }) }}
 
                 <a href="{{ globals.links.surveyEndOfApplication | safe }}" class="govuk-link" target="_blank" rel="external noopener noreferrer">{{ content.survey | safe }}</a>

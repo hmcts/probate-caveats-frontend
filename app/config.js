@@ -6,6 +6,7 @@ module.exports = {
     nodeEnvironment: process.env.NODE_ENV,
     gitRevision: process.env.GIT_REVISION,
     externalHostNameUrl: process.env.EXTERNAL_HOSTNAME_URL || '',
+    languages: ['en', 'cy'],
     featureToggles: {
         url: process.env.FEATURE_TOGGLES_API_URL || 'http://localhost:8292',
         path: process.env.FEATURE_TOGGLES_PATH || '/api/ff4j/check',
@@ -100,7 +101,6 @@ module.exports = {
         privacy: (process.env.APP_BASE_PATH || '') + '/privacy-policy',
         terms: (process.env.APP_BASE_PATH || '') + '/terms-conditions',
         contact: (process.env.APP_BASE_PATH || '') + '/contact-us',
-        contactEmailAddress: 'contactprobate@justice.gov.uk',
         callCharges: 'https://www.gov.uk/call-charges',
         howToManageCookies: 'https://www.aboutcookies.org',
         googlePrivacyPolicy: 'https://www.google.com/policies/privacy/partners/',
@@ -122,16 +122,6 @@ module.exports = {
         myAbilityLink: 'https://mcmw.abilitynet.org.uk/',
         equalityAdvisorLink: 'https://www.equalityadvisoryservice.com/',
         wcag21Link: 'https://www.w3.org/TR/WCAG21/'
-    },
-    helpline: {
-        number: '0300 303 0648',
-        email: 'contactprobate@justice.gov.uk',
-        hours: 'Monday to Friday, 9:30am to 5pm'
-    },
-    serviceline: {
-        number: '0300 123 7050',
-        email: 'contactprobate@justice.gov.uk',
-        hours: 'Monday to Friday, 9:30am to 5pm'
     },
     utils: {
         api: {

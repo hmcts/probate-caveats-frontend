@@ -11,7 +11,7 @@ const stepsToExclude = ['AddAlias', 'RemoveAlias', 'AddressLookup', 'Summary', '
 const app = require('test/accessibility/app').init();
 const config = require('app/config');
 
-const steps = initSteps(['../steps/action/', '../steps/ui/']);
+const steps = initSteps([`${__dirname}/../../app/steps/action/`, `${__dirname}/../../app/steps/ui`], 'en');
 Object.keys(steps)
     .filter(stepName => stepsToExclude.includes(stepName))
     .forEach(stepName => delete steps[stepName]);
