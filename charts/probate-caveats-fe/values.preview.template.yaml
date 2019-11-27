@@ -1,3 +1,7 @@
+tags:
+  - rpe-feature-toggle-cav-frontend
+  - idam-pr-cav-frontend
+
 nodejs:
   environment:
     PAYMENT_CREATE_URL: http://payment-api-aat.service.core-compute-aat.internal/card-payments
@@ -24,24 +28,30 @@ nodejs:
   image: ${IMAGE_NAME}
   ingressHost: ${SERVICE_FQDN}
 
-postgresql:
-  enabled: true # for rpe-feature-toggle-api
-
-
 idam-pr:
   redirect_uris:
     Probate:
       - https://${SERVICE_FQDN}/oauth2/callback
 
 rpe-feature-toggle-api:
-  #  image: hmcts.azurecr.io/hmcts/rpe-feature-toggle-api:latest
   releaseNameOverride: ${SERVICE_NAME}-ftr-tgl-api
   java:
     releaseNameOverride: ${SERVICE_NAME}-ftr-tgl-api
     ingressIP: ${INGRESS_IP}
     consulIP: ${CONSUL_LB_IP}
+    postgresql:
+      enabled: true # for rpe-feature-toggle-api
+      image:
+        tag: '11.3.0'
     registerAdditionalDns:
       enabled: true
       primaryIngressHost: ${SERVICE_FQDN}
       prefix: ftr-tgl
-
+    environment:
+      EDITOR_USERNAME_TEST: editor@example.com
+      EDITOR_PASSWORD_TEST: Password12
+    importer:
+      cron:
+        enabled: false
+      oneoff:
+        enabled: false
