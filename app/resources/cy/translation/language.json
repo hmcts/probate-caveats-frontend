@@ -1,0 +1,15 @@
+{
+  "title": "Grant of Probate language",
+  "question": "Do you require a bilingual grant in English and Welsh?",
+  "optionYes": "Yes",
+  "optionNo": "No",
+
+  "errors": {
+    "bilingual": {
+      "required": {
+        "summary": "You need to choose whether you need a bilingual (English/Welsh) Grant of Probate or not",
+        "message": "Answer &lsquo;yes&rsquo; if you need a bilingual (English/Welsh) Grant of Probate"
+      }
+    }
+  }
+}
