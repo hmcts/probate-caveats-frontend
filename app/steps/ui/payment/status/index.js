@@ -34,9 +34,9 @@ class PaymentStatus extends Step {
         ctx.regId = req.session.regId;
         ctx.sessionId = req.session.id;
         ctx.errors = req.errors;
-        ctx.telephone = config.serviceline.number;
-        ctx.email = config.serviceline.email;
-        ctx.hours = config.serviceline.hours;
+        ctx.telephone = config.helpline.number;
+        ctx.email = config.helpline.email;
+        ctx.hours = config.helpline.hours;
         ctx.hostname = formatUrl.createHostname(req);
         ctx.serviceAuthToken = get(formdata, 'payment.serviceAuthToken');
         ctx.authToken = get(formdata, 'payment.authToken');
