@@ -1,7 +1,7 @@
 {
-  "title": "Contact probate",
-  "heading1": "Probate",
-  "paragraph1": "Phone: {helpLineNumber}",
+  "title": "Cysylltu &acirc; phrofiant",
+  "heading1": "Profiant",
+  "paragraph1": "Rhif ff&ocirc;n: {helpLineNumber}",
   "paragraph2": "{helpLineHours}",
-  "paragraph3": "<a href=\"{callChargesLink}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener\" aria-label=\"Find out about call charges\">Find out about call charges</a>"
+  "paragraph3": "<a href=\"{callChargesLink}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener\" aria-label=\"Gwybodaeth am brisiau galwadau\">Gwybodaeth am brisiau galwadau</a>"
 }

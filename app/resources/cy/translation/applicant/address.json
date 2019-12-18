@@ -1,46 +1,46 @@
 {
-  "title": "Applicant address",
-  "question": "What is your address?",
-  "explanation1": "We&rsquo;ll send the grant of probate to this address.",
-  "postTown": "Town or city",
-  "postcode": "Postcode",
-  "country": "Country",
-  "findAddress": "Find UK address",
-  "addressLabel": "Address",
-  "addressLabel2": "Address Line 2",
-  "addressLabel3": "Address Line 3",
-  "selectAddress": "Select address",
-  "enterManually": "Enter your address instead",
+  "title": "Cyfeiriad y sawl sy&rsquo;n gwneud y cais",
+  "question": "Beth yw eich cyfeiriad?",
+  "explanation1": "Mi wnawn anfon y grant profiant i&rsquo;r cyfeiriad hwn.",
+  "postTown": "Tref neu ddinas",
+  "postcode": "Cod post",
+  "country": "Gwlad",
+  "findAddress": "Dod o hyd i gyfeiriad yn y DU",
+  "addressLabel": "Cyfeiriad",
+  "addressLabel2": "Ail linell y cyfeiriad",
+  "addressLabel3": "Trydydd llinell y cyfeiriad",
+  "selectAddress": "Dewiswch gyfeiriad",
+  "enterManually": "neu teipiwch eich cyfeiriad",
 
   "errors": {
     "addressLine1": {
       "required": {
-        "summary": "You haven&rsquo;t entered the first line of the address",
-        "message": "Enter the first line of the address"
+        "summary": "Nid ydych wedi nodi llinell gyntaf y cyfeiriad",
+        "message": "Nodwch linell gyntaf y cyfeiriad"
       },
       "invalid": {
-        "summary": "Please enter minimum length for address line 1",
-        "message": "2 - 150 characters"
+        "summary": "Nodwch yr isafswm o nodau ar gyfer llinell gyntaf y cyfeiriad",
+        "message": "2 - 150 o nodau"
       }
     },
     "postTown": {
       "required": {
-        "summary": "You haven&rsquo;t entered the town or city",
-        "message": "Enter a town or city"
+        "summary": "Nid ydych wedi nodi&rsquo;r dref neu&rsquo;r ddinas",
+        "message": "Nodwch dref neu ddinas"
       },
       "invalid": {
-        "summary": "Please enter minimum length for post town",
-        "message": "2 - 50 characters"
+        "summary": "Nodwch yr isafswm o nodau ar gyfer y dref neu&rsquo;r ddinas",
+        "message": "2 - 50 o nodau"
       }
     },
     "newPostCode": {
       "required": {
-        "summary": "You haven&rsquo;t entered the postcode",
-        "message": "Enter a postcode"
+        "summary": "Nid ydych wedi nodi&rsquo;r cod post",
+        "message": "Nodwch god post"
       },
       "invalid": {
-        "summary": "You haven&rsquo;t entered a complete postcode",
-        "message": "Enter a postcode that is 2-14 characters long"
+        "summary": "Nid ydych wedi nodi cod post cyflawn",
+        "message": "Nodwch god post sydd 2-14 nod o hyd"
       }
     }
   }
