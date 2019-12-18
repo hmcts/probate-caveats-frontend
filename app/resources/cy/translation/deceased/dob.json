@@ -1,51 +1,51 @@
 {
-  "title": "Deceased date of birth",
-  "question": "What was their date of birth?",
-  "questionHint": "For example, 31 03 1945",
+  "title": "Dyddiad geni&rsquo;r unigolyn sydd wedi marw",
+  "question": "Beth oedd eu dyddiad geni?",
+  "questionHint": "Er enghraifft, 31 03 1945",
 
   "errors": {
     "dob-day": {
       "required": {
-        "summary": "You haven&rsquo;t entered the day that they were born",
-        "message": "Enter the day they were born"
+        "summary": "Nid ydych wedi nodi&rsquo;r diwrnod y cawsant eu geni",
+        "message": "Nodwch y diwrnod y cawsant eu geni"
       },
       "invalid": {
-        "summary": "You haven&rsquo;t entered a valid day that they were born",
-        "message": "Enter a valid day of birth"
+        "summary": "Nid ydych wedi nodi diwrnod dilys y cawsant eu geni",
+        "message": "Nodwch ddiwrnod geni dilys"
       }
     },
     "dob-month": {
       "required": {
-        "summary": "You haven&rsquo;t entered the month that they were born",
-        "message": "Enter the month they were born"
+        "summary": "Nid ydych wedi nodi&rsquo;r mis y cawsant eu geni",
+        "message": "Nodwch y mis y cawsant eu geni"
       },
       "invalid": {
-        "summary": "You haven&rsquo;t entered a valid month that they were born",
-        "message": "Enter a valid month of birth"
+        "summary": "Nid ydych wedi nodi mis dilys ar gyfer pryd cawsant eu geni",
+        "message": "Nodwch fis geni dilys"
       }
     },
     "dob-year": {
       "required": {
-        "summary": "You haven&rsquo;t entered the year that they were born",
-        "message": "Enter the year they were born"
+        "summary": "Nid ydych wedi nodi&rsquo;r flwyddyn y cawsant eu geni",
+        "message": "Nodwch y flwyddyn y cawsant eu geni"
       },
       "invalid": {
-        "summary": "You haven&rsquo;t entered a valid year that they were born",
-        "message": "Enter a valid year of birth"
+        "summary": "Nid ydych wedi nodi blwyddyn dilys ar gyfer pryd cawsant eu geni",
+        "message": "Nodwch flwyddyn geni dilys"
       }
     },
     "dob-date": {
       "invalid": {
-        "summary": "You need to enter a valid date of birth",
-        "message": "Enter a valid date of birth"
+        "summary": "Mae angen ichi nodi ddyddiad geni dilys",
+        "message": "Nodwch ddyddiad geni dilys"
       },
       "dateInFuture": {
-        "summary": "You must enter a date of birth in the past",
-        "message": "Enter a date in the past"
+        "summary": "Mae&rsquo;n rhaid ichi nodi ddyddiad geni sydd yn y gorffennol",
+        "message": "Nodwch ddyddiad yn y gorffennol"
       },
       "dodBeforeDob": {
-        "summary": "The date of birth you entered is after the date of death",
-        "message": "Enter a date of birth that is before the date of death"
+        "summary": "Mae&rsquo;r dyddiad geni rydych wedi&rsquo;i nodi ar &ocirc;l dyddiad y farwolaeth",
+        "message": "Nodwch ddyddiad geni sydd cyn dyddiad y farwolaeth"
       }
     }
   }

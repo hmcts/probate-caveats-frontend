@@ -1,8 +1,8 @@
 {
-    "title": "Payment - status",
-    "question": "Sorry, there is a problem with the service",
-    "paragraph": "You need to contact the Probate Registry to complete your application.",
-    "telephone": "Telephone",
-    "email": "Email",
-    "hours": "Opening times"
+  "title": "Talu - statws",
+  "question": "Mae&rsquo;n ddrwg gennym, ond mae problem gyda&rsquo;r gwasanaeth",
+  "paragraph": "Mae angen ichi gysylltu &acirc;&rsquo;r Gofrestrfa Brofiant i gwblhau eich cais.",
+  "telephone": "Rhif ff&ocirc;n",
+  "email": "E-bost",
+  "hours": "Oriau agor"
 }

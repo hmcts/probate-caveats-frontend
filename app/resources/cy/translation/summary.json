@@ -1,9 +1,9 @@
 {
-  "title": "Summary page",
-  "heading": "Check your answers",
-  "checkCarefully": "Check the information below carefully.",
-  "deceasedHeading": "About the person who died",
-  "otherNamesLabel": "Names used by the deceased",
-  "aboutYouHeading": "About you",
-  "checkAnswersPdf": "Save this page (10kb PDF)"
+  "title": "Crynodeb o&rsquo;ch atebion",
+  "heading": "Gwiriwch eich atebion",
+  "checkCarefully": "Gwiriwch yr wybodaeth isod yn ofalus.",
+  "deceasedHeading": "Ynghylch yr unigolyn sydd wedi marw",
+  "otherNamesLabel": "Enwau a ddefnyddiwyd gan yr unigolyn sydd wedi marw",
+  "aboutYouHeading": "Amdanoch chi",
+  "checkAnswersPdf": "Arbed y dudalen hon (10kb PDF)"
 }

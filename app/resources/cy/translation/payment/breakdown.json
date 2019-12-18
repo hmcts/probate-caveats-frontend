@@ -1,24 +1,25 @@
 {
-  "title": "Payment - cost breakdown",
-  "heading": "Payment",
-  "applicationFee": "Application fee",
-  "total": "Total due",
+  "title": "Taliad -  dadansoddiad o&rsquo;r costau",
+  "heading": "Taliad",
+  "applicationFee": "Ffi gwneud cais",
+  "total": "Cyfanswm sy&rsquo;n ddyledus",
+
   "errors": {
     "authorisation": {
       "failure": {
-        "summary": "We are not able to continue with your application, please try again later",
+        "summary": "Ni allwn barhau &acirc;&rsquo;ch cais, rhowch gynnig arall arni yn hwyrach ymlaen",
         "message": ""
       }
     },
     "payment": {
       "failure": {
-        "summary": "We could not take your payment, please try again later",
+        "summary": "Nid oedd modd inni gymryd eich taliad, rhowch gynnig arall arni yn hwyrach ymlaen",
         "message": ""
       }
     },
     "submit": {
       "failure": {
-        "summary": "We are not able to continue with your application, please try again later",
+        "summary": "Ni allwn barhau &acirc;&rsquo;ch cais, rhowch gynnig arall arni yn hwyrach ymlaen",
         "message": ""
       }
     }
