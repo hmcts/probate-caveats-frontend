@@ -2,6 +2,7 @@
 
 const co = require('co');
 const {curry} = require('lodash');
+const config = require('app/config');
 
 class ActionStepRunner {
 
@@ -30,7 +31,7 @@ class ActionStepRunner {
 
             const next = step.next(req, ctx);
             step.action(ctx, formdata);
-            res.redirect(next.constructor.getUrl());
+            res.redirect(config.app.basePath + next.constructor.getUrl());
         }).catch((error) => {
             const commonContent = require(`app/resources/${req.session.language}/translation/common`);
 
