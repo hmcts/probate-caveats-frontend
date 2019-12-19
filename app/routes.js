@@ -66,14 +66,11 @@ router.get('/*', (req, res, next) => {
         currentPageCleanUrl = FormatUrl.getCleanPageUrl(req.originalUrl, 1);
     }
 
-    if (!includes(config.whiteListedPagesForThankyou, currentPageCleanUrl) &&
-        get(formdata, 'payment.status') === 'Success') {
+    if (!includes(config.whiteListedPagesForThankyou, currentPageCleanUrl) && get(formdata, 'payment.status') === 'Success') {
         res.redirect(`${config.app.basePath}/thank-you`);
-    } else if (!includes(config.whitelistedPagesForStartApplyPageRedirect, currentPageCleanUrl) &&
-        get(formdata, 'language.bilingual', '') === '') {
+    } else if (!includes(config.whitelistedPagesForStartApplyPageRedirect, currentPageCleanUrl) && get(formdata, 'language.bilingual', '') === '') {
         res.redirect(`${config.app.basePath}/start-apply`);
-    } else if (!includes(config.whiteListedPagesForPaymentBreakdown, currentPageCleanUrl) &&
-        get(formdata, 'ccdCase.id', '') !== '') {
+    } else if (!includes(config.whiteListedPagesForPaymentBreakdown, currentPageCleanUrl) && get(formdata, 'ccdCase.id', '') !== '') {
         res.redirect(`${config.app.basePath}/payment-breakdown`);
     } else {
         next();
