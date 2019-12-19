@@ -11,6 +11,7 @@ const lockPaymentAttempt = require('app/middleware/lockPaymentAttempt');
 const uuidv4 = require('uuid/v4');
 const shutter = require('app/shutter');
 const featureToggles = require('app/featureToggles');
+const FormatUrl = require('app/utils/FormatUrl');
 
 router.use(shutter);
 router.use(featureToggles);
@@ -58,13 +59,15 @@ router.post(`${config.app.basePath}/payment-breakdown`, lockPaymentAttempt);
 
 router.get('/*', (req, res, next) => {
     const formdata = req.session.form;
-    if (!includes(config.whiteListedPagesForThankyou, req.originalUrl) &&
+    const currentPageCleanUrl = FormatUrl.getCleanPageUrl(req.originalUrl, 1);
+
+    if (!includes(config.whiteListedPagesForThankyou, currentPageCleanUrl) &&
         get(formdata, 'payment.status') === 'Success') {
         res.redirect(`${config.app.basePath}/thank-you`);
-    } else if (!includes(config.whitelistedPagesForStartApplyPageRedirect, req.originalUrl) &&
-        get(formdata, 'applicant.firstName', '') === '') {
+    } else if (!includes(config.whitelistedPagesForStartApplyPageRedirect, currentPageCleanUrl) &&
+        get(formdata, 'language.bilingual', '') === '') {
         res.redirect(`${config.app.basePath}/start-apply`);
-    } else if (!includes(config.whiteListedPagesForPaymentBreakdown, req.originalUrl) &&
+    } else if (!includes(config.whiteListedPagesForPaymentBreakdown, currentPageCleanUrl) &&
         get(formdata, 'ccdCase.id', '') !== '') {
         res.redirect(`${config.app.basePath}/payment-breakdown`);
     } else {

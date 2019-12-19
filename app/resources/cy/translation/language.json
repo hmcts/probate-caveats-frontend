@@ -1,14 +1,18 @@
 {
-  "title": "Grant of Probate language",
-  "question": "Do you require a bilingual grant in English and Welsh?",
-  "optionYes": "Yes",
-  "optionNo": "No",
+  "title": "Grant language",
+  "question": "Hoffech chi grant dwyieithog, sef Cymraeg a Saesneg?",
+  "optionYes": "Hoffwn",
+  "optionNo": "Na hoffwn",
 
   "errors": {
     "bilingual": {
       "required": {
-        "summary": "You need to choose whether you need a bilingual (English/Welsh) Grant of Probate or not",
-        "message": "Answer &lsquo;yes&rsquo; if you need a bilingual (English/Welsh) Grant of Probate"
+        "summary": "You need to choose whether you need a bilingual (English/Welsh) grant or not",
+        "message": "Answer &lsquo;yes&rsquo; if you need a bilingual (English/Welsh) grant"
+      },
+      "invalid": {
+        "summary": "You need to choose whether you need a bilingual (English/Welsh) grant or not",
+        "message": "Answer &lsquo;yes&rsquo; if you need a bilingual (English/Welsh) grant"
       }
     }
   }
