@@ -59,7 +59,12 @@ router.post(`${config.app.basePath}/payment-breakdown`, lockPaymentAttempt);
 
 router.get('/*', (req, res, next) => {
     const formdata = req.session.form;
-    const currentPageCleanUrl = FormatUrl.getCleanPageUrl(req.originalUrl, 1);
+    let currentPageCleanUrl;
+    if (config.app.basePath !== '') {
+        currentPageCleanUrl = FormatUrl.getCleanPageUrl(req.originalUrl, 2);
+    } else {
+        currentPageCleanUrl = FormatUrl.getCleanPageUrl(req.originalUrl, 1);
+    }
 
     if (!includes(config.whiteListedPagesForThankyou, currentPageCleanUrl) &&
         get(formdata, 'payment.status') === 'Success') {
