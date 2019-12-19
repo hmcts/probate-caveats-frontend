@@ -35,8 +35,8 @@ class PaymentBreakdown extends Step {
         const fees = formdata.fees;
         this.checkFeesStatus(fees);
 
-        ctx.applicationFee = fees.total;
-        ctx.total = Number.isInteger(fees.total) ? fees.total : parseFloat(fees.total).toFixed(2);
+        ctx.applicationFee = parseFloat(fees.total).toFixed(2);
+        ctx.total = parseFloat(fees.total).toFixed(2);
         return [ctx, ctx.errors];
     }
 

@@ -6,11 +6,11 @@
 {% set tableRows = [] %}
 {% set tableRows = (tableRows.push([
     { text: content.applicationFee | safe },
-    { text: ("&pound;" + fields.applicationFee.value) | safe }
+    { text: ("&pound;" + fields.applicationFee.value) | safe, format: "numeric" }
 ]), tableRows) %}
 {% set tableRows = (tableRows.push([
     { text: content.total | safe },
-    { text: ("&pound;" + fields.total.value) | safe }
+    { text: ("&pound;" + fields.total.value) | safe, format: "numeric" }
 ]), tableRows) %}
 
 {% block form_content %}
