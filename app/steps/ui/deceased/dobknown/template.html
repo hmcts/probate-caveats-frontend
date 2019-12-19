@@ -19,12 +19,12 @@
         items: [
             {
                 value: "optionYes",
-                text: content["optionYes"],
+                text: content["optionYes"] | safe,
                 checked: true if fields.dobknown.value == "optionYes" | escape
             },
             {
                 value: "optionNo",
-                text: content["optionNo"],
+                text: content["optionNo"] | safe,
                 checked: true if fields.dobknown.value == "optionNo" | escape
             }
         ]
@@ -32,7 +32,7 @@
 
     <div class="govuk-form-group">
         {{ govukButton({
-            text: common.continue,
+            text: common.saveAndContinue | safe,
             preventDoubleClick: true
         }) }}
     </div>

@@ -8,7 +8,7 @@
     {% endfor %}
 
     {{ govukErrorSummary({
-        "titleText": common.errorSummaryHeading,
+        "titleText": common.errorSummaryHeading | safe,
         "errorList": errorList
     }) }}
 {% endif %}

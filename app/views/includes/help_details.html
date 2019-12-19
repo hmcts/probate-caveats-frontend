@@ -1,17 +1,16 @@
 {% from "govuk/components/details/macro.njk" import govukDetails %}
 
 {% block help_info %}
-    {% set helpContent = "<p class=\"govuk-heading-s\">" + (common.helpHeading1) + "</p>" %}
-    {% set helpContent = helpContent + "<p class=\"govuk-body\">" + common.helpTelephoneNumber + "</p>" %}
-    {% set helpContent = helpContent + "<p class=\"govuk-body\">" + common.helpTelephoneOpeningHours + "</p>" %}
-    {% set helpContent = helpContent + "<p class=\"govuk-heading-s\">" + (common.helpHeading2) + "</p>" %}
-    {% set helpContent = helpContent + "<p class=\"govuk-body\">" + (common.helpEmailLabel | replace("{contactEmailAddress}", common.helpEmail)) + "</p>" %}
-
-    {% set helpContent = helpContent + "<p class=\"govuk-heading-s\" id=\"ctsc-web-chat-header\">" + (common.helpHeading3) + "</p>" %}
+    {% set helpContent = "<p class=\"govuk-heading-s\">" + (common.helpHeading1 | safe) + "</p>" %}
+    {% set helpContent = helpContent + "<p class=\"govuk-body\">" + (common.helpTelephoneNumber | safe) + "</p>" %}
+    {% set helpContent = helpContent + "<p class=\"govuk-body\">" + (common.helpTelephoneOpeningHours | safe) + "</p>" %}
+    {% set helpContent = helpContent + "<p class=\"govuk-heading-s\">" + (common.helpHeading2 | safe) + "</p>" %}
+    {% set helpContent = helpContent + "<p class=\"govuk-body\">" + (common.helpEmailLabel | replace("{contactEmailAddress}", common.helpEmail) | safe) + "</p>" %}
+    {% set helpContent = helpContent + "<p class=\"govuk-heading-s\" id=\"ctsc-web-chat-header\">" + (common.helpHeading3 | safe) + "</p>" %}
     {% set helpContent = helpContent + "<div id=\"ctsc-web-chat\"></div>" %}
 
     {{ govukDetails({
-        summaryText: common.helpTitle,
+        summaryText: common.helpTitle | safe,
         text: helpContent | safe,
         id: "contact-us-for-help"
     }) }}
