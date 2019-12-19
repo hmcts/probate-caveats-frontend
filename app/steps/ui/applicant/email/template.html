@@ -7,7 +7,7 @@
 {% block form_content %}
     {% call govukFieldset({
         legend: {
-            text: content.question,
+            text: content.question | safe,
             classes: "govuk-fieldset__legend--l",
             isPageHeading: true
         }
@@ -16,12 +16,12 @@
 
         {{ govukInput({
             label: {
-                text: content.email
+                text: content.email | safe
             },
             id: "email",
             name: "email",
             value: fields.email.value | safe,
-            errorMessage: { text: fields.email.errorMessage.message } if fields.email.errorMessage,
+            errorMessage: { text: fields.email.errorMessage.message | safe } if fields.email.errorMessage,
             attributes: {
                 maxlength: 255
             },
@@ -31,7 +31,7 @@
 
     <div class="govuk-form-group">
         {{ govukButton({
-            text: common.saveAndContinue,
+            text: common.saveAndContinue | safe,
             preventDoubleClick: true
         }) }}
     </div>

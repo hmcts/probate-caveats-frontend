@@ -30,13 +30,13 @@
         btnServiceClosed: '/{{ globals.webChat.tenant }}/button_{{ globals.webChat.buttonServiceClosed }}/img/logo',
         chatDownAction: 'showMessage',
         chatLinkFocusable: false,
-        textChatDown: '{{ common.helpChatDown | replace("\n", "\\n") }}',
-        textChatClosed: '{{ common.helpChatClosed | replace("\n", "\\n") | replace("{chatOpeningHours}", common.helpChatOpeningHours) }}',
-        textChatWithAnAgent: '{{ common.helpChatWithAnAgent | replace("\n", "\\n") }}',
-        textNoAgentsAvailable: '{{ common.helpNoAgentsAvailable | replace("\n", "\\n") }}',
-        textAllAgentsBusy: '{{ common.helpAllAgentsBusy | replace("\n", "\\n") }}',
-        textChatAlreadyOpen: '{{ common.helpChatAlreadyOpen | replace("\\n", "\\\\n") }}',
-        textAdditional: '{{ common.helpChatOpeningHours | replace("\n", "\\n") }}.',
+        textChatDown: '{{ common.helpChatDown | replace("\n", "\\n") | safe }}',
+        textChatClosed: '{{ common.helpChatClosed | replace("\n", "\\n") | replace("{chatOpeningHours}", common.helpChatOpeningHours) | safe }}',
+        textChatWithAnAgent: '{{ common.helpChatWithAnAgent | replace("\n", "\\n") | safe }}',
+        textNoAgentsAvailable: '{{ common.helpNoAgentsAvailable | replace("\n", "\\n") | safe }}',
+        textAllAgentsBusy: '{{ common.helpAllAgentsBusy | replace("\n", "\\n") | safe }}',
+        textChatAlreadyOpen: '{{ common.helpChatAlreadyOpen | replace("\\n", "\\\\n") | safe }}',
+        textAdditional: '{{ common.helpChatOpeningHours | replace("\n", "\\n") | safe }}.',
         gdsMajorVersion: 3
     });
 </script>
