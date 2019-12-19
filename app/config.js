@@ -147,6 +147,7 @@ module.exports = {
     whitelistedPagesForStartApplyPageRedirect: [
         (process.env.APP_BASE_PATH || '') + '/public',
         (process.env.APP_BASE_PATH || '') + '/start-apply',
+        (process.env.APP_BASE_PATH || '') + '/bilingual-gop',
         (process.env.APP_BASE_PATH || '') + '/applicant-name',
         (process.env.APP_BASE_PATH || '') + '/accessibility-statement',
         (process.env.APP_BASE_PATH || '') + '/cookies',
