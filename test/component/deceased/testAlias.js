@@ -1,7 +1,7 @@
 'use strict';
 
 const TestWrapper = require('test/util/TestWrapper');
-const DeceasedOtherNames = require('app/steps/ui/deceased/othernames/index');
+const DeceasedOtherNames = require('app/steps/ui/deceased/otherNames/index');
 const DeceasedAddress = require('app/steps/ui/deceased/address/index');
 const testCommonContent = require('test/component/common/testCommonContent.js');
 const config = require('app/config');

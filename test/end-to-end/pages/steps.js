@@ -17,7 +17,7 @@ module.exports = function () {
         enterDeceasedDateOfBirthKnown: steps.deceased.dobknown,
         enterDeceasedDateOfBirth: steps.deceased.dob,
         enterDeceasedHasAlias: steps.deceased.alias,
-        enterDeceasedOtherNames: steps.deceased.othernames,
+        enterDeceasedOtherNames: steps.deceased.otherNames,
         enterDeceasedAddressManually: steps.deceased.address,
         seeSummaryPage: steps.summary.summary,
 
