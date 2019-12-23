@@ -32,7 +32,6 @@ const initStep = (filePath, language) => {
 
 const initSteps = (stepLocations, language = 'en') => {
     initI18Next();
-
     stepLocations.forEach((location) => {
         const calculatePath = path => {
             if ((/index.js$/).test(path)) {
