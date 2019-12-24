@@ -1,7 +1,7 @@
 {
   "title": "Telerau ac Amodau",
   "heading1": "Telerau ac Amodau",
-  "paragraph1": "Trwy ddefnyddio&rsquo;r gwasanaeth hwn rydych yn cytuno i&rsquo;r telerau defnydd hyn. Mae hyn yn cynnwys y <a href=\"{privacyLink}\" class=\"govuk-link\" aria-label=\"polisi preifatrwydd\">polisi preifatrwydd</a>.",
+  "paragraph1": "Trwy ddefnyddio&rsquo;r gwasanaeth hwn rydych yn cytuno i&rsquo;r telerau defnydd hyn. Mae hyn yn cynnwys y <a href=\"{privacyLink}\" class=\"govuk-link\">polisi preifatrwydd</a>.",
 
   "whoWeAreHeading": "Pwy ydym ni",
   "whoWeAreParagraph1": "Mae&rsquo;r gwasanaeth hwn yn cael ei reoli gan Wasanaeth Llysoedd a Thribiwnlysoedd Ei Mawrhydi.",
@@ -12,8 +12,8 @@
   "informationProvidedParagraph2": "Dylech ateb y cwestiynau yn y gwasanaeth yn seiliedig ar eich amgylchiadau a cheisio cyngor cyfreithiol os oes arnoch angen hynny.",
 
   "dataSharingStoringHeading": "Rhannu a storio data",
-  "dataSharingStoringParagraph1": "Mae ein <a href=\"{privacyLink}\" class=\"govuk-link\" aria-label=\"polisi preifatrwydd\">polisi preifatrwydd</a> yn egluro lle mae&rsquo;ch data yn cael ei storio a gyda phwy mae&rsquo;n cael ei rannu.",
-  "dataSharingStoringParagraph2": "Mae ein <a href=\"{cookiesLink}\" class=\"govuk-link\" aria-label=\"polisi cwcis\">polisi cwcis</a> yn egluro sut mae&rsquo;r gwasanaeth hwn yn defnyddio ac yn storio cwcis.",
+  "dataSharingStoringParagraph1": "Mae ein <a href=\"{privacyLink}\" class=\"govuk-link\">polisi preifatrwydd</a>yn egluro lle mae&rsquo;ch data yn cael ei storio a gyda phwy mae&rsquo;n cael ei rannu.",
+  "dataSharingStoringParagraph2": "Mae ein <a href=\"{cookiesLink}\" class=\"govuk-link\">polisi cwcis</a> yn egluro sut mae&rsquo;r gwasanaeth hwn yn defnyddio ac yn storio cwcis.",
 
   "lawsApplicableHeading": "Deddfau sy&rsquo;n berthnasol i&rsquo;r gwasanaeth hwn",
   "lawsApplicableParagraph1": "Bydd y defnydd a wnewch o&rsquo;r gwasanaeth hwn ac unrhyw anghydfod sy&rsquo;n codi o&rsquo;i ddefnyddio yn cael eu rheoli a&rsquo;u dehongli yn unol &acirc; chyfreithiau Cymru a Lloegr, gan gynnwys, ond nid yn gyfyngedig i:",
@@ -42,7 +42,7 @@
   "personalInformation-item6": "data genetig neu ddata biometrig",
   "personalInformation-item7": "data am eich iechyd",
   "personalInformationParagraph3": "Rydych yn rhoi caniat&acirc;d inni brosesu&rsquo;r wybodaeth hon er mwyn inni allu ymdrin &acirc;&rsquo;ch cais.",
-  "personalInformationParagraph4": "I gael rhagor o wybodaeth am sut rydym yn casglu a storio eich data personol, gweler y <a href=\"{privacyLink}\" class=\"govuk-link\" aria-label=\"privacy policy\">privacy policy</a>.",
+  "personalInformationParagraph4": "I gael rhagor o wybodaeth am sut rydym yn casglu a storio eich data personol, gweler y <a href=\"{privacyLink}\" class=\"govuk-link\" aria-label=\"polisi preifatrwyddy\">polisi preifatrwyddy</a>.",
 
   "disclaimerHeading": "Ymwrthodiad",
   "disclaimerParagraph1": "Er ein bod yn ymdrechu i gadw GOV.UK yn gyfredol, nid ydym yn darparu unrhyw warantau, amodau neu sicrwydd bod yr wybodaeth:",
@@ -77,5 +77,5 @@
   "contactHeading": "Cysylltu &acirc; ni",
   "contactParagraph1": "Rhif ff&ocirc;n: {helpLineNumber}",
   "contactParagraph2": "{helpLineHours}",
-  "contactParagraph3": "<a href=\"{callChargesLink}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener\" aria-label=\"Gwybodaeth am brisiau galwadau</a>"
+  "contactParagraph3": "<a target=\"_blank\" rel=\"external noopener\" href=\"{callChargesLink}\" class=\"govuk-link\">Gwybodaeth am brisiau galwadau</a>"
 }

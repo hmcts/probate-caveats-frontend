@@ -2,7 +2,7 @@
   "title": "Datganiad Hygyrchedd",
   "heading1": "Datganiad Hygyrchedd ar gyfer y gwasanaeth &lsquo;Atal cais am brofiant&rsquo;",
   "paragraph1": "Mae&rsquo;r gwasanaeth hwn yn galluogi defnyddwyr i atal cais am grant cynrychiolaeth ar-lein (a elwir hefyd yn profiant).",
-  "paragraph2": "Gwasanaeth Llysoedd a Thribiwnlysoedd EM sy&rsquo;n gyfrifol am y wefan hon. Rydym eisiau i gymaint o bobl &acirc; phosibl allu defnyddio&rsquo;r wefan hon, felly rydym wedi ceisio ei gwneud mor hygyrch &acirc; phosibl. Er enghraifft, golyga hyn y dylech allu:",
+  "paragraph2": "Gwasanaeth Llysoedd a Thribiwnlysoedd EM sy&rsquo;n gyfrifol am y wefan hon. Rydym eisiau i gymaint o bobl &acirc; phosibl allu defnyddio&rsquo;r wefan hon, felly rydym wedi ceisio ei gwneud mor hygyrch &acirc; phosibl.   Er enghraifft, golyga hyn y dylech allu:",
   "list1-item1": "newid y lliwiau, lefelau cyferbyniad a ffontiau",
   "list1-item2": "gwneud y testun hyd at 300% yn fwy heb iddo ddiflannu oddi ar y sgrin",
   "list1-item3": "defnyddio&rsquo;r rhan fwyaf o&rsquo;r wefan gan ddefnyddio bysellfwrdd yn unig",
@@ -20,7 +20,7 @@
   "list2-item4": "Dangosydd ffocysu - Efallai y bydd rhai defnyddwyr yn cael trafferth sylwi ar y dangosydd ffocysu.",
 
   "heading3": "Beth i&rsquo;w wneud os na allwch ddefnyddio rhai rhannau o&rsquo;r wefan hon",
-  "paragraph7": "Os ydych angen gwybodaeth sydd ar y wefan hon mewn fformat arall megis ar ffurf PDF hygyrch, print bras, fformat hawdd ei ddarllen neu braille, yna e-bostiwch <a href=\"mailto:HMCTSforms@justice.gov.uk\" class=\"govuk-link\">HMCTSforms@justice.gov.uk</a> neu ffoniwch:",
+  "paragraph7": "Os ydych angen gwybodaeth sydd ar y wefan hon mewn fformat arall megis ar ffurf PDF hygyrch, print bras, fformat  hawdd ei ddarllen neu braille, yna e-bostiwch <a href=\"mailto:HMCTSforms@justice.gov.uk\" class=\"govuk-link\">HMCTSforms@justice.gov.uk</a> neu ffoniwch:",
   "paragraph8": "<strong>Llinell Gymorth Profiant:</strong><br>Rhif ff&ocirc;n: {helpLineNumber}<br>{helpLineHours}",
   "paragraph9": "<a target=\"_blank\" rel=\"external noopener\" href=\"{callChargesLink}\" class=\"govuk-link\">Gwybodaeth am brisiau galwadau</a>",
   "paragraph10": "Byddwn yn ystyried eich cais ac yn ymateb o fewn 10 diwrnod gwaith.",
@@ -29,7 +29,7 @@
   "paragraph11": "Rydym wastad yn ceisio gwella hygyrchedd y wefan hon. Os byddwch yn cael unrhyw broblemau nad ydynt wedi&rsquo;u cynnwys ar y dudalen hon, neu&rsquo;n credu nad ydym yn bodloni&rsquo;r gofynion o ran hygyrchedd, ffoniwch:",
 
   "heading5": "Y weithdrefn orfodi",
-  "paragraph12": "Y Comisiwn Cydraddoldeb a Hawliau Dynol (EHRC) sy&rsquo;n gyfrifol am orfodi Rheoliadau Hygyrchedd Cyrff y Sector Cyhoeddus (Gwefannau a Rhaglenni Symudol) (Rhif 2) 2018 (y &lsquo;rheoliadau hygyrchedd&rsquo;). Os nad ydych chi&rsquo;n fodlon gyda&rsquo;r ffordd rydym yn ymateb i&rsquo;ch cwyn, <a href=\"{equalityAdvisorLink}\" target=\"_blank\" rel=\"external noopener\" class=\"govuk-link\">cysylltwch &acirc;&rsquo;r Gwasanaeth Cynghori a Chefnogi Cydraddoldeb (EASS)</a>.",
+  "paragraph12": "Y Comisiwn Cydraddoldeb a Hawliau Dynol (EHRC) sy&rsquo;n gyfrifol am orfodi Rheoliadau Hygyrchedd Cyrff y Sector Cyhoeddus (Gwefannau a Rhaglenni Symudol) (Rhif 2) 2018 (y &lsquo;rheoliadau hygyrchedd&rsquo;). Os nad ydych chi&rsquo;n fodlon gyda&rsquo;r ffordd rydym yn ymateb i&rsquo;ch cwyn, <a href=\"{equalityAdvisorLink}\" target=\"_blank\" rel=\"external noopener\" class=\"govuk-link\">cysylltwch &acirc;&rsquo;r Gwasanaeth Cynghori a Chefnogi Cydraddoldeb (EASS).</a>.",
 
   "heading6": "Cysylltu &acirc; ni dros y ff&ocirc;n neu ymweld &acirc; ni&rsquo;n bersonol",
   "paragraph13": "Rydym yn darparu gwasanaeth cyfnewid negeseuon testun ar gyfer pobl byddar, pobl sydd &acirc; nam ar eu clyw a phobl sydd &acirc; nam ar eu lleferydd.",
@@ -41,7 +41,7 @@
 
   "heading8": "Cynnwys anhygyrch",
   "paragraph17": "Mae&rsquo;r cynnwys isod yn anhygyrch am y rhesymau canlynol.",
-  "list3-item1": "Defnyddio&rsquo;r wefan gan ddefnyddio llwybrau brys - Er ein bod wedi cynnal profion gan ddefnyddio MAC VoiceOver a ChromeVox, bydd gan wasanaethau darllenwyr sgrin gwahanol lwybrau brys gwahanol ac nid ydym wedi gallu dilysu pob un ohonynt yn derfynol. Efallai ni fydd hyn yn bodloni WCAG 2.1 maen prawf llwyddiant 2.1.4.",
+  "list3-item1": "Defnyddio&rsquo;r wefan gan ddefnyddio llwybrau brys - Er ein bod wedi cynnal profion gan ddefnyddio MAC VoiceOver a ChromeVox, bydd gan wasanaethau darllenwyr sgrin gwahanol lwybrau brys gwahanol ac nid ydym wedi gallu dilysu pob un ohonynt yn derfynol.     Efallai ni fydd hyn yn bodloni WCAG 2.1 maen prawf llwyddiant 2.1.4.",
   "list3-item2": "Bylchiad y testun - Ni allwn gadarnhau bod y gwasanaeth yn gweithio i&rsquo;r rhai hynny sydd angen bylchiad mwy rhwng testun. Efallai ni fydd hyn yn bodloni WCAG 2.1 maen prawf llwyddiant 1.4.12.",
   "list3-item3": "Cyfleuster hofran neu ffocysu - Nid ydym wedi gallu dilysu bod hyn yn gweithio i ddefnyddwyr sydd ag anawsterau sgiliau symud. Efallai ni fydd hyn yn bodloni WCAG 2.1 maen prawf llwyddiant 1.4.13.",
   "list3-item4": "Dangosydd ffocysu - Efallai y bydd rhai defnyddwyr yn cael trafferth sylwi ar y dangosydd ffocysu. Efallai ni fydd hyn yn bodloni WCAG 2.1 maen prawf llwyddiant 2.4.7.",
@@ -51,11 +51,11 @@
   "heading9-1": "Dogfennau PDF a dogfennau eraill",
   "paragraph19": "Mae&rsquo;n bosib na fydd dogfennau PDF, dogfennau eraill ac atodiadau mewn negeseuon e-bost a gyhoeddwyd cyn 23 Medi 2018 yn cydymffurfio &acirc;&rsquo;r safonau hygyrchedd. Er enghraifft, efallai nad ydynt wedi&rsquo;u strwythuro fel eu bod yn hygyrch i raglen darllen sgrîn.",
   "heading9-2": "Cynnwys trydydd parti sydd dan reolaeth rhywun arall",
-  "paragraph20": "Efallai na fydd tudalennau a gwefannau sy&rsquo;n berthnasol i&rsquo;r gwasanaeth profiant yn gwbwl hygyrch. Mae&rsquo;r rhain yn cynnwys:",
-  "list4-item1": "Tudalennau allanol sy&rsquo;n cynnwys dogfennau PDF e.e.<br><a href=\"{applicationFormPA15}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener\">{applicationFormPA15}</a>",
+  "paragraph20": "Efallai na fydd tudalennau a gwefannau sy&rsquo;n berthnasol i&rsquo;r gwasanaeth profiant yn gwbwl hygyrch.  Mae&rsquo;r rhain yn cynnwys:",
+  "list4-item1": "Tudalennau allanol sy&rsquo;n cynnwys dogfennau PDF e.e. <br><a href=\"{applicationFormPA15}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener\">{applicationFormPA15}</a>",
   "list4-item2": "Y tudalennau mewngofnodi a thalu",
   "list4-item3": "Negeseuon e-bost a anfonir gan gov.uk.notify",
-  "list4-item4": "Tudalennau cyfarwyddo ar gov.uk e.e.<br><a href=\"{deathReportedToCoroner}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener\">{deathReportedToCoroner}</a>",
+  "list4-item4": "Tudalennau cyfarwyddo ar gov.uk e.e. <br><a href=\"{deathReportedToCoroner}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener\">{deathReportedToCoroner}</a>",
   "list4-item5": "Y gwasanaeth sgwrsio dros y we sy&rsquo;n cynnig cefnogaeth i ddefnyddwyr",
 
   "heading10": "Sut rydym wedi profi&rsquo;r wefan hon",
