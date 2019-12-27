@@ -30,13 +30,13 @@
         "message": "Nodwch y flwyddyn y bu iddynt farw"
       },
       "invalid": {
-        "summary": "Nid ydych wedi nodi blwyddyn dilys ar gyfer pryd bu iddynt farw",
+        "summary": "Nid ydych wedi nodi blwyddyn ddilys ar gyfer pryd bu iddynt farw",
         "message": "Nodwch flwyddyn ddilys ar gyfer pryd bu iddynt farw"
       }
     },
     "dod-date": {
       "invalid": {
-        "summary": "Mae angen ichi nodi ddyddiad dilys ar gyfer pryd bu iddynt farw",
+        "summary": "Mae angen ichi nodi dyddiad dilys ar gyfer pryd bu iddynt farw",
         "message": "Nodwch ddyddiad dilys ar gyfer pryd bu iddynt farw"
       },
       "dateInFuture": {

@@ -10,7 +10,7 @@
         "message": "Nodwch y diwrnod y cawsant eu geni"
       },
       "invalid": {
-        "summary": "Nid ydych wedi nodi diwrnod dilys y cawsant eu geni",
+        "summary": "Nid ydych wedi nodi diwrnod dilys ar gyfer pryd cawsant eu geni",
         "message": "Nodwch ddiwrnod geni dilys"
       }
     },
@@ -26,21 +26,21 @@
     },
     "dob-year": {
       "required": {
-        "summary": "Nid ydych wedi nodi&rsquo;r flwyddyn y cawsant eu geni",
+        "summary": "Nid ydych wedi nodi&rsquo;r flwyddyn ar gyfer pryd cawsant eu geni",
         "message": "Nodwch y flwyddyn y cawsant eu geni"
       },
       "invalid": {
-        "summary": "Nid ydych wedi nodi blwyddyn dilys ar gyfer pryd cawsant eu geni",
-        "message": "Nodwch flwyddyn geni dilys"
+        "summary": "Nid ydych wedi nodi blwyddyn ddilys ar gyfer pryd cawsant eu geni",
+        "message": "Nodwch flwyddyn geni ddilys"
       }
     },
     "dob-date": {
       "invalid": {
-        "summary": "Mae angen ichi nodi ddyddiad geni dilys",
+        "summary": "Mae angen ichi nodi dyddiad geni dilys",
         "message": "Nodwch ddyddiad geni dilys"
       },
       "dateInFuture": {
-        "summary": "Mae&rsquo;n rhaid ichi nodi ddyddiad geni sydd yn y gorffennol",
+        "summary": "Mae&rsquo;n rhaid ichi nodi dyddiad geni sydd yn y gorffennol",
         "message": "Nodwch ddyddiad yn y gorffennol"
       },
       "dodBeforeDob": {

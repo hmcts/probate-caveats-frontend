@@ -9,7 +9,7 @@
     "alias": {
       "required": {
           "summary": "You haven&rsquo;t answered the question about assets being held in another name",
-          "message": "Select yes if the person who died had assets in another name"
+          "message": "Answer &lsquo;yes&rsquo; if the person who died had assets in another name"
       }
     }
   }

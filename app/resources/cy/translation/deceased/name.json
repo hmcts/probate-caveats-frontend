@@ -2,9 +2,8 @@
   "title": "Enw&rsquo;r unigolyn sydd wedi marw",
   "question": "Beth yw enw llawn yr unigolyn sydd wedi marw?",
   "explanation1": "Defnyddiwch yr enw sydd ar y dystysgrif marwolaeth.",
-  "firstName": "Enw(au) cyntaf",
-  "firstNameHint": "Gan gynnwys enwau canol",
-  "lastName": "Cyfenw(au)",
+  "firstName": "Enw cyntaf ac unrhyw enwau canol",
+  "lastName": "Cyfenw",
 
   "errors": {
     "firstName": {
