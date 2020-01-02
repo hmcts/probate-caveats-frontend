@@ -68,7 +68,7 @@ router.get('/*', (req, res, next) => {
 
     if (!includes(config.whiteListedPagesForThankyou, currentPageCleanUrl) && get(formdata, 'payment.status') === 'Success') {
         res.redirect(`${config.app.basePath}/thank-you`);
-    } else if (!includes(config.whitelistedPagesForStartApplyPageRedirect, currentPageCleanUrl) && get(formdata, 'applicant.name', '') === '') {
+    } else if (!includes(config.whitelistedPagesForStartApplyPageRedirect, currentPageCleanUrl) && get(formdata, 'applicant.firstName', '') === '') {
         res.redirect(`${config.app.basePath}/start-apply`);
     } else if (!includes(config.whiteListedPagesForPaymentBreakdown, currentPageCleanUrl) && get(formdata, 'ccdCase.id', '') !== '') {
         res.redirect(`${config.app.basePath}/payment-breakdown`);
