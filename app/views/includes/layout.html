@@ -36,7 +36,7 @@
         tag: {
             text: common.phase | safe
         },
-        html: common.feedback | replace("{smartSurveyFeedbackUrl}", globals.links.survey) | replace("{currentPageUrl}", pageUrl) | safe
+        html: (common.feedback + common.languageToggle) | replace("{smartSurveyFeedbackUrl}", globals.links.survey) | replace("{currentPageUrl}", pageUrl) | safe
     }) }}
 {% endblock %}
 
