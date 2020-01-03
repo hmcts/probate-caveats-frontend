@@ -1,4 +1,7 @@
 {
+    "language": {
+        "bilingual": "optionYes"
+    },
     "applicant": {
         "address": {
             "addressLine1": "dddd"
