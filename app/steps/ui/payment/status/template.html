@@ -6,14 +6,14 @@
     <p class="govuk-body">{{ content.paragraph }}</p>
     <p class="govuk-body">
         {{ content.telephone }}:<br>
-        {{ fields.telephone.value }}
+        {{ common.serviceTelephoneNumber }}
     </p>
     <p class="govuk-body">
         {{ content.email }}:<br>
-        <a href="mailto: {{ fields.email.value }}" class="govuk-link">{{ fields.email.value }}</a>
+        <a href="mailto: {{ common.serviceEmail }}" class="govuk-link">{{ common.serviceEmail }}</a>
     </p>
     <p class="govuk-body">
         {{ content.hours }}:<br>
-        {{ fields.hours.value }}
+        {{ common.serviceTelephoneOpeningHours }}
     </p>
 {% endblock %}

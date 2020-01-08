@@ -4,6 +4,8 @@
 {% from "govuk/components/header/macro.njk" import govukHeader %}
 {% from "govuk/components/footer/macro.njk" import govukFooter %}
 
+{% set htmlLang = fields.language.value %}
+
 {% block pageTitle %}
   {% if title == undefined %}
     {% set title = content.title %}

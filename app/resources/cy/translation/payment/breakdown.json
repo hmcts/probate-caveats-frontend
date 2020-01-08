@@ -1,0 +1,27 @@
+{
+  "title": "Taliad -  dadansoddiad o&rsquo;r costau",
+  "heading": "Taliad",
+  "applicationFee": "Ffi gwneud cais",
+  "total": "Cyfanswm sy&rsquo;n ddyledus",
+
+  "errors": {
+    "authorisation": {
+      "failure": {
+        "summary": "Ni allwn barhau &acirc;&rsquo;ch cais, rhowch gynnig arall arni yn hwyrach ymlaen",
+        "message": ""
+      }
+    },
+    "payment": {
+      "failure": {
+        "summary": "Nid oedd modd inni gymryd eich taliad, rhowch gynnig arall arni yn hwyrach ymlaen",
+        "message": ""
+      }
+    },
+    "submit": {
+      "failure": {
+        "summary": "Ni allwn barhau &acirc;&rsquo;ch cais, rhowch gynnig arall arni yn hwyrach ymlaen",
+        "message": ""
+      }
+    }
+  }
+}

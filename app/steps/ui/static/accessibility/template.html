@@ -20,13 +20,13 @@
 
             <h2 class="govuk-heading-m">{{ content.heading3 }}</h2>
             <p class="govuk-body">{{ content.paragraph7 | safe }}</p>
-            <p class="govuk-body">{{ content.paragraph8 | replace("{helpLineNumber}", globals.helpline.number) | replace("{helpLineHours}", globals.helpline.hours) | safe }}</p>
+            <p class="govuk-body">{{ content.paragraph8 | replace("{helpLineNumber}", common.helpTelephoneNumber) | replace("{helpLineHours}", common.helpTelephoneOpeningHours) | safe }}</p>
             <p class="govuk-body">{{ content.paragraph9 | replace("{callChargesLink}", globals.links.callCharges) | safe }}</p>
             <p class="govuk-body">{{ content.paragraph10 | safe }}</p>
 
             <h2 class="govuk-heading-m">{{ content.heading4 }}</h2>
             <p class="govuk-body">{{ content.paragraph11 | safe }}</p>
-            <p class="govuk-body">{{ content.paragraph8 | replace("{helpLineNumber}", globals.helpline.number) | replace("{helpLineHours}", globals.helpline.hours) | safe }}</p>
+            <p class="govuk-body">{{ content.paragraph8 | replace("{helpLineNumber}", common.helpTelephoneNumber) | replace("{helpLineHours}", common.helpTelephoneOpeningHours) | safe }}</p>
             <p class="govuk-body">{{ content.paragraph9 | replace("{callChargesLink}", globals.links.callCharges) | safe }}</p>
             <p class="govuk-body">{{ content.paragraph10 | safe }}</p>
 
