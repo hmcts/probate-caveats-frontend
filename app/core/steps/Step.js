@@ -6,6 +6,8 @@ const journeyMap = require('app/core/journeyMap');
 const mapErrorsToFields = require('app/components/error').mapErrorsToFields;
 const config = require('app/config');
 const FeatureToggle = require('app/utils/FeatureToggle');
+const utils = require('app/components/step-utils');
+const moment = require('moment');
 
 class Step {
 
@@ -89,7 +91,22 @@ class Step {
     }
 
     generateFields(language, ctx, errors) {
-        let fields = mapValues(ctx, (value) => ({value: isObject(value) ? value : escape(value), error: false}));
+        let fields = mapValues(ctx, (value, key) => {
+            let returnValue;
+
+            if (key.includes('formattedDate')) {
+                const dateName = key.split('-')[0];
+                const date = moment(ctx[`${dateName}-day`] + '/' + ctx[`${dateName}-month`] + '/' + ctx[`${dateName}-year`], config.dateFormat).parseZone();
+                returnValue = utils.formattedDate(date, language);
+            } else {
+                returnValue = isObject(value) ? value : escape(value);
+            }
+
+            return {
+                value: returnValue,
+                error: false
+            };
+        });
         if (!isEmpty(errors)) {
             fields = mapErrorsToFields(fields, errors);
         }
