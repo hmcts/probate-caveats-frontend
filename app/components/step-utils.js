@@ -9,6 +9,12 @@ const commonContent = function (language = 'en') {
     return mapValues(common, (value, key) => i18next.t(`common.${key}`));
 };
 
+const formattedDate = (date, language) => {
+    const month = commonContent(language).months.split(',')[date.month()].trim();
+    return `${date.date()} ${month} ${date.year()}`;
+};
+
 module.exports = {
-    commonContent
+    commonContent,
+    formattedDate
 };

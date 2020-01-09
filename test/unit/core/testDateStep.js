@@ -2,8 +2,6 @@
 
 const expect = require('chai').expect;
 const DateStep = require('app/core/steps/DateStep');
-const moment = require('moment');
-const config = require('app/config');
 const sinon = require('sinon');
 const i18next = require('i18next');
 
@@ -129,16 +127,6 @@ describe('DateStep', () => {
                 'dod-date': '2018-06-04T00:00:00.000Z',
                 'dod-formattedDate': '4 June 2018'
             });
-            done();
-        });
-    });
-
-    describe('formattedDate()', () => {
-        it('should return a formatted date', (done) => {
-            const testDate = moment('12/12/2018', config.dateFormat);
-            const returnDate = dateStep.formattedDate(testDate, 'en');
-
-            expect(returnDate).to.equal('12 December 2018');
             done();
         });
     });

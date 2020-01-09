@@ -31,16 +31,11 @@ class DateStep extends ValidationStep {
 
             if (date.isValid()) {
                 ctx[`${dateName}-date`] = date.toISOString();
-                ctx[`${dateName}-formattedDate`] = this.formattedDate(date, language);
+                ctx[`${dateName}-formattedDate`] = utils.formattedDate(date, language);
             }
         });
 
         return ctx;
-    }
-
-    formattedDate(date, language) {
-        const month = utils.commonContent(language).months.split(',')[date.month()].trim();
-        return `${date.date()} ${month} ${date.year()}`;
     }
 }
 
