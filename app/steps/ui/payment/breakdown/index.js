@@ -90,7 +90,7 @@ class PaymentBreakdown extends Step {
                 ccdCaseId: ccdCaseId,
                 applicationId: ctx.applicationId
             };
-            const paymentResponse = yield services.createPayment(data, hostname);
+            const paymentResponse = yield services.createPayment(data, hostname, session.language);
             logInfo(`New Payment reference: ${paymentResponse.reference}`, formdata.applicationId);
             if (paymentResponse.name === 'Error') {
                 errors.push(FieldError('payment', 'failure', this.resourcePath, ctx, session.language));

@@ -16,6 +16,7 @@
   "delete": "Delete",
   "answer": "Answer",
   "send": "Send",
+  "paymentProbateFees": "Probate Fees",
   "cookieText": "GOV.UK uses cookies to make the site simpler. <a href=\"{cookiesLink}\" class=\"govuk-link\" aria-label=\"Find out more about cookies\">Find out more about cookies</a>",
   "errorSummaryHeading": "There was a problem",
   "numberBelow21": "first,second,third,fourth,fifth,sixth,seventh,eighth,ninth,tenth,eleventh,twelfth,thirteenth,fourteenth,fifteenth,sixteenth,seventeenth,eighteenth,nineteenth,twentieth",
