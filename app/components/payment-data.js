@@ -5,17 +5,19 @@ const SERVICE_ID = config.payment.serviceId;
 const SITE_ID = config.payment.siteId;
 const APPLICATION_FEE_CODE = config.payment.applicationFeeCode;
 
-const createPaymentData = (data) => {
+const createPaymentData = (data, language) => {
+    const commonContent = require(`app/resources/${language}/translation/common`);
     const version = config.payment.version;
     const currency = config.payment.currency;
     const paymentData = {
         amount: data.amount,
-        description: 'Probate Fees',
+        description: commonContent.paymentProbateFees,
         ccd_case_number: data.ccdCaseId,
         service: SERVICE_ID,
         currency: currency,
         site_id: SITE_ID,
-        fees: []
+        fees: [],
+        language: language
     };
 
     if (data.applicationFee > 0) {
