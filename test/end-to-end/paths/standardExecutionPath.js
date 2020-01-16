@@ -16,9 +16,9 @@ Scenario('Standard Execution Journey', function* (I) {
     // Deceased details
     I.enterDeceasedName('Deceased First Name', 'Deceased Last Name');
     I.enterDeceasedDateOfDeath('01', '01', '2019');
-    I.enterDeceasedDateOfBirthKnown('Yes');
+    I.enterDeceasedDateOfBirthKnown('optionYes');
     I.enterDeceasedDateOfBirth('01', '01', '1977');
-    I.enterDeceasedHasAlias('Yes');
+    I.enterDeceasedHasAlias('optionYes');
     I.enterDeceasedOtherNames(2);
     I.enterDeceasedAddressManually();
 
@@ -48,9 +48,9 @@ Scenario('Stop and Continuation of Main applicant journey:', function* (I) {
     //Deceased details
     I.enterDeceasedName('Deceased First Name', 'Deceased Last Name');
     I.enterDeceasedDateOfDeath('01', '01', '2019');
-    I.enterDeceasedDateOfBirthKnown('Yes');
+    I.enterDeceasedDateOfBirthKnown('optionYes');
     I.enterDeceasedDateOfBirth('01', '01', '1977');
-    I.enterDeceasedHasAlias('Yes');
+    I.enterDeceasedHasAlias('optionYes');
     I.enterDeceasedOtherNames(2);
     I.enterDeceasedAddressManually();
 

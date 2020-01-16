@@ -1,7 +1,7 @@
 <script src="{{ globals.basePath }}/public/javascripts/govuk-frontend/govuk/all.js"></script>
 <script nonce="{{ globals.nonce }}">window.GOVUKFrontend.initAll()</script>
 
-{% if globals.enableTracking === 'true' %}
+{% if globals.enableTracking == "true" %}
     <script nonce="{{ globals.nonce }}">
         var gatrackingid = "{{ globals.gaTrackingId }}";
     </script>
