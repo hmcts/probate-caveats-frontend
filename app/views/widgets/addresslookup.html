@@ -20,7 +20,7 @@
                 <option value="">{{ content.selectAddress }}</option>
                 {% for address in fields.addresses.value %}
                     {% set formattedAddress = address.formattedAddress | replace(",",", ") %}
-                    <option value="{{ loop.index0 }}" {{ "selected" if formattedAddress === fields.postcodeAddress.value }}>{{ formattedAddress }}</option>
+                    <option value="{{ loop.index0 }}" {{ "selected" if formattedAddress == fields.postcodeAddress.value }}>{{ formattedAddress }}</option>
                 {% endfor %}
             </select>
         </div>

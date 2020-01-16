@@ -31,7 +31,7 @@ describe('DeceasedAlias', () => {
             expect(nextStepOptions).to.deep.equal({
                 options: [{
                     key: 'alias',
-                    value: 'Yes',
+                    value: 'optionYes',
                     choice: 'assetsInOtherNames'
                 }]
             });

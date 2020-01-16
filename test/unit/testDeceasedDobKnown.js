@@ -32,7 +32,7 @@ describe('DeceasedDobKnown', () => {
             expect(nextStepOptions).to.deep.equal({
                 options: [{
                     key: 'dobknown',
-                    value: 'Yes',
+                    value: 'optionYes',
                     choice: 'dobknown'
                 }]
             });

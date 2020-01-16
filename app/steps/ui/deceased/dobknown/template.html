@@ -18,14 +18,14 @@
         errorMessage: { text: fields.dobknown.errorMessage.message | safe } if fields.dobknown.errorMessage,
         items: [
             {
-                value: content["optionYes"],
+                value: "optionYes",
                 text: content["optionYes"],
-                checked: true if fields.dobknown.value == content["optionYes"] | escape
+                checked: true if fields.dobknown.value == "optionYes" | escape
             },
             {
-                value: content["optionNo"],
+                value: "optionNo",
                 text: content["optionNo"],
-                checked: true if fields.dobknown.value == content["optionNo"] | escape
+                checked: true if fields.dobknown.value == "optionNo" | escape
             }
         ]
     }) }}

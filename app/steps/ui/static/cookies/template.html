@@ -16,7 +16,7 @@
                 content["howAreCookiesUsed-item2"],
                 content["howAreCookiesUsed-item3"]])
             }}
-            <p class="govuk-body">{{ content.howAreCookiesUsedParagraph2 | replace('{howToManageCookiesLink}', globals.links.howToManageCookies) | safe }}</p>
+            <p class="govuk-body">{{ content.howAreCookiesUsedParagraph2 | replace("{howToManageCookiesLink}", globals.links.howToManageCookies) | safe }}</p>
 
             <h2 class="govuk-heading-m">{{ content.websiteUsageCookiesHeading1 }}</h2>
             <p class="govuk-body">{{ content.websiteUsageCookiesParagraph1 }}</p>
@@ -27,8 +27,8 @@
                 content["websiteUsageCookies-item3"],
                 content["websiteUsageCookies-item4"]])
             }}
-            <p class="govuk-body">{{ content.websiteUsageCookiesParagraph3 | replace('{googlePrivacyPolicyLink}', globals.links.googlePrivacyPolicy) | safe }}</p>
-            <p class="govuk-body">{{ content.websiteUsageCookiesParagraph4 | replace('{googleAnalyticsOptOutLink}', globals.links.googleAnalyticsOptOut) | safe }}</p>
+            <p class="govuk-body">{{ content.websiteUsageCookiesParagraph3 | replace("{googlePrivacyPolicyLink}", globals.links.googlePrivacyPolicy) | safe }}</p>
+            <p class="govuk-body">{{ content.websiteUsageCookiesParagraph4 | replace("{googleAnalyticsOptOutLink}", globals.links.googleAnalyticsOptOut) | safe }}</p>
             <p class="govuk-body">{{ content.websiteUsageCookiesParagraph5 }}</p>
 
             {{ govukTable({
