@@ -172,7 +172,7 @@ exports.init = function() {
         if (!req.session) {
             return next(new Error('Unable to reach redis'));
         }
-        next(); // otherwise continue
+        next();
     });
 
     app.use((req, res, next) => {
