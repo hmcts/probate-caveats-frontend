@@ -3,36 +3,38 @@
 const co = require('co');
 const request = require('supertest');
 const a11y = require('test/util/a11y');
-const {expect} = require('chai');
+const expect = require('chai').expect;
+const app = require('app');
 const initSteps = require('app/core/initSteps');
 const {endsWith} = require('lodash');
 const stepsToExclude = ['AddAlias', 'RemoveAlias', 'AddressLookup', 'Summary', 'PaymentBreakdown', 'PaymentStatus'];
-const app = require('test/accessibility/app').init();
+const steps = initSteps([`${__dirname}/../../app/steps/action/`, `${__dirname}/../../app/steps/ui`], 'en');
 const config = require('app/config');
 
-const steps = initSteps([`${__dirname}/../../app/steps/action/`, `${__dirname}/../../app/steps/ui`], 'en');
 Object.keys(steps)
     .filter(stepName => stepsToExclude.includes(stepName))
     .forEach(stepName => delete steps[stepName]);
 
 for (const step in steps) {
     ((step) => {
+        const stepUrl = step.constructor.getUrl();
         let results;
 
-        app.get(step.constructor.getUrl(), step.runner().GET(step));
+        // app.get(step.constructor.getUrl(), step.runner().GET(step));
 
         describe(`Verify accessibility for the page ${step.name}`, () => {
+            let server = null;
             let agent = null;
 
             before((done) => {
-                agent = request(app);
-
+                server = app.init();
+                agent = request.agent(server.app);
                 co(function* () {
                     let urlSuffix = '';
                     if (endsWith(agent.get(config.app.basePath + step.constructor.getUrl()), '*')) {
                         urlSuffix = '/0';
                     }
-                    results = yield a11y(agent.get(config.app.basePath + step.constructor.getUrl()).url + urlSuffix);
+                    results = yield a11y(agent.get(config.app.basePath + stepUrl).url + urlSuffix);
                 })
                     .then(done, done)
                     .catch((error) => {
@@ -41,7 +43,7 @@ for (const step in steps) {
             });
 
             after(function (done) {
-                //request.http.close();
+                server.http.close();
                 done();
             });
 
