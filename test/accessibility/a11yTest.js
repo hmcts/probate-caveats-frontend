@@ -6,7 +6,6 @@ const a11y = require('test/util/a11y');
 const {expect} = require('chai');
 const initSteps = require('app/core/initSteps');
 const {endsWith} = require('lodash');
-const commonContent = require('app/resources/en/translation/common');
 const stepsToExclude = ['AddAlias', 'RemoveAlias', 'AddressLookup', 'Summary', 'PaymentBreakdown', 'PaymentStatus'];
 const app = require('test/accessibility/app').init();
 const config = require('app/config');
@@ -24,11 +23,6 @@ for (const step in steps) {
 
         describe(`Verify accessibility for the page ${step.name}`, () => {
             let agent = null;
-            const title = `${step.content.title} - ${commonContent.serviceName}`
-                .replace(/&lsquo;/g, '‘')
-                .replace(/&rsquo;/g, '’')
-                .replace(/\(/g, '\\(')
-                .replace(/\)/g, '\\)');
 
             before((done) => {
                 agent = request(app);
@@ -38,7 +32,7 @@ for (const step in steps) {
                     if (endsWith(agent.get(config.app.basePath + step.constructor.getUrl()), '*')) {
                         urlSuffix = '/0';
                     }
-                    results = yield a11y(agent.get(config.app.basePath + step.constructor.getUrl()).url + urlSuffix, title);
+                    results = yield a11y(agent.get(config.app.basePath + step.constructor.getUrl()).url + urlSuffix);
                 })
                     .then(done, done)
                     .catch((error) => {
@@ -52,12 +46,12 @@ for (const step in steps) {
             });
 
             it('should not generate any errors', () => {
-                const errors = results.filter((res) => res.type === 'error');
+                const errors = results.issues.filter((res) => res.type === 'error');
                 expect(errors.length).to.equal(0, JSON.stringify(errors, null, 2));
             });
 
             it('should not generate any warnings', () => {
-                const warnings = results.filter((res) => res.type === 'warning');
+                const warnings = results.issues.filter((res) => res.type === 'warning');
                 expect(warnings.length).to.equal(0, JSON.stringify(warnings, null, 2));
             });
         });
