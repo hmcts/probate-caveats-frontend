@@ -23,8 +23,9 @@ const https = require('https');
 const appInsights = require('applicationinsights');
 const uuidv4 = require('uuid/v4');
 const uuid = uuidv4();
+const isEmpty = require('lodash').isEmpty;
 
-exports.init = function() {
+exports.init = function(isA11yTest = false, a11yTestSession = {}) {
     const app = express();
     const port = config.app.port;
     const releaseVersion = packageJson.version;
@@ -172,6 +173,11 @@ exports.init = function() {
         if (!req.session) {
             return next(new Error('Unable to reach redis'));
         }
+
+        if (isA11yTest && !isEmpty(a11yTestSession)) {
+            req.session = Object.assign(req.session, a11yTestSession);
+        }
+
         next();
     });
 
@@ -187,6 +193,10 @@ exports.init = function() {
 
         if (req.query && req.query.locale && config.languages.includes(req.query.locale)) {
             req.session.language = req.query.locale;
+        }
+
+        if (isA11yTest && !isEmpty(a11yTestSession)) {
+            req.session = Object.assign(req.session, a11yTestSession);
         }
 
         next();
