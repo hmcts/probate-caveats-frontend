@@ -106,6 +106,7 @@
     "nsp": "^3.2.1",
     "pa11y": "^5.3.0",
     "phantomjs-prebuilt": "^2.1.16",
+    "pre-commit": "^1.2.2",
     "puppeteer": "^1.19.0",
     "rewire": "^4.0.1",
     "selenium-standalone": "^6.16.0",
