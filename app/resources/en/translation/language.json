@@ -1,18 +1,13 @@
 {
-  "title": "Select the language for the Grant",
-  "question": "Do you require a bilingual grant in English and Welsh?",
+  "title": "Select the language for your correspondence",
+  "question": "Do you require your correspondence in English and Welsh?",
   "optionYes": "Yes",
   "optionNo": "No",
-
   "errors": {
     "bilingual": {
       "required": {
-        "summary": "You need to choose whether you require a bilingual (English/Welsh) grant or an English grant",
-        "message": "Answer &lsquo;yes&rsquo; if you require a bilingual (English/Welsh) grant"
-      },
-      "invalid": {
-        "summary": "You need to choose whether you require a bilingual (English/Welsh) grant or an English grant",
-        "message": "Answer &lsquo;yes&rsquo; if you require a bilingual (English/Welsh) grant"
+        "summary": "You need to choose whether you require bilingual (English/Welsh) correspondence or English correspondence",
+        "message": "Answer &lsquo;yes&rsquo; if you require bilingual (English/Welsh) correspondence"
       }
     }
   }
