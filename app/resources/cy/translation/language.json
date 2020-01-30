@@ -1,18 +1,13 @@
 {
-  "title": "Grant language",
-  "question": "Hoffech chi grant dwyieithog, sef Cymraeg a Saesneg?",
-  "optionYes": "Hoffwn",
-  "optionNo": "Na hoffwn",
-
+  "title": "Dewiswch pa iaith yr hoffech dderbyn eich gohebiaeth",
+  "question": "Ydych chi eisiau gohebiaeth ddwyieithog (Cymraeg/Saesneg)",
+  "optionYes": "Ydw",
+  "optionNo": "Nac ydw",
   "errors": {
     "bilingual": {
       "required": {
-        "summary": "You need to choose whether you need a bilingual (English/Welsh) grant or not",
-        "message": "Answer &lsquo;yes&rsquo; if you need a bilingual (English/Welsh) grant"
-      },
-      "invalid": {
-        "summary": "You need to choose whether you need a bilingual (English/Welsh) grant or not",
-        "message": "Answer &lsquo;yes&rsquo; if you need a bilingual (English/Welsh) grant"
+        "summary": "Mae angen ichi ddewis os ydych chi eisiau gohebiaeth ddwyieithog (Cymraeg/Saesneg) neu ohebiaeth Saesneg yn unig",
+        "message": "Atebwch &lsquo;ydw&rsquo; os ydych chi eisiau gohebiaeth ddwyieithog (Cymraeg/Saesneg)"
       }
     }
   }
