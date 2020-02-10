@@ -36,7 +36,7 @@
         tag: {
             text: common.phase | safe
         },
-        html: (common.feedback + (common.languageToggle if fields.featureToggles.value.welsh_ft === 'true')) | replace("{smartSurveyFeedbackUrl}", globals.links.survey) | replace("{currentPageUrl}", pageUrl) | safe
+        html: (common.feedback + common.languageToggle) | replace("{smartSurveyFeedbackUrl}", globals.links.survey) | replace("{currentPageUrl}", pageUrl) | safe
     }) }}
 {% endblock %}
 

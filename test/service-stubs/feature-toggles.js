@@ -8,8 +8,7 @@ const app = express();
 const featureTogglesPort = config.featureToggles.port;
 
 const featureToggles = {
-    'probate-caveats-fe-shutter': false,
-    'probate-welsh': true
+    'probate-caveats-fe-shutter': false
 };
 
 Object.entries(featureToggles).forEach(([key, value]) => {

@@ -48,10 +48,6 @@ for (const step in steps) {
                     nock(config.featureToggles.url)
                         .get(`${config.featureToggles.path}/${config.featureToggles.caveats_shutter_toggle}`)
                         .reply(200, 'true');
-                } else {
-                    nock(config.featureToggles.url)
-                        .get(`${config.featureToggles.path}/${config.featureToggles.welsh_ft}`)
-                        .reply(200, 'true');
                 }
 
                 server = app.init(true, sessionData);
