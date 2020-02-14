@@ -59,11 +59,11 @@ withPipeline("nodejs", product, component) {
     sh 'yarn setup'
   }
 
-  /*
+
   before('buildinfra:prod') {
      error 'Deliberately breaking pipeline to prevent prod deployment'
   }
-  */
+
 
   enableDockerBuild()
   installCharts()
