@@ -17,7 +17,7 @@ class DeceasedAlias extends ValidationStep {
     nextStepOptions() {
         const nextStepOptions = {
             options: [
-                {key: 'alias', value: this.content.optionYes, choice: 'assetsInOtherNames'},
+                {key: 'alias', value: 'optionYes', choice: 'assetsInOtherNames'},
             ]
         };
         return nextStepOptions;
@@ -31,7 +31,7 @@ class DeceasedAlias extends ValidationStep {
     }
 
     handlePost(ctx, errors) {
-        if (ctx.alias !== this.content.optionYes) {
+        if (ctx.alias !== 'optionYes') {
             delete ctx.otherNames;
         }
         return [ctx, errors];

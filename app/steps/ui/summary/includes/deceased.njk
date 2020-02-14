@@ -33,7 +33,7 @@
     items = [
         {
             question: content.DeceasedDobKnown.question,
-            answer: fields.deceased.dobknown.value,
+            answer: content.DeceasedDobKnown[fields.deceased.dobknown.value],
             visible: true
         }
     ],
@@ -42,7 +42,7 @@
     basePath = globals.basePath
 )}}
 
-{% if fields.deceased.dobknown.value === "Yes" %}
+{% if fields.deceased.dobknown.value == "optionYes" %}
     {{checkanswer(
         items = [
             {
@@ -61,7 +61,7 @@
     items = [
         {
             question: content.DeceasedAlias.question,
-            answer: fields.deceased.alias.value,
+            answer: content.DeceasedAlias[fields.deceased.alias.value],
             visible: true
         }
     ],

@@ -15,6 +15,7 @@ describe('getCheckAnswersPdf', () => {
             pdfServicesStub = sinon.stub(pdfServices, 'createCheckAnswersPdf');
             req = {
                 session: {
+                    language: 'en',
                     form: sinon.spy()
                 },
                 log: {

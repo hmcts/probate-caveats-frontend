@@ -6,69 +6,69 @@
 {% block content %}
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-            <h1 class="govuk-heading-l">{{ content.heading1 }}</h1>
+            <h1 class="govuk-heading-l">{{ content.heading1 | safe }}</h1>
             <p class="govuk-body">{{ content.paragraph1 | safe }}</p>
 
-            <h2 class="govuk-heading-m">{{ content.howAreCookiesUsedHeading1 }}</h2>
-            <p class="govuk-body">{{ content.howAreCookiesUsedParagraph1 }}</p>
+            <h2 class="govuk-heading-m">{{ content.howAreCookiesUsedHeading1 | safe }}</h2>
+            <p class="govuk-body">{{ content.howAreCookiesUsedParagraph1 | safe }}</p>
             {{ unorderedList([
                 content["howAreCookiesUsed-item1"],
                 content["howAreCookiesUsed-item2"],
                 content["howAreCookiesUsed-item3"]])
             }}
-            <p class="govuk-body">{{ content.howAreCookiesUsedParagraph2 | replace('{howToManageCookiesLink}', globals.links.howToManageCookies) | safe }}</p>
+            <p class="govuk-body">{{ content.howAreCookiesUsedParagraph2 | replace("{howToManageCookiesLink}", globals.links.howToManageCookies) | safe }}</p>
 
-            <h2 class="govuk-heading-m">{{ content.websiteUsageCookiesHeading1 }}</h2>
-            <p class="govuk-body">{{ content.websiteUsageCookiesParagraph1 }}</p>
-            <p class="govuk-body">{{ content.websiteUsageCookiesParagraph2 }}</p>
+            <h2 class="govuk-heading-m">{{ content.websiteUsageCookiesHeading1 | safe }}</h2>
+            <p class="govuk-body">{{ content.websiteUsageCookiesParagraph1 | safe }}</p>
+            <p class="govuk-body">{{ content.websiteUsageCookiesParagraph2 | safe }}</p>
             {{ unorderedList([
                 content["websiteUsageCookies-item1"],
                 content["websiteUsageCookies-item2"],
                 content["websiteUsageCookies-item3"],
                 content["websiteUsageCookies-item4"]])
             }}
-            <p class="govuk-body">{{ content.websiteUsageCookiesParagraph3 | replace('{googlePrivacyPolicyLink}', globals.links.googlePrivacyPolicy) | safe }}</p>
-            <p class="govuk-body">{{ content.websiteUsageCookiesParagraph4 | replace('{googleAnalyticsOptOutLink}', globals.links.googleAnalyticsOptOut) | safe }}</p>
-            <p class="govuk-body">{{ content.websiteUsageCookiesParagraph5 }}</p>
+            <p class="govuk-body">{{ content.websiteUsageCookiesParagraph3 | replace("{googlePrivacyPolicyLink}", globals.links.googlePrivacyPolicy) | safe }}</p>
+            <p class="govuk-body">{{ content.websiteUsageCookiesParagraph4 | replace("{googleAnalyticsOptOutLink}", globals.links.googleAnalyticsOptOut) | safe }}</p>
+            <p class="govuk-body">{{ content.websiteUsageCookiesParagraph5 | safe }}</p>
 
             {{ govukTable({
-                caption: content.websiteUsageCookiesHeading1,
+                caption: content.websiteUsageCookiesHeading1 | safe,
                 captionClasses: "govuk-visually-hidden",
                 head: [
-                    { text: content.cookieNameHeader },
-                    { text: content.cookiePurposeHeader },
-                    { text: content.cookieExpiryHeader }
+                    { text: content.cookieNameHeader | safe },
+                    { text: content.cookiePurposeHeader | safe },
+                    { text: content.cookieExpiryHeader | safe }
                 ],
                 rows: [
                     [
-                        { text: content.googleAnalyticsCookieName1 },
+                        { text: content.googleAnalyticsCookieName1 | safe },
                         { text: content.googleAnalyticsCookiePurpose1 | safe },
-                        { text: content.googleAnalyticsCookieExpiry1 }
+                        { text: content.googleAnalyticsCookieExpiry1 | safe }
                     ],
                     [
-                        { text: content.googleAnalyticsCookieName2 },
+                        { text: content.googleAnalyticsCookieName2 | safe },
                         { text: content.googleAnalyticsCookiePurpose2 | safe },
-                        { text: content.googleAnalyticsCookieExpiry2 }
+                        { text: content.googleAnalyticsCookieExpiry2 | safe }
                     ]
                 ]
             }) }}
 
-            <h2 class="govuk-heading-m">{{ content.introMessageCookiesHeading1 }}</h2>
+            <h2 class="govuk-heading-m">{{ content.introMessageCookiesHeading1 | safe }}</h2>
             <p>{{ content.introMessageCookiesParagraph1 | safe }}</p>
 
             {{ govukTable({
-                caption: content.introMessageCookiesHeading1,
+                caption: content.introMessageCookiesHeading1 | safe,
                 captionClasses: "govuk-visually-hidden",
                 head: [
-                    { text: content.cookieNameHeader },
-                    { text: content.cookiePurposeHeader },
-                    { text: content.cookieExpiryHeader }
+                    { text: content.cookieNameHeader | safe },
+                    { text: content.cookiePurposeHeader | safe },
+                    { text: content.cookieExpiryHeader | safe }
                 ],
                 rows: [
                     [
-                        { text: content.introMessageCookieName1 },
+                        { text: content.introMessageCookieName1 | safe },
                         { text: content.introMessageCookiePurpose1 | safe },
-                        { text: content.introMessageCookieExpiry1 }
+                        { text: content.introMessageCookieExpiry1 | safe }
                     ]
                 ]
             }) }}
@@ -77,68 +77,68 @@
             <p class="govuk-body">{{ content.sessionCookiesParagraph1 | safe }}</p>
 
             {{ govukTable({
-                caption: content.sessionCookiesHeading1,
+                caption: content.sessionCookiesHeading1 | safe,
                 captionClasses: "govuk-visually-hidden",
                 head: [
-                    { text: content.cookieNameHeader },
-                    { text: content.cookiePurposeHeader },
-                    { text: content.cookieExpiryHeader }
+                    { text: content.cookieNameHeader | safe },
+                    { text: content.cookiePurposeHeader | safe },
+                    { text: content.cookieExpiryHeader | safe }
                 ],
                 rows: [
                     [
-                        { text: content.sessionCookieName1 },
+                        { text: content.sessionCookieName1 | safe },
                         { text: content.sessionCookiePurpose1 | safe },
-                        { text: content.sessionCookieExpiry1 }
+                        { text: content.sessionCookieExpiry1 | safe }
                     ]
                 ]
             }) }}
 
-            <h2 class="govuk-heading-m">{{ content.identityCookiesHeading1 }}</h2>
-            <p class="govuk-body">{{ content.identityCookiesParagraph1 }}</p>
+            <h2 class="govuk-heading-m">{{ content.identityCookiesHeading1 | safe }}</h2>
+            <p class="govuk-body">{{ content.identityCookiesParagraph1 | safe }}</p>
 
             {{ govukTable({
-                caption: content.identityCookiesHeading1,
+                caption: content.identityCookiesHeading1 | safe,
                 captionClasses: "govuk-visually-hidden",
                 head: [
-                    { text: content.cookieNameHeader },
-                    { text: content.cookiePurposeHeader },
-                    { text: content.cookieExpiryHeader }
+                    { text: content.cookieNameHeader | safe },
+                    { text: content.cookiePurposeHeader | safe },
+                    { text: content.cookieExpiryHeader | safe }
                 ],
                 rows: [
                     [
-                        { text: content.identityCookieName1 },
-                        { text: content.identityCookiePurpose1 },
-                        { text: content.identityCookieExpiry1 }
+                        { text: content.identityCookieName1 | safe },
+                        { text: content.identityCookiePurpose1 | safe },
+                        { text: content.identityCookieExpiry1 | safe }
                     ]
                 ]
             }) }}
 
-            <h2 class="govuk-heading-m">{{ content.securityCookiesHeading1 }}</h2>
-            <p class="govuk-body">{{ content.securityCookiesParagraph1 }}</p>
+            <h2 class="govuk-heading-m">{{ content.securityCookiesHeading1 | safe }}</h2>
+            <p class="govuk-body">{{ content.securityCookiesParagraph1 | safe }}</p>
 
             {{ govukTable({
-                caption: content.securityCookiesHeading1,
+                caption: content.securityCookiesHeading1 | safe,
                 captionClasses: "govuk-visually-hidden",
                 head: [
-                    { text: content.cookieNameHeader },
-                    { text: content.cookiePurposeHeader },
-                    { text: content.cookieExpiryHeader }
+                    { text: content.cookieNameHeader | safe },
+                    { text: content.cookiePurposeHeader | safe },
+                    { text: content.cookieExpiryHeader | safe }
                 ],
                 rows: [
                     [
-                        { text: content.securityCookieName1 },
-                        { text: content.securityCookiePurpose1 },
-                        { text: content.securityCookieExpiry1 }
+                        { text: content.securityCookieName1 | safe },
+                        { text: content.securityCookiePurpose1 | safe },
+                        { text: content.securityCookieExpiry1 | safe }
                     ],
                     [
-                        { text: content.securityCookieName2 },
-                        { text: content.securityCookiePurpose2 },
-                        { text: content.securityCookieExpiry2 }
+                        { text: content.securityCookieName2 | safe },
+                        { text: content.securityCookiePurpose2 | safe },
+                        { text: content.securityCookieExpiry2 | safe }
                     ],
                     [
-                        { text: content.securityCookieName3 },
-                        { text: content.securityCookiePurpose3 },
-                        { text: content.securityCookieExpiry3 }
+                        { text: content.securityCookieName3 | safe },
+                        { text: content.securityCookiePurpose3 | safe },
+                        { text: content.securityCookieExpiry3 | safe }
                     ]
                 ]
             }) }}

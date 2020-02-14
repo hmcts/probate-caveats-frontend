@@ -6,6 +6,7 @@ module.exports = {
     nodeEnvironment: process.env.NODE_ENV,
     gitRevision: process.env.GIT_REVISION,
     externalHostNameUrl: process.env.EXTERNAL_HOSTNAME_URL || '',
+    languages: ['en', 'cy'],
     featureToggles: {
         url: process.env.FEATURE_TOGGLES_API_URL || 'http://localhost:8292',
         path: process.env.FEATURE_TOGGLES_PATH || '/api/ff4j/check',
@@ -100,7 +101,6 @@ module.exports = {
         privacy: (process.env.APP_BASE_PATH || '') + '/privacy-policy',
         terms: (process.env.APP_BASE_PATH || '') + '/terms-conditions',
         contact: (process.env.APP_BASE_PATH || '') + '/contact-us',
-        contactEmailAddress: 'contactprobate@justice.gov.uk',
         callCharges: 'https://www.gov.uk/call-charges',
         howToManageCookies: 'https://www.aboutcookies.org',
         googlePrivacyPolicy: 'https://www.google.com/policies/privacy/partners/',
@@ -112,7 +112,6 @@ module.exports = {
         whoInheritsLink: 'https://www.gov.uk/inherits-someone-dies-without-will',
         citizenAdvice: 'https://www.citizensadvice.org.uk/',
         stopGrantOfRepresentation: 'https://www.gov.uk/wills-probate-inheritance/stopping-a-grant-of-representation',
-        openGovernmentLicence: 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/',
         goodThingsFoundation: 'https://www.goodthingsfoundation.org',
         subjectAccessRequest: 'https://www.gov.uk/government/publications/request-your-personal-data-from-moj',
         complaintsProcedure: 'https://www.gov.uk/government/organisations/hm-courts-and-tribunals-service/about/complaints-procedure',
@@ -122,11 +121,6 @@ module.exports = {
         myAbilityLink: 'https://mcmw.abilitynet.org.uk/',
         equalityAdvisorLink: 'https://www.equalityadvisoryservice.com/',
         wcag21Link: 'https://www.w3.org/TR/WCAG21/'
-    },
-    helpline: {
-        number: '0300 303 0648',
-        email: 'contactprobate@justice.gov.uk',
-        hours: 'Monday to Friday, 8:00am to 8:00pm. Saturday, 8:00am to 2:00pm.'
     },
     utils: {
         api: {
@@ -150,39 +144,40 @@ module.exports = {
         instrumentationKey: process.env.APPINSIGHTS_INSTRUMENTATION_KEY
     },
     whitelistedPagesForStartApplyPageRedirect: [
-        (process.env.APP_BASE_PATH || '') + '/public',
-        (process.env.APP_BASE_PATH || '') + '/start-apply',
-        (process.env.APP_BASE_PATH || '') + '/applicant-name',
-        (process.env.APP_BASE_PATH || '') + '/accessibility-statement',
-        (process.env.APP_BASE_PATH || '') + '/cookies',
-        (process.env.APP_BASE_PATH || '') + '/privacy-policy',
-        (process.env.APP_BASE_PATH || '') + '/terms-conditions',
-        (process.env.APP_BASE_PATH || '') + '/contact-us',
-        (process.env.APP_BASE_PATH || '') + '/offline',
-        (process.env.APP_BASE_PATH || '') + '/health/liveness'
+        '/public',
+        '/start-apply',
+        '/bilingual-gop',
+        '/applicant-name',
+        '/accessibility-statement',
+        '/cookies',
+        '/privacy-policy',
+        '/terms-conditions',
+        '/contact-us',
+        '/offline',
+        '/health/liveness'
     ],
     whiteListedPagesForThankyou: [
-        (process.env.APP_BASE_PATH || '') + '/public',
-        (process.env.APP_BASE_PATH || '') + '/accessibility-statement',
-        (process.env.APP_BASE_PATH || '') + '/cookies',
-        (process.env.APP_BASE_PATH || '') + '/privacy-policy',
-        (process.env.APP_BASE_PATH || '') + '/terms-conditions',
-        (process.env.APP_BASE_PATH || '') + '/contact-us',
-        (process.env.APP_BASE_PATH || '') + '/offline',
-        (process.env.APP_BASE_PATH || '') + '/health/liveness',
-        (process.env.APP_BASE_PATH || '') + '/thank-you'
+        '/public',
+        '/accessibility-statement',
+        '/cookies',
+        '/privacy-policy',
+        '/terms-conditions',
+        '/contact-us',
+        '/offline',
+        '/health/liveness',
+        '/thank-you'
     ],
     whiteListedPagesForPaymentBreakdown: [
-        (process.env.APP_BASE_PATH || '') + '/public',
-        (process.env.APP_BASE_PATH || '') + '/accessibility-statement',
-        (process.env.APP_BASE_PATH || '') + '/cookies',
-        (process.env.APP_BASE_PATH || '') + '/privacy-policy',
-        (process.env.APP_BASE_PATH || '') + '/terms-conditions',
-        (process.env.APP_BASE_PATH || '') + '/contact-us',
-        (process.env.APP_BASE_PATH || '') + '/offline',
-        (process.env.APP_BASE_PATH || '') + '/health/liveness',
-        (process.env.APP_BASE_PATH || '') + '/payment-breakdown',
-        (process.env.APP_BASE_PATH || '') + '/payment-status',
-        (process.env.APP_BASE_PATH || '') + '/thank-you'
+        '/public',
+        '/accessibility-statement',
+        '/cookies',
+        '/privacy-policy',
+        '/terms-conditions',
+        '/contact-us',
+        '/offline',
+        '/health/liveness',
+        '/payment-breakdown',
+        '/payment-status',
+        '/thank-you'
     ]
 };

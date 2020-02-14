@@ -1,9 +1,8 @@
 {
   "title": "Applicant name",
   "question": "What is your full name?",
-  "firstName": "First name(s)",
-  "firstNameHint": "Including middle names",
-  "lastName": "Last name(s)",
+  "firstName": "First name and any middle names",
+  "lastName": "Last name",
 
   "errors": {
     "firstName": {

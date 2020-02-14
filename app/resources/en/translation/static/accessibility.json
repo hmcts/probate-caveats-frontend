@@ -12,7 +12,7 @@
   "paragraph4": "<a href=\"{myAbilityLink}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener\">AbilityNet</a> has advice on making your device easier to use if you have a disability.",
 
   "heading2": "How accessible is this website?",
-  "paragraph5": "The website uses the latest version of the GOV.UK Design System. In addition we’ve carried out internal testing to ensure that we’re in-line with or close to the latest accessibility standards.",
+  "paragraph5": "The website uses the latest version of the GOV.UK Design System. In addition we&rsquo;ve carried out internal testing to ensure that we&rsquo;re in-line with or close to the latest accessibility standards.",
   "paragraph6": "Following our internal test, the following areas were recommended for further testing:",
   "list2-item1": "Navigating using character shortcuts - While we&rsquo;ve tested with free screen readers for Mac and Chrome, different screen reader services will have different shortcuts and we haven&rsquo;t been able to conclusively verify all of them.",
   "list2-item2": "Text spacing - We haven&rsquo;t been able to verify that the service works for all users requiring larger text spacing.",

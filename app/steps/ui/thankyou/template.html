@@ -25,16 +25,16 @@
                 <p class="govuk-body">{{ content.successParagraph2 | safe }}</p>
 
                 <div class="margin-bottom50">
-                    <h2 class="govuk-heading-m">{{ content.saveYourApplication }}</h2>
-                    <p class="govuk-body">{{ content.saveParagraph1 }}</p>
+                    <h2 class="govuk-heading-m">{{ content.saveYourApplication | safe }}</h2>
+                    <p class="govuk-body">{{ content.saveParagraph1 | safe }}</p>
                     <p class="govuk-body">
                         <em class="icon icon-file-download"></em>
-                        <a class="govuk-link anchor-margin-left" id="checkAnswerHref" href="{{ globals.basePath }}/check-answers-pdf">{{ content.checkAnswersPdf }}</a>
+                        <a class="govuk-link anchor-margin-left" id="checkAnswerHref" href="{{ globals.basePath }}/check-answers-pdf">{{ content.checkAnswersPdf | safe }}</a>
                     </p>
                 </div>
 
                 {{ govukInsetText({
-                    text: content.successParagraph3 | replace('{citizenAdvice}', globals.links.citizenAdvice) | safe
+                    text: content.successParagraph3 | replace("{citizenAdvice}", globals.links.citizenAdvice) | safe
                 }) }}
 
                 <a href="{{ globals.links.surveyEndOfApplication | safe }}" class="govuk-link" target="_blank" rel="external noopener noreferrer">{{ content.survey | safe }}</a>

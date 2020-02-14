@@ -1,0 +1,70 @@
+{
+  "title": "Datganiad Hygyrchedd",
+  "heading1": "Datganiad Hygyrchedd ar gyfer y gwasanaeth &lsquo;Atal cais am brofiant&rsquo;",
+  "paragraph1": "Mae&rsquo;r gwasanaeth hwn yn galluogi defnyddwyr i atal cais am grant cynrychiolaeth ar-lein (a elwir hefyd yn profiant).",
+  "paragraph2": "Gwasanaeth Llysoedd a Thribiwnlysoedd EM sy&rsquo;n gyfrifol am y wefan hon. Rydym eisiau i gymaint o bobl &acirc; phosibl allu defnyddio&rsquo;r wefan hon, felly rydym wedi ceisio ei gwneud mor hygyrch &acirc; phosibl.   Er enghraifft, golyga hyn y dylech allu:",
+  "list1-item1": "newid y lliwiau, lefelau cyferbyniad a ffontiau",
+  "list1-item2": "gwneud y testun hyd at 300% yn fwy heb iddo ddiflannu oddi ar y sgrin",
+  "list1-item3": "defnyddio&rsquo;r rhan fwyaf o&rsquo;r wefan gan ddefnyddio bysellfwrdd yn unig",
+  "list1-item4": "defnyddio&rsquo;r rhan fwyaf o&rsquo;r wefan gan ddefnyddio meddalwedd adnabod llais",
+  "list1-item5": "gwrando ar y rhan fwyaf o&rsquo;r wefan gan ddefnyddio darllenydd sgrin (gan gynnwys fersiynau diweddaraf JAWS, NVDA a VoiceOver)",
+  "paragraph3": "Rydym hefyd wedi sicrhau ein bod wedi defnyddio iaith syml.",
+  "paragraph4": "<a href=\"{myAbilityLink}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener\">AbilityNet</a> Gallwch gael cyngor gan AbilityNet ynghylch gwneud eich dyfais yn haws i&rsquo;w defnyddio os oes gennych anabledd.",
+
+  "heading2": "Pa mor hygyrch yw&rsquo;r wefan hon?",
+  "paragraph5": "Mae&rsquo;r wefan yn defnyddio fersiwn ddiweddaraf System Dylunio GOV.UK. Rydym hefyd wedi profi&rsquo;r wefan yn fewnol i sicrhau ein bod yn cydymffurfio neu&rsquo;n agos at gydymffurfio &acirc;&rsquo;r safonau hygyrchedd diweddaraf.",
+  "paragraph6": "Yn dilyn ein profion mewnol, argymhellwyd bod y DAC yn profi&rsquo;r canlynol ymhellach:",
+  "list2-item1": "Defnyddio&rsquo;r wefan gan ddefnyddio llwybrau brys - Er ein bod wedi cynnal profion gan ddefnyddio darllenwyr sgrin sydd ar gael am ddim ar gyfer Mac a Chrome, bydd gan wasanaethau darllenwyr sgrin gwahanol lwybrau brys gwahanol ac nid ydym wedi gallu dilysu pob un ohonynt yn derfynol.",
+  "list2-item2": "Bylchiad y testun - Nid ydym wedi gallu dilysu bod y gwasanaeth yn gweithio i bob defnyddiwr sydd angen bylchiad mwy rhwng testun.",
+  "list2-item3": "Cyfleuster hofran neu ffocysu - Nid ydym wedi gallu gwirio bod hyn yn gweithio i ddefnyddwyr sydd ag anawsterau sgiliau symud.",
+  "list2-item4": "Dangosydd ffocysu - Efallai y bydd rhai defnyddwyr yn cael trafferth sylwi ar y dangosydd ffocysu.",
+
+  "heading3": "Beth i&rsquo;w wneud os na allwch ddefnyddio rhai rhannau o&rsquo;r wefan hon",
+  "paragraph7": "Os ydych angen gwybodaeth sydd ar y wefan hon mewn fformat arall megis ar ffurf PDF hygyrch, print bras, fformat  hawdd ei ddarllen neu braille, yna e-bostiwch <a href=\"mailto:HMCTSforms@justice.gov.uk\" class=\"govuk-link\">HMCTSforms@justice.gov.uk</a> neu ffoniwch:",
+  "paragraph8": "<strong>Llinell Gymorth Profiant:</strong><br>Rhif ff&ocirc;n: {helpLineNumber}<br>{helpLineHours}",
+  "paragraph9": "<a target=\"_blank\" rel=\"external noopener\" href=\"{callChargesLink}\" class=\"govuk-link\">Gwybodaeth am brisiau galwadau</a>",
+  "paragraph10": "Byddwn yn ystyried eich cais ac yn ymateb o fewn 10 diwrnod gwaith.",
+
+  "heading4": "Riportio problemau hygyrchedd gyda&rsquo;r wefan hon",
+  "paragraph11": "Rydym wastad yn ceisio gwella hygyrchedd y wefan hon. Os byddwch yn cael unrhyw broblemau nad ydynt wedi&rsquo;u cynnwys ar y dudalen hon, neu&rsquo;n credu nad ydym yn bodloni&rsquo;r gofynion o ran hygyrchedd, ffoniwch:",
+
+  "heading5": "Y weithdrefn orfodi",
+  "paragraph12": "Y Comisiwn Cydraddoldeb a Hawliau Dynol (EHRC) sy&rsquo;n gyfrifol am orfodi Rheoliadau Hygyrchedd Cyrff y Sector Cyhoeddus (Gwefannau a Rhaglenni Symudol) (Rhif 2) 2018 (y &lsquo;rheoliadau hygyrchedd&rsquo;). Os nad ydych chi&rsquo;n fodlon gyda&rsquo;r ffordd rydym yn ymateb i&rsquo;ch cwyn, <a href=\"{equalityAdvisorLink}\" target=\"_blank\" rel=\"external noopener\" class=\"govuk-link\">cysylltwch &acirc;&rsquo;r Gwasanaeth Cynghori a Chefnogi Cydraddoldeb (EASS).</a>.",
+
+  "heading6": "Cysylltu &acirc; ni dros y ff&ocirc;n neu ymweld &acirc; ni&rsquo;n bersonol",
+  "paragraph13": "Rydym yn darparu gwasanaeth cyfnewid negeseuon testun ar gyfer pobl byddar, pobl sydd &acirc; nam ar eu clyw a phobl sydd &acirc; nam ar eu lleferydd.",
+  "paragraph14": "Mae yna ddolenni sain yn ein cofrestrfeydd. Pan fyddwch yn cyflwyno eich apêl byddwch yn gallu gofyn am gyfieithydd Iaith Arwyddion Prydain (BSL) neu gyfieithydd iaith dramor.",
+
+  "heading7": "Gwybodaeth dechnegol am hygyrchedd y wefan hon",
+  "paragraph15": "Mae GLlTEM wedi ymrwymo i sicrhau bod ei wefannau yn hygyrch, a hynny yn unol &acirc; Rheoliadau Hygyrchedd Cyrff y Sector Cyhoeddus (Gwefannau a Rhaglenni Symudol) (Rhif 2) 2018.",
+  "paragraph16": "Mae&rsquo;r wefan yn cydymffurfio&rsquo;n rhannol &acirc; <a href=\"{wcag21Link}\" target=\"_blank\" rel=\"external noopener\" class=\"govuk-link\">Chanllawiau Hygyrchedd Cynnwys Gwe (WCAG) fersiwn 2.1 safon AA,</a> a hynny oherwydd y materion o beidio &acirc; chydymffurfio a restrir isod.",
+
+  "heading8": "Cynnwys anhygyrch",
+  "paragraph17": "Mae&rsquo;r cynnwys isod yn anhygyrch am y rhesymau canlynol.",
+  "list3-item1": "Defnyddio&rsquo;r wefan gan ddefnyddio llwybrau brys - Er ein bod wedi cynnal profion gan ddefnyddio MAC VoiceOver a ChromeVox, bydd gan wasanaethau darllenwyr sgrin gwahanol lwybrau brys gwahanol ac nid ydym wedi gallu dilysu pob un ohonynt yn derfynol.     Efallai ni fydd hyn yn bodloni WCAG 2.1 maen prawf llwyddiant 2.1.4.",
+  "list3-item2": "Bylchiad y testun - Ni allwn gadarnhau bod y gwasanaeth yn gweithio i&rsquo;r rhai hynny sydd angen bylchiad mwy rhwng testun. Efallai ni fydd hyn yn bodloni WCAG 2.1 maen prawf llwyddiant 1.4.12.",
+  "list3-item3": "Cyfleuster hofran neu ffocysu - Nid ydym wedi gallu dilysu bod hyn yn gweithio i ddefnyddwyr sydd ag anawsterau sgiliau symud. Efallai ni fydd hyn yn bodloni WCAG 2.1 maen prawf llwyddiant 1.4.13.",
+  "list3-item4": "Dangosydd ffocysu - Efallai y bydd rhai defnyddwyr yn cael trafferth sylwi ar y dangosydd ffocysu. Efallai ni fydd hyn yn bodloni WCAG 2.1 maen prawf llwyddiant 2.4.7.",
+  "paragraph18": "Bydd Digital Accessibility Centre (DAC) yn profi&rsquo;r wefan ym mis Hydref 2019 ac rydym wedi ymrwymo i ddatrys unrhyw broblemau erbyn mis Hydref 2020.",
+
+  "heading9": "Cynnwys sydd heb fod o fewn cwmpas y rheoliadau hygyrchedd",
+  "heading9-1": "Dogfennau PDF a dogfennau eraill",
+  "paragraph19": "Mae&rsquo;n bosib na fydd dogfennau PDF, dogfennau eraill ac atodiadau mewn negeseuon e-bost a gyhoeddwyd cyn 23 Medi 2018 yn cydymffurfio &acirc;&rsquo;r safonau hygyrchedd. Er enghraifft, efallai nad ydynt wedi&rsquo;u strwythuro fel eu bod yn hygyrch i raglen darllen sgrîn.",
+  "heading9-2": "Cynnwys trydydd parti sydd dan reolaeth rhywun arall",
+  "paragraph20": "Efallai na fydd tudalennau a gwefannau sy&rsquo;n berthnasol i&rsquo;r gwasanaeth profiant yn gwbwl hygyrch.  Mae&rsquo;r rhain yn cynnwys:",
+  "list4-item1": "Tudalennau allanol sy&rsquo;n cynnwys dogfennau PDF e.e. <br><a href=\"{applicationFormPA15}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener\">{applicationFormPA15}</a>",
+  "list4-item2": "Y tudalennau mewngofnodi a thalu",
+  "list4-item3": "Negeseuon e-bost a anfonir gan gov.uk.notify",
+  "list4-item4": "Tudalennau cyfarwyddo ar gov.uk e.e. <br><a href=\"{deathReportedToCoroner}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener\">{deathReportedToCoroner}</a>",
+  "list4-item5": "Y gwasanaeth sgwrsio dros y we sy&rsquo;n cynnig cefnogaeth i ddefnyddwyr",
+
+  "heading10": "Sut rydym wedi profi&rsquo;r wefan hon",
+  "paragraph25": "Bu inni gynnal profion mewnol ym mis Ebrill 2019 yn erbyn safon WCAG 2.1.",
+  "paragraph26": "Cafodd yr holl faterion a godwyd yn ystod y broses profi eu datrys.",
+  "paragraph27": "Bydd y tîm hygyrchedd digidol yn profi&rsquo;r wefan eto ym mis Hydref 2019 ac rydym wedi ymrwymo i gydymffurfio&rsquo;n llwyr &acirc; safon WCAG 2.1 AA erbyn mis Hydref 2020.",
+
+  "heading11": "Beth rydym yn ei wneud i wella hygyrchedd",
+  "paragraph28": "Mae&rsquo;r wefan yn cael ei phrofi&rsquo;n barhaus gan ddefnyddio meddalwedd hygyrchedd. Bydd unrhyw nodweddion newydd a fydd yn cael eu cyflwyno hefyd yn cael eu profi&rsquo;n fewnol neu gan y Digital Accessibility Centre (DAC).",
+  "paragraph29": "Byddwn yn datrys unrhyw broblemau a amlygir yn ystod y profion hyn gan DAC erbyn mis Hydref 2020.",
+  "paragraph30": "Cafodd y datganiad hwn ei baratoi ar 23 Medi 2019. Cafodd ei ddiweddaru ddiwethaf ar 24 Medi 2019."
+}

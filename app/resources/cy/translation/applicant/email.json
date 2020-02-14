@@ -1,0 +1,18 @@
+{
+  "title": "Cyfeiriad e-bost y sawl sy&rsquo;n gwneud y cais",
+  "question": "Beth yw eich cyfeiriad e-bost?",
+  "email": "E-bost",
+  "explanation1": "Cewch gadarnhad o&rsquo;ch cais trwy e-bost.",
+  "errors": {
+    "email": {
+      "required": {
+        "summary": "Nid ydych wedi nodi&rsquo;ch cyfeiriad e-bost",
+        "message": "Nodwch eich cyfeiriad e-bost"
+      },
+      "invalid": {
+        "summary": "Rydych wedi nodi cyfeiriad e-bost annilys Gwiriwch y cyfeiriad e-bost a theipiwch ef eto.",
+        "message": "Mae&rsquo;r cyfeiriad e-bost rydych wedi&rsquo;i nodi yn annilys"
+      }
+    }
+  }
+}

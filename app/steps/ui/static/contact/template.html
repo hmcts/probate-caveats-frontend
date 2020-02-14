@@ -3,10 +3,10 @@
 {% block content %}
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-            <h1 class="govuk-heading-l">{{ content.heading1 }}</h1>
-            <p class="govuk-body">{{ content.paragraph1 | replace('{helpLineNumber}', globals.helpline.number) }}</p>
-            <p class="govuk-body">{{ content.paragraph2 | replace('{helpLineHours}', globals.helpline.hours) }}</p>
-            <p class="govuk-body">{{ content.paragraph3 | replace('{callChargesLink}', globals.links.callCharges) | safe }}</p>
+            <h1 class="govuk-heading-l">{{ content.heading1 | safe }}</h1>
+            <p class="govuk-body">{{ content.paragraph1 | replace("{helpLineNumber}", common.helpTelephoneNumber) | safe }}</p>
+            <p class="govuk-body">{{ content.paragraph2 | replace("{helpLineHours}", common.helpTelephoneOpeningHours) | safe }}</p>
+            <p class="govuk-body">{{ content.paragraph3 | replace("{callChargesLink}", globals.links.callCharges) | safe }}</p>
         </div>
     </div>
 {% endblock %}

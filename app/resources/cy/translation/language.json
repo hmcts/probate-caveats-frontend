@@ -1,0 +1,14 @@
+{
+  "title": "Dewiswch pa iaith yr hoffech dderbyn eich gohebiaeth",
+  "question": "Ydych chi eisiau gohebiaeth ddwyieithog (Cymraeg/Saesneg)",
+  "optionYes": "Ydw",
+  "optionNo": "Nac ydw",
+  "errors": {
+    "bilingual": {
+      "required": {
+        "summary": "Mae angen ichi ddewis os ydych chi eisiau gohebiaeth ddwyieithog (Cymraeg/Saesneg) neu ohebiaeth Saesneg yn unig",
+        "message": "Atebwch &lsquo;ydw&rsquo; os ydych chi eisiau gohebiaeth ddwyieithog (Cymraeg/Saesneg)"
+      }
+    }
+  }
+}
