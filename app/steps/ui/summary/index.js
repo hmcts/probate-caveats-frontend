@@ -59,7 +59,6 @@ class Summary extends Step {
         formdata.checkAnswersSummary = checkAnswersSummaryJSONObjBuilder.build(html);
         res.send(html);
     }
-
 }
 
 module.exports = Summary;
