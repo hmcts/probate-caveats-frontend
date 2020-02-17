@@ -9,8 +9,8 @@
 
     {% if fields.featureToggles.value.webforms == "true" %}
         {% set helpContent = helpContent + "<p class=\"govuk-heading-s\">" + (common.helpHeadingOnlineForm) + "</p>" %}
-        {% set helpContent = helpContent + "<p class=\"govuk-body\">" + (common.sendUsAMessage | replace('{webForms}', globals.links.webForms) | safe) + " " + common.opensInNewWindow + ".</p>" %}
-        {% set helpContent = helpContent + "<p class=\"govuk-body\">" + common.responseTime | safe + "</p>" %}
+        {% set helpContent = helpContent + "<p class=\"govuk-body\">" + (common.helpSendUsAMessage | replace('{webForms}', globals.links.webForms) | safe) + " " + common.helpOpensInNewWindow + ".</p>" %}
+        {% set helpContent = helpContent + "<p class=\"govuk-body\">" + common.helpResponseTime | safe + "</p>" %}
     {% else %}
         {% set helpContent = helpContent + "<p class=\"govuk-heading-s\">" + (common.helpHeadingEmail) + "</p>" %}
         {% set helpContent = helpContent + "<p class=\"govuk-body\">" + (common.helpEmailLabel | replace("{contactEmailAddress}", globals.links.contactEmailAddress)) + "</p>" %}
@@ -20,7 +20,7 @@
     {% set helpContent = helpContent + "<div id=\"ctsc-web-chat\"></div>" %}
 
     {{ govukDetails({
-        summaryText: common.helpTitle,
+        summaryText: common.helpTitle | safe,
         text: helpContent | safe,
         id: "contact-us-for-help"
     }) }}

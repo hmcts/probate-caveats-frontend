@@ -8,7 +8,6 @@ class Deceased {
     hasAlias() {
         return this.deceased.alias === 'optionYes';
     }
-
 }
 
 module.exports = Deceased;

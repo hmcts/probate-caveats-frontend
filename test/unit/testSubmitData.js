@@ -8,7 +8,10 @@ const expect = require('chai').expect;
 describe('submitData/index.js', () => {
     describe('correct form created for full details', () => {
         const ctx = {};
-        const formdata ={
+        const formdata = {
+            language: {
+                'bilingual': 'optionYes'
+            },
             applicant: {
                 'firstName': 'Jason',
                 'lastName': 'Smith',
@@ -62,7 +65,10 @@ describe('submitData/index.js', () => {
 
     describe('correct form created for minimal details', () => {
         const ctx = {};
-        const formdata ={
+        const formdata = {
+            language: {
+                'bilingual': 'optionYes'
+            },
             applicant: {
                 'firstName': 'Jason',
                 'lastName': 'Smith',

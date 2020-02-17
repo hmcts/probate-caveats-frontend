@@ -15,6 +15,10 @@ class FormatUrl {
     static createHostname(req) {
         return `${config.frontendPublicHttpProtocol.toLowerCase()}://${req.get('host')}`;
     }
+
+    static getCleanPageUrl(url, index) {
+        return '/' + url.split('?')[0].split('/')[index];
+    }
 }
 
 module.exports = FormatUrl;

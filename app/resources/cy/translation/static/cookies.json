@@ -1,0 +1,71 @@
+{
+  "title": "Cwcis",
+  "heading1": "Cwcis",
+  "paragraph1": "Darn bach o ddata sy&rsquo;n cael ei storio ar eich cyfrifiadur, eich tabled neu eich ff&ocirc;n pan fyddwch yn ymweld &acirc; gwefan yw cwci. Mae angen cwcis ar y rhan fwyaf o wefannau i weithio&rsquo;n iawn.",
+
+  "howAreCookiesUsedHeading1": "Sut ydym yn defnyddio cwcis yn y gwasanaeth hwn",
+  "howAreCookiesUsedParagraph1": "Mae&rsquo;r gwasanaeth hwn yn eu defnyddio i:",
+  "howAreCookiesUsed-item1": "fesur sut ydych yn defnyddio&rsquo;r gwasanaeth fel y gallwn ei wella",
+  "howAreCookiesUsed-item2": "cofio&rsquo;r hysbysiadau rydych wedi&rsquo;u gweld fel na fyddwch yn eu gweld eto",
+  "howAreCookiesUsed-item3": "storio&rsquo;r atebion a roddwch dros dro",
+  "howAreCookiesUsedParagraph2": "Darganfod mwy am <a target=\"_blank\" rel=\"external noopener\" href=\"{howToManageCookiesLink}\" class=\"govuk-link\">sut i reoli cwcis.</a>.",
+
+  "websiteUsageCookiesHeading1": "I fesur faint o bobl sy&rsquo;n defnyddio ein gwefan",
+  "websiteUsageCookiesParagraph1": "Rydym yn defnyddio meddalwedd Google Analytics i gasglu gwybodaeth am sut rydych yn defnyddio&rsquo;r gwasanaeth hwn. Rydym yn gwneud hyn i helpu i sicrhau bod y gwasanaeth yn diwallu anghenion ei ddefnyddwyr ac i&rsquo;n helpu i wneud gwelliannau, er enghraifft gwella&rsquo;r cyfleuster chwilio.",
+  "websiteUsageCookiesParagraph2": "Mae Google Analytics yn storio gwybodaeth am:",
+  "websiteUsageCookies-item1": "y tudalennau yr ydych yn ymweld &acirc; hwy",
+  "websiteUsageCookies-item2": "faint o amser y byddwch yn ei dreulio ar bob tudalen",
+  "websiteUsageCookies-item3": "sut y daethoch o hyd i&rsquo;r gwasanaeth",
+  "websiteUsageCookies-item4": "yr hyn rydych chi&rsquo;n clicio arno wrth ddefnyddio&rsquo;r gwasanaeth",
+  "websiteUsageCookiesParagraph3": "Rydym yn caniatáu i Google ddefnyddio neu rannu ein data dadansoddi. Gallwch ddarganfod mwy am sut mae Google yn defnyddio&rsquo;r wybodaeth hon yn eu <a target=\"_blank\" rel=\"external noopener\" href=\"{googlePrivacyPolicyLink}\" class=\"govuk-link\">polisi preifatrwydd</a>.",
+  "websiteUsageCookiesParagraph4": "Gallwch <a target=\"_blank\" rel=\"external noopener\" href=\"{googleAnalyticsOptOutLink}\" class=\"govuk-link\">optio allan o Google Analytics</a>os nad ydych eisiau i Google gael mynediad at eich gwybodaeth.",
+  "websiteUsageCookiesParagraph5": "Mae Google Analytics yn gosod y cwcis canlynol:",
+
+  "cookieNameHeader": "Enw&rsquo;r cwci",
+  "cookiePurposeHeader": "Pwrpas y cwci",
+  "cookieExpiryHeader": "Darfod ymhen",
+
+  "googleAnalyticsCookieName1": "_ga",
+  "googleAnalyticsCookiePurpose1": "Mae&rsquo;n ein helpu i gyfrif faint o bobl sy&rsquo;n ymweld &acirc;&rsquo;r gwasanaeth drwy olrhain os ydych wedi ymweld o&rsquo;r blaen",
+  "googleAnalyticsCookieExpiry1": "2 flynedd",
+
+  "googleAnalyticsCookieName2": "_gat",
+  "googleAnalyticsCookiePurpose2": "Rheoli faint o bobl sy&rsquo;n ymweld &acirc;&rsquo;r dudalen",
+  "googleAnalyticsCookieExpiry2": "10 munud",
+
+  "introMessageCookiesHeading1": "Troi ein neges gyflwyno i ffwrdd",
+  "introMessageCookiesParagraph1": "Efallai y byddwch yn gweld neges groeso pan fyddwch yn ymweld &acirc;&rsquo;r gwasanaeth am y tro cyntaf. Byddwn yn storio cwci ar eich cyfrifiadur fel ei fod yn gwybod i beidio &acirc;&rsquo;i dangos eto.",
+
+  "introMessageCookieName1": "seen_cookie_message",
+  "introMessageCookiePurpose1": "Arbed neges i roi gwybod inni eich bod wedi gweld ein neges ynglŷn &acirc; chwcis",
+  "introMessageCookieExpiry1": "1 mis",
+
+  "sessionCookiesHeading1": "Storio&rsquo;r atebion a roesoch yn ystod eich ymweliad (gelwir hyn yn &lsquo;sesiwn&rsquo;)",
+  "sessionCookiesParagraph1": "Caiff cwcis sesiwn eu storio ar eich cyfrifiadur wrth ichi fynd drwy wefan, ac maent yn gadael i&rsquo;r wefan wybod beth rydych wedi&rsquo;i weld a&rsquo;i wneud hyd yn hyn. Cwcis dros dro yw&rsquo;r rhain ac fe&rsquo;u dilëir yn awtomatig ychydig ar &ocirc;l ichi adael y wefan.",
+
+  "sessionCookieName1": "connect.sid",
+  "sessionCookiePurpose1": "Gwybodaeth am eich sesiwn gyfredol",
+  "sessionCookieExpiry1": "Pan fyddwch chi&rsquo;n cau&rsquo;ch porwr",
+
+  "identityCookiesHeading1": "Eich adnabod pan fyddwch yn dod n&ocirc;l i&rsquo;r gwasanaeth",
+  "identityCookiesParagraph1": "Rydym yn defnyddio cwcis dilysu i&rsquo;ch adnabod pan fyddwch yn dod n&ocirc;l i&rsquo;r gwasanaeth.",
+
+  "identityCookieName1": "__auth-token",
+  "identityCookiePurpose1": "Gadael i&rsquo;r gwasanaeth wybod pwy ydych chi",
+  "identityCookieExpiry1": "Pan fyddwch chi&rsquo;n cau&rsquo;ch porwr",
+
+  "securityCookiesHeading1": "Gwneud y gwasanaeth yn fwy diogel",
+  "securityCookiesParagraph1": "Rydym yn gosod cwcis er mwyn rhwystro hacwyr rhag addasu cynnwys y cwcis eraill a osodon ni. Mae hyn yn gwneud y gwasanaeth yn fwy diogel ac yn diogelu eich gwybodaeth bersonol.",
+
+  "securityCookieName1": "TS01842b02",
+  "securityCookiePurpose1": "Amddiffyn eich sesiwn rhag i rywun ymyrryd ag o",
+  "securityCookieExpiry1": "Pan fyddwch chi&rsquo;n cau&rsquo;ch porwr",
+
+  "securityCookieName2": "__state",
+  "securityCookiePurpose2": "Gadael i&rsquo;r gwasanaeth wybod pwy ydych chi a diogelu eich manylion",
+  "securityCookieExpiry2": "Pan fyddwch chi&rsquo;n cau&rsquo;ch porwr",
+
+  "securityCookieName3": "_csrf",
+  "securityCookiePurpose3": "Helpu i amddiffyn rhag ffugio",
+  "securityCookieExpiry3": "Pan fyddwch chi&rsquo;n cau&rsquo;ch porwr"
+}

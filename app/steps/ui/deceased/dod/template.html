@@ -22,13 +22,13 @@
         namePrefix: "dod",
         fieldset: {
             legend: {
-                text: content.question,
+                text: content.question | safe,
                 isPageHeading: true,
                 classes: "govuk-fieldset__legend--l"
             }
         },
         hint: {
-            text: content.questionHint
+            text: content.questionHint | safe
         },
         errorMessage: inlineErrors,
         items: [
@@ -52,7 +52,7 @@
 
     <div class="govuk-form-group">
         {{ govukButton({
-            text: common.saveAndContinue,
+            text: common.saveAndContinue | safe,
             preventDoubleClick: true
         }) }}
     </div>

@@ -1,0 +1,47 @@
+{
+  "title": "Cyfeiriad y sawl sy&rsquo;n gwneud y cais",
+  "question": "Beth yw eich cyfeiriad?",
+  "explanation1": "Byddwn yn anfon y grant profiant i&rsquo;r cyfeiriad hwn.",
+  "postTown": "Tref neu ddinas",
+  "postcode": "Cod post",
+  "country": "Gwlad",
+  "findAddress": "Dod o hyd i gyfeiriad yn y DU",
+  "addressLabel": "Cyfeiriad",
+  "addressLabel2": "Ail linell y cyfeiriad",
+  "addressLabel3": "Trydydd llinell y cyfeiriad",
+  "selectAddress": "Dewiswch gyfeiriad",
+  "enterManually": "neu teipiwch eich cyfeiriad",
+
+  "errors": {
+    "addressLine1": {
+      "required": {
+        "summary": "Nid ydych wedi nodi llinell gyntaf y cyfeiriad",
+        "message": "Nodwch linell gyntaf y cyfeiriad"
+      },
+      "invalid": {
+        "summary": "Nodwch yr isafswm o nodau ar gyfer llinell gyntaf y cyfeiriad",
+        "message": "2 - 150 o nodau"
+      }
+    },
+    "postTown": {
+      "required": {
+        "summary": "Nid ydych wedi nodi&rsquo;r dref neu&rsquo;r ddinas",
+        "message": "Nodwch dref neu ddinas"
+      },
+      "invalid": {
+        "summary": "Nodwch yr isafswm o nodau ar gyfer y dref neu&rsquo;r ddinas",
+        "message": "2 - 50 o nodau"
+      }
+    },
+    "newPostCode": {
+      "required": {
+        "summary": "Nid ydych wedi nodi&rsquo;r cod post",
+        "message": "Nodwch god post"
+      },
+      "invalid": {
+        "summary": "Nid ydych wedi nodi cod post cyflawn",
+        "message": "Nodwch god post sydd 2-14 nod o hyd"
+      }
+    }
+  }
+}
