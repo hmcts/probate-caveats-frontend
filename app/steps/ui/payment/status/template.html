@@ -1,19 +1,19 @@
 {% extends "includes/two_thirds_form.html" %}
 
 {% block form_content %}
-    <h1 class="govuk-heading-l">{{ content.question }}</h1>
+    <h1 class="govuk-heading-l">{{ content.question | safe }}</h1>
 
-    <p class="govuk-body">{{ content.paragraph }}</p>
+    <p class="govuk-body">{{ content.paragraph | safe }}</p>
     <p class="govuk-body">
-        {{ content.telephone }}:<br>
-        {{ fields.telephone.value }}
+        {{ content.telephone | safe }}:<br>
+        {{ common.serviceTelephoneNumber | safe }}
     </p>
     <p class="govuk-body">
-        {{ content.email }}:<br>
-        <a href="mailto: {{ fields.email.value }}" class="govuk-link">{{ fields.email.value }}</a>
+        {{ content.email | safe }}:<br>
+        <a href="mailto: {{ common.serviceEmail | safe }}" class="govuk-link">{{ common.serviceEmail | safe }}</a>
     </p>
     <p class="govuk-body">
-        {{ content.hours }}:<br>
-        {{ fields.hours.value }}
+        {{ content.hours | safe }}:<br>
+        {{ common.serviceTelephoneOpeningHours | safe }}
     </p>
 {% endblock %}

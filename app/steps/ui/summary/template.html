@@ -8,8 +8,8 @@
 
 {% block content %}
     <div id="check-your-answers">
-        <h1 class="govuk-heading-l">{{ content.Summary.heading }}</h1>
-        <p class="govuk-body" id="main-heading-content">{{ content.Summary.checkCarefully }}</p>
+        <h1 class="govuk-heading-l">{{ content.Summary.heading | safe }}</h1>
+        <p class="govuk-body" id="main-heading-content">{{ content.Summary.checkCarefully | safe }}</p>
 
         <h2 class="govuk-heading-m">{{ content.Summary.aboutYouHeading | safe }}</h2>
         <dl class="govuk-summary-list">
@@ -24,12 +24,12 @@
 
     <p class="govuk-body save-this-page-link">
         <em class="icon icon-file-download"></em>
-        <a class="govuk-link anchor-margin-left" id="checkAnswerHref" href="{{ globals.basePath }}/check-answers-pdf">{{ content.Summary.checkAnswersPdf }}</a>
+        <a class="govuk-link anchor-margin-left" id="checkAnswerHref" href="{{ globals.basePath }}/check-answers-pdf">{{ content.Summary.checkAnswersPdf | safe }}</a>
     </p>
 
     <div class="govuk-form-group">
         {{ govukButton({
-            text: common.saveAndContinue,
+            text: common.saveAndContinue | safe,
             href: (globals.basePath if globals.basePath) + "/payment-breakdown",
             isStartButton: true
         }) }}

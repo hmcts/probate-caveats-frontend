@@ -21,11 +21,11 @@ const healthcheck = require(`${__dirname}/app/healthcheck`);
 const fs = require('fs');
 const https = require('https');
 const appInsights = require('applicationinsights');
-const commonContent = require('app/resources/en/translation/common');
 const uuidv4 = require('uuid/v4');
 const uuid = uuidv4();
+const isEmpty = require('lodash').isEmpty;
 
-exports.init = function() {
+exports.init = function(isA11yTest = false, a11yTestSession = {}) {
     const app = express();
     const port = config.app.port;
     const releaseVersion = packageJson.version;
@@ -56,7 +56,6 @@ exports.init = function() {
         gaTrackingId: config.gaTrackingId,
         enableTracking: config.enableTracking,
         links: config.links,
-        helpline: config.helpline,
         applicationFee: config.payment.applicationFee,
         nonce: uuid,
         basePath: config.app.basePath,
@@ -171,15 +170,36 @@ exports.init = function() {
     }));
 
     app.use((req, res, next) => {
+        if (!req.session) {
+            return next(new Error('Unable to reach redis'));
+        }
+
+        if (isA11yTest && !isEmpty(a11yTestSession)) {
+            req.session = Object.assign(req.session, a11yTestSession);
+        }
+
+        next();
+    });
+
+    app.use((req, res, next) => {
         req.session.cookie.secure = req.protocol === 'https';
         next();
     });
 
     app.use((req, res, next) => {
-        if (!req.session) {
-            return next(new Error('Unable to reach redis'));
+        if (!req.session.language) {
+            req.session.language = 'en';
         }
-        next(); // otherwise continue
+
+        if (req.query && req.query.locale && config.languages.includes(req.query.locale)) {
+            req.session.language = req.query.locale;
+        }
+
+        if (isA11yTest && !isEmpty(a11yTestSession)) {
+            req.session = Object.assign(req.session, a11yTestSession);
+        }
+
+        next();
     });
 
     if (config.useCSRFProtection === 'true') {
@@ -191,6 +211,8 @@ exports.init = function() {
 
     // Add variables that are available in all views
     app.use(function (req, res, next) {
+        const commonContent = require(`app/resources/${req.session.language}/translation/common`);
+
         res.locals.serviceName = commonContent.serviceName;
         res.locals.cookieText = commonContent.cookieText;
         res.locals.releaseVersion = 'v' + releaseVersion;
@@ -239,13 +261,19 @@ exports.init = function() {
     }
 
     app.all('*', (req, res) => {
+        const commonContent = require(`app/resources/${req.session.language}/translation/common`);
+        const content = require(`app/resources/${req.session.language}/translation/errors/404`);
+
         logger(req.sessionID).error(`Unhandled request ${req.url}`);
-        res.status(404).render('errors/404', {common: commonContent});
+        res.status(404).render('errors/error', {common: commonContent, content: content, error: '404'});
     });
 
     app.use((err, req, res, next) => {
+        const commonContent = require(`app/resources/${req.session.language}/translation/common`);
+        const content = require(`app/resources/${req.session.language}/translation/errors/500`);
+
         logger(req.sessionID).error(err);
-        res.status(500).render('errors/500', {common: commonContent});
+        res.status(500).render('errors/error', {common: commonContent, content: content, error: '500'});
     });
 
     return {app, http};

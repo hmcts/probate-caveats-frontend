@@ -24,8 +24,8 @@ class DeceasedDobKnown extends ValidationStep {
         return nextStepOptions;
     }
 
-    generateContent(ctx, formdata) {
-        const content = super.generateContent(ctx, formdata);
+    generateContent(ctx, formdata, language) {
+        const content = super.generateContent(ctx, formdata, language);
         const deceasedName = FormatName.format(formdata.deceased);
         content.question = content.question.replace('{deceasedName}', deceasedName);
         return content;

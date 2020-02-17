@@ -31,9 +31,9 @@ class DeceasedDod extends DateStep {
         today.setHours(0, 0, 0, 0);
 
         if (dod > today) {
-            errors.push(FieldError('dod-date', 'dateInFuture', this.resourcePath, this.generateContent()));
+            errors.push(FieldError('dod-date', 'dateInFuture', this.resourcePath, this.generateContent({}, {}, session.language), session.language));
         } else if (typeof dob === 'object' && dob >= dod) {
-            errors.push(FieldError('dod-date', 'dodBeforeDob', this.resourcePath, this.generateContent()));
+            errors.push(FieldError('dod-date', 'dodBeforeDob', this.resourcePath, this.generateContent({}, {}, session.language), session.language));
         }
 
         return [ctx, errors];

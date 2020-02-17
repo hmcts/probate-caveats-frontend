@@ -44,6 +44,9 @@ const submitData = (ctx, formdata) => {
         body.payments.push(formdata.payment);
     }
 
+    body.language = {};
+    body.language.bilingual = formdata.language.bilingual;
+
     return body;
 };
 
