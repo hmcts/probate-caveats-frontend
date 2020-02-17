@@ -2,7 +2,6 @@
 
 const Step = require('app/core/steps/Step');
 const FieldError = require('app/components/error');
-const config = require('app/config');
 const {get, set} = require('lodash');
 const logger = require('app/components/logger');
 const logInfo = (message, applicationId = 'Unknown') => logger(applicationId).info(message);
@@ -14,10 +13,6 @@ const FeesLookup = require('app/utils/FeesLookup');
 class PaymentBreakdown extends Step {
     static getUrl() {
         return '/payment-breakdown';
-    }
-
-    nextStepUrl(req, ctx) {
-        return config.app.basePath + this.next(req, ctx).constructor.getUrl();
     }
 
     getContextData(req) {

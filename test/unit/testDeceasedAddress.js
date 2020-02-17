@@ -15,16 +15,6 @@ describe('DeceasedAddress', () => {
         });
     });
 
-    describe('nextStepUrl()', () => {
-        it('should return url for the next step if there are codicils', (done) => {
-            const req = {};
-            const ctx = {};
-            const nextStepUrl = DeceasedAddress.nextStepUrl(req, ctx);
-            expect(nextStepUrl).to.equal('/summary/*');
-            done();
-        });
-    });
-
     describe('generateContent()', () => {
         it('should replace content varaibles', (done) => {
             const ctx = {};

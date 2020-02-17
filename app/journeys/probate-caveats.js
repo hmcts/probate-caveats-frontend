@@ -1,8 +1,7 @@
 'use strict';
 
 const stepList = {
-    StartApply: 'BilingualGOP',
-    BilingualGOP: 'ApplicantName',
+    StartApply: 'ApplicantName',
     ApplicantName: 'ApplicantEmail',
     ApplicantEmail: 'ApplicantAddress',
     ApplicantAddress: 'DeceasedName',
@@ -20,7 +19,8 @@ const stepList = {
     AddAlias: 'DeceasedOtherNames',
     RemoveAlias: 'DeceasedOtherNames',
     DeceasedOtherNames: 'DeceasedAddress',
-    DeceasedAddress: 'Summary',
+    DeceasedAddress: 'BilingualGOP',
+    BilingualGOP: 'Summary',
     Summary: 'PaymentBreakdown',
     PaymentBreakdown: 'PaymentStatus',
     PaymentStatus: 'ThankYou',
