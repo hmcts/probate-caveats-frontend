@@ -1,20 +1,6 @@
 {{checkanswer(
     items = [
         {
-            question: content.BilingualGOP.question,
-            answer: content.BilingualGOP[fields.language.bilingual.value],
-            visible: true
-        }
-    ],
-    url = content.BilingualGOP.url,
-    common = common,
-    alreadyDeclared = fields.summary.alreadyDeclared.value,
-    basePath = globals.basePath
-)}}
-
-{{checkanswer(
-    items = [
-        {
             question: content.ApplicantName.firstName,
             answer: fields.applicant.firstName.value,
             visible: true
@@ -53,5 +39,19 @@
     ],
     url = content.ApplicantAddress.url,
     common = common,
+    basePath = globals.basePath
+)}}
+
+{{checkanswer(
+    items = [
+        {
+            question: content.BilingualGOP.question,
+            answer: content.BilingualGOP[fields.language.bilingual.value],
+            visible: true
+        }
+    ],
+    url = content.BilingualGOP.url,
+    common = common,
+    alreadyDeclared = fields.summary.alreadyDeclared.value,
     basePath = globals.basePath
 )}}

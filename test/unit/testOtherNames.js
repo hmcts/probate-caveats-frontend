@@ -13,14 +13,4 @@ describe('DeceasedOtherNames', () => {
             done();
         });
     });
-
-    describe('nextStepUrl()', () => {
-        it('should return url for the next step if there are codicils', (done) => {
-            const req = {};
-            const ctx = {};
-            const nextStepUrl = DeceasedOtherNames.nextStepUrl(req, ctx);
-            expect(nextStepUrl).to.equal('/deceased-address');
-            done();
-        });
-    });
 });

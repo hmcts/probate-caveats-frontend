@@ -7,7 +7,6 @@ const logInfo = (message, applicationId = 'Unknown') => logger(applicationId).in
 const logError = (message, applicationId = 'Unknown') => logger(applicationId).error(message);
 const RedirectRunner = require('app/core/runners/RedirectRunner');
 const {get, set} = require('lodash');
-const config = require('app/config');
 const Thankyou = require('app/steps/ui/thankyou');
 const formatUrl = require('app/utils/FormatUrl');
 
@@ -19,10 +18,6 @@ class PaymentStatus extends Step {
 
     static getUrl() {
         return '/payment-status';
-    }
-
-    nextStepUrl(req, ctx) {
-        return config.app.basePath + this.next(req, ctx).constructor.getUrl();
     }
 
     getContextData(req) {
