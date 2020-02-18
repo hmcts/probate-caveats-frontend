@@ -64,7 +64,16 @@ module.exports = {
                 fees: '/fees',
                 feesLookup: '/fees/lookup'
             },
-            ihtMinAmt: 5000
+            ihtMinAmt: 5000,
+            feesData: {
+                applicant_type: 'all',
+                channel: 'default',
+                event: 'miscellaneous',
+                jurisdiction1: 'family',
+                jurisdiction2: 'probate registry',
+                keyword: 'Caveat',
+                service: 'probate'
+            }
         }
     },
     redis: {
