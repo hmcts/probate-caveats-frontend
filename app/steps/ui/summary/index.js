@@ -1,6 +1,5 @@
 'use strict';
 
-const config = require('app/config');
 const Step = require('app/core/steps/Step');
 const isEmpty = require('lodash').isEmpty;
 const FormatName = require('app/utils/FormatName');
@@ -11,10 +10,6 @@ class Summary extends Step {
 
     static getUrl(redirect = '*') {
         return `/summary/${redirect}`;
-    }
-
-    nextStepUrl(req, ctx) {
-        return config.app.basePath + this.next(req, ctx).constructor.getUrl();
     }
 
     generateContent(ctx, formdata, language) {

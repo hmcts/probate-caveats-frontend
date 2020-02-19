@@ -1,6 +1,5 @@
 'use strict';
 
-const config = require('app/config');
 const ValidationStep = require('app/core/steps/ValidationStep');
 const FieldError = require('app/components/error');
 const {get, set, isEmpty} = require('lodash');
@@ -10,10 +9,6 @@ class DeceasedOtherNames extends ValidationStep {
 
     static getUrl() {
         return '/other-names';
-    }
-
-    nextStepUrl(req, ctx) {
-        return config.app.basePath + this.next(req, ctx).constructor.getUrl();
     }
 
     getContextData(req) {
