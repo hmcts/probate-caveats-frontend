@@ -64,8 +64,6 @@ withPipeline("nodejs", product, component) {
 //     error 'Deliberately breaking pipeline to prevent prod deployment'
 //  }
 
-
-  enableDockerBuild()
   installCharts()
 
   //setVaultName('probate')
