@@ -17,7 +17,7 @@ const createPaymentData = (data, language) => {
         currency: currency,
         site_id: SITE_ID,
         fees: [],
-        language: language
+        language: (language === 'en' ? '' : language.toUpperCase())
     };
 
     if (data.applicationFee > 0) {

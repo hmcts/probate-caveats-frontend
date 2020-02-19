@@ -1,6 +1,5 @@
 'use strict';
 
-const config = require('app/config');
 const DateStep = require('app/core/steps/DateStep');
 const FieldError = require('app/components/error');
 
@@ -8,10 +7,6 @@ class DeceasedDod extends DateStep {
 
     static getUrl() {
         return '/deceased-dod';
-    }
-
-    nextStepUrl(req, ctx) {
-        return config.app.basePath + this.next(req, ctx).constructor.getUrl();
     }
 
     dateName() {
