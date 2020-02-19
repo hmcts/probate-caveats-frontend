@@ -1,6 +1,5 @@
 'use strict';
 
-const config = require('app/config');
 const ValidationStep = require('app/core/steps/ValidationStep');
 const FormatName = require('app/utils/FormatName');
 const content = require('app/resources/en/translation/deceased/dobknown');
@@ -9,10 +8,6 @@ class DeceasedAlias extends ValidationStep {
 
     static getUrl() {
         return '/deceased-alias';
-    }
-
-    nextStepUrl(req, ctx) {
-        return config.app.basePath + this.next(req, ctx).constructor.getUrl();
     }
 
     nextStepOptions() {

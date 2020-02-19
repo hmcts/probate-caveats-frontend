@@ -15,16 +15,6 @@ describe('DeceasedAlias', () => {
         });
     });
 
-    describe('nextStepUrl()', () => {
-        it('should return url for the next step if there are codicils', (done) => {
-            const req = {};
-            const ctx = {};
-            const nextStepUrl = DeceasedAlias.nextStepUrl(req, ctx);
-            expect(nextStepUrl).to.equal('/deceased-address');
-            done();
-        });
-    });
-
     describe('nextStepOptions()', () => {
         it('should return the correct options', (done) => {
             const nextStepOptions = DeceasedAlias.nextStepOptions();

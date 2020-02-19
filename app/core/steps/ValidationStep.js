@@ -10,7 +10,6 @@ const validator = new Ajv({allErrors: true, v5: true});
 class ValidationStep extends Step {
 
     get schema() {
-
         if (!this.schemaFile) {
             throw new TypeError(`Step ${this.name} has no schema file in it's resource folder`);
         }
@@ -27,7 +26,6 @@ class ValidationStep extends Step {
     }
 
     uniqueProperties(schema) {
-
         if (schema.properties) {
             return schema.properties;
         }

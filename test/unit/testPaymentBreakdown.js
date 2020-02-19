@@ -13,15 +13,4 @@ describe('PaymentBreakDown', () => {
             done();
         });
     });
-
-    describe('nextStepUrl()', () => {
-        it('should return url for the next step if there are codicils', (done) => {
-            const req = {};
-            const ctx = {};
-            const nextStepUrl = PaymentBreakdown.nextStepUrl(req, ctx);
-            expect(nextStepUrl).to.equal('/payment-status');
-            done();
-        });
-    });
-
 });

@@ -13,14 +13,4 @@ describe('name/index.js', () => {
             done();
         });
     });
-
-    describe('nextStepUrl()', () => {
-        it('should return url for the next step if there are codicils', (done) => {
-            const req = {};
-            const ctx = {};
-            const nextStepUrl = ApplicantName.nextStepUrl(req, ctx);
-            expect(nextStepUrl).to.equal('/applicant-email');
-            done();
-        });
-    });
 });
