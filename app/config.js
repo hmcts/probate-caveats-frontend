@@ -75,8 +75,8 @@ module.exports = {
         equalityAndDiversity: {
             name: 'Equality and Diversity Service',
             url: process.env.EQUALITY_URL || 'http://localhost:4000',
-            path: process.env.EQUALITY_PATH || '/service-endpoint',
-            port: process.env.EQUALITY_PORT || 4000
+            path: '/service-endpoint',
+            port: 4000
         }
     },
     redis: {

@@ -12,6 +12,7 @@ locals {
   localenv = "${(var.env == "preview" || var.env == "spreview") ? "aat": "${var.env}"}"
   caveat_internal_base_url = "http://probate-caveats-fe-${local.localenv}.service.core-compute-${local.localenv}.internal"
   probate_fees_registry_service_url = "http://fees-register-api-${local.localenv}.service.core-compute-${local.localenv}.internal/fees-register"
+  probate_equality_service_url = "https://pcq-frontend-staging.service.core-compute-${local.localenv}.internal"
 }
 
 data "azurerm_subnet" "core_infra_redis_subnet" {
@@ -154,6 +155,7 @@ module "probate-caveats-fe" {
     USE_HTTPS =  "${var.caveat_frontend_https}"
     GA_TRACKING_ID = "${var.caveat_google_track_id}"
     FEES_REGISTRY_URL = "${local.probate_fees_registry_service_url}"
+    EQUALITY_URL = "${local.probate_equality_service_url}"
 
     // REDIS
     USE_REDIS = "${var.caveat_frontend_use_redis}"
