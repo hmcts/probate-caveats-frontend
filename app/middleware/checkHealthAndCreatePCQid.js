@@ -15,15 +15,11 @@ const checkHealthAndCreatePCQid = (req, res, next) => {
         req.session.equalityHealth = healthDownstream[0].status;
         logger.info(config.services.equalityAndDiversity.name, 'is', req.session.equalityHealth);
 
-        if (req.session.equalityHealth === 'UP') {
-            req.session.form.equality = {
-                pcqId: uuidv4()
-            };
+        req.session.form.equality = {
+            pcqId: uuidv4()
+        };
 
-            next();
-        } else {
-            res.redirect(`${config.app.basePath}/summary/*`);
-        }
+        next();
     });
 };
 
