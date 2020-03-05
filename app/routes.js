@@ -10,9 +10,11 @@ const equalityAndDiversity = require('app/equalityAndDiversity');
 const paymentFees = require('app/paymentFees');
 const lockPaymentAttempt = require('app/middleware/lockPaymentAttempt');
 const uuidv4 = require('uuid/v4');
+const featureToggles = require('app/featureToggles');
 const shutter = require('app/shutter');
 const FormatUrl = require('app/utils/FormatUrl');
 
+router.use(featureToggles);
 router.use(shutter);
 
 router.all('*', (req, res, next) => {

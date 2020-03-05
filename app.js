@@ -23,7 +23,6 @@ const https = require('https');
 const appInsights = require('applicationinsights');
 const uuidv4 = require('uuid/v4');
 const nonce = uuidv4();
-const featureToggles = require('app/featureToggles');
 const isEmpty = require('lodash').isEmpty;
 
 exports.init = function(isA11yTest = false, a11yTestSession = {}) {
@@ -226,7 +225,6 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}) {
     }
 
     app.use(healthcheck);
-    app.use(featureToggles);
 
     app.use(`${config.app.basePath}/health`, healthcheck);
 

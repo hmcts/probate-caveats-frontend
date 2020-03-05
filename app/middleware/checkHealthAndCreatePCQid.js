@@ -19,9 +19,11 @@ const checkHealthAndCreatePCQid = (req, res, next) => {
             req.session.form.equality = {
                 pcqId: uuidv4()
             };
-        }
 
-        next();
+            next();
+        } else {
+            res.redirect(`${config.app.basePath}/summary/*`);
+        }
     });
 };
 
