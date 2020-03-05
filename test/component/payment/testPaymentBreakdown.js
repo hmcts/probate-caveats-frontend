@@ -131,7 +131,7 @@ describe('paymentBreakdown', () => {
                 });
         });
 
-        it('test error message when orchestration service fails', (done) => {
+        it('test error message when orchestrator service fails', (done) => {
             servicesMock.expects('authorise').returns(Promise.resolve('authorised'));
             securityMock.expects('getUserToken').returns(Promise.resolve('token'));
             servicesMock.expects('sendToOrchestrationService').returns(Promise.resolve({

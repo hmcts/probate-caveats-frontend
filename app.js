@@ -22,7 +22,8 @@ const fs = require('fs');
 const https = require('https');
 const appInsights = require('applicationinsights');
 const uuidv4 = require('uuid/v4');
-const uuid = uuidv4();
+const nonce = uuidv4();
+const featureToggles = require('app/featureToggles');
 const isEmpty = require('lodash').isEmpty;
 
 exports.init = function(isA11yTest = false, a11yTestSession = {}) {
@@ -57,7 +58,7 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}) {
         enableTracking: config.enableTracking,
         links: config.links,
         applicationFee: config.payment.applicationFee,
-        nonce: uuid,
+        nonce: nonce,
         basePath: config.app.basePath,
         webChat: {
             chatId: config.webChat.chatId,
@@ -89,7 +90,7 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}) {
                 'www.google-analytics.com',
                 'vcc-eu4.8x8.com',
                 'vcc-eu4b.8x8.com',
-                `'nonce-${uuid}'`
+                `'nonce-${nonce}'`
             ],
             connectSrc: ['\'self\''],
             mediaSrc: ['\'self\''],
@@ -210,7 +211,7 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}) {
     }
 
     // Add variables that are available in all views
-    app.use(function (req, res, next) {
+    app.use((req, res, next) => {
         const commonContent = require(`app/resources/${req.session.language}/translation/common`);
 
         res.locals.serviceName = commonContent.serviceName;
@@ -224,7 +225,8 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}) {
         app.use(utils.forceHttps);
     }
 
-    app.use('/health', healthcheck);
+    app.use(healthcheck);
+    app.use(featureToggles);
 
     app.use(`${config.app.basePath}/health`, healthcheck);
 

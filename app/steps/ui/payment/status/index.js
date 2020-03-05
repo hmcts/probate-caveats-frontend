@@ -49,7 +49,8 @@ class PaymentStatus extends Step {
         return [ctx, formdata];
     }
 
-    * runnerOptions(ctx, formdata) {
+    * runnerOptions(ctx, session) {
+        const formdata = session.form;
         const options = {};
         options.redirect = false;
 

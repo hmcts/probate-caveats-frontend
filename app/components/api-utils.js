@@ -18,7 +18,9 @@ const retryOptions = () => {
 };
 
 const asyncFetch = (url, fetchOptions, parseBody) => {
-    if (!endsWith(url, 'health')) {
+    const isHealthOrInfo = endsWith(url, 'health') || endsWith(url, 'info');
+
+    if (!isHealthOrInfo) {
         logger.info('Calling external service');
     }
 
@@ -26,7 +28,7 @@ const asyncFetch = (url, fetchOptions, parseBody) => {
         const asyncReq = buildRequest(url, fetchOptions);
         fetch(asyncReq, retryOptions())
             .then(res => {
-                if (!endsWith(url, 'health')) {
+                if (!isHealthOrInfo) {
                     logger.info(`Status: ${res.status}`);
                 }
                 if (res.ok) {

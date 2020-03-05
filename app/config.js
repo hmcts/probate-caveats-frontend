@@ -12,6 +12,7 @@ module.exports = {
         path: process.env.FEATURE_TOGGLES_PATH || '/api/ff4j/check',
         port: 8292,
         caveats_shutter_toggle: 'probate-caveats-fe-shutter',
+        pcq_toggle: 'probate-caveats-pcq',
         appwideToggles: []
     },
     app: {
@@ -22,9 +23,11 @@ module.exports = {
     },
     services: {
         postcode: {
+            name: 'Postcode Lookup Service',
             token: process.env.POSTCODE_SERVICE_TOKEN
         },
-        orchestration: {
+        orchestrator: {
+            name: 'Orchestrator Service',
             url: process.env.ORCHESTRATION_SERVICE_URL || 'http://localhost:8888',
             port: 8888,
             paths: {
@@ -33,6 +36,7 @@ module.exports = {
             }
         },
         idam: {
+            name: 'IdAM Service',
             apiUrl: process.env.IDAM_API_URL || 'http://localhost:4501',
             roles: ['probate-private-beta', 'citizen'],
             s2s_url: process.env.IDAM_S2S_URL || 'http://localhost:4502',
@@ -46,6 +50,7 @@ module.exports = {
             caveat_redirectUrl: '/oauth2/callback'
         },
         payment: {
+            name: 'Payment Service',
             createPaymentUrl: process.env.PAYMENT_CREATE_URL || 'http://localhost:8383/card-payments',
             authorization: process.env.PAYMENT_AUTHORIZATION || 'dummy_token',
             serviceAuthorization: process.env.PAYMENT_SERVICE_AUTHORIZATION || 'dummy_token',
@@ -58,6 +63,7 @@ module.exports = {
             path: '/formdata'
         },
         feesRegister: {
+            name: 'Fees Register Service',
             url: process.env.FEES_REGISTRY_URL || 'http://localhost:4411/fees-register',
             port: 4411,
             paths: {
@@ -65,6 +71,12 @@ module.exports = {
                 feesLookup: '/fees/lookup'
             },
             ihtMinAmt: 5000
+        },
+        equalityAndDiversity: {
+            name: 'Equality and Diversity Service',
+            url: process.env.EQUALITY_URL || 'http://localhost:4000',
+            path: process.env.EQUALITY_PATH || '/service-endpoint',
+            port: process.env.EQUALITY_PORT || 4000
         }
     },
     redis: {
@@ -139,7 +151,10 @@ module.exports = {
         currency: process.env.currency || 'GBP'
     },
     livenessEndpoint: '/health/liveness',
-    healthEndpoint: '/health',
+    endpoints: {
+        health: '/health',
+        info: '/info'
+    },
     appInsights: {
         instrumentationKey: process.env.APPINSIGHTS_INSTRUMENTATION_KEY
     },

@@ -25,7 +25,7 @@ class FeesLookup {
     }
 }
 
-async function createCall(hostname, applicantId, data, authToken) {
+const createCall = async (hostname, applicantId, data, authToken) => {
     const fees = {
         status: 'success',
         total: 0
@@ -40,17 +40,14 @@ async function createCall(hostname, applicantId, data, authToken) {
             }
         });
     return fees;
-}
+};
 
 /*
  * if no fee_amount is returned, we assume an error has occurred
  * this caters for 404 type messages etc.
  */
-function identifyAnyErrors(res) {
-    if (res.fee_amount) {
-        return false;
-    }
-    return true;
-}
+const identifyAnyErrors = (res) => {
+    return !res.fee_amount;
+};
 
 module.exports = FeesLookup;
