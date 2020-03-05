@@ -52,11 +52,6 @@ module.exports = {
             userId: process.env.PAYMENT_USER_ID || 999999999,
             returnUrlPath: process.env.PAY_RETURN_URL || '/payment-status'
         },
-        persistence: {
-            url: process.env.PERSISTENCE_SERVICE_URL || 'http://localhost:8282/formdata',
-            port: 8282,
-            path: '/formdata'
-        },
         feesRegister: {
             url: process.env.FEES_REGISTRY_URL || 'http://localhost:4411/fees-register',
             port: 4411,
