@@ -184,3 +184,7 @@ variable "orchestration_service_url" {
 variable "external_hostName_url" {
   default = ""
 }
+
+variable "node_version" {
+  default = "12.14.1"
+}
