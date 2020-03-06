@@ -129,7 +129,6 @@ module "probate-caveats-fe" {
   capacity     = "${var.capacity}"
   common_tags  = "${var.common_tags}"
   asp_rg       = "${var.asp_rg}"
-  WEBSITE_NODE_DEFAULT_VERSION = "${var.node_version}"
 
   app_settings = {
 
@@ -208,5 +207,6 @@ module "probate-caveats-fe" {
     CAVEAT_REDIRECT_BASE_URL = "${local.caveat_internal_base_url}"
     EXTERNAL_HOSTNAME_URL = "${var.external_hostName_url}"
     ENABLE_TRACKING = "${var.enable_tracking}"
+    WEBSITE_NODE_DEFAULT_VERSION = "${var.node_version}"
   }
 }
