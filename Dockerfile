@@ -2,7 +2,6 @@
 
 FROM hmctspublic.azurecr.io/base/node:12-alpine as base
 USER root
-RUN apk update && apk add bzip2 git python py-pip
 
 ENV WORKDIR /opt/app
 WORKDIR ${WORKDIR}
