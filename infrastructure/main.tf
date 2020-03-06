@@ -129,6 +129,7 @@ module "probate-caveats-fe" {
   capacity     = "${var.capacity}"
   common_tags  = "${var.common_tags}"
   asp_rg       = "${var.asp_rg}"
+  WEBSITE_NODE_DEFAULT_VERSION = "${var.node_version}"
 
   app_settings = {
 
