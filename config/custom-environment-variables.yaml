@@ -12,9 +12,9 @@ app:
   basePath: APP_BASE_PATH
 services: 
   postcode: 
-    token: POSTCODE_SERVICE_TOKEN 
+    token: POSTCODE_SERVICE_TOKEN
   orchestration: 
-    url: ORCHESTRATION_SERVICE_URL 
+    url: ORCHESTRATION_SERVICE_URL
   idam: 
     apiUrl: IDAM_API_URL
     s2s_url: IDAM_S2S_URL
