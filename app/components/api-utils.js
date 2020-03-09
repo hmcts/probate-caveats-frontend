@@ -4,7 +4,7 @@ const logger = require('app/components/logger')('Init');
 const {endsWith} = require('lodash');
 const fetch = require('node-fetch');
 const HttpsProxyAgent = require('https-proxy-agent');
-const config = require('app/config');
+const config = require('config');
 
 const buildRequest = (url, fetchOptions) => {
     return new fetch.Request(url, fetchOptions);

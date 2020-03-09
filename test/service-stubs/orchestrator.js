@@ -2,7 +2,7 @@
 
 /* eslint no-console: 0 */
 
-const config = require('app/config');
+const config = require('config');
 const express = require('express');
 const app = express();
 const router = express.Router();

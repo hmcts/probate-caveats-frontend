@@ -4,7 +4,7 @@ const DeceasedName = require('app/steps/ui/deceased/name/index');
 const testAddressData = require('test/data/find-address');
 const formatAddress = address => address.replace(/,/g, ', ');
 const testCommonContent = require('test/component/common/testCommonContent.js');
-const config = require('app/config');
+const config = require('config');
 const basePath = config.app.basePath;
 
 describe('applicant-address', () => {

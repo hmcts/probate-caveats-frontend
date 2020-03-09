@@ -2,7 +2,7 @@
 
 const co = require('co');
 const {curry} = require('lodash');
-const config = require('app/config');
+const config = require('config');
 
 class ActionStepRunner {
 
