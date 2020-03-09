@@ -1,9 +1,9 @@
 'use strict';
 
-const featureToggles = require('app/config').featureToggles;
 const logger = require('app/components/logger');
 const FeatureToggleService = require('app/services/FeatureToggle');
-const config = require('app/config');
+const config = require('config');
+const featureToggles = config.featureToggles;
 
 class FeatureToggle {
     callCheckToggle(req, res, next, featureToggleKey, callback, redirectPage) {

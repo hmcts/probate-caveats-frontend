@@ -8,7 +8,7 @@ const minimalCaveatForm = require('test/data/unit/minimalcaveatform');
 const sinon = require('sinon');
 const services = require('app/components/services');
 const security = require('app/components/security');
-const config = require('app/config');
+const config = require('config');
 const basePath = config.app.basePath;
 
 describe('summary', () => {
