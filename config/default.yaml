@@ -1,0 +1,161 @@
+frontendPublicHttpProtocol: 'http'
+environment: 'prod'
+externalHostNameUrl: ''
+languages: ['en','cy']
+featureToggles:
+  url: 'http://localhost:8292'
+  path: '/api/ff4j/check'
+  port: 8292
+  caveats_shutter_toggle: 'probate-caveats-fe-shutter'
+  webforms: 'probate-caveats-webforms'
+  appwideToggles: ['webforms']
+app:
+  useHttps: 'false'
+  port: '3000'
+  useCSRFProtection: 'true'
+  basePath: ''
+services:
+  orchestration:
+    url: 'http://localhost:8888'
+    port: 8888
+    paths:
+      checkanswerspdf: 'documents/generate/checkAnswersSummary'
+      payment_updates: '/payment-updates'
+  idam:
+    apiUrl: 'http://localhost:4501'
+    roles: ['probate-private-beta','citizen']
+    s2s_url: 'http://localhost:4502'
+    service_name: 'probate_frontend'
+    service_key: 'AAAAAAAAAAAAAAAA'
+    probate_oauth2_client: 'probate'
+    probate_oauth2_secret: '123456'
+    caveat_user_email: 'testusername1@test.com'
+    caveat_user_password: 'password'
+    caveat_redirect_base_url: 'http://localhost:3000'
+    caveat_redirectUrl: '/oauth2/callback'
+  payment:
+    createPaymentUrl: 'http://localhost:8383/card-payments'
+    authorization: 'dummy_token'
+    serviceAuthorization: 'dummy_token'
+    userId: 999999999
+    returnUrlPath: '/payment-status'
+  persistence:
+    url: 'http://localhost:8282/formdata'
+    port: 8282
+    path: '/formdata'
+  feesRegister:
+    url: 'http://localhost:4411/fees-register'
+    port: 4411
+    paths:
+      fees: '/fees'
+      feesLookup: '/fees/lookup'
+    ihtMinAmt: 5000
+  postcode:
+    token: ''
+redis:
+  host: 'localhost'
+  port: 6379
+  password: 'dummy_password'
+  useTLS: 'false'
+  enabled: 'false'
+  secret: 'OVERWRITE_THIS'
+  proxy: true
+  resave: false
+  saveUninitialized: false
+  cookie:
+    secure: false
+    httpOnly: true
+    sameSite: 'lax'
+dateFormat: 'DD/MM/YYYY'
+payloadVersion: '4.1.0'
+hostname: 'localhost:3000'
+gaTrackingId: 'UA-93598808-5'
+enableTracking: 'true'
+webChat:
+  chatId: '3077733355d19fd430f23c7.02555395'
+  tenant: 'c2FuZGJveGhtY3RzMDE'
+  buttonNoAgents: '20599210435d19f59cdc3e95.94551214'
+  buttonAgentsBusy: '8752254635d19f5bb21ff07.71234899'
+  buttonServiceClosed: '4639879315d19f67c3c1055.15174024'
+links:
+  accessibility: '/caveats/accessibility-statement'
+  cookies: '/caveats/cookies'
+  privacy: '/caveats/privacy-policy'
+  terms: '/caveats/terms-conditions'
+  contact: '/caveats/contact-us'
+  webForms: 'http://ctsc-web-forms-ui-aat.service.core-compute-aat.internal?serviceId=probate'
+  contactEmailAddress: 'contactprobate@justice.gov.uk'
+  callCharges: 'https://www.gov.uk/call-charges'
+  howToManageCookies: 'https://www.aboutcookies.org'
+  googlePrivacyPolicy: 'https://www.google.com/policies/privacy/partners/'
+  googleAnalyticsOptOut: 'https://tools.google.com/dlpage/gaoptout/'
+  mojPersonalInformationCharter: 'https://www.gov.uk/government/organisations/ministry-of-justice/about/personal-information-charter'
+  survey: 'https://www.smartsurvey.co.uk/s/Probate_Feedback/'
+  surveyEndOfApplication: 'https://www.smartsurvey.co.uk/s/Probate_ExitSurvey/'
+  applicationFormPA8A: 'https://www.gov.uk/government/publications/form-pa8a-caveat-application-form'
+  whoInheritsLink: 'https://www.gov.uk/inherits-someone-dies-without-will'
+  citizenAdvice: 'https://www.citizensadvice.org.uk/'
+  stopGrantOfRepresentation: 'https://www.gov.uk/wills-probate-inheritance/stopping-a-grant-of-representation'
+  goodThingsFoundation: 'https://www.goodthingsfoundation.org'
+  subjectAccessRequest: 'https://www.gov.uk/government/publications/request-your-personal-data-from-moj'
+  complaintsProcedure: 'https://www.gov.uk/government/organisations/hm-courts-and-tribunals-service/about/complaints-procedure'
+  informationCommissionersOffice: 'https://ico.org.uk/global/contact-us'
+  applicationFormPA15: 'https://www.gov.uk/government/publications/form-pa15-apply-for-renunciation-will'
+  deathReportedToCoroner: 'https://www.gov.uk/after-a-death/when-a-death-is-reported-to-a-coroner'
+  myAbilityLink: 'https://mcmw.abilitynet.org.uk/'
+  equalityAdvisorLink: 'https://www.equalityadvisoryservice.com/'
+  wcag21Link: 'https://www.w3.org/TR/WCAG21/'
+utils:
+  api:
+    retries: 10
+    retryDelay: 1000
+    timeout: 30000
+payment:
+  applicationFee: 20
+  applicationFeeThreshold: 5000
+  applicationFeeCode: 'FEE0288'
+  serviceId: 'PROBATE'
+  siteId: 'P223'
+  version: '1'
+  currency: 'GBP'
+appInsights:
+  instrumentationKey: ''
+livenessEndpoint: '/health/liveness'
+healthEndpoint: '/health'
+whitelistedPagesForStartApplyPageRedirect: [
+  '/public',
+  '/start-apply',
+  '/bilingual-gop',
+  '/applicant-name',
+  '/accessibility-statement',
+  '/cookies',
+  '/privacy-policy',
+  '/terms-conditions',
+  '/contact-us',
+  '/offline',
+  '/health/liveness'
+]
+whiteListedPagesForThankyou: [
+  '/public',
+  '/accessibility-statement',
+  '/cookies',
+  '/privacy-policy',
+  '/terms-conditions',
+  '/contact-us',
+  '/offline',
+  '/health/liveness',
+  '/thank-you'
+]
+whiteListedPagesForPaymentBreakdown: [
+  '/public',
+  '/accessibility-statement',
+  '/cookies',
+  '/privacy-policy',
+  '/terms-conditions',
+  '/contact-us',
+  '/offline',
+  '/health/liveness',
+  '/payment-breakdown',
+  '/payment-status',
+  '/thank-you',
+]

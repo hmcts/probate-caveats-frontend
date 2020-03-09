@@ -1,7 +1,7 @@
 'use strict';
 
 const url = require('url');
-const config = require('app/config');
+const config = require('config');
 
 class FormatUrl {
     static format(serviceUrl, servicePath = '') {

@@ -3,7 +3,7 @@
   "description": "Web app to check if an applicant is eligible to apply for caveats online",
   "version": "0.0.1",
   "engines": {
-    "node": ">=8.9"
+    "node": ">=12.14.1"
   },
   "scripts": {
     "setup": "NODE_PATH=. npm run sass && npm run git-info && npm run sass-ie8",
@@ -57,6 +57,7 @@
     "body-parser": "^1.19.0",
     "cheerio": "^1.0.0-rc.3",
     "co": "^4.6.0",
+    "config": "^3.3.0",
     "connect-redis": "^3.4.2",
     "cookie-parser": "^1.4.4",
     "csurf": "^1.10.0",
@@ -93,11 +94,11 @@
     "validator": "^11.1.0"
   },
   "devDependencies": {
-    "codacy-coverage": "3.2.0",
-    "codecov": "^4.0.0-0",
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
+    "codacy-coverage": "3.2.0",
     "codeceptjs": "^2.2.1",
+    "codecov": "^4.0.0-0",
     "eslint": "^6.1.0",
     "eslint-plugin-mocha": "^6.0.0",
     "istanbul": "^1.1.0-alpha.1",

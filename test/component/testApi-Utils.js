@@ -2,7 +2,7 @@
 
 const expect = require('chai').expect;
 const utils = require('app/components/api-utils');
-const config = require('app/config');
+const config = require('config');
 
 describe('api-utils', () => {
 
