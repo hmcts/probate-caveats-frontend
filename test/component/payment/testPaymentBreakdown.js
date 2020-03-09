@@ -7,7 +7,7 @@ const testCommonContent = require('test/component/common/testCommonContent');
 const TestWrapper = require('test/util/TestWrapper');
 const services = require('app/components/services');
 const security = require('app/components/security');
-const config = require('app/config');
+const config = require('config');
 const basePath = config.app.basePath;
 const FeesLookup = require('app/utils/FeesLookup');
 let feesLookup;

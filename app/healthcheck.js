@@ -8,7 +8,7 @@ const commonContent = require('app/resources/en/translation/common');
 const gitRevision = process.env.GIT_REVISION;
 const osHostname = os.hostname();
 const gitCommitId = gitProperties.git.commit.id;
-const config = require('app/config');
+const config = require('config');
 
 router.get('/health', (req, res) => {
     const healthcheck = new Healthcheck();

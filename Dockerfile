@@ -1,8 +1,7 @@
 # ---- Base image ----
 
-FROM hmctspublic.azurecr.io/base/node/stretch-slim-lts-10:10-stretch-slim as base
+FROM hmctspublic.azurecr.io/base/node:12-alpine as base
 USER root
-RUN apt-get update && apt-get install -y bzip2 git python2.7 python-pip
 
 ENV WORKDIR /opt/app
 WORKDIR ${WORKDIR}
@@ -23,6 +22,7 @@ RUN yarn install \
 # ---- Runtime image ----
 FROM base as runtime
 COPY --from=build ${WORKDIR}/app app/
+COPY --from=build ${WORKDIR}/config config/
 COPY --from=build ${WORKDIR}/public public/
 COPY --from=build ${WORKDIR}/server.js ${WORKDIR}/app.js ${WORKDIR}/git.properties.json ./
 EXPOSE 3000

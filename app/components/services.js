@@ -1,7 +1,7 @@
 'use strict';
 
 const utils = require('app/components/api-utils');
-const config = require('app/config');
+const config = require('config');
 const submitData = require('app/components/submit-data');
 const paymentData = require('app/components/payment-data');
 const OSPlacesClient = require('@hmcts/os-places-client').OSPlacesClient;

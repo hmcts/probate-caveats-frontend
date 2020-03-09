@@ -2,7 +2,7 @@
 
 const FormatUrl = require('app/utils/FormatUrl');
 const {asyncFetch, fetchOptions} = require('app/components/api-utils');
-const config = require('app/config');
+const config = require('config');
 const statusUp = 'UP';
 const statusDown = 'DOWN';
 

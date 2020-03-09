@@ -1,7 +1,7 @@
 'use strict';
 
 const Healthcheck = require('app/utils/Healthcheck');
-const config = require('app/config');
+const config = require('config');
 const expect = require('chai').expect;
 let orchestratorStub;
 let equalityStub;

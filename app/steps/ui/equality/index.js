@@ -2,7 +2,7 @@
 
 const ValidationStep = require('app/core/steps/ValidationStep');
 const RedirectRunner = require('app/core/runners/RedirectRunner');
-const config = require('app/config');
+const config = require('config');
 const get = require('lodash').get;
 
 class Equality extends ValidationStep {

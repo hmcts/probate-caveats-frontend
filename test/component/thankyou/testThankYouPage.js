@@ -1,7 +1,7 @@
 'use strict';
 
 const TestWrapper = require('test/util/TestWrapper');
-const config = require('app/config');
+const config = require('config');
 const basePath = config.app.basePath;
 const content = require('app/resources/en/translation/thankyou');
 const commonContent = require('app/resources/en/translation/common');

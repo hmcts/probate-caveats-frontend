@@ -1,6 +1,6 @@
 'use strict';
 
-const config = require('app/config');
+const config = require('config');
 const router = require('express').Router();
 const FeatureToggle = require('app/utils/FeatureToggle');
 const featureToggle = new FeatureToggle();

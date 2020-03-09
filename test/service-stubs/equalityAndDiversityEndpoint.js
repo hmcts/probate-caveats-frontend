@@ -1,6 +1,6 @@
 'use strict';
 
-const config = require('app/config');
+const config = require('config');
 const express = require('express');
 const router = require('express').Router();
 const logger = require('app/components/logger')('Init');
