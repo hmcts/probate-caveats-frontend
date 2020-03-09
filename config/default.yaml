@@ -116,7 +116,7 @@ payment:
   version: '1'
   currency: 'GBP'
 appInsights:
-  instrumentationKey: '00000000-0000-0000-0000-000000000000'
+  instrumentationKey: ''
 livenessEndpoint: '/health/liveness'
 healthEndpoint: '/health'
 whitelistedPagesForStartApplyPageRedirect: [
