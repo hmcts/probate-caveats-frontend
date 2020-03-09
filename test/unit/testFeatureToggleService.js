@@ -3,7 +3,7 @@
 const {expect} = require('chai');
 const sinon = require('sinon');
 const FeatureToggle = require('app/services/FeatureToggle');
-const config = require('app/config');
+const config = require('config');
 const utils = require('app/components/api-utils');
 
 describe('FeatureToggleService', () => {
