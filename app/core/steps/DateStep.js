@@ -2,7 +2,7 @@
 
 const ValidationStep = require('app/core/steps/ValidationStep');
 const moment = require('moment');
-const config = require('app/config');
+const config = require('config');
 const utils = require('app/components/step-utils');
 
 class DateStep extends ValidationStep {

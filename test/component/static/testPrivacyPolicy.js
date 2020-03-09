@@ -1,7 +1,7 @@
 'use strict';
 
 const TestWrapper = require('test/util/TestWrapper');
-const config = require('app/config');
+const config = require('config');
 
 describe('privacy-policy', () => {
     let testWrapper;
