@@ -3,7 +3,7 @@
 const TestWrapper = require('test/util/TestWrapper');
 const ApplicantAddress = require('app/steps/ui/applicant/address/index');
 const testCommonContent = require('test/component/common/testCommonContent.js');
-const config = require('app/config');
+const config = require('config');
 const basePath = config.app.basePath;
 
 describe('applicant-email', () => {

@@ -1,6 +1,6 @@
 'use strict';
 
-const config = require('app/config');
+const config = require('config');
 const SERVICE_ID = config.payment.serviceId;
 const SITE_ID = config.payment.siteId;
 const APPLICATION_FEE_CODE = config.payment.applicationFeeCode;

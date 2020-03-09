@@ -1,6 +1,6 @@
 'use strict';
 
-const config = require('app/config');
+const config = require('config');
 const Healthcheck = require('app/utils/Healthcheck');
 const logger = require('app/components/logger')('Init');
 const uuidv4 = require('uuid/v4');

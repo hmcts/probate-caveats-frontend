@@ -11,7 +11,7 @@ const commonContent = require('app/resources/en/translation/common');
 const stepsToExclude = ['AddAlias', 'RemoveAlias', 'AddressLookup', 'Equality', 'Summary', 'PaymentBreakdown', 'PaymentStatus'];
 const steps = initSteps([`${__dirname}/../../app/steps/action/`, `${__dirname}/../../app/steps/ui`], 'en');
 const nock = require('nock');
-const config = require('app/config');
+const config = require('config');
 const commonSessionData = {
     form: {
         applicant: {

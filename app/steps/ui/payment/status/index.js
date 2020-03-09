@@ -9,7 +9,7 @@ const RedirectRunner = require('app/core/runners/RedirectRunner');
 const {get, set} = require('lodash');
 const Thankyou = require('app/steps/ui/thankyou');
 const formatUrl = require('app/utils/FormatUrl');
-const config = require('app/config');
+const config = require('config');
 
 class PaymentStatus extends Step {
 

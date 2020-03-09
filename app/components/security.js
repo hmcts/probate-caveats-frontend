@@ -1,7 +1,7 @@
 'use strict';
 
 const utils = require('app/components/api-utils');
-const config = require('app/config');
+const config = require('config');
 const logger = require('app/components/logger');
 const logInfo = (message, applicationId = 'Unknown') => logger(applicationId).info(message);
 const {URLSearchParams} = require('url');

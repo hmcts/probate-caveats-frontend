@@ -4,7 +4,7 @@ const TestWrapper = require('test/util/TestWrapper');
 const DeceasedAlias = require('app/steps/ui/deceased/alias/index');
 const DeceasedDob = require('app/steps/ui/deceased/dob/index');
 const testCommonContent = require('test/component/common/testCommonContent.js');
-const config = require('app/config');
+const config = require('config');
 const basePath = config.app.basePath;
 const nock = require('nock');
 
