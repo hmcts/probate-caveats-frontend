@@ -14,7 +14,6 @@ nodejs:
     REDIS_USE_TLS: true
     REDIS_PORT: 6379
     REDIS_HOST: probate-caveats-fe-redis-cache-{{ .Values.global.environment }}.redis.cache.windows.net
-
     FEES_REGISTRY_URL: http://fees-register-api-{{ .Values.global.environment }}.service.core-compute-{{ .Values.global.environment }}.internal/fees-register
     IDAM_API_URL: https://idam-api.{{ .Values.global.environment }}.platform.hmcts.net
     IDAM_S2S_URL: http://rpe-service-auth-provider-{{ .Values.global.environment }}.service.core-compute-{{ .Values.global.environment }}.internal

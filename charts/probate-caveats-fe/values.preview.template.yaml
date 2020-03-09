@@ -5,7 +5,20 @@ nodejs:
     REDIS_USE_TLS: false
     REDIS_HOST: ${SERVICE_NAME}-redis-master
     FEATURE_TOGGLES_API_URL: http://${SERVICE_NAME}-ftr-tgl-api
-
+  keyVaults:
+    "probate":
+      secrets:
+        - microservicekey-probate-frontend
+        - ccidam-idam-api-secrets-probate
+        - postcode-service-url
+        - postcode-service-token2
+        - probate-survey
+        - probate-survey-end
+        - probate-application-fee-code
+        - probate-service-id
+        - probate-site-id
+        - caveat-user-name
+        - caveat-user-password
 idam-pr:
   enabled: true
   redirect_uris:
