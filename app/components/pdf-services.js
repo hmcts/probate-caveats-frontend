@@ -1,7 +1,7 @@
 'use strict';
 
 const utils = require('app/components/api-utils');
-const config = require('app/config');
+const config = require('config');
 const services = require('app/components/services');
 const ORCHESTRATION_SERVICE_URL = config.services.orchestration.url;
 const CHECK_ANSWERS_PDF_URL = config.services.orchestration.paths.checkanswerspdf;
