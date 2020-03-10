@@ -1,19 +1,18 @@
 # ---- Base image ----
 
 FROM hmctspublic.azurecr.io/base/node:12-alpine as base
-USER root
 
 ENV WORKDIR /opt/app
 WORKDIR ${WORKDIR}
 
-COPY package.json yarn.lock ./
+COPY --chown=hmcts:hmcts package.json yarn.lock ./
 RUN yarn config set proxy "$http_proxy" && yarn config set https-proxy "$https_proxy"
 RUN yarn install --production  \
     && yarn cache clean
 
 # ---- Build image ----
 FROM base as build
-COPY . ./
+COPY --chown=hmcts:hmcts . ./
 
 RUN yarn install \
     && yarn setup \
