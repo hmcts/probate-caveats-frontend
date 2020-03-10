@@ -13,14 +13,14 @@ app:
   port: '3000'
   useCSRFProtection: 'true'
   basePath: ''
-services: 
-  orchestration: 
+services:
+  orchestration:
     url: 'http://localhost:8888'
     port: 8888
-    paths: 
+    paths:
       checkanswerspdf: 'documents/generate/checkAnswersSummary'
       payment_updates: '/payment-updates'
-  idam: 
+  idam:
     apiUrl: 'http://localhost:4501'
     roles: ['probate-private-beta','citizen']
     s2s_url: 'http://localhost:4502'
@@ -32,26 +32,26 @@ services:
     caveat_user_password: 'password'
     caveat_redirect_base_url: 'http://localhost:3000'
     caveat_redirectUrl: '/oauth2/callback'
-  payment: 
+  payment:
     createPaymentUrl: 'http://localhost:8383/card-payments'
     authorization: 'dummy_token'
     serviceAuthorization: 'dummy_token'
     userId: 999999999
     returnUrlPath: '/payment-status'
-  persistence: 
+  persistence:
     url: 'http://localhost:8282/formdata'
     port: 8282
     path: '/formdata'
-  feesRegister: 
+  feesRegister:
     url: 'http://localhost:4411/fees-register'
     port: 4411
-    paths: 
+    paths:
       fees: '/fees'
       feesLookup: '/fees/lookup'
     ihtMinAmt: 5000
   postcode:
     token: ''
-redis: 
+redis:
   host: 'localhost'
   port: 6379
   password: 'dummy_password'
@@ -61,7 +61,7 @@ redis:
   proxy: true
   resave: false
   saveUninitialized: false
-  cookie: 
+  cookie:
     secure: false
     httpOnly: true
     sameSite: 'lax'
@@ -70,13 +70,13 @@ payloadVersion: '4.1.0'
 hostname: 'localhost:3000'
 gaTrackingId: 'UA-93598808-5'
 enableTracking: 'true'
-webChat: 
+webChat:
   chatId: '3077733355d19fd430f23c7.02555395'
   tenant: 'c2FuZGJveGhtY3RzMDE'
   buttonNoAgents: '20599210435d19f59cdc3e95.94551214'
   buttonAgentsBusy: '8752254635d19f5bb21ff07.71234899'
   buttonServiceClosed: '4639879315d19f67c3c1055.15174024'
-links: 
+links:
   accessibility: '/caveats/accessibility-statement'
   cookies: '/caveats/cookies'
   privacy: '/caveats/privacy-policy'
@@ -102,12 +102,12 @@ links:
   myAbilityLink: 'https://mcmw.abilitynet.org.uk/'
   equalityAdvisorLink: 'https://www.equalityadvisoryservice.com/'
   wcag21Link: 'https://www.w3.org/TR/WCAG21/'
-utils: 
-  api: 
+utils:
+  api:
     retries: 10
     retryDelay: 1000
     timeout: 30000
-payment: 
+payment:
   applicationFee: 20
   applicationFeeThreshold: 5000
   applicationFeeCode: 'FEE0288'
