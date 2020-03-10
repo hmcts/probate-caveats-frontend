@@ -82,7 +82,7 @@ data "azurerm_key_vault_secret" "idam_secret_probate" {
 }
 
 data "azurerm_key_vault_secret" "s2s_key" {
-  name      = "microservicekey-probate-frontend"
+  name      = "idam-s2s-secret"
   key_vault_id = "${data.azurerm_key_vault.probate_key_vault.id}"
 }
 

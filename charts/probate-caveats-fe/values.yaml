@@ -28,7 +28,7 @@ nodejs:
     "probate":
       secrets:
         - caveats-fe-redis-access-key
-        - microservicekey-probate-frontend
+        - idam-s2s-secret
         - ccidam-idam-api-secrets-probate
         - postcode-service-url
         - postcode-service-token2
