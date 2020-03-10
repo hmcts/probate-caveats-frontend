@@ -64,4 +64,16 @@ payment:
   currency: currency
 appInsights: 
   instrumentationKey: APPINSIGHTS_INSTRUMENTATION_KEY
-  
+
+TestFrontendUrl: TEST_URL
+TestE2EFrontendUrl: TEST_E2E_URL
+TestUseGovPay: USE_GOV_PAY
+TestRetryFeatures: RETRY_FEATURES
+TestRetryScenarios: RETRY_SCENARIOS
+TestOutputDir: E2E_OUTPUT_DIR
+postcodeLookup:
+  token: POSTCODE_SERVICE_TOKEN
+validation:
+  url: TEST_VALIDATION_SERVICE_URL
+pact:
+  pactBrokerUrl: PACT_BROKER_URL 
