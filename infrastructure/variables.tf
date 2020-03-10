@@ -186,5 +186,5 @@ variable "external_hostName_url" {
 }
 
 variable "node_version" {
-  default = "12.14.1"
+  default = "12.15.0"
 }
