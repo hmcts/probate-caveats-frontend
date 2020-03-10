@@ -3,7 +3,7 @@
   "description": "Web app to check if an applicant is eligible to apply for caveats online",
   "version": "0.0.1",
   "engines": {
-    "node": ">=12.14.1"
+    "node": ">=12.15.0"
   },
   "scripts": {
     "setup": "NODE_PATH=. npm run sass && npm run git-info && npm run sass-ie8",
