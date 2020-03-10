@@ -28,7 +28,7 @@ describe(modulePath, () => {
 
             expect(mockConfig.redis.secret)
                 .to.equal(mockConfig.secrets.probate['caveats-fe-redis-access-key']);
-            expect(mockConfig.idam.service_Key)
+            expect(mockConfig.idam.service_key)
                 .to.equal(mockConfig.secrets.probate['idam-s2s-secret']);
         });
 
@@ -58,7 +58,7 @@ describe(modulePath, () => {
 
             expect(mockConfig.redis.secret)
                 .to.equal('OVERWRITE_THIS');
-            expect(mockConfig.idam.service_Key)
+            expect(mockConfig.idam.service_key)
                 .to.equal(mockConfig.secrets.probate['idam-s2s-secret']);
         });
     });
