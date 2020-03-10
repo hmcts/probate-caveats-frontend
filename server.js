@@ -1,5 +1,5 @@
 'use strict';
-const setupSecrets = require('setupSecrets');
+const setupSecrets = require('app/setupSecrets');
 
 // Setup secrets before loading the app
 setupSecrets();
