@@ -26,7 +26,7 @@ const setupSecrets = () => {
         setSecret('secrets.probate.probate-webchat-button-no-agents', 'webChat.buttonNoAgents');
         setSecret('secrets.probate.probate-webchat-button-busy', 'webChat.buttonAgentsBusy');
         setSecret('secrets.probate.probate-webchat-button-service-closed', 'webChat.buttonServiceClosed');
-        setSecret('secrets.probate.AppInsightsInstrumentationKey','appInsights.instrumentationKey')
+        setSecret('secrets.probate.AppInsightsInstrumentationKey', 'appInsights.instrumentationKey');
 
     }
 };
