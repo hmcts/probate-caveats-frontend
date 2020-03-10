@@ -6,7 +6,7 @@ nodejs:
     REDIS_HOST: ${SERVICE_NAME}-redis-master
     FEATURE_TOGGLES_API_URL: http://${SERVICE_NAME}-ftr-tgl-api
   keyVaults:
-    "probate":
+    probate:
       secrets:
         - idam-s2s-secret
         - ccidam-idam-api-secrets-probate

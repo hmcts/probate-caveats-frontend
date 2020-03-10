@@ -25,7 +25,7 @@ nodejs:
     PAY_RETURN_URL: "/caveats/payment-status"
     CAVEAT_REDIRECT_BASE_URL: http://probate-caveats-fe-{{ .Values.global.environment }}.service.core-compute-{{ .Values.global.environment }}.internal
   keyVaults:
-    "probate":
+    probate:
       secrets:
         - caveats-fe-redis-access-key
         - idam-s2s-secret
@@ -44,6 +44,7 @@ nodejs:
         - probate-webchat-button-no-agents
         - probate-webchat-button-busy
         - probate-webchat-button-service-closed
+        - AppInsightsInstrumentationKey
 redis:
   cluster:
     enabled: false
