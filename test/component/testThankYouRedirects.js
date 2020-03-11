@@ -6,7 +6,7 @@ const steps = initSteps.steps;
 
 describe('ThankYou router redirects', () => {
     let testWrapper;
-    const stepsToExclude = ['ThankYou', 'ShutterPage', 'ContactUs', 'Cookies', 'PrivacyPolicy', 'TermsConditions'];
+    const stepsToExclude = ['ThankYou', 'ShutterPage', 'ContactUs', 'Cookies', 'PrivacyPolicy', 'TermsConditions', 'PaymentBreakdown'];
 
     describe('Verify router will redirect to /thank-you page when payment status is success', () => {
         for (const step in steps) {

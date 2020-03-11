@@ -8,7 +8,7 @@ describe('StartApply router redirects', () => {
     let testWrapper;
 
     describe('Verify router will redirect to /start-apply if no applicant details entered', () => {
-        const stepsToIgnore = ['PrivacyPolicy', 'StartApply', 'TermsConditions', 'ApplicantName', 'ContactUs', 'Cookies', 'ShutterPage'];
+        const stepsToIgnore = ['PrivacyPolicy', 'StartApply', 'TermsConditions', 'ApplicantName', 'ContactUs', 'Cookies', 'ShutterPage', 'PaymentBreakdown'];
 
         for (const step in steps) {
             if (!stepsToIgnore.includes(step)) {
