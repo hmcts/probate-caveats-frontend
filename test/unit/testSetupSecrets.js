@@ -43,7 +43,7 @@ describe(modulePath, () => {
             setupSecrets();
 
             expect(mockConfig.redis.password)
-                .to.equal('OVERWRITE_THIS');
+                .to.equal('dummy_password');
         });
 
         it('should only set one config value when single secret path is set', () => {
@@ -57,7 +57,7 @@ describe(modulePath, () => {
             setupSecrets();
 
             expect(mockConfig.redis.password)
-                .to.equal('OVERWRITE_THIS');
+                .to.equal('dummy_password');
             expect(mockConfig.idam.service_key)
                 .to.equal(mockConfig.secrets.probate['idam-s2s-secret']);
         });
