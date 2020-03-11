@@ -2,7 +2,7 @@ const chai = require('chai');
 const expect = require('chai').expect;
 const chaiHttp = require('chai-http');
 const request = require('superagent');
-const config = require('../config');
+const config = require('config');
 const frontendUrl = config.TestFrontendUrl;
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
