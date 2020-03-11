@@ -75,3 +75,4 @@ For test coverage:
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](https://github.com/hmcts/probate-caveats-frontend/blob/develop/LICENSE.md) file for details
+
