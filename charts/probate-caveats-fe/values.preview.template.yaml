@@ -1,34 +1,26 @@
-tags:
-  - rpe-feature-toggle-cav-frontend
-  - idam-pr-cav-frontend
-
 nodejs:
-  environment:
-    PAYMENT_CREATE_URL: http://payment-api-aat.service.core-compute-aat.internal/card-payments
-    ORCHESTRATION_SERVICE_URL: http://probate-orchestrator-service-aat.service.core-compute-aat.internal
-    IDAM_API_URL: https://idam-api.aat.platform.hmcts.net
-    IDAM_S2S_URL: http://rpe-service-auth-provider-aat.service.core-compute-aat.internal
-    CAVEAT_REDIRECT_BASE_URL: http://probate-caveats-fe-aat.service.core-compute-aat.internal
-    FEATURE_TOGGLES_API_URL: http://${SERVICE_NAME}-ftr-tgl-api
-    WEBFORMS : http://ctsc-web-forms-ui-aat.service.core-compute-aat.internal?serviceId=probate
-    REDIS_HOST: ${SERVICE_NAME}-redis-master
-    POSTCODE_SERVICE_URL: ${PRO_POSTCODE_SERVICE_URL}
-    POSTCODE_SERVICE_TOKEN: ${PRO_POSTCODE_SERVICE_TOKEN}
-    SURVEY: ${PRO_SURVEY}
-    SURVEY_END_OF_APPLICATION: ${PRO_SURVEY_END_OF_APPLICATION}
-    APPLICATION_FEE_CODE: ${PRO_APPLICATION_FEE_CODE}
-    SERVICE_ID: ${PRO_SERVICE_ID}
-    SITE_ID: ${PRO_SITE_ID}
-    CAVEAT_USER_EMAIL: ${CAVEAT_USER_EMAIL}
-    CAVEAT_USER_PASSWORD: ${CAVEAT_USER_PASSWORD}
-    IDAM_SERVICE_KEY: ${IDAM_S2S_SECRET}
-    IDAM_API_OAUTH2_CLIENT_CLIENT_SECRETS_PROBATE: ${IDAM_SECRET_PROBATE}
-    FEES_REGISTRY_URL: http://fees-register-api-aat.service.core-compute-aat.internal/fees-register
-
   image: ${IMAGE_NAME}
   ingressHost: ${SERVICE_FQDN}
-
+  environment:
+    REDIS_USE_TLS: false
+    REDIS_HOST: ${SERVICE_NAME}-redis-master
+    FEATURE_TOGGLES_API_URL: http://${SERVICE_NAME}-ftr-tgl-api
+  keyVaults:
+    probate:
+      secrets:
+        - idam-s2s-secret
+        - ccidam-idam-api-secrets-probate
+        - postcode-service-url
+        - postcode-service-token2
+        - probate-survey
+        - probate-survey-end
+        - probate-application-fee-code
+        - probate-service-id
+        - probate-site-id
+        - caveat-user-name
+        - caveat-user-password
 idam-pr:
+  enabled: true
   redirect_uris:
     Probate:
       - https://${SERVICE_FQDN}/oauth2/callback
@@ -55,3 +47,6 @@ rpe-feature-toggle-api:
         enabled: false
       oneoff:
         enabled: false
+  enabled: true
+redis:
+  enabled: true

@@ -23,7 +23,7 @@ data "azurerm_subnet" "core_infra_redis_subnet" {
 
 module "probate-caveats-fe-redis-cache" {
   source   = "git@github.com:hmcts/cnp-module-redis?ref=master"
-  product     = "${(var.env == "preview" || var.env == "spreview") ? "${var.product}-${var.microservice}-pr-redis" : "${var.product}-${var.microservice}-redis-cache"}"
+  product     = "${var.product}-${var.microservice}-redis-cache"
   location = "${var.location}"
   env      = "${var.env}"
   subnetid = "${data.azurerm_subnet.core_infra_redis_subnet.id}"
@@ -35,85 +35,90 @@ data "azurerm_key_vault" "probate_key_vault" {
   resource_group_name = "${local.vaultName}"
 }
 
+resource "azurerm_key_vault_secret" "redis_access_key" {
+  name         = "${var.microservice}-redis-access-key"
+  value        = "${module.probate-caveats-fe-redis-cache.access_key}"
+  key_vault_id = "${data.azurerm_key_vault.probate_key_vault.id}"
+}
 
 data "azurerm_key_vault_secret" "probate_postcode_service_token" {
   name = "postcode-service-token2"
-  vault_uri = "${data.azurerm_key_vault.probate_key_vault.vault_uri}"
+  key_vault_id = "${data.azurerm_key_vault.probate_key_vault.id}"
 }
 
 data "azurerm_key_vault_secret" "probate_postcode_service_url" {
   name = "postcode-service-url"
-  vault_uri = "${data.azurerm_key_vault.probate_key_vault.vault_uri}"
+  key_vault_id = "${data.azurerm_key_vault.probate_key_vault.id}"
 }
 
 data "azurerm_key_vault_secret" "probate_survey" {
   name = "probate-survey"
-  vault_uri = "${data.azurerm_key_vault.probate_key_vault.vault_uri}"
+  key_vault_id = "${data.azurerm_key_vault.probate_key_vault.id}"
 }
 
 data "azurerm_key_vault_secret" "probate_survey_end" {
   name = "probate-survey-end"
-  vault_uri = "${data.azurerm_key_vault.probate_key_vault.vault_uri}"
+  key_vault_id = "${data.azurerm_key_vault.probate_key_vault.id}"
 }
 
 data "azurerm_key_vault_secret" "probate_application_fee_code" {
   name = "probate-application-fee-code"
-  vault_uri = "${data.azurerm_key_vault.probate_key_vault.vault_uri}"
+  key_vault_id = "${data.azurerm_key_vault.probate_key_vault.id}"
 }
 
 data "azurerm_key_vault_secret" "probate_service_id" {
   name = "probate-service-id"
-  vault_uri = "${data.azurerm_key_vault.probate_key_vault.vault_uri}"
+  key_vault_id = "${data.azurerm_key_vault.probate_key_vault.id}"
 }
 
 data "azurerm_key_vault_secret" "probate_site_id" {
   name = "probate-site-id"
-  vault_uri = "${data.azurerm_key_vault.probate_key_vault.vault_uri}"
+  key_vault_id = "${data.azurerm_key_vault.probate_key_vault.id}"
 }
 
 
 data "azurerm_key_vault_secret" "idam_secret_probate" {
   name = "ccidam-idam-api-secrets-probate"
-  vault_uri = "${data.azurerm_key_vault.probate_key_vault.vault_uri}"
+  key_vault_id = "${data.azurerm_key_vault.probate_key_vault.id}"
 }
 
 data "azurerm_key_vault_secret" "s2s_key" {
-  name      = "microservicekey-probate-frontend"
-  vault_uri = "https://s2s-${local.localenv}.vault.azure.net/"
+  name      = "idam-s2s-secret"
+  key_vault_id = "${data.azurerm_key_vault.probate_key_vault.id}"
 }
 
 data "azurerm_key_vault_secret" "caveat_user_name" {
   name      = "caveat-user-name"
-  vault_uri = "${data.azurerm_key_vault.probate_key_vault.vault_uri}"
+  key_vault_id = "${data.azurerm_key_vault.probate_key_vault.id}"
 }
 
 data "azurerm_key_vault_secret" "caveat_user_password" {
   name      = "caveat-user-password"
-  vault_uri = "${data.azurerm_key_vault.probate_key_vault.vault_uri}"
+  key_vault_id = "${data.azurerm_key_vault.probate_key_vault.id}"
 }
 
 data "azurerm_key_vault_secret" "probate_webchat_id" {
   name = "probate-webchat-id"
-  vault_uri = "${data.azurerm_key_vault.probate_key_vault.vault_uri}"
+  key_vault_id = "${data.azurerm_key_vault.probate_key_vault.id}"
 }
 
 data "azurerm_key_vault_secret" "probate_webchat_tenant" {
   name = "probate-webchat-tenant"
-  vault_uri = "${data.azurerm_key_vault.probate_key_vault.vault_uri}"
+  key_vault_id = "${data.azurerm_key_vault.probate_key_vault.id}"
 }
 
 data "azurerm_key_vault_secret" "probate_webchat_button_no_agents" {
   name = "probate-webchat-button-no-agents"
-  vault_uri = "${data.azurerm_key_vault.probate_key_vault.vault_uri}"
+  key_vault_id = "${data.azurerm_key_vault.probate_key_vault.id}"
 }
 data "azurerm_key_vault_secret" "probate_webchat_button_busy" {
   name = "probate-webchat-button-busy"
-  vault_uri = "${data.azurerm_key_vault.probate_key_vault.vault_uri}"
+  key_vault_id = "${data.azurerm_key_vault.probate_key_vault.id}"
 }
 
 data "azurerm_key_vault_secret" "probate_webchat_button_service_closed" {
   name = "probate-webchat-button-service-closed"
-  vault_uri = "${data.azurerm_key_vault.probate_key_vault.vault_uri}"
+  key_vault_id = "${data.azurerm_key_vault.probate_key_vault.id}"
 }
 
 module "probate-caveats-fe" {
@@ -155,6 +160,7 @@ module "probate-caveats-fe" {
     USE_HTTPS =  "${var.caveat_frontend_https}"
     GA_TRACKING_ID = "${var.caveat_google_track_id}"
     FEES_REGISTRY_URL = "${local.probate_fees_registry_service_url}"
+    WEBFORMS = "${local.ctsc_web_form_url}"
 
     // REDIS
     USE_REDIS = "${var.caveat_frontend_use_redis}"

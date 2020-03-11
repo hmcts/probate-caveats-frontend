@@ -19,32 +19,12 @@ env.TEST_E2E_FRONTEND_URL = "${serviceName}${slotString}.service.core-compute-${
 
 List<LinkedHashMap<String, Object>> secrets = [
     secret('testIdamBaseUrl', 'IDAM_API_URL'),
-    secret('testInviteIdListUrl', 'INVITE_ID_LIST_URL'),
-    secret('testPinUrl', 'PIN_URL'),
-    secret('testInvitationUrl', 'INVITATION_URL'),
-    secret('testIdamAddUserUrl', 'IDAM_ADD_USER_URL'),
-    secret('testIdamRole', 'IDAM_CITIZEN_ROLE'),
-    secret('testIdamUserGroup', 'IDAM_USER_GROUP'),
-    secret('testCitizenDomain', 'CITIZEN_EMAIL_DOMAIN'),
-    secret('testEnvEmailAddress', 'TEST_EMAIL_ADDRESS'),
-    secret('testEnvMobileNumber', 'TEST_MOBILE_NUMBER'),
-    secret('testTerms', 'TERMS_AND_CONDITIONS'),
     secret('testSurvey', 'SURVEY'),
     secret('testsurveyEndOfApplication', 'SURVEY_END_OF_APPLICATION'),
     secret('testUseGovPay', 'USE_GOV_PAY'),
-    secret('testPostcodeServiceUrl', 'POSTCODE_SERVICE_URL'),
-    secret('testPostCodeAddressToken', 'ADDRESS_TOKEN'),
-    // secret('testRunE2ETest', 'RUN_E2E_TEST'),
     secret('testValidationServiceUrl', 'TEST_VALIDATION_SERVICE_URL'),
-    secret('idam-secret-probate', 'IDAM_SECRET_PROBATE'),
-    secret('idam-s2s-secret', 'IDAM_S2S_SECRET'),
-    secret('postcode-service-url', 'PRO_POSTCODE_SERVICE_URL'),
-    secret('postcode-service-token', 'PRO_POSTCODE_SERVICE_TOKEN'),
-    secret('probate-survey', 'PRO_SURVEY'),
-    secret('probate-survey-end', 'PRO_SURVEY_END_OF_APPLICATION'),
-    secret('probate-application-fee-code', 'PRO_APPLICATION_FEE_CODE'),
-    secret('probate-service-id', 'PRO_SERVICE_ID'),
-    secret('probate-site-id', 'PRO_SITE_ID')
+    secret('caveat-user-name', 'CAVEAT_USER_EMAIL'),
+    secret('caveat-user-password', 'CAVEAT_USER_PASSWORD')
 ]
 
 static LinkedHashMap<String, Object> secret(String secretName, String envVar) {
