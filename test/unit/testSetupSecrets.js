@@ -26,7 +26,7 @@ describe(modulePath, () => {
                 {config: mockConfig});
             setupSecrets();
 
-            expect(mockConfig.redis.secret)
+            expect(mockConfig.redis.password)
                 .to.equal(mockConfig.secrets.probate['caveats-fe-redis-access-key']);
             expect(mockConfig.idam.service_key)
                 .to.equal(mockConfig.secrets.probate['idam-s2s-secret']);
@@ -42,7 +42,7 @@ describe(modulePath, () => {
                 {config: mockConfig});
             setupSecrets();
 
-            expect(mockConfig.redis.secret)
+            expect(mockConfig.redis.password)
                 .to.equal('OVERWRITE_THIS');
         });
 
@@ -56,7 +56,7 @@ describe(modulePath, () => {
                 {config: mockConfig});
             setupSecrets();
 
-            expect(mockConfig.redis.secret)
+            expect(mockConfig.redis.password)
                 .to.equal('OVERWRITE_THIS');
             expect(mockConfig.idam.service_key)
                 .to.equal(mockConfig.secrets.probate['idam-s2s-secret']);
