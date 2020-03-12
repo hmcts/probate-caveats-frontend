@@ -1,7 +1,6 @@
 'use strict';
 
 const {set} = require('lodash');
-const formatUrl = require('app/utils/FormatUrl');
 const FeesLookup = require('app/utils/FeesLookup');
 
 const lookupPaymentFees = (req, res, next) => {
