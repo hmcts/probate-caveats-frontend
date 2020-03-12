@@ -28,7 +28,7 @@ describe('lookupPaymentFees', () => {
         feesLookupStub.restore();
     });
 
-    it.skip('should set fee total in formdata', (done) => {
+    it('should set fee total in formdata', (done) => {
         feesLookupStub.returns(Promise.resolve({
             status: 'success',
             total: '20'
