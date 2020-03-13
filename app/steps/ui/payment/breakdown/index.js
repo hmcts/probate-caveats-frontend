@@ -115,19 +115,19 @@ class PaymentBreakdown extends Step {
     }
 
     * setCtxWithSecurityTokens(ctx, errors, language) {
-        const serviceAuthResult = yield services.authorise(ctx.applicationId);
-        if (serviceAuthResult.name === 'Error') {
-            logInfo('failed to obtain serviceAuthToken', ctx.applicationId);
-            errors.push(FieldError('authorisation', 'failure', this.resourcePath, ctx, language));
-            return;
-        }
+        // const serviceAuthResult = yield services.authorise(ctx.applicationId);
+        // if (serviceAuthResult.name === 'Error') {
+        //     logInfo('failed to obtain serviceAuthToken', ctx.applicationId);
+        //     errors.push(FieldError('authorisation', 'failure', this.resourcePath, ctx, language));
+        //     return;
+        // }
         const authToken = yield security.getUserToken(ctx.hostname, ctx.applicationId);
         if (authToken.name === 'Error') {
             logInfo('failed to obtain authToken', ctx.applicationId);
             errors.push(FieldError('authorisation', 'failure', this.resourcePath, ctx, language));
             return;
         }
-        set(ctx, 'serviceAuthToken', serviceAuthResult);
+        //set(ctx, 'serviceAuthToken', serviceAuthResult);
         set(ctx, 'authToken', authToken);
     }
 
