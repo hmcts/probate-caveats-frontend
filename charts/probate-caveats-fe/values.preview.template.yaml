@@ -4,6 +4,7 @@ nodejs:
   environment:
     REDIS_USE_TLS: false
     REDIS_HOST: ${SERVICE_NAME}-redis-master
+    REDIS_PORT: 6379
     FEATURE_TOGGLES_API_URL: http://${SERVICE_NAME}-ftr-tgl-api
   keyVaults:
     probate:
