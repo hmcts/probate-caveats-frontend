@@ -127,6 +127,7 @@ class PaymentBreakdown extends Step {
             errors.push(FieldError('authorisation', 'failure', this.resourcePath, ctx, language));
             return;
         }
+
         set(ctx, 'serviceAuthToken', serviceAuthResult);
         set(ctx, 'authToken', authToken);
     }
