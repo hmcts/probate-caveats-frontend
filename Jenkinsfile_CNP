@@ -38,7 +38,8 @@ withPipeline("nodejs", product, component) {
 //  }
 
   installCharts()
-
+  enableAksStagingDeployment()
+  disableLegacyDeploymentOnAAT()
   loadVaultSecrets(secrets)
   enableSlackNotifications('#probate-jenkins')
   after('functionalTest:aat') {
