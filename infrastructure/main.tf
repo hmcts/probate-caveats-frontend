@@ -81,8 +81,19 @@ data "azurerm_key_vault_secret" "idam_secret_probate" {
   key_vault_id = "${data.azurerm_key_vault.probate_key_vault.id}"
 }
 
-data "azurerm_key_vault_secret" "s2s_key" {
-  name      = "idam-s2s-secret"
+data "azurerm_key_vault" "s2s_vault" {
+  name = "s2s-${var.env}"
+  resource_group_name = "rpe-service-auth-provider-${var.env}"
+}
+
+data "azurerm_key_vault_secret" "probate_frontend_s2s_secret" {
+  name = "microservicekey-probate-frontend"
+  key_vault_id = "${data.azurerm_key_vault.s2s_vault.id}"
+}
+
+resource "azurerm_key_vault_secret" "s2s_key" {
+  name = "idam-s2s-secret"
+  value = "${data.azurerm_key_vault_secret.probate_frontend_s2s_secret.value}"
   key_vault_id = "${data.azurerm_key_vault.probate_key_vault.id}"
 }
 
@@ -170,7 +181,7 @@ module "probate-caveats-fe" {
     // IDAM
     IDAM_API_URL = "${var.idam_user_host}"
     IDAM_S2S_URL = "${var.idam_service_api}"
-    IDAM_SERVICE_KEY = "${data.azurerm_key_vault_secret.s2s_key.value}"
+    IDAM_SERVICE_KEY = "${data.azurerm_key_vault_secret.probate_frontend_s2s_secret.value}"
     IDAM_API_OAUTH2_CLIENT_CLIENT_SECRETS_PROBATE = "${data.azurerm_key_vault_secret.idam_secret_probate.value}"
 
     //  PAYMENT
