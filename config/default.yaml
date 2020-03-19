@@ -39,10 +39,6 @@ services:
     serviceAuthorization: 'dummy_token'
     userId: 999999999
     returnUrlPath: '/payment-status'
-  persistence:
-    url: 'http://localhost:8282/formdata'
-    port: 8282
-    path: '/formdata'
   feesRegister:
     url: 'http://localhost:4411/fees-register'
     port: 4411
