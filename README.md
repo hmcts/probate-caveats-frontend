@@ -12,15 +12,18 @@ This is the frontend caveats application for the Probate Caveats online service.
 ### Installation
 
 Install dependencies by executing the following command:
-
 ```
 $ yarn install
 ```
 
-Sass:
-
+Compile SASS stylesheets by running the following command:
 ```
 $ yarn setup
+```
+
+Build a `git.properties.json` by running the following command:
+```
+$ yarn git-info
 ```
 
 Git hooks:
@@ -28,7 +31,6 @@ Git hooks:
 We have git hooks that enforce rules for commit messages.
 
 These can be activated by running the following commands:
-
 ```
 $ ln -s ../../pre-commit.sh .git/hooks/pre-commit
 $ ln -s ../../commit-msg.sh .git/hooks/commit-msg
@@ -37,19 +39,20 @@ $ ln -s ../../commit-msg.sh .git/hooks/commit-msg
 ### Running the application
 
 Run the application local server:
-
 ```
 $ yarn start
 ```
 
-Open [https://localhost:3000](https://localhost:3000) in a browser
+The application will be available locally at [https://localhost:3000](https://localhost:3000) but you will need to clone and have the following repositories up and running in the background:
+
+- probate-back-office: `https://github.com/hmcts/probate-back-office` - Follow the instructions in `probate-back-office/compose/README.md`.
+- probate-orchestrator-service: `https://github.com/hmcts/probate-orchestrator-service` - Follow the instructions in `probate-orchestrator-service/README.md`
+- probate-submit-service: `https://github.com/hmcts/probate-submit-service` - Follow the instructions in `probate-submit-service/README.md`
 
 ## Developing
-
 ### Code style
 
-Before submitting a Pull Request you will be required to run:
-`$ yarn eslint`
+Before submitting a Pull Request you will be required to run `$ yarn eslint` (which is also run automatically when trying to commit anyway).
 
 We have a number of rules relating to code style that can be found in [.eslintrc.js](https://github.com/hmcts/probate-caveats-frontend/blob/develop/.eslintrc.js).
 
@@ -70,7 +73,7 @@ For accessibility tests:
 `$ yarn test-accessibility`
 
 For test coverage:
-`$ yarn test-coverage`
+`$ yarn test:coverage`
 
 ## License
 
