@@ -6,6 +6,7 @@ nodejs:
     REDIS_HOST: ${SERVICE_NAME}-redis-master
     REDIS_PORT: 6379
     FEATURE_TOGGLES_API_URL: http://${SERVICE_NAME}-ftr-tgl-api
+    ORCHESTRATION_SERVICE_URL: http://probate-orchestrator-service-pr-298.service.core-compute-preview.internal
   keyVaults:
     probate:
       secrets:
