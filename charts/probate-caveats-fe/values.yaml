@@ -24,7 +24,7 @@ nodejs:
     POSTCODE_SERVICE_PATH: "/caveats/find-address"
     PAY_RETURN_URL: "/caveats/payment-status"
     CAVEAT_REDIRECT_BASE_URL: http://probate-caveats-fe-{{ .Values.global.environment }}.service.core-compute-{{ .Values.global.environment }}.internal
-    WEBFORMS : http://ctsc-web-forms-ui-aat.service.core-compute-aat.internal?serviceId=probate
+    WEBFORMS : http://ctsc-web-forms-ui-{{ .Values.global.environment }}.service.core-compute-{{ .Values.global.environment }}.internal?serviceId=probate
   keyVaults:
     probate:
       secrets:
