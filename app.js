@@ -205,6 +205,7 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}) {
     if (config.app.useCSRFProtection === 'true') {
         app.use(csrf(), (req, res, next) => {
             res.locals.csrfToken = req.csrfToken();
+
             next();
         });
     }
