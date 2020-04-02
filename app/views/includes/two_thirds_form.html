@@ -11,7 +11,7 @@
 
             {% block page_content %}{% endblock %}
 
-            <form class="form" method="post" autocomplete="off" action="{{ globals.basePath }}{{ pageUrl }}" novalidate>
+            <form class="form" id="main-form" method="post" autocomplete="off" action="{{ globals.basePath }}{{ pageUrl }}" novalidate>
                 <input type="hidden" name="_csrf" value="{{ csrfToken }}">
                 {% block form_content %}{% endblock %}
             </form>
