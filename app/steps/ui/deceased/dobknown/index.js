@@ -25,6 +25,7 @@ class DeceasedDobKnown extends ValidationStep {
     }
 
     action(ctx, formdata) {
+        super.action(ctx, formdata);
         if (ctx.dobknown === 'optionNo') {
             delete ctx['dob-date'];
             delete ctx['dob-day'];
