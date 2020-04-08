@@ -11,12 +11,11 @@ class DeceasedDobKnown extends ValidationStep {
     }
 
     nextStepOptions() {
-        const nextStepOptions = {
+        return {
             options: [
                 {key: 'dobknown', value: 'optionYes', choice: 'dobknown'}
             ]
         };
-        return nextStepOptions;
     }
 
     generateContent(ctx, formdata, language) {
