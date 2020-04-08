@@ -10,12 +10,11 @@ class DeceasedAlias extends ValidationStep {
     }
 
     nextStepOptions() {
-        const nextStepOptions = {
+        return {
             options: [
                 {key: 'alias', value: 'optionYes', choice: 'assetsInOtherNames'},
             ]
         };
-        return nextStepOptions;
     }
 
     getContextData(req) {
@@ -25,13 +24,13 @@ class DeceasedAlias extends ValidationStep {
         return ctx;
     }
 
-    handlePost(ctx, errors) {
-        if (ctx.alias !== 'optionYes') {
+    action(ctx, formdata) {
+        super.action(ctx, formdata);
+        if (ctx.alias === 'optionNo') {
             delete ctx.otherNames;
         }
-        return [ctx, errors];
+        return [ctx, formdata];
     }
-
 }
 
 module.exports = DeceasedAlias;
