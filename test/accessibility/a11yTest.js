@@ -46,7 +46,7 @@ for (const step in steps) {
             before((done) => {
                 if (step.name === 'ShutterPage') {
                     nock(config.featureToggles.url)
-                        .get(`${config.featureToggles.path}/${config.featureToggles.caveats_shutter_toggle}`)
+                        .get(`${config.featureToggles.path}/${config.featureToggles.ft_caveats_shutter}`)
                         .reply(200, 'true');
                 }
 

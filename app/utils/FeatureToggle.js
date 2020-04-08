@@ -1,16 +1,15 @@
 'use strict';
 
 const logger = require('app/components/logger');
-const FeatureToggleService = require('app/services/FeatureToggle');
 const config = require('config');
-const featureToggles = config.featureToggles;
 
 class FeatureToggle {
-    callCheckToggle(req, res, next, featureToggleKey, callback, redirectPage) {
+    callCheckToggle(req, res, next, launchDarkly, featureToggleKey, callback, redirectPage) {
         return this.checkToggle({
             req,
             res,
             next,
+            launchDarkly,
             featureToggleKey,
             callback,
             redirectPage
@@ -18,24 +17,37 @@ class FeatureToggle {
     }
 
     checkToggle(params) {
-        const featureToggleKey = params.featureToggleKey;
+        const featureToggleKey = config.featureToggles[params.featureToggleKey];
+        const ldUser = config.featureToggles.launchDarklyUser;
         const sessionId = params.req.session.id;
-        const featureToggle = new FeatureToggleService(config.featureToggles.url, params.req.sessionID);
-        return featureToggle.get(featureToggles[featureToggleKey])
-            .then(isEnabled => {
-                logger(sessionId).info(`Checking feature toggle: ${featureToggleKey}, isEnabled: ${isEnabled}`);
-                params.callback({
-                    req: params.req,
-                    res: params.res,
-                    next: params.next,
-                    redirectPage: params.redirectPage,
-                    isEnabled: isEnabled === 'true',
-                    featureToggleKey: featureToggleKey
+
+        let ldDefaultValue = false;
+
+        if (params.launchDarkly.ftValue && params.launchDarkly.ftValue[params.featureToggleKey]) {
+            ldDefaultValue = params.launchDarkly.ftValue[params.featureToggleKey];
+        }
+
+        try {
+            params.launchDarkly.client.once('ready', () => {
+                params.launchDarkly.client.variation(featureToggleKey, ldUser, ldDefaultValue, (err, showFeature) => {
+                    if (!err) {
+                        logger(sessionId).info(`Checking feature toggle: ${params.featureToggleKey}, isEnabled: ${showFeature}`);
+                        params.callback({
+                            req: params.req,
+                            res: params.res,
+                            next: params.next,
+                            redirectPage: params.redirectPage,
+                            isEnabled: showFeature,
+                            featureToggleKey: params.featureToggleKey
+                        });
+                    } else {
+                        params.next(err);
+                    }
                 });
-            })
-            .catch(err => {
-                params.next(err);
             });
+        } catch (err) {
+            params.next(err);
+        }
     }
 
     togglePage(params) {
