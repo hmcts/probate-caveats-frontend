@@ -45,12 +45,11 @@ for (const step in steps) {
 
             before((done) => {
                 if (step.name === 'ShutterPage') {
-                    nock(config.featureToggles.url)
-                        .get(`${config.featureToggles.path}/${config.featureToggles.ft_caveats_shutter}`)
-                        .reply(200, 'true');
+                    server = app.init(true, sessionData, {ft_caveats_shutter: true});
+                } else {
+                    server = app.init(true, sessionData);
                 }
 
-                server = app.init(true, sessionData);
                 agent = request.agent(server.app);
                 co(function* () {
                     let urlSuffix = '';
