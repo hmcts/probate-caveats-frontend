@@ -2,7 +2,6 @@
 
 const ValidationStep = require('../../../../core/steps/ValidationStep');
 const FormatName = require('app/utils/FormatName');
-const content = require('app/resources/en/translation/deceased/dobknown');
 
 class DeceasedDobKnown extends ValidationStep {
 
@@ -26,11 +25,12 @@ class DeceasedDobKnown extends ValidationStep {
     }
 
     action(ctx, formdata) {
-        if (ctx.dobknown === content.optionNo) {
+        if (ctx.dobknown === 'optionNo') {
             delete ctx['dob-date'];
             delete ctx['dob-day'];
             delete ctx['dob-month'];
             delete ctx['dob-year'];
+            delete ctx['dob-formattedDate'];
         }
 
         return [ctx, formdata];

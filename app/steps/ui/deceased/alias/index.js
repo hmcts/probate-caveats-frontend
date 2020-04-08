@@ -2,7 +2,6 @@
 
 const ValidationStep = require('app/core/steps/ValidationStep');
 const FormatName = require('app/utils/FormatName');
-const DeceasedWrapper = require('app/wrappers/Deceased');
 
 class DeceasedAlias extends ValidationStep {
 
@@ -25,12 +24,11 @@ class DeceasedAlias extends ValidationStep {
         return ctx;
     }
 
-    handlePost(ctx, errors) {
-        const hasAlias = (new DeceasedWrapper(ctx)).hasAlias();
-        if (!hasAlias && ctx.otherNames) {
-            ctx.otherNames = {};
+    action(ctx, formdata) {
+        if (ctx.alias === 'optionNo') {
+            delete ctx.otherNames;
         }
-        return [ctx, errors];
+        return [ctx, formdata];
     }
 }
 

@@ -51,15 +51,16 @@ describe('DeceasedDobKnown', () => {
         it('removes the correct values from the context when the deceased is not known', (done) => {
             let formdata = {};
             let ctx = {
-                'dobknown': content.optionNo,
+                'dobknown': 'optionNo',
                 'dob-date': '1 Mar 1950',
                 'dob-day': 1,
                 'dob-month': 3,
-                'dob-year': 1950
+                'dob-year': 1950,
+                'dob-formattedDate': '1 Mar 1950'
             };
             [ctx, formdata] = DeceasedDobKnown.action(ctx, formdata);
             expect(ctx).to.deep.equal({
-                'dobknown': content.optionNo,
+                'dobknown': 'optionNo',
             });
             done();
         });
