@@ -5,54 +5,54 @@
 {% block content %}
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-            <h1 class="govuk-heading-l">{{ content.heading1 }}</h1>
-            <p class="govuk-body">{{ content.paragraph1 | replace('{privacyLink}', globals.links.privacy) | safe }}</p>
+            <h1 class="govuk-heading-l">{{ content.heading1 | safe }}</h1>
+            <p class="govuk-body">{{ content.paragraph1 | replace("{privacyLink}", globals.links.privacy) | safe }}</p>
 
-            <h2 class="govuk-heading-m">{{ content.whoWeAreHeading }}</h2>
+            <h2 class="govuk-heading-m">{{ content.whoWeAreHeading | safe }}</h2>
             <p class="govuk-body">{{ content.whoWeAreParagraph1 | safe }}</p>
-            <p class="govuk-body">{{ content.whoWeAreParagraph2 }}</p>
+            <p class="govuk-body">{{ content.whoWeAreParagraph2 | safe }}</p>
 
-            <h2 class="govuk-heading-m">{{ content.informationProvidedHeading }}</h2>
-            <p class="govuk-body">{{ content.informationProvidedParagraph1 }}</p>
-            <p class="govuk-body">{{ content.informationProvidedParagraph2 }}</p>
+            <h2 class="govuk-heading-m">{{ content.informationProvidedHeading | safe }}</h2>
+            <p class="govuk-body">{{ content.informationProvidedParagraph1 | safe }}</p>
+            <p class="govuk-body">{{ content.informationProvidedParagraph2 | safe }}</p>
 
-            <h2 class="govuk-heading-m">{{ content.dataSharingStoringHeading }}</h2>
-            <p class="govuk-body">{{ content.dataSharingStoringParagraph1 | replace('{privacyLink}', globals.links.privacy) | safe }}</p>
-            <p class="govuk-body">{{ content.dataSharingStoringParagraph2 | replace('{cookiesLink}', globals.links.cookies) | safe }}</p>
+            <h2 class="govuk-heading-m">{{ content.dataSharingStoringHeading | safe }}</h2>
+            <p class="govuk-body">{{ content.dataSharingStoringParagraph1 | replace("{privacyLink}", globals.links.privacy) | safe }}</p>
+            <p class="govuk-body">{{ content.dataSharingStoringParagraph2 | replace("{cookiesLink}", globals.links.cookies) | safe }}</p>
 
-            <h2 class="govuk-heading-m">{{ content.lawsApplicableHeading }}</h2>
-            <p class="govuk-body">{{ content.lawsApplicableParagraph1 }}</p>
+            <h2 class="govuk-heading-m">{{ content.lawsApplicableHeading | safe }}</h2>
+            <p class="govuk-body">{{ content.lawsApplicableParagraph1 | safe }}</p>
             {{ unorderedList([content["lawsApplicable-item1"], content["lawsApplicable-item2"], content["lawsApplicable-item3"], content["lawsApplicable-item4"], content["lawsApplicable-item5"]]) }}
 
-            <h2 class="govuk-heading-m">{{ content.responsibleUseHeading }}</h2>
+            <h2 class="govuk-heading-m">{{ content.responsibleUseHeading | safe }}</h2>
             <p class="govuk-body">{{ content.responsibleUseParagraph1 | safe }}</p>
-            <p class="govuk-body">{{ content.responsibleUseParagraph2 }}</p>
+            <p class="govuk-body">{{ content.responsibleUseParagraph2 | safe }}</p>
             {{ unorderedList([content["responsibleUse-item1"], content["responsibleUse-item2"], content["responsibleUse-item3"]]) }}
-            <p class="govuk-body">{{ content.responsibleUseParagraph3 }}</p>
+            <p class="govuk-body">{{ content.responsibleUseParagraph3 | safe }}</p>
 
-            <h2 class="govuk-heading-m">{{ content.personalInformationHeading }}</h2>
-            <p class="govuk-body">{{ content.personalInformationParagraph1 }}</p>
-            <p class="govuk-body">{{ content.personalInformationParagraph2 }}</p>
+            <h2 class="govuk-heading-m">{{ content.personalInformationHeading | safe }}</h2>
+            <p class="govuk-body">{{ content.personalInformationParagraph1 | safe }}</p>
+            <p class="govuk-body">{{ content.personalInformationParagraph2 | safe }}</p>
             {{ unorderedList([content["personalInformation-item1"], content["personalInformation-item2"], content["personalInformation-item3"], content["personalInformation-item4"], content["personalInformation-item5"], content["personalInformation-item6"], content["personalInformation-item7"]]) }}
-            <p class="govuk-body">{{ content.personalInformationParagraph3 }}</p>
-            <p class="govuk-body">{{ content.personalInformationParagraph4 | replace('{privacyLink}', globals.links.privacy) | safe }}</p>
+            <p class="govuk-body">{{ content.personalInformationParagraph3 | safe }}</p>
+            <p class="govuk-body">{{ content.personalInformationParagraph4 | replace("{privacyLink}", globals.links.privacy) | safe }}</p>
 
-            <h2 class="govuk-heading-m">{{ content.disclaimerHeading }}</h2>
+            <h2 class="govuk-heading-m">{{ content.disclaimerHeading | safe }}</h2>
             <p class="govuk-body">{{ content.disclaimerParagraph1 | safe }}</p>
             {{ unorderedList([content["disclaimer-item1"], content["disclaimer-item2"], content["disclaimer-item3"], content["disclaimer-item4"], content["disclaimer-item5"]]) }}
             <p class="govuk-body">{{ content.disclaimerParagraph2 | safe }}</p>
             <p class="govuk-body">{{ content.disclaimerParagraph3 | safe }}</p>
             {{ unorderedList([content["disclaimer-item6"], content["disclaimer-item7"], content["disclaimer-item8"], content["disclaimer-item9"]]) }}
-            <p class="govuk-body">{{ content.disclaimerParagraph4 }}</p>
+            <p class="govuk-body">{{ content.disclaimerParagraph4 | safe }}</p>
             <p class="govuk-body">{{ content.disclaimerParagraph5 | safe }}</p>
             {{ unorderedList([content["disclaimer-item10"], content["disclaimer-item11"], content["disclaimer-item12"], content["disclaimer-item13"], content["disclaimer-item14"], content["disclaimer-item15"], content["disclaimer-item16"],  content["disclaimer-item17"], content["disclaimer-item18"], content["disclaimer-item19"]]) }}
-            <p class="govuk-body">{{ content.disclaimerParagraph6 }}</p>
+            <p class="govuk-body">{{ content.disclaimerParagraph6 | safe }}</p>
             {{ unorderedList([content["disclaimer-item20"], content["disclaimer-item21"], content["disclaimer-item22"]]) }}
 
-            <h2 class="govuk-heading-m">{{ content.contactHeading }}</h2>
-            <p class="govuk-body">{{ content.contactParagraph1 | replace('{helpLineNumber}', globals.helpline.number) }}</p>
-            <p class="govuk-body">{{ content.contactParagraph2 | replace('{helpLineHours}', globals.helpline.hours) }}</p>
-            <p class="govuk-body">{{ content.contactParagraph3 | replace('{callChargesLink}', globals.links.callCharges) | safe }}</p>
+            <h2 class="govuk-heading-m">{{ content.contactHeading | safe }}</h2>
+            <p class="govuk-body">{{ content.contactParagraph1 | replace("{helpLineNumber}", common.helpTelephoneNumber) | safe }}</p>
+            <p class="govuk-body">{{ content.contactParagraph2 | replace("{helpLineHours}", common.helpTelephoneOpeningHours) | safe }}</p>
+            <p class="govuk-body">{{ content.contactParagraph3 | replace("{callChargesLink}", globals.links.callCharges) | safe }}</p>
         </div>
     </div>
 {% endblock %}

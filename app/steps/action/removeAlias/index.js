@@ -1,6 +1,6 @@
 'use strict';
 
-const config = require('app/config');
+const config = require('config');
 const DeceasedOtherNames = require('app/steps/ui/deceased/othernames/index');
 const {unset, set, isEmpty} = require('lodash');
 const ActionStepRunner = require('app/core/runners/ActionStepRunner');
@@ -15,8 +15,8 @@ class RemoveAlias extends DeceasedOtherNames {
         return config.app.basePath + this.next(req, ctx).constructor.getUrl();
     }
 
-    constructor(steps, section, templatePath, i18next, schema) {
-        super(steps, section, templatePath, i18next, schema);
+    constructor(steps, section, templatePath, i18next, schema, language) {
+        super(steps, section, templatePath, i18next, schema, language);
         this.section = 'deceased';
     }
 

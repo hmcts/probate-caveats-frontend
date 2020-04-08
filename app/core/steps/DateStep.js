@@ -2,7 +2,7 @@
 
 const ValidationStep = require('app/core/steps/ValidationStep');
 const moment = require('moment');
-const config = require('app/config');
+const config = require('config');
 const utils = require('app/components/step-utils');
 
 class DateStep extends ValidationStep {
@@ -13,11 +13,11 @@ class DateStep extends ValidationStep {
 
     getContextData(req) {
         let ctx = super.getContextData(req);
-        ctx = this.parseDate(ctx, this.dateName());
+        ctx = this.parseDate(ctx, this.dateName(), req.session.language);
         return ctx;
     }
 
-    parseDate(ctx, dateNames) {
+    parseDate(ctx, dateNames, language = 'en') {
         dateNames.forEach((dateName) => {
             const [day, month, year] = [`${dateName}-day`, `${dateName}-month`, `${dateName}-year`];
 
@@ -31,16 +31,11 @@ class DateStep extends ValidationStep {
 
             if (date.isValid()) {
                 ctx[`${dateName}-date`] = date.toISOString();
-                ctx[`${dateName}-formattedDate`] = this.formattedDate(date);
+                ctx[`${dateName}-formattedDate`] = utils.formattedDate(date, language);
             }
         });
 
         return ctx;
-    }
-
-    formattedDate(date) {
-        const month = utils.commonContent().months.split(',')[date.month()].trim();
-        return `${date.date()} ${month} ${date.year()}`;
     }
 }
 

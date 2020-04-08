@@ -1,7 +1,7 @@
 'use strict';
 
 const utils = require('app/components/api-utils');
-const config = require('app/config');
+const config = require('config');
 const submitData = require('app/components/submit-data');
 const paymentData = require('app/components/payment-data');
 const OSPlacesClient = require('@hmcts/os-places-client').OSPlacesClient;
@@ -77,7 +77,7 @@ const updateCcdCasePaymentStatus = (data, ctx) => {
     return utils.fetchJson(`${ORCHESTRATION_SERVICE_URL}/forms/${data.applicationId}/payments`, fetchOptions);
 };
 
-const createPayment = (data, hostname) => {
+const createPayment = (data, hostname, language) => {
     logInfo('createPayment', data.applicationId);
     logInfo('hostname', hostname);
     const paymentUpdatesCallback = config.services.orchestration.url + config.services.orchestration.paths.payment_updates;
@@ -89,7 +89,7 @@ const createPayment = (data, hostname) => {
         'return-url': FormatUrl.format(pay_return_host_url, config.services.payment.returnUrlPath),
         'service-callback-url': paymentUpdatesCallback
     };
-    const body = paymentData.createPaymentData(data);
+    const body = paymentData.createPaymentData(data, language);
     const fetchOptions = utils.fetchOptions(body, 'POST', headers);
     return utils.fetchJson(CREATE_PAYMENT_SERVICE_URL, fetchOptions);
 };

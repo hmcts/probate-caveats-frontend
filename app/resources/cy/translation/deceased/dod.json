@@ -1,0 +1,52 @@
+{
+  "title": "Dyddiad marwolaeth yr unigolyn sydd wedi marw",
+  "question": "Beth oedd y dyddiad pan fu iddynt farw?",
+  "questionHint": "Defnyddiwch y dyddiad sydd ar y dystysgrif marwolaeth. Er enghraifft, 30 06 2016",
+
+  "errors": {
+    "dod-day": {
+      "required": {
+        "summary": "Nid ydych wedi nodi&rsquo;r diwrnod y bu iddynt farw",
+        "message": "Nodwch y diwrnod y bu iddynt farw"
+      },
+      "invalid": {
+        "summary": "Nid ydych wedi nodi diwrnod dilys ar gyfer pryd bu iddynt farw",
+        "message": "Nodwch ddiwrnod dilys ar gyfer pryd bu iddynt farw"
+      }
+    },
+    "dod-month": {
+      "required": {
+        "summary": "Nid ydych wedi nodi&rsquo;r mis y bu iddynt farw",
+        "message": "Nodwch y mis y bu iddynt farw"
+      },
+      "invalid": {
+        "summary": "Nid ydych wedi nodi mis dilys ar gyfer pryd bu iddynt farw",
+        "message": "Nodwch fis dilys ar gyfer pryd bu iddynt farw"
+      }
+    },
+    "dod-year": {
+      "required": {
+        "summary": "Nid ydych wedi nodi&rsquo;r flwyddyn y bu iddynt farw",
+        "message": "Nodwch y flwyddyn y bu iddynt farw"
+      },
+      "invalid": {
+        "summary": "Nid ydych wedi nodi blwyddyn ddilys ar gyfer pryd bu iddynt farw",
+        "message": "Nodwch flwyddyn ddilys ar gyfer pryd bu iddynt farw"
+      }
+    },
+    "dod-date": {
+      "invalid": {
+        "summary": "Mae angen ichi nodi dyddiad dilys ar gyfer pryd bu iddynt farw",
+        "message": "Nodwch ddyddiad dilys ar gyfer pryd bu iddynt farw"
+      },
+      "dateInFuture": {
+        "summary": "Mae&rsquo;n rhaid ichi nodi dyddiad marwolaeth sydd yn y gorffennol",
+        "message": "Nodwch ddyddiad yn y gorffennol"
+      },
+      "dodBeforeDob": {
+        "summary": "Mae&rsquo;r dyddiad marwolaeth rydych wedi&rsquo;i nodi cyn y dyddiad geni",
+        "message": "Nodwch ddyddiad marwolaeth sydd ar &ocirc;l y dyddiad geni"
+      }
+    }
+  }
+}

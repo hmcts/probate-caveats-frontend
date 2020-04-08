@@ -1,6 +1,5 @@
 'use strict';
 
-const config = require('app/config');
 const ValidationStep = require('app/core/steps/ValidationStep');
 const FormatName = require('app/utils/FormatName');
 
@@ -10,17 +9,12 @@ class DeceasedAlias extends ValidationStep {
         return '/deceased-alias';
     }
 
-    nextStepUrl(req, ctx) {
-        return config.app.basePath + this.next(req, ctx).constructor.getUrl();
-    }
-
     nextStepOptions() {
-        const nextStepOptions = {
+        return {
             options: [
-                {key: 'alias', value: this.content.optionYes, choice: 'assetsInOtherNames'},
+                {key: 'alias', value: 'optionYes', choice: 'assetsInOtherNames'},
             ]
         };
-        return nextStepOptions;
     }
 
     getContextData(req) {
@@ -30,13 +24,13 @@ class DeceasedAlias extends ValidationStep {
         return ctx;
     }
 
-    handlePost(ctx, errors) {
-        if (ctx.alias !== this.content.optionYes) {
+    action(ctx, formdata) {
+        super.action(ctx, formdata);
+        if (ctx.alias === 'optionNo') {
             delete ctx.otherNames;
         }
-        return [ctx, errors];
+        return [ctx, formdata];
     }
-
 }
 
 module.exports = DeceasedAlias;

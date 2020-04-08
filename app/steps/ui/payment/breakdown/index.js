@@ -2,7 +2,6 @@
 
 const Step = require('app/core/steps/Step');
 const FieldError = require('app/components/error');
-const config = require('app/config');
 const {get, set} = require('lodash');
 const logger = require('app/components/logger');
 const logInfo = (message, applicationId = 'Unknown') => logger(applicationId).info(message);
@@ -14,10 +13,6 @@ const FeesLookup = require('app/utils/FeesLookup');
 class PaymentBreakdown extends Step {
     static getUrl() {
         return '/payment-breakdown';
-    }
-
-    nextStepUrl(req, ctx) {
-        return config.app.basePath + this.next(req, ctx).constructor.getUrl();
     }
 
     getContextData(req) {
@@ -35,8 +30,8 @@ class PaymentBreakdown extends Step {
         const fees = formdata.fees;
         this.checkFeesStatus(fees);
 
-        ctx.applicationFee = fees.total;
-        ctx.total = Number.isInteger(fees.total) ? fees.total : parseFloat(fees.total).toFixed(2);
+        ctx.applicationFee = parseFloat(fees.total).toFixed(2);
+        ctx.total = parseFloat(fees.total).toFixed(2);
         return [ctx, ctx.errors];
     }
 
@@ -62,14 +57,14 @@ class PaymentBreakdown extends Step {
             ctx.applicationFee = originalFees.total;
 
             // Setup security tokens
-            yield this.setCtxWithSecurityTokens(ctx, errors);
+            yield this.setCtxWithSecurityTokens(ctx, errors, session.language);
             if (errors.length > 0) {
                 return [ctx, errors];
             }
 
             // If we dont already have a case so create one
             if (!formdata.ccdCase || !formdata.ccdCase.id) {
-                const result = yield this.sendToOrchestrationService(ctx, formdata, errors);
+                const result = yield this.sendToOrchestrationService(ctx, formdata, errors, session.language);
                 if (errors.length > 0) {
                     return [ctx, errors];
                 }
@@ -90,10 +85,10 @@ class PaymentBreakdown extends Step {
                 ccdCaseId: ccdCaseId,
                 applicationId: ctx.applicationId
             };
-            const paymentResponse = yield services.createPayment(data, hostname);
+            const paymentResponse = yield services.createPayment(data, hostname, session.language);
             logInfo(`New Payment reference: ${paymentResponse.reference}`, formdata.applicationId);
             if (paymentResponse.name === 'Error') {
-                errors.push(FieldError('payment', 'failure', this.resourcePath, ctx));
+                errors.push(FieldError('payment', 'failure', this.resourcePath, ctx, session.language));
                 return [ctx, errors];
             }
 
@@ -119,28 +114,28 @@ class PaymentBreakdown extends Step {
         session.save();
     }
 
-    * setCtxWithSecurityTokens(ctx, errors) {
+    * setCtxWithSecurityTokens(ctx, errors, language) {
         const serviceAuthResult = yield services.authorise(ctx.applicationId);
         if (serviceAuthResult.name === 'Error') {
             logInfo('failed to obtain serviceAuthToken', ctx.applicationId);
-            errors.push(FieldError('authorisation', 'failure', this.resourcePath, ctx));
+            errors.push(FieldError('authorisation', 'failure', this.resourcePath, ctx, language));
             return;
         }
         const authToken = yield security.getUserToken(ctx.hostname, ctx.applicationId);
         if (authToken.name === 'Error') {
             logInfo('failed to obtain authToken', ctx.applicationId);
-            errors.push(FieldError('authorisation', 'failure', this.resourcePath, ctx));
+            errors.push(FieldError('authorisation', 'failure', this.resourcePath, ctx, language));
             return;
         }
         set(ctx, 'serviceAuthToken', serviceAuthResult);
         set(ctx, 'authToken', authToken);
     }
 
-    * sendToOrchestrationService(ctx, formdata, errors) {
+    * sendToOrchestrationService(ctx, formdata, errors, language) {
         const result = yield services.sendToOrchestrationService(formdata, ctx);
         if (result.name === 'Error') {
             logInfo('Failed to create case', formdata.applicationId);
-            errors.push(FieldError('submit', 'failure', this.resourcePath, ctx));
+            errors.push(FieldError('submit', 'failure', this.resourcePath, ctx, language));
             return;
         }
         logInfo(`Case created: ${result.ccdCase.id}`, formdata.applicationId);

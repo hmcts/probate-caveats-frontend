@@ -1,0 +1,29 @@
+{
+  "title": "Enw&rsquo;r ceisydd",
+  "question": "Beth yw eich enw llawn?",
+  "firstName": "Enw cyntaf ac unrhyw enwau canol",
+  "lastName": "Cyfenw",
+
+  "errors": {
+    "firstName": {
+      "required": {
+        "summary": "Nid ydych wedi nodi eich enw cyntaf",
+        "message": "Nodwch eich enw cyntaf, gan gynnwys unrhyw enwau canol"
+      },
+      "invalid": {
+        "summary": "Gall eich enw cyntaf ond gynnwys llythrennau a i z, bylchau, cysylltnodau a chollnodau",
+        "message": "Gall eich enw cyntaf ond gynnwys llythrennau a i z, bylchau, cysylltnodau a chollnodau"
+      }
+    },
+    "lastName": {
+      "required": {
+        "summary": "Nid ydych wedi nodi eich cyfenw",
+        "message": "Nodwch eich cyfenw"
+      },
+      "invalid": {
+        "summary": "Gall eich cyfenw ond gynnwys llythrennau a i z, bylchau, cysylltnodau a chollnodau",
+        "message": "Gall eich cyfenw ond gynnwys llythrennau a i z, bylchau, cysylltnodau a chollnodau"
+      }
+    }
+  }
+}

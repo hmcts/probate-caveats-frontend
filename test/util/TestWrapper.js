@@ -4,10 +4,11 @@ const {forEach, filter, isEmpty, set, get, cloneDeep} = require('lodash');
 const {expect, assert} = require('chai');
 const app = require('app');
 const routes = require('app/routes');
-const config = require('app/config');
+const config = require('config');
 const request = require('supertest');
 const journeyMap = require('app/core/journeyMap');
-const {steps} = require('app/core/initSteps');
+const initSteps = require('app/core/initSteps');
+const steps = initSteps([`${__dirname}/../../app/steps/action/`, `${__dirname}/../../app/steps/ui`], 'en');
 
 class TestWrapper {
     constructor(stepName) {

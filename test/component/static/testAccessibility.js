@@ -1,7 +1,8 @@
 'use strict';
 
 const TestWrapper = require('test/util/TestWrapper');
-const config = require('app/config');
+const config = require('config');
+const commonContent = require('app/resources/en/translation/common');
 
 describe('accessibility', () => {
     let testWrapper;
@@ -18,8 +19,8 @@ describe('accessibility', () => {
         it('test right content loaded on the page', (done) => {
             const contentData = {
                 myAbilityLink: config.links.myAbilityLink,
-                helpLineNumber: config.helpline.number,
-                helpLineHours: config.helpline.hours,
+                helpLineNumber: commonContent.helpTelephoneNumber,
+                helpLineHours: commonContent.helpTelephoneOpeningHours,
                 callChargesLink: config.links.callCharges,
                 equalityAdvisorLink: config.links.equalityAdvisorLink,
                 wcag21Link: config.links.wcag21Link,

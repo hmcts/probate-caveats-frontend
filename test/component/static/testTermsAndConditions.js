@@ -1,7 +1,8 @@
 'use strict';
 
 const TestWrapper = require('test/util/TestWrapper');
-const config = require('app/config');
+const config = require('config');
+const commonContent = require('app/resources/en/translation/common');
 
 describe('terms-conditions', () => {
     let testWrapper;
@@ -20,8 +21,8 @@ describe('terms-conditions', () => {
             const contentData = {
                 privacyLink: config.links.privacy,
                 cookiesLink: config.links.cookies,
-                helpLineNumber: config.helpline.number,
-                helpLineHours: config.helpline.hours,
+                helpLineNumber: commonContent.helpTelephoneNumber,
+                helpLineHours: commonContent.helpTelephoneOpeningHours,
                 callChargesLink: config.links.callCharges
             };
 

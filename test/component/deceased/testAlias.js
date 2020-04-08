@@ -4,7 +4,7 @@ const TestWrapper = require('test/util/TestWrapper');
 const DeceasedOtherNames = require('app/steps/ui/deceased/othernames/index');
 const DeceasedAddress = require('app/steps/ui/deceased/address/index');
 const testCommonContent = require('test/component/common/testCommonContent.js');
-const config = require('app/config');
+const config = require('config');
 const basePath = config.app.basePath;
 
 describe('deceased-alias', () => {
@@ -51,7 +51,7 @@ describe('deceased-alias', () => {
 
         it(`test it redirects to deceased other names page: ${expectedNextUrlForDeceasedOtherNames}`, (done) => {
             const data = {
-                alias: 'Yes'
+                alias: 'optionYes'
             };
 
             testWrapper.testRedirect(done, data, expectedNextUrlForDeceasedOtherNames);
@@ -59,7 +59,7 @@ describe('deceased-alias', () => {
 
         it(`test it redirects to deceased address page: ${expectedNextUrlForDeceasedAddress}`, (done) => {
             const data = {
-                alias: 'No'
+                alias: 'optionNo'
             };
 
             testWrapper.testRedirect(done, data, expectedNextUrlForDeceasedAddress);

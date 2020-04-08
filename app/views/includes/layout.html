@@ -4,44 +4,46 @@
 {% from "govuk/components/header/macro.njk" import govukHeader %}
 {% from "govuk/components/footer/macro.njk" import govukFooter %}
 
-{% block pageTitle %}
-  {% if title == undefined %}
-    {% set title = content.title %}
-  {% endif %}
+{% set htmlLang = fields.language.value %}
 
-  {{ title | safe }}{% if serviceName %}{{ " - " + serviceName }}{% endif %}
+{% block pageTitle %}
+    {% if title == undefined %}
+      {% set title = content.title %}
+    {% endif %}
+
+    {{ title | safe }}{% if serviceName %}{{ " - " + serviceName }}{% endif %}
 {% endblock %}
 
 {% block head %}
-  {% include "includes/head.html" %}
+    {% include "includes/head.html" %}
 {% endblock %}
 
 {% block header %}
-  <div id="global-cookie-message">
-    <p class="govuk-body">{{ cookieText | replace('{cookiesLink}', globals.links.cookies) | safe }}</p>
-  </div>
+    <div id="global-cookie-message">
+      <p class="govuk-body">{{ cookieText | replace("{cookiesLink}", globals.links.cookies) | safe }}</p>
+    </div>
 
-  {{ govukHeader({
-    homepageUrl: "#",
-    containerClasses: "govuk-width-container",
-    serviceName: serviceName,
-    serviceUrl: (globals.basePath if globals.basePath) + "/"
-  }) }}
+    {{ govukHeader({
+        homepageUrl: "#",
+        containerClasses: "govuk-width-container",
+        serviceName: serviceName | safe,
+        serviceUrl: (globals.basePath if globals.basePath) + "/"
+    }) }}
 {% endblock %}
 
 {% block beforeContent %}
-  {{ govukPhaseBanner({
-    tag: {
-      text: common.phase
-    },
-    html: common.feedback | replace("{smartSurveyFeedbackUrl}", globals.links.survey) | replace("{currentPageUrl}", pageUrl) | safe
-  }) }}
+    {{ govukPhaseBanner({
+        tag: {
+            text: common.phase | safe
+        },
+        html: (common.feedback + common.languageToggle) | replace("{smartSurveyFeedbackUrl}", globals.links.survey) | replace("{currentPageUrl}", pageUrl) | safe
+    }) }}
 {% endblock %}
 
 {% block footer %}
-  {% include "includes/footer_links.html" %}
+    {% include "includes/footer_links.html" %}
 {% endblock %}
 
 {% block bodyEnd %}
-  {% include "includes/scripts.html" %}
+    {% include "includes/scripts.html" %}
 {% endblock %}

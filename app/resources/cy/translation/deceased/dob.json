@@ -1,0 +1,52 @@
+{
+  "title": "Dyddiad geni&rsquo;r unigolyn sydd wedi marw",
+  "question": "Beth oedd eu dyddiad geni?",
+  "questionHint": "Er enghraifft, 31 03 1945",
+
+  "errors": {
+    "dob-day": {
+      "required": {
+        "summary": "Nid ydych wedi nodi&rsquo;r diwrnod y cawsant eu geni",
+        "message": "Nodwch y diwrnod y cawsant eu geni"
+      },
+      "invalid": {
+        "summary": "Nid ydych wedi nodi diwrnod dilys ar gyfer pryd cawsant eu geni",
+        "message": "Nodwch ddiwrnod geni dilys"
+      }
+    },
+    "dob-month": {
+      "required": {
+        "summary": "Nid ydych wedi nodi&rsquo;r mis y cawsant eu geni",
+        "message": "Nodwch y mis y cawsant eu geni"
+      },
+      "invalid": {
+        "summary": "Nid ydych wedi nodi mis dilys ar gyfer pryd cawsant eu geni",
+        "message": "Nodwch fis geni dilys"
+      }
+    },
+    "dob-year": {
+      "required": {
+        "summary": "Nid ydych wedi nodi&rsquo;r flwyddyn ar gyfer pryd cawsant eu geni",
+        "message": "Nodwch y flwyddyn y cawsant eu geni"
+      },
+      "invalid": {
+        "summary": "Nid ydych wedi nodi blwyddyn ddilys ar gyfer pryd cawsant eu geni",
+        "message": "Nodwch flwyddyn geni ddilys"
+      }
+    },
+    "dob-date": {
+      "invalid": {
+        "summary": "Mae angen ichi nodi dyddiad geni dilys",
+        "message": "Nodwch ddyddiad geni dilys"
+      },
+      "dateInFuture": {
+        "summary": "Mae&rsquo;n rhaid ichi nodi dyddiad geni sydd yn y gorffennol",
+        "message": "Nodwch ddyddiad yn y gorffennol"
+      },
+      "dodBeforeDob": {
+        "summary": "Mae&rsquo;r dyddiad geni rydych wedi&rsquo;i nodi ar &ocirc;l dyddiad y farwolaeth",
+        "message": "Nodwch ddyddiad geni sydd cyn dyddiad y farwolaeth"
+      }
+    }
+  }
+}

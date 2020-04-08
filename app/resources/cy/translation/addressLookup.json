@@ -1,0 +1,18 @@
+{
+  "errors": {
+    "postcode": {
+      "required": {
+        "summary": "Nid ydych wedi nodi cod post neu gyfeiriad",
+        "message": "Nodwch god post"
+      },
+      "invalid": {
+        "summary": "Rydych wedi nodi cod post annilys",
+        "message": "Nodwch god post dilys"
+      },
+      "noAddresses": {
+        "summary": "Ni ddaethpwyd o hyd i unrhyw gyfeiriadau, nodwch god post i chwilio eto",
+        "message": "Nodwch god post dilys"
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "title": "Dyddiad geni&rsquo;r unigolyn sydd wedi marw",
+  "question": "A ydych chi&rsquo;n gwybod dyddiad geni {deceasedName}?",
+  "optionYes": "Ydw",
+  "optionNo": "Nac ydw",
+
+  "errors": {
+    "dobknown": {
+      "required": {
+        "summary": "Atebwch y cwestiwn am y dyddiad geni",
+        "message": "Dewiswch ydw os ydych yn gwybod y dyddiad geni"
+      }
+    }
+  }
+}

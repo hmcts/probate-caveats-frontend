@@ -1,0 +1,36 @@
+{
+  "title": "Enw&rsquo;r unigolyn sydd wedi marw",
+  "question": "Beth yw enw llawn yr unigolyn sydd wedi marw?",
+  "explanation1": "Defnyddiwch yr enw sydd ar y dystysgrif marwolaeth.",
+  "firstName": "Enw(au) cyntaf",
+  "firstNameHint": "Gan gynnwys enwau canol",
+  "lastName": "Cyfenw(au)",
+
+  "errors": {
+    "firstName": {
+      "required": {
+        "summary": "Nid ydych wedi nodi enw cyntaf yr unigolyn sydd wedi marw",
+        "message": "Nodwch enw cyntaf yr unigolyn sydd wedi marw"
+      },
+      "invalid": {
+        "summary": "Gall yr enw cyntaf ond gynnwys llythrennau a i z, bylchau, cysylltnodau a chollnodau",
+        "message": "Gall yr enw cyntaf ond gynnwys llythrennau a i z, bylchau, cysylltnodau a chollnodau"
+      }
+    },
+    "lastName": {
+      "required": {
+        "summary": "Nid ydych wedi nodi cyfenw&rsquo;r unigolyn sydd wedi marw",
+        "message": "Nodwch gyfenw&rsquo;r unigolyn sydd wedi marw"
+      },
+      "invalid": {
+        "summary": "Gall y cyfenw ond gynnwys llythrennau a i z, bylchau, cysylltnodau a chollnodau",
+        "message": "Gall y cyfenw ond gynnwys llythrennau a i z, bylchau, cysylltnodau a chollnodau"
+      }
+    },
+    "numberOfOtherNames": {
+      "maxLength": {
+        "summary": "Ni allwch ychwanegu mwy na 100 enw arall"
+      }
+    }
+  }
+}

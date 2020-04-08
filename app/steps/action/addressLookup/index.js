@@ -1,6 +1,5 @@
 'use strict';
 
-const config = require('app/config');
 const {isEmpty} = require('lodash');
 const ValidationStep = require('app/core/steps/ValidationStep');
 const services = require('app/components/services');
@@ -17,11 +16,11 @@ class AddressLookup extends ValidationStep {
         return new ActionStepRunner();
     }
 
-    nextStepUrl() {
-        return config.app.basePath + this.steps[this.referrer].constructor.getUrl();
+    next() {
+        return this.steps[this.referrer];
     }
 
-    * handlePost(ctx, errors, formdata) {
+    * handlePost(ctx, errors, formdata, session) {
         this.referrer = ctx.referrer;
         let referrerData = this.getReferrerData(ctx, formdata);
         referrerData = this.pruneReferrerData(referrerData);
@@ -42,11 +41,11 @@ class AddressLookup extends ValidationStep {
                     }
                 } else {
                     referrerData.addressFound = 'false';
-                    referrerData.errors = [FieldError('postcode', 'noAddresses', this.resourcePath, ctx)];
+                    referrerData.errors = [FieldError('postcode', 'noAddresses', this.resourcePath, this.generateContent(ctx, {}, session.language), session.language)];
                 }
             } catch (e) {
                 referrerData.addressFound = 'false';
-                referrerData.errors = [FieldError('postcode', 'invalid', this.resourcePath, ctx)];
+                referrerData.errors = [FieldError('postcode', 'invalid', this.resourcePath, this.generateContent(ctx, {}, session.language), session.language)];
             }
         } else {
             referrerData.errors = errors;

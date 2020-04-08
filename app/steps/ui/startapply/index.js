@@ -5,7 +5,6 @@ class StartApply extends Step {
     static getUrl () {
         return '/start-apply';
     }
-
 }
 
 module.exports = StartApply;

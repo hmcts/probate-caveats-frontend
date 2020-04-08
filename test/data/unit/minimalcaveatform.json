@@ -1,4 +1,7 @@
 {
+    "language": {
+        "bilingual": "optionYes"
+    },
     "applicant": {
         "address": {
             "addressLine1": "aaaa"
@@ -7,7 +10,7 @@
         "firstName": "Jason",
         "lastName": "Smith"
     },
-    "applicationId" : "zq1675whyui",
+    "applicationId": "zq1675whyui",
     "deceased": {
         "address": {
             "addressLine1": "dddd"

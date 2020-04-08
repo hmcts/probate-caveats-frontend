@@ -3,8 +3,6 @@
 {% from "govuk/components/radios/macro.njk" import govukRadios %}
 {% from "govuk/components/button/macro.njk" import govukButton %}
 
-{% set displaySignOutLink = "false" %}
-
 {% block form_content %}
     {{ govukRadios({
         classes: "govuk-radios--inline",
@@ -12,7 +10,7 @@
         name: "alias",
         fieldset: {
             legend: {
-                text: content.question | replace('{deceasedName}', fields.deceasedName.value) | safe,
+                text: content.question | replace("{deceasedName}", fields.deceasedName.value) | safe,
                 isPageHeading: true,
                 classes: "govuk-fieldset__legend--l"
             }
@@ -23,21 +21,21 @@
         errorMessage: { text: fields.alias.errorMessage.message | safe } if fields.alias.errorMessage,
         items: [
             {
-                value: content["optionYes"],
-                text: content["optionYes"],
-                checked: true if fields.alias.value == content["optionYes"] | escape
+                value: "optionYes",
+                text: content["optionYes"] | safe,
+                checked: true if fields.alias.value == "optionYes" | escape
             },
             {
-                value: content["optionNo"],
-                text: content["optionNo"],
-                checked: true if fields.alias.value == content["optionNo"] | escape
+                value: "optionNo",
+                text: content["optionNo"] | safe,
+                checked: true if fields.alias.value == "optionNo" | escape
             }
         ]
     }) }}
 
     <div class="govuk-form-group">
         {{ govukButton({
-            text: common.continue,
+            text: common.saveAndContinue | safe,
             preventDoubleClick: true
         }) }}
     </div>

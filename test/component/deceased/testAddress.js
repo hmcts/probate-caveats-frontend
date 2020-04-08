@@ -1,14 +1,14 @@
 'use strict';
 
 const TestWrapper = require('test/util/TestWrapper');
-const Summary = require('app/steps/ui/summary/index');
+const Language = require('app/steps/ui/language/index');
 const testCommonContent = require('test/component/common/testCommonContent.js');
-const config = require('app/config');
+const config = require('config');
 const basePath = config.app.basePath;
 
 describe('deceased-address', () => {
     let testWrapper;
-    const expectedNextUrlForSummary = basePath + Summary.getUrl();
+    const expectedNextUrlForLanguage = basePath + Language.getUrl();
 
     beforeEach(() => {
         testWrapper = new TestWrapper('DeceasedAddress');
@@ -48,13 +48,13 @@ describe('deceased-address', () => {
             testWrapper.testErrors(done, data, 'required', ['addressLine1', 'postTown', 'newPostCode']);
         });
 
-        it(`test it redirects to summary page: ${expectedNextUrlForSummary}`, (done) => {
+        it(`test it redirects to language page: ${expectedNextUrlForLanguage}`, (done) => {
             const data = {
                 addressLine1: 'value',
                 postTown: 'value',
                 newPostCode: 'value'
             };
-            testWrapper.testRedirect(done, data, expectedNextUrlForSummary);
+            testWrapper.testRedirect(done, data, expectedNextUrlForLanguage);
         });
     });
 });

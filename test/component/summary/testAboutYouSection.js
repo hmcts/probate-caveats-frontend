@@ -3,8 +3,9 @@
 const requireDir = require('require-directory');
 const TestWrapper = require('test/util/TestWrapper');
 const applicantData = require('test/data/applicant');
+const languageContent = require('../../../app/resources/en/translation/language');
 const applicantContent = requireDir(module, '../../../app/resources/en/translation/applicant');
-const config = require('app/config');
+const config = require('config');
 const basePath = config.app.basePath;
 
 describe('summary-about-you-section', () => {
@@ -29,6 +30,7 @@ describe('summary-about-you-section', () => {
                     }
 
                     const playbackData = {
+                        bilingual: languageContent.question,
                         firstName: applicantContent.name.firstName,
                         lastName: applicantContent.name.lastName,
                         emailAddress: applicantContent.email.question,
@@ -48,6 +50,7 @@ describe('summary-about-you-section', () => {
                     }
 
                     const playbackData = {
+                        bilingual: languageContent.question,
                         firstName: applicantContent.name.firstName,
                         lastName: applicantContent.name.lastName,
                         emailAddress: applicantContent.email.question,
@@ -59,6 +62,5 @@ describe('summary-about-you-section', () => {
                     testWrapper.testDataPlayback(done, playbackData);
                 });
         });
-
     });
 });

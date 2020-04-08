@@ -1,7 +1,7 @@
 <script src="{{ globals.basePath }}/public/javascripts/govuk-frontend/govuk/all.js"></script>
 <script nonce="{{ globals.nonce }}">window.GOVUKFrontend.initAll()</script>
 
-{% if globals.enableTracking === 'true' %}
+{% if globals.enableTracking == "true" %}
     <script nonce="{{ globals.nonce }}">
         var gatrackingid = "{{ globals.gaTrackingId }}";
     </script>
@@ -30,13 +30,13 @@
         btnServiceClosed: '/{{ globals.webChat.tenant }}/button_{{ globals.webChat.buttonServiceClosed }}/img/logo',
         chatDownAction: 'showMessage',
         chatLinkFocusable: false,
-        textChatDown: '{{ common.chatDown | replace("\n", "\\n") }}',
-        textChatClosed: '{{ common.chatClosed | replace("\n", "\\n") | replace("{chatOpeningHours}", common.chatOpeningHours) }}',
-        textChatWithAnAgent: '{{ common.chatWithAnAgent | replace("\n", "\\n") }}',
-        textNoAgentsAvailable: '{{ common.noAgentsAvailable | replace("\n", "\\n") }}',
-        textAllAgentsBusy: '{{ common.allAgentsBusy | replace("\n", "\\n") }}',
-        textChatAlreadyOpen: '{{ common.chatAlreadyOpen | replace("\\n", "\\\\n") }}',
-        textAdditional: '{{ common.chatOpeningHours | replace("\n", "\\n") }}.',
+        textChatDown: '{{ common.helpChatDown | replace("\n", "\\n") | safe }}',
+        textChatClosed: '{{ common.helpChatClosed | replace("\n", "\\n") | replace("{chatOpeningHours}", common.helpChatOpeningHours) | safe }}',
+        textChatWithAnAgent: '{{ common.helpChatWithAnAgent | replace("\n", "\\n") | safe }}',
+        textNoAgentsAvailable: '{{ common.helpNoAgentsAvailable | replace("\n", "\\n") | safe }}',
+        textAllAgentsBusy: '{{ common.helpAllAgentsBusy | replace("\n", "\\n") | safe }}',
+        textChatAlreadyOpen: '{{ common.helpChatAlreadyOpen | replace("\\n", "\\\\n") | safe }}',
+        textAdditional: '{{ common.helpChatOpeningHours | replace("\n", "\\n") | safe }}.',
         gdsMajorVersion: 3
     });
 </script>

@@ -1,6 +1,5 @@
 'use strict';
 
-const config = require('app/config');
 const ValidationStep = require('app/core/steps/ValidationStep');
 const FieldError = require('app/components/error');
 const {get, set, isEmpty} = require('lodash');
@@ -10,10 +9,6 @@ class DeceasedOtherNames extends ValidationStep {
 
     static getUrl() {
         return '/other-names';
-    }
-
-    nextStepUrl(req, ctx) {
-        return config.app.basePath + this.next(req, ctx).constructor.getUrl();
     }
 
     getContextData(req) {
@@ -27,21 +22,19 @@ class DeceasedOtherNames extends ValidationStep {
         return ctx;
     }
 
-    validate(ctx, formdata) {
+    validate(ctx, formdata, language) {
         let allValid = true;
         let allErrors = [];
         const otherNameErrors = new Map();
 
         if (Object.keys(ctx.otherNames).length >= 100) {
             otherNameErrors.set('name_101', [
-                FieldError('numberOfOtherNames',
-                    'maxLength',
-                    `${this.resourcePath}`, ctx)
+                FieldError('numberOfOtherNames', 'maxLength', `${this.resourcePath}`, ctx, language)
             ]);
         }
 
         Object.entries(ctx.otherNames).forEach(([index, otherName]) => {
-            const [isValid, errors] = super.validate(otherName, formdata);
+            const [isValid, errors] = super.validate(otherName, formdata, language);
             allValid = isValid && allValid;
             if (!isEmpty(errors)) {
                 otherNameErrors.set(index, errors);
@@ -53,15 +46,15 @@ class DeceasedOtherNames extends ValidationStep {
         return [allValid, allErrors];
     }
 
-    generateFields(ctx, errors) {
-        const fields = super.generateFields(ctx, errors);
+    generateFields(language, ctx, errors) {
+        const fields = super.generateFields(language, ctx, errors);
 
         if (get(ctx, 'otherNames')) {
             errors = new Map(errors);
             set(fields, 'otherNames.value', new Map());
             Object.entries(ctx.otherNames).forEach(([index, otherName]) => {
                 const otherNameErrors = isEmpty(errors) ? [] : errors.get(index);
-                fields.otherNames.value.set(index, super.generateFields(otherName, otherNameErrors));
+                fields.otherNames.value.set(index, super.generateFields(language, otherName, otherNameErrors));
             });
             set(errors, 'otherNames', Array.from(errors));
             set(fields, 'otherNames.value', Array.from(fields.otherNames.value));

@@ -1,7 +1,8 @@
 'use strict';
 
 const TestWrapper = require('test/util/TestWrapper');
-const config = require('app/config');
+const config = require('config');
+const commonContent = require('app/resources/en/translation/common');
 
 describe('contact-us', () => {
     let testWrapper;
@@ -17,8 +18,8 @@ describe('contact-us', () => {
     describe('Verify Content, Errors and Redirection', () => {
         it('test right content loaded on the page', (done) => {
             const contentData = {
-                helpLineNumber: config.helpline.number,
-                helpLineHours: config.helpline.hours,
+                helpLineNumber: commonContent.helpTelephoneNumber,
+                helpLineHours: commonContent.helpTelephoneOpeningHours,
                 callChargesLink: config.links.callCharges
             };
 

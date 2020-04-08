@@ -1,0 +1,79 @@
+frontendPublicHttpProtocol: PUBLIC_PROTOCOL
+environment: REFORM_ENVIRONMENT
+nodeEnvironment: NODE_ENV
+gitRevision: GIT_REVISION
+externalHostNameUrl: EXTERNAL_HOSTNAME_URL
+featureToggles:
+  url: FEATURE_TOGGLES_API_URL
+  path: FEATURE_TOGGLES_PATH
+app:
+  useHttps: USE_HTTPS
+  port: PORT
+  basePath: APP_BASE_PATH
+services:
+  postcode:
+    token: POSTCODE_SERVICE_TOKEN
+  orchestration:
+    url: ORCHESTRATION_SERVICE_URL
+  idam:
+    apiUrl: IDAM_API_URL
+    s2s_url: IDAM_S2S_URL
+    service_key: IDAM_SERVICE_KEY
+    probate_oauth2_secret: IDAM_API_OAUTH2_CLIENT_CLIENT_SECRETS_PROBATE
+    caveat_user_email: CAVEAT_USER_EMAIL
+    caveat_user_password: CAVEAT_USER_PASSWORD
+    caveat_redirect_base_url: CAVEAT_REDIRECT_BASE_URL
+  payment:
+    createPaymentUrl: PAYMENT_CREATE_URL
+    authorization: PAYMENT_AUTHORIZATION
+    serviceAuthorization: PAYMENT_SERVICE_AUTHORIZATION
+    userId: PAYMENT_USER_ID
+    returnUrlPath: PAY_RETURN_URL
+  persistence:
+    url: PERSISTENCE_SERVICE_URL
+  feesRegister:
+    url: FEES_REGISTRY_URL
+redis:
+  host: REDIS_HOST
+  port: REDIS_PORT
+  password: REDIS_PASSWORD
+  useTLS: REDIS_USE_TLS
+  enabled: USE_REDIS
+  secret: REDIS_SECRET
+hostname: FRONTEND_HOSTNAME
+gaTrackingId: GA_TRACKING_ID
+enableTracking: ENABLE_TRACKING
+webChat:
+  chatId: WEBCHAT_CHAT_ID
+  tenant: WEBCHAT_TENANT
+  buttonNoAgents: WEBCHAT_BUTTON_NO_AGENTS
+  buttonAgentsBusy: WEBCHAT_BUTTON_AGENTS_BUSY
+  buttonServiceClosed: WEBCHAT_BUTTON_SERVICE_CLOSED
+links:
+  survey: SURVEY
+  surveyEndOfApplication: SURVEY_END_OF_APPLICATION
+utils:
+  api:
+    retries: RETRIES_NUMBER
+    retryDelay: RETRY_DELAY
+payment:
+  applicationFeeCode: APPLICATION_FEE_CODE
+  serviceId: SERVICE_ID
+  siteId: SITE_ID
+  version: version
+  currency: currency
+appInsights:
+  instrumentationKey: APPINSIGHTS_INSTRUMENTATION_KEY
+
+TestFrontendUrl: TEST_URL
+TestE2EFrontendUrl: TEST_E2E_URL
+TestUseGovPay: USE_GOV_PAY
+TestRetryFeatures: RETRY_FEATURES
+TestRetryScenarios: RETRY_SCENARIOS
+TestOutputDir: E2E_OUTPUT_DIR
+postcodeLookup:
+  token: POSTCODE_SERVICE_TOKEN
+validation:
+  url: TEST_VALIDATION_SERVICE_URL
+pact:
+  pactBrokerUrl: PACT_BROKER_URL 

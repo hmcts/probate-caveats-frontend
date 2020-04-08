@@ -1,6 +1,6 @@
 'use strict';
 
-const testConfig = require('test/config');
+const testConfig = require('config');
 
 module.exports = function () {
     const I = this;

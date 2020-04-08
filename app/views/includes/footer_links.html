@@ -1,22 +1,22 @@
 {% block footer %}
-  {{ govukFooter({
-    meta: {
-      items: [{
-        href: globals.links.cookies,
-        text: common.cookies
-      }, {
-        href: globals.links.privacy,
-        text: common.privacyPolicy
-      }, {
-        href: globals.links.accessibility,
-        text: common.accessibility
-      }, {
-        href: globals.links.terms,
-        text: common.termsAndConditions
-      }, {
-        href: globals.links.contact,
-        text: common.contactUs
-      }]
-    }
-  }) }}
+    {{ govukFooter({
+        meta: {
+            items: [{
+                href: globals.links.cookies,
+                text: common.cookies | safe
+            }, {
+                href: globals.links.privacy,
+                text: common.privacyPolicy | safe
+            }, {
+                href: globals.links.accessibility,
+                text: common.accessibility | safe
+            }, {
+                href: globals.links.terms,
+                text: common.termsAndConditions | safe
+            }, {
+                href: globals.links.contact,
+                text: common.contactUs | safe
+            }]
+        }
+    }) }}
 {% endblock %}

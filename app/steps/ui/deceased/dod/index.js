@@ -1,6 +1,5 @@
 'use strict';
 
-const config = require('app/config');
 const DateStep = require('app/core/steps/DateStep');
 const FieldError = require('app/components/error');
 
@@ -8,10 +7,6 @@ class DeceasedDod extends DateStep {
 
     static getUrl() {
         return '/deceased-dod';
-    }
-
-    nextStepUrl(req, ctx) {
-        return config.app.basePath + this.next(req, ctx).constructor.getUrl();
     }
 
     dateName() {
@@ -31,9 +26,9 @@ class DeceasedDod extends DateStep {
         today.setHours(0, 0, 0, 0);
 
         if (dod > today) {
-            errors.push(FieldError('dod-date', 'dateInFuture', this.resourcePath, this.generateContent()));
+            errors.push(FieldError('dod-date', 'dateInFuture', this.resourcePath, this.generateContent({}, {}, session.language), session.language));
         } else if (typeof dob === 'object' && dob >= dod) {
-            errors.push(FieldError('dod-date', 'dodBeforeDob', this.resourcePath, this.generateContent()));
+            errors.push(FieldError('dod-date', 'dodBeforeDob', this.resourcePath, this.generateContent({}, {}, session.language), session.language));
         }
 
         return [ctx, errors];

@@ -1,7 +1,7 @@
 'use strict';
 
 const utils = require('app/components/api-utils');
-const config = require('app/config');
+const config = require('config');
 const services = require('app/components/services');
 const ORCHESTRATION_SERVICE_URL = config.services.orchestration.url;
 const CHECK_ANSWERS_PDF_URL = config.services.orchestration.paths.checkanswerspdf;
@@ -13,10 +13,7 @@ const createCheckAnswersPdf = (formdata, sessionId, hostname) => {
     logInfo('Create check your answers PDF', sessionId);
     return services.authorise(formdata.applicationId)
         .then(serviceToken => {
-            const body = {
-                checkAnswersSummary: formdata.checkAnswersSummary
-            };
-            return createPDFDocument(formdata, serviceToken, body, hostname);
+            return createPDFDocument(formdata, serviceToken, formdata.checkAnswersSummary, hostname);
         });
 };
 
@@ -24,7 +21,7 @@ function createPDFDocument(formdata, serviceToken, body, hostname) {
     return security.getUserToken(hostname, formdata.applicationId)
         .then((usertoken) => {
             const headers = {
-                'Content-Type': 'application/businessdocument+json',
+                'Content-Type': 'application/json',
                 'Session-Id': formdata.applicationId,
                 'Authorization': usertoken,
                 'ServiceAuthorization': serviceToken

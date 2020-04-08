@@ -7,7 +7,7 @@ const deceasedData = require('test/data/deceased');
 const deceasedContent = requireDir(module, '../../../app/resources/en/translation/deceased');
 const summaryContent = require('app/resources/en/translation/summary');
 const FormatName = require('app/utils/FormatName');
-const config = require('app/config');
+const config = require('config');
 const basePath = config.app.basePath;
 
 describe('summary-deceased-section', () => {
@@ -78,7 +78,7 @@ describe('summary-deceased-section', () => {
                 deceased: {
                     firstName: 'Joe',
                     lastName: 'Bloggs',
-                    alias: 'Yes',
+                    alias: 'optionYes',
                     otherNames: {
                         name_0: {
                             firstName: 'new_died_firstname',

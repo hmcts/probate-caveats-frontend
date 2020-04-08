@@ -3,24 +3,24 @@
 
 {% macro addressFinder(fields,content,basePath,step) %}
     <div class="govuk-form-group {{ "govuk-form-group--error" if fields.postcode.error }}">
-        <label for="postcode" class="govuk-label">{{ content.postcode }}</label>
+        <label for="postcode" class="govuk-label">{{ content.postcode | safe }}</label>
 
         {{ fieldError(fields.postcode) }}
 
-        <input type="text" class="govuk-input govuk-!-width-one-quarter {{ "govuk-input--error" if fields.postcode.error }}" id="postcode" name="postcode" value="{{ fields.postcode.value }}">
+        <input type="text" class="govuk-input govuk-!-width-one-quarter {{ "govuk-input--error" if fields.postcode.error }}" id="postcode" name="postcode" value="{{ fields.postcode.value }}" autocomplete="none">
         <input type="hidden" id="referrer" name="referrer" value="{{ step }}">
         <input type="hidden" id="addressFound" name="addressFound" value="{{ fields.addressFound.value if fields.addressFound else "none" }}">
-        <button type="submit" data-prevent-double-click="true" class="govuk-button govuk-button--secondary find-address-button" id="findAddress">{{ content.findAddress }}</button>
+        <button type="submit" data-prevent-double-click="true" class="govuk-button govuk-button--secondary find-address-button" id="findAddress">{{ content.findAddress | safe }}</button>
     </div>
 
     {% if fields.addresses %}
         <div class="govuk-form-group">
-            <label for="postcodeAddress" class="govuk-label">{{ content.addressLabel }}</label>
+            <label for="postcodeAddress" class="govuk-label">{{ content.addressLabel | safe }}</label>
             <select id="postcodeAddress" class="govuk-select" name="postcodeAddress" value="{{ fields.address.value }}">
                 <option value="">{{ content.selectAddress }}</option>
                 {% for address in fields.addresses.value %}
                     {% set formattedAddress = address.formattedAddress | replace(",",", ") %}
-                    <option value="{{ loop.index0 }}" {{ "selected" if formattedAddress === fields.postcodeAddress.value }}>{{ formattedAddress }}</option>
+                    <option value="{{ loop.index0 }}" {{ "selected" if formattedAddress == fields.postcodeAddress.value }}>{{ formattedAddress }}</option>
                 {% endfor %}
             </select>
         </div>
@@ -55,4 +55,5 @@
             }
         })();
     </script>
+    <script src="{{ globals.basePath }}/public/javascripts/address-fields-focus.js"></script>
 {% endmacro %}

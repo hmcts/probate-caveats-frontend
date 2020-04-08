@@ -1,4 +1,4 @@
-const testConfig = require('test/config.js');
+const testConfig = require('config');
 
 class TestConfigurator {
 
