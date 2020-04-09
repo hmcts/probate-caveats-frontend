@@ -27,6 +27,7 @@ idam-pr:
       - https://${SERVICE_FQDN}/oauth2/callback
 
 rpe-feature-toggle-api:
+  enabled: true
   releaseNameOverride: ${SERVICE_NAME}-ftr-tgl-api
   java:
     releaseNameOverride: ${SERVICE_NAME}-ftr-tgl-api
@@ -48,6 +49,6 @@ rpe-feature-toggle-api:
         enabled: false
       oneoff:
         enabled: false
-  enabled: true
+
 redis:
   enabled: true
