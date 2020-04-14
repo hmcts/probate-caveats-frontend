@@ -20,12 +20,12 @@ nodejs:
         - probate-site-id
         - caveat-user-name
         - caveat-user-password
+        - google-analytics-tracking-id-caveats
 idam-pr:
   enabled: true
   redirect_uris:
     Probate:
       - https://${SERVICE_FQDN}/oauth2/callback
-
 rpe-feature-toggle-api:
   enabled: true
   releaseNameOverride: ${SERVICE_NAME}-ftr-tgl-api
@@ -49,6 +49,5 @@ rpe-feature-toggle-api:
         enabled: false
       oneoff:
         enabled: false
-
 redis:
   enabled: true
