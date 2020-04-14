@@ -5,7 +5,7 @@ nodejs:
   cpuRequests: "100m"
   memoryLimits: "1024Mi"
   cpuLimits: "500"
-  aadIdentityName: probate  
+  aadIdentityName: probate
   environment:
     PUBLIC_PROTOCOL: https
     USE_HTTPS: false
@@ -45,6 +45,7 @@ nodejs:
         - probate-webchat-button-busy
         - probate-webchat-button-service-closed
         - AppInsightsInstrumentationKey
+        - google-analytics-tracking-id-caveats
 redis:
   cluster:
     enabled: false
