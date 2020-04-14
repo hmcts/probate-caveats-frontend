@@ -20,7 +20,7 @@ nodejs:
         - probate-site-id
         - caveat-user-name
         - caveat-user-password
-        - -google-analytics-tracking-id-caveats
+        - google-analytics-tracking-id-caveats
 idam-pr:
   enabled: true
   redirect_uris:
