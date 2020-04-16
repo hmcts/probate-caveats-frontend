@@ -45,8 +45,7 @@
     "//": "The below scripts are just stubs, don't use them in production",
     "stub:orchestrator": "NODE_PATH=. node test/service-stubs/orchestrator.js",
     "stub:s2s": "NODE_PATH=. node test/service-stubs/s2s.js",
-    "stub:idam": "NODE_PATH=. node test/service-stubs/idam.js",
-    "stub:feature-toggles": "NODE_PATH=. node test/service-stubs/feature-toggles.js"
+    "stub:idam": "NODE_PATH=. node test/service-stubs/idam.js"
   },
   "pre-commit": [
     "lint"
