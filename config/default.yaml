@@ -3,11 +3,13 @@ environment: 'prod'
 externalHostNameUrl: ''
 languages: ['en','cy']
 featureToggles:
-  url: 'http://localhost:8292'
-  path: '/api/ff4j/check'
-  port: 8292
-  caveats_shutter_toggle: 'probate-caveats-fe-shutter'
-  pcq_toggle: 'probate-caveats-pcq'
+  launchDarklyKey: 'SDK_KEY'
+  launchDarklyUser:
+    firstName: 'Caveats'
+    lastName: 'Frontend'
+    key: '858c8e86-3914-42b5-aa41-ea9c3372e98c'
+  ft_caveats_shutter: 'probate-caveats-fe-shutter'
+  ft_pcq: 'probate-caveats-pcq'
   appwideToggles: []
 app:
   useHttps: 'false'
@@ -75,7 +77,7 @@ redis:
 dateFormat: 'DD/MM/YYYY'
 payloadVersion: '4.1.0'
 hostname: 'localhost:3000'
-gaTrackingId: 'UA-93598808-5'
+gaTrackingId: 'UA-93598808-3'
 enableTracking: 'true'
 webChat:
   chatId: '3077733355d19fd430f23c7.02555395'

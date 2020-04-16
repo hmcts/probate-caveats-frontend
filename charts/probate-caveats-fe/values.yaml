@@ -19,7 +19,6 @@ nodejs:
     IDAM_S2S_URL: http://rpe-service-auth-provider-{{ .Values.global.environment }}.service.core-compute-{{ .Values.global.environment }}.internal
     PAYMENT_CREATE_URL: http://payment-api-{{ .Values.global.environment }}.service.core-compute-{{ .Values.global.environment }}.internal/card-payments
     ORCHESTRATION_SERVICE_URL: http://probate-orchestrator-service-{{ .Values.global.environment }}.service.core-compute-{{ .Values.global.environment }}.internal
-    FEATURE_TOGGLES_API_URL: http://rpe-feature-toggle-api-{{ .Values.global.environment }}.service.core-compute-{{ .Values.global.environment }}.internal
     APP_BASE_PATH: "/caveats"
     POSTCODE_SERVICE_PATH: "/caveats/find-address"
     PAY_RETURN_URL: "/caveats/payment-status"
@@ -47,6 +46,7 @@ nodejs:
         - probate-webchat-button-service-closed
         - AppInsightsInstrumentationKey
         - google-analytics-tracking-id-caveats
+        - launchdarkly-key
 redis:
   cluster:
     enabled: false
@@ -56,15 +56,5 @@ redis:
     persistence:
       enabled: false
   enabled: false
-rpe-feature-toggle-api:
-  enabled: false
-#  image: hmcts.azurecr.io/hmcts/rpe-feature-toggle-api:latest
-  importer:
-    cron:
-      enabled: false
-    oneoff:
-      enabled: false
-  postgresql:
-    postgresqlDatabase: hmcts
 idam-pr:
   enabled: false

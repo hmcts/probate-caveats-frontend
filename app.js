@@ -24,8 +24,10 @@ const appInsights = require('applicationinsights');
 const uuidv4 = require('uuid/v4');
 const nonce = uuidv4();
 const isEmpty = require('lodash').isEmpty;
+const featureToggles = require('app/featureToggles');
+const LaunchDarkly = require('launchdarkly-node-server-sdk');
 
-exports.init = function(isA11yTest = false, a11yTestSession = {}) {
+exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
     const app = express();
     const port = config.app.port;
     const releaseVersion = packageJson.version;
@@ -232,6 +234,21 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}) {
         res.json({status: 'UP'});
     });
 
+    app.use((req, res, next) => {
+        if (['test', 'testing'].includes(app.get('env'))) {
+            res.locals.launchDarkly = {
+                client: LaunchDarkly.init(config.featureToggles.launchDarklyKey, {offline: true}),
+                ftValue: ftValue
+            };
+        } else {
+            res.locals.launchDarkly = {
+                client: LaunchDarkly.init(config.featureToggles.launchDarklyKey)
+            };
+        }
+
+        next();
+    });
+
     app.use(`${config.app.basePath}/`, (req, res, next) => {
         if (req.query.id && req.query.id !== req.session.regId) {
             delete req.session.form;
@@ -239,6 +256,8 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}) {
         req.session.regId = req.query.id || req.session.regId || req.sessionID;
         next();
     }, routes);
+
+    app.use(featureToggles);
 
     // Start the app
     let http;
