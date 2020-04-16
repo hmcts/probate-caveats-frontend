@@ -5,7 +5,6 @@ nodejs:
     REDIS_USE_TLS: false
     REDIS_HOST: ${SERVICE_NAME}-redis-master
     REDIS_PORT: 6379
-    FEATURE_TOGGLES_API_URL: http://${SERVICE_NAME}-ftr-tgl-api
   keyVaults:
     probate:
       secrets:
@@ -21,33 +20,11 @@ nodejs:
         - caveat-user-name
         - caveat-user-password
         - google-analytics-tracking-id-caveats
+        - launchdarkly-key
 idam-pr:
   enabled: true
   redirect_uris:
     Probate:
       - https://${SERVICE_FQDN}/oauth2/callback
-rpe-feature-toggle-api:
-  enabled: true
-  releaseNameOverride: ${SERVICE_NAME}-ftr-tgl-api
-  java:
-    releaseNameOverride: ${SERVICE_NAME}-ftr-tgl-api
-    ingressIP: ${INGRESS_IP}
-    consulIP: ${CONSUL_LB_IP}
-    postgresql:
-      enabled: true # for rpe-feature-toggle-api
-      image:
-        tag: '11.3.0'
-    registerAdditionalDns:
-      enabled: true
-      primaryIngressHost: ${SERVICE_FQDN}
-      prefix: ftr-tgl
-    environment:
-      EDITOR_USERNAME_TEST: editor@example.com
-      EDITOR_PASSWORD_TEST: Password12
-    importer:
-      cron:
-        enabled: false
-      oneoff:
-        enabled: false
 redis:
   enabled: true

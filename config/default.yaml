@@ -3,10 +3,12 @@ environment: 'prod'
 externalHostNameUrl: ''
 languages: ['en','cy']
 featureToggles:
-  url: 'http://localhost:8292'
-  path: '/api/ff4j/check'
-  port: 8292
-  caveats_shutter_toggle: 'probate-caveats-fe-shutter'
+  launchDarklyKey: 'SDK_KEY'
+  launchDarklyUser:
+    firstName: 'Caveats'
+    lastName: 'Frontend'
+    key: '858c8e86-3914-42b5-aa41-ea9c3372e98c'
+  ft_caveats_shutter: 'probate-caveats-fe-shutter'
   appwideToggles: []
 app:
   useHttps: 'false'
