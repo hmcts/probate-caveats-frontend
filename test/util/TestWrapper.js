@@ -11,7 +11,7 @@ const initSteps = require('app/core/initSteps');
 const steps = initSteps([`${__dirname}/../../app/steps/action/`, `${__dirname}/../../app/steps/ui`], 'en');
 
 class TestWrapper {
-    constructor(stepName) {
+    constructor(stepName, ftValue) {
         this.pageToTest = steps[stepName];
         this.pageUrl = this.pageToTest.constructor.getUrl();
 
@@ -30,7 +30,7 @@ class TestWrapper {
         });
 
         config.app.useCSRFProtection = 'false';
-        this.server = app.init();
+        this.server = app.init(false, {}, ftValue);
         this.agent = request.agent(this.server.app);
     }
 

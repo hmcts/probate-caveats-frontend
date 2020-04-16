@@ -2,17 +2,22 @@
 
 const expect = require('chai').expect;
 const sinon = require('sinon');
-const rewire = require('rewire');
-const FeatureToggle = rewire('app/utils/FeatureToggle');
+const FeatureToggle = require('app/utils/FeatureToggle');
+const config = require('config');
 
 describe('FeatureToggle', () => {
     describe('checkToggle()', () => {
         it('should call the callback function when the api returns successfully', (done) => {
-            const revert = FeatureToggle.__set__('FeatureToggleService', class {
-                get() {
-                    return Promise.resolve('true');
-                }
+            const LaunchDarkly = require('launchdarkly-node-server-sdk');
+            const dataSource = LaunchDarkly.FileDataSource({
+                paths: ['test/data/launchdarkly/simple_flag_data.yaml']
             });
+            const ldConfig = {
+                updateProcessor: dataSource
+            };
+
+            const ldClient = LaunchDarkly.init(config.featureToggles.launchDarklyKey, ldConfig);
+
             const params = {
                 req: {
                     session: {
@@ -21,25 +26,35 @@ describe('FeatureToggle', () => {
                 },
                 res: {},
                 next: () => true,
-                featureToggleKey: 'document_upload',
+                redirectPage: '/dummy-page',
+                launchDarkly: {
+                    client: ldClient
+                },
+                featureToggleKey: 'ft_caveats_shutter',
                 callback: sinon.spy()
             };
             const featureToggle = new FeatureToggle();
 
-            featureToggle.checkToggle(params).then(() => {
+            featureToggle.checkToggle(params);
+
+            setTimeout(() => {
                 expect(params.callback.calledOnce).to.equal(true);
-                expect(params.callback.firstCall.args[0].isEnabled).to.equal(true);
-                revert();
+                expect(params.callback.calledWith({
+                    req: params.req,
+                    res: params.res,
+                    next: params.next,
+                    redirectPage: params.redirectPage,
+                    isEnabled: true,
+                    featureToggleKey: params.featureToggleKey
+                })).to.equal(true);
+
+                ldClient.close();
+
                 done();
-            });
+            }, 1000);
         });
 
         it('should call next() with an error when the api returns an error', (done) => {
-            const revert = FeatureToggle.__set__('FeatureToggleService', class {
-                get() {
-                    return Promise.resolve('false');
-                }
-            });
             const params = {
                 req: {
                     session: {
@@ -48,17 +63,21 @@ describe('FeatureToggle', () => {
                 },
                 res: {},
                 next: sinon.spy(),
-                featureToggleKey: 'document_upload',
-                callback: sinon.spy()
+                redirectPage: '/dummy-page',
+                launchDarkly: {
+                    client: false
+                },
+                featureToggleKey: 'ft_fees_api',
+                callback: () => true
             };
             const featureToggle = new FeatureToggle();
 
-            featureToggle.checkToggle(params).then(() => {
-                expect(params.next.calledOnce).to.equal(false);
-                expect(params.callback.firstCall.args[0].isEnabled).to.equal(false);
-                revert();
-                done();
-            });
+            featureToggle.checkToggle(params);
+
+            expect(params.next.calledOnce).to.equal(true);
+            expect(params.next.calledWith(new Error())).to.equal(true);
+
+            done();
         });
     });
 
