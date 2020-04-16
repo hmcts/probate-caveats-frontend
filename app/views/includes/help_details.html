@@ -7,7 +7,7 @@
     {% set helpContent = helpContent + "<p class=\"govuk-heading-s\">" + (common.helpHeading2) + "</p>" %}
     {% set helpContent = helpContent + "<p class=\"govuk-body\">" + (common.helpEmailLabel | replace("{contactEmailAddress}", globals.helpline.email)) + "</p>" %}
 
-    {% if fields.featureToggles.value.webforms == "true" %}
+    {% if fields.featureToggles.value.ft_webforms == "true" %}
         {% set helpContent = helpContent + "<p class=\"govuk-heading-s\">" + (common.helpHeadingOnlineForm) + "</p>" %}
         {% set helpContent = helpContent + "<p class=\"govuk-body\">" + (common.helpSendUsAMessage | replace('{webForms}', globals.links.webForms) | safe) + " " + common.helpOpensInNewWindow + ".</p>" %}
         {% set helpContent = helpContent + "<p class=\"govuk-body\">" + common.helpResponseTime | safe + "</p>" %}
