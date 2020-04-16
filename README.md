@@ -60,6 +60,13 @@ Before submitting a Pull Request you will be required to run `$ yarn eslint` (wh
 
 We have a number of rules relating to code style that can be found in [.eslintrc.js](https://github.com/hmcts/probate-caveats-frontend/blob/develop/.eslintrc.js).
 
+### Config
+
+For development only config, use the `dev.yaml` file. Running the app with the node environment set to `dev` will ensure this file is used.
+This file is not version controlled so any config here will not be pushed to git.
+
+As an example, if you want to use LanuchDarkly locally, place the SDK Key in this file. You can keep the key there as this file is not version controlled.
+
 ### Running the tests
 
 Mocha is used for writing tests.
