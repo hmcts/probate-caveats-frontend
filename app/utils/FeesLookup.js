@@ -6,9 +6,8 @@ const logInfo = (message, applicationId = 'Init') => logger(applicationId).info(
 
 class FeesLookup {
 
-    constructor(applicantId, hostname) {
-        this.applicantId = applicantId;
-        this.hostname = hostname;
+    constructor(applicationId) {
+        this.applicationId = applicationId;
         this.data = {
             applicant_type: 'all',
             channel: 'default',
@@ -21,17 +20,17 @@ class FeesLookup {
     }
 
     lookup(authToken) {
-        return createCall(this.hostname, this.applicantId, this.data, authToken);
+        return createCall(this.applicationId, this.data, authToken);
     }
 }
 
-async function createCall(hostname, applicantId, data, authToken) {
+async function createCall(applicationId, data, authToken) {
     const fees = {
         status: 'success',
         total: 0
     };
-    logInfo(`Sending fee request to api with the following payload: ${JSON.stringify(data)}`, applicantId);
-    await services.feesLookup(data, authToken, applicantId)
+    logInfo(`Sending fee request to api with the following payload: ${JSON.stringify(data)}`, applicationId);
+    await services.feesLookup(data, authToken, applicationId)
         .then(res => {
             if (identifyAnyErrors(res)) {
                 fees.status = 'failed';
