@@ -1,15 +1,13 @@
 'use strict';
 
 const {set} = require('lodash');
-const formatUrl = require('app/utils/FormatUrl');
 const FeesLookup = require('app/utils/FeesLookup');
 
 const lookupPaymentFees = (req, res, next) => {
     const session = req.session;
     const formdata = session.form;
-    const applicantId = formdata.applicantId;
-    const hostname = formatUrl.createHostname(req);
-    const feesLookup = new FeesLookup(applicantId, hostname);
+    const applicationId = formdata.applicationId;
+    const feesLookup = new FeesLookup(applicationId);
 
     feesLookup.lookup(req.authToken)
         .then((res) => {

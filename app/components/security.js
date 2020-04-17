@@ -7,7 +7,7 @@ const logInfo = (message, applicationId = 'Unknown') => logger(applicationId).in
 const {URLSearchParams} = require('url');
 const FormatUrl = require('app/utils/FormatUrl');
 
-const getUserToken = (hostname, applicationId) => {
+const getUserToken = (applicationId) => {
     const redirect_url = FormatUrl.format(config.services.idam.caveat_redirect_base_url, config.services.idam.caveat_redirectUrl);
     return getOauth2Code(redirect_url, applicationId)
         .then((result) => {
@@ -21,11 +21,10 @@ const getUserToken = (hostname, applicationId) => {
         .catch((err) => err);
 };
 
-const getOauth2Code = (redirect_url, applicationId) => {
+const getOauth2Code = (redirect_uri, applicationId) => {
     logInfo('calling getOauth2Code to get code', applicationId);
     const client_id = config.services.idam.probate_oauth2_client;
     const idam_api_url = config.services.idam.apiUrl;
-    const redirect_uri = redirect_url;
     const username = config.services.idam.caveat_user_email;
     const userpassword = config.services.idam.caveat_user_password;
     const headers = {
