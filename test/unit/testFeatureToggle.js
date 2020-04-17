@@ -13,7 +13,8 @@ describe('FeatureToggle', () => {
                 paths: ['test/data/launchdarkly/simple_flag_data.yaml']
             });
             const ldConfig = {
-                updateProcessor: dataSource
+                updateProcessor: dataSource,
+                sendEvents: false
             };
 
             const ldClient = LaunchDarkly.init(config.featureToggles.launchDarklyKey, ldConfig);
@@ -36,9 +37,10 @@ describe('FeatureToggle', () => {
             const featureToggle = new FeatureToggle();
 
             featureToggle.checkToggle(params);
+            featureToggle.checkToggle(params); // Checking a second call the ld doesn't hang
 
             setTimeout(() => {
-                expect(params.callback.calledOnce).to.equal(true);
+                expect(params.callback.calledTwice).to.equal(true);
                 expect(params.callback.calledWith({
                     req: params.req,
                     res: params.res,
