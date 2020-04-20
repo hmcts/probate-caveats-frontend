@@ -17,7 +17,7 @@ class Equality extends ValidationStep {
 
     runnerOptions(ctx, session, host) {
         const params = {
-            serviceId: 'PROBATE_CAVEATS',
+            serviceId: 'PROBATE',
             actor: 'APPLICANT',
             pcqId: session.form.equality.pcqId,
             partyId: session.form.applicationId,
