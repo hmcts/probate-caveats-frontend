@@ -22,7 +22,7 @@ const checkHealthAndCreatePCQid = (req, res, next) => {
     //
     //         next();
     //     } else {
-    //         res.redirect(`${config.app.basePath}/summary/*`);
+    //         res.redirect(`${config.app.basePath}/summary`);
     //     }
     // });
 

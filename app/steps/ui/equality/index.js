@@ -21,7 +21,7 @@ class Equality extends ValidationStep {
             actor: 'APPLICANT',
             pcqId: session.form.equality.pcqId,
             partyId: session.form.applicationId,
-            returnUrl: `${host}${config.app.basePath}/summary/*`,
+            returnUrl: `${host}${config.app.basePath}/summary`,
             language: session.language
         };
 
