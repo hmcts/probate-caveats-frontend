@@ -17,8 +17,7 @@ class RedirectRunner extends UIStepRunner {
                 req.session.form.applicationId = uuidv4();
             }
 
-            const host = `${req.protocol}://${req.headers.host}`;
-            const options = yield step.runnerOptions(ctx, req.session, host);
+            const options = yield step.runnerOptions(ctx, req.session, req.headers.host);
             if (options.redirect) {
                 res.redirect(options.url);
             } else {
