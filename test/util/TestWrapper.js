@@ -79,8 +79,7 @@ class TestWrapper {
             .expect('Content-type', 'text/html; charset=utf-8')
             .then(res => {
                 forEach(expectedErrors, (value) => {
-                    expect(res.text).to.contain(value[type].summary);
-                    expect(res.text).to.contain(value[type].message);
+                    expect(res.text).to.contain(value[type]);
                 });
                 done();
             })

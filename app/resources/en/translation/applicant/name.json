@@ -6,24 +6,12 @@
 
   "errors": {
     "firstName": {
-      "required": {
-        "summary": "You haven&rsquo;t entered your first name",
-        "message": "Enter your first name, including middle names"
-      },
-      "invalid": {
-        "summary": "Your first name can only contain letters a to z, spaces, hyphens and apostrophes",
-        "message": "Your first name can only contain letters a to z, spaces, hyphens and apostrophes"
-      }
+      "required": "Enter your first name, including middle names",
+      "invalid": "Enter a valid first name - can only contain letters a to z, spaces, hyphens and apostrophes"
     },
     "lastName": {
-      "required": {
-        "summary": "You haven&rsquo;t entered your last name",
-        "message": "Enter your last name"
-      },
-      "invalid": {
-        "summary": "Your last name can only contain letters a to z, spaces, hyphens and apostrophes",
-        "message": "Your last name can only contain letters a to z, spaces, hyphens and apostrophes"
-      }
+      "required": "Enter your last name",
+      "invalid": "Enter a valid last name - can only contain letters a to z, spaces, hyphens and apostrophes"
     }
   }
 }

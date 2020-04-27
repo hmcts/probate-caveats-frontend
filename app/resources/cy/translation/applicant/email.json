@@ -5,14 +5,9 @@
   "explanation1": "Cewch gadarnhad o&rsquo;ch cais trwy e-bost.",
   "errors": {
     "email": {
-      "required": {
-        "summary": "Nid ydych wedi nodi&rsquo;ch cyfeiriad e-bost",
-        "message": "Nodwch eich cyfeiriad e-bost"
-      },
-      "invalid": {
-        "summary": "Rydych wedi nodi cyfeiriad e-bost annilys Gwiriwch y cyfeiriad e-bost a theipiwch ef eto.",
-        "message": "Mae&rsquo;r cyfeiriad e-bost rydych wedi&rsquo;i nodi yn annilys"
-      }
+      "required": "Nodwch eich cyfeiriad e-bost",
+      "invalid": "[CY] Enter a valid email address"
+
     }
   }
 }

@@ -6,10 +6,7 @@
 
   "errors": {
     "dobknown": {
-      "required": {
-        "summary": "Atebwch y cwestiwn am y dyddiad geni",
-        "message": "Dewiswch ydw os ydych yn gwybod y dyddiad geni"
-      }
+      "required": "Dewiswch ydw os ydych yn gwybod y dyddiad geni"
     }
   }
 }

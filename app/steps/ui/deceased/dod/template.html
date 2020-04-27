@@ -9,10 +9,10 @@
         {% set inlineErrors = {
             text:
             (
-            (fields["dod-date"].errorMessage.message + "<br>" if fields["dod-date"].errorMessage) +
-            (fields["dod-day"].errorMessage.message + "<br>" if fields["dod-day"].errorMessage) +
-            (fields["dod-month"].errorMessage.message + "<br>" if fields["dod-month"].errorMessage) +
-            (fields["dod-year"].errorMessage.message + "<br>" if fields["dod-year"].errorMessage)
+            (fields["dod-date"].errorMessage + "<br>" if fields["dod-date"].errorMessage) +
+            (fields["dod-day"].errorMessage + "<br>" if fields["dod-day"].errorMessage) +
+            (fields["dod-month"].errorMessage + "<br>" if fields["dod-month"].errorMessage) +
+            (fields["dod-year"].errorMessage + "<br>" if fields["dod-year"].errorMessage)
             ) | safe
         } %}
     {% endif %}

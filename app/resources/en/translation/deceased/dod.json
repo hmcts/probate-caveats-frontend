@@ -5,48 +5,21 @@
 
   "errors": {
     "dod-day": {
-      "required": {
-        "summary": "You haven&rsquo;t entered the day that they died",
-        "message": "Enter the day they died"
-      },
-      "invalid": {
-        "summary": "You haven&rsquo;t entered a valid day that they died",
-        "message": "Enter a valid day of death"
-      }
+      "required": "Enter the day they died",
+      "invalid": "Enter a valid day of death"
     },
     "dod-month": {
-      "required": {
-        "summary": "You haven&rsquo;t entered the month that they died",
-        "message": "Enter the month they died"
-      },
-      "invalid": {
-        "summary": "You haven&rsquo;t entered a valid month that they died",
-        "message": "Enter a valid month of death"
-      }
+      "required": "Enter the month they died",
+      "invalid": "Enter a valid month of death"
     },
     "dod-year": {
-      "required": {
-        "summary": "You haven&rsquo;t entered the year that they died",
-        "message": "Enter the year they died"
-      },
-      "invalid": {
-        "summary": "You haven&rsquo;t entered a valid year that they died",
-        "message": "Enter a valid year of death"
-      }
+      "required": "Enter the year they died",
+      "invalid": "Enter a valid year of death"
     },
     "dod-date": {
-      "invalid": {
-        "summary": "You need to enter a valid date of death",
-        "message": "Enter a valid date of death"
-      },
-      "dateInFuture": {
-        "summary": "You must enter a date of death in the past",
-        "message": "Enter a date in the past"
-      },
-      "dodBeforeDob": {
-        "summary": "The date of death you entered is before the date of birth",
-        "message": "Enter a date of death that is after the date of birth"
-      }
+      "invalid": "Enter a valid date of death",
+      "dateInFuture": "Enter a date in the past",
+      "dodBeforeDob": "Enter a date of death that is after the date of birth"
     }
   }
 }
