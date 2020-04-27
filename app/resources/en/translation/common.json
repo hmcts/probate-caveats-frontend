@@ -2,7 +2,7 @@
   "phase": "Beta",
   "feedback": "This is a new service – your <a href=\"{smartSurveyFeedbackUrl}?pageurl={currentPageUrl}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener noreferrer\" aria-label=\"Feedback: This link will open in a new tab. You&rsquo;ll need to return to this tab to continue with your application.\">feedback</a> will help us to improve it.",
   "languageToggle": "<a href=\"?locale=cy\" class=\"govuk-link language\">Cymraeg</a>",
-  "serviceName": "Stop a grant of probate",
+  "serviceName": "Stop a grant of probate - GOV.UK",
   "start": "Start now",
   "confirm": "Confirm your eligibility",
   "acceptAndApply": "Accept invitation and apply",
