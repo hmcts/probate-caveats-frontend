@@ -2,7 +2,7 @@
   "phase": "Beta ",
   "feedback": "Mae hwn yn wasanaeth newydd - bydd eich <a aria-label=\"Adborth: Bydd y ddolen hon yn agor mewn ffenestr newydd. Bydd angen ichi ddychwelyd i&rsquo;r ffenestr hon i barhau gyda&rsquo;ch cais.\" href=\"{smartSurveyFeedbackUrl}?pageurl={currentPageUrl}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener noreferrer\">adborth</a> yn ein helpu ni i&rsquo;w wella.",
   "languageToggle": "<a href=\"?locale=en\" class=\"govuk-link language\">English</a>",
-  "serviceName": "Atal grant profiant",
+  "serviceName": "Atal grant profiant - GOV.UK",
   "start": "Dechrau nawr",
   "confirm": "Cadarnhau eich bod yn gymwys",
   "acceptAndApply": "Derbyn y gwahoddiad a gwneud cais",
