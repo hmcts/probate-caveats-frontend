@@ -5,8 +5,8 @@
   "successHeading1": "Beth fydd yn digwydd nesaf",
   "successParagraph1": "Rydych wedi cwblhau eich cais i atal grant profiant (caveat).",
   "successParagraph2": "Byddwn yn anfon neges e-bost atoch o fewn 5 diwrnod gwaith i gadarnhau beth sydd wedi digwydd.",
-  "successParagraph3": "Efallai yr hoffech siarad &acirc; chyfreithiwr neu gysylltu &acirc; <a href=\"{citizenAdvice}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener\" aria-label=\"Citizen Advice\">Citizen Advice</a> i gael cyngor cyfreithiol.",
-  "survey": "Mae hwn yn wasanaeth newydd - bydd eich adborth yn ein helpu ni i&rsquo;w wella.",
+  "successParagraph3": "Efallai yr hoffech siarad &acirc; chyfreithiwr neu gysylltu &acirc; <a href=\"{citizenAdvice}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener\" aria-label=\"Citizen Advice (agor mewn ffenestr newydd)\">Citizen Advice (agor mewn ffenestr newydd)</a> i gael cyngor cyfreithiol.",
+  "survey": "Mae hwn yn wasanaeth newydd - bydd eich adborth yn ein helpu ni i&rsquo;w wella (agor mewn ffenestr newydd).",
   "saveYourApplication": "Arbed eich cais",
   "saveParagraph1": "Gallwch arbed neu argraffu&rsquo;r dogfennau hyn er mwyn gallu cyfeirio atynt eto.",
   "checkAnswersPdf": "Gwirio eich atebion (10kb PDF)"

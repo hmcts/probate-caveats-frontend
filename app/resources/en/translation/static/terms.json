@@ -77,5 +77,5 @@
   "contactHeading": "Contact us",
   "contactParagraph1": "Phone: {helpLineNumber}",
   "contactParagraph2": "{helpLineHours}",
-  "contactParagraph3": "<a href=\"{callChargesLink}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener\" aria-label=\"Find out about call charges\">Find out about call charges</a>"
+  "contactParagraph3": "<a href=\"{callChargesLink}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener\" aria-label=\"Find out about call charges (opens in a new window)\">Find out about call charges (opens in a new window)</a>"
 }
