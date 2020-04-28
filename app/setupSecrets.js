@@ -27,7 +27,6 @@ const setupSecrets = () => {
         setSecret('secrets.probate.probate-webchat-button-busy', 'webChat.buttonAgentsBusy');
         setSecret('secrets.probate.probate-webchat-button-service-closed', 'webChat.buttonServiceClosed');
         setSecret('secrets.probate.AppInsightsInstrumentationKey', 'appInsights.instrumentationKey');
-        setSecret('secrets.probate.google-analytics-tracking-id-caveats', 'gaTrackingId');
         setSecret('secrets.probate.launchdarkly-key', 'featureToggles.launchDarklyKey');
     }
 };
