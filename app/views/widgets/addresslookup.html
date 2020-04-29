@@ -49,6 +49,7 @@
                     document.getElementById('newPostCode').value = postcode;
                     document.getElementById('country').value = 'United Kingdom';
                     document.getElementById('details-panel').setAttribute('open', true);
+                    document.getElementById('details-panel').getElementsByClassName('govuk-details__text')[0].setAttribute('style', 'display: block');
                     document.getElementById('details-panel').getElementsByClassName('govuk-details__summary')[0].setAttribute('aria-expanded', true);
                     document.getElementById('details-panel').getElementsByClassName('govuk-details__text')[0].setAttribute('aria-hidden', false);
                 });
