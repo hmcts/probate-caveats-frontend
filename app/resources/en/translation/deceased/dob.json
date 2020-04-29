@@ -35,6 +35,10 @@
       }
     },
     "dob-date": {
+      "required": {
+        "summary": "You haven&rsquo;t entered the date that they were born",
+        "message": "Enter the date they were born"
+      },
       "invalid": {
         "summary": "You need to enter a valid date of birth",
         "message": "Enter a valid date of birth"
