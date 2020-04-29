@@ -5,6 +5,7 @@ const moment = require('moment');
 const config = require('config');
 const utils = require('app/components/step-utils');
 const FieldError = require('app/components/error');
+const {remove} = require('lodash');
 
 class DateStep extends ValidationStep {
 
@@ -40,15 +41,22 @@ class DateStep extends ValidationStep {
     }
 
     validate(ctx, formdata, language) {
-        const dateName = this.dateName();
         let [isValid, errors] = [true, []];
+        [isValid, errors] = super.validate(ctx, formdata, language);
 
-        if (!ctx[`${dateName}-day`] && !ctx[`${dateName}-month`] && !ctx[`${dateName}-year`]) {
-            errors.push(FieldError(`${dateName}-date`, 'required', this.resourcePath, this.generateContent({}, {}, language), language));
-            isValid = false;
-        } else {
-            [isValid, errors] = super.validate(ctx, formdata, language);
-        }
+        const dateNames = this.dateName();
+
+        dateNames.forEach((dateName) => {
+            if (!ctx[`${dateName}-day`] && !ctx[`${dateName}-month`] && !ctx[`${dateName}-year`]) {
+                errors.push(FieldError(`${dateName}-date`, 'required', this.resourcePath, this.generateContent({}, {}, language), language));
+                isValid = false;
+
+                remove(errors, (error) => {
+                    return error.field === `${dateName}-day` || error.field === `${dateName}-month` || error.field === `${dateName}-year`;
+                });
+            }
+        });
+
         return [isValid, errors];
     }
 }
