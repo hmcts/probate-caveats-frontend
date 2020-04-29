@@ -39,7 +39,7 @@
                         classes: "govuk-visually-hidden"
                     }
                 }) %}
-                    <details class="govuk-details" id="details-panel" {{ "open" if (
+                    <details class="govuk-details" id="details-panel" data-module="govuk-details" {{ "open" if (
                         fields.addressLine1.value or
                         fields.addressLine2.value or
                         fields.addressLine3.value or
@@ -53,7 +53,7 @@
                         <summary class="govuk-details__summary">
                             <span class="govuk-details__summary-text">{{ content.enterManually | safe }}</span>
                         </summary>
-                        <div class="govuk-form-group govuk-details__text">
+                        <div class="govuk-details__text">
                             {{ govukInput({
                                 label: {
                                     text: content.addressLabel | safe
