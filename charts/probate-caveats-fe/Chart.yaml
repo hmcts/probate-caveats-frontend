@@ -2,7 +2,7 @@ apiVersion: v1
 description: A Helm chart for the HMCTS probate product
 name: probate-caveats-fe
 home: https://github.com/hmcts/probate-caveats-frontend
-version: 1.1.6
+version: 1.1.7
 maintainers:
   - name: HMCTS Probate Team
     email: probate-action-group@HMCTS.net
