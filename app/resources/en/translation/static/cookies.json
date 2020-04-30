@@ -8,7 +8,7 @@
   "howAreCookiesUsed-item1": "measure how you use the service so it can be improved",
   "howAreCookiesUsed-item2": "remember the notifications you&rsquo;ve seen so that you&rsquo;re not shown them again",
   "howAreCookiesUsed-item3": "temporarily store the answers you give",
-  "howAreCookiesUsedParagraph2": "Find out more about <a href=\"{howToManageCookiesLink}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener\" aria-label=\"how to manage cookies\">how to manage cookies</a>.",
+  "howAreCookiesUsedParagraph2": "Find out more about <a href=\"{howToManageCookiesLink}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener\" aria-label=\"how to manage cookies (opens in a new window)\">how to manage cookies (opens in a new window)</a>.",
 
   "websiteUsageCookiesHeading1": "Cookies used to measure website usage",
   "websiteUsageCookiesParagraph1": "We use Google Analytics software to collect information about how you use this service. We do this to help make sure the service is meeting the needs of its users and to help us make improvements, for example improving site search.",
@@ -17,8 +17,8 @@
   "websiteUsageCookies-item2": "how long you spend on each page",
   "websiteUsageCookies-item3": "how you got to the service",
   "websiteUsageCookies-item4": "what you click on while you&rsquo;re visiting the service",
-  "websiteUsageCookiesParagraph3": "We allow Google to use or share our analytics data. You can find out more about how Google use this information in their <a href=\"{googlePrivacyPolicyLink}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener\" aria-label=\"privacy policy\">privacy policy</a>.",
-  "websiteUsageCookiesParagraph4": "You can <a href=\"{googleAnalyticsOptOutLink}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener\" aria-label=\"opt out of Google Analytics\">opt out of Google Analytics</a> if you do not want Google to have access to your information.",
+  "websiteUsageCookiesParagraph3": "We allow Google to use or share our analytics data. You can find out more about how Google use this information in their <a href=\"{googlePrivacyPolicyLink}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener\" aria-label=\"privacy policy (opens in a new window)\">privacy policy (opens in a new window)</a>.",
+  "websiteUsageCookiesParagraph4": "You can <a href=\"{googleAnalyticsOptOutLink}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener\" aria-label=\"opt out of Google Analytics (opens in a new window)\">opt out of Google Analytics (opens in a new window)</a> if you do not want Google to have access to your information.",
   "websiteUsageCookiesParagraph5": "Google Analytics sets the following cookies:",
 
   "cookieNameHeader": "Cookie name",
