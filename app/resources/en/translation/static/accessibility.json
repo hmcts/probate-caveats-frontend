@@ -9,7 +9,7 @@
   "list1-item4": "navigate most of the website using speech recognition software",
   "list1-item5": "listen to most of the website using a screen reader (including the most recent versions of JAWS, NVDA and VoiceOver)",
   "paragraph3": "We&rsquo;ve also made the website text as simple as possible to understand.",
-  "paragraph4": "<a href=\"{myAbilityLink}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener\">AbilityNet</a> has advice on making your device easier to use if you have a disability.",
+  "paragraph4": "<a href=\"{myAbilityLink}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener\" aria-label=\"AbilityNet (opens in a new window)\">AbilityNet (opens in a new window)</a> has advice on making your device easier to use if you have a disability.",
 
   "heading2": "How accessible is this website?",
   "paragraph5": "The website uses the latest version of the GOV.UK Design System. In addition we&rsquo;ve carried out internal testing to ensure that we&rsquo;re in-line with or close to the latest accessibility standards.",
@@ -22,14 +22,14 @@
   "heading3": "What to do if you cannot access parts of this website",
   "paragraph7": "If you need information on this website in a different format like accessible PDF, large print, easy read or braille then email <a href=\"mailto:HMCTSforms@justice.gov.uk\" class=\"govuk-link\">HMCTSforms@justice.gov.uk</a> or phone:",
   "paragraph8": "<strong>Probate helpline:</strong><br>Telephone: {helpLineNumber}<br>{helpLineHours}",
-  "paragraph9": "<a target=\"_blank\" rel=\"external noopener\" href=\"{callChargesLink}\" class=\"govuk-link\">Find out about call charges</a>",
+  "paragraph9": "<a target=\"_blank\" rel=\"external noopener\" href=\"{callChargesLink}\" class=\"govuk-link\" aria-label=\"Find out about call charges (opens in a new window)\">Find out about call charges (opens in a new window)</a>",
   "paragraph10": "We&rsquo;ll consider your request and get back to you within 10 working days.",
 
   "heading4": "Reporting accessibility problems with this website",
   "paragraph11": "We&rsquo;re always looking to improve the accessibility of this website. If you find any problems that are not listed on this page or think we&rsquo;re not meeting accessibility requirements, phone:",
 
   "heading5": "Enforcement procedure",
-  "paragraph12": "The Equality and Human Rights Commission (EHRC) is responsible for enforcing the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018 (the &lsquo;accessibility regulations&rsquo;). If you&rsquo;re not happy with how we respond to your complaint, <a href=\"{equalityAdvisorLink}\" target=\"_blank\" rel=\"external noopener\" class=\"govuk-link\">contact the Equality Advisory and Support Service (EASS)</a>.",
+  "paragraph12": "The Equality and Human Rights Commission (EHRC) is responsible for enforcing the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018 (the &lsquo;accessibility regulations&rsquo;). If you&rsquo;re not happy with how we respond to your complaint, <a href=\"{equalityAdvisorLink}\" target=\"_blank\" rel=\"external noopener\" class=\"govuk-link\" aria-label=\"contact the Equality Advisory and Support Service (EASS) (opens in a new window)\">contact the Equality Advisory and Support Service (EASS) (opens in a new window)</a>.",
 
   "heading6": "Contacting us by phone or visiting us in person",
   "paragraph13": "We provide a text relay service for people who are deaf, hearing impaired or have a speech impediment.",
@@ -37,7 +37,7 @@
 
   "heading7": "Technical information about this website&rsquo;s accessibility",
   "paragraph15": "HMCTS is committed to making its websites accessible, in accordance with the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018.",
-  "paragraph16": "The website is partially compliant with the <a href=\"{wcag21Link}\" target=\"_blank\" rel=\"external noopener\" class=\"govuk-link\">Web Content Accessibility Guidelines version 2.1 AA standard</a> due to the non-compliances listed below.",
+  "paragraph16": "The website is partially compliant with the <a href=\"{wcag21Link}\" target=\"_blank\" rel=\"external noopener\" class=\"govuk-link\" aria-label=\"Web Content Accessibility Guidelines version 2.1 AA standard (opens in a new window)\">Web Content Accessibility Guidelines version 2.1 AA standard (opens in a new window)</a> due to the non-compliances listed below.",
 
   "heading8": "Non-accessible content",
   "paragraph17": "The content listed below is non-accessible for the following reasons.",
@@ -52,10 +52,10 @@
   "paragraph19": "PDFs, documents and attachments to email notifications published before 23 September 2018 may not meet accessibility standards. For example, they may not be structured so they&rsquo;re accessible to a screen reader.",
   "heading9-2": "Third party content that&rsquo;s under someone else&rsquo;s control",
   "paragraph20": "Pages and websites that are linked to and from the probate service may not be fully accessible. These include:",
-  "list4-item1": "External pages hosting PDF documents e.g.<br><a href=\"{applicationFormPA15}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener\">{applicationFormPA15}</a>",
+  "list4-item1": "External pages hosting PDF documents e.g.<br><a href=\"{applicationFormPA15}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener\" aria-label=\"{applicationFormPA15} (opens in a new window)\">{applicationFormPA15} (opens in a new window)</a>",
   "list4-item2": "The login and payment pages",
   "list4-item3": "Emails sent by gov.uk.notify",
-  "list4-item4": "Instruction pages on gov.uk e.g.<br><a href=\"{deathReportedToCoroner}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener\">{deathReportedToCoroner}</a>",
+  "list4-item4": "Instruction pages on gov.uk e.g.<br><a href=\"{deathReportedToCoroner}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener\" aria-label=\"{deathReportedToCoroner} (opens in a new window)\">{deathReportedToCoroner} (opens in a new window)</a>",
   "list4-item5": "The webchat application which provides live service support for users",
 
   "heading10": "How we tested this website",
