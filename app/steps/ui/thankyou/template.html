@@ -37,7 +37,7 @@
                     text: content.successParagraph3 | replace("{citizenAdvice}", globals.links.citizenAdvice) | safe
                 }) }}
 
-                <a href="{{ globals.links.surveyEndOfApplication | safe }}" class="govuk-link" target="_blank" rel="external noopener noreferrer">{{ content.survey | safe }}</a>
+                <a href="{{ globals.links.surveyEndOfApplication | safe }}" class="govuk-link" target="_blank" rel="external noopener noreferrer" aria-label="{{ content.survey | safe }}">{{ content.survey | safe }}</a>
             </div>
         </div>
     </main>

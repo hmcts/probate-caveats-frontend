@@ -8,7 +8,7 @@
   "howAreCookiesUsed-item1": "fesur sut ydych yn defnyddio&rsquo;r gwasanaeth fel y gallwn ei wella",
   "howAreCookiesUsed-item2": "cofio&rsquo;r hysbysiadau rydych wedi&rsquo;u gweld fel na fyddwch yn eu gweld eto",
   "howAreCookiesUsed-item3": "storio&rsquo;r atebion a roddwch dros dro",
-  "howAreCookiesUsedParagraph2": "Darganfod mwy am <a target=\"_blank\" rel=\"external noopener\" href=\"{howToManageCookiesLink}\" class=\"govuk-link\">sut i reoli cwcis.</a>.",
+  "howAreCookiesUsedParagraph2": "Darganfod mwy am <a target=\"_blank\" rel=\"external noopener\" href=\"{howToManageCookiesLink}\" class=\"govuk-link\" aria-label=\"sut i reoli cwcis (agor mewn ffenestr newydd)\">sut i reoli cwcis (agor mewn ffenestr newydd)</a>.",
 
   "websiteUsageCookiesHeading1": "I fesur faint o bobl sy&rsquo;n defnyddio ein gwefan",
   "websiteUsageCookiesParagraph1": "Rydym yn defnyddio meddalwedd Google Analytics i gasglu gwybodaeth am sut rydych yn defnyddio&rsquo;r gwasanaeth hwn. Rydym yn gwneud hyn i helpu i sicrhau bod y gwasanaeth yn diwallu anghenion ei ddefnyddwyr ac i&rsquo;n helpu i wneud gwelliannau, er enghraifft gwella&rsquo;r cyfleuster chwilio.",
@@ -17,8 +17,8 @@
   "websiteUsageCookies-item2": "faint o amser y byddwch yn ei dreulio ar bob tudalen",
   "websiteUsageCookies-item3": "sut y daethoch o hyd i&rsquo;r gwasanaeth",
   "websiteUsageCookies-item4": "yr hyn rydych chi&rsquo;n clicio arno wrth ddefnyddio&rsquo;r gwasanaeth",
-  "websiteUsageCookiesParagraph3": "Rydym yn caniatáu i Google ddefnyddio neu rannu ein data dadansoddi. Gallwch ddarganfod mwy am sut mae Google yn defnyddio&rsquo;r wybodaeth hon yn eu <a target=\"_blank\" rel=\"external noopener\" href=\"{googlePrivacyPolicyLink}\" class=\"govuk-link\">polisi preifatrwydd</a>.",
-  "websiteUsageCookiesParagraph4": "Gallwch <a target=\"_blank\" rel=\"external noopener\" href=\"{googleAnalyticsOptOutLink}\" class=\"govuk-link\">optio allan o Google Analytics</a>os nad ydych eisiau i Google gael mynediad at eich gwybodaeth.",
+  "websiteUsageCookiesParagraph3": "Rydym yn caniatáu i Google ddefnyddio neu rannu ein data dadansoddi. Gallwch ddarganfod mwy am sut mae Google yn defnyddio&rsquo;r wybodaeth hon yn eu <a target=\"_blank\" rel=\"external noopener\" href=\"{googlePrivacyPolicyLink}\" class=\"govuk-link\" aria-label=\"polisi preifatrwydd (agor mewn ffenestr newydd)\">polisi preifatrwydd (agor mewn ffenestr newydd)</a>.",
+  "websiteUsageCookiesParagraph4": "Gallwch <a target=\"_blank\" rel=\"external noopener\" href=\"{googleAnalyticsOptOutLink}\" class=\"govuk-link\" aria-label=\"optio allan o Google Analytics (agor mewn ffenestr newydd)\">optio allan o Google Analytics (agor mewn ffenestr newydd)</a> os nad ydych eisiau i Google gael mynediad at eich gwybodaeth.",
   "websiteUsageCookiesParagraph5": "Mae Google Analytics yn gosod y cwcis canlynol:",
 
   "cookieNameHeader": "Enw&rsquo;r cwci",

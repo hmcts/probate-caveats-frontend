@@ -3,6 +3,6 @@
   "header": "Sorry, the service is unavailable",
   "paragraph1": "We are making improvements to the service. Try again later.",
   "paragraph2": "If you started an application, we did not save your answers.",
-  "paragraph3": "You can also <a href=\"{stopGrantOfRepresentation}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener\" aria-label=\"apply to stop an application for probate by post\">apply to stop an application for probate by post</a>.",
+  "paragraph3": "You can also <a href=\"{stopGrantOfRepresentation}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener\" aria-label=\"apply to stop an application for probate by post (opens in a new window)\">apply to stop an application for probate by post (opens in a new window)</a>.",
   "paragraph4": "Contact us if you have questions about your application."
 }
