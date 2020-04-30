@@ -77,5 +77,5 @@
   "contactHeading": "Cysylltu &acirc; ni",
   "contactParagraph1": "Rhif ff&ocirc;n: {helpLineNumber}",
   "contactParagraph2": "{helpLineHours}",
-  "contactParagraph3": "<a target=\"_blank\" rel=\"external noopener\" href=\"{callChargesLink}\" class=\"govuk-link\">Gwybodaeth am brisiau galwadau</a>"
+  "contactParagraph3": "<a target=\"_blank\" rel=\"external noopener\" href=\"{callChargesLink}\" class=\"govuk-link\" aria-label=\"Gwybodaeth am brisiau galwadau (agor mewn ffenestr newydd)\">Gwybodaeth am brisiau galwadau (agor mewn ffenestr newydd)</a>"
 }
