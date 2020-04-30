@@ -77,7 +77,6 @@ redis:
 dateFormat: 'DD/MM/YYYY'
 payloadVersion: '4.1.0'
 hostname: 'localhost:3000'
-gaTrackingId: 'UA-93598808-3'
 enableTracking: 'true'
 webChat:
   chatId: '3077733355d19fd430f23c7.02555395'

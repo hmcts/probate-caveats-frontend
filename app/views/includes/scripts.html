@@ -1,16 +1,6 @@
 <script src="{{ globals.basePath }}/public/javascripts/govuk-frontend/govuk/all.js"></script>
 <script nonce="{{ globals.nonce }}">window.GOVUKFrontend.initAll()</script>
 
-{% if globals.enableTracking == "true" %}
-    <script nonce="{{ globals.nonce }}">
-        var gatrackingid = "{{ globals.gaTrackingId }}";
-    </script>
-    <script src="{{ globals.basePath }}/public/javascripts/ga-tracking.js"></script>
-    <noscript>
-        <img src="{{ globals.basePath }}/public/images/noJS.png" width="1" height="1" alt="No JS">
-    </noscript>
-{% endif %}
-
 <script src="{{ globals.basePath }}/public/javascripts/cookie.js"></script>
 
 <!--[if lte IE 9]>

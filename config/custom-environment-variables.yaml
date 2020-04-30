@@ -42,7 +42,6 @@ redis:
   enabled: USE_REDIS
   secret: REDIS_SECRET
 hostname: FRONTEND_HOSTNAME
-gaTrackingId: GA_TRACKING_ID
 enableTracking: ENABLE_TRACKING
 webChat:
   chatId: WEBCHAT_CHAT_ID

@@ -55,7 +55,6 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
 
     const globals = {
         currentYear: new Date().getFullYear(),
-        gaTrackingId: config.gaTrackingId,
         enableTracking: config.enableTracking,
         links: config.links,
         applicationFee: config.payment.applicationFee,
