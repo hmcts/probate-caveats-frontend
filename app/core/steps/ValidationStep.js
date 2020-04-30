@@ -44,7 +44,7 @@ class ValidationStep extends Step {
     }
 
     validate(ctx, formdata, language) {
-        let [isValid, errors] = [true, {}];
+        let [isValid, errors] = [true, []];
 
         //remove empty fields as ajv expects them to be absent
         Object.keys(ctx).filter(field =>

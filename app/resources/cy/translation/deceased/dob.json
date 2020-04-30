@@ -35,6 +35,10 @@
       }
     },
     "dob-date": {
+      "required": {
+        "summary": "[CY] You haven&rsquo;t entered the date that they were born",
+        "message": "[CY] Enter the date they were born"
+      },
       "invalid": {
         "summary": "Mae angen ichi nodi dyddiad geni dilys",
         "message": "Nodwch ddyddiad geni dilys"
