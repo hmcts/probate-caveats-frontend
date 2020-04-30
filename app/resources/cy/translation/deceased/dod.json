@@ -17,6 +17,7 @@
       "invalid": "Nodwch flwyddyn ddilys ar gyfer pryd bu iddynt farw"
     },
     "dod-date": {
+      "required": "[CY] Enter the date they died",
       "invalid": "Nodwch ddyddiad dilys ar gyfer pryd bu iddynt farw",
       "dateInFuture": "Nodwch ddyddiad yn y gorffennol",
       "dodBeforeDob": "Nodwch ddyddiad marwolaeth sydd ar &ocirc;l y dyddiad geni"

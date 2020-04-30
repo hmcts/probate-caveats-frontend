@@ -93,9 +93,9 @@ class Step {
     generateFields(language, ctx, errors) {
         let fields = mapValues(ctx, (value, key) => {
             let returnValue;
+            const dateName = key.split('-')[0];
 
-            if (key.includes('formattedDate')) {
-                const dateName = key.split('-')[0];
+            if (key.includes('formattedDate') && ctx[`${dateName}-day`] && ctx[`${dateName}-month`] && ctx[`${dateName}-year`]) {
                 const date = moment(ctx[`${dateName}-day`] + '/' + ctx[`${dateName}-month`] + '/' + ctx[`${dateName}-year`], config.dateFormat).parseZone();
                 returnValue = utils.formattedDate(date, language);
             } else {

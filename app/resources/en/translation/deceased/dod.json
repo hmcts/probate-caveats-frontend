@@ -17,6 +17,7 @@
       "invalid": "Enter a valid year of death"
     },
     "dod-date": {
+      "required": "Enter the date they died",
       "invalid": "Enter a valid date of death",
       "dateInFuture": "Enter a date in the past",
       "dodBeforeDob": "Enter a date of death that is after the date of birth"
