@@ -87,7 +87,7 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
                 '\'sha256-+6WnXIl4mbFTCARd8N3COQmT3bJJmo32N8q8ZSQAIcU=\'',
                 '\'sha256-AaA9Rn5LTFZ5vKyp3xOfFcP4YbyOjvWn2up8IKHVAKk=\'',
                 '\'sha256-G29/qSW/JHHANtFhlrZVDZW1HOkCDRc78ggbqwwIJ2g=\'',
-                'www.google-analytics.com',
+                'www.googletagmanager.com',
                 'vcc-eu4.8x8.com',
                 'vcc-eu4b.8x8.com',
                 `'nonce-${uuid}'`
@@ -100,7 +100,6 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
             ],
             imgSrc: [
                 '\'self\'',
-                'www.google-analytics.com',
                 'vcc-eu4.8x8.com',
                 'vcc-eu4b.8x8.com'
             ],
