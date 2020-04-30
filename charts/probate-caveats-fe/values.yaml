@@ -45,7 +45,6 @@ nodejs:
         - probate-webchat-button-busy
         - probate-webchat-button-service-closed
         - AppInsightsInstrumentationKey
-        - google-analytics-tracking-id-caveats
         - launchdarkly-key
 redis:
   cluster:
