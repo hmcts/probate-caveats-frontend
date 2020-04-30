@@ -19,7 +19,6 @@ nodejs:
         - probate-site-id
         - caveat-user-name
         - caveat-user-password
-        - google-analytics-tracking-id-caveats
         - launchdarkly-key
 idam-pr:
   enabled: true
