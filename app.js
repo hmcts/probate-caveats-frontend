@@ -81,8 +81,12 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
     // Content security policy to allow just assets from same domain
     app.use(helmet.contentSecurityPolicy({
         directives: {
-            defaultSrc: ['\'self\''],
-            fontSrc: ['\'self\' data:'],
+            defaultSrc: [
+                '\'self\''
+            ],
+            fontSrc: [
+                '\'self\' data:'
+            ],
             scriptSrc: [
                 '\'self\'',
                 '\'sha256-+6WnXIl4mbFTCARd8N3COQmT3bJJmo32N8q8ZSQAIcU=\'',
@@ -94,8 +98,12 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
                 'vcc-eu4b.8x8.com',
                 `'nonce-${uuid}'`
             ],
-            connectSrc: ['\'self\''],
-            mediaSrc: ['\'self\''],
+            connectSrc: [
+                '\'self\''
+            ],
+            mediaSrc: [
+                '\'self\''
+            ],
             frameSrc: [
                 'vcc-eu4.8x8.com',
                 'vcc-eu4b.8x8.com'
@@ -105,11 +113,15 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
                 'www.google-analytics.com',
                 'stats.g.doubleclick.net',
                 'vcc-eu4.8x8.com',
-                'vcc-eu4b.8x8.com'
+                'vcc-eu4b.8x8.com',
+                'ssl.gstatic.com',
+                'www.gstatic.com'
             ],
             styleSrc: [
                 '\'self\'',
-                '\'unsafe-inline\''
+                '\'unsafe-inline\'',
+                'tagmanager.google.com',
+                'fonts.googleapis.com'
             ],
             frameAncestors: ['\'self\'']
         },
