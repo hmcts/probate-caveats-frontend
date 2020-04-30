@@ -19,6 +19,8 @@
 {% endblock %}
 
 {% block header %}
+    {% include "includes/scripts_ga_2.html" %}
+
     <div id="global-cookie-message">
       <p class="govuk-body">{{ cookieText | replace("{cookiesLink}", globals.links.cookies) | safe }}</p>
     </div>
