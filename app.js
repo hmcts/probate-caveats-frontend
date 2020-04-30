@@ -1,6 +1,7 @@
-'use strict';
-
+// eslint-disable-line max-lines
 /* eslint no-console: 0 no-unused-vars: 0 */
+
+'use strict';
 
 const logger = require('app/components/logger');
 const path = require('path');
