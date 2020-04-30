@@ -85,7 +85,8 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
                 '\'self\''
             ],
             fontSrc: [
-                '\'self\' data:'
+                '\'self\' data:',
+                'fonts.gstatic.com'
             ],
             scriptSrc: [
                 '\'self\'',
@@ -99,7 +100,8 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
                 `'nonce-${uuid}'`
             ],
             connectSrc: [
-                '\'self\''
+                '\'self\'',
+                'www.google-analytics.com'
             ],
             mediaSrc: [
                 '\'self\''
@@ -110,6 +112,7 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
             ],
             imgSrc: [
                 '\'self\'',
+                '\'self\' data:',
                 'www.google-analytics.com',
                 'stats.g.doubleclick.net',
                 'vcc-eu4.8x8.com',
