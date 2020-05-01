@@ -5,6 +5,7 @@ nodejs:
     REDIS_USE_TLS: false
     REDIS_HOST: ${SERVICE_NAME}-redis-master
     REDIS_PORT: 6379
+    ORCHESTRATION_SERVICE_URL: http://probate-orchestrator-service-pr-314.service.core-compute-preview.internal
   keyVaults:
     probate:
       secrets:
