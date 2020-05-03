@@ -64,7 +64,6 @@ class PaymentBreakdown extends Step {
 
             // If we dont already have a case so create one
             if (!formdata.ccdCase || !formdata.ccdCase.id) {
-                logInfo(`Sending formdata to the Orchestration Service: ${JSON.stringify(formdata)}`, formdata.applicationId);
                 const result = yield this.sendToOrchestrationService(ctx, formdata, errors, session.language);
                 if (errors.length > 0) {
                     return [ctx, errors];
