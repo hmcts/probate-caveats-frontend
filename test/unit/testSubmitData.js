@@ -9,6 +9,9 @@ describe('submitData/index.js', () => {
     describe('correct form created for full details', () => {
         const ctx = {};
         const formdata = {
+            equality: {
+                'pcqId': 'df28c61f-b388-489b-a67a-847423dd7ac4'
+            },
             language: {
                 'bilingual': 'optionYes'
             },
@@ -66,6 +69,9 @@ describe('submitData/index.js', () => {
     describe('correct form created for minimal details', () => {
         const ctx = {};
         const formdata = {
+            equality: {
+                'pcqId': 'df28c61f-b388-489b-a67a-847423dd7ac4'
+            },
             language: {
                 'bilingual': 'optionYes'
             },
