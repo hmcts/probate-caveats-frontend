@@ -13,34 +13,16 @@
 
   "errors": {
     "addressLine1": {
-      "required": {
-        "summary": "Nid ydych wedi nodi llinell gyntaf y cyfeiriad",
-        "message": "Nodwch linell gyntaf y cyfeiriad"
-      },
-      "invalid": {
-        "summary": "Nodwch yr isafswm o nodau ar gyfer llinell gyntaf y cyfeiriad",
-        "message": "2 - 150 o nodau"
-      }
+      "required": "Nodwch linell gyntaf y cyfeiriad",
+      "invalid": "[CY] Enter an address line that is 2-150 characters long"
     },
     "postTown": {
-      "required": {
-        "summary": "Nid ydych wedi nodi&rsquo;r dref neu&rsquo;r ddinas",
-        "message": "Nodwch dref neu ddinas"
-      },
-      "invalid": {
-        "summary": "Nodwch yr isafswm o nodau ar gyfer y dref neu&rsquo;r ddinas",
-        "message": "2 - 50 o nodau"
-      }
+      "required": "Nodwch dref neu ddinas",
+      "invalid": "[CY] Enter a post town that is 2-50 characters long"
     },
     "newPostCode": {
-      "required": {
-        "summary": "Nid ydych wedi nodi&rsquo;r cod post",
-        "message": "Nodwch god post"
-      },
-      "invalid": {
-        "summary": "Nid ydych wedi nodi cod post cyflawn",
-        "message": "Nodwch god post sydd 2-14 nod o hyd"
-      }
+      "required": "Nodwch god post",
+      "invalid": "Nodwch god post sydd 2-14 nod o hyd"
     }
   }
 }

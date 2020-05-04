@@ -8,24 +8,12 @@
 
   "errors": {
     "firstName": {
-      "required": {
-        "summary": "Nid ydych wedi nodi enw cyntaf yr unigolyn sydd wedi marw",
-        "message": "Nodwch enw cyntaf yr unigolyn sydd wedi marw"
-      },
-      "invalid": {
-        "summary": "Gall yr enw cyntaf ond gynnwys llythrennau a i z, bylchau, cysylltnodau a chollnodau",
-        "message": "Gall yr enw cyntaf ond gynnwys llythrennau a i z, bylchau, cysylltnodau a chollnodau"
-      }
+      "required": "Nodwch enw cyntaf yr unigolyn sydd wedi marw",
+      "invalid": "[CY] Enter a valid first name - can only contain letters a to z, spaces, hyphens and apostrophes"
     },
     "lastName": {
-      "required": {
-        "summary": "Nid ydych wedi nodi cyfenw&rsquo;r unigolyn sydd wedi marw",
-        "message": "Nodwch gyfenw&rsquo;r unigolyn sydd wedi marw"
-      },
-      "invalid": {
-        "summary": "Gall y cyfenw ond gynnwys llythrennau a i z, bylchau, cysylltnodau a chollnodau",
-        "message": "Gall y cyfenw ond gynnwys llythrennau a i z, bylchau, cysylltnodau a chollnodau"
-      }
+      "required": "Nodwch gyfenw&rsquo;r unigolyn sydd wedi marw",
+      "invalid": "[CY] Enter a valid last name - can only contain letters a to z, spaces, hyphens and apostrophes"
     }
   }
 }

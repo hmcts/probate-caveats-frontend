@@ -21,7 +21,7 @@
             id: "firstName",
             name: "firstName",
             value: fields.firstName.value | safe,
-            errorMessage: { text: fields.firstName.errorMessage.message | safe } if fields.firstName.errorMessage,
+            errorMessage: { text: fields.firstName.errorMessage | safe } if fields.firstName.errorMessage,
             attributes: {
                 maxlength: 100
             },
@@ -34,7 +34,7 @@
             id: "lastName",
             name: "lastName",
             value: fields.lastName.value | safe,
-            errorMessage: { text: fields.lastName.errorMessage.message | safe } if fields.lastName.errorMessage,
+            errorMessage: { text: fields.lastName.errorMessage | safe } if fields.lastName.errorMessage,
             attributes: {
                 maxlength: 100
             },

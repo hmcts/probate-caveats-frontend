@@ -6,10 +6,7 @@
 
   "errors": {
     "dobknown": {
-      "required": {
-        "summary": "Answer the question about the date of birth",
-        "message": "Answer &lsquo;yes&rsquo; if you know the date of birth"
-      }
+      "required": "Answer &lsquo;yes&rsquo; if you know the date of birth"
     }
   }
 }

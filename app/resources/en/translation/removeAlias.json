@@ -8,24 +8,12 @@
 
   "errors": {
     "firstName": {
-      "required": {
-        "summary": "You haven&rsquo;t entered the first name of the person who has died",
-        "message": "Please enter the person who died&rsquo;s first name"
-      },
-      "invalid": {
-        "summary": "The first name can only contain letters a to z, spaces, hyphens and apostrophes",
-        "message": "The first name can only contain letters a to z, spaces, hyphens and apostrophes"
-      }
+      "required": "Enter the person who died&rsquo;s first name",
+      "invalid": "Enter a valid first name - can only contain letters a to z, spaces, hyphens and apostrophes"
     },
     "lastName": {
-      "required": {
-        "summary": "You haven&rsquo;t entered the last name of the person who has died",
-        "message": "Please enter the person who died&rsquo;s last name"
-      },
-      "invalid": {
-        "summary": "The last name can only contain letters a to z, spaces, hyphens and apostrophes",
-        "message": "The last name can only contain letters a to z, spaces, hyphens and apostrophes"
-      }
+      "required": "Enter the person who died&rsquo;s last name",
+      "invalid": "Enter a valid last name - can only contain letters a to z, spaces, hyphens and apostrophes"
     }
   }
 }
