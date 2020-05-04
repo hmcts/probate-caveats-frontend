@@ -13,7 +13,7 @@
                     <li>
                         {% for index, otherNameErrors in errors %}
                             {% for error in otherNameErrors %}
-                                <li><a href="#otherNames_{{ index }}_{{ error.field }}">{{ error.msg.summary | safe }}</a></li>
+                                <li><a href="#otherNames_{{ index }}_{{ error.field }}">{{ error.msg | safe }}</a></li>
                             {% endfor %}
                         {% endfor %}
                     </li>
@@ -52,7 +52,7 @@
                 id: "otherNames_" + index + "_firstName",
                 name: "otherNames[" + index + "][firstName]",
                 value: otherName["firstName"].value | safe,
-                errorMessage: { text: otherName["firstName"].errorMessage.message | safe } if otherName["firstName"].errorMessage,
+                errorMessage: { text: otherName["firstName"].errorMessage | safe } if otherName["firstName"].errorMessage,
                 attributes: {
                     maxlength: 100
                 },
@@ -68,7 +68,7 @@
                 id: "otherNames_" + index + "_lastName",
                 name: "otherNames[" + index + "][lastName]",
                 value: otherName["lastName"].value | safe,
-                errorMessage: { text: otherName["lastName"].errorMessage.message | safe } if otherName["lastName"].errorMessage,
+                errorMessage: { text: otherName["lastName"].errorMessage | safe } if otherName["lastName"].errorMessage,
                 attributes: {
                     maxlength: 100
                 },

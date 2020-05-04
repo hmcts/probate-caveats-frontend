@@ -3,24 +3,16 @@
   "heading": "Payment",
   "applicationFee": "Application fee",
   "total": "Total due",
+
   "errors": {
     "authorisation": {
-      "failure": {
-        "summary": "We are not able to continue with your application, please try again later",
-        "message": ""
-      }
+      "failure": "We are not able to continue with your application, please try again later"
     },
     "payment": {
-      "failure": {
-        "summary": "We could not take your payment, please try again later",
-        "message": ""
-      }
+      "failure": "We could not take your payment, please try again later"
     },
     "submit": {
-      "failure": {
-        "summary": "We are not able to continue with your application, please try again later",
-        "message": ""
-      }
+      "failure": "We are not able to continue with your application, please try again later"
     }
   }
 }

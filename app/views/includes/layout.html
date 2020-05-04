@@ -11,7 +11,7 @@
       {% set title = content.title %}
     {% endif %}
 
-    {{ title | safe }}{% if serviceName %}{{ " - " + serviceName }}{% endif %}
+    {% if errors | length %}{{ common.error }}: {% endif %}{{ title | safe }}{% if serviceName %}{{ " - " + serviceName }}{% endif %}
 {% endblock %}
 
 {% block head %}

@@ -5,52 +5,22 @@
 
   "errors": {
     "dob-day": {
-      "required": {
-        "summary": "You haven&rsquo;t entered the day that they were born",
-        "message": "Enter the day they were born"
-      },
-      "invalid": {
-        "summary": "You haven&rsquo;t entered a valid day that they were born",
-        "message": "Enter a valid day of birth"
-      }
+      "required": "Enter the day they were born",
+      "invalid": "Enter a valid day of birth"
     },
     "dob-month": {
-      "required": {
-        "summary": "You haven&rsquo;t entered the month that they were born",
-        "message": "Enter the month they were born"
-      },
-      "invalid": {
-        "summary": "You haven&rsquo;t entered a valid month that they were born",
-        "message": "Enter a valid month of birth"
-      }
+      "required": "Enter the month they were born",
+      "invalid": "Enter a valid month of birth"
     },
     "dob-year": {
-      "required": {
-        "summary": "You haven&rsquo;t entered the year that they were born",
-        "message": "Enter the year they were born"
-      },
-      "invalid": {
-        "summary": "You haven&rsquo;t entered a valid year that they were born",
-        "message": "Enter a valid year of birth"
-      }
+      "required": "Enter the year they were born",
+      "invalid": "Enter a valid year of birth"
     },
     "dob-date": {
-      "required": {
-        "summary": "You haven&rsquo;t entered the date that they were born",
-        "message": "Enter the date they were born"
-      },
-      "invalid": {
-        "summary": "You need to enter a valid date of birth",
-        "message": "Enter a valid date of birth"
-      },
-      "dateInFuture": {
-        "summary": "You must enter a date of birth in the past",
-        "message": "Enter a date in the past"
-      },
-      "dodBeforeDob": {
-        "summary": "The date of birth you entered is after the date of death",
-        "message": "Enter a date of birth that is before the date of death"
-      }
+      "required": "Enter the date they were born",
+      "invalid": "Enter a valid date of birth",
+      "dateInFuture": "Enter a date in the past",
+      "dodBeforeDob": "Enter a date of birth that is before the date of death"
     }
   }
 }

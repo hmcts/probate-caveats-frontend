@@ -16,10 +16,7 @@ const FieldError = (param, keyword, resourcePath, contentCtx = {}, language = 'e
     return {
         field: param,
         href: `#${param}`,
-        msg: {
-            summary: i18next.t(`${errorPath}.summary`, contentCtx),
-            message: i18next.t(`${errorPath}.message`, contentCtx)
-        }
+        msg: i18next.t(errorPath, contentCtx)
     };
 };
 

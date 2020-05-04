@@ -7,10 +7,7 @@
   "theDeceased": "yr unigolyn sydd wedi marw",
   "errors": {
     "alias": {
-      "required": {
-        "summary": "Nid ydych wedi ateb y cwestiwn am asedau mewn enw arall",
-        "message": "Atebwch &lsquo;oedd&rsquo; os oedd gan yr unigolyn sydd wedi marw asedau mewn enw arall"
-      }
+      "required": "Atebwch &lsquo;oedd&rsquo; os oedd gan yr unigolyn sydd wedi marw asedau mewn enw arall"
     }
   }
 }
