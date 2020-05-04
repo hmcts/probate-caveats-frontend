@@ -6,7 +6,6 @@ const initSteps = require('app/core/initSteps');
 const logger = require('app/components/logger');
 const {get, includes} = require('lodash');
 const documentDownloads = require('app/documentDownloads');
-const equalityAndDiversity = require('app/equalityAndDiversity');
 const paymentFees = require('app/paymentFees');
 const lockPaymentAttempt = require('app/middleware/lockPaymentAttempt');
 const uuidv4 = require('uuid/v4');
@@ -53,7 +52,6 @@ router.use((req, res, next) => {
     next();
 });
 
-router.use(equalityAndDiversity);
 router.use(documentDownloads);
 router.use(paymentFees);
 
