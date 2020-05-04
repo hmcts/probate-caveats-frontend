@@ -5,10 +5,7 @@
   "optionNo": "Nac ydw",
   "errors": {
     "bilingual": {
-      "required": {
-        "summary": "Mae angen ichi ddewis os ydych chi eisiau gohebiaeth ddwyieithog (Cymraeg/Saesneg) neu ohebiaeth Saesneg yn unig",
-        "message": "Atebwch &lsquo;ydw&rsquo; os ydych chi eisiau gohebiaeth ddwyieithog (Cymraeg/Saesneg)"
-      }
+      "required": "Atebwch &lsquo;ydw&rsquo; os ydych chi eisiau gohebiaeth ddwyieithog (Cymraeg/Saesneg)"
     }
   }
 }

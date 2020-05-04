@@ -5,14 +5,8 @@
   "explanation1": "You&rsquo;ll receive confirmation of your application by email.",
   "errors": {
     "email": {
-      "required": {
-        "summary": "You haven&rsquo;t entered your email address",
-        "message": "Enter your email address"
-      },
-      "invalid": {
-        "summary": "You&rsquo;ve entered an invalid email address. Check the email address and enter it again.",
-        "message": "The email you entered is invalid"
-      }
+      "required": "Enter your email address",
+      "invalid": "Enter a valid email address"
     }
   }
 }
