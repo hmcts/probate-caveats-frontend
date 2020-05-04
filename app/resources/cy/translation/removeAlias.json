@@ -9,11 +9,11 @@
   "errors": {
     "firstName": {
       "required": "Nodwch enw cyntaf yr unigolyn sydd wedi marw",
-      "invalid": "[CY] Enter a valid first name - can only contain letters a to z, spaces, hyphens and apostrophes"
+      "invalid": "Rhowch enw cyntaf dilys - dim ond llythrennau a i z, bylchau, cysylltnodau a chollnodau y gellir eu cynnwys"
     },
     "lastName": {
       "required": "Nodwch gyfenw&rsquo;r unigolyn sydd wedi marw",
-      "invalid": "[CY] Enter a valid last name - can only contain letters a to z, spaces, hyphens and apostrophes"
+      "invalid": "Rhowch enw olaf dilys - dim ond llythrennau a i z, bylchau, cysylltnodau a chollnodau y gellir eu cynnwys"
     }
   }
 }

@@ -17,7 +17,7 @@
       "invalid": "Nodwch flwyddyn geni ddilys"
     },
     "dob-date": {
-      "required": "[CY] Enter the date they were born",
+      "required": "Nodwch y dyddiad cawsant eu geni",
       "invalid": "Nodwch ddyddiad geni dilys",
       "dateInFuture": "Nodwch ddyddiad yn y gorffennol",
       "dodBeforeDob": "Nodwch ddyddiad geni sydd cyn dyddiad y farwolaeth"
