@@ -15,11 +15,11 @@
   "errors": {
     "addressLine1": {
       "required": "Nodwch linell gyntaf y cyfeiriad",
-      "invalid": "[CY] Enter an address line that is 2-150 characters long"
+      "invalid": "Rhowch linell cyfeiriad sydd rhwng 2 a 150 nod o hyd"
     },
     "postTown": {
       "required": "Nodwch dref neu ddinas",
-      "invalid": "[CY] Enter a post town that is 2-50 characters long"
+      "invalid": "Rhowch dref sydd rhwng 2 a 50 nod o hyd"
     },
     "newPostCode": {
       "required": "Nodwch god post",
