@@ -12,7 +12,7 @@ app:
 services:
   postcode:
     token: POSTCODE_SERVICE_TOKEN
-  orchestration:
+  orchestrator:
     url: ORCHESTRATION_SERVICE_URL
   idam:
     apiUrl: IDAM_API_URL
