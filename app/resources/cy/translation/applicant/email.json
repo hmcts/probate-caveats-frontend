@@ -6,7 +6,7 @@
   "errors": {
     "email": {
       "required": "Nodwch eich cyfeiriad e-bost",
-      "invalid": "[CY] Enter a valid email address"
+      "invalid": "Rhowch gyfeiriad e-bost dilys"
 
     }
   }
