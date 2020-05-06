@@ -259,7 +259,7 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
             };
         } else {
             res.locals.launchDarkly = {
-                client: LaunchDarkly.init(config.featureToggles.launchDarklyKey)
+                client: LaunchDarkly.init(config.featureToggles.launchDarklyKey, {diagnosticOptOut: true})
             };
         }
 
