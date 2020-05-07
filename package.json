@@ -53,7 +53,7 @@
     "lint"
   ],
   "dependencies": {
-    "@hmcts/ctsc-web-chat": "^0.3.9",
+    "@hmcts/ctsc-web-chat": "^0.3.11",
     "@hmcts/nodejs-logging": "^3.0.0",
     "@hmcts/os-places-client": "^1.0.4",
     "@hmcts/properties-volume": "^0.0.9",
