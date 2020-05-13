@@ -56,7 +56,7 @@ describe('FeatureToggle', () => {
             }, 1000);
         });
 
-        it('should call next() with an error when the api returns an error', (done) => {
+        it('should call next() when the api returns an error', (done) => {
             const params = {
                 req: {
                     session: {
