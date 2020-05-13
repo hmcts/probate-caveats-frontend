@@ -23,7 +23,7 @@ nodejs:
     POSTCODE_SERVICE_PATH: "/caveats/find-address"
     PAY_RETURN_URL: "/caveats/payment-status"
     CAVEAT_REDIRECT_BASE_URL: http://probate-caveats-fe-{{ .Values.global.environment }}.service.core-compute-{{ .Values.global.environment }}.internal
-    EQUALITY_URL: https://pcq.aat.platform.hmcts.net
+    EQUALITY_URL: https://pcq-frontend-pr-60.service.core-compute-preview.internal
   keyVaults:
     probate:
       secrets:
