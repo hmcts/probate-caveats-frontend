@@ -30,7 +30,9 @@ class FeatureToggle {
         try {
             this.onceReady(params.launchDarkly, () => {
                 params.launchDarkly.client.variation(featureToggleKey, ldUser, ldDefaultValue, (err, showFeature) => {
-                    if (!err) {
+                    if (err) {
+                        params.next();
+                    } else {
                         logger(sessionId).info(`Checking feature toggle: ${params.featureToggleKey}, isEnabled: ${showFeature}`);
                         params.callback({
                             req: params.req,
@@ -40,24 +42,22 @@ class FeatureToggle {
                             isEnabled: showFeature,
                             featureToggleKey: params.featureToggleKey
                         });
-                    } else {
-                        params.next(err);
                     }
                 });
             });
         } catch (err) {
-            params.next(err);
+            params.next();
         }
     }
 
     onceReady(ld, callback) {
-        if (!ld.ready) {
+        if (ld.ready) {
+            callback();
+        } else {
             ld.client.once('ready', () => {
                 ld.ready = true;
                 callback();
             });
-        } else {
-            callback();
         }
     }
 
