@@ -22,7 +22,6 @@ describe('Equality', () => {
                 uuid: '6543210987654321',
                 form: {
                     applicationId: '1234567890123456',
-                    applicant: {},
                     equality: {
                         pcqId: '78e69022-2468-4370-a88e-bea2a80fa51f'
                     }
