@@ -16,12 +16,13 @@ describe('Equality', () => {
     });
 
     describe('runnerOptions', () => {
-        it('sets the options to redirect to PCQ', (done) => {
+        it('sets the options to redirect to PCQ when email is missing', (done) => {
             const ctx = {};
             const session = {
                 uuid: '6543210987654321',
                 form: {
                     applicationId: '1234567890123456',
+                    applicant: {},
                     equality: {
                         pcqId: '78e69022-2468-4370-a88e-bea2a80fa51f'
                     }
@@ -36,6 +37,36 @@ describe('Equality', () => {
                 expect(options).to.deep.equal({
                     redirect: true,
                     url: 'http://localhost:4000/service-endpoint?serviceId=PROBATE&actor=APPLICANT&pcqId=78e69022-2468-4370-a88e-bea2a80fa51f&partyId=1234567890123456&returnUrl=http://localhost:3000/summary&language=en'
+                });
+                done();
+            }).catch(err => {
+                done(err);
+            });
+        });
+
+        it('sets the options to redirect to PCQ when email is present', (done) => {
+            const ctx = {};
+            const session = {
+                uuid: '6543210987654321',
+                form: {
+                    applicationId: '1234567890123456',
+                    applicant: {
+                        email: 'test@email.com'
+                    },
+                    equality: {
+                        pcqId: '78e69022-2468-4370-a88e-bea2a80fa51f'
+                    }
+                },
+                language: 'en'
+            };
+            const host = 'http://localhost:3000';
+
+            co(function* () {
+                const options = yield Equality.runnerOptions(ctx, session, host);
+
+                expect(options).to.deep.equal({
+                    redirect: true,
+                    url: 'http://localhost:4000/service-endpoint?serviceId=PROBATE&actor=APPLICANT&pcqId=78e69022-2468-4370-a88e-bea2a80fa51f&partyId=test@email.com&returnUrl=http://localhost:3000/summary&language=en'
                 });
                 done();
             }).catch(err => {

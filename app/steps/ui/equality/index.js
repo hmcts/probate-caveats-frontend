@@ -20,7 +20,7 @@ class Equality extends ValidationStep {
             serviceId: 'PROBATE',
             actor: 'APPLICANT',
             pcqId: session.form.equality.pcqId,
-            partyId: session.form.applicantEmail ? session.form.applicantEmail : session.form.applicationId,
+            partyId: (session.form.applicant && session.form.applicant.email) ? session.form.applicant.email : session.form.applicationId,
             returnUrl: `${host}${config.app.basePath}/summary`,
             language: session.language
         };
