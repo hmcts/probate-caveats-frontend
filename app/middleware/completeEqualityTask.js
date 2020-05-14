@@ -40,6 +40,10 @@ const completeEqualityTask = (params) => {
 
         params.next();
     } else {
+        if (!params.req.session.form) {
+            params.req.session.form = {};
+        }
+
         params.req.session.form.equality = {
             pcqId: 'Service down'
         };
