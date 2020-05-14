@@ -3,6 +3,7 @@ environment: 'prod'
 externalHostNameUrl: ''
 languages: ['en','cy']
 featureToggles:
+  enabled: true
   launchDarklyKey: 'SDK_KEY'
   launchDarklyUser:
     firstName: 'Caveats'
