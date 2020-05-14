@@ -26,7 +26,6 @@ const uuidv4 = require('uuid/v4');
 const nonce = uuidv4();
 const isEmpty = require('lodash').isEmpty;
 const featureToggles = require('app/featureToggles');
-const LaunchDarkly = require('launchdarkly-node-server-sdk');
 
 exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
     const app = express();
@@ -252,17 +251,10 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
     });
 
     app.use((req, res, next) => {
-        if (['test', 'testing'].includes(app.get('env'))) {
-            res.locals.launchDarkly = {
-                client: LaunchDarkly.init(config.featureToggles.launchDarklyKey, {offline: true}),
-                ftValue: ftValue
-            };
-        } else {
-            res.locals.launchDarkly = {
-                client: LaunchDarkly.init(config.featureToggles.launchDarklyKey, {diagnosticOptOut: true})
-            };
+        res.locals.launchDarkly = {};
+        if (ftValue) {
+            res.locals.launchDarkly.ftValue = ftValue;
         }
-
         next();
     });
 
