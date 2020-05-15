@@ -31,21 +31,23 @@ class LaunchDarkly {
 
 class Singleton {
     constructor(options = {}, ftValue = {}) {
-        if (!Singleton.instance) {
-            Singleton.instance = new LaunchDarkly(options, ftValue);
+        if (!this.instance) {
+            this.instance = new LaunchDarkly(options, ftValue);
 
-            process.on('SIGINT', () => this.close);
-            process.on('exit', () => this.close);
+            process.on('SIGINT', () => this.close());
+            process.on('exit', () => this.close());
         }
     }
 
     getInstance() {
-        return Singleton.instance;
+        return this.instance;
     }
 
     close() {
-        Singleton.instance.close();
-        Singleton.instance = null;
+        if (this.instance) {
+            this.instance.close();
+            delete this.instance;
+        }
     }
 }
 
