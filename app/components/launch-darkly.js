@@ -14,14 +14,14 @@ class LaunchDarkly {
     }
 
     variation(...params) {
-        if (!this.ready) {
-            this.client.once('ready', () => {
-                this.ready = true;
-                return this.client.variation(...params);
-            });
-        } else {
+        if (this.ready) {
             return this.client.variation(...params);
         }
+
+        this.client.once('ready', () => {
+            this.ready = true;
+            return this.client.variation(...params);
+        });
     }
 
     close() {
