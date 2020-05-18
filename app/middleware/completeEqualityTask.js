@@ -31,25 +31,13 @@ const completeEqualityTask = (params) => {
                 params.res.redirect(`${config.app.basePath}/summary`);
             }
         });
-    }
+    } else {
+        params.req.session.form.equality = {
+            pcqId: 'Service down'
+        };
 
-    // if (params.isEnabled && !get(params.req.session.form, 'equality.pcqId', false)) {
-    //     params.req.session.form.equality = {
-    //         pcqId: uuidv4()
-    //     };
-    //
-    //     params.next();
-    // } else {
-    //     if (!params.req.session.form) {
-    //         params.req.session.form = {};
-    //     }
-    //
-    //     params.req.session.form.equality = {
-    //         pcqId: 'Service down'
-    //     };
-    //
-    //     params.res.redirect(`${config.app.basePath}/summary`);
-    // }
+        params.res.redirect(`${config.app.basePath}/summary`);
+    }
 };
 
 module.exports = completeEqualityTask;
