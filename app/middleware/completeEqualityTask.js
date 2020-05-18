@@ -24,20 +24,23 @@ const completeEqualityTask = (params) => {
 
                 params.next();
             } else {
-                params.req.session.form.equality = {
-                    pcqId: 'Service down'
-                };
-
-                params.res.redirect(`${config.app.basePath}/summary`);
+                pcqDown(params);
             }
         });
     } else {
-        params.req.session.form.equality = {
-            pcqId: 'Service down'
-        };
-
-        params.res.redirect(`${config.app.basePath}/summary`);
+        pcqDown(params);
     }
+};
+
+const pcqDown = (params) => {
+    if (!params.req.session.form) {
+        params.req.session.form = {};
+    }
+    params.req.session.form.equality = {
+        pcqId: 'Service down'
+    };
+
+    params.res.redirect(`${config.app.basePath}/summary`);
 };
 
 module.exports = completeEqualityTask;
