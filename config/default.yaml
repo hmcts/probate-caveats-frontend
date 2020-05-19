@@ -3,12 +3,14 @@ environment: 'prod'
 externalHostNameUrl: ''
 languages: ['en','cy']
 featureToggles:
+  enabled: true
   launchDarklyKey: 'SDK_KEY'
   launchDarklyUser:
     firstName: 'Caveats'
     lastName: 'Frontend'
     key: '858c8e86-3914-42b5-aa41-ea9c3372e98c'
   ft_caveats_shutter: 'probate-caveats-fe-shutter'
+  ft_pcq: 'probate-caveats-pcq'
   appwideToggles: []
 app:
   useHttps: 'false'
@@ -16,13 +18,15 @@ app:
   useCSRFProtection: 'true'
   basePath: ''
 services:
-  orchestration:
+  orchestrator:
+    name: 'Orchestrator Service'
     url: 'http://localhost:8888'
     port: 8888
     paths:
       checkanswerspdf: 'documents/generate/checkAnswersSummary'
       payment_updates: '/payment-updates'
   idam:
+    name: 'IdAM Service'
     apiUrl: 'http://localhost:4501'
     roles: ['probate-private-beta','citizen']
     s2s_url: 'http://localhost:4502'
@@ -35,12 +39,14 @@ services:
     caveat_redirect_base_url: 'http://localhost:3000'
     caveat_redirectUrl: '/oauth2/callback'
   payment:
+    name: 'Payment Service'
     createPaymentUrl: 'http://localhost:8383/card-payments'
     authorization: 'dummy_token'
     serviceAuthorization: 'dummy_token'
     userId: 999999999
     returnUrlPath: '/payment-status'
   feesRegister:
+    name: 'Fees Register Service'
     url: 'http://localhost:4411/fees-register'
     port: 4411
     paths:
@@ -48,7 +54,13 @@ services:
       feesLookup: '/fees/lookup'
     ihtMinAmt: 5000
   postcode:
+    name: 'Postcode Lookup Service'
     token: ''
+  equalityAndDiversity:
+    name: 'Equality and Diversity Service'
+    url: 'http://localhost:4000'
+    path: '/service-endpoint'
+    port: 4000
 redis:
   host: 'localhost'
   port: 6379
@@ -115,7 +127,9 @@ payment:
 appInsights:
   instrumentationKey: ''
 livenessEndpoint: '/health/liveness'
-healthEndpoint: '/health'
+endpoints:
+  health: '/health'
+  info: '/info'
 whitelistedPagesForStartApplyPageRedirect: [
   '/public',
   '/start-apply',

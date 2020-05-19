@@ -62,7 +62,7 @@ We have a number of rules relating to code style that can be found in [.eslintrc
 
 ### Config
 
-For development only config, use the `dev.yaml` file. Running the app with the node environment set to `dev` will ensure this file is used.
+For development only config, rename the `config/dev_template.yaml` file to `config/dev.yaml`. Running the app with the node environment set to `dev` will ensure this file is used.
 This file is not version controlled so any config here will not be pushed to git.
 
 As an example, if you want to use LanuchDarkly locally, place the SDK Key in this file. You can keep the key there as this file is not version controlled.
