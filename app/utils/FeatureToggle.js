@@ -2,13 +2,8 @@
 
 const logger = require('app/components/logger');
 const config = require('config');
-const LaunchDarkly = require('app/components/launch-darkly');
 
 class FeatureToggle {
-    constructor() {
-        this.launchDarkly = new LaunchDarkly().getInstance();
-    }
-
     callCheckToggle(req, res, next, launchDarkly, featureToggleKey, callback, redirectPage) {
         return this.checkToggle({
             req,
@@ -33,23 +28,36 @@ class FeatureToggle {
         }
 
         try {
-            this.launchDarkly.variation(featureToggleKey, ldUser, ldDefaultValue, (err, showFeature) => {
-                if (err) {
-                    params.next();
-                } else {
-                    logger(sessionId).info(`Checking feature toggle: ${params.featureToggleKey}, isEnabled: ${showFeature}`);
-                    params.callback({
-                        req: params.req,
-                        res: params.res,
-                        next: params.next,
-                        redirectPage: params.redirectPage,
-                        isEnabled: showFeature,
-                        featureToggleKey: params.featureToggleKey
-                    });
-                }
+            this.onceReady(params.launchDarkly, () => {
+                params.launchDarkly.client.variation(featureToggleKey, ldUser, ldDefaultValue, (err, showFeature) => {
+                    if (!err) {
+                        logger(sessionId).info(`Checking feature toggle: ${params.featureToggleKey}, isEnabled: ${showFeature}`);
+                        params.callback({
+                            req: params.req,
+                            res: params.res,
+                            next: params.next,
+                            redirectPage: params.redirectPage,
+                            isEnabled: showFeature,
+                            featureToggleKey: params.featureToggleKey
+                        });
+                    } else {
+                        params.next(err);
+                    }
+                });
             });
         } catch (err) {
-            params.next();
+            params.next(err);
+        }
+    }
+
+    onceReady(ld, callback) {
+        if (!ld.ready) {
+            ld.client.once('ready', () => {
+                ld.ready = true;
+                callback();
+            });
+        } else {
+            callback();
         }
     }
 
