@@ -8,7 +8,7 @@ const OSPlacesClient = require('@hmcts/os-places-client').OSPlacesClient;
 const otp = require('otp');
 const FormatUrl = require('app/utils/FormatUrl');
 const {URLSearchParams} = require('url');
-const ORCHESTRATION_SERVICE_URL = config.services.orchestration.url;
+const ORCHESTRATION_SERVICE_URL = config.services.orchestrator.url;
 const CREATE_PAYMENT_SERVICE_URL = config.services.payment.createPaymentUrl;
 const POSTCODE_SERVICE_TOKEN = config.services.postcode.token;
 const SERVICE_AUTHORISATION_URL = `${config.services.idam.s2s_url}/lease`;
@@ -80,7 +80,7 @@ const updateCcdCasePaymentStatus = (data, ctx) => {
 const createPayment = (data, hostname, language) => {
     logInfo('createPayment', data.applicationId);
     logInfo('hostname', hostname);
-    const paymentUpdatesCallback = config.services.orchestration.url + config.services.orchestration.paths.payment_updates;
+    const paymentUpdatesCallback = config.services.orchestrator.url + config.services.orchestrator.paths.payment_updates;
     const pay_return_host_url = (hostname.indexOf('.internal') >= 0) ? hostname:(externalHostNameUrl || hostname);
     const headers = {
         'Content-Type': 'application/json',
