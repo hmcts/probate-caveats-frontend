@@ -70,11 +70,11 @@ const getOauth2Token = (code, redirect_url, applicationId) => {
     });
 };
 
-const checkForError = (result) => {
+function checkForError(result) {
     if (result.name === 'Error') {
         throw result;
     }
-};
+}
 
 module.exports = {
     getUserToken

@@ -8,8 +8,8 @@ const checkAnswersSummaryJSONObjBuilder = new CheckAnswersSummaryJSONObjectBuild
 
 class Summary extends Step {
 
-    static getUrl() {
-        return '/summary';
+    static getUrl(redirect = '*') {
+        return `/summary/${redirect}`;
     }
 
     generateContent(ctx, formdata, language) {

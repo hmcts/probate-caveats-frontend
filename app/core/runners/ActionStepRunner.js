@@ -16,7 +16,7 @@ class ActionStepRunner {
 
         req.log.error(`GET operation not defined for ${step.name} step`);
         res.status(404);
-        res.render('errors/error', {common: commonContent, error: '404'});
+        res.render('errors/404', {common: commonContent});
     }
 
     handlePost(step, req, res) {
