@@ -56,7 +56,7 @@ describe('getCheckAnswersPdf', () => {
                 expect(res.status.calledOnce).to.equal(true);
                 expect(res.status.calledWith(500)).to.equal(true);
                 expect(res.render.calledOnce).to.equal(true);
-                expect(res.render.calledWith('errors/500')).to.equal(true);
+                expect(res.render.calledWith('errors/error')).to.equal(true);
                 done();
             });
         });
