@@ -47,9 +47,6 @@ const submitData = (ctx, formdata) => {
     body.language = {};
     body.language.bilingual = formdata.language.bilingual;
 
-    body.equality = {};
-    body.equality.pcqId = formdata.equality.pcqId;
-
     return body;
 };
 

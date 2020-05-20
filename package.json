@@ -45,9 +45,7 @@
     "//": "The below scripts are just stubs, don't use them in production",
     "stub:orchestrator": "NODE_PATH=. node test/service-stubs/orchestrator.js",
     "stub:s2s": "NODE_PATH=. node test/service-stubs/s2s.js",
-    "stub:idam": "NODE_PATH=. node test/service-stubs/idam.js",
-    "stub:equality-and-diversity-endpoint": "NODE_PATH=. node test/service-stubs/equalityAndDiversityEndpoint.js",
-    "stub:equality-and-diversity-health": "NODE_PATH=. node test/service-stubs/equalityAndDiversityHealth.js"
+    "stub:idam": "NODE_PATH=. node test/service-stubs/idam.js"
   },
   "pre-commit": [
     "lint"

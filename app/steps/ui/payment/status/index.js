@@ -9,7 +9,6 @@ const RedirectRunner = require('app/core/runners/RedirectRunner');
 const {get, set} = require('lodash');
 const Thankyou = require('app/steps/ui/thankyou');
 const formatUrl = require('app/utils/FormatUrl');
-const config = require('config');
 
 class PaymentStatus extends Step {
 
@@ -50,8 +49,7 @@ class PaymentStatus extends Step {
         return [ctx, formdata];
     }
 
-    * runnerOptions(ctx, session) {
-        const formdata = session.form;
+    * runnerOptions(ctx, formdata) {
         const options = {};
         options.redirect = false;
 
@@ -77,10 +75,10 @@ class PaymentStatus extends Step {
 
         options.redirect = true;
         if (findPaymentResponse.status !== 'Success') {
-            options.url = config.app.basePath + this.steps.PaymentBreakdown.constructor.getUrl();
+            options.url = `${this.steps.PaymentBreakdown.constructor.getUrl()}`;
             logError('Payment Status was not Success, so returning to breakdown page', formdata.applicationId);
         } else {
-            options.url = config.app.basePath + Thankyou.getUrl();
+            options.url = Thankyou.getUrl();
             logInfo('Payment Status was Success', formdata.applicationId);
         }
 
