@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "pcqId",
+  "type": "object",
+  "properties": {
+    "pcqId": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "pcqId"
+  ]
+}
