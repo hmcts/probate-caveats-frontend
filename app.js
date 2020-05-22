@@ -80,9 +80,7 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
     // Content security policy to allow just assets from same domain
     app.use(helmet.contentSecurityPolicy({
         directives: {
-            defaultSrc: [
-                '\'self\''
-            ],
+            defaultSrc: ['\'self\''],
             fontSrc: [
                 '\'self\' data:',
                 'fonts.gstatic.com'
