@@ -33,13 +33,6 @@ const completeEqualityTask = (params) => {
 };
 
 const pcqDown = (params) => {
-    if (!params.req.session.form) {
-        params.req.session.form = {};
-    }
-    params.req.session.form.equality = {
-        pcqId: 'Service down'
-    };
-
     params.res.redirect(`${config.app.basePath}/summary`);
 };
 

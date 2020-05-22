@@ -64,7 +64,6 @@ describe('completeEqualityTask', () => {
             completeEqualityTask(params);
 
             setTimeout(() => {
-                expect(params.req.session.form.equality.pcqId).to.equal('Service down');
                 expect(redirectSpy.calledOnce).to.equal(true);
                 expect(redirectSpy.calledWith(`${config.app.basePath}/summary`)).to.equal(true);
                 redirectSpy.restore();
