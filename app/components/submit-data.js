@@ -47,6 +47,11 @@ const submitData = (ctx, formdata) => {
     body.language = {};
     body.language.bilingual = formdata.language.bilingual;
 
+    if (formdata.equality) {
+        body.equality = {};
+        body.equality.pcqId = formdata.equality.pcqId;
+    }
+
     return body;
 };
 

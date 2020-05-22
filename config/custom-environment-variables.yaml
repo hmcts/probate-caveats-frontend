@@ -12,7 +12,7 @@ app:
 services:
   postcode:
     token: POSTCODE_SERVICE_TOKEN
-  orchestration:
+  orchestrator:
     url: ORCHESTRATION_SERVICE_URL
   idam:
     apiUrl: IDAM_API_URL
@@ -32,6 +32,8 @@ services:
     url: PERSISTENCE_SERVICE_URL
   feesRegister:
     url: FEES_REGISTRY_URL
+  equalityAndDiversity:
+    url: EQUALITY_URL
 redis:
   host: REDIS_HOST
   port: REDIS_PORT

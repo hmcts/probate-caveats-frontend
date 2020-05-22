@@ -23,11 +23,10 @@ const fs = require('fs');
 const https = require('https');
 const appInsights = require('applicationinsights');
 const uuidv4 = require('uuid/v4');
-const uuid = uuidv4();
+const nonce = uuidv4();
 const sanitizeRequestBody = require('app/middleware/sanitizeRequestBody');
 const isEmpty = require('lodash').isEmpty;
 const featureToggles = require('app/featureToggles');
-const LaunchDarkly = require('launchdarkly-node-server-sdk');
 
 exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
     const app = express();
@@ -60,7 +59,7 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
         enableTracking: config.enableTracking,
         links: config.links,
         applicationFee: config.payment.applicationFee,
-        nonce: uuid,
+        nonce: nonce,
         basePath: config.app.basePath,
         webChat: {
             chatId: config.webChat.chatId,
@@ -98,7 +97,7 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
                 'www.googletagmanager.com',
                 'vcc-eu4.8x8.com',
                 'vcc-eu4b.8x8.com',
-                `'nonce-${uuid}'`
+                `'nonce-${nonce}'`
             ],
             connectSrc: [
                 '\'self\'',
@@ -230,7 +229,7 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
     }
 
     // Add variables that are available in all views
-    app.use(function (req, res, next) {
+    app.use((req, res, next) => {
         const commonContent = require(`app/resources/${req.session.language}/translation/common`);
 
         res.locals.serviceName = commonContent.serviceName;
@@ -246,7 +245,7 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
 
     app.post('*', sanitizeRequestBody);
 
-    app.use('/health', healthcheck);
+    app.use(healthcheck);
 
     app.use(`${config.app.basePath}/health`, healthcheck);
 
@@ -255,17 +254,10 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
     });
 
     app.use((req, res, next) => {
-        if (['test', 'testing'].includes(app.get('env'))) {
-            res.locals.launchDarkly = {
-                client: LaunchDarkly.init(config.featureToggles.launchDarklyKey, {offline: true}),
-                ftValue: ftValue
-            };
-        } else {
-            res.locals.launchDarkly = {
-                client: LaunchDarkly.init(config.featureToggles.launchDarklyKey)
-            };
+        res.locals.launchDarkly = {};
+        if (ftValue) {
+            res.locals.launchDarkly.ftValue = ftValue;
         }
-
         next();
     });
 
