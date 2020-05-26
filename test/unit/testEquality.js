@@ -36,7 +36,7 @@ describe('Equality', () => {
                 expect(options).to.deep.equal({
                     redirect: true,
                     // url: 'http://localhost:4000/service-endpoint?serviceId=PROBATE&actor=APPLICANT&pcqId=78e69022-2468-4370-a88e-bea2a80fa51f&partyId=1234567890123456&returnUrl=http://localhost:3000/summary&language=en'
-                    url: 'http://localhost:4000/service-endpoint?serviceId=PROBATE&actor=APPLICANT&pcqId=78e69022-2468-4370-a88e-bea2a80fa51f&partyId=1234567890123456&language=en'
+                    url: 'http://localhost:4000/service-endpoint?serviceId=PROBATE&actor=APPLICANT&pcqId=78e69022-2468-4370-a88e-bea2a80fa51f&partyId=1234567890123456&returnUrl=http://localhost:3000/summary'
                 });
                 done();
             }).catch(err => {
@@ -67,7 +67,7 @@ describe('Equality', () => {
                 expect(options).to.deep.equal({
                     redirect: true,
                     // url: 'http://localhost:4000/service-endpoint?serviceId=PROBATE&actor=APPLICANT&pcqId=78e69022-2468-4370-a88e-bea2a80fa51f&partyId=test@email.com&returnUrl=http://localhost:3000/summary&language=en'
-                    url: 'http://localhost:4000/service-endpoint?serviceId=PROBATE&actor=APPLICANT&pcqId=78e69022-2468-4370-a88e-bea2a80fa51f&partyId=test@email.com&language=en'
+                    url: 'http://localhost:4000/service-endpoint?serviceId=PROBATE&actor=APPLICANT&pcqId=78e69022-2468-4370-a88e-bea2a80fa51f&partyId=test@email.com&returnUrl=http://localhost:3000/summary'
                 });
                 done();
             }).catch(err => {
