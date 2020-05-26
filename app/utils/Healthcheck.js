@@ -1,7 +1,7 @@
 'use strict';
 
 const FormatUrl = require('app/utils/FormatUrl');
-const {asyncFetch, fetchOptions} = require('app/components/api-utils');
+const {asyncFetch, fetchOptions, fetchJson} = require('app/components/api-utils');
 const config = require('config');
 const statusUp = 'UP';
 const statusDown = 'DOWN';
@@ -60,6 +60,13 @@ class Healthcheck {
         return healthDownstream.map((service, key) => {
             return Object.assign(service, {gitCommitId: infoDownstream[key].gitCommitId});
         });
+    }
+
+    getServiceHealth(service) {
+        const urlFormatter = this.formatUrl(config.endpoints.health);
+        const url = urlFormatter(service.url);
+        const fetchOpts = fetchOptions({}, 'GET', {});
+        return fetchJson(url, fetchOpts);
     }
 }
 
