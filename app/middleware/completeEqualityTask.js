@@ -14,10 +14,10 @@ const completeEqualityTask = (params) => {
         ];
 
         healthcheck.getDownstream(services, healthcheck.health, healthDownstream => {
-            params.req.session.equalityHealth = healthDownstream[0].status;
-            logger.info(config.services.equalityAndDiversity.name, 'is', params.req.session.equalityHealth);
+            const equalityHealthIsUp = healthDownstream[0].status === 'UP' && healthDownstream[0]['pcq-backend'].actualStatus === 'UP';
+            logger.info(config.services.equalityAndDiversity.name, 'is', (equalityHealthIsUp ? 'UP' : 'DOWN'));
 
-            if (params.req.session.equalityHealth === 'UP') {
+            if (equalityHealthIsUp) {
                 params.req.session.form.equality = {
                     pcqId: uuidv4()
                 };
