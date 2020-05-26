@@ -9,24 +9,27 @@ const logger = require('app/components/logger')('Init');
 const completeEqualityTask = (params) => {
     if (params.isEnabled && !get(params.req.session.form, 'equality.pcqId', false)) {
         const healthcheck = new Healthcheck();
-        const services = [
-            {name: config.services.equalityAndDiversity.name, url: config.services.equalityAndDiversity.url}
-        ];
+        const service = {
+            name: config.services.equalityAndDiversity.name,
+            url: config.services.equalityAndDiversity.url,
+            gitCommitIdPath: config.services.equalityAndDiversity.gitCommitIdPath
+        };
 
-        healthcheck.getDownstream(services, healthcheck.health, healthDownstream => {
-            params.req.session.equalityHealth = healthDownstream[0].status;
-            logger.info(config.services.equalityAndDiversity.name, 'is', params.req.session.equalityHealth);
+        healthcheck.getServiceHealth(service)
+            .then(json => {
+                const equalityHealthIsUp = json.status === 'UP' && json['pcq-backend'].actualStatus === 'UP';
+                logger.info(config.services.equalityAndDiversity.name, 'is', (equalityHealthIsUp ? 'UP' : 'DOWN'));
 
-            if (params.req.session.equalityHealth === 'UP') {
-                params.req.session.form.equality = {
-                    pcqId: uuidv4()
-                };
+                if (equalityHealthIsUp) {
+                    params.req.session.form.equality = {
+                        pcqId: uuidv4()
+                    };
 
-                params.next();
-            } else {
-                pcqDown(params);
-            }
-        });
+                    params.next();
+                } else {
+                    pcqDown(params);
+                }
+            });
     } else {
         pcqDown(params);
     }
