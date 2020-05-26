@@ -19,7 +19,7 @@ class Equality extends ValidationStep {
         const params = {
             serviceId: 'PROBATE',
             actor: 'APPLICANT',
-            pcqId: session.form.equality.pcqId,
+            // pcqId: session.form.equality.pcqId,
             partyId: (session.form.applicant && session.form.applicant.email) ? session.form.applicant.email : session.form.applicationId,
             returnUrl: `${host}${config.app.basePath}/summary`,
             language: session.language
