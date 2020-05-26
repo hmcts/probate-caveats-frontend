@@ -11,7 +11,12 @@ app.use(express.json());
 
 app.get('/health', (req, res) => {
     logger.info(req.body);
-    res.send({status: 'UP'});
+    res.send({
+        status: 'UP',
+        'pcq-backend': {
+            actualStatus: 'UP'
+        }
+    });
 });
 
 router.get('/info', (req, res) => {
