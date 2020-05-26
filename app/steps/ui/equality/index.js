@@ -15,23 +15,23 @@ class Equality extends ValidationStep {
         return '/equality-and-diversity';
     }
 
-    runnerOptions() {
-        // const params = {
-        //     serviceId: 'PROBATE',
-        //     actor: 'APPLICANT',
-        //     pcqId: session.form.equality.pcqId,
-        //     partyId: (session.form.applicant && session.form.applicant.email) ? session.form.applicant.email : session.form.applicationId,
-        //     returnUrl: `${host}${config.app.basePath}/summary`,
-        //     language: session.language
-        // };
-        //
-        // const qs = Object.keys(params)
-        //     .map(key => key + '=' + params[key])
-        //     .join('&');
+    runnerOptions(ctx, session, host) {
+        const params = {
+            serviceId: 'PROBATE',
+            actor: 'APPLICANT',
+            pcqId: session.form.equality.pcqId,
+            partyId: (session.form.applicant && session.form.applicant.email) ? session.form.applicant.email : session.form.applicationId,
+            returnUrl: `${host}${config.app.basePath}/summary`,
+            language: session.language
+        };
+
+        const qs = Object.keys(params)
+            .map(key => key + '=' + params[key])
+            .join('&');
 
         return {
             redirect: true,
-            url: config.services.equalityAndDiversity.url + config.services.equalityAndDiversity.path
+            url: config.services.equalityAndDiversity.url + config.services.equalityAndDiversity.path + '?' + qs
         };
     }
 
