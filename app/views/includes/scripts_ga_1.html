@@ -1,4 +1,8 @@
 {% if globals.enableTracking == "true" %}
+    <!-- Data Layer -->
+    <script nonce="{{ globals.nonce }}">
+        dataLayer = [];
+    </script>
     <!-- Google Tag Manager -->
     <script nonce="{{ globals.nonce }}">
         (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -8,8 +12,4 @@
         })(window,document,'script','dataLayer','GTM-KG8XT3S');
     </script>
     <!-- End Google Tag Manager -->
-    <!-- Data Layer -->
-    <script>
-        dataLayer = [];
-    </script>
 {% endif %}
