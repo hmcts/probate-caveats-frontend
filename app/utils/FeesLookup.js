@@ -3,20 +3,13 @@
 const services = require('app/components/services');
 const logger = require('app/components/logger');
 const logInfo = (message, applicationId = 'Init') => logger(applicationId).info(message);
+const config = require('config');
 
 class FeesLookup {
 
     constructor(applicationId) {
         this.applicationId = applicationId;
-        this.data = {
-            applicant_type: 'all',
-            channel: 'default',
-            event: 'miscellaneous',
-            jurisdiction1: 'family',
-            jurisdiction2: 'probate registry',
-            keyword: 'MNO',
-            service: 'probate'
-        };
+        this.data = config.services.feesRegister.feesData;
     }
 
     lookup(authToken) {
