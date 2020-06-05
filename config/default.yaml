@@ -26,16 +26,16 @@ services:
       checkanswerspdf: 'documents/generate/checkAnswersSummary'
       payment_updates: '/payment-updates'
   idam:
-    apiUrl: 'http://localhost:5000'
     name: 'IdAM Service'
+    apiUrl: 'http://localhost:4501'
     roles: ['probate-private-beta','citizen']
     s2s_url: 'http://localhost:4502'
     service_name: 'probate_frontend'
     service_key: 'AAAAAAAAAAAAAAAA'
-    probate_oauth2_client: 'ccd_gateway_secret'
+    probate_oauth2_client: 'probate'
     probate_oauth2_secret: '123456'
-    caveat_user_email: 'testusername@test.com'
-    caveat_user_password: 'Pa55word11'
+    caveat_user_email: 'testusername1@test.com'
+    caveat_user_password: 'password'
     caveat_redirect_base_url: 'http://localhost:3000'
     caveat_redirectUrl: '/oauth2/callback'
   payment:
