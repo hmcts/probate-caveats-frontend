@@ -13,7 +13,7 @@ services:
   postcode:
     token: POSTCODE_SERVICE_TOKEN
   orchestrator:
-    url: http://probate-orchestrator-service-pr-322.service.core-compute-pr-322.internal
+    url: ORCHESTRATION_SERVICE_URL
   idam:
     apiUrl: IDAM_API_URL
     s2s_url: IDAM_S2S_URL
