@@ -6,8 +6,11 @@
     {% set helpContent = helpContent + "<p class=\"govuk-body\">" + (common.helpTelephoneOpeningHours | safe) + "</p>" %}
     {% set helpContent = helpContent + "<p class=\"govuk-heading-s\">" + (common.helpHeading2 | safe) + "</p>" %}
     {% set helpContent = helpContent + "<p class=\"govuk-body\">" + (common.helpEmailLabel | replace("{contactEmailAddress}", common.helpEmail) | safe) + "</p>" %}
-    {% set helpContent = helpContent + "<p class=\"govuk-heading-s\" id=\"ctsc-web-chat-header\">" + (common.helpHeading3 | safe) + "</p>" %}
-    {% set helpContent = helpContent + "<div id=\"ctsc-web-chat\"></div>" %}
+
+    {% if fields.language.value == "en" %}
+        {% set helpContent = helpContent + "<p class=\"govuk-heading-s\" id=\"ctsc-web-chat-header\">" + (common.helpHeading3 | safe) + "</p>" %}
+        {% set helpContent = helpContent + "<div id=\"ctsc-web-chat\"></div>" %}
+    {% endif %}
 
     {{ govukDetails({
         summaryText: common.helpTitle | safe,

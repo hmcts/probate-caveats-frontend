@@ -3,8 +3,8 @@ dependencies:
     version: 1.10.1
     repository: '@hmctspublic'
   - name: redis
-    version: 10.5.7
-    repository: '@stable'
+    version: 10.6.18
+    repository: "https://charts.bitnami.com/bitnami"
     condition: redis.enabled
   - name: idam-pr
     version: ~2.1.3
