@@ -1,4 +1,8 @@
 {% if globals.enableTracking == "true" %}
+    <!-- Data Layer -->
+    <script nonce="{{ globals.nonce }}">
+        dataLayer = [];
+    </script>
     <!-- Google Tag Manager -->
     <script nonce="{{ globals.nonce }}">
         (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

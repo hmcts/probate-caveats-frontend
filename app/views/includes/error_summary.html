@@ -5,6 +5,12 @@
             href: item.href,
             text: item.msg | safe
         }), errorList) %}
+        <!-- Adding error to GA data layer tag -->
+        <script nonce="{{ globals.nonce }}">
+            let error = "{{ item.msg }}";
+            error = error.replace(/&amp;lsquo;/g, '').replace(/&amp;rsquo;/g, '');
+            dataLayer.push({'event': 'Errorshown', 'error_msg': error })
+        </script>
     {% endfor %}
 
     {{ govukErrorSummary({
