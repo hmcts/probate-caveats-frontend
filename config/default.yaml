@@ -11,6 +11,7 @@ featureToggles:
     key: '858c8e86-3914-42b5-aa41-ea9c3372e98c'
   ft_caveats_shutter: 'probate-caveats-fe-shutter'
   ft_pcq: 'probate-caveats-pcq'
+  ft_pcq_token: 'probate-caveats-pcq-token'
   appwideToggles: []
 app:
   useHttps: 'false'
@@ -61,6 +62,7 @@ services:
     url: 'http://localhost:4000'
     path: '/service-endpoint'
     port: 4000
+    tokenKey: 'PROBATE_TOKEN_KEY'
 redis:
   host: 'localhost'
   port: 6379
