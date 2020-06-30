@@ -34,6 +34,7 @@ services:
     url: FEES_REGISTRY_URL
   equalityAndDiversity:
     url: EQUALITY_URL
+    tokenKey: PROBATE_TOKEN_KEY
 redis:
   host: REDIS_HOST
   port: REDIS_PORT

@@ -26,9 +26,12 @@ describe('completeEqualityTask', () => {
                         form: {}
                     }
                 },
-                res: {redirect: () => {
-                    // Do nothing
-                }},
+                res: {
+                    locals: {launchDarkly: {}},
+                    redirect: () => {
+                        // Do nothing
+                    }
+                },
                 next: sinon.spy()
             };
 
@@ -54,9 +57,11 @@ describe('completeEqualityTask', () => {
                         form: {}
                     }
                 },
-                res: {redirect: () => {
-                    // Do nothing
-                }},
+                res: {
+                    redirect: () => {
+                        // Do nothing
+                    }
+                },
                 next: sinon.spy()
             };
             const redirectSpy = sinon.spy(params.res, 'redirect');
@@ -92,7 +97,7 @@ describe('completeEqualityTask', () => {
             setTimeout(() => {
                 sinon.assert.calledOnce(params.res.redirect);
                 expect(params.res.redirect.calledOnce).to.equal(true);
-                expect(params.res.redirect).to.have.been.calledWith('/summary');
+                expect(params.res.redirect.calledWith('/summary')).to.equal(true);
 
                 done();
             }, 500);
