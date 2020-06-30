@@ -45,6 +45,7 @@ nodejs:
         - probate-webchat-button-service-closed
         - AppInsightsInstrumentationKey
         - launchdarkly-key
+        - pcq-token-key
 redis:
   cluster:
     enabled: false
