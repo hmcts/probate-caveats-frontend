@@ -21,6 +21,7 @@ nodejs:
         - caveat-user-name
         - caveat-user-password
         - launchdarkly-key
+        - pcq-token-key
 idam-pr:
   enabled: true
   redirect_uris:
