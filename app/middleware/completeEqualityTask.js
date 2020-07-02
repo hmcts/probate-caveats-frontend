@@ -5,6 +5,7 @@ const get = require('lodash').get;
 const uuidv4 = require('uuid/v4');
 const Healthcheck = require('app/utils/Healthcheck');
 const logger = require('app/components/logger')('Init');
+const featureToggle = new (require('app/utils/FeatureToggle'))();
 
 const completeEqualityTask = (params) => {
     if (params.isEnabled && !get(params.req.session.form, 'equality.pcqId', false)) {
@@ -25,7 +26,9 @@ const completeEqualityTask = (params) => {
                         pcqId: uuidv4()
                     };
 
-                    params.next();
+                    featureToggle.callCheckToggle(params.req, params.res, params.next, params.res.locals.launchDarkly,
+                        'ft_pcq_token', featureToggle.toggleFeature);
+
                 } else {
                     pcqDown(params);
                 }
