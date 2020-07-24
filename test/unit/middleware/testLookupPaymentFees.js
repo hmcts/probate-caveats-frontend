@@ -31,12 +31,12 @@ describe('lookupPaymentFees', () => {
     it('should set fee total in formdata', (done) => {
         feesLookupStub.returns(Promise.resolve({
             status: 'success',
-            total: '20'
+            total: '3'
         }));
 
         const expectedResponse = {
             status: 'success',
-            total: '20'
+            total: '3'
         };
 
         lookupPaymentFees(req, res, next);
