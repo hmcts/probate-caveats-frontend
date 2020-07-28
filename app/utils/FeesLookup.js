@@ -29,7 +29,7 @@ const createCall = async (applicationId, data, authToken) => {
         status: 'success',
         total: 0
     };
-    logInfo(`Sending fee request to api with the following payload: ${JSON.stringify(data)} for auth=` + authToken, applicationId);
+    logInfo(`Sending fee request to api with the following payload: ${JSON.stringify(data)}`, applicationId);
     await services.feesLookup(data, authToken, applicationId)
         .then(res => {
             if (identifyAnyErrors(res)) {
