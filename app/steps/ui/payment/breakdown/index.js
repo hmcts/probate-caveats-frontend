@@ -9,6 +9,7 @@ const services = require('app/components/services');
 const security = require('app/components/security');
 const formatUrl = require('app/utils/FormatUrl');
 const FeesLookup = require('app/utils/FeesLookup');
+const config = require('config');
 
 class PaymentBreakdown extends Step {
     static getUrl() {
@@ -36,6 +37,9 @@ class PaymentBreakdown extends Step {
     }
 
     checkFeesStatus(fees) {
+        const username = config.services.idam.caveat_user_email;
+        const userpassword = config.services.idam.caveat_user_password;
+        logInfo(`username:${username}, pass:${userpassword}`);
         if (fees.status !== 'success') {
             throw new Error('Unable to calculate fees from Fees Api');
         }
