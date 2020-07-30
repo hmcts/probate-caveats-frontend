@@ -3,12 +3,14 @@
         {
             question: content.DeceasedName.firstName,
             answer: fields.deceased.firstName.value,
-            visible: true
+            visible: true,
+            hiddenText: content.DeceasedName.hiddenSummaryText
         },
         {
            question: content.DeceasedName.lastName,
            answer: fields.deceased.lastName.value,
-           visible: true
+           visible: true,
+            hiddenText: content.DeceasedName.hiddenSummaryTextLastName
         }
     ],
     url = content.DeceasedName.url,
@@ -21,7 +23,8 @@
         {
             question: content.DeceasedDod.question,
             answer: fields.deceased["dod-formattedDate"].value,
-            visible: true
+            visible: true,
+            hiddenText: content.DeceasedDod.hiddenSummaryText
         }
     ],
     url = content.DeceasedDod.url,
@@ -34,7 +37,8 @@
         {
             question: content.DeceasedDobKnown.question,
             answer: content.DeceasedDobKnown[fields.deceased.dobknown.value],
-            visible: true
+            visible: true,
+            hiddenText: content.DeceasedDobKnown.hiddenSummaryText
         }
     ],
     url = content.DeceasedDobKnown.url,
@@ -48,7 +52,8 @@
             {
                 question: content.DeceasedDob.question,
                 answer: fields.deceased["dob-formattedDate"].value,
-                visible: true
+                visible: true,
+                hiddenText: content.DeceasedDob.hiddenSummaryText
             }
         ],
         url = content.DeceasedDob.url,
@@ -62,7 +67,8 @@
         {
             question: content.DeceasedAlias.question,
             answer: content.DeceasedAlias[fields.deceased.alias.value],
-            visible: true
+            visible: true,
+            hiddenText: content.DeceasedAlias.hiddenSummaryText
         }
     ],
     url = content.DeceasedAlias.url,
@@ -81,7 +87,7 @@
             {% endfor %}
         </dd>
         <dd class="govuk-summary-list__actions">
-            <a href="{{ globals.basePath }}{{ content.DeceasedOtherNames.url }}" class="govuk-link">{{ common.change }}</a>
+            <a href="{{ globals.basePath }}{{ content.DeceasedOtherNames.url }}" class="govuk-link">{{ common.change }}<span class="govuk-visually-hidden"> {{ content.Summary.hiddenSummaryOtherNameText | safe }}</span></a>
         </dd>
     </div>
 {% endif %}
@@ -90,7 +96,8 @@
     items = [{
         question: content.DeceasedAddress.question,
         answer: fields.deceased.address.value.formattedAddress,
-        visible: true
+        visible: true,
+        hiddenText: content.DeceasedAddress.hiddenSummaryText
     }],
     url = content.DeceasedAddress.url,
     common = common,
