@@ -23,7 +23,7 @@
         "lastName": "Samuels"
     },
     "payments": [{
-        "amount": 20
+        "amount": 3
     }],
     "registry": {
         "name": "Birmingham"
