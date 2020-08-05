@@ -4,6 +4,8 @@
   "explanation1": "Defnyddiwch yr enw sydd ar y dystysgrif marwolaeth.",
   "firstName": "Enw cyntaf ac unrhyw enwau canol",
   "lastName": "Cyfenw",
+  "hiddenSummaryText": "enw cyntaf ac enwau canol yr ymadawedig",
+  "hiddenSummaryTextLastName": "cyfenw&rsquo;r ymadawedig",
 
   "errors": {
     "firstName": {

@@ -11,6 +11,7 @@
   "addressLabel3": "Trydydd llinell y cyfeiriad (dewisol)",
   "selectAddress": "Dewiswch gyfeiriad",
   "enterManually": "neu teipiwch eich cyfeiriad",
+  "hiddenSummaryText": "cyfeiriad y ceisydd",
 
   "errors": {
     "addressLine1": {

@@ -2,7 +2,7 @@
   "title": "Dyddiad geni&rsquo;r unigolyn sydd wedi marw",
   "question": "Beth oedd eu dyddiad geni?",
   "questionHint": "Er enghraifft, 31 03 1945",
-
+  "hiddenSummaryText": "dyddiad geni’r ymadawedig",
   "errors": {
     "dob-day": {
       "required": "Nodwch y diwrnod y cawsant eu geni",
