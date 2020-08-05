@@ -7,151 +7,151 @@
 {% from "widgets/addresslookup.html" import addressFinder %}
 
 {% block content %}
-    <div class="govuk-grid-row">
-        <div class="govuk-grid-column-two-thirds">
-            {% block error_summary %}
-                {% include "includes/error_summary.html" %}
-            {% endblock %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        {% block error_summary %}
+        {% include "includes/error_summary.html" %}
+        {% endblock %}
 
-            <form class="form" method="post" autocomplete="off" action="{{ globals.basePath }}/find-address" novalidate>
-                <input type="hidden" name="_csrf" value="{{ csrfToken }}">
-                {% call govukFieldset({
-                    legend: {
-                        text: content.question | safe,
-                        classes: "govuk-fieldset__legend--l",
-                        isPageHeading: true
-                    }
-                }) %}
-                    <p class="govuk-hint">{{ content.explanation1 | safe }}</p>
-                    {{ addressFinder(
-                        fields,
-                        content,
-                        globals.basePath,
-                        "ApplicantAddress"
-                    ) }}
-                {% endcall %}
-            </form>
+        <form class="form" method="post" autocomplete="off" action="{{ globals.basePath }}/find-address" novalidate>
+            <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+            {% call govukFieldset({
+            legend: {
+            text: content.question | safe,
+            classes: "govuk-fieldset__legend--l",
+            isPageHeading: true
+            }
+            }) %}
+            <p class="govuk-hint">{{ content.explanation1 | safe }}</p>
+            {{ addressFinder(
+            fields,
+            content,
+            globals.basePath,
+            "ApplicantAddress"
+            ) }}
+            {% endcall %}
+        </form>
 
-            <form class="form" method="post" autocomplete="off" action="{{ globals.basePath }}{{ pageUrl }}" novalidate>
-                <input type="hidden" name="_csrf" value="{{ csrfToken }}">
-                {% call govukFieldset({
-                    legend: {
-                        text: content.enterManually | safe,
-                        classes: "govuk-visually-hidden"
-                    }
-                }) %}
-                    <details class="govuk-details" id="details-panel" data-module="govuk-details" {{ "open" if (
-                        fields.addressLine1.value or
-                        fields.addressLine2.value or
-                        fields.addressLine3.value or
-                        fields.postTown.value or
-                        fields.newPostCode.value or
-                        fields.country.value or
-                        fields.addressLine1.errorMessage or
-                        fields.postTown.errorMessage or
-                        fields.newPostCode.errorMessage
-                    ) }}>
-                        <summary class="govuk-details__summary">
-                            <span class="govuk-details__summary-text">{{ content.enterManually }}</span>
-                        </summary>
-                        <div class="govuk-details__text">
-                            {{ govukInput({
-                                label: {
-                                    text: content.addressLabel | safe
-                                },
-                                id: "addressLine1",
-                                name: "addressLine1",
-                                value: fields.addressLine1.value | safe,
-                                errorMessage: { text: fields.addressLine1.errorMessage | safe } if fields.addressLine1.errorMessage,
-                                attributes: {
-                                    maxlength: 150
-                                },
-                                classes: "govuk-!-width-three-quarters",
-                                autocomplete: "off"
-                            }) }}
-                            {{ govukInput({
-                                label: {
-                                    text: content.addressLabel2 | safe
-                                },
-                                id: "addressLine2",
-                                name: "addressLine2",
-                                value: fields.addressLine2.value | safe,
-                                attributes: {
-                                    maxlength: 50
-                                },
-                                classes: "govuk-!-width-three-quarters",
-                                autocomplete: "off"
-                            }) }}
-                            {{ govukInput({
-                                label: {
-                                    text: content.addressLabel3 | safe
-                                },
-                                id: "addressLine3",
-                                name: "addressLine3",
-                                value: fields.addressLine3.value | safe,
-                                attributes: {
-                                    maxlength: 50
-                                },
-                                classes: "govuk-!-width-three-quarters",
-                                autocomplete: "off"
-                            }) }}
-                            {{ govukInput({
-                                label: {
-                                    text: content.postTown | safe
-                                },
-                                id: "postTown",
-                                name: "postTown",
-                                value: fields.postTown.value | safe,
-                                errorMessage: { text: fields.postTown.errorMessage | safe } if fields.postTown.errorMessage,
-                                attributes: {
-                                    maxlength: 50
-                                },
-                                classes: "govuk-!-width-three-quarters",
-                                autocomplete: "off"
-                            }) }}
-                            {{ govukInput({
-                                label: {
-                                    text: content.postcode | safe
-                                },
-                                id: "newPostCode",
-                                name: "newPostCode",
-                                value: fields.newPostCode.value | safe,
-                                errorMessage: { text: fields.newPostCode.errorMessage | safe } if fields.newPostCode.errorMessage,
-                                attributes: {
-                                    maxlength: 14
-                                },
-                                classes: "govuk-!-width-one-quarter",
-                                autocomplete: "off"
-                            }) }}
-                            {{ govukInput({
-                                label: {
-                                    text: content.country | safe
-                                },
-                                id: "country",
-                                name: "country",
-                                value: fields.country.value | safe,
-                                attributes: {
-                                    maxlength: 50
-                                },
-                                classes: "govuk-!-width-three-quarters",
-                                autocomplete: "off"
-                            }) }}
-                        </div>
-                    </details>
+        <form class="form" method="post" autocomplete="off" action="{{ globals.basePath }}{{ pageUrl }}" novalidate>
+            <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+            {% call govukFieldset({
+            legend: {
+            text: content.enterManually | safe,
+            classes: "govuk-visually-hidden"
+            }
+            }) %}
+            <details class="govuk-details" id="details-panel" data-module="govuk-details" {{ "open" if (
+            fields.addressLine1.value or
+            fields.addressLine2.value or
+            fields.addressLine3.value or
+            fields.postTown.value or
+            fields.newPostCode.value or
+            fields.country.value or
+            fields.addressLine1.errorMessage or
+            fields.postTown.errorMessage or
+            fields.newPostCode.errorMessage
+            ) }}>
+            <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">{{ content.enterManually }}</span>
+            </summary>
+            <div class="govuk-details__text">
+                {{ govukInput({
+                label: {
+                text: content.addressLabel | safe
+                },
+                id: "addressLine1",
+                name: "addressLine1",
+                value: fields.addressLine1.value | safe,
+                errorMessage: { text: fields.addressLine1.errorMessage | safe } if fields.addressLine1.errorMessage,
+                attributes: {
+                maxlength: 150
+                },
+                classes: "govuk-!-width-three-quarters",
+                autocomplete: "off"
+                }) }}
+                {{ govukInput({
+                label: {
+                text: content.addressLabel2 | safe
+                },
+                id: "addressLine2",
+                name: "addressLine2",
+                value: fields.addressLine2.value | safe,
+                attributes: {
+                maxlength: 50
+                },
+                classes: "govuk-!-width-three-quarters",
+                autocomplete: "off"
+                }) }}
+                {{ govukInput({
+                label: {
+                text: content.addressLabel3 | safe
+                },
+                id: "addressLine3",
+                name: "addressLine3",
+                value: fields.addressLine3.value | safe,
+                attributes: {
+                maxlength: 50
+                },
+                classes: "govuk-!-width-three-quarters",
+                autocomplete: "off"
+                }) }}
+                {{ govukInput({
+                label: {
+                text: content.postTown | safe
+                },
+                id: "postTown",
+                name: "postTown",
+                value: fields.postTown.value | safe,
+                errorMessage: { text: fields.postTown.errorMessage | safe } if fields.postTown.errorMessage,
+                attributes: {
+                maxlength: 50
+                },
+                classes: "govuk-!-width-three-quarters",
+                autocomplete: "off"
+                }) }}
+                {{ govukInput({
+                label: {
+                text: content.postcode | safe
+                },
+                id: "newPostCode",
+                name: "newPostCode",
+                value: fields.newPostCode.value | safe,
+                errorMessage: { text: fields.newPostCode.errorMessage | safe } if fields.newPostCode.errorMessage,
+                attributes: {
+                maxlength: 14
+                },
+                classes: "govuk-!-width-one-quarter",
+                autocomplete: "off"
+                }) }}
+                {{ govukInput({
+                label: {
+                text: content.country | safe
+                },
+                id: "country",
+                name: "country",
+                value: fields.country.value | safe,
+                attributes: {
+                maxlength: 50
+                },
+                classes: "govuk-!-width-three-quarters",
+                autocomplete: "off"
+                }) }}
+            </div>
+            </details>
 
-                    <div class="govuk-form-group">
-                        {{ govukButton({
-                            text: common.saveAndContinue | safe,
-                            preventDoubleClick: true,
-                            attributes: {
-                                id: "submitAddress"
-                            }
-                        }) }}
-                    </div>
-                {% endcall %}
-            </form>
+            <div class="govuk-form-group">
+                {{ govukButton({
+                text: common.saveAndContinue | safe,
+                preventDoubleClick: true,
+                attributes: {
+                id: "submitAddress"
+                }
+                }) }}
+            </div>
+            {% endcall %}
+        </form>
 
-            {% include "includes/help_details.html" %}
-        </div>
+        {% include "includes/help_details.html" %}
     </div>
+</div>
 {% endblock %}
