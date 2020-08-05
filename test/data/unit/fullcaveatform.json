@@ -34,7 +34,7 @@
         }
     },
     "payments": [{
-        "total": 20
+        "total": 3
     }],
     "registry": {
         "name": "Birmingham"

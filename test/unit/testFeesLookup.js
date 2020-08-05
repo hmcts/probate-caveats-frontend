@@ -28,12 +28,12 @@ describe('FeesLookup', () => {
 
         it('should lookup caveats fees', (done) => {
             servicesMock.expects('feesLookup').returns(Promise.resolve({
-                'fee_amount': 20
+                'fee_amount': 3
             }));
 
             const expectedResponse = {
                 status: 'success',
-                total: 20
+                total: 3
             };
 
             fetchJsonStub.returns(Promise.resolve(''));
