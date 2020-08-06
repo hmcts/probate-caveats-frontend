@@ -52,7 +52,7 @@ describe('submitData/index.js', () => {
                 }
             },
             payment: {
-                'total': 20
+                'total': 3
             },
             registry: {
                 'name': 'Birmingham'
@@ -100,7 +100,7 @@ describe('submitData/index.js', () => {
                 },
             },
             payment: {
-                'amount': 20
+                'amount': 3
             },
             registry: {
                 'name': 'Birmingham'
