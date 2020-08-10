@@ -101,6 +101,8 @@ links:
   survey: 'https://www.smartsurvey.co.uk/s/Probate_Feedback/'
   surveyEndOfApplication: 'https://www.smartsurvey.co.uk/s/Probate_ExitSurvey/'
   applicationFormPA8A: 'https://www.gov.uk/government/publications/form-pa8a-caveat-application-form'
+  myhmctsManageCasesLink: 'https://manage-case.platform.hmcts.net/'
+  myhmctsRegisterLink: 'https://www.gov.uk/guidance/hmcts-online-services-for-legal-professionals'
   whoInheritsLink: 'https://www.gov.uk/inherits-someone-dies-without-will'
   citizenAdvice: 'https://www.citizensadvice.org.uk/'
   stopGrantOfRepresentation: 'https://www.gov.uk/wills-probate-inheritance/stopping-a-grant-of-representation'
