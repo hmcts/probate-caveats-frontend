@@ -35,20 +35,17 @@
             {
                 classes: "govuk-input--width-2" + (" govuk-input--error" if fields["dod-day"].error or fields["dod-date"].error),
                 name: "day",
-                value: fields["dod-day"].value,
-                attributes: { "min": 1 }
+                value: fields["dod-day"].value
             },
             {
                 classes: "govuk-input--width-2" + (" govuk-input--error" if fields["dod-month"].error or fields["dod-date"].error),
                 name: "month",
-                value: fields["dod-month"].value,
-                attributes: { "min": 1 }
+                value: fields["dod-month"].value
             },
             {
                 classes: "govuk-input--width-4" + (" govuk-input--error" if fields["dod-year"].error or fields["dod-date"].error),
                 name: "year",
-                value: fields["dod-year"].value,
-                attributes: { "min": 1 }
+                value: fields["dod-year"].value
             }
         ]
     }) }}
