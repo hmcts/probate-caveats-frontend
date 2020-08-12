@@ -28,15 +28,11 @@ describe('FeesLookup', () => {
 
         it('should lookup caveats fees', (done) => {
             servicesMock.expects('feesLookup').returns(Promise.resolve({
-                fee_amount: 3,
-                version: 0,
-                code: 'FEE0288'
+                'fee_amount': 3
             }));
 
             const expectedResponse = {
                 status: 'success',
-                applicationversion: 0,
-                applicationcode: 'FEE0288',
                 total: 3
             };
 
@@ -57,8 +53,6 @@ describe('FeesLookup', () => {
 
             const expectedResponse = {
                 status: 'failed',
-                applicationversion: 0,
-                applicationcode: '',
                 total: 0
             };
 

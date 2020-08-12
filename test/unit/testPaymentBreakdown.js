@@ -7,7 +7,7 @@ const PaymentBreakdown = steps.PaymentBreakdown;
 
 describe('PaymentBreakDown', () => {
     describe('getUrl()', () => {
-        it.only('should return the correct url', (done) => {
+        it('should return the correct url', (done) => {
             const url = PaymentBreakdown.constructor.getUrl();
             expect(url).to.equal('/payment-breakdown');
             done();

@@ -32,8 +32,6 @@ describe('payment-data.js', () => {
                 description: 'Ffioedd Profiant',
                 ccdCaseId: '123',
                 applicationFee: 215,
-                code: 'FEE0288',
-                version: 3,
                 userId: '11111'
             };
             const result = paymentData.createPaymentData(data, 'cy');
@@ -50,7 +48,7 @@ describe('payment-data.js', () => {
                     code: 'FEE0288',
                     memo_line: 'Probate Fees',
                     reference: '11111',
-                    version: 3,
+                    version: '1',
                     volume: 1
                 }],
                 language: 'CY'
@@ -64,8 +62,6 @@ describe('payment-data.js', () => {
                 description: 'Probate Fees',
                 ccdCaseId: '123',
                 applicationFee: 215,
-                code: 'FEE0288',
-                version: 3,
                 userId: '11111'
             };
             const result = paymentData.createPaymentData(data, 'en');
@@ -82,7 +78,7 @@ describe('payment-data.js', () => {
                     code: 'FEE0288',
                     memo_line: 'Probate Fees',
                     reference: '11111',
-                    version: 3,
+                    version: '1',
                     volume: 1
                 }],
                 language: ''

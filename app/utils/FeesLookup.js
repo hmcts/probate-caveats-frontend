@@ -27,8 +27,6 @@ class FeesLookup {
 const createCall = async (applicationId, data, authToken) => {
     const fees = {
         status: 'success',
-        applicationversion: 0,
-        applicationcode: '',
         total: 0
     };
     logInfo(`Sending fee request to api with the following payload: ${JSON.stringify(data)}`, applicationId);
@@ -38,8 +36,6 @@ const createCall = async (applicationId, data, authToken) => {
                 fees.status = 'failed';
             } else {
                 fees.total = res.fee_amount;
-                fees.applicationversion = res.version;
-                fees.applicationcode = res.code;
             }
         });
     return fees;
