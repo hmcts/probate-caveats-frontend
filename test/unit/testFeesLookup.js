@@ -50,7 +50,7 @@ describe('FeesLookup', () => {
             done();
         });
 
-        it.only('should handle errors when fees api service is unavailable', (done) => {
+        it('should handle errors when fees api service is unavailable', (done) => {
             servicesMock.expects('feesLookup').returns(Promise.resolve(
                 'Error:FetchError: request to http://localhost/fees/lookup?amount_or_volume=6000&applicant_type=personal&channel=default&event=issue&jurisdiction1=family&jurisdiction2=probate+registry&service=probate failed, reason: connect ECONNREFUSED 127.0.0.1:80'
             ));
