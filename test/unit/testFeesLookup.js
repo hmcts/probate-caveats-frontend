@@ -58,7 +58,7 @@ describe('FeesLookup', () => {
             const expectedResponse = {
                 status: 'failed',
                 applicationversion: 0,
-                applicationcode: '',
+                applicationcode: 'FEE0288',
                 total: 0
             };
 
