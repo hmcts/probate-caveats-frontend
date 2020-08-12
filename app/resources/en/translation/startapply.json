@@ -27,6 +27,6 @@
   "paragraph10": "If an application is approved on the same day you make the request, it will not be stopped. But you will stop any future applications for probate made on the estate for 6 months.",
   "header1a": "Legal representatives",
   "header1b": "Personal applicants",
-  "paragraph1a": "If you are a legal representative with a MyHMCTS account applying on behalf of someone else <a href=\"{myhmctsManageCasesLink}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener\" aria-label=\"use this service for legal professional's probate and caveat service (opens in a new window) for\">use this service (opens in a new window)</a>.",
+  "paragraph1a": "If you are a legal representative with a MyHMCTS account applying on behalf of someone else <a href=\"{myhmctsManageCasesLink}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener\" aria-label=\"use this service for legal professional's probate and caveat service (opens in a new window) for\">use this service <span class=\"govuk-visually-hidden\">for legal professional's probate and caveat service </span>(opens in a new window)</a>.",
   "paragraph1b": "If you are a legal representative without a MyHMCTS account, <a href=\"{myhmctsRegisterLink}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener\" aria-label=\"register with MyHMCTS (opens in a new window)\">register with MyHMCTS (opens in a new window)</a> before you make an online application."
 }
