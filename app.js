@@ -57,7 +57,6 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
         currentYear: new Date().getFullYear(),
         enableTracking: config.enableTracking,
         links: config.links,
-        applicationFee: config.payment.applicationFee,
         nonce: nonce,
         basePath: config.app.basePath,
         webChat: {
