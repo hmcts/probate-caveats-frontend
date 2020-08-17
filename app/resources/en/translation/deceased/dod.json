@@ -2,7 +2,7 @@
   "title": "Deceased date of death",
   "question": "What was the date that they died?",
   "questionHint": "Use the date from the death certificate. For example, 30 06 2016",
-
+  "hiddenSummaryText": "deceased's date of death",
   "errors": {
     "dod-day": {
       "required": "Enter the day they died",

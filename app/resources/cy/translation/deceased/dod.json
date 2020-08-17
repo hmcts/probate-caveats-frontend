@@ -2,7 +2,7 @@
   "title": "Dyddiad marwolaeth yr unigolyn sydd wedi marw",
   "question": "Beth oedd y dyddiad pan fu iddynt farw?",
   "questionHint": "Defnyddiwch y dyddiad sydd ar y dystysgrif marwolaeth. Er enghraifft, 30 06 2016",
-
+  "hiddenSummaryText": "dyddiad marwolaeth yr ymadawedig",
   "errors": {
     "dod-day": {
       "required": "Nodwch y diwrnod y bu iddynt farw",

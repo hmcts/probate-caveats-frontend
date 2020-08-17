@@ -3,6 +3,8 @@
   "question": "Beth yw eich enw llawn?",
   "firstName": "Enw cyntaf ac unrhyw enwau canol",
   "lastName": "Cyfenw",
+  "hiddenSummaryText": "enw cyntaf ac enwau canol y ceisydd",
+  "hiddenSummaryTextLastName": "cyfenw&rsquo;r ceisydd",
 
   "errors": {
     "firstName": {

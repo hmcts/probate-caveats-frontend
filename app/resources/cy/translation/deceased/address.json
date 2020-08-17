@@ -10,7 +10,7 @@
   "addressLabel3": "Trydydd llinell y cyfeiriad (dewisol)",
   "selectAddress": "Dewiswch gyfeiriad",
   "enterManually": "neu teipiwch eu cyfeiriad",
-
+  "hiddenSummaryText": "cyfeiriad yr ymadawedig",
   "errors": {
     "addressLine1": {
       "required": "Nodwch linell gyntaf y cyfeiriad",
