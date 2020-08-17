@@ -1,5 +1,5 @@
 {
-  "title": "Deceased address",
+  "title": "Deceased's permanent address",
   "question": "What was the permanent address of {deceasedName}?",
   "postTown": "Town or city",
   "postcode": "Postcode",
