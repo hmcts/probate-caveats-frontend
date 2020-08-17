@@ -6,7 +6,7 @@
   "postcode": "Postcode",
   "country": "Country (optional)",
   "findAddress": "Find UK address",
-  "addressLabel": "Address",
+  "addressLabel": "Address <span class=\"govuk-visually-hidden\">line 1</span>",
   "addressLabel2": "Address Line 2 (optional)",
   "addressLabel3": "Address Line 3 (optional)",
   "selectAddress": "Select address",
