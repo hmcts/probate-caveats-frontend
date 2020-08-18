@@ -43,7 +43,7 @@
             ]) }}
 
             <h2 class="govuk-heading-m">{{ content.header3 | safe }}</h2>
-            <p class="govuk-body">{{ content.paragraph7 | replace("{feesCost}", globals.payment.applicationFee) | safe }}</p>
+            <p class="govuk-body">{{ content.paragraph7 | replace("{feesCost}", globals.applicationFee) | safe }}</p>
             <p class="govuk-body">{{ content.paragraph8 | safe }}</p>
         </div>
     </div>
