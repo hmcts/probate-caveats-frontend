@@ -40,18 +40,10 @@ $ ln -s ../../commit-msg.sh .git/hooks/commit-msg
 
 Run the application local server:
 ```
-$ yarn start
+$ yarn start:ld
 ```
 
 The application can be completed locally at [https://localhost:3000](https://localhost:3000), provided all services are running in the background as described in the next section.
-
-### Running the other services manually
-
-To run probate-frontend with the other services locally you will need to clone and run the following services:
-
-- probate-back-office: `https://github.com/hmcts/probate-back-office` - Follow the instructions in `probate-back-office/compose/README.md`.
-- probate-orchestrator-service: `https://github.com/hmcts/probate-orchestrator-service` - Follow the instructions in `probate-orchestrator-service/README.md`
-- probate-submit-service: `https://github.com/hmcts/probate-submit-service` - Follow the instructions in `probate-submit-service/README.md`
 
 ### Running the other services with Docker
 
@@ -60,6 +52,14 @@ To run probate-frontend with the other services locally you will need to clone a
 npx @hmcts/probate-dev-env --create
 npx @hmcts/probate-dev-env
 ```
+
+### Running the other services manually
+
+To run probate-frontend with the other services locally you will need to clone and run the following services:
+
+- probate-back-office: `https://github.com/hmcts/probate-back-office` - Follow the instructions in `probate-back-office/compose/README.md`.
+- probate-orchestrator-service: `https://github.com/hmcts/probate-orchestrator-service` - Follow the instructions in `probate-orchestrator-service/README.md`
+- probate-submit-service: `https://github.com/hmcts/probate-submit-service` - Follow the instructions in `probate-submit-service/README.md`
 
 ## Developing
 ### Code style
