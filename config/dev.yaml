@@ -1,0 +1,8 @@
+featureToggles:
+  enabled: false
+services:
+  idam:
+    probate_oauth2_client: 'ccd_gateway'
+    probate_oauth2_secret: 'ccd_gateway_secret'
+    caveat_user_email: 'testusername@test.com'
+    caveat_user_password: 'Pa55word11'
