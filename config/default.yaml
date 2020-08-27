@@ -28,7 +28,7 @@ services:
       payment_updates: '/payment-updates'
   idam:
     name: 'IdAM Service'
-    apiUrl: 'http://localhost:4501'
+    apiUrl: 'http://localhost:5000'
     roles: ['probate-private-beta','citizen']
     s2s_url: 'http://localhost:4502'
     service_name: 'probate_frontend'
