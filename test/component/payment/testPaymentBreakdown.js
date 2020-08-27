@@ -23,6 +23,8 @@ describe('paymentBreakdown', () => {
         feesLookup = sinon.stub(FeesLookup.prototype, 'lookup');
         feesLookup.returns(Promise.resolve({
             status: 'success',
+            applicationversion: 1,
+            applicationcode: 'FEE0228',
             total: 3
         }));
     });
@@ -80,6 +82,8 @@ describe('paymentBreakdown', () => {
             testWrapper.agent.post(`${basePath}/prepare-session/form`)
                 .send({fees: {
                     status: 'success',
+                    applicationversion: 1,
+                    applicationcode: 'FEE0228',
                     total: 3
                 }})
                 .end((err) => {
@@ -102,6 +106,8 @@ describe('paymentBreakdown', () => {
             testWrapper.agent.post(`${basePath}/prepare-session/form`)
                 .send({fees: {
                     status: 'success',
+                    applicationversion: 1,
+                    applicationcode: 'FEE0228',
                     total: 3
                 }})
                 .end((err) => {
@@ -121,6 +127,8 @@ describe('paymentBreakdown', () => {
             testWrapper.agent.post(`${basePath}/prepare-session/form`)
                 .send({fees: {
                     status: 'success',
+                    applicationversion: 1,
+                    applicationcode: 'FEE0228',
                     total: 3
                 }})
                 .end((err) => {
@@ -141,6 +149,8 @@ describe('paymentBreakdown', () => {
             testWrapper.agent.post(`${basePath}/prepare-session/form`)
                 .send({fees: {
                     status: 'success',
+                    applicationversion: 1,
+                    applicationcode: 'FEE0228',
                     total: 3
                 }})
                 .end((err) => {
@@ -175,6 +185,8 @@ describe('paymentBreakdown', () => {
                     },
                     fees: {
                         status: 'success',
+                        applicationversion: 1,
+                        applicationcode: 'FEE0228',
                         total: 3
                     }
                 })
@@ -205,6 +217,8 @@ describe('paymentBreakdown', () => {
             testWrapper.agent.post(`${basePath}/prepare-session/form`)
                 .send({fees: {
                     status: 'success',
+                    applicationversion: 1,
+                    applicationcode: 'FEE0228',
                     total: 3
                 }})
                 .end((err) => {
