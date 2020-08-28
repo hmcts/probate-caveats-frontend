@@ -33,7 +33,6 @@ nodejs:
         - postcode-service-token2
         - probate-survey
         - probate-survey-end
-        - probate-application-fee-code
         - probate-service-id
         - probate-site-id
         - caveat-user-name

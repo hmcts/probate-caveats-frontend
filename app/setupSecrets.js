@@ -16,7 +16,6 @@ const setupSecrets = () => {
         setSecret('secrets.probate.postcode-service-token2', 'services.postcode.token');
         setSecret('secrets.probate.probate-survey', 'links.survey');
         setSecret('secrets.probate.probate-survey-end', 'links.surveyEndOfApplication');
-        setSecret('secrets.probate.probate-application-fee-code', 'payment.applicationFeeCode');
         setSecret('secrets.probate.probate-service-id', 'payment.serviceId');
         setSecret('secrets.probate.probate-site-id', 'payment.siteId');
         setSecret('secrets.probate.caveat-user-name', 'services.idam.caveat_user_email');
