@@ -22,4 +22,3 @@ yarn-error.log
 git.properties.json
 /functional-output/
 .scannerwork/
-/config/dev.yaml
