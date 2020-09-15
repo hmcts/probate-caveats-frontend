@@ -4,6 +4,7 @@ nodeEnvironment: NODE_ENV
 gitRevision: GIT_REVISION
 externalHostNameUrl: EXTERNAL_HOSTNAME_URL
 featureToggles:
+  enabled: LAUNCHDARKLY_ENABLED
   launchDarklyKey: LAUNCHDARKLY_KEY
 app:
   useHttps: USE_HTTPS
