@@ -33,9 +33,6 @@ class Singleton {
     constructor(options = {}, ftValue = {}) {
         if (!this.instance) {
             this.instance = new LaunchDarkly(options, ftValue);
-
-            process.on('SIGINT', () => this.close());
-            process.on('exit', () => this.close());
         }
     }
 
