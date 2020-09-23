@@ -4,6 +4,7 @@ nodeEnvironment: NODE_ENV
 gitRevision: GIT_REVISION
 externalHostNameUrl: EXTERNAL_HOSTNAME_URL
 featureToggles:
+  enabled: LAUNCHDARKLY_ENABLED
   launchDarklyKey: LAUNCHDARKLY_KEY
 app:
   useHttps: USE_HTTPS
@@ -58,7 +59,6 @@ utils:
     retries: RETRIES_NUMBER
     retryDelay: RETRY_DELAY
 payment:
-  applicationFeeCode: APPLICATION_FEE_CODE
   serviceId: SERVICE_ID
   siteId: SITE_ID
   version: version

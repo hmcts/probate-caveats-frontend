@@ -28,15 +28,15 @@ services:
       payment_updates: '/payment-updates'
   idam:
     name: 'IdAM Service'
-    apiUrl: 'http://localhost:4501'
+    apiUrl: 'http://localhost:5000'
     roles: ['probate-private-beta','citizen']
     s2s_url: 'http://localhost:4502'
     service_name: 'probate_frontend'
     service_key: 'AAAAAAAAAAAAAAAA'
     probate_oauth2_client: 'probate'
     probate_oauth2_secret: '123456'
-    caveat_user_email: 'testusername1@test.com'
-    caveat_user_password: 'password'
+    caveat_user_email: 'testusername@test.com'
+    caveat_user_password: 'Pa55word11'
     caveat_redirect_base_url: 'http://localhost:3000'
     caveat_redirectUrl: '/oauth2/callback'
   payment:
@@ -44,7 +44,7 @@ services:
     createPaymentUrl: 'http://localhost:8383/card-payments'
     authorization: 'dummy_token'
     serviceAuthorization: 'dummy_token'
-    userId: 999999999
+    userId: 46
     returnUrlPath: '/payment-status'
   feesRegister:
     name: 'Fees Register Service'
@@ -121,10 +121,8 @@ utils:
 payment:
   applicationFee: 3
   applicationFeeThreshold: 5000
-  applicationFeeCode: 'FEE0288'
   serviceId: 'PROBATE'
   siteId: 'P223'
-  version: '1'
   currency: 'GBP'
 appInsights:
   instrumentationKey: ''
