@@ -4,20 +4,15 @@ const Healthcheck = require('app/utils/Healthcheck');
 const config = require('config');
 const expect = require('chai').expect;
 let orchestratorStub;
-let equalityStub;
 const startStubs = () => {
     orchestratorStub = require('test/service-stubs/orchestrator');
-    equalityStub = require('test/service-stubs/equalityAndDiversityHealth');
 };
 const stopStubs = () => {
     orchestratorStub.close();
-    equalityStub.close();
     delete require.cache[require.resolve('test/service-stubs/orchestrator')];
-    delete require.cache[require.resolve('test/service-stubs/equalityAndDiversityHealth')];
 };
 const services = [
-    {name: config.services.orchestrator.name, url: config.services.orchestrator.url},
-    {name: config.services.equalityAndDiversity.name, url: config.services.equalityAndDiversity.url}
+    {name: config.services.orchestrator.name, url: config.services.orchestrator.url}
 ];
 
 describe('Healthcheck.js', () => {
@@ -43,8 +38,7 @@ describe('Healthcheck.js', () => {
             const url = healthcheck.formatUrl(config.endpoints.health);
             const serviceList = healthcheck.createServicesList(url, services);
             expect(serviceList).to.deep.equal([
-                {name: 'Orchestrator Service', url: 'http://localhost:8888/health'},
-                {name: 'Equality and Diversity Service', url: 'http://localhost:4000/health'}
+                {name: 'Orchestrator Service', url: 'http://localhost:8888/health'}
             ]);
             done();
         });
@@ -62,8 +56,7 @@ describe('Healthcheck.js', () => {
                     const promises = healthcheck.createPromisesList(serviceList, healthcheck.health);
                     Promise.all(promises).then((data) => {
                         expect(data).to.deep.equal([
-                            {name: 'Orchestrator Service', status: 'UP'},
-                            {name: 'Equality and Diversity Service', status: 'UP'}
+                            {name: 'Orchestrator Service', status: 'UP'}
                         ]);
                         done();
                     });
@@ -76,8 +69,7 @@ describe('Healthcheck.js', () => {
                     const promises = healthcheck.createPromisesList(serviceList, healthcheck.info);
                     Promise.all(promises).then((data) => {
                         expect(data).to.deep.equal([
-                            {gitCommitId: 'e210e75b38c6b8da03551b9f83fd909fe80832e3'},
-                            {gitCommitId: 'e210e75b38c6b8da03551b9f83fd909fe80832e4'}
+                            {gitCommitId: 'e210e75b38c6b8da03551b9f83fd909fe80832e3'}
                         ]);
                         done();
                     });
@@ -96,10 +88,6 @@ describe('Healthcheck.js', () => {
                         name: 'Orchestrator Service',
                         status: 'DOWN',
                         error: 'Error: FetchError: request to http://localhost:8888/health failed, reason: connect ECONNREFUSED 127.0.0.1:8888'
-                    }, {
-                        name: 'Equality and Diversity Service',
-                        status: 'DOWN',
-                        error: 'Error: FetchError: request to http://localhost:4000/health failed, reason: connect ECONNREFUSED 127.0.0.1:4000'
                     }]);
                     done();
                 });
@@ -152,8 +140,7 @@ describe('Healthcheck.js', () => {
             const healthcheck = new Healthcheck();
             healthcheck.getDownstream(services, healthcheck.health, downstream => {
                 expect(downstream).to.deep.equal([
-                    {name: 'Orchestrator Service', status: 'UP'},
-                    {name: 'Equality and Diversity Service', status: 'UP'}
+                    {name: 'Orchestrator Service', status: 'UP'}
                 ]);
                 done();
             });
@@ -182,22 +169,16 @@ describe('Healthcheck.js', () => {
         it('should return a list of merged health and info data', (done) => {
             const healthcheck = new Healthcheck();
             const healthDownstream = [
-                {name: 'Orchestrator Service', status: 'UP'},
-                {name: 'Equality and Diversity Service', status: 'UP'}
+                {name: 'Orchestrator Service', status: 'UP'}
             ];
             const infoDownstream = [
-                {gitCommitId: 'e210e75b38c6b8da03551b9f83fd909fe80832e3'},
-                {gitCommitId: 'e210e75b38c6b8da03551b9f83fd909fe80832e4'}
+                {gitCommitId: 'e210e75b38c6b8da03551b9f83fd909fe80832e3'}
             ];
             const mergedData = healthcheck.mergeInfoAndHealthData(healthDownstream, infoDownstream);
             expect(mergedData).to.deep.equal([{
                 name: 'Orchestrator Service',
                 status: 'UP',
                 gitCommitId: 'e210e75b38c6b8da03551b9f83fd909fe80832e3'
-            }, {
-                name: 'Equality and Diversity Service',
-                status: 'UP',
-                gitCommitId: 'e210e75b38c6b8da03551b9f83fd909fe80832e4'
             }]);
             done();
         });
