@@ -23,7 +23,7 @@ const fs = require('fs');
 const https = require('https');
 const appInsights = require('applicationinsights');
 const uuidv4 = require('uuid/v4');
-const nonce = uuidv4();
+const nonce = uuidv4().replace(/-/g, '');
 const isEmpty = require('lodash').isEmpty;
 const featureToggles = require('app/featureToggles');
 
