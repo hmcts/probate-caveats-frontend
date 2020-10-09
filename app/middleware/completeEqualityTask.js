@@ -18,7 +18,7 @@ const completeEqualityTask = (params) => {
 
         healthcheck.getServiceHealth(service)
             .then(json => {
-                const equalityHealthIsUp = json.status === 'UP' && json['pcq-backend'].actualStatus === 'UP';
+                const equalityHealthIsUp = json.status === 'UP';
                 logger.info(config.services.equalityAndDiversity.name, 'is', (equalityHealthIsUp ? 'UP' : 'DOWN'));
 
                 if (equalityHealthIsUp) {
