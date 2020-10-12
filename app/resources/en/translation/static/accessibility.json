@@ -1,7 +1,7 @@
 {
   "title": "Accessibility statement",
-  "heading1": "Accessibility statement for &lsquo;Stopping a probate application&rsquo; service",
-  "paragraph1": "This service allows users to apply to stop an application for a grant of representation (also known as probate) online.",
+  "heading1": "Accessibility statement for the &lsquo;Apply for probate&rsquo; service",
+  "paragraph1": "This service allows users to apply for a grant of representation (also known as probate) online.",
   "paragraph2": "This website is run by HM Courts and Tribunals. We want as many people as possible to be able to use this website, so we have designed it to be accessible. For example, that means you should be able to:",
   "list1-item1": "change colours, contrast levels and fonts",
   "list1-item2": "zoom in up to 300% without the text spilling off the screen",
@@ -12,13 +12,8 @@
   "paragraph4": "<a href=\"{myAbilityLink}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener\" aria-label=\"AbilityNet (opens in a new window)\">AbilityNet (opens in a new window)</a> has advice on making your device easier to use if you have a disability.",
 
   "heading2": "How accessible is this website?",
-  "paragraph5": "The website uses the latest version of the GOV.UK Design System. In addition we&rsquo;ve carried out internal testing to ensure that we&rsquo;re in-line with or close to the latest accessibility standards.",
-  "paragraph6": "Following our internal test, the following areas were recommended for further testing:",
-  "list2-item1": "Navigating using character shortcuts - While we&rsquo;ve tested with free screen readers for Mac and Chrome, different screen reader services will have different shortcuts and we haven&rsquo;t been able to conclusively verify all of them.",
-  "list2-item2": "Text spacing - We haven&rsquo;t been able to verify that the service works for all users requiring larger text spacing.",
-  "list2-item3": "Content on hover or focus - We haven&rsquo;t been able to test that this works with users that have motor skill issues.",
-  "list2-item4": "Focus visible - Some users may struggle to notice the focus indicator.",
-
+  "paragraph5": "The website has been tested by the Digital Accessibility Centre (DAC) and it meets the required level of accessibility. Since the website was last tested by the DAC in October 2019, we&rsquo;ve upgraded to the latest version of the GOV.UK Design System which further improves overall accessibility of the site. In addition we&rsquo;ve carried out internal testing to ensure that we&rsquo;re in-line with or close to the latest accessibility standards.",
+  
   "heading3": "What to do if you cannot access parts of this website",
   "paragraph7": "If you need information on this website in a different format like accessible PDF, large print, easy read or braille then email <a href=\"mailto:HMCTSforms@justice.gov.uk\" class=\"govuk-link\">HMCTSforms@justice.gov.uk</a> or phone:",
   "paragraph8": "<strong>Probate helpline:</strong><br>Telephone: {helpLineNumber}<br>{helpLineHours}",
@@ -40,11 +35,11 @@
   "paragraph16": "The website is partially compliant with the <a href=\"{wcag21Link}\" target=\"_blank\" rel=\"external noopener\" class=\"govuk-link\" aria-label=\"Web Content Accessibility Guidelines version 2.1 AA standard (opens in a new window)\">Web Content Accessibility Guidelines version 2.1 AA standard (opens in a new window)</a> due to the non-compliances listed below.",
 
   "heading8": "Non-accessible content",
-  "paragraph17": "The content listed below is non-accessible for the following reasons.",
+  "paragraph17": "The content listed below is non-accessible for the following reasons. We haven&rsquo;t been able to verify that we are fully compliant in the following areas, due to constraints with our internal testing tools:",
   "list3-item1": "Navigating using character shortcuts - While we tested with MAC VoiceOver and ChromeVox, different screen reader services will have different shortcuts and we haven&rsquo;t been able to conclusively verify all of them. This may not meet WCAG 2.1 success criterion 2.1.4.",
-  "list3-item2": "Text spacing - We cannot confirm that the service works for those requiring larger text spacing. This may not meet WCAG 2.1 success criterion 1.4.12.",
-  "list3-item3": "Content on hover or focus - We have not been able to verify with users that have motor skill issues. This may not meet WCAG 2.1 success criterion 1.4.13.",
-  "list3-item4": "Focus visible - Some users may struggle to notice the focus indicator. This may not meet WCAG 2.1 success criterion 2.4.7.",
+  "list3-item2": "Content on hover or focus - We have not been able to verify with users that have motor skill issues. This may not meet WCAG 2.1 success criterion 1.4.13.",
+  "list3-item3": "The address lookup tool’s results do not magnify on some tablets. This a constraint within the tablet’s browser. This may not meet WCAG 2.1 success criterion 1.4.4.",
+  "list3-item4": "There are 4 outstanding issues outside of this service, in the government payments service that may not meet WGAC 2.1 success criteria 1.3.1, 1.3.2, 1.4.4, 2.4.1",
   "paragraph18": "Digital Accessibility Centre (DAC) testing will take place in October 2019 and we commit to fixing any issues raised by October 2020.",
 
   "heading9": "Content that&rsquo;s not within the scope of the accessibility regulations",
@@ -59,12 +54,15 @@
   "list4-item5": "The webchat application which provides live service support for users",
 
   "heading10": "How we tested this website",
-  "paragraph25": "We carried out internal testing in April 2019 against the WCAG 2.1 standard.",
-  "paragraph26": "All the issues raised during testing were subsequently fixed.",
-  "paragraph27": "Further testing with the digital accessibility team is planned for October 2019 and we commit to being fully compliant with WCAG 2.1 AA standard by October 2020.",
+  "paragraph21": "This &lsquo;Apply for probate&rsquo; website was last tested by the Digital Accessibility Centre (DAC) in October 2019.",
+  "paragraph22": "The following is the Executive summary of the DAC Report from May 2018.",
+  "paragraph23": "The standard of accessibility presented throughout the service is very high; however, a few accessibility challenges were reported that did impact some users’ navigation and understanding of page content.  Despite these issues, our manual user testing team were able to successfully complete the journey independently.  The majority of feedback refers to GOV.UK Design System recommendations and describes various aspects of the service that, although do not fail to meet the success criteria, could be improved to benefit the overall user experience. Many of the issues mentioned in the DAC report have now been resolved.",
+  "paragraph24": "We continually run automated accessibility testing as part of our development practices and resolve issues before websites and new functionality is released. We use Pa11y and Axe with our quality assurance processes.",
+  "paragraph25": "We carried out remedial work and internal testing in August 2020 against the WCAG 2.1 standard.",
+  "paragraph26": "All the issues raised during testing were subsequently fixed except the five specified items which are dependent on other organisations",
+  "paragraph27": "Further testing with the digital accessibility team is planned for January 2021 and we commit to being fully compliant with WCAG 2.1 AA standard by March 2021.",
 
   "heading11": "What we&rsquo;re doing to improve accessibility",
   "paragraph28": "This website is continually tested using accessibility software. Any new features which are introduced will also be tested internally or with the Digital Accessibility Centre (DAC).",
-  "paragraph29": "We will be fixing any issues raised in our scheduled DAC test by October 2020.",
-  "paragraph30": "This statement was prepared on 23 September 2019. It was last updated on 24 September 2019."
+  "paragraph29": "This statement was prepared on 23 September 2020. It was last updated on 9 October 2020."
 }
