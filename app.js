@@ -98,7 +98,9 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
             ],
             connectSrc: [
                 '\'self\'',
-                'www.google-analytics.com'
+                'www.google-analytics.com',
+                'stats.g.doubleclick.net',
+                'tagmanager.google.com'
             ],
             mediaSrc: [
                 '\'self\''
@@ -115,7 +117,8 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
                 'vcc-eu4.8x8.com',
                 'vcc-eu4b.8x8.com',
                 'ssl.gstatic.com',
-                'www.gstatic.com'
+                'www.gstatic.com',
+                'lh3.googleusercontent.com'
             ],
             styleSrc: [
                 '\'self\'',
