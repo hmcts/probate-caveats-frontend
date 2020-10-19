@@ -10,7 +10,7 @@ class ApplicantEmail extends ValidationStep {
         return '/applicant-email';
     }
 
-    * handlePost(ctx, errors, formdata, session) {
+    handlePost(ctx, errors, formdata, session) {
         if (!emailValidator.validate(ctx.email)) {
             errors.push(FieldError('email', 'invalid', this.resourcePath, this.generateContent({}, {}, session.language), session.language));
         }

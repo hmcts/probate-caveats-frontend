@@ -46,7 +46,7 @@ describe('applicant-email', () => {
             testWrapper.testErrors(done, data, 'invalid', errorsToTest);
         });
 
-        it.only('test error message displayed for complex invalid email', (done) => {
+        it('test error message displayed for complex invalid email', (done) => {
             const errorsToTest = ['email'];
             const data = {
                 email: 'test@email.c'
