@@ -22,8 +22,8 @@ const healthcheck = require(`${__dirname}/app/healthcheck`);
 const fs = require('fs');
 const https = require('https');
 const appInsights = require('applicationinsights');
-const uuidv4 = require('uuid/v4');
-const nonce = uuidv4();
+const {v4: uuidv4} = require('uuid');
+const nonce = uuidv4().replace(/-/g, '');
 const isEmpty = require('lodash').isEmpty;
 const featureToggles = require('app/featureToggles');
 
@@ -98,7 +98,9 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
             ],
             connectSrc: [
                 '\'self\'',
-                'www.google-analytics.com'
+                'www.google-analytics.com',
+                'stats.g.doubleclick.net',
+                'tagmanager.google.com'
             ],
             mediaSrc: [
                 '\'self\''
@@ -115,7 +117,8 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
                 'vcc-eu4.8x8.com',
                 'vcc-eu4b.8x8.com',
                 'ssl.gstatic.com',
-                'www.gstatic.com'
+                'www.gstatic.com',
+                'lh3.googleusercontent.com'
             ],
             styleSrc: [
                 '\'self\'',
