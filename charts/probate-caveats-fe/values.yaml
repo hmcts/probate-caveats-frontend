@@ -2,7 +2,7 @@ nodejs:
   image: hmctspublic.azurecr.io/probate/caveats-fe:latest
   applicationPort: 3000
   memoryRequests: "512Mi"
-  cpuRequests: "100m"
+  cpuRequests: "200m"
   memoryLimits: "1024Mi"
   cpuLimits: "500"
   aadIdentityName: probate
