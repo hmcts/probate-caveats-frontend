@@ -2,12 +2,11 @@
 <script nonce="{{ globals.nonce }}">window.GOVUKFrontend.initAll()</script>
 
 <script src="{{ globals.basePath }}/public/javascripts/cookie.js"></script>
-
 <!--[if lte IE 9]>
 <script src="{{ globals.basePath }}/public/javascripts/form-polyfill.js"></script>
 <![endif]-->
 
-{% if fields.language.value == "en" %}
+{% if fields.language.value == "en" and fields.isAvayaWebChatEnabled.value !== 'true' %}
     <script src="{{ globals.basePath }}/public/webchat/javascript/hmcts-webchat.js"></script>
     <script nonce="{{ globals.nonce }}">
         webchat_init({
@@ -31,4 +30,10 @@
             gdsMajorVersion: 3
         });
     </script>
+{% endif %}
+
+{% if fields.language.value == "en" and fields.isAvayaWebChatEnabled.value === 'true'%}
+    <script src="https://webchat-client.ctsc.hmcts.net/chat-client/1/app-es2015.js" type="module"></script>
+    <script src="https://webchat-client.ctsc.hmcts.net/chat-client/1/app-es5.js" nomodule defer></script>
+    <script src="/public/javascripts/avaya-webchat.js"></script>
 {% endif %}

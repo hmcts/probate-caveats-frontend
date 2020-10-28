@@ -12,7 +12,8 @@ featureToggles:
   ft_caveats_shutter: 'probate-caveats-fe-shutter'
   ft_pcq: 'probate-caveats-pcq'
   ft_pcq_token: 'probate-caveats-pcq-token'
-  appwideToggles: []
+  ft_avaya_webchat: 'probate-avaya-webchat'
+  appwideToggles: ['ft_avaya_webchat']
 app:
   useHttps: 'false'
   port: '3000'
@@ -93,6 +94,7 @@ links:
   privacy: '/caveats/privacy-policy'
   terms: '/caveats/terms-conditions'
   contact: '/caveats/contact-us'
+  avaya-webchat: 'caveats/avaya-webchat'
   callCharges: 'https://www.gov.uk/call-charges'
   howToManageCookies: 'https://www.aboutcookies.org'
   googlePrivacyPolicy: 'https://www.google.com/policies/privacy/partners/'
@@ -141,7 +143,8 @@ whitelistedPagesForStartApplyPageRedirect: [
   '/terms-conditions',
   '/contact-us',
   '/offline',
-  '/health/liveness'
+  '/health/liveness',
+  '/avaya-webchat'
 ]
 whiteListedPagesForThankyou: [
   '/public',
@@ -152,7 +155,8 @@ whiteListedPagesForThankyou: [
   '/contact-us',
   '/offline',
   '/health/liveness',
-  '/thank-you'
+  '/thank-you',
+  '/avaya-webchat'
 ]
 whiteListedPagesForPaymentBreakdown: [
   '/public',
@@ -166,4 +170,5 @@ whiteListedPagesForPaymentBreakdown: [
   '/payment-breakdown',
   '/payment-status',
   '/thank-you',
+  '/avaya-webchat'
 ]
