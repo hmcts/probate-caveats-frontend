@@ -40,7 +40,7 @@ $ ln -s ../../commit-msg.sh .git/hooks/commit-msg
 
 Run the application local server:
 ```
-$ yarn start
+$ yarn start:ld
 ```
 
 The application can be completed locally at [https://localhost:3000](https://localhost:3000), provided all services are running in the background as described in the next section.
