@@ -92,7 +92,7 @@
     "request": "^2.88.0",
     "require-directory": "^2.1.1",
     "serve-favicon": "^2.5.0",
-    "uuid": "^3.3.2",
+    "uuid": "^8.3.1",
     "validator": "^11.1.0",
     "email-validator": "^2.0.4"
   },
