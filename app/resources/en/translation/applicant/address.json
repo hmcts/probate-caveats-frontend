@@ -11,6 +11,7 @@
   "addressLabel3": "Address Line 3 (optional)",
   "selectAddress": "Select address",
   "enterManually": "Enter your address instead",
+  "hiddenSummaryText": "applicant's address",
 
   "errors": {
     "addressLine1": {

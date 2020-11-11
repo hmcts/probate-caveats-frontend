@@ -3,7 +3,7 @@
   "question": "A ydych chi&rsquo;n gwybod dyddiad geni {deceasedName}?",
   "optionYes": "Ydw",
   "optionNo": "Nac ydw",
-
+  "hiddenSummaryText": "yr ymwybyddiaeth o ddyddiad geni&rsquo;r ymadawedig",
   "errors": {
     "dobknown": {
       "required": "Dewiswch ydw os ydych yn gwybod y dyddiad geni"

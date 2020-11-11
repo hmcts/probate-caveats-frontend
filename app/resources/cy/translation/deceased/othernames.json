@@ -7,7 +7,7 @@
   "addAnotherName": "Ychwanegu enw arall",
   "otherName": "Enw arall",
   "removeName": "Dileu",
-
+  "hiddenSummaryText": "enwau eraill yr ymadawedig",
   "errors": {
     "firstName": {
       "required": "Nodwch enw cyntaf yr unigolyn sydd wedi marw",
