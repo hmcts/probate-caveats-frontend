@@ -3,11 +3,9 @@
 const config = require('config');
 const SERVICE_ID = config.payment.serviceId;
 const SITE_ID = config.payment.siteId;
-const APPLICATION_FEE_CODE = config.payment.applicationFeeCode;
 
 const createPaymentData = (data, language) => {
     const commonContent = require(`app/resources/${language}/translation/common`);
-    const version = config.payment.version;
     const currency = config.payment.currency;
     const paymentData = {
         amount: data.amount,
@@ -24,10 +22,10 @@ const createPaymentData = (data, language) => {
         paymentData.fees.push(createPaymentFees({
             amount: data.applicationFee,
             ccdCaseId: data.ccdCaseId,
-            code: APPLICATION_FEE_CODE,
+            code: data.code,
             memoLine: 'Probate Fees',
             reference: data.userId,
-            version: version,
+            version: data.version,
             volume: 1
         }));
     }

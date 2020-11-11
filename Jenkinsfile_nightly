@@ -14,7 +14,7 @@ String product = "probate"
 String component = "caveats-fe"
 
 def secrets = [
-  'probate-${params.ENVIRONMENT}': [
+  'probate-${env}': [
           secret('testIdamBaseUrl', 'IDAM_API_URL'),
           secret('testSurvey', 'SURVEY'),
           secret('testsurveyEndOfApplication', 'SURVEY_END_OF_APPLICATION'),

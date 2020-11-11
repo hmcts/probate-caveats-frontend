@@ -26,6 +26,7 @@
         "dod_date": "2018-11-20",
         "firstName": "Mike",
         "lastName": "Samuels",
+        "alias": "optionYes",
         "otherNames": {
             "name_0": {
                 "firstName": "King",
@@ -34,7 +35,7 @@
         }
     },
     "payments": [{
-        "total": 20
+        "total": 3
     }],
     "registry": {
         "name": "Birmingham"

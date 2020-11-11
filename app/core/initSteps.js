@@ -32,17 +32,18 @@ const initStep = (filePath, language) => {
 
 const initSteps = (stepLocations, language = 'en') => {
     initI18Next();
-    stepLocations.forEach((location) => {
-        const calculatePath = path => {
-            if ((/index.js$/).test(path)) {
-                const step = initStep(path, language);
-                steps[step.name] = step;
-                return true;
-            }
-            return false;
-        };
+
+    const calculatePath = path => {
+        if ((/index.js$/).test(path)) {
+            const step = initStep(path, language);
+            steps[step.name] = step;
+            return true;
+        }
+        return false;
+    };
+    for (const location of stepLocations) {
         requireDir(module, location, {include: calculatePath});
-    });
+    }
 
     return steps;
 };
