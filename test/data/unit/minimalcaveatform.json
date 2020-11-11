@@ -20,7 +20,8 @@
         },
         "dod_date": "2018-11-20",
         "firstName": "Mike",
-        "lastName": "Samuels"
+        "lastName": "Samuels",
+        "alias": "optionNo"
     },
     "payments": [{
         "amount": 3
