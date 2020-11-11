@@ -9,7 +9,10 @@
         <div class="govuk-grid-column-two-thirds">
             <h1 class="govuk-heading-l">{{ content.header1 | safe }}</h1>
             <p class="govuk-body">{{ content.paragraph1 | safe }}</p>
-            <p class="govuk-body">{{ content.paragraph11 | replace("{applicationFormPA8A}", globals.links.applicationFormPA8A) | safe }}</p>
+            <h2 class="govuk-heading-m">{{ content.header1a | safe }}</h2>
+            <p class="govuk-body">{{ content.paragraph1a | replace("{myhmctsManageCasesLink}", globals.links.myhmctsManageCasesLink) | safe }}</p>
+            <p class="govuk-body">{{ content.paragraph1b | replace("{myhmctsRegisterLink}", globals.links.myhmctsRegisterLink) | safe }}</p>
+            <h2 class="govuk-heading-m">{{ content.header1b | safe }}</h2>
             <p class="govuk-body">{{ content.paragraph2 | safe }}</p>
             {{ unorderedList([
                 content.bullet1,
