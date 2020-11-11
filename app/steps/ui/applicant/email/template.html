@@ -5,29 +5,24 @@
 {% from "govuk/components/button/macro.njk" import govukButton %}
 
 {% block form_content %}
-    {% call govukFieldset({
-        legend: {
+    {{ govukInput({
+        label: {
             text: content.question | safe,
-            classes: "govuk-fieldset__legend--l",
+            classes: "govuk-label--l",
             isPageHeading: true
-        }
-    }) %}
-        <p class="govuk-hint">{{ content.explanation1 | safe }}</p>
-
-        {{ govukInput({
-            label: {
-                text: content.email | safe
-            },
-            id: "email",
-            name: "email",
-            value: fields.email.value | safe,
-            errorMessage: { text: fields.email.errorMessage | safe } if fields.email.errorMessage,
-            attributes: {
-                maxlength: 255
-            },
-            classes: "govuk-!-width-three-quarters"
-        }) }}
-    {% endcall %}
+        },
+        hint: {
+            text: content.explanation1 | safe
+        },
+        id: "email",
+        name: "email",
+        value: fields.email.value | safe,
+        errorMessage: { text: fields.email.errorMessage | safe } if fields.email.errorMessage,
+        attributes: {
+            maxlength: 255
+        },
+        classes: "govuk-!-width-three-quarters"
+    }) }}
 
     <div class="govuk-form-group">
         {{ govukButton({
