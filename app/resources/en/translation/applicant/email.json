@@ -3,6 +3,7 @@
   "question": "What is your email address?",
   "email": "Email",
   "explanation1": "You&rsquo;ll receive confirmation of your application by email.",
+  "hiddenSummaryText": "applicant's email address",
   "errors": {
     "email": {
       "required": "Enter your email address",

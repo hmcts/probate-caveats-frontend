@@ -5,6 +5,7 @@
   "optionNo": "Nag oedd",
   "paragraph1": "Gallai hyn ein helpu i baru&rsquo;ch cais gyda&rsquo;r cais am grant profiant",
   "theDeceased": "yr unigolyn sydd wedi marw",
+  "hiddenSummaryText": "p&rsquo;un a oedd gan yr ymadawedig unrhyw enwau eraill ai peidio",
   "errors": {
     "alias": {
       "required": "Atebwch &lsquo;oedd&rsquo; os oedd gan yr unigolyn sydd wedi marw asedau mewn enw arall"

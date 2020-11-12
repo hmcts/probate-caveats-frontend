@@ -3,12 +3,14 @@
         {
             question: content.ApplicantName.firstName,
             answer: fields.applicant.firstName.value,
-            visible: true
+            visible: true,
+            hiddenText: content.ApplicantName.hiddenSummaryText
         },
         {
             question: content.ApplicantName.lastName,
             answer: fields.applicant.lastName.value,
-            visible: true
+            visible: true,
+            hiddenText: content.ApplicantName.hiddenSummaryTextLastName
         }
     ],
     url = content.ApplicantName.url,
@@ -21,7 +23,8 @@
         {
             question: content.ApplicantEmail.question,
             answer: fields.applicant.email.value,
-            visible: true
+            visible: true,
+            hiddenText: content.ApplicantEmail.hiddenSummaryText
         }
     ],
     url = content.ApplicantEmail.url,
@@ -34,7 +37,8 @@
         {
             question: content.ApplicantAddress.question,
             answer: fields.applicant.address.value.formattedAddress,
-            visible: true
+            visible: true,
+            hiddenText: content.ApplicantAddress.hiddenSummaryText
         }
     ],
     url = content.ApplicantAddress.url,
@@ -47,7 +51,8 @@
         {
             question: content.BilingualGOP.question,
             answer: content.BilingualGOP[fields.language.bilingual.value],
-            visible: true
+            visible: true,
+            hiddenText: content.BilingualGOP.hiddenSummaryText
         }
     ],
     url = content.BilingualGOP.url,

@@ -4,6 +4,8 @@
   "explanation1": "Use the name on the death certificate.",
   "firstName": "First name and any middle names",
   "lastName": "Last name",
+  "hiddenSummaryText": "deceased's first name and any middle names",
+  "hiddenSummaryTextLastName": "deceased's last name",
 
   "errors": {
     "firstName": {

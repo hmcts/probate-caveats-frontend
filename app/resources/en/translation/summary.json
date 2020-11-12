@@ -5,5 +5,6 @@
   "deceasedHeading": "About the person who died",
   "otherNamesLabel": "Names used by the deceased",
   "aboutYouHeading": "About you",
-  "checkAnswersPdf": "Save this page (10kb PDF)"
+  "checkAnswersPdf": "Save this page (10kb PDF)",
+  "hiddenSummaryOtherNameText": "deceased's other names"
 }
