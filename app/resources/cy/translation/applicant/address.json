@@ -6,11 +6,12 @@
   "postcode": "Cod post",
   "country": "Gwlad (dewisol)",
   "findAddress": "Dod o hyd i gyfeiriad yn y DU",
-  "addressLabel": "Cyfeiriad",
+  "addressLabel": "<span class=\"govuk-visually-hidden\">Llinell </span>Cyfeiriad<span class=\"govuk-visually-hidden\"> Cyntaf</span>",
   "addressLabel2": "Ail linell y cyfeiriad (dewisol)",
   "addressLabel3": "Trydydd llinell y cyfeiriad (dewisol)",
   "selectAddress": "Dewiswch gyfeiriad",
   "enterManually": "neu teipiwch eich cyfeiriad",
+  "hiddenSummaryText": "cyfeiriad y ceisydd",
 
   "errors": {
     "addressLine1": {

@@ -2,6 +2,7 @@
   "title": "Deceased date of birth",
   "question": "What was their date of birth?",
   "questionHint": "For example, 31 03 1945",
+  "hiddenSummaryText": "deceased's date of birth",
 
   "errors": {
     "dob-day": {
