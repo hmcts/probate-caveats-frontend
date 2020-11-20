@@ -3,6 +3,8 @@
   "question": "What is your full name?",
   "firstName": "First name and any middle names",
   "lastName": "Last name",
+  "hiddenSummaryText": "applicant's first name and any middle names",
+  "hiddenSummaryTextLastName": "applicant's last name",
 
   "errors": {
     "firstName": {

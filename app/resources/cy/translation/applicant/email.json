@@ -3,6 +3,7 @@
   "question": "Beth yw eich cyfeiriad e-bost?",
   "email": "E-bost",
   "explanation1": "Cewch gadarnhad o&rsquo;ch cais trwy e-bost.",
+  "hiddenSummaryText": "cyfeiriad e-bost y ceisydd",
   "errors": {
     "email": {
       "required": "Nodwch eich cyfeiriad e-bost",
