@@ -1,8 +1,10 @@
 'use strict';
-
+const contentEn = require('app/resources/en/translation/common');
+const contentCy = require('app/resources/cy/translation/common');
 const testConfig = require('config');
 
-module.exports = function () {
+async function seeGovUkPaymentPage(language ='en') {
+    const commonContent = language === 'en' ? contentEn : contentCy;
     const I = this;
 
     I.fillField('#card-no', testConfig.govPayTestCardNos.validCardNo);
@@ -15,5 +17,7 @@ module.exports = function () {
     I.fillField('#address-postcode', testConfig.govPayTestCardDetails.addressPostcode);
     I.fillField('#email', testConfig.TestEnvEmailAddress);
 
-    I.waitForNavigationToComplete('#submit-card-details');
-};
+    await I.navByClick(commonContent.continue);
+}
+
+module.exports = {seeGovUkPaymentPage};

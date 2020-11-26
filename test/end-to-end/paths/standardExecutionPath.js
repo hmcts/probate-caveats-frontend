@@ -41,6 +41,7 @@ Scenario('Stop and Continuation of Main applicant journey:', function* (I) {
     I.enterApplicantName('Applicant First Name', 'Applicant Last Name');
     I.enterApplicantEmail('Applicant@email.com');
     I.enterApplicantAddressManually();
+
     I.startApplication();
     I.waitForNavigationToComplete(`input[value="${commonContent.saveAndContinue}"]`);
     I.waitForNavigationToComplete(`input[value="${commonContent.saveAndContinue}"]`);

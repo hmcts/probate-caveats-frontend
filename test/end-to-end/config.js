@@ -6,7 +6,7 @@ module.exports = {
     TestRetryFeatures: process.env.RETRY_FEATURES || 3,
     TestRetryScenarios: process.env.RETRY_SCENARIOS || 0,
     TestOutputDir: process.env.E2E_OUTPUT_DIR || './output',
-    TestPathToRun: './paths/**/*.js',
+    TestPathToRun: './paths/**/caveat.e2e.js',
     TestShowBrowser: false,
     TestBasePath: '/caveats',
 

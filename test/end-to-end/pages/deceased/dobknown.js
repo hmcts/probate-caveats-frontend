@@ -1,12 +1,17 @@
 'use strict';
 
-const commonContent = require('app/resources/en/translation/common');
+const commonContentEn = require('app/resources/en/translation/common');
+const commonContentCy = require('app/resources/cy/translation/common');
 const pageUnderTest = require('app/steps/ui/deceased/dobknown/index');
 
-module.exports = function (answer = 'optionYes') {
+async function enterDeceasedDateOfBirthKnown(language) {
+    const commonContent = language === 'en' ? commonContentEn : commonContentCy;
     const I = this;
 
-    I.seeCurrentUrlEquals(pageUnderTest.getUrl());
-    I.click(`#dobknown-option${answer}`);
-    I.waitForNavigationToComplete(`input[value="${commonContent.saveAndContinue}"]`);
-};
+    I.seeInCurrentUrl(pageUnderTest.getUrl());
+    // I.click(`#dobknown-option${answer}`);
+    await I.navByClick('#dobknown');
+    await I.navByClick(commonContent.saveAndContinue);
+}
+
+module.exports = {enterDeceasedDateOfBirthKnown};
