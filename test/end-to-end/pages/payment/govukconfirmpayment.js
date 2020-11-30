@@ -6,7 +6,7 @@ async function seeGovUkConfirmPage () {
     const I = this;
 
     I.seeInCurrentUrl(testConfig.TestGovUkConfirmPaymentUrl);
-    await I.navByClick('#confirm');
+    await I.retry(2).navByClick('#confirm');
 }
 
 module.exports = {seeGovUkConfirmPage};

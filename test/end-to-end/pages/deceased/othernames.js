@@ -20,7 +20,7 @@ async function enterDeceasedOtherNames (language ='en', noOfAliases) {
             I.fillField('#otherNames_name_'+ (i-1) + '_lastName', 'alias_lastnames_' + i);
         } else {
             I.click(otherNames.addAnotherName);
-            I.wait(10);
+            I.wait(6);
             I.fillField('#otherNames_name_'+ (i-1) + '_firstName', 'alias_firstnames_' + i);
             I.fillField('#otherNames_name_'+ (i-1) + '_lastName', 'alias_lastnames_' + i);
         }

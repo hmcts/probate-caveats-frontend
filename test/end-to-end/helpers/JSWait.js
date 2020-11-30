@@ -51,6 +51,25 @@ class JSWait extends codecept_helper {
         const page = this.helpers.WebDriver.page || this.helpers.Puppeteer.page;
         return page.goBack();
     }
+
+    async checkElementExist(selector) {
+        const helper = this.helpers.WebDriver || this.helpers.Puppeteer;
+
+        try {
+            await helper.waitForElement(selector, 3);
+        } catch (e) {
+            console.log('Element Not Found:', selector);
+        }
+
+        return helper
+            ._locate(selector)
+            .then(els => {
+                return Boolean(els.length);
+            })
+            .catch(err => {
+                throw err;
+            });
+    }
 }
 
 module.exports = JSWait;

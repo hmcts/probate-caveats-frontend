@@ -3,10 +3,10 @@ module.exports = {
     TestFrontendUrl: process.env.TEST_URL || 'http://localhost:3000',
     TestE2EFrontendUrl: process.env.TEST_E2E_URL || 'https://localhost:3000',
     TestUseGovPay: process.env.USE_GOV_PAY || 'true',
-    TestRetryFeatures: process.env.RETRY_FEATURES || 3,
+    TestRetryFeatures: process.env.RETRY_FEATURES || 2,
     TestRetryScenarios: process.env.RETRY_SCENARIOS || 0,
-    TestOutputDir: process.env.E2E_OUTPUT_DIR || './output',
-    TestPathToRun: './paths/**/caveat.e2e.js',
+    TestOutputDir: process.env.E2E_OUTPUT_DIR || './functional-output',
+    TestPathToRun: './paths/**/*.js',
     TestShowBrowser: false,
     TestBasePath: '/caveats',
 
@@ -28,7 +28,7 @@ module.exports = {
 
     govPayTestCardDetails: {
         expiryMonth: '06',
-        expiryYear: '99',
+        expiryYear: '25',
         cardholderName: 'Test Payment',
         cvc: '123',
         addressLine1: '1',

@@ -9,7 +9,7 @@ async function selectBilingualGopNo(language ='en') {
     const I = this;
 
     I.seeInCurrentUrl(pageUnderTest.getUrl());
-    await I.navByClick('#optionNo');
+    await I.click('#bilingual-2');
     await I.navByClick(commonContent.saveAndContinue);
 }
 
