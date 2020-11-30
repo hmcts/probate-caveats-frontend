@@ -249,7 +249,7 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
 
     app.use(healthcheck);
 
-    // app.use(`${config.app.basePath}/health`, healthcheck);
+    app.use(`${config.app.basePath}/health`, healthcheck);
 
     app.use(`${config.app.basePath}${config.livenessEndpoint}`, (req, res) => {
         res.json({status: 'UP'});
