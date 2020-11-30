@@ -68,6 +68,7 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
             buttonServiceClosed: config.webChat.buttonServiceClosed
         }
     };
+
     njkEnv.addGlobal('globals', globals);
 
     app.use(rewrite(`${globals.basePath}/public/*`, '/public/$1'));
