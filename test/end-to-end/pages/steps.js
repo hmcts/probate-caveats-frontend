@@ -7,7 +7,6 @@ const actions = {};
 function setActorActions(data) {
 
     for (const k in data) {
-        // eslint-disable-next-line no-prototype-builtins
         if (data.hasOwnProperty(k)) {
             actions[k] = data[k];
         }

@@ -14,7 +14,7 @@ exports.config = {
                 'ignoreHTTPSErrors': true,
                 'ignore-certificate-errors': true,
                 args: [
-                    '--headless', '--disable-gpu', '--no-sandbox', '--allow-running-insecure-content', '--ignore-certificate-errors', '-disable-dev-shm-usage',
+                    '--headless', '--disable-gpu', '--no-sandbox', '--allow-running-insecure-content', '--ignore-certificate-errors',
                     '--proxy-server=proxyout.reform.hmcts.net:8080',
                     '--proxy-bypass-list=*beta*LB.reform.hmcts.net'
                 ]
@@ -22,8 +22,8 @@ exports.config = {
         },
         JSWait: {require: './helpers/JSWait.js'},
     },
-    'include': {
-        'I': './pages/steps.js'
+    include: {
+        I: './pages/steps.js'
     },
     plugins: {
         screenshotOnFail: {
@@ -58,9 +58,10 @@ exports.config = {
             }
         }
     },
-    'multiple': {
-        'parallel': {
-            'chunks': 3
+    multiple: {
+        parallel: {
+            chunks: 3,
+            browsers: ['chrome']
         }
     },
     'name': 'Caveat E2E Tests'
