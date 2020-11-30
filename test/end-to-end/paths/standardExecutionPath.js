@@ -4,7 +4,7 @@ const TestConfigurator = new (require('test/end-to-end/helpers/TestConfigurator'
 
 Feature('Standard Execution flow');
 
-Scenario('Standard Execution Journey', function* (I) {
+Scenario('Standard Execution Journey E2E', function* (I) {
 
     I.startApplication();
 
