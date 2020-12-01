@@ -3,7 +3,7 @@ TestE2EFrontendUrl: 'https://localhost:3000'
 TestUseGovPay: 'false'
 TestRetryFeatures: 3
 TestRetryScenarios: 0
-TestOutputDir: './functional-output'
+TestOutputDir: './output'
 TestPathToRun: './paths/**/*.js'
 TestShowBrowser: false
 TestBasePath: '/caveats'

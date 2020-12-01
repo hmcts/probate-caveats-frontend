@@ -77,7 +77,7 @@ languages.forEach(language => {
             I.seeThankYouPage();
         }
 
-    }).tag('@e2e')
+    }).tag('@e2e999')
         .retry(2);
 
 });
