@@ -32,6 +32,28 @@ router.get(`${config.app.basePath}/health`, (req, res) => {
     });
 });
 
+router.get('/health', (req, res) => {
+    const healthcheck = new Healthcheck();
+    const services = [
+        {name: config.services.orchestrator.name, url: config.services.orchestrator.url}
+    ];
+
+    healthcheck.getDownstream(services, healthcheck.health, healthDownstream => {
+        return healthcheck.getDownstream(services, healthcheck.info, infoDownstream => {
+            return res.json({
+                name: commonContent.serviceName,
+                // status: healthcheck.status(healthDownstream),
+                status: 'UP',
+                uptime: process.uptime(),
+                host: osHostname,
+                version: gitRevision,
+                gitCommitId,
+                downstream: healthcheck.mergeInfoAndHealthData(healthDownstream, infoDownstream)
+            });
+        });
+    });
+});
+
 module.exports = router;
 module.exports.osHostname = osHostname;
 module.exports.gitCommitId = gitCommitId;
