@@ -19,7 +19,3 @@ else
     mkdir -p functional-output
     touch functional-output/mochawesome.html
 fi
-
-#below 2 lines for function test output in cnp pipeline
-mkdir -p functional-output
-cp -r functional-output/mochawesome.* functional-output/. 2>/dev/null
