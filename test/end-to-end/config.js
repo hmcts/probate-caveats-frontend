@@ -8,7 +8,7 @@ module.exports = {
     TestOutputDir: process.env.E2E_OUTPUT_DIR || './output',
     TestPathToRun: './paths/**/*.js',
     TestShowBrowser: false,
-    TestBasePath: '',
+    TestBasePath: '/caveats',
 
     postcodeLookup: {
         token: process.env.POSTCODE_SERVICE_TOKEN,

@@ -10,12 +10,12 @@ const osHostname = os.hostname();
 const gitCommitId = gitProperties.git.commit.id;
 const config = require('config');
 
-const healthcheckFunc = function (req, res) {
-    const healthcheck = new Healthcheck();
-    const services = [
-        {name: config.services.orchestrator.name, url: config.services.orchestrator.url}
-    ];
+const healthcheck = new Healthcheck();
+const services = [
+    {name: config.services.orchestrator.name, url: config.services.orchestrator.url}
+];
 
+const healthcheckFunc = function (req, res) {
     healthcheck.getDownstream(services, healthcheck.health, healthDownstream => {
         return healthcheck.getDownstream(services, healthcheck.info, infoDownstream => {
             return res.json({
