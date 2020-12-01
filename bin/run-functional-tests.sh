@@ -16,6 +16,6 @@ if [ "$RUN_E2E_TEST" = true ] ;
 then
     yarn test-e2e
 else
-    mkdir -p functional-output
-    touch functional-output/mochawesome.html
+    mkdir -p output
+    touch output/mochawesome.html
 fi
