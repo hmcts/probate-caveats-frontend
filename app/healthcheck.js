@@ -10,12 +10,11 @@ const osHostname = os.hostname();
 const gitCommitId = gitProperties.git.commit.id;
 const config = require('config');
 
-const healthcheck = new Healthcheck();
-const services = [
-    {name: config.services.orchestrator.name, url: config.services.orchestrator.url}
-];
-
 const healthcheckFunc = function (req, res) {
+    const healthcheck = new Healthcheck();
+    const services = [
+        {name: config.services.orchestrator.name, url: config.services.orchestrator.url}
+    ];
     healthcheck.getDownstream(services, healthcheck.health, healthDownstream => {
         return healthcheck.getDownstream(services, healthcheck.info, infoDownstream => {
             return res.json({
@@ -32,13 +31,9 @@ const healthcheckFunc = function (req, res) {
     });
 };
 
-router.get(`${config.app.basePath}/health`, (req, res) => {
-    healthcheckFunc(req, res);
-});
+router.get(`${config.app.basePath}/health`, (req, res) => healthcheckFunc(req, res));
 
-router.get('/health', (req, res) => {
-    healthcheckFunc(req, res);
-});
+router.get('/health', (req, res) => healthcheckFunc(req, res));
 
 module.exports = router;
 module.exports.osHostname = osHostname;
