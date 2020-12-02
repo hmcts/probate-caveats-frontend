@@ -14,7 +14,7 @@ class JSWait extends codecept_helper {
         const helper = this.helpers.WebDriver || this.helpers.Puppeteer;
         const helperIsPuppeteer = this.helpers.Puppeteer;
 
-        helper.click(text, locator).catch(err => {
+        await helper.click(text, locator).catch(err => {
             console.error(err.message);
         });
 
@@ -35,7 +35,7 @@ class JSWait extends codecept_helper {
                 newUrl = helper.options.url + newUrl;
             }
 
-            helper.page.goto(newUrl).catch(err => {
+            await helper.page.goto(newUrl).catch(err => {
                 console.error(err.message);
             });
             await helper.page.waitForNavigation({waitUntil: 'networkidle0'});
