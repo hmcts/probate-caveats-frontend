@@ -10,11 +10,11 @@
 - child step classes are organised in a directory structure, with each directory containing the files required to run the step
 - a common runner is used by each step to run a set of actions when a step is triggered – `UIStepRunner.js`
 - each action is implemented by a function on the parent Step class 
-- steps can override the default behaviour by specifying their own implementation of the function
+- steps_old can override the default behaviour by specifying their own implementation of the function
 - other common behaviour is abstracted through intermediate ancestor classes -  `ValidationStep.js, AddressStep.js`
 
 ## Startup
-- steps are initialised on application startup – `initSteps.js`
+- steps_old are initialised on application startup – `initSteps.js`
     - step directories are scanned for step files (index, schema, template and content)
     - these files are used to initialise step objects    
 - routes initialised for each step based on step URL
@@ -30,7 +30,7 @@
     - if an exception occurred, the runner renders an error page
 
 ## Creating a step
-- create the step folder under 'steps/ui/<section>/'
+- create the step folder under 'steps_old/ui/<section>/'
 - create the step json content file, with the same name as the foder above, under 'resources/en/translation/ui/section/'
 - create the step template file, [template.html], a nunjucks file that defines the layout of the page
 - if the step collects input data that needs to be validated, create a json schema file, [schema.json]

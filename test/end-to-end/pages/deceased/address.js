@@ -1,17 +1,30 @@
 'use strict';
 
-const commonContent = require('app/resources/en/translation/common');
+const commonContentEn = require('app/resources/en/translation/common');
+const commonContentCy = require('app/resources/cy/translation/common');
 const pageUnderTest = require('app/steps/ui/deceased/address/index');
 
-module.exports = function () {
+async function enterDeceasedAddressManually(language ='en', testAddressIndex) {
+
+    const commonContent = language === 'en' ? commonContentEn : commonContentCy;
+    const findAddress = language === 'en' ? 'Find UK address' : 'Dod o hyd i gyfeiriad';
     const I = this;
 
-    I.seeCurrentUrlEquals(pageUnderTest.getUrl());
-    I.click('.summary');
-    I.fillField('#addressLine1', 'test address for deceased line 1');
-    I.fillField('#addressLine2', 'test address for deceased line 2');
-    I.fillField('#addressLine3', 'test address for deceased line 3');
-    I.fillField('#postTown', 'test address for deceased town');
-    I.fillField('#newPostCode', 'postcode');
-    I.waitForNavigationToComplete(`input[value="${commonContent.saveAndContinue}"]`);
-};
+    if (!testAddressIndex) {
+        testAddressIndex = '0';
+    }
+
+    I.waitInUrl(pageUnderTest.getUrl());
+    I.seeInCurrentUrl(pageUnderTest.getUrl());
+    I.fillField('postcode', 'SW9 9PE');
+    await I.navByClick(findAddress);
+    I.wait(2);
+    I.waitForVisible('#postcodeAddress');
+    I.selectOption('#postcodeAddress', testAddressIndex);
+    I.wait(2);
+    I.waitForElement('#addressLine1');
+    I.wait(2);
+    await I.navByClick(commonContent.saveAndContinue);
+}
+
+module.exports = {enterDeceasedAddressManually};
