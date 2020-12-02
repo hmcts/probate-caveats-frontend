@@ -1,35 +1,33 @@
 'use strict';
+const requireDirectory = require('require-directory'),
+    steps = requireDirectory(module);
 
-const requireDirectory = require('require-directory');
-const steps = requireDirectory(module);
+const actions = {};
 
-module.exports = function () {
+function setActorActions(data) {
 
-    return actor({
-        // Start application
-        startApplication: steps.startapply.startapply,
+    for (const k in data) {
+        // eslint-disable-next-line no-prototype-builtins
+        if (data.hasOwnProperty(k)) {
+            actions[k] = data[k];
+        }
+    }
+}
 
-        enterApplicantName: steps.applicant.name,
-        enterApplicantEmail: steps.applicant.email,
-        enterApplicantAddressManually: steps.applicant.address,
-        enterDeceasedName: steps.deceased.name,
-        enterDeceasedDateOfDeath: steps.deceased.dod,
-        enterDeceasedDateOfBirthKnown: steps.deceased.dobknown,
-        enterDeceasedDateOfBirth: steps.deceased.dob,
-        enterDeceasedHasAlias: steps.deceased.alias,
-        enterDeceasedOtherNames: steps.deceased.othernames,
-        enterDeceasedAddressManually: steps.deceased.address,
-        seeSummaryPage: steps.summary.summary,
+module.exports = function() {
 
-        // Payment
-        seePaymentBreakdownPage: steps.payment.paymentbreakdown,
-        seeGovUkPaymentPage: steps.payment.govukpayment,
-        seeGovUkConfirmPage: steps.payment.govukconfirmpayment,
-        seePaymentStatusPage: steps.payment.paymentstatus,
+    const stepsKeys = Object.keys(steps);
 
-        // enterPaymentBreakdown: steps.payment.breakdown,
+    for (const step in stepsKeys) {
 
-        // Temp stop page to represent end of journey
-        seeThankYouPage: steps.thankyou.thankyou
-    });
+        const sectionKeys = Object.keys(steps[stepsKeys[step]]);
+
+        for (const section in sectionKeys) {
+
+            setActorActions(steps[stepsKeys[step]][sectionKeys[section]]);
+        }
+
+    }
+
+    return actor(actions);
 };

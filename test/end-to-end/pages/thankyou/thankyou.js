@@ -2,8 +2,10 @@
 
 const pageUnderTest = require('app/steps/ui/thankyou/index');
 
-module.exports = function () {
+function seeThankYouPage() {
     const I = this;
 
-    I.seeCurrentUrlEquals(pageUnderTest.getUrl());
-};
+    I.seeInCurrentUrl(pageUnderTest.getUrl());
+}
+
+module.exports = {seeThankYouPage};

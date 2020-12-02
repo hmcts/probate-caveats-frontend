@@ -2,10 +2,11 @@
 
 const testConfig = require('config');
 
-module.exports = function () {
+async function seeGovUkConfirmPage () {
     const I = this;
 
     I.seeInCurrentUrl(testConfig.TestGovUkConfirmPaymentUrl);
+    await I.retry(2).navByClick('#confirm');
+}
 
-    I.waitForNavigationToComplete('#confirm');
-};
+module.exports = {seeGovUkConfirmPage};
