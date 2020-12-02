@@ -5,7 +5,7 @@ nodejs:
     REDIS_USE_TLS: false
     REDIS_HOST: ${SERVICE_NAME}-redis-master
     REDIS_PORT: 6379
-    LAUNCHDARKLY_ENABLED: false
+    LAUNCHDARKLY_ENABLED: true
   keyVaults:
     probate:
       secrets:
