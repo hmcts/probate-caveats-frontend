@@ -39,9 +39,9 @@ withPipeline("nodejs", product, component) {
   after('functionalTest:aat') {
       publishHTML target: [
 
-              reportDir            : "output/",
+              reportDir            : "functional-output/",
               reportFiles          : "mochawesome.html",
-              reportName           : "SAAT Functional Tests",
+              reportName           : "Caveat E2E Tests",
               alwaysLinkToLastBuild: true
       ]
   }

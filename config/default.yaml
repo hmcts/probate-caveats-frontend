@@ -2,6 +2,7 @@ frontendPublicHttpProtocol: 'http'
 environment: 'prod'
 externalHostNameUrl: ''
 languages: ['en','cy']
+TestOutputDir: './functional-output'
 featureToggles:
   enabled: true
   launchDarklyKey: 'SDK_KEY'
