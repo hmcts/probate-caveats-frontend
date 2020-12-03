@@ -10,7 +10,7 @@ const osHostname = os.hostname();
 const gitCommitId = gitProperties.git.commit.id;
 const config = require('config');
 
-router.get('/health', (req, res) => {
+const healtcheckFunc = function(req, res) {
     const healthcheck = new Healthcheck();
     const services = [
         {name: config.services.orchestrator.name, url: config.services.orchestrator.url}
@@ -30,7 +30,10 @@ router.get('/health', (req, res) => {
             });
         });
     });
-});
+};
+
+router.get(`${config.app.basePath}/health`, (req, res) => healtcheckFunc(req, res));
+router.get('/health', (req, res) => healtcheckFunc(req, res));
 
 module.exports = router;
 module.exports.osHostname = osHostname;
