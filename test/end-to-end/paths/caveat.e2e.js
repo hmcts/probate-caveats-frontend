@@ -1,22 +1,14 @@
 const contentEn = require('app/resources/en/translation/common');
 const contentCy = require('app/resources/cy/translation/common');
 const testConfigurator = new (require('test/end-to-end/helpers/TestConfigurator'))();
-const languages = ['en'];
+const languages = ['en', 'cy'];
 
-Feature('Standard Caveat E2E...');
+Feature('Standard Caveat E2E...').retry(2);
 
 languages.forEach(language => {
 
-    Before(async (I) => {
-        await I.amOnLoadedPage('/', language);
-        await I.startApplication(language);
-        await I.enterApplicantName(language, 'Applicant First Name', 'Applicant Last Name');
-        await I.enterApplicantEmail(language, 'Applicant@email.com');
-        await I.enterApplicantAddressManually(language);
-    });
-
     Scenario(`${language.toUpperCase()} - Caveat E2E`, async function (I) {
-
+        await startApplicationToApplicantAddress(I, language);
         await I.enterDeceasedName(language, 'Deceased First Name', 'Deceased Last Name');
         await I.enterDeceasedDateOfDeath(language, '01', '01', '2019');
         await I.enterDeceasedDateOfBirthKnown(language);
@@ -33,12 +25,12 @@ languages.forEach(language => {
         await I.seeSummaryPage(language);
         await I.seePaymentBreakdownPage(language);
         if (testConfigurator.getUseGovPay() === 'true') {
-            await I.seeGovUkPaymentPage();
+            await I.seeGovUkPaymentPage(language);
             await I.seeGovUkConfirmPage();
         }
 
-        const isCaseIDGenerated = await I.checkElementExist('//h1[contains(text(), \'Application complete\')]');
-        if (isCaseIDGenerated) {
+        const caseIDGenerated = await I.checkElementExist('//*[@id="main-content"]/div/div/div[1]/h1');
+        if (caseIDGenerated) {
             I.seeThankYouPage();
         }
 
@@ -47,6 +39,7 @@ languages.forEach(language => {
 
     xScenario(`${language.toUpperCase()} - Caveat Stop and Continuation of Main applicant journey:`, async function (I) {
         const commonContent = language === 'en' ? contentEn : contentCy;
+        await startApplicationToApplicantAddress(I, language);
         await I.startApplication();
 
         await I.navByClick(commonContent.saveAndContinue);
@@ -81,3 +74,11 @@ languages.forEach(language => {
         .retry(2);
 
 });
+
+async function startApplicationToApplicantAddress(I, language) {
+    await I.amOnLoadedPage('/', language);
+    await I.startApplication(language);
+    await I.enterApplicantName(language, 'Applicant First Name', 'Applicant Last Name');
+    await I.enterApplicantEmail(language, 'Applicant@email.com');
+    await I.enterApplicantAddressManually(language);
+}
