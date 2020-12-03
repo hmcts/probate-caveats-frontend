@@ -37,7 +37,6 @@ class FeatureToggle {
                 if (err) {
                     params.next();
                 } else {
-                    console.log('DTSPB-132: pr update check');
                     logger(sessionId).info(`Checking feature toggle: ${params.featureToggleKey}, isEnabled: ${showFeature}`);
                     params.callback({
                         req: params.req,
