@@ -1,7 +1,7 @@
 const contentEn = require('app/resources/en/translation/common');
 const contentCy = require('app/resources/cy/translation/common');
 const testConfigurator = new (require('test/end-to-end/helpers/TestConfigurator'))();
-const languages = ['en'];
+const languages = ['en', 'cy'];
 
 Feature('Caveat Stop and Continuation of Main applicant E2E...').retry(2);
 
