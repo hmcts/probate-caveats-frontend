@@ -1,12 +1,21 @@
+const contentEn = require('app/resources/en/translation/common');
+const contentCy = require('app/resources/cy/translation/common');
 const testConfigurator = new (require('test/end-to-end/helpers/TestConfigurator'))();
-const languages = ['en', 'cy'];
+const languages = ['en'];
 
-Feature('Standard Caveat E2E...').retry(2);
+Feature('Caveat Stop and Continuation of Main applicant E2E...').retry(2);
 
 languages.forEach(language => {
 
-    Scenario(`${language.toUpperCase()} - Caveat E2E`, async function (I) {
+    Scenario(`${language.toUpperCase()} - Caveat Stop and Continuation of Main applicant journey:`, async function (I) {
+        const commonContent = language === 'en' ? contentEn : contentCy;
         await startApplicationToApplicantAddress(I, language);
+        await I.startApplication(language);
+        // await I.navByClick(commonContent.start);
+        await I.navByClick(commonContent.saveAndContinue);
+        await I.navByClick(commonContent.saveAndContinue);
+        await I.navByClick(commonContent.saveAndContinue);
+
         await I.enterDeceasedName(language, 'Deceased First Name', 'Deceased Last Name');
         await I.enterDeceasedDateOfDeath(language, '01', '01', '2019');
         await I.enterDeceasedDateOfBirthKnown(language);
@@ -16,14 +25,13 @@ languages.forEach(language => {
         await I.enterDeceasedAddressManually(language);
 
         await I.selectBilingualGopNo(language);
-        if (testConfigurator.equalityAndDiversityEnabled) {
-            await I.completeEquality(language);
-        }
+        await I.completeEquality(language);
 
         await I.seeSummaryPage(language);
         await I.seePaymentBreakdownPage(language);
+
         if (testConfigurator.getUseGovPay() === 'true') {
-            await I.seeGovUkPaymentPage(language);
+            await I.seeGovUkPaymentPage();
             await I.seeGovUkConfirmPage();
         }
 
@@ -32,8 +40,9 @@ languages.forEach(language => {
             I.seeThankYouPage();
         }
 
-    }).tag('@e2e')
+    }).tag('@nightly')
         .retry(2);
+
 });
 
 async function startApplicationToApplicantAddress(I, language) {

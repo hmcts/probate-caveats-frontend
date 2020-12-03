@@ -1,9 +1,9 @@
 TestFrontendUrl: 'http://localhost:3000'
-TestE2EFrontendUrl: 'https://localhost:3000'
+TestE2EFrontendUrl: 'https://probate.aat.platform.hmcts.net/caveats'
 TestUseGovPay: 'false'
 TestRetryFeatures: 3
 TestRetryScenarios: 0
-TestOutputDir: './output'
+TestOutputDir: './functional-output'
 TestPathToRun: './paths/**/*.js'
 TestShowBrowser: false
 TestBasePath: '/caveats'

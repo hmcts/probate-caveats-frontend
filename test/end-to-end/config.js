@@ -5,7 +5,7 @@ module.exports = {
     TestUseGovPay: process.env.USE_GOV_PAY || 'true',
     TestRetryFeatures: process.env.RETRY_FEATURES || 2,
     TestRetryScenarios: process.env.RETRY_SCENARIOS || 0,
-    TestOutputDir: process.env.E2E_OUTPUT_DIR || './output',
+    TestOutputDir: process.env.E2E_OUTPUT_DIR || './functional-output',
     TestPathToRun: './paths/**/*.js',
     TestShowBrowser: false,
     TestBasePath: '/caveats',
