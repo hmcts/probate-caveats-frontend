@@ -39,7 +39,7 @@ const setupConfig = {
     },
     'mocha': {
         'reporterOptions': {
-            'reportDir': process.env.E2E_CROSSBROWSER_OUTPUT_DIR || './output',
+            'reportDir': process.env.E2E_CROSSBROWSER_OUTPUT_DIR || './functional-output',
             'reportName': browser + '_report',
             'reportTitle': 'Crossbrowser results for: ' + browser.toUpperCase(),
             'inlineAssets': true
