@@ -44,13 +44,11 @@ withNightlyPipeline("nodejs", product, component) {
     after('build') {
         sh 'mkdir -p functional-output'
         sh 'yarn setup'
-        sh 'yarn test-accessibility'
     }
-
 
     after('fullFunctionalTest') {
-        steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'output/**/*'
+        steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'functional-output/**/*'
     }
 
-    //    enableSlackNotifications('#div-dev')  // can be turned back on once the overnight functionality is working fully
+    //    enableSlackNotifications('#probate-qa')  // can be turned back on once the overnight functionality is working fully
 }

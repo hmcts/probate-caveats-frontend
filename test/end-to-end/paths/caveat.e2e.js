@@ -33,6 +33,7 @@ languages.forEach(language => {
         }
 
     }).tag('@e2e')
+        .tag('@nightly')
         .retry(2);
 });
 
