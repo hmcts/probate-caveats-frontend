@@ -24,6 +24,7 @@ class Healthcheck {
         const fetchOpts = fetchOptions({}, 'GET', {});
         return services.map(service => asyncFetch(service.url, fetchOpts, res => res.json()
             .then(json => {
+                console.log('HEALTH RESPONSE => ', json);
                 return callback({service: service, json: json});
             }))
             .catch(err => {

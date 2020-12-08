@@ -22,6 +22,8 @@ const asyncFetch = (url, fetchOptions, parseBody) => {
 
     if (!isHealthOrInfo) {
         logger.info('Calling external service');
+    } else {
+        console.log('url => ', url);
     }
 
     return new Promise((resolve, reject) => {
@@ -31,6 +33,7 @@ const asyncFetch = (url, fetchOptions, parseBody) => {
                 if (!isHealthOrInfo) {
                     logger.info(`Status: ${res.status}`);
                 }
+
                 if (res.ok) {
                     return parseBody(res);
                 }
