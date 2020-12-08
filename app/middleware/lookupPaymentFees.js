@@ -7,7 +7,7 @@ const lookupPaymentFees = (req, res, next) => {
     const session = req.session;
     const formdata = session.form;
     const applicationId = formdata.applicationId;
-    const feesLookup = new FeesLookup(applicationId);
+    const feesLookup = new FeesLookup(applicationId, session);
 
     feesLookup.lookup(req.authToken)
         .then((res) => {
