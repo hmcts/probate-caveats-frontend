@@ -6,6 +6,8 @@ nodejs:
     REDIS_HOST: ${SERVICE_NAME}-redis-master
     REDIS_PORT: 6379
     LAUNCHDARKLY_ENABLED: false
+    ORCHESTRATION_SERVICE_URL: http://probate-orchestrator-service-pr-408.service.core-compute-preview.internal
+    CAVEAT_REDIRECT_BASE_URL: http://probate-caveats-fe-pr-338.service.core-compute-preview.internal
   keyVaults:
     probate:
       secrets:
