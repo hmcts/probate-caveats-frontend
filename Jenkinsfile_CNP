@@ -45,4 +45,10 @@ withPipeline("nodejs", product, component) {
               alwaysLinkToLastBuild: true
       ]
   }
+  onMaster() {
+    enablePactAs([AppPipelineDsl.PactRoles.CONSUMER])
+  }
+  onPR() {
+    enablePactAs([AppPipelineDsl.PactRoles.CONSUMER])
+  }
 }
