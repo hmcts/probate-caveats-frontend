@@ -4,9 +4,9 @@ nodejs:
   cpuLimits: 500m
   cpuRequests: 100m
   autoscaling:        # Default is false
-  enabled: true
-  maxReplicas: 5    # Required setting
-  targetCPUUtilizationPercentage: 80 # Default is 80% target CPU utilization
+    enabled: true
+    maxReplicas: 5    # Required setting
+    targetCPUUtilizationPercentage: 80 # Default is 80% target CPU utilization
   aadIdentityName: probate
   environment:
     PUBLIC_PROTOCOL: https
