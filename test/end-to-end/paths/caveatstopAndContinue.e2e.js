@@ -25,7 +25,7 @@ languages.forEach(language => {
         await I.seePaymentBreakdownPage(language);
 
         if (testConfigurator.getUseGovPay() === 'true') {
-            await I.seeGovUkPaymentPage();
+            await I.seeGovUkPaymentPage(language);
             await I.seeGovUkConfirmPage();
         }
 
