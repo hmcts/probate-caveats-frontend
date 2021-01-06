@@ -30,11 +30,11 @@ class JSWait extends codecept_helper {
         const helper = this.helpers.WebDriver || this.helpers.Puppeteer;
         const helperIsPuppeteer = this.helpers.Puppeteer;
 
-        if (helperIsPuppeteer) {
-            if (newUrl.indexOf('http') !== 0) {
-                newUrl = helper.options.url + newUrl;
-            }
+        if (newUrl.indexOf('http') !== 0) {
+            newUrl = helper.options.url + newUrl;
+        }
 
+        if (helperIsPuppeteer) {
             helper.page.goto(newUrl).catch(err => {
                 console.error(err.message);
             });

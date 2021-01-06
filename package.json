@@ -37,6 +37,7 @@
     "test:nightly": "NODE_ENV=testing  NODE_PATH=. node ./node_modules/codeceptjs/bin/codecept.js run-multiple parallel -c ./test/end-to-end/ --grep @nightly --steps --reporter mocha-multi",
     "test:codecov-upload": "NODE_ENV=test NODE_PATH=. istanbul cover _mocha './test/**/test*.js' -- -R spec && codecov",
     "test:coverage": "NODE_ENV=test NODE_PATH=. istanbul cover _mocha './test/**/test*.js'",
+    "test:crossbrowser": "./bin/run-crossbrowser-tests.sh",
     "test:stryker": "NODE_PATH=. stryker run ",
     "test:mutation": "NODE_PATH=. stryker run test/mutation/mutation_unittests.conf.js",
     "test:mutation-shell": "./bin/run-mutation-tests.sh",
