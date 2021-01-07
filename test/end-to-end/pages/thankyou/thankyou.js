@@ -9,7 +9,7 @@ async function seeThankYouPage(language = 'en') {
     const I = this;
 
     await I.waitInUrl(pageUnderTest.getUrl());
-    await I.waitForText(content.header);
+    await I.waitForText(content.successHeading1);
 }
 
 module.exports = {seeThankYouPage};
