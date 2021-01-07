@@ -8,9 +8,9 @@ async function enterApplicantName(language ='en', firstname, lastname) {
     const commonContent = language === 'en' ? commonContentEn : commonContentCy;
     const I = this;
 
-    I.seeInCurrentUrl(pageUnderTest.getUrl());
-    I.fillField('#firstName', firstname);
-    I.fillField('#lastName', lastname);
+    await I.waitInUrl(pageUnderTest.getUrl());
+    await I.fillField('#firstName', firstname);
+    await I.fillField('#lastName', lastname);
     await I.navByClick(commonContent.saveAndContinue);
 }
 

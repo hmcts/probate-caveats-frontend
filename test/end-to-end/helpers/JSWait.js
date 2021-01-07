@@ -14,7 +14,7 @@ class JSWait extends codecept_helper {
         const helper = this.helpers.WebDriver || this.helpers.Puppeteer;
         const helperIsPuppeteer = this.helpers.Puppeteer;
 
-        helper.click(text, locator).catch(err => {
+        await helper.click(text, locator).catch(err => {
             console.error(err.message);
         });
 
@@ -42,7 +42,7 @@ class JSWait extends codecept_helper {
 
         } else {
             await helper.amOnPage(newUrl);
-            await helper.wait(2);
+            await helper.waitInUrl(url);
             await helper.waitForElement('body');
         }
     }

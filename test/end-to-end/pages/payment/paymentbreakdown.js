@@ -9,7 +9,8 @@ async function seePaymentBreakdownPage(language) {
     const commonContent = language === 'en' ? commonContentEn : commonContentCy;
     const I = this;
 
-    I.seeInCurrentUrl(pageUnderTest.getUrl());
+    await I.waitInUrl(pageUnderTest.getUrl());
+    await I.waitForElement({css: 'form[action="/caveats/payment-breakdown"]'});
     await I.navByClick(commonContent.saveAndContinue);
 }
 

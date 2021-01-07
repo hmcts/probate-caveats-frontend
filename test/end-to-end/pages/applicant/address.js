@@ -14,18 +14,15 @@ async function enterApplicantAddressManually(language = 'en', testAddressIndex) 
         testAddressIndex = '0';
     }
 
-    I.waitInUrl(pageUnderTest.getUrl());
-    I.seeInCurrentUrl(pageUnderTest.getUrl());
-    I.fillField('postcode', 'SW9 9PD');
+    await I.waitInUrl(pageUnderTest.getUrl());
+    await I.seeInCurrentUrl(pageUnderTest.getUrl());
+    await I.waitForVisible('#postcode');
+    await I.fillField('postcode', 'SW9 9PD');
     await I.navByClick(findAddress);
-    I.wait(2);
-    I.waitForVisible('#postcodeAddress');
-    I.selectOption('#postcodeAddress', testAddressIndex);
-    I.wait(2);
-    I.waitForElement('#addressLine1');
-    I.wait(2);
+    await I.waitForVisible('#postcodeAddress');
+    await I.selectOption('#postcodeAddress', testAddressIndex);
+    await I.waitForElement('#addressLine1');
     await I.navByClick(commonContent.saveAndContinue);
-
 }
 
 module.exports = {enterApplicantAddressManually};

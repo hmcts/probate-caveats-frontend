@@ -8,9 +8,9 @@ async function enterDeceasedName(language ='en', firstName, lastName) {
     const commonContent = language === 'en' ? commonContentEn : commonContentCy;
     const I = this;
 
-    I.seeInCurrentUrl(pageUnderTest.getUrl());
-    I.fillField('#firstName', firstName);
-    I.fillField('lastName', lastName);
+    await I.waitInUrl(pageUnderTest.getUrl());
+    await I.fillField('#firstName', firstName);
+    await I.fillField('lastName', lastName);
     await I.navByClick(commonContent.saveAndContinue);
 }
 
