@@ -7,7 +7,6 @@ class JSWait extends codecept_helper {
         if (step.name === 'seeCurrentUrlEquals' || step.name === 'seeInCurrentUrl') {
             return helper.waitForElement('body', 30);
         }
-        return step;
     }
 
     async navByClick (text, locator) {
