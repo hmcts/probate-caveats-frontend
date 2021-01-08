@@ -9,7 +9,7 @@ async function enterDeceasedHasAlias(language='en') {
     const commonContent = language === 'en' ? commonContentEn : commonContentCy;
     const I = this;
 
-    I.waitInUrl(pageUnderTest.getUrl());
+    await I.waitInUrl(pageUnderTest.getUrl());
     const locator = {css: '#alias'};
     await I.waitForElement(locator);
     await I.click(locator);
