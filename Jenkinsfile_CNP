@@ -46,11 +46,7 @@ withPipeline("nodejs", product, component) {
               alwaysLinkToLastBuild: true
       ]
   }
-  env.PACT_BROKER_URL = "https://pact-broker.platform.hmcts.net"
   onMaster() {
-    enablePactAs([AppPipelineDsl.PactRoles.CONSUMER])
-  }
-  onPR() {
     enablePactAs([AppPipelineDsl.PactRoles.CONSUMER])
   }
 }
