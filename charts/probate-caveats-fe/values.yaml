@@ -9,6 +9,8 @@ nodejs:
     targetCPUUtilizationPercentage: 80 # Default is 80% target CPU utilization
   aadIdentityName: probate
   environment:
+    NODE_ENV: "production"
+    NODE_PATH: "."
     PUBLIC_PROTOCOL: https
     USE_HTTPS: false
     REFORM_ENVIRONMENT: prod
