@@ -20,6 +20,10 @@ app:
   port: '3000'
   useCSRFProtection: 'true'
   basePath: ''
+health:
+  service_name: 'Stop a grand of probate - caveats'
+  timeout: 5000
+  deadline: 15000
 services:
   orchestrator:
     name: 'Orchestrator Service'
