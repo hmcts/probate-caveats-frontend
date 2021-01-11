@@ -26,6 +26,7 @@ static LinkedHashMap<String, Object> secret(String secretName, String envVar) {
     envVariable: envVar
   ]
 }
+env.PACT_BROKER_URL = "https://pact-broker.platform.hmcts.net"
 
 withPipeline("nodejs", product, component) {
   env.RUN_E2E_TEST = true
