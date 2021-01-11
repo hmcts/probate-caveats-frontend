@@ -47,7 +47,7 @@ services:
     caveat_redirectUrl: '/oauth2/callback'
   pact:
     name: 'PACT Service'
-    url: 'http://localhost:80'
+    url: 'https://pact-broker.platform.hmcts.net'
     tag: 'Dev'
     pactDirectory: 'pacts'
   payment:
