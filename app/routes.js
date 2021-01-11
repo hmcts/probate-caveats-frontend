@@ -82,8 +82,4 @@ router.get('/*', (req, res, next) => {
     }
 });
 
-router.get('/health/liveness', (req, res) => {
-    res.json({status: 'UP'});
-});
-
 module.exports = router;

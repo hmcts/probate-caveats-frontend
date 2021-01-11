@@ -24,7 +24,7 @@ describe('Probate frontend health check', () => {
         healthcheckRequest(frontendUrl, res => {
             expect(res).to.have.status(200);
             expect(res.body.status).to.equal('UP');
-            expect(res.body).to.have.property('host');
+            expect(res.body).to.have.property('buildInfo');
             done();
         });
     });
