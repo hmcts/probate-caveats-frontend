@@ -18,7 +18,10 @@ const utils = require(`${__dirname}/app/components/utils`);
 const packageJson = require(`${__dirname}/package`);
 const helmet = require('helmet');
 const csrf = require('csurf');
-const healthcheck = require(`${__dirname}/app/healthcheck`);
+const healthcheck = require('@hmcts/nodejs-healthcheck');
+const healthOptions = require('app/utils/healthOptions');
+const FormatUrl = require('app/utils/FormatUrl');
+const os = require('os');
 const fs = require('fs');
 const https = require('https');
 const appInsights = require('applicationinsights');
@@ -247,13 +250,21 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
         app.use(utils.forceHttps);
     }
 
-    app.use(healthcheck);
+    // health
+    const healthCheckConfig = {
+        checks: {
+            [config.services.orchestrator.name]: healthcheck.web(FormatUrl.format(config.services.orchestrator.url, config.endpoints.health), healthOptions),
+        },
+        buildInfo: {
+            name: config.health.service_name,
+            host: os.hostname(),
+            uptime: process.uptime(),
+        },
+    };
 
-    app.use(`${config.app.basePath}/health`, healthcheck);
-
-    app.use(`${config.livenessEndpoint}`, (req, res) => {
-        res.json({status: 'UP'});
-    });
+    healthcheck.addTo(app, healthCheckConfig);
+    app.get(`${config.app.basePath}/health`, healthcheck.configure(healthCheckConfig));
+    app.get(`${config.app.basePath}/health/liveness`, (req, res) => res.json({status: 'UP'}));
 
     app.use((req, res, next) => {
         res.locals.launchDarkly = {};

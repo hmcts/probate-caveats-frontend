@@ -1,12 +1,16 @@
 nodejs:
   image: hmctspublic.azurecr.io/probate/caveats-fe:latest
   applicationPort: 3000
-  memoryRequests: "512Mi"
-  cpuRequests: "100m"
-  memoryLimits: "1024Mi"
-  cpuLimits: "500"
+  cpuLimits: 500m
+  cpuRequests: 100m
+  autoscaling:        # Default is false
+    enabled: true
+    maxReplicas: 5    # Required setting
+    targetCPUUtilizationPercentage: 80 # Default is 80% target CPU utilization
   aadIdentityName: probate
   environment:
+    NODE_ENV: "production"
+    NODE_PATH: "."
     PUBLIC_PROTOCOL: https
     USE_HTTPS: false
     REFORM_ENVIRONMENT: prod
@@ -25,6 +29,7 @@ nodejs:
     CAVEAT_REDIRECT_BASE_URL: http://probate-caveats-fe-{{ .Values.global.environment }}.service.core-compute-{{ .Values.global.environment }}.internal
   keyVaults:
     probate:
+      resourceGroup: probate
       secrets:
         - caveats-fe-redis-access-key
         - idam-s2s-secret
