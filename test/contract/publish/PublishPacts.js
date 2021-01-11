@@ -14,7 +14,8 @@ const opts = {
     tags: config.services.pact.tag || 'Dev'
 };
 
-const certPath = path.resolve(__dirname, '../cer/ca-bundle.crt"');
+const certPath = path.resolve(__dirname, '../pact/cer/ca-bundle.crt"');
+console.log('cert path = '+ certPath);
 process.env.SSL_CERT_FILE = certPath;
 
 pact.publishPacts(opts)
