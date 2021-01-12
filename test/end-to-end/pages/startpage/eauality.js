@@ -14,6 +14,7 @@ async function completeEquality(language = 'en') {
     if (url.startsWith(pcqAAT)) {
         await I.waitInUrl(pagePath);
         await I.seeCurrentUrlEquals(pagePath);
+        await I.waitForText(stepContent);
         await I.navByClick(stepContent);
     }
 }

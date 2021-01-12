@@ -22,7 +22,7 @@ languages.forEach(language => {
 
         await I.seeSummaryPage(language);
         await I.seePaymentBreakdownPage(language);
-        if (testConfigurator.getUseGovPay() === 'true') {
+        if (await testConfigurator.getUseGovPay() === 'true') {
             await I.seeGovUkPaymentPage(language);
             await I.seeGovUkConfirmPage();
         }
