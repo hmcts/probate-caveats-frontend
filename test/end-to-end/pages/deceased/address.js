@@ -18,7 +18,7 @@ async function enterDeceasedAddressManually(language ='en', testAddressIndex = '
     await I.waitForVisible('#postcodeAddress');
     await I.selectOption('#postcodeAddress', testAddressIndex);
     await I.waitForElement('#addressLine1');
-    await I.wait(2);
+    await I.waitForText(commonContent.saveAndContinue);
     await I.navByClick(commonContent.saveAndContinue);
 }
 
