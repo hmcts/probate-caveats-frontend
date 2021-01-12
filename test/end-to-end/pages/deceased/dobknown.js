@@ -8,8 +8,10 @@ async function enterDeceasedDateOfBirthKnown(language ='en') {
     const commonContent = language === 'en' ? commonContentEn : commonContentCy;
     const I = this;
 
-    I.seeInCurrentUrl(pageUnderTest.getUrl());
-    I.click('#dobknown');
+    await I.waitInUrl(pageUnderTest.getUrl());
+    const locator = {css: '#dobknown'};
+    await I.waitForElement(locator);
+    await I.click(locator);
     await I.navByClick(commonContent.saveAndContinue);
 }
 

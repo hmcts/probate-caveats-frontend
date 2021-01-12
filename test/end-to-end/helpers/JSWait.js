@@ -7,20 +7,19 @@ class JSWait extends codecept_helper {
         if (step.name === 'seeCurrentUrlEquals' || step.name === 'seeInCurrentUrl') {
             return helper.waitForElement('body', 30);
         }
-        return Promise.resolve();
     }
 
     async navByClick (text, locator) {
         const helper = this.helpers.WebDriver || this.helpers.Puppeteer;
         const helperIsPuppeteer = this.helpers.Puppeteer;
 
-        helper.click(text, locator).catch(err => {
-            console.error(err.message);
-        });
-
         if (helperIsPuppeteer) {
+            helper.click(text, locator).catch(err => {
+                console.error(err.message);
+            });
             await helper.page.waitForNavigation({waitUntil: 'networkidle0'});
         } else {
+            await helper.click(text, locator);
             await helper.wait(2);
         }
     }
@@ -30,11 +29,11 @@ class JSWait extends codecept_helper {
         const helper = this.helpers.WebDriver || this.helpers.Puppeteer;
         const helperIsPuppeteer = this.helpers.Puppeteer;
 
-        if (helperIsPuppeteer) {
-            if (newUrl.indexOf('http') !== 0) {
-                newUrl = helper.options.url + newUrl;
-            }
+        if (newUrl.indexOf('http') !== 0) {
+            newUrl = helper.options.url + newUrl;
+        }
 
+        if (helperIsPuppeteer) {
             helper.page.goto(newUrl).catch(err => {
                 console.error(err.message);
             });
@@ -42,7 +41,7 @@ class JSWait extends codecept_helper {
 
         } else {
             await helper.amOnPage(newUrl);
-            await helper.wait(2);
+            await helper.waitInUrl(url);
             await helper.waitForElement('body');
         }
     }

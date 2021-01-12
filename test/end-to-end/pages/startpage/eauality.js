@@ -7,15 +7,14 @@ async function completeEquality(language = 'en') {
 
     const I = this;
     const stepContent = language === 'en' ? equalityEn : equalityCy;
-    I.wait(3);
+    await I.wait(3);
 
     const url = await I.grabCurrentUrl();
 
     if (url.startsWith(pcqAAT)) {
-        I.waitInUrl(pagePath);
-        I.seeCurrentUrlEquals(pagePath);
+        await I.waitInUrl(pagePath);
+        await I.seeCurrentUrlEquals(pagePath);
         await I.navByClick(stepContent);
-        I.wait(5);
     }
 }
 

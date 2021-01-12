@@ -8,7 +8,7 @@ async function startApplication(language ='en') {
     const commonContent = language === 'en' ? commonContentEn : commonContentCy;
     const I = this;
 
-    I.seeInCurrentUrl(pageUnderTest.getUrl());
+    await I.waitInUrl(pageUnderTest.getUrl());
     await I.navByClick(commonContent.start);
 
 }
