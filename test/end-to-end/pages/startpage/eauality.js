@@ -13,6 +13,8 @@ async function completeEquality(language = 'en') {
         await I.waitForText(stepContent);
         await I.navByClick(stepContent);
     } else {
+        const randomNum = Math.floor(Math.random() * 100000);
+        await I.saveScreenshot(`equality_pcq_page_not_present_${randomNum}.png`);
         console.log('Equality (PCQ) Page Not Found, skipping.');
     }
 }
