@@ -58,6 +58,9 @@ const setupConfig = {
         },
         JSWait: {
             require: './helpers/JSWait.js'
+        },
+        Mochawesome: {
+            uniqueScreenshotNames: 'true'
         }
     },
     plugins: {
