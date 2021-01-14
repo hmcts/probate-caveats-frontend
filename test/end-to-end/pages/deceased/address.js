@@ -4,15 +4,11 @@ const commonContentEn = require('app/resources/en/translation/common');
 const commonContentCy = require('app/resources/cy/translation/common');
 const pageUnderTest = require('app/steps/ui/deceased/address/index');
 
-async function enterDeceasedAddressManually(language ='en', testAddressIndex) {
+async function enterDeceasedAddressManually(language ='en', testAddressIndex = '0') {
 
     const commonContent = language === 'en' ? commonContentEn : commonContentCy;
     const findAddress = language === 'en' ? 'Find UK address' : 'Dod o hyd i gyfeiriad';
     const I = this;
-
-    if (!testAddressIndex) {
-        testAddressIndex = '0';
-    }
 
     await I.waitInUrl(pageUnderTest.getUrl());
     await I.seeInCurrentUrl(pageUnderTest.getUrl());
@@ -22,6 +18,7 @@ async function enterDeceasedAddressManually(language ='en', testAddressIndex) {
     await I.waitForVisible('#postcodeAddress');
     await I.selectOption('#postcodeAddress', testAddressIndex);
     await I.waitForElement('#addressLine1');
+    await I.waitForText(commonContent.saveAndContinue);
     await I.navByClick(commonContent.saveAndContinue);
 }
 

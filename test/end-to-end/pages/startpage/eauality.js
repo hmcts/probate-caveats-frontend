@@ -7,14 +7,15 @@ async function completeEquality(language = 'en') {
 
     const I = this;
     const stepContent = language === 'en' ? equalityEn : equalityCy;
-    await I.wait(3);
 
-    const url = await I.grabCurrentUrl();
-
-    if (url.startsWith(pcqAAT)) {
-        await I.waitInUrl(pagePath);
+    if (await I.waitForOptionalPage(pagePath)) {
         await I.seeCurrentUrlEquals(pagePath);
+        await I.waitForText(stepContent);
         await I.navByClick(stepContent);
+    } else {
+        const randomNum = Math.floor(Math.random() * 100000);
+        await I.saveScreenshot(`equality_pcq_page_not_present_${randomNum}.png`);
+        console.log('Equality (PCQ) Page Not Found, skipping.');
     }
 }
 

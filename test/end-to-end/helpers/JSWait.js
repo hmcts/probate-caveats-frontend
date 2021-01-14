@@ -46,6 +46,17 @@ class JSWait extends codecept_helper {
         }
     }
 
+    async waitForOptionalPage(url) {
+        const helper = this.helpers.WebDriver || this.helpers.Puppeteer;
+        try {
+            await helper.waitInUrl(url);
+        } catch (e) {
+            console.log(e.message);
+            return false;
+        }
+        return true;
+    }
+
     clickBrowserBackButton() {
         const page = this.helpers.WebDriver.page || this.helpers.Puppeteer.page;
         return page.goBack();
