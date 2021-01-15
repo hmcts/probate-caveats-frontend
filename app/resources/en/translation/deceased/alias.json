@@ -5,6 +5,7 @@
   "optionNo": "No",
   "paragraph1": "This may help us match your application with the application for a grant of probate",
   "theDeceased": "the deceased",
+  "hiddenSummaryText": "whether the deceased had any other names",
   "errors": {
     "alias": {
       "required": "Answer &lsquo;yes&rsquo; if the person who died had assets in another name"

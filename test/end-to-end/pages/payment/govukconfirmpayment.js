@@ -2,10 +2,13 @@
 
 const testConfig = require('config');
 
-module.exports = function () {
+async function seeGovUkConfirmPage () {
     const I = this;
 
-    I.seeInCurrentUrl(testConfig.TestGovUkConfirmPaymentUrl);
+    await I.waitInUrl(testConfig.TestGovUkConfirmPaymentUrl);
+    const locator = {css: '#confirm'};
+    await I.waitForElement(locator);
+    await I.retry(2).navByClick(locator);
+}
 
-    I.waitForNavigationToComplete('#confirm');
-};
+module.exports = {seeGovUkConfirmPage};

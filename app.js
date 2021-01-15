@@ -18,12 +18,15 @@ const utils = require(`${__dirname}/app/components/utils`);
 const packageJson = require(`${__dirname}/package`);
 const helmet = require('helmet');
 const csrf = require('csurf');
-const healthcheck = require(`${__dirname}/app/healthcheck`);
+const healthcheck = require('@hmcts/nodejs-healthcheck');
+const healthOptions = require('app/utils/healthOptions');
+const FormatUrl = require('app/utils/FormatUrl');
+const os = require('os');
 const fs = require('fs');
 const https = require('https');
 const appInsights = require('applicationinsights');
-const uuidv4 = require('uuid/v4');
-const nonce = uuidv4();
+const {v4: uuidv4} = require('uuid');
+const nonce = uuidv4().replace(/-/g, '');
 const isEmpty = require('lodash').isEmpty;
 const featureToggles = require('app/featureToggles');
 
@@ -98,7 +101,9 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
             ],
             connectSrc: [
                 '\'self\'',
-                'www.google-analytics.com'
+                'www.google-analytics.com',
+                'stats.g.doubleclick.net',
+                'tagmanager.google.com'
             ],
             mediaSrc: [
                 '\'self\''
@@ -115,7 +120,8 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
                 'vcc-eu4.8x8.com',
                 'vcc-eu4b.8x8.com',
                 'ssl.gstatic.com',
-                'www.gstatic.com'
+                'www.gstatic.com',
+                'lh3.googleusercontent.com'
             ],
             styleSrc: [
                 '\'self\'',
@@ -244,13 +250,21 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
         app.use(utils.forceHttps);
     }
 
-    app.use(healthcheck);
+    // health
+    const healthCheckConfig = {
+        checks: {
+            [config.services.orchestrator.name]: healthcheck.web(FormatUrl.format(config.services.orchestrator.url, config.endpoints.health), healthOptions),
+        },
+        buildInfo: {
+            name: config.health.service_name,
+            host: os.hostname(),
+            uptime: process.uptime(),
+        },
+    };
 
-    app.use(`${config.app.basePath}/health`, healthcheck);
-
-    app.use(`${config.livenessEndpoint}`, (req, res) => {
-        res.json({status: 'UP'});
-    });
+    healthcheck.addTo(app, healthCheckConfig);
+    app.get(`${config.app.basePath}/health`, healthcheck.configure(healthCheckConfig));
+    app.get(`${config.app.basePath}/health/liveness`, (req, res) => res.json({status: 'UP'}));
 
     app.use((req, res, next) => {
         res.locals.launchDarkly = {};

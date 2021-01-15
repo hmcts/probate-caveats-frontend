@@ -1,5 +1,5 @@
 {
-  "title": "Deceased address",
+  "title": "Deceased's permanent address",
   "question": "What was the permanent address of {deceasedName}?",
   "postTown": "Town or city",
   "postcode": "Postcode",
@@ -10,6 +10,7 @@
   "addressLabel3": "Address Line 3 (optional)",
   "selectAddress": "Select address",
   "enterManually": "Enter their address instead",
+  "hiddenSummaryText": "deceased's address",
 
   "errors": {
     "addressLine1": {

@@ -1,54 +1,68 @@
-const testConfig = require('config');
+const config = require('config');
 
 exports.config = {
-    'tests': testConfig.TestPathToRun,
-    'output': testConfig.TestOutputDir,
+    'tests': config.TestPathToRun,
+    'output': `${process.cwd()}/${config.TestOutputDir}`,
     'helpers': {
         'Puppeteer': {
-            'url': testConfig.TestE2EFrontendUrl + testConfig.TestBasePath || 'http://localhost:3000',
+            'url': config.TestE2EFrontendUrl + config.TestBasePath || 'http://localhost:3000',
             'waitForTimeout': 60000,
             'getPageTimeout': 20000,
-            'show': testConfig.TestShowBrowser,
+            'show': config.TestShowBrowser,
             'waitForNavigation': ['domcontentloaded', 'networkidle0'],
             'chrome': {
                 'ignoreHTTPSErrors': true,
                 'ignore-certificate-errors': true,
-                'defaultViewport': {
-                    'width': 1280,
-                    'height': 960
-                },
                 args: [
-                    '--no-sandbox',
+                    '--headless', '--disable-gpu', '--no-sandbox', '--allow-running-insecure-content', '--ignore-certificate-errors',
                     '--proxy-server=proxyout.reform.hmcts.net:8080',
-                    '--proxy-bypass-list=*beta*LB.reform.hmcts.net',
-                    '--window-size=1440,1400'
+                    '--proxy-bypass-list=*beta*LB.reform.hmcts.net'
                 ]
             },
         },
-        'PuppeteerHelper': {
-            'require': './helpers/PuppeteerHelper.js'
+        JSWait: {require: './helpers/JSWait.js'},
+    },
+    include: {
+        I: './pages/steps.js'
+    },
+    plugins: {
+        screenshotOnFail: {
+            enabled: true,
+            fullPageScreenshots: true
         },
-    },
-    'include': {
-        'I': './pages/steps.js'
-    },
-    'plugins': {
-        'autoDelay': {
-            'enabled': true
+        retryFailedStep: {
+            enabled: true,
+            retries: 1
+        },
+        autoDelay: {
+            enabled: true
         }
     },
-    'multiple': {
-        'parallel': {
-            // Splits tests into 2 chunks
-            'chunks': 2
+    mocha: {
+        reporterOptions: {
+            'codeceptjs-cli-reporter': {
+                stdout: '-',
+                options: {steps: true}
+            },
+            'mocha-junit-reporter': {
+                stdout: '-',
+                options: {mochaFile: './functional-output/result.xml'}
+            },
+            mochawesome: {
+                stdout: './functional-output/console.log',
+                options: {
+                    reportDir: config.TestOutputDir || './functional-output',
+                    reportName: 'index',
+                    inlineAssets: true
+                }
+            }
         }
     },
-    'mocha': {
-        'reporterOptions': {
-            'reportDir': testConfig.TestOutputDir,
-            'reportName': 'index',
-            'inlineAssets': true
+    multiple: {
+        parallel: {
+            chunks: 2,
+            browsers: ['chrome']
         }
     },
-    'name': 'Codecept Tests'
+    'name': 'Caveat E2E Tests'
 };

@@ -2,6 +2,7 @@ frontendPublicHttpProtocol: 'http'
 environment: 'prod'
 externalHostNameUrl: ''
 languages: ['en','cy']
+TestOutputDir: './functional-output'
 featureToggles:
   enabled: true
   launchDarklyKey: 'SDK_KEY'
@@ -12,12 +13,17 @@ featureToggles:
   ft_caveats_shutter: 'probate-caveats-fe-shutter'
   ft_pcq: 'probate-caveats-pcq'
   ft_pcq_token: 'probate-caveats-pcq-token'
+  ft_newfee_register_code: 'probate-newfee-register-code'
   appwideToggles: []
 app:
   useHttps: 'false'
   port: '3000'
   useCSRFProtection: 'true'
   basePath: ''
+health:
+  service_name: 'Stop a grand of probate - caveats'
+  timeout: 5000
+  deadline: 15000
 services:
   orchestrator:
     name: 'Orchestrator Service'
@@ -54,6 +60,22 @@ services:
       fees: '/fees'
       feesLookup: '/fees/lookup'
     ihtMinAmt: 5000
+    caveat_fee_data:
+      applicant_type: 'all'
+      channel: 'default'
+      event: 'miscellaneous'
+      jurisdiction1: 'family'
+      jurisdiction2: 'probate registry'
+      keyword: 'MNO'
+      service: 'probate'
+    caveat_newfee_data:
+      applicant_type: 'all'
+      channel: 'default'
+      event: 'miscellaneous'
+      jurisdiction1: 'family'
+      jurisdiction2: 'probate registry'
+      keyword: 'Caveat'
+      service: 'probate'
   postcode:
     name: 'Postcode Lookup Service'
     token: ''
@@ -101,6 +123,8 @@ links:
   survey: 'https://www.smartsurvey.co.uk/s/Probate_Feedback/'
   surveyEndOfApplication: 'https://www.smartsurvey.co.uk/s/Probate_ExitSurvey/'
   applicationFormPA8A: 'https://www.gov.uk/government/publications/form-pa8a-caveat-application-form'
+  myhmctsManageCasesLink: 'https://manage-case.platform.hmcts.net/'
+  myhmctsRegisterLink: 'https://www.gov.uk/guidance/hmcts-online-services-for-legal-professionals'
   whoInheritsLink: 'https://www.gov.uk/inherits-someone-dies-without-will'
   citizenAdvice: 'https://www.citizensadvice.org.uk/'
   stopGrantOfRepresentation: 'https://www.gov.uk/wills-probate-inheritance/stopping-a-grant-of-representation'

@@ -2,21 +2,16 @@
 
 const config = require('config');
 const get = require('lodash').get;
-const uuidv4 = require('uuid/v4');
-const Healthcheck = require('app/utils/Healthcheck');
+const {v4: uuidv4} = require('uuid');
+const {fetchOptions, fetchJson} = require('app/components/api-utils');
+const FormatUrl = require('app/utils/FormatUrl');
 const logger = require('app/components/logger')('Init');
 const featureToggle = new (require('app/utils/FeatureToggle'))();
 
 const completeEqualityTask = (params) => {
     if (params.isEnabled && !get(params.req.session.form, 'equality.pcqId', false)) {
-        const healthcheck = new Healthcheck();
-        const service = {
-            name: config.services.equalityAndDiversity.name,
-            url: config.services.equalityAndDiversity.url,
-            gitCommitIdPath: config.services.equalityAndDiversity.gitCommitIdPath
-        };
-
-        healthcheck.getServiceHealth(service)
+        const fetchOpts = fetchOptions({}, 'GET', {});
+        fetchJson(FormatUrl.format(config.services.equalityAndDiversity.url, config.endpoints.health), fetchOpts)
             .then(json => {
                 const equalityHealthIsUp = json.status === 'UP' && json['pcq-backend'].actualStatus === 'UP';
                 logger.info(config.services.equalityAndDiversity.name, 'is', (equalityHealthIsUp ? 'UP' : 'DOWN'));

@@ -3,6 +3,7 @@
   "question": "Ydych chi eisiau gohebiaeth ddwyieithog (Cymraeg/Saesneg)",
   "optionYes": "Ydw",
   "optionNo": "Nac ydw",
+  "hiddenSummaryText": "iaith ohebiaeth y ceisydd",
   "errors": {
     "bilingual": {
       "required": "Atebwch &lsquo;ydw&rsquo; os ydych chi eisiau gohebiaeth ddwyieithog (Cymraeg/Saesneg)"
