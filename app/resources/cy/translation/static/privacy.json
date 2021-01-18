@@ -71,6 +71,6 @@
   "howToComplainHeading": "Sut i wneud cwyn",
   "howToComplainParagraph1": "Gweler ein <a target=\"_blank\" rel=\"external noopener\" href=\"{complaintsProcedureLink}\" class=\"govuk-link\" aria-label=\"trefn gwyno (agor mewn ffenestr newydd)\">trefn gwyno (agor mewn ffenestr newydd)</a> os ydych eisiau cwyno am sut rydym wedi trin eich data personol.",
   "howToComplainParagraph2": "Ysgrifennwch at: Post Point 10.38, 102 Petty France, Llundain SW1H 9AJ",
-  "howToComplainParagraph3": "E-bost: <a href=\"mailto:data.compliance@justice.gov.uk\" class=\"govuk-link\">data.compliance@justice.gov.uk</a>",
+  "howToComplainParagraph3": "E-bost: <a href=\"mailto:privacy@justice.gov.uk\" class=\"govuk-link\">privacy@justice.gov.uk</a>",
   "howToComplainParagraph4": "Gallwch hefyd gyflwyno cwyn i <a target=\"_blank\" rel=\"external noopener\" href=\"{informationCommissionersOfficeLink}\" class=\"govuk-link\" aria-label=\"Swyddfa&rsquo;r Comisiynydd Gwybodaeth (agor mewn ffenestr newydd)\">Swyddfa&rsquo;r Comisiynydd Gwybodaeth (agor mewn ffenestr newydd)</a> os ydych yn anfodlon &acirc;&rsquo;n hymateb neu&rsquo;n credu nad ydym yn prosesu eich data personol yn gyfreithlon."
 }

@@ -72,6 +72,6 @@
   "howToComplainHeading": "How to complain",
   "howToComplainParagraph1": "See our <a href=\"{complaintsProcedureLink}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener\" aria-label=\"complaints procedure (opens in a new window)\">complaints procedure (opens in a new window)</a> if you want to complain about how we&rsquo;ve handled your personal data.",
   "howToComplainParagraph2": "Write to: Post point 10.38, 102 Petty France, London, SW1H 9AJ",
-  "howToComplainParagraph3": "Email: <a href=\"mailto:data.compliance@justice.gov.uk\" class=\"govuk-link\">data.compliance@justice.gov.uk</a>",
+  "howToComplainParagraph3": "Email: <a href=\"mailto:privacy@justice.gov.uk\" class=\"govuk-link\">privacy@justice.gov.uk</a>",
   "howToComplainParagraph4": "You can also complain to the <a href=\"{informationCommissionersOfficeLink}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener\" aria-label=\"Information Commissioner&rsquo;s Office (opens in a new window)\">Information Commissioner&rsquo;s Office (opens in a new window)</a> if you&rsquo;re not satisfied with our response or believe we are not processing your personal data lawfully."
 }
