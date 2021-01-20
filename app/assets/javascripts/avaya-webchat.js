@@ -43,8 +43,7 @@
     const avayaWebChatLink = document.querySelector('#avaya-webchat-link');
     if(avayaWebChatLink){
         avayaWebChatLink.addEventListener('click', function () {
-            windowOpener('/avaya-webchat', 'Web Chat', 'scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,width=303,height=500,left=100,top=100');
+            windowOpener('/avaya-webchat', 'Web Chat', 'scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,width=350,height=550,left=100,top=100');
         });
     }
 }).call(this);
-
