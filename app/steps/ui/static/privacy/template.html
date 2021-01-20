@@ -48,7 +48,7 @@
             <p class="govuk-body">{{ content.yourRightsParagraph1 | safe }}</p>
             {{ unorderedList([content["yourRights-item1"], content["yourRights-item2"], content["yourRights-item3"], content["yourRights-item4"]]) }}
             <p class="govuk-body">{{ content.yourRightsParagraph2 | safe }}</p>
-            {{ unorderedList([content["yourRights-item5"] | replace("{subjectAccessRequestLink}", globals.links.subjectAccessRequest), content["yourRights-item6"]]) }}
+            {{ unorderedList([content["yourRights-item5"] | replace("{subjectAccessRequestLink}", globals.links.subjectAccessRequest), content["yourRights-item6"], content["yourRights-item6a"]]) }}
             <p class="govuk-body">{{ content.yourRightsParagraph3 | safe }}</p>
             {{ unorderedList([content["yourRights-item7"], content["yourRights-item8"], content["yourRights-item9"], content["yourRights-item10"]]) }}
             <p class="govuk-body">{{ content.yourRightsParagraph4 | safe }}</p>

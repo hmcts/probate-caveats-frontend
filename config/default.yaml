@@ -2,6 +2,7 @@ frontendPublicHttpProtocol: 'http'
 environment: 'prod'
 externalHostNameUrl: ''
 languages: ['en','cy']
+TestOutputDir: './functional-output'
 featureToggles:
   enabled: true
   launchDarklyKey: 'SDK_KEY'
@@ -13,12 +14,17 @@ featureToggles:
   ft_pcq: 'probate-caveats-pcq'
   ft_pcq_token: 'probate-caveats-pcq-token'
   ft_avaya_webchat: 'probate-avaya-webchat'
+  ft_newfee_register_code: 'probate-newfee-register-code'
   appwideToggles: ['ft_avaya_webchat']
 app:
   useHttps: 'false'
   port: '3000'
   useCSRFProtection: 'true'
   basePath: ''
+health:
+  service_name: 'Stop a grand of probate - caveats'
+  timeout: 5000
+  deadline: 15000
 services:
   orchestrator:
     name: 'Orchestrator Service'
@@ -55,6 +61,22 @@ services:
       fees: '/fees'
       feesLookup: '/fees/lookup'
     ihtMinAmt: 5000
+    caveat_fee_data:
+      applicant_type: 'all'
+      channel: 'default'
+      event: 'miscellaneous'
+      jurisdiction1: 'family'
+      jurisdiction2: 'probate registry'
+      keyword: 'MNO'
+      service: 'probate'
+    caveat_newfee_data:
+      applicant_type: 'all'
+      channel: 'default'
+      event: 'miscellaneous'
+      jurisdiction1: 'family'
+      jurisdiction2: 'probate registry'
+      keyword: 'Caveat'
+      service: 'probate'
   postcode:
     name: 'Postcode Lookup Service'
     token: ''

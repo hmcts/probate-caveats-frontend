@@ -38,10 +38,18 @@ describe('applicant-email', () => {
             testWrapper.testErrors(done, data, 'required', errorsToTest);
         });
 
-        it('test error message displayed for invalid firstName', (done) => {
+        it('test error message displayed for invalid email', (done) => {
             const errorsToTest = ['email'];
             const data = {
                 email: 'test@email'
+            };
+            testWrapper.testErrors(done, data, 'invalid', errorsToTest);
+        });
+
+        it('test error message displayed for complex invalid email', (done) => {
+            const errorsToTest = ['email'];
+            const data = {
+                email: 'test@email.c'
             };
             testWrapper.testErrors(done, data, 'invalid', errorsToTest);
         });

@@ -1,6 +1,6 @@
 #!/bin/bash
 COMMIT_MESSAGE=`head -n1 $1`
-PATTERN="^PRO-[0-9]+: "
+PATTERN="^(PRO|DTSPB)-[0-9]+: "
 
 if [[ ! "$COMMIT_MESSAGE" =~ $PATTERN ]]
 then

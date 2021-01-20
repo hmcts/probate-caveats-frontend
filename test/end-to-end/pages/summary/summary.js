@@ -1,13 +1,20 @@
 'use strict';
 
+const commonContentEn = require('app/resources/en/translation/common');
+const commonContentCy = require('app/resources/cy/translation/common');
+const summaryContentEn = require('app/resources/en/translation/summary');
+const summaryContentCy = require('app/resources/cy/translation/summary');
 const pageUnderTest = require('app/steps/ui/summary/index');
-const commonContent = require('app/resources/en/translation/common');
 
-module.exports = function (redirect) {
+async function seeSummaryPage (language = 'en') {
+
+    const commonContent = language === 'en' ? commonContentEn : commonContentCy;
+    const summaryContent = language === 'en' ? summaryContentEn : summaryContentCy;
     const I = this;
 
-    I.seeCurrentUrlEquals(pageUnderTest.getUrl(redirect));
-    // I.click('#checkAnswerHref');
-    // I.switchTo();
-    I.waitForNavigationToComplete(`input[value="${commonContent.saveAndContinue}"]`);
-};
+    await I.waitInUrl(pageUnderTest.getUrl());
+    await I.waitForText(summaryContent.heading);
+    await I.navByClick(commonContent.saveAndContinue);
+}
+
+module.exports = {seeSummaryPage};
