@@ -116,7 +116,7 @@ links:
   privacy: '/caveats/privacy-policy'
   terms: '/caveats/terms-conditions'
   contact: '/caveats/contact-us'
-  avaya-webchat: 'caveats/avaya-webchat'
+  avaya-webchat: '/caveats/avaya-webchat'
   callCharges: 'https://www.gov.uk/call-charges'
   howToManageCookies: 'https://www.aboutcookies.org'
   googlePrivacyPolicy: 'https://www.google.com/policies/privacy/partners/'
