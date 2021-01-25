@@ -64,17 +64,23 @@ const sendToOrchestrationService = (data, ctx) => {
     return utils.fetchJson(`${ORCHESTRATION_SERVICE_URL}/forms/${data.applicationId}/submissions`, fetchOptions);
 };
 
+const sleep = (ms) => {
+    return new Promise(resolve => setTimeout(resolve, ms));
+};
+
 const updateCcdCasePaymentStatus = (data, ctx) => {
-    logInfo('update case payment status', data.applicationId);
-    const headers = {
-        'Content-Type': 'application/json',
-        'Session-Id': ctx.sessionID,
-        'Authorization': ctx.authToken,
-        'ServiceAuthorization': ctx.serviceAuthToken
-    };
-    const body = submitData(ctx, data);
-    const fetchOptions = utils.fetchOptions(body, 'POST', headers);
-    return utils.fetchJson(`${ORCHESTRATION_SERVICE_URL}/forms/${data.applicationId}/payments`, fetchOptions);
+    sleep(2000).then(() => {
+        logInfo('update case payment status', data.applicationId);
+        const headers = {
+            'Content-Type': 'application/json',
+            'Session-Id': ctx.sessionID,
+            'Authorization': ctx.authToken,
+            'ServiceAuthorization': ctx.serviceAuthToken
+        };
+        const body = submitData(ctx, data);
+        const fetchOptions = utils.fetchOptions(body, 'POST', headers);
+        return utils.fetchJson(`${ORCHESTRATION_SERVICE_URL}/forms/${data.applicationId}/payments`, fetchOptions);
+    });
 };
 
 const createPayment = (data, hostname, language) => {
