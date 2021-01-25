@@ -7,8 +7,6 @@ featureToggles:
   enabled: LAUNCHDARKLY_ENABLED
   launchDarklyKey: LAUNCHDARKLY_KEY
   launchDarklyUser:
-    firstName: LAUNCHDARKLY_USER_FIRSTNAME
-    lastName: LAUNCHDARKLY_USER_LASTNAME
     key: LAUNCHDARKLY_USER_KEY  
 app:
   useHttps: USE_HTTPS
