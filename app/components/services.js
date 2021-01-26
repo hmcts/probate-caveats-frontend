@@ -51,7 +51,12 @@ const featureToggle = (featureToggleKey) => {
     return utils.fetchText(url, fetchOptions);
 };
 
+const sleep = (ms) => {
+    return new Promise(resolve => setTimeout(resolve, ms));
+};
+
 const sendToOrchestrationService = (data, ctx) => {
+    console.log('sendToOrchestrationService');
     sleep(2000).then(() => {
         logInfo('submitToOrchestrationService', data.applicationId);
         const headers = {
@@ -66,11 +71,8 @@ const sendToOrchestrationService = (data, ctx) => {
     });
 };
 
-const sleep = (ms) => {
-    return new Promise(resolve => setTimeout(resolve, ms));
-};
-
 const updateCcdCasePaymentStatus = (data, ctx) => {
+    console.log('updateCcdCasePaymentStatus');
     sleep(2000).then(() => {
         logInfo('update case payment status', data.applicationId);
         const headers = {

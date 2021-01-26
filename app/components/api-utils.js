@@ -23,11 +23,12 @@ const asyncFetch = (url, fetchOptions, parseBody) => {
     if (!isHealthOrInfo) {
         logger.info('Calling external service');
     }
-
+    console.log(url);
     return new Promise((resolve, reject) => {
         const asyncReq = buildRequest(url, fetchOptions);
         fetch(asyncReq, retryOptions())
             .then(res => {
+                console.log('response: ', res);
                 if (!isHealthOrInfo) {
                     logger.info(`Status: ${res.status}`);
                 }
