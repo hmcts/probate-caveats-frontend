@@ -56,19 +56,16 @@ const sleep = (ms) => {
 };
 
 const sendToOrchestrationService = (data, ctx) => {
-    console.log('sendToOrchestrationService');
-    sleep(2000).then(() => {
-        logInfo('submitToOrchestrationService', data.applicationId);
-        const headers = {
-            'Content-Type': 'application/json',
-            'Session-Id': ctx.sessionID,
-            'Authorization': ctx.authToken,
-            'ServiceAuthorization': ctx.serviceAuthToken
-        };
-        const body = submitData(ctx, data);
-        const fetchOptions = utils.fetchOptions(body, 'POST', headers);
-        return utils.fetchJson(`${ORCHESTRATION_SERVICE_URL}/forms/${data.applicationId}/submissions`, fetchOptions);
-    });
+    logInfo('submitToOrchestrationService', data.applicationId);
+    const headers = {
+        'Content-Type': 'application/json',
+        'Session-Id': ctx.sessionID,
+        'Authorization': ctx.authToken,
+        'ServiceAuthorization': ctx.serviceAuthToken
+    };
+    const body = submitData(ctx, data);
+    const fetchOptions = utils.fetchOptions(body, 'POST', headers);
+    return utils.fetchJson(`${ORCHESTRATION_SERVICE_URL}/forms/${data.applicationId}/submissions`, fetchOptions);
 };
 
 const updateCcdCasePaymentStatus = (data, ctx) => {
