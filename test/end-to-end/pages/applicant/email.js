@@ -8,8 +8,8 @@ async function enterApplicantEmail(language, email) {
     const commonContent = language === 'en' ? commonContentEn : commonContentCy;
     const I = this;
 
-    I.seeInCurrentUrl(pageUnderTest.getUrl());
-    I.fillField('#email', email);
+    await I.waitInUrl(pageUnderTest.getUrl());
+    await I.fillField('#email', email);
     await I.navByClick(commonContent.saveAndContinue);
 }
 

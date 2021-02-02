@@ -9,10 +9,10 @@ async function enterDeceasedDateOfBirth(language, day, month, year) {
     const commonContent = language === 'en' ? commonContentEn : commonContentCy;
     const I = this;
 
-    I.seeInCurrentUrl(pageUnderTest.getUrl());
-    I.fillField('#dob-day', day);
-    I.fillField('#dob-month', month);
-    I.fillField('#dob-year', year);
+    await I.waitInUrl(pageUnderTest.getUrl());
+    await I.fillField('#dob-day', day);
+    await I.fillField('#dob-month', month);
+    await I.fillField('#dob-year', year);
     await I.navByClick(commonContent.saveAndContinue);
 }
 

@@ -24,12 +24,12 @@ const supportedBrowsers = {
     safari: {
         safari_mac: {
             browserName: 'safari',
-            platformName: 'macOS 10.14',
+            platformName: 'macOS 11.00',
             browserVersion: 'latest',
             'sauce:options': {
                 name: 'Probate Caveats: MAC_SAFARI',
                 seleniumVersion: '3.141.59',
-                screenResolution: '1400x1050'
+                screenResolution: '1376x1032'
             }
         }
     },

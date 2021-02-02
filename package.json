@@ -39,6 +39,7 @@
     "test-pact": "NODE_ENV=test NODE_PATH=. LOG_LEVEL=error mocha 'test/contract/pact/external/*.js' --timeout 10000 --reporter spec",
     "publish-pact": "NODE_ENV=test NODE_PATH=. LOG_LEVEL=error mocha 'test/contract/publish/*.js' --timeout 10000 --reporter spec",
     "test:pact:run-and-publish": "yarn test-pact && yarn publish-pact",
+    "test:crossbrowser": "./bin/run-crossbrowser-tests.sh",
     "test:stryker": "NODE_PATH=. stryker run ",
     "test:mutation": "NODE_PATH=. stryker run test/mutation/mutation_unittests.conf.js",
     "test:mutation-shell": "./bin/run-mutation-tests.sh",

@@ -2,7 +2,7 @@ const config = require('config');
 
 exports.config = {
     'tests': config.TestPathToRun,
-    'output': config.TestOutputDir,
+    'output': `${process.cwd()}/${config.TestOutputDir}`,
     'helpers': {
         'Puppeteer': {
             'url': config.TestE2EFrontendUrl + config.TestBasePath || 'http://localhost:3000',

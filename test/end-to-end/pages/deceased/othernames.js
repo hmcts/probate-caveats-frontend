@@ -1,3 +1,4 @@
+/* eslint-disable no-await-in-loop */
 'use strict';
 
 const commonContentEn = require('app/resources/en/translation/common');
@@ -11,18 +12,18 @@ async function enterDeceasedOtherNames (language ='en', noOfAliases) {
     const otherNames = language === 'en' ? otherNamesEn : otherNamesCy;
     const I = this;
 
-    I.seeInCurrentUrl(pageUnderTest.getUrl());
+    await I.waitInUrl(pageUnderTest.getUrl());
     let i = 1;
 
     while (i <= noOfAliases) {
         if (i === 1) {
-            I.fillField('#otherNames_name_'+ (i-1) + '_firstName', 'alias_firstnames_' + i);
-            I.fillField('#otherNames_name_'+ (i-1) + '_lastName', 'alias_lastnames_' + i);
+            await I.fillField('#otherNames_name_'+ (i-1) + '_firstName', 'alias_firstnames_' + i);
+            await I.fillField('#otherNames_name_'+ (i-1) + '_lastName', 'alias_lastnames_' + i);
         } else {
-            I.click(otherNames.addAnotherName);
-            I.wait(6);
-            I.fillField('#otherNames_name_'+ (i-1) + '_firstName', 'alias_firstnames_' + i);
-            I.fillField('#otherNames_name_'+ (i-1) + '_lastName', 'alias_lastnames_' + i);
+            await I.click(otherNames.addAnotherName);
+            await I.wait(6);
+            await I.fillField('#otherNames_name_'+ (i-1) + '_firstName', 'alias_firstnames_' + i);
+            await I.fillField('#otherNames_name_'+ (i-1) + '_lastName', 'alias_lastnames_' + i);
         }
 
         i += 1;
