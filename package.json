@@ -79,7 +79,7 @@
     "helmet": "^3.21.3",
     "https-proxy-agent": "^5.0.0",
     "i18next": "^17.0.11",
-    "ioredis": "^4.14.0",
+    "ioredis": "^4.19.4",
     "js-yaml": "^3.13.1",
     "launchdarkly-node-server-sdk": "^5.13.3",
     "lodash": "^4.17.15",
