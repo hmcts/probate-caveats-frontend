@@ -69,7 +69,7 @@
     "cookie-parser": "^1.4.4",
     "csurf": "^1.10.0",
     "dateformat": "^3.0.3",
-    "debug": "^4.1.1",
+    "debug": "^4.3.2",
     "email-validator": "^2.0.4",
     "express": "^4.17.1",
     "express-session": "^1.16.2",
