@@ -11,7 +11,7 @@ class FeesLookup {
     constructor(applicationId, session) {
         this.applicationId = applicationId;
         this.data = FeatureToggle.isEnabled(session.featureToggles, 'ft_newfee_register_code')?config.services.feesRegister.caveat_newfee_data: config.services.feesRegister.caveat_fee_data;
-
+        this.data = config.services.feesRegister.caveat_newfee_data;
     }
 
     lookup(authToken) {
