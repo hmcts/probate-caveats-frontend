@@ -7,6 +7,14 @@
             <p class="govuk-body">{{ content.paragraph1 | replace("{helpLineNumber}", common.helpTelephoneNumber) | safe }}</p>
             <p class="govuk-body">{{ content.paragraph2 | replace("{helpLineHours}", common.helpTelephoneOpeningHours) | safe }}</p>
             <p class="govuk-body">{{ content.paragraph3 | replace("{callChargesLink}", globals.links.callCharges) | safe }}</p>
+            {% if fields.language.value == "en" and fields.isAvayaWebChatEnabled.value !== 'true'%}
+                <p class="govuk-heading-m" id="ctsc-web-chat-header"> {{ common.helpHeading3 | safe }} </p>
+                <div id="ctsc-web-chat"></div>
+            {% endif %}
+            {% if fields.language.value == "en" and fields.isAvayaWebChatEnabled.value === 'true'%}
+                <p class="govuk-heading-m" id="avaya-web-chat-header"> {{ common.helpHeading3 | safe }} </p>
+                {% include "includes/avaya-webchat.html" %}
+            {% endif %}
         </div>
     </div>
 {% endblock %}
