@@ -9,8 +9,10 @@ async function enterDeceasedHasAlias(language='en') {
     const commonContent = language === 'en' ? commonContentEn : commonContentCy;
     const I = this;
 
-    I.seeInCurrentUrl(pageUnderTest.getUrl());
-    await I.click('#alias');
+    await I.waitInUrl(pageUnderTest.getUrl());
+    const locator = {css: '#alias'};
+    await I.waitForElement(locator);
+    await I.click(locator);
     await I.navByClick(commonContent.saveAndContinue);
 }
 

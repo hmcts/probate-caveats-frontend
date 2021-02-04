@@ -8,7 +8,7 @@ async function selectBilingualGopNo(language ='en') {
     const commonContent = language === 'en' ? commonContentEn : commonContentCy;
     const I = this;
 
-    I.seeInCurrentUrl(pageUnderTest.getUrl());
+    await I.waitInUrl(pageUnderTest.getUrl());
     await I.click('#bilingual-2');
     await I.navByClick(commonContent.saveAndContinue);
 }

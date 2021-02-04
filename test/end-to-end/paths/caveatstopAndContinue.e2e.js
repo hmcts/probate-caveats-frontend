@@ -25,13 +25,13 @@ languages.forEach(language => {
         await I.seePaymentBreakdownPage(language);
 
         if (testConfigurator.getUseGovPay() === 'true') {
-            await I.seeGovUkPaymentPage();
+            await I.seeGovUkPaymentPage(language);
             await I.seeGovUkConfirmPage();
         }
 
         const caseIDGenerated = await I.checkElementExist('//*[@id="main-content"]/div/div/div[1]/h1');
         if (caseIDGenerated) {
-            I.seeThankYouPage();
+            await I.seeThankYouPage(language);
         }
 
     }).tag('@nightly')
