@@ -31,7 +31,7 @@ describe('Pact FeesRegisterClient', () => {
     };
 
     const session = {
-        featureToggles: {'ft_newfee_register_code': false}
+        featureToggles: {'ft_newfee_register_code': true}
     };
     const feeResponseBodyExpectation = {
         fee_amount: like(99.00),
@@ -64,7 +64,7 @@ describe('Pact FeesRegisterClient', () => {
                     withRequest: {
                         method: 'GET',
                         path: '/fees-register/fees/lookup',
-                        query: 'applicant_type=all&channel=default&event=miscellaneous&jurisdiction1=family&jurisdiction2=probate+registry&keyword=MNO&service=probate',
+                        query: 'applicant_type=all&channel=default&event=miscellaneous&jurisdiction1=family&jurisdiction2=probate+registry&keyword=Caveat&service=probate',
                         headers: {
                             'Content-Type': 'application/json',
                             'Authorization': ctx.authToken,
@@ -73,7 +73,7 @@ describe('Pact FeesRegisterClient', () => {
                     },
                     willRespondWith: {
                         status: 200,
-                        headers: {'Content-Type': 'application/json; charset=UTF-8'},
+                        headers: {'Content-Type': 'application/json'},
                         body: feeResponseBodyExpectation
                     }
                 })
