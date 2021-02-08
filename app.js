@@ -270,6 +270,7 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
     healthcheck.addTo(app, healthCheckConfig);
     app.get(`${config.app.basePath}/health`, healthcheck.configure(healthCheckConfig));
     app.get(`${config.app.basePath}/health/liveness`, (req, res) => res.json({status: 'UP'}));
+    app.get(`${config.app.basePath}/health/readiness`, (req, res) => res.json({status: 'UP'}));
 
     app.use((req, res, next) => {
         res.locals.launchDarkly = {};
