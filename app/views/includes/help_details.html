@@ -1,20 +1,27 @@
 {% from "govuk/components/details/macro.njk" import govukDetails %}
 
 {% block help_info %}
-    {% set helpContent = "<p class=\"govuk-heading-s\">" + (common.helpHeading1 | safe) + "</p>" %}
-    {% set helpContent = helpContent + "<p class=\"govuk-body\">" + (common.helpTelephoneNumber | safe) + "</p>" %}
-    {% set helpContent = helpContent + "<p class=\"govuk-body\">" + (common.helpTelephoneOpeningHours | safe) + "</p>" %}
-    {% set helpContent = helpContent + "<p class=\"govuk-heading-s\">" + (common.helpHeading2 | safe) + "</p>" %}
-    {% set helpContent = helpContent + "<p class=\"govuk-body\">" + (common.helpEmailLabel | replace("{contactEmailAddress}", common.helpEmail) | safe) + "</p>" %}
+  <details class="govuk-details" data-module="govuk-details" id="contact-us-for-help">
+    <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">
+        {{ common.helpTitle | safe }}
+      </span>
+    </summary>
+    <div class="govuk-details__text">
+      <p class="govuk-heading-s"> {{ common.helpHeading1 | safe }}</p>
+      <p class="govuk-body"> {{ common.helpTelephoneNumber | safe }}</p>
+      <p class="govuk-body"> {{ common.helpTelephoneOpeningHours | safe }}</p>
+      <p class="govuk-heading-s"> {{ common.helpHeading2 | safe }} </p>
+      <p class="govuk-body"> {{ common.helpEmailLabel | replace("{contactEmailAddress}", common.helpEmail) | safe }} </p>
+      {% if fields.language.value == "en" and fields.isAvayaWebChatEnabled.value !== 'true'%}
+        <p class="govuk-heading-s" id="ctsc-web-chat-header"> {{ common.helpHeading3 | safe }} </p>
+        <div id="ctsc-web-chat"></div>
+      {% endif %}
+      {% if fields.language.value == "en" and fields.isAvayaWebChatEnabled.value === 'true'%}
+        <p class="govuk-heading-s" id="avaya-web-chat-header"> {{ common.helpHeading3 | safe }} </p>
+        {% include "includes/avaya-webchat.html" %}
+      {% endif %}
+    </div>
 
-    {% if fields.language.value == "en" %}
-        {% set helpContent = helpContent + "<p class=\"govuk-heading-s\" id=\"ctsc-web-chat-header\">" + (common.helpHeading3 | safe) + "</p>" %}
-        {% set helpContent = helpContent + "<div id=\"ctsc-web-chat\"></div>" %}
-    {% endif %}
-
-    {{ govukDetails({
-        summaryText: common.helpTitle | safe,
-        text: helpContent | safe,
-        id: "contact-us-for-help"
-    }) }}
+  </details>
 {% endblock %}

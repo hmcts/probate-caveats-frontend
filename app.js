@@ -97,13 +97,16 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
                 'www.googletagmanager.com',
                 'vcc-eu4.8x8.com',
                 'vcc-eu4b.8x8.com',
-                `'nonce-${nonce}'`
+                `'nonce-${nonce}'`,
+                'webchat-client.ctsc.hmcts.net'
             ],
             connectSrc: [
                 '\'self\'',
                 'www.google-analytics.com',
                 'stats.g.doubleclick.net',
-                'tagmanager.google.com'
+                'tagmanager.google.com',
+                'https://webchat.ctsc.hmcts.net',
+                'wss://webchat.ctsc.hmcts.net'
             ],
             mediaSrc: [
                 '\'self\''
@@ -127,7 +130,8 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
                 '\'self\'',
                 '\'unsafe-inline\'',
                 'tagmanager.google.com',
-                'fonts.googleapis.com'
+                'fonts.googleapis.com',
+                'webchat-client.ctsc.hmcts.net'
             ],
             frameAncestors: ['\'self\'']
         },
@@ -160,6 +164,7 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
     app.use('/public/javascripts', express.static(`${__dirname}/app/assets/javascripts`, caching));
     app.use('/public/pdf', express.static(`${__dirname}/app/assets/pdf`));
     app.use('/assets', express.static(`${__dirname}/node_modules/govuk-frontend/govuk/assets`, caching));
+    app.use('/public/locales', express.static(`${__dirname}/app/assets/locales`, caching));
 
     // Elements refers to icon folder instead of images folder
     app.use(favicon(path.join(__dirname, 'node_modules', 'govuk-frontend', 'govuk', 'assets', 'images', 'favicon.ico')));

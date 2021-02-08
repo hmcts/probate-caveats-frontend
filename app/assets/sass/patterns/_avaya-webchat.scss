@@ -1,0 +1,65 @@
+/* FOR USING AVAYA WEBCHAT
+The webchat can pe positioned anywhere
+* on the page by manipulating the CSS properties
+*/
+
+web-chat {
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    width: 320px !important;
+    height: 530px !important;
+    background-color: white;
+    z-index: 1000;
+}
+
+#avayaWebchat {
+    position: static;
+    display: inline;
+    background-color: white;
+    z-index: 1000;
+    border: none;
+}
+  
+web-chat.hidden {
+    transform: translateY(1000px);
+}
+  
+web-chat.hidden+button.chat-button {
+    display: block;
+}
+  
+button.chat-button {
+    display: none;
+    position: fixed;
+    right: 20px;
+    bottom: 0;
+    outline: none;
+    border: none;
+    padding: 12px;
+    color: #fff;
+    background-color: #00703c;
+    cursor: pointer;
+}
+  
+.attributes input {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    padding: 6px;
+}
+  
+.attributes button {
+    padding: 8px;
+    border: 1px solid #d0d0d0;
+    border-radius: 2px;
+    background-color: #efefef;
+    cursor: pointer;
+}
+  
+.notice {
+    display: inline-block;
+    padding: 6px;
+    background-color: #1d70b8;
+    font-size: 14px;
+    color: #fff;
+}
