@@ -37,7 +37,7 @@ describe('FeesLookup', () => {
                 event: 'miscellaneous',
                 jurisdiction1: 'family',
                 jurisdiction2: 'probate registry',
-                keyword: 'MNO',
+                keyword: 'Caveat',
                 service: 'probate'
             };
 
