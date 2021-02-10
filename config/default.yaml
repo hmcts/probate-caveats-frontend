@@ -46,6 +46,11 @@ services:
     caveat_user_password: 'Pa55word11'
     caveat_redirect_base_url: 'http://localhost:3000'
     caveat_redirectUrl: '/oauth2/callback'
+  pact:
+    name: 'PACT Service'
+    url: 'https://pact-broker.platform.hmcts.net'
+    tag: 'Dev'
+    pactDirectory: 'pacts'
   payment:
     name: 'Payment Service'
     createPaymentUrl: 'http://localhost:8383/card-payments'
@@ -196,3 +201,4 @@ whiteListedPagesForPaymentBreakdown: [
   '/thank-you',
   '/avaya-webchat'
 ]
+
