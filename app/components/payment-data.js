@@ -1,8 +1,7 @@
 'use strict';
 
 const config = require('config');
-const SERVICE_ID = config.payment.serviceId;
-const SITE_ID = config.payment.siteId;
+const CASE_TYPE = config.payment.caseType;
 
 const createPaymentData = (data, language) => {
     const commonContent = require(`app/resources/${language}/translation/common`);
@@ -11,9 +10,8 @@ const createPaymentData = (data, language) => {
         amount: data.amount,
         description: commonContent.paymentProbateFees,
         ccd_case_number: data.ccdCaseId,
-        service: SERVICE_ID,
+        case_type: CASE_TYPE,
         currency: currency,
-        site_id: SITE_ID,
         fees: [],
         language: (language === 'en' ? '' : language.toUpperCase())
     };

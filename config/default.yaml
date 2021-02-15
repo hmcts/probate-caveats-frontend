@@ -155,6 +155,7 @@ payment:
   serviceId: 'PROBATE'
   siteId: 'P223'
   currency: 'GBP'
+  caseType: 'Caveat'
 appInsights:
   instrumentationKey: ''
 livenessEndpoint: '/health/liveness'
