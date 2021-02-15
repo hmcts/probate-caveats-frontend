@@ -13,8 +13,9 @@ featureToggles:
   ft_caveats_shutter: 'probate-caveats-fe-shutter'
   ft_pcq: 'probate-caveats-pcq'
   ft_pcq_token: 'probate-caveats-pcq-token'
+  ft_avaya_webchat: 'probate-avaya-webchat'
   ft_newfee_register_code: 'probate-newfee-register-code'
-  appwideToggles: []
+  appwideToggles: ['ft_avaya_webchat']
 app:
   useHttps: 'false'
   port: '3000'
@@ -45,6 +46,11 @@ services:
     caveat_user_password: 'Pa55word11'
     caveat_redirect_base_url: 'http://localhost:3000'
     caveat_redirectUrl: '/oauth2/callback'
+  pact:
+    name: 'PACT Service'
+    url: 'https://pact-broker.platform.hmcts.net'
+    tag: 'Dev'
+    pactDirectory: 'pacts'
   payment:
     name: 'Payment Service'
     createPaymentUrl: 'http://localhost:8383/card-payments'
@@ -115,6 +121,7 @@ links:
   privacy: '/caveats/privacy-policy'
   terms: '/caveats/terms-conditions'
   contact: '/caveats/contact-us'
+  avaya-webchat: '/caveats/avaya-webchat'
   callCharges: 'https://www.gov.uk/call-charges'
   howToManageCookies: 'https://www.aboutcookies.org'
   googlePrivacyPolicy: 'https://www.google.com/policies/privacy/partners/'
@@ -165,7 +172,8 @@ whitelistedPagesForStartApplyPageRedirect: [
   '/terms-conditions',
   '/contact-us',
   '/offline',
-  '/health/liveness'
+  '/health/liveness',
+  '/avaya-webchat'
 ]
 whiteListedPagesForThankyou: [
   '/public',
@@ -176,7 +184,8 @@ whiteListedPagesForThankyou: [
   '/contact-us',
   '/offline',
   '/health/liveness',
-  '/thank-you'
+  '/thank-you',
+  '/avaya-webchat'
 ]
 whiteListedPagesForPaymentBreakdown: [
   '/public',
@@ -190,4 +199,6 @@ whiteListedPagesForPaymentBreakdown: [
   '/payment-breakdown',
   '/payment-status',
   '/thank-you',
+  '/avaya-webchat'
 ]
+

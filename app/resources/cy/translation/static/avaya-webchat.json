@@ -1,0 +1,7 @@
+{
+  "title": "Webchat",
+  "heading1": "Profiant",
+  "paragraph1": "Rhif ff&ocirc;n: {helpLineNumber}",
+  "paragraph2": "{helpLineHours}",
+  "paragraph3": "<a target=\"_blank\" rel=\"external noopener\" href=\"{callChargesLink}\" class=\"govuk-link\" aria-label=\"Gwybodaeth am brisiau galwadau (agor mewn ffenestr newydd)\">Gwybodaeth am brisiau galwadau (agor mewn ffenestr newydd)</a>"
+}
