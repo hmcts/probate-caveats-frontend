@@ -17,11 +17,10 @@ describe('payment-data.js', () => {
                 amount: 0,
                 description: 'Ffioedd Profiant',
                 ccd_case_number: '123',
-                service: 'PROBATE',
                 currency: 'GBP',
-                site_id: 'P223',
                 fees: [],
-                language: 'CY'
+                language: 'CY',
+                case_type: 'Caveat'
             });
             done();
         });
@@ -41,9 +40,8 @@ describe('payment-data.js', () => {
                 amount: 215,
                 description: 'Ffioedd Profiant',
                 ccd_case_number: '123',
-                service: 'PROBATE',
                 currency: 'GBP',
-                site_id: 'P223',
+                case_type: 'Caveat',
                 fees: [{
                     calculated_amount: 215,
                     ccd_case_number: '123',
@@ -73,9 +71,8 @@ describe('payment-data.js', () => {
                 amount: 219.50,
                 description: 'Probate Fees',
                 ccd_case_number: '123',
-                service: 'PROBATE',
                 currency: 'GBP',
-                site_id: 'P223',
+                case_type: 'Caveat',
                 fees: [{
                     calculated_amount: 215,
                     ccd_case_number: '123',
