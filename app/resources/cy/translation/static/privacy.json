@@ -65,12 +65,12 @@
   "yourRights-item9": "ein cyfarwyddiadau i staff ynghylch sut i gasglu, defnyddio neu ddileu eich gwybodaeth bersonol",
   "yourRights-item10": "sut rydym yn sicrhau bod yr wybodaeth sydd gennym yn gywir ac yn gyfredol",
   "yourRightsParagraph4": "Gallwch gysylltu &acirc; swyddog diogelu data MoJ drwy:",
-  "yourRights-item11": "Ysgrifennu i: The Data Protection Officer, Ministry of Justice, 3rd Floor, Post Point 10.38, 10 South Colonnades, Canary Wharf, Llundain, E14 4PU",
+  "yourRights-item11": "Ysgrifennu i: The Data Protection Officer, Ministry of Justice, 3rd Floor, Post point 10.38, 10 South Colonnades, Canary Wharf, Llundain, E14 4PU",
   "yourRights-item12": "E-bost: <a href=\"mailto:DPO@justice.gov.uk\" class=\"govuk-link\">DPO@justice.gov.uk</a>",
 
   "howToComplainHeading": "Sut i wneud cwyn",
   "howToComplainParagraph1": "Gweler ein <a target=\"_blank\" rel=\"external noopener\" href=\"{complaintsProcedureLink}\" class=\"govuk-link\" aria-label=\"trefn gwyno (agor mewn ffenestr newydd)\">trefn gwyno (agor mewn ffenestr newydd)</a> os ydych eisiau cwyno am sut rydym wedi trin eich data personol.",
-  "howToComplainParagraph2": "Ysgrifennwch at: Post Point 10.38, 102 Petty France, Llundain SW1H 9AJ",
+  "howToComplainParagraph2": "Ysgrifennwch at: Post point 10.38, 102 Petty France, Llundain SW1H 9AJ",
   "howToComplainParagraph3": "E-bost: <a href=\"mailto:privacy@justice.gov.uk\" class=\"govuk-link\">privacy@justice.gov.uk</a>",
   "howToComplainParagraph4": "Gallwch hefyd gyflwyno cwyn i <a target=\"_blank\" rel=\"external noopener\" href=\"{informationCommissionersOfficeLink}\" class=\"govuk-link\" aria-label=\"Swyddfa&rsquo;r Comisiynydd Gwybodaeth (agor mewn ffenestr newydd)\">Swyddfa&rsquo;r Comisiynydd Gwybodaeth (agor mewn ffenestr newydd)</a> os ydych yn anfodlon &acirc;&rsquo;n hymateb neu&rsquo;n credu nad ydym yn prosesu eich data personol yn gyfreithlon."
 }
