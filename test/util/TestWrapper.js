@@ -59,6 +59,15 @@ class TestWrapper {
             .catch(() => done());
     }
 
+    testContentPresent(done, data) {
+        this.agent.get(this.pageUrl)
+            .then(response => {
+                this.assertContentIsPresent(response.text, data);
+                done();
+            })
+            .catch((err) => done(err));
+    }
+
     testContentNotPresent(done, data) {
         this.agent.get(this.pageUrl)
             .then(response => {

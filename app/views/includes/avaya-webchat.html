@@ -1,0 +1,21 @@
+<div id="avaya-webchat-open">
+    <a href="#" class="govuk-link" rel="noreferrer noopener" id="avaya-webchat-link">{{ common.helpChatWithAnAgent | safe }}</a>
+    <p class="govuk-body"> {{ common.helpChatOpeningHours | replace("\n", "\\n") | safe }} </p>
+</div>
+<p class="govuk-body" id="avaya-webchat-close"> {{ common.helpChatClosed | replace("\n", "\\n") | replace("{chatOpeningHours}", common.helpChatOpeningHours) | safe }} </p>
+<p class="govuk-body" id="webchat-agent-busy"> {{ common.helpAllAgentsBusy | replace("\n", "\\n") | safe }} </p>
+
+<web-chat
+    id="avayaWebchatMetric"
+    class="hidden"
+    chat-title="Ask Probate" 
+    chat-icon-url="public/images/icon.png"
+    locale-url="public/locales/avaya-webchat"
+    url="webchat.ctsc.hmcts.net"
+    secure-connections="true"
+    api-version="1.0"
+    metrics-polling-interval="30"
+    Language="English"
+    Service="Probate"
+    page-name="Apply for Probate"> 
+</web-chat>
