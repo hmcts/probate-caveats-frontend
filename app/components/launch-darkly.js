@@ -8,6 +8,8 @@ class LaunchDarkly {
         this.ready = false;
         const options = config.featureToggles.enabled ? {diagnosticOptOut: true} : {offline: true};
         this.client = launchDarkly.init(config.featureToggles.launchDarklyKey, options);
+        // REMOVE THIS BEFORE RELEASE
+        console.log('LD KEY => ', config.featureToggles.launchDarklyKey);
         this.client.once('ready', () => {
             this.ready = true;
         });
