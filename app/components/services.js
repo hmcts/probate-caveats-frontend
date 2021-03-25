@@ -76,7 +76,7 @@ const updateCcdCasePaymentStatus = (data, ctx) => {
     const fetchOptions = utils.fetchOptions(body, 'POST', headers);
     return utils.fetchJson(`${ORCHESTRATION_SERVICE_URL}/forms/${data.applicationId}/payments`, fetchOptions);
 };
-
+// JUST DUMMY
 const createPayment = (data, hostname, language) => {
     logInfo('createPayment', data.applicationId);
     logInfo('hostname', hostname);
