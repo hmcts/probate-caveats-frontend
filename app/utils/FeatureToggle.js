@@ -27,8 +27,6 @@ class FeatureToggle {
         const sessionId = params.req.session.id;
 
         let ldDefaultValue = false;
-        //REMOVE THIS BEFORE RELEASE
-        console.log('FEATURE TOGGLE USER ==============> ', ldUser);
         if (params.launchDarkly.ftValue && params.launchDarkly.ftValue[params.featureToggleKey]) {
             ldDefaultValue = params.launchDarkly.ftValue[params.featureToggleKey];
         }
