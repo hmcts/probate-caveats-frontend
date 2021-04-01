@@ -27,6 +27,8 @@ const getOauth2Code = (redirect_uri, applicationId) => {
     const idam_api_url = config.services.idam.apiUrl;
     const username = config.services.idam.caveat_user_email;
     const userpassword = config.services.idam.caveat_user_password;
+    console.log('getOauth2Code userrname ====== > ', username);
+    console.log('getOauth2Code password ====== > ', userpassword);
     const headers = {
         'Content-Type': 'application/x-www-form-urlencoded',
         'Authorization': `Basic ${new Buffer(`${username}:${userpassword}`).toString('base64')}`
