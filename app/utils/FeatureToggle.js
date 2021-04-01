@@ -27,7 +27,6 @@ class FeatureToggle {
         const sessionId = params.req.session.id;
 
         let ldDefaultValue = false;
-
         if (params.launchDarkly.ftValue && params.launchDarkly.ftValue[params.featureToggleKey]) {
             ldDefaultValue = params.launchDarkly.ftValue[params.featureToggleKey];
         }
