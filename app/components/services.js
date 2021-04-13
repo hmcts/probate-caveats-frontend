@@ -91,6 +91,8 @@ const createPayment = (data, hostname, language) => {
     };
     const body = paymentData.createPaymentData(data, language);
     const fetchOptions = utils.fetchOptions(body, 'POST', headers);
+    console.log('==== CREATE PAYMENT =====');
+    console.log(fetchOptions);
     return utils.fetchJson(CREATE_PAYMENT_SERVICE_URL, fetchOptions);
 };
 

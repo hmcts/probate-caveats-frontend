@@ -25,13 +25,12 @@ const asyncFetch = (url, fetchOptions, parseBody) => {
     }
     console.log('url=> ', url);
     console.log('fetchooptions =>', fetchOptions);
-    console.log('parseBody=>', parseBody);
 
     return new Promise((resolve, reject) => {
         const asyncReq = buildRequest(url, fetchOptions);
         fetch(asyncReq, retryOptions())
             .then(res => {
-                console.log('RRESPONSE => ', res);
+                console.log('RESPONSE => ', res);
                 if (!isHealthOrInfo) {
                     logger.info(`Status: ${res.status}`);
                 }
