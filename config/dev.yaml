@@ -10,3 +10,6 @@ featureToggles:
   ft_pcq_token: 'probate-pcq-token'
   ft_avaya_webchat: 'probate-avaya-webchat'
   appwideToggles: ['ft_avaya_webchat']
+services:
+  postcode:
+    token: 'hoMEwN4cGB82YljLFtGzPWe3jSR7VveA'

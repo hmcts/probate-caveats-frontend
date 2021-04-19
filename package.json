@@ -60,7 +60,7 @@
     "@hmcts/ctsc-web-chat": "^0.3.11",
     "@hmcts/nodejs-logging": "^3.0.0",
     "@hmcts/nodejs-healthcheck": "^1.7.0",
-    "@hmcts/os-places-client": "^1.0.4",
+    "@hmcts/os-places-client": "^1.1.2",
     "@hmcts/properties-volume": "^0.0.9",
     "ajv": "^4.11.8",
     "applicationinsights": "^1.8.8",
