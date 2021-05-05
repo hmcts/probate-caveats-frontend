@@ -14,7 +14,7 @@ app.get('/health', (req, res) => {
     res.send({
         status: 'UP',
         'pcq-backend': {
-            actualStatus: 'UP'
+            status: 'UP'
         }
     });
 });
