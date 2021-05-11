@@ -28,7 +28,8 @@ class CheckAnswersSummaryJSONObjectBuilder {
             if ($element.hasClass('govuk-heading-s')) {
                 section = buildSection(section, $element, summary, 'govuk-heading-s');
             }
-            if ($element.hasClass('govuk-summary-list__row') && $element.children().length > 0) {
+            console.log('ELEMENT => ', $element);
+            if ($element && $element.hasClass('govuk-summary-list__row') && $element.children().length > 0) {
                 buildQuestionAndAnswers($element, section);
             }
         }
