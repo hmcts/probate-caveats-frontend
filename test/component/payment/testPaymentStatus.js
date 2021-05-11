@@ -8,7 +8,7 @@ const sinon = require('sinon');
 const TestWrapper = require('test/util/TestWrapper');
 const services = require('app/components/services');
 const security = require('app/components/security');
-// const testCommonContent = require('test/component/common/testCommonContent');
+const testCommonContent = require('test/component/common/testCommonContent');
 const config = require('config');
 const basePath = config.app.basePath;
 
@@ -31,10 +31,7 @@ describe('paymentStatus', () => {
     });
 
     describe('Verify Content, Errors and Redirection', () => {
-        // it('test help block content', (done) => {
-        //     testCommonContent.runTest('PaymentStatus');
-        //     done();
-        // });
+        testCommonContent.runTest('PaymentStatus');
 
         it('test right content loaded on the page', (done) => {
             const sessionData = {
