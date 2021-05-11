@@ -30,8 +30,7 @@ class CheckAnswersSummaryJSONObjectBuilder {
             }
             console.log('ELEMENT => ', $element);
             console.log('hasClass=> ', $element.hasClass('govuk-summary-list__row'));
-            // console.log('children=> ', $element.children());
-            if ($element && $element.hasClass('govuk-summary-list__row') && $element.children() && $element.children().length > 0) {
+            if ($element.hasClass('govuk-summary-list__row')) {
                 buildQuestionAndAnswers($element, section);
             }
         }
