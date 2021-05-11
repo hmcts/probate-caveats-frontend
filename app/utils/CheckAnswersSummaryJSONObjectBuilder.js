@@ -22,15 +22,13 @@ class CheckAnswersSummaryJSONObjectBuilder {
             if ($element.hasClass('govuk-heading-l')) {
                 summary.pageTitle = $element.text();
             }
-            if ($element.hasClass('govuk-heading-m')) {
-                section = buildSection(section, $element, summary, 'govuk-heading-m');
-            }
             if ($element.hasClass('govuk-heading-s')) {
                 section = buildSection(section, $element, summary, 'govuk-heading-s');
             }
-            console.log('ELEMENT => ', $element);
-            console.log('hasClass=> ', $element.hasClass('govuk-summary-list__row'));
-            if ($element.hasClass('govuk-summary-list__row')) {
+            if ($element.hasClass('govuk-heading-m')) {
+                section = buildSection(section, $element, summary, 'govuk-heading-m');
+            }
+            if ($element.hasClass('govuk-summary-list__row') && $element.children().length > 0) {
                 buildQuestionAndAnswers($element, section);
             }
         }
