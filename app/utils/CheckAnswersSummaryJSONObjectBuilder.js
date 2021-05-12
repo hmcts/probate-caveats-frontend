@@ -59,12 +59,12 @@ const buildQuestionAndAnswers = ($element, section) => {
 };
 
 const buildSection = (section, $element, summary, className) => {
-    section = {};
-    section.title = $element.text();
-    section.type = className;
-    section.questionAndAnswers = [];
-    summary.sections.push(section);
-    return section;
+    const newsection = {};
+    newsection.title = $element.text();
+    newsection.type = className;
+    newsection.questionAndAnswers = [];
+    summary.sections.push(newsection);
+    return newsection;
 };
 
 module.exports = CheckAnswersSummaryJSONObjectBuilder;

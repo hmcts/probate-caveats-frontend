@@ -5,7 +5,7 @@ Feature('Standard Caveat E2E...').retry(2);
 
 languages.forEach(language => {
 
-    Scenario(`${language.toUpperCase()} - Caveat E2E`, async function (I) {
+    Scenario(`${language.toUpperCase()} - Caveat E2E`, async function ({I}) {
         await startApplicationToApplicantAddress(I, language);
         await I.enterDeceasedName(language, 'Deceased First Name', 'Deceased Last Name');
         await I.enterDeceasedDateOfDeath(language, '01', '01', '2019');
