@@ -5,7 +5,7 @@ Feature('Caveat Stop and Continuation of Main applicant E2E...').retry(2);
 
 languages.forEach(language => {
 
-    Scenario(`${language.toUpperCase()} - Caveat Stop and Continuation of Main applicant journey:`, async function (I) {
+    Scenario(`${language.toUpperCase()} - Caveat Stop and Continuation of Main applicant journey:`, async function ({I}) {
         await startApplicationToApplicantAddress(I, language);
 
         await I.enterDeceasedName(language, 'Deceased First Name', 'Deceased Last Name');
