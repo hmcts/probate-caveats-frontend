@@ -1,8 +1,6 @@
 (function() {
     let popupWin;
     function windowOpener(url, name, args) {
-        console.log('OPENLINK => ', url);
-
         if(typeof(popupWin) != "object" || popupWin.closed)  { 
             popupWin =  window.open(url, name, args); 
         } 
