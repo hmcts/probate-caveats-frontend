@@ -84,7 +84,7 @@ services:
       service: 'probate'
   postcode:
     name: 'Postcode Lookup Service'
-    token: 'kaavvnfdrAPOX44RZ5OvPsHPGFaSg2KS'
+    token: ''
   equalityAndDiversity:
     name: 'Equality and Diversity Service'
     url: 'http://localhost:4000'
