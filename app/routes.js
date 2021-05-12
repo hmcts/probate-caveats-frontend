@@ -23,6 +23,7 @@ router.all('*', (req, res, next) => {
     next();
 });
 
+// test
 router.use((req, res, next) => {
     if (!req.session.form) {
         req.session.form = {
