@@ -16,7 +16,7 @@ Install dependencies by executing the following command:
 $ yarn install
 ```
 
-Compile SASS stylesheets by running the following command:
+Compile SASS stylesheets by running the following command:.
 ```
 $ yarn setup
 ```
