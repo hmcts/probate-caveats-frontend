@@ -10,3 +10,5 @@ featureToggles:
   ft_pcq_token: 'probate-pcq-token'
   ft_avaya_webchat: 'probate-avaya-webchat'
   appwideToggles: ['ft_avaya_webchat']
+app:
+  basePath: '/caveats'
