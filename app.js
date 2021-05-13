@@ -98,16 +98,16 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
                 'vcc-eu4.8x8.com',
                 'vcc-eu4b.8x8.com',
                 `'nonce-${nonce}'`,
-                'webchat-client.ctsc.hmcts.net',
-                'webchat.ctsc.hmcts.net'
+                'webchat-client.training.ctsc.hmcts.net',
+                'webchat.training.ctsc.hmcts.net'
             ],
             connectSrc: [
                 '\'self\'',
                 'www.google-analytics.com',
                 'stats.g.doubleclick.net',
                 'tagmanager.google.com',
-                'https://webchat.ctsc.hmcts.net',
-                'wss://webchat.ctsc.hmcts.net'
+                'https://webchat.training.ctsc.hmcts.net',
+                'wss://webchat.training.ctsc.hmcts.net'
             ],
             mediaSrc: [
                 '\'self\''
@@ -132,7 +132,7 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
                 '\'unsafe-inline\'',
                 'tagmanager.google.com',
                 'fonts.googleapis.com',
-                'webchat-client.ctsc.hmcts.net'
+                'webchat-client.training.ctsc.hmcts.net'
             ],
             frameAncestors: ['\'self\'']
         },

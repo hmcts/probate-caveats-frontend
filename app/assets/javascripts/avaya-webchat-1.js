@@ -36,6 +36,7 @@
         avayaWebchat.hidden = true;
         avayaWebchat.addEventListener('metrics', function (metrics) {
             const metricsDetail = metrics.detail;
+            console.log('metricsDetail: ', metricsDetail);
             const ewt = metricsDetail.ewt;
             const ccState = metricsDetail.contactCenterState;
             const availableAgents = metricsDetail.availableAgents;
