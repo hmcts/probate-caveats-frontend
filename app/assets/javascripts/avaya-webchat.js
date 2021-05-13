@@ -15,6 +15,18 @@
     const avayaWebchatOpen = document.querySelector('#avaya-webchat-open');
     const avayaWebchatClose = document.querySelector('#avaya-webchat-close');
 
+    if(avayaAgentBusy){
+        avayaAgentBusy.hidden = true;
+    }
+
+    if(avayaWebchatOpen){
+        avayaWebchatOpen.hidden = true;
+    }
+
+    if(avayaWebchatClose){
+        avayaWebchatClose.hidden = false;
+    }
+
     if(avayaWebchat){
         avayaWebchat.hidden = true;
         avayaWebchat.addEventListener('metrics', function (metrics) {
