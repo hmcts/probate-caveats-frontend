@@ -33,7 +33,7 @@
 {% endif %}
 
 {% if fields.language.value == "en" and fields.isAvayaWebChatEnabled.value === 'true'%}
-    <script src="https://webchat-client.ctsc.hmcts.net/chat-client/1/app-es2015.js" type="module" crossorigin="anonymous"></script>
-    <script src="https://webchat-client.ctsc.hmcts.net/chat-client/1/app-es5.js"  nomodule defer crossorigin="anonymous"></script>
+    <script src="https://webchat-client.ctsc.hmcts.net/chat-client/1/app-es2015.js" type="module" integrity="sha384-kK5uEeNWRImFebHvFr5eVsNO527avYEcVSTNNwQffMp2V0YlPep9KWvCwy/9Oqm+" crossorigin="anonymous"></script>
+    <script src="https://webchat-client.ctsc.hmcts.net/chat-client/1/app-es5.js"  nomodule defer integrity="sha384-ZVAu91qOwA8p9jpW+l896LoK/14vQJAg1q5ZZW6UhKrPGEhKEc+eTKqcqjcmECcs" crossorigin="anonymous"></script>
     <script src="{{ globals.basePath }}/public/javascripts/avaya-webchat.js"></script>
 {% endif %}
