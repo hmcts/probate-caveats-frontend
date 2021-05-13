@@ -33,7 +33,8 @@
 {% endif %}
 
 {% if fields.language.value == "en" and fields.isAvayaWebChatEnabled.value === 'true'%}
-    <script src="https://webchat-client.ctsc.hmcts.net/chat-client/1/app-es2015.js" type="module" integrity="sha384-kK5uEeNWRImFebHvFr5eVsNO527avYEcVSTNNwQffMp2V0YlPep9KWvCwy/9Oqm+" crossorigin="anonymous"></script>
-    <script src="https://webchat-client.ctsc.hmcts.net/chat-client/1/app-es5.js"  nomodule defer integrity="sha384-ZVAu91qOwA8p9jpW+l896LoK/14vQJAg1q5ZZW6UhKrPGEhKEc+eTKqcqjcmECcs" crossorigin="anonymous"></script>
+    <!-- https://www.srihash.org/ creating the integrity from this url wheneverthe file changes -->
+    <script src="https://webchat-client.ctsc.hmcts.net/chat-client/1/app-es2015.js" integrity="sha384-iEIeVUq/ncVpaigZAlCikuomSR9QyL2yiApzGyMAsdgFi8ljx86/VPCQdyST4uhZ" crossorigin="anonymous"></script>
+    <script src="https://webchat-client.ctsc.hmcts.net/chat-client/1/app-es5.js" integrity="sha384-q2frIrgzQ2N01xiqrV6qtO/w01EzprxDOqVngE7cybQ/Hl4GsH15Qi0M+A0dX3Lm" crossorigin="anonymous"></script>
     <script src="{{ globals.basePath }}/public/javascripts/avaya-webchat.js"></script>
 {% endif %}
