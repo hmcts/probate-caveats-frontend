@@ -52,6 +52,7 @@
   "helpChatClosed": "Web chat is now closed. Come back {chatOpeningHours} Or contact us using one of the ways below.",
   "helpChatAlreadyOpen": "A web chat window is already open.",
   "helpChatOpeningHours": "Monday to Friday, 8:00am to 8:00pm. Saturday, 8:00am to 2:00pm.",
+  "helpChatMaintenance": "Probate webchat is temporarily unavailable while we address a technical issue. We're sorry for any inconvenience caused.",
   "serviceTelephoneNumber": "0300 123 7050",
   "serviceTelephoneOpeningHours": "Monday to Friday, 9:30am to 5pm",
   "serviceEmail": "contactprobate@justice.gov.uk"
