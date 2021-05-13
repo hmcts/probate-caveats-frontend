@@ -1,14 +1,12 @@
 (function() {
     let popupWin;
     function windowOpener(url, name, args) {
-
         if(typeof(popupWin) != "object" || popupWin.closed)  { 
             popupWin =  window.open(url, name, args); 
         } 
         else{ 
             popupWin.location.href = url; 
         }
-    
         popupWin.focus(); 
      }
    
@@ -16,6 +14,18 @@
     const avayaAgentBusy = document.querySelector('#webchat-agent-busy');
     const avayaWebchatOpen = document.querySelector('#avaya-webchat-open');
     const avayaWebchatClose = document.querySelector('#avaya-webchat-close');
+
+    if(avayaAgentBusy){
+        avayaAgentBusy.hidden = true;
+    }
+
+    if(avayaWebchatOpen){
+        avayaWebchatOpen.hidden = true;
+    }
+
+    if(avayaWebchatClose){
+        avayaWebchatClose.hidden = false;
+    }
 
     if(avayaWebchat){
         avayaWebchat.hidden = true;
@@ -29,7 +39,7 @@
             avayaAgentBusy.hidden = true;
             avayaWebchatClose.hidden = true;
             if(ccState === 'Open'){
-                if(availableAgents > 0){
+                if(availableAgents > 0 && ewt <= 300){
                     avayaWebchatOpen.hidden = false;
                 }else{
                     avayaAgentBusy.hidden = false;
