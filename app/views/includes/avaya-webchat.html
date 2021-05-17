@@ -1,3 +1,9 @@
+<div id="avaya-webchat-open" class="govuk-body">
+    <a href="#" class="govuk-link" rel="noreferrer noopener" id="avaya-webchat-link">{{ common.helpChatWithAnAgent | safe }}</a>
+    <p class="govuk-body"> {{ common.helpChatOpeningHours | replace("\n", "\\n") | safe }} </p>
+</div>
+<p class="govuk-body" id="avaya-webchat-close"> {{ common.helpChatClosed | replace("\n", "\\n") | replace("{chatOpeningHours}", common.helpChatOpeningHours) | safe }} </p>
+<p class="govuk-body" id="webchat-agent-busy"> {{ common.helpAllAgentsBusy | replace("\n", "\\n") | safe }} </p>
 <p class="govuk-body" id="webchat-maintenance"> {{ common.helpChatMaintenance | replace("\n", "\\n") | safe }} </p>
 <web-chat
     id="avayaWebchatMetric"
