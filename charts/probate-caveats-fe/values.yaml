@@ -50,6 +50,7 @@ nodejs:
         - AppInsightsInstrumentationKey
         - launchdarkly-key
         - pcq-token-key
+        - launchdarklyUserkeyCaveatFrontend
 redis:
   cluster:
     enabled: false

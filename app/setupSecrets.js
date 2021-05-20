@@ -27,6 +27,7 @@ const setupSecrets = () => {
         setSecret('secrets.probate.probate-webchat-button-service-closed', 'webChat.buttonServiceClosed');
         setSecret('secrets.probate.AppInsightsInstrumentationKey', 'appInsights.instrumentationKey');
         setSecret('secrets.probate.launchdarkly-key', 'featureToggles.launchDarklyKey');
+        setSecret('secrets.probate.launchdarklyUserkeyCaveatFrontend', 'featureToggles.launchDarklyUser.key');
         setSecret('secrets.probate.pcq-token-key', 'services.equalityAndDiversity.tokenKey');
     }
 };

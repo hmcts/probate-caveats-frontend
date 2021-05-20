@@ -52,6 +52,7 @@
   "helpChatClosed": "Mae&rsquo;r gwasanaeth sgwrsio dros y we nawr ar gau. Yr oriau agor yw {chatOpeningHours}.",
   "helpChatAlreadyOpen": "Mae ffenestr sgwrsio dros y we ar agor yn barod.",
   "helpChatOpeningHours": "Dydd Llun i ddydd Gwener, 8:00am i 8:00pm.",
+  "helpChatMaintenance": "Probate webchat is temporarily unavailable while we address a technical issue. We're sorry for any inconvenience caused.",
   "serviceTelephoneNumber": "0300 123 7050",
   "serviceTelephoneOpeningHours": "Dydd Llun i ddydd Gwener, 8:00am i 2:00pm",
   "serviceEmail": "contactprobate@justice.gov.uk"

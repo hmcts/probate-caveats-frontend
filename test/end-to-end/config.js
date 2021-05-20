@@ -87,6 +87,6 @@ module.exports = {
         hours: 'Monday to Friday, 8:00am to 6:00pm. Saturday, 8:00am to 2:00pm.'
     },
     pact: {
-        pactBrokerUrl: process.env.PACT_BROKER_URL || 'http://localhost:80'
+        pactBrokerUrl: process.env.PACT_BROKER_URL || 'https://pact-broker.platform.hmcts.net'
     },
 };
