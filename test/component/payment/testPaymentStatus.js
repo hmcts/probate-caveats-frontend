@@ -31,10 +31,7 @@ describe('paymentStatus', () => {
     });
 
     describe('Verify Content, Errors and Redirection', () => {
-        it('test help block content', (done) => {
-            testCommonContent.runTest('PaymentStatus');
-            done();
-        });
+        testCommonContent.runTest('PaymentStatus');
 
         it('test right content loaded on the page', (done) => {
             const sessionData = {
