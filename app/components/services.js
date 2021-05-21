@@ -23,6 +23,8 @@ const logInfo = (message, applicationId = 'Init') => logger(applicationId).info(
 const osPlacesClient = new OSPlacesClient(POSTCODE_SERVICE_TOKEN);
 
 const findAddress = (postcode) => {
+    // RREMOVE TOKEN BEFORE PUSHING TO PROD
+    console.log('token => ', POSTCODE_SERVICE_TOKEN);
     logInfo('findAddress');
     return new Promise((resolve, reject) => {
         osPlacesClient.lookupByPostcode(postcode)
