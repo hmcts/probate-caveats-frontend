@@ -34,7 +34,5 @@
 
 {% if fields.language.value == "en" and fields.isAvayaWebChatEnabled.value === 'true'%}
    <!-- https://www.srihash.org/ creating the integrity from this url wheneverthe file changes -->
-   <!-- <script src="https://webchat.ctsc.hmcts.net/chat-client/1/app-es2015.js" type="module" integrity="sha384-iEIeVUq/ncVpaigZAlCikuomSR9QyL2yiApzGyMAsdgFi8ljx86/VPCQdyST4uhZ" crossorigin="anonymous"></script>
-   <script src="https://webchat.ctsc.hmcts.net/chat-client/1/app-es5.js" nomodule defer integrity="sha384-q2frIrgzQ2N01xiqrV6qtO/w01EzprxDOqVngE7cybQ/Hl4GsH15Qi0M+A0dX3Lm" crossorigin="anonymous"></script> -->
    <script src="{{ globals.basePath }}/public/javascripts/avaya-webchat-1.js"></script>
 {% endif %}
