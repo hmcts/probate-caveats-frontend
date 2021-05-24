@@ -1,4 +1,7 @@
 {% include "includes/scripts_ga_1.html" %}
 <link href="{{ globals.basePath }}/public/stylesheets/application.css" media="screen" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" href="https://webchat-client.ctsc.hmcts.net/chat-client/1/styles.css"></head>
+{% if fields.language.value == "en" and fields.isAvayaWebChatEnabled.value === 'true'%}
+<!-- <link rel="stylesheet" href="https://webchat.ctsc.hmcts.net/chat-client/1/styles.css">        -->
+{% endif %}
+</head>
 <!--[if IE 8]><link rel="stylesheet" media="screen" href="{{ globals.basePath }}/public/stylesheets/application-ie8.css"/><![endif]-->
