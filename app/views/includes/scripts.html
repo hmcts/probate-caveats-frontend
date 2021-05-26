@@ -34,7 +34,7 @@
 
 {% if fields.language.value == "en" and fields.isAvayaWebChatEnabled.value === 'true'%}
    <!-- https://www.srihash.org/ creating the integrity from this url wheneverthe file changes -->
-   <script src="https://webchat.ctsc.hmcts.net/chat-client/1/app-es2015.js"></script>
-   <script src="https://webchat.ctsc.hmcts.net/chat-client/1/app-es5.js"></script>
+   <script defer src="https://webchat.ctsc.hmcts.net/chat-client/1/app-es2015.js"></script>
+   <script defer src="https://webchat.ctsc.hmcts.net/chat-client/1/app-es5.js"></script>
    <script src="{{ globals.basePath }}/public/javascripts/avaya-webchat-1.js"></script>
 {% endif %}
