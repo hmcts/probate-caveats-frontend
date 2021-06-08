@@ -27,6 +27,9 @@ static LinkedHashMap<String, Object> secret(String secretName, String envVar) {
   ]
 }
 
+// Configure branches to sync with master branch
+def branchesToSync = ['demo', 'ithc', 'perftest']
+
 withPipeline("nodejs", product, component) {
   env.RUN_E2E_TEST = true
   after('build') {
@@ -37,6 +40,8 @@ withPipeline("nodejs", product, component) {
   disableLegacyDeployment()
   loadVaultSecrets(secrets)
   enableSlackNotifications('#probate-jenkins')
+  syncBranchesWithMaster(branchesToSync)
+
   after('functionalTest:aat') {
       publishHTML target: [
 
