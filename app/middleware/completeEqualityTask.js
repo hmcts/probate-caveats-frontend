@@ -13,7 +13,7 @@ const completeEqualityTask = (params) => {
         const fetchOpts = fetchOptions({}, 'GET', {});
         fetchJson(FormatUrl.format(config.services.equalityAndDiversity.url, config.endpoints.health), fetchOpts)
             .then(json => {
-                const equalityHealthIsUp = json.status === 'UP' && json['pcq-backend'].actualStatus === 'UP';
+                const equalityHealthIsUp = json.status === 'UP' && json['pcq-backend'].status === 'UP';
                 logger.info(config.services.equalityAndDiversity.name, 'is', (equalityHealthIsUp ? 'UP' : 'DOWN'));
 
                 if (equalityHealthIsUp) {
