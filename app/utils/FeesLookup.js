@@ -3,15 +3,12 @@
 const services = require('app/components/services');
 const logger = require('app/components/logger');
 const logInfo = (message, applicationId = 'Init') => logger(applicationId).info(message);
-const FeatureToggle = require('app/utils/FeatureToggle');
 const config = require('config');
 
 class FeesLookup {
 
-    constructor(applicationId, session) {
+    constructor(applicationId) {
         this.applicationId = applicationId;
-        this.data = FeatureToggle.isEnabled(session.featureToggles, 'ft_newfee_register_code')?config.services.feesRegister.caveat_newfee_data: config.services.feesRegister.caveat_fee_data;
-        logInfo(`Fee data from config: ${JSON.stringify(this.data)}`);
         this.data = config.services.feesRegister.caveat_newfee_data;
     }
 
