@@ -101,7 +101,7 @@ payloadVersion: '4.1.0'
 hostname: 'localhost:3000'
 enableTracking: 'true'
 webchat:
-  avayaUrl: 'https://webchat.training.ctsc.hmcts.net'
+  avayaUrl: 'webchat.training.ctsc.hmcts.net'
   avayaService: 'Testing'
 webChat:
   chatId: '3077733355d19fd430f23c7.02555395'
