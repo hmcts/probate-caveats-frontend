@@ -42,15 +42,12 @@ nodejs:
         - probate-site-id
         - caveat-user-name
         - caveat-user-password
-        - probate-webchat-id
-        - probate-webchat-tenant
-        - probate-webchat-button-no-agents
-        - probate-webchat-button-busy
-        - probate-webchat-button-service-closed
         - AppInsightsInstrumentationKey
         - launchdarkly-key
         - pcq-token-key
         - launchdarklyUserkeyCaveatFrontend
+        - webchat-avaya-url
+        - webchat-avaya-service
 redis:
   cluster:
     enabled: false

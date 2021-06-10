@@ -80,3 +80,6 @@ validation:
   url: TEST_VALIDATION_SERVICE_URL
 pact:
   pactBrokerUrl: PACT_BROKER_URL
+webchat:
+  avayaUrl: WEBCHAT_AVAYA_URL
+  avayaService: WEBCHAT_AVAYA_SERVICE
