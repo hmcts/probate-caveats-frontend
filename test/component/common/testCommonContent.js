@@ -5,10 +5,10 @@ const commonContent = require('app/resources/en/translation/common');
 
 class TestCommonContent {
     static runTest(page, beforeEach, afterEach) {
-        xdescribe('Test the help content', () => {
+        describe('Test the help content', () => {
             const testWrapper = new TestWrapper(page);
 
-            xit('test help block content is loaded on page', (done) => {
+            it('test help block content is loaded on page', (done) => {
                 if (typeof beforeEach === 'function') {
                     beforeEach();
                 }
