@@ -184,9 +184,9 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
         res.locals.asset_path = `${globals.basePath}/public/`;
         console.log('res => ', req.originalUrl);
         if (!req.originalUrl.match(/locale/g)) {
+            console.log('coming to next');
             next();
         }
-        next();
     });
 
     // Support session data
