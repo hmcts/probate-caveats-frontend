@@ -183,10 +183,10 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
     app.use((req, res, next) => {
         res.locals.asset_path = `${globals.basePath}/public/`;
         console.log('res => ', req.originalUrl);
-        if (!req.originalUrl.match(/locale/g)) {
-            console.log('coming to next');
-            next();
-        }
+        // if (!req.originalUrl.match(/locale/g)) {
+        console.log('coming to next');
+        next();
+        // }
     });
 
     // Support session data
