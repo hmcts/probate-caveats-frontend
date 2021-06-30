@@ -279,11 +279,6 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
         if (ftValue) {
             res.locals.launchDarkly.ftValue = ftValue;
         }
-        console.log('res => ', req.originalUrl);
-        if (!req.originalUrl.match(/locale/g)) {
-            console.log('coming to next');
-            next();
-        }
     });
 
     app.use(`${config.app.basePath}/`, (req, res, next) => {

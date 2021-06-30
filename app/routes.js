@@ -20,7 +20,11 @@ router.all('*', (req, res, next) => {
     const applicationId = get(req.session.form, 'applicationId', 'init');
     req.log = logger(applicationId);
     req.log.info(`Processing ${req.method} for ${req.originalUrl}`);
-    next();
+    console.log('res => ', req.originalUrl);
+    if (!req.originalUrl.match(/locale/g)) {
+        console.log('coming to next');
+        next();
+    }
 });
 
 router.use((req, res, next) => {
