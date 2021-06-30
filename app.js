@@ -182,11 +182,7 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
     // Send assetPath to all views
     app.use((req, res, next) => {
         res.locals.asset_path = `${globals.basePath}/public/`;
-        console.log('res => ', req.originalUrl);
-        // if (!req.originalUrl.match(/locale/g)) {
-        console.log('coming to next');
         next();
-        // }
     });
 
     // Support session data
@@ -283,7 +279,11 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
         if (ftValue) {
             res.locals.launchDarkly.ftValue = ftValue;
         }
-        next();
+        console.log('res => ', req.originalUrl);
+        if (!req.originalUrl.match(/locale/g)) {
+            console.log('coming to next');
+            next();
+        }
     });
 
     app.use(`${config.app.basePath}/`, (req, res, next) => {
