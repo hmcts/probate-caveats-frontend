@@ -63,12 +63,10 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
         applicationFee: config.payment.applicationFee,
         nonce: nonce,
         basePath: config.app.basePath,
-        webChat: {
-            chatId: config.webChat.chatId,
-            tenant: config.webChat.tenant,
-            buttonNoAgents: config.webChat.buttonNoAgents,
-            buttonAgentsBusy: config.webChat.buttonAgentsBusy,
-            buttonServiceClosed: config.webChat.buttonServiceClosed
+        webchat: {
+            avayaUrl: config.webchat.avayaUrl,
+            avayaClientUrl: config.webchat.avayaClientUrl,
+            avayaService: config.webchat.avayaService
         }
     };
     njkEnv.addGlobal('globals', globals);
@@ -95,34 +93,32 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
                 '\'sha256-G29/qSW/JHHANtFhlrZVDZW1HOkCDRc78ggbqwwIJ2g=\'',
                 'www.google-analytics.com',
                 'www.googletagmanager.com',
-                'vcc-eu4.8x8.com',
-                'vcc-eu4b.8x8.com',
                 `'nonce-${nonce}'`,
-                'webchat-client.ctsc.hmcts.net',
-                'webchat.ctsc.hmcts.net'
+                'webchat.training.ctsc.hmcts.net',
+                'webchat.ctsc.hmcts.net',
+                'webchat-client.training.ctsc.hmcts.net',
+                'webchat-client.ctsc.hmcts.net'
             ],
             connectSrc: [
                 '\'self\'',
                 'www.google-analytics.com',
                 'stats.g.doubleclick.net',
                 'tagmanager.google.com',
+                'https://webchat.training.ctsc.hmcts.net',
                 'https://webchat.ctsc.hmcts.net',
-                'wss://webchat.ctsc.hmcts.net'
+                'https://webchat-client.training.ctsc.hmcts.net',
+                'https://webchat-client.ctsc.hmcts.net',
+                'wss://webchat.ctsc.hmcts.net',
+                'wss://webchat.training.ctsc.hmcts.net'
             ],
             mediaSrc: [
                 '\'self\''
-            ],
-            frameSrc: [
-                'vcc-eu4.8x8.com',
-                'vcc-eu4b.8x8.com'
             ],
             imgSrc: [
                 '\'self\'',
                 '\'self\' data:',
                 'www.google-analytics.com',
                 'stats.g.doubleclick.net',
-                'vcc-eu4.8x8.com',
-                'vcc-eu4b.8x8.com',
                 'ssl.gstatic.com',
                 'www.gstatic.com',
                 'lh3.googleusercontent.com'
@@ -131,8 +127,7 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
                 '\'self\'',
                 '\'unsafe-inline\'',
                 'tagmanager.google.com',
-                'fonts.googleapis.com',
-                'webchat-client.ctsc.hmcts.net'
+                'fonts.googleapis.com'
             ],
             frameAncestors: ['\'self\'']
         },
@@ -158,7 +153,6 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
     const caching = {cacheControl: true, setHeaders: (res) => res.setHeader('Cache-Control', 'max-age=604800')};
 
     // Middleware to serve static assets
-    app.use('/public/webchat', express.static(`${__dirname}/node_modules/@hmcts/ctsc-web-chat/assets`, caching));
     app.use('/public/stylesheets', express.static(`${__dirname}/public/stylesheets`, caching));
     app.use('/public/images', express.static(`${__dirname}/app/assets/images`, caching));
     app.use('/public/javascripts/govuk-frontend', express.static(`${__dirname}/node_modules/govuk-frontend`, caching));
