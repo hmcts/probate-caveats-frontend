@@ -65,6 +65,7 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
         basePath: config.app.basePath,
         webchat: {
             avayaUrl: config.webchat.avayaUrl,
+            avayaClientUrl: config.webchat.avayaClientUrl,
             avayaService: config.webchat.avayaService
         }
     };
@@ -94,7 +95,9 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
                 'www.googletagmanager.com',
                 `'nonce-${nonce}'`,
                 'webchat.training.ctsc.hmcts.net',
-                'webchat.ctsc.hmcts.net'
+                'webchat.ctsc.hmcts.net',
+                'webchat-client.training.ctsc.hmcts.net',
+                'webchat-client.ctsc.hmcts.net'
             ],
             connectSrc: [
                 '\'self\'',
@@ -103,7 +106,10 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
                 'tagmanager.google.com',
                 'https://webchat.training.ctsc.hmcts.net',
                 'https://webchat.ctsc.hmcts.net',
-                'wss://webchat.ctsc.hmcts.net'
+                'https://webchat-client.training.ctsc.hmcts.net',
+                'https://webchat-client.ctsc.hmcts.net',
+                'wss://webchat.ctsc.hmcts.net',
+                'wss://webchat.training.ctsc.hmcts.net'
             ],
             mediaSrc: [
                 '\'self\''

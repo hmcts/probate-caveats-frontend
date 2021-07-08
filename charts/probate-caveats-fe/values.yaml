@@ -47,6 +47,7 @@ nodejs:
         - pcq-token-key
         - launchdarklyUserkeyCaveatFrontend
         - webchat-avaya-url
+        - webchat-avaya-client-url
         - webchat-avaya-service
 redis:
   cluster:
