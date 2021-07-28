@@ -30,7 +30,7 @@ class Step {
         return `${this.templatePath}/template`;
     }
 
-    constructor(steps, section = null, resourcePath, i18next, schema, language = 'en') {
+    constructor(steps, section, resourcePath, i18next, schema, language = 'en') {
         this.steps = steps;
         this.section = section;
         this.resourcePath = resourcePath;
