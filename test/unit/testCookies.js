@@ -16,7 +16,7 @@ describe('Cookies', () => {
 
     describe('check auth cookie name', () => {
         it('should return the correct url', (done) => {
-            expect(Cookies.SECURITY_COOKIE).to.equal('__auth-token-4.1.1');
+            expect(Cookies.SECURITY_COOKIE).to.equal('__auth-token-4.1.0');
             done();
         });
     });
