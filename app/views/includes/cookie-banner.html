@@ -1,0 +1,38 @@
+<input type="hidden" id="hdnSecurityCookie" value="{{ common.SECURITY_COOKIE }}"/>
+
+<div class="global-cookie-message" id="cm-cookie-banner" hidden>
+    <div class="govuk-cookie-banner" role="region" aria-label="{{ common.cookieBannerTitle }}">
+        <div class="govuk-cookie-banner__message govuk-width-container cm-cookie-banner__decision">
+            <div class="govuk-grid-row">
+                <div class="govuk-grid-column-two-thirds">
+                    <h1 class="govuk-cookie-banner__heading govuk-heading-m">{{ common.cookieBannerTitle }}</h2>
+                    <div class="govuk-cookie-banner__content">
+                        <p class="govuk-body">{{ common.cookieBannerEssentialCookies }}</p>
+                        <p class="govuk-body">{{ common.cookieBannerAnalyticCookies }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="govuk-button-group">
+                <button class="govuk-button" data-cm-action="accept">{{ common.cookieBannerAcceptCookies }}</button>
+                <button class="govuk-button" data-cm-action="reject">{{ common.cookieBannerRejectCookies }}</button>
+                <a class="govuk-link" href="/cookies">{{ common.cookieBannerViewCookies }}</a>
+            </div>
+        </div>
+        <div class="govuk-cookie-banner__message govuk-width-container cm-cookie-banner__confirmation" role="alert"
+            hidden>
+            <div class="govuk-grid-row">
+                <div class="govuk-grid-column-two-thirds">
+                    <div class="govuk-cookie-banner__content">
+                        <p>{{ common.cookieBannerChangeCookies | safe }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="govuk-button-group">
+                <button class="govuk-button" data-cm-action="hide">{{ common.cookieBannerHideMessage }}</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/public/javascripts/cookie-manager.js"></script>
+<script src="/public/javascripts/cookie-banner.js"></script>
