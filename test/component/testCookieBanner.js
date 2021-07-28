@@ -7,7 +7,7 @@ describe('cookie-banner', () => {
     let testWrapper;
 
     beforeEach(() => {
-        testWrapper = new TestWrapper('StartEligibility');
+        testWrapper = new TestWrapper('StartApply');
     });
 
     afterEach(async () => {
