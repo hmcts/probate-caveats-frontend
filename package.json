@@ -44,7 +44,7 @@
     "test:mutation": "NODE_PATH=. stryker run test/mutation/mutation_unittests.conf.js",
     "test:mutation-shell": "./bin/run-mutation-tests.sh",
     "sonar-scanner": "node_modules/sonar-scanner/bin/sonar-scanner",
-    "sonar-scan": "node_modules/sonar-scanner/bin/sonar-scanner -Dsonar.projectName='Probate :: caveats-fe' -Dsonar.sources=app -Dsonar.cpd.exclusions=app/utils/FeatureToggle.js,app/utils/FormatName.js,app/core/runners/ActionStepRunner.js,app/**/template.html,app/**/scripts.html -Dsonar.exclusions=app/assets/**,app/**/scripts.html -Dsonar.language=js -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info",
+    "sonar-scan": "node_modules/sonar-scanner/bin/sonar-scanner -Dsonar.projectName='probate-caveats-frontend' -Dsonar.sources=app -Dsonar.cpd.exclusions=app/utils/FeatureToggle.js,app/utils/FormatName.js,app/core/runners/ActionStepRunner.js,app/**/template.html,app/**/scripts.html -Dsonar.exclusions=app/assets/**,app/**/scripts.html -Dsonar.language=js -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info",
     "git-info": "node-git-info-json",
     "//": "The below scripts are just stubs, don't use them in production",
     "stub:orchestrator": "NODE_PATH=. node test/service-stubs/orchestrator.js",
