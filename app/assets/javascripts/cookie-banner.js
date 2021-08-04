@@ -47,11 +47,13 @@
             const dtrum = window.dtrum;
             if (dtrum) {
                 if (cookieStatus.apm === 'on') {
+                  console.log('set  dtrrum enabled');
                     dtrum.enable();
                     dtrum.enableSessionReplay();
                 } else {
                     dtrum.disableSessionReplay();
                     dtrum.disable();
+                    console.log('set  dtrrum disabled');
                 }    
             }
         }
