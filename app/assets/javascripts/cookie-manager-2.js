@@ -24,6 +24,7 @@
   let options = {};
 
   const init = function (custom_options) {
+    console.log('INIT  COOKE MANAGERR')
 
     options = defaultOptions;
 
@@ -34,10 +35,17 @@
     manageCookies();
     findAndBindPreferencesForm();
     findAndBindCookieBanner();
+
+    if(!getUserPreferences() && window.dtrum){
+      console.log('if not getuserr prerferrence and is not window.dtrrum');
+      dtrum.disableSessionReplay();
+      dtrum.disable();
+      console.log('setting dtrum to null');
+    }
   };
 
   const manageCookies = function () {
-    console.log('manageCookies');
+    console.log('= manageCookies');
 
     const cm_cookie = options['user-preference-cookie-name'];
     const cm_user_preferences = getUserPreferences();
@@ -84,7 +92,7 @@
   };
 
   const getUserPreferences = function () {
-    console.log('getUserPreferences');
+    console.log('getUserPreferences function ');
 
     const cookie = getCookie(options['user-preference-cookie-name']);
 
@@ -357,7 +365,7 @@
   }
 
   const findAndBindCookieBanner = function () {
-    console.log('findAndBindCookieBanner');
+    console.log('= findAndBindCookieBanner');
     if (!configOptionIsString('cookie-banner-id')) {
       return;
     }
@@ -378,7 +386,7 @@
   };
 
   const checkShouldCookieBannerBeVisible = function () {
-    console.log('checkShouldCookieBannerBeVisible');
+    console.log('= checkShouldCookieBannerBeVisible');
     const cookieBanner = document.getElementById(options['cookie-banner-id']);
     if (cookieBanner === null) {
       return;
