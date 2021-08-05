@@ -49,16 +49,16 @@
             const dtrum = window.dtrum;
             if (dtrum) {
                 if (cookieStatus.apm === 'on') {
-                  console.log('set  dtrrum enabled');
+                  console.log('====== set  dtrrum enabled');
                     dtrum.enable();
                     dtrum.enableSessionReplay();
                 } else {
                     dtrum.disableSessionReplay();
                     dtrum.disable();
-                    console.log('set  dtrrum disabled');
+                    console.log('====== set  dtrrum disabled');
                 }    
             }else {
-              console.log('dtrrum is null');
+              console.log('====== dtrrum is null');
             }
         }
 
