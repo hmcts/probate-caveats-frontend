@@ -12,9 +12,9 @@
       console.log('initialised cookie bannerr');
       if (window.dtrum) {
         console.log('dtrrum=> ', dtrum);
-        dtrum.disableSessionReplay();
-        dtrum.disable();
-        console.log('disabled dtrum when it first initialised');
+        // dtrum.disableSessionReplay();
+        // dtrum.disable();
+        // console.log('disabled dtrum when it first initialised');
       }
         
         /*  This callback is called when the 'accept' action is fired within the cookie banner
@@ -23,6 +23,7 @@
         const cookieBannerAccept = function () {
             document.querySelector('.cm-cookie-banner__decision').hidden = true;
             document.querySelector('.cm-cookie-banner__confirmation').hidden = false;
+            console.log('cookieBannerAccept');
         }
 
         /*  This callback is called when the 'reject' action is fired within the cookie banner
@@ -31,6 +32,7 @@
         const cookieBannerReject = function () {
             document.querySelector('.cm-cookie-banner__decision').hidden = true;
             document.querySelector('.cm-cookie-banner__confirmation').hidden = false;
+            console.log('cookieBannerReject');
         }
 
 
@@ -55,6 +57,8 @@
                     dtrum.disable();
                     console.log('set  dtrrum disabled');
                 }    
+            }else {
+              console.log('dtrrum is null');
             }
         }
 

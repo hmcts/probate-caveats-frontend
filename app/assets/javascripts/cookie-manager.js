@@ -37,6 +37,7 @@
   };
 
   const manageCookies = function () {
+    console.log('manageCookies');
 
     const cm_cookie = options['user-preference-cookie-name'];
     const cm_user_preferences = getUserPreferences();
@@ -83,6 +84,7 @@
   };
 
   const getUserPreferences = function () {
+    console.log('getUserPreferences');
 
     const cookie = getCookie(options['user-preference-cookie-name']);
 
@@ -91,6 +93,7 @@
     }
 
     try {
+      console.log('getUserPreferences', cookie);
       return JSON.parse(cookie);
     } catch (e) {
       console.error(`Unable to parse user preference cookie "${cm_cookie}" as JSON.`, e);
@@ -99,6 +102,8 @@
   };
 
   const getCookieCategoryFromManifest = function (cookie_name) {
+    console.log('getCookieCategoryFromManifest');
+
 
     const cookie_manifest = options['cookie-manifest'];
 
@@ -115,6 +120,7 @@
   };
 
   const getCookie = function (cookie_name) {
+    console.log('getCookie', cookie_name);
     const name = cookie_name + "=";
     const decoded_cookie = decodeURIComponent(document.cookie);
     const cookie_array = decoded_cookie.split(';');
@@ -132,6 +138,7 @@
   };
 
   const deleteCookie = function (cookie_name) {
+    console.log('deleteCookie', cookie_name);
     deleteCookieWithoutDomain(cookie_name);
 
     if (configOptionIsNotEmptyObject('domains')) {
@@ -155,10 +162,12 @@
   };
 
   const deleteCookieWithoutDomain = function (cookie_name) {
+    console.log('deleteCookieWithoutDomain', cookie_name);
     document.cookie = cookie_name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/;';
   };
 
   const deleteCookieFromCurrentAndUpperDomain = function (cookie_name) {
+    console.log('deleteCookieFromCurrentAndUpperDomain', cookie_name);
     let hostname = window.location.hostname;
     let dotHostname = "." + hostname;
     document.cookie = cookie_name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=' + hostname + ';path=/;';
@@ -172,6 +181,8 @@
   };
 
   const deleteCookieFromDomain = function (cookie_name, domain) {
+    console.log('deleteCookieFromDomain', cookie_name);
+    console.log(domain);
     let dotDomain = "." + domain;
     document.cookie = cookie_name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=' + domain + ';path=/;';
     document.cookie = cookie_name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=' + dotDomain + ';path=/;';
@@ -179,7 +190,7 @@
 
 
   const setCookie = function (cookie_value) {
-
+    console.log('setCookie', cookie_value);
     const cookie_name = options['user-preference-cookie-name'];
 
     let cookie_secure = configOptionIsTrue('user-preference-cookie-secure');
@@ -200,6 +211,7 @@
   };
 
   const findAndBindPreferencesForm = function () {
+    console.log('findAndBindPreferencesForm');
 
     if (!configOptionIsString('preference-form-id')
     ) {
@@ -304,6 +316,7 @@
   }
 
   const savePreferences = function (user_cookie_preferences) {
+    console.log('savePreferences', user_cookie_preferences);
     setCookie(JSON.stringify(user_cookie_preferences));
 
     const preferenceSavedCallback = options['user-preference-saved-callback'];
@@ -344,6 +357,7 @@
   }
 
   const findAndBindCookieBanner = function () {
+    console.log('findAndBindCookieBanner');
     if (!configOptionIsString('cookie-banner-id')) {
       return;
     }
@@ -364,6 +378,7 @@
   };
 
   const checkShouldCookieBannerBeVisible = function () {
+    console.log('checkShouldCookieBannerBeVisible');
     const cookieBanner = document.getElementById(options['cookie-banner-id']);
     if (cookieBanner === null) {
       return;
