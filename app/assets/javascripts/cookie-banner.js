@@ -9,7 +9,6 @@
     }
 
     function initialiseCookieBanner() {
-      console.log('====== initialised cookie bannerr');
         
         /*  This callback is called when the 'accept' action is fired within the cookie banner
         *   This is where you'd hide the first stage in a decision/confirmation style banner
@@ -17,7 +16,6 @@
         const cookieBannerAccept = function () {
             document.querySelector('.cm-cookie-banner__decision').hidden = true;
             document.querySelector('.cm-cookie-banner__confirmation').hidden = false;
-            console.log('cookieBannerAccept======== ');
         }
 
         /*  This callback is called when the 'reject' action is fired within the cookie banner
@@ -26,7 +24,6 @@
         const cookieBannerReject = function () {
             document.querySelector('.cm-cookie-banner__decision').hidden = true;
             document.querySelector('.cm-cookie-banner__confirmation').hidden = false;
-            console.log('cookieBannerReject====== ');
         }
 
 
@@ -35,7 +32,6 @@
         *   with an object containing the current cookie preferences.
         */
         const cookiePreferencesUpdated = function (cookieStatus) {
-          console.log('=========================== cookiePreferencesUpdated cookiesStatus  => ', cookieStatus);
             // GTM based GA consent
             window.dataLayer = window.dataLayer || [];
             window.dataLayer.push({'event': 'Cookie Preferences', 'cookiePreferences': cookieStatus});
@@ -44,16 +40,12 @@
             const dtrum = window.dtrum;
             if (dtrum) {
                 if (cookieStatus.apm === 'on') {
-                  console.log('====== set  dtrrum enabled');
                     dtrum.enable();
                     dtrum.enableSessionReplay();
                 } else {
                     dtrum.disableSessionReplay();
                     dtrum.disable();
-                    console.log('====== set  dtrrum disabled');
                 }    
-            }else {
-              console.log('====== dtrrum is null');
             }
         }
 
