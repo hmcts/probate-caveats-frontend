@@ -146,5 +146,8 @@
     "watch": "^1.0.2",
     "webdriverio": "^6.11.3",
     "when": "^3.7.8"
+  },
+  "resolutions": {
+    "launchdarkly-node-server-sdk/launchdarkly-eventsource/original/url-parse": "^1.5.2"
   }
 }
