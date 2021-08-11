@@ -51,6 +51,7 @@
     "stub:s2s": "NODE_PATH=. node test/service-stubs/s2s.js",
     "stub:idam": "NODE_PATH=. node test/service-stubs/idam.js",
     "stub:equality-and-diversity-endpoint": "NODE_PATH=. node test/service-stubs/equalityAndDiversityEndpoint.js",
+    "fortifyScan": "./test/java/gradlew -p test/java fortifyScan",
     "stub:equality-and-diversity-health": "NODE_PATH=. node test/service-stubs/equalityAndDiversityHealth.js"
   },
   "pre-commit": [
