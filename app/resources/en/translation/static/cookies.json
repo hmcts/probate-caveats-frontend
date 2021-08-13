@@ -1,71 +1,75 @@
 {
   "title": "Cookies",
   "heading1": "Cookies",
-  "paragraph1": "A cookie is a small piece of data that&rsquo;s stored on your computer, tablet, or phone when you visit a website. Most websites need cookies to work properly.",
+  "paragraph1": "Cookies are files saved on your phone, tablet or computer when you visit a website. Most websites need cookies to work properly.",
+  "paragraph2": "This service uses cookies to:",
+  "whatCookiesAreUsedFor-item1": "store your cookie preferences",
+  "whatCookiesAreUsedFor-item2": "measure how you use the service so it can be improved",
 
   "howAreCookiesUsedHeading1": "How cookies are used in this service",
-  "howAreCookiesUsedParagraph1": "This service uses them to:",
-  "howAreCookiesUsed-item1": "measure how you use the service so it can be improved",
-  "howAreCookiesUsed-item2": "remember the notifications you&rsquo;ve seen so that you&rsquo;re not shown them again",
-  "howAreCookiesUsed-item3": "temporarily store the answers you give",
-  "howAreCookiesUsedParagraph2": "Find out more about <a href=\"{howToManageCookiesLink}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener\" aria-label=\"how to manage cookies (opens in a new window)\">how to manage cookies (opens in a new window)</a>.",
 
-  "websiteUsageCookiesHeading1": "Cookies used to measure website usage",
-  "websiteUsageCookiesParagraph1": "We use Google Analytics software to collect information about how you use this service. We do this to help make sure the service is meeting the needs of its users and to help us make improvements, for example improving site search.",
-  "websiteUsageCookiesParagraph2": "Google Analytics stores information about:",
-  "websiteUsageCookies-item1": "the pages you visit",
-  "websiteUsageCookies-item2": "how long you spend on each page",
-  "websiteUsageCookies-item3": "how you got to the service",
-  "websiteUsageCookies-item4": "what you click on while you&rsquo;re visiting the service",
-  "websiteUsageCookiesParagraph3": "We allow Google to use or share our analytics data. You can find out more about how Google use this information in their <a href=\"{googlePrivacyPolicyLink}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener\" aria-label=\"privacy policy (opens in a new window)\">privacy policy (opens in a new window)</a>.",
-  "websiteUsageCookiesParagraph4": "You can <a href=\"{googleAnalyticsOptOutLink}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener\" aria-label=\"opt out of Google Analytics (opens in a new window)\">opt out of Google Analytics (opens in a new window)</a> if you do not want Google to have access to your information.",
-  "websiteUsageCookiesParagraph5": "Google Analytics sets the following cookies:",
+  "websiteUsageCookiesHeading1": "To measure website usage",
+  "websiteUsageCookiesParagraph1": "We use Google Analytics software to collect information about how you use this service. We do this to help make sure the service is meeting the needs of its users and to help us make improvements. We do not allow Google to use or share the data about how you use this site.",
 
-  "cookieNameHeader": "Cookie name",
-  "cookiePurposeHeader": "What this cookie is for",
-  "cookieExpiryHeader": "Expires after",
+  "cookieDetailsTableHeading": "Cookie details", 
+  "cookieNameHeader": "Name",
+  "cookiePurposeHeader": "Purpose",
+  "cookieExpiryHeader": "Expires",
 
   "googleAnalyticsCookieName1": "_ga",
   "googleAnalyticsCookiePurpose1": "This helps us count how many people visit the service by tracking if you&rsquo;ve visited before",
   "googleAnalyticsCookieExpiry1": "2 years",
 
-  "googleAnalyticsCookieName2": "_gat",
-  "googleAnalyticsCookiePurpose2": "Manages the rate at which page view requests are made",
-  "googleAnalyticsCookieExpiry2": "10 minutes",
+  "googleAnalyticsCookieName2": "_gid",
+  "googleAnalyticsCookiePurpose2": "Identifies you to the service",
+  "googleAnalyticsCookieExpiry2": "24 hours",
 
-  "introMessageCookiesHeading1": "Cookies used to turn our introductory message off",
-  "introMessageCookiesParagraph1": "You may see a welcome message when you first visit the service. We&rsquo;ll store a cookie so that your computer knows not to show this message again.",
+  "googleAnalyticsCookieName3": "_gat",
+  "googleAnalyticsCookiePurpose3": "Manages the rate at which page view requests are made",
+  "googleAnalyticsCookieExpiry3": "24 hours",
 
-  "introMessageCookieName1": "seen_cookie_message",
-  "introMessageCookiePurpose1": "Saves a message to let us know that you&rsquo;ve seen our cookie message",
-  "introMessageCookieExpiry1": "1 month",
+  "googleAnalyticsAllowParagraph": "Allow cookies that measure website use?",
+  "optionYes": "Yes",
+  "optionNo": "No",
 
-  "sessionCookiesHeading1": "Cookies used to store the answers you&rsquo;ve given during your visit (known as a &lsquo;session&rsquo;)",
-  "sessionCookiesParagraph1": "Session cookies are stored on your computer as you travel through a website, and let the website know what you&rsquo;ve seen and done so far. These are temporary cookies and are automatically deleted a short while after you leave the website.",
+  "performanceCookiesHeading1": "To measure application performance",
+  "performanceCookiesParagraph1": "We use Dynatrace Software Intelligence Platform to provide an Application Performance Monitoring Service to collect information about how you use HMCTS services. We do this to monitor HM Courts and Tribunals (HMCTS) services in order to resolve issues within our services as well as collect data on how our services can be improved. HMCTS stores information about:",
 
-  "sessionCookieName1": "connect.sid",
-  "sessionCookiePurpose1": "Carries details of your current session",
-  "sessionCookieExpiry1": "When you close your browser",
+  "performanceCookies-item1": "site performance",
+  "performanceCookies-item2": "website usage",
+  "performanceCookies-item3": "user behaviour",
 
-  "identityCookiesHeading1": "Cookies used to identify you when you come back to the service",
-  "identityCookiesParagraph1": "We use authentication cookies to identify you when you return to the service.",
+  "performanceCookiesParagraph2": "Information is presented within the Application Performance Monitoring service for the purposes detailed above. We do not use or share the information for any other purpose. We do not allow Dynatrace to use or share the information for any other purposes.",
 
-  "identityCookieName1": "__auth-token",
-  "identityCookiePurpose1": "Identifies you to the service",
-  "identityCookieExpiry1": "When you close your browser",
+  "performanceCookieName1": "dtCookie",
+  "performanceCookiePurpose1": "Tracks a visit across multiple requests",
+  "performanceCookieExpiry1": "When session ends",
 
-  "securityCookiesHeading1": "Cookies used to make the service more secure",
-  "securityCookiesParagraph1": "We set cookies which prevent attackers from modifying the contents of the other cookies we set. This makes the service more secure and protects your personal information.",
+  "performanceCookieName2": "dtLatC",
+  "performanceCookiePurpose2": "Measures server latency for performance monitoring",
+  "performanceCookieExpiry2": "When session ends",
 
-  "securityCookieName1": "TS01842b02",
-  "securityCookiePurpose1": "Protects your session from tampering",
-  "securityCookieExpiry1": "When you close your browser",
+  "performanceCookieName3": "dtPC",
+  "performanceCookiePurpose3": "Required to identify proper endpoints for beacon transmission; includes session ID for correlation",
+  "performanceCookieExpiry3": "When session ends",
 
-  "securityCookieName2": "__state",
-  "securityCookiePurpose2": "Identifies you to the service and secures your authentication",
-  "securityCookieExpiry2": "When you close your browser",
+  "performanceCookieName4": "dtSa",
+  "performanceCookiePurpose4": "Intermediate store for page-spanning actions",
+  "performanceCookieExpiry4": "When session ends",
 
-  "securityCookieName3": "_csrf",
-  "securityCookiePurpose3": "Helps protect against forgery",
-  "securityCookieExpiry3": "When you close your browser"
+  "performanceCookieName5": "rxVisitor",
+  "performanceCookiePurpose5": "Visitor ID to correlate sessions",
+  "performanceCookieExpiry5": "1 year",
+
+  "performanceCookieName6": "rxvt",
+  "performanceCookiePurpose6": "Session timeout",
+  "performanceCookieExpiry6": "When session ends",
+
+  "performanceAllowParagraph": "Allow cookies that measure website application performance monitoring?",
+
+  "essentialCookiesHeading": "Strictly necessary cookies",
+  "essentialCookiesParagraph1": "These essential cookies do things like remember your progress through a form (for example a licence application).",
+  "essentialCookiesParagraph2": "You can disable them if you change the settings in your browser, but this will change how the website works (for example, the website will not remember when you answer a question).",
+
+   "save": "Save"
 }

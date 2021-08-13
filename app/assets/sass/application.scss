@@ -29,8 +29,8 @@ $path: "/public/images/";
 @import "node_modules/govuk-frontend/govuk/components/warning-text/warning-text";
 @import "node_modules/govuk-frontend/govuk/utilities/all";
 @import "node_modules/govuk-frontend/govuk/overrides/all";
+@import "node_modules/govuk-frontend/govuk/components/cookie-banner/cookie-banner";
 
-@import "patterns/cookie-bar";
 @import "patterns/phase-banner";
 @import "patterns/header";
 @import "patterns/hint";
