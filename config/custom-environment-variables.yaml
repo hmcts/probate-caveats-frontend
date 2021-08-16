@@ -47,12 +47,6 @@ redis:
   secret: REDIS_SECRET
 hostname: FRONTEND_HOSTNAME
 enableTracking: ENABLE_TRACKING
-webChat:
-  chatId: WEBCHAT_CHAT_ID
-  tenant: WEBCHAT_TENANT
-  buttonNoAgents: WEBCHAT_BUTTON_NO_AGENTS
-  buttonAgentsBusy: WEBCHAT_BUTTON_AGENTS_BUSY
-  buttonServiceClosed: WEBCHAT_BUTTON_SERVICE_CLOSED
 links:
   survey: SURVEY
   surveyEndOfApplication: SURVEY_END_OF_APPLICATION
