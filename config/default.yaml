@@ -100,12 +100,10 @@ dateFormat: 'DD/MM/YYYY'
 payloadVersion: '4.1.0'
 hostname: 'localhost:3000'
 enableTracking: 'true'
-webChat:
-  chatId: '3077733355d19fd430f23c7.02555395'
-  tenant: 'c2FuZGJveGhtY3RzMDE'
-  buttonNoAgents: '20599210435d19f59cdc3e95.94551214'
-  buttonAgentsBusy: '8752254635d19f5bb21ff07.71234899'
-  buttonServiceClosed: '4639879315d19f67c3c1055.15174024'
+webchat:
+  avayaUrl: 'webchat.training.ctsc.hmcts.net'
+  avayaClientUrl: 'webchat-client.training.ctsc.hmcts.net'
+  avayaService: 'Testing'
 links:
   accessibility: '/caveats/accessibility-statement'
   cookies: '/caveats/cookies'

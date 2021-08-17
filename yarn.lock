@@ -124,11 +124,6 @@
   resolved "https://registry.yarnpkg.com/@hapi/bourne/-/bourne-2.0.0.tgz#5bb2193eb685c0007540ca61d166d4e1edaf918d"
   integrity sha512-WEezM1FWztfbzqIUbsDzFRVMxSoLy3HugVcux6KDDtTqzPsLE8NDRHfXvev66aH1i2oOKKar3/XDjbvh/OUBdg==
 
-"@hmcts/ctsc-web-chat@^0.3.11":
-  version "0.3.12"
-  resolved "https://registry.yarnpkg.com/@hmcts/ctsc-web-chat/-/ctsc-web-chat-0.3.12.tgz#67de21992e8b27278e9d15927fe16be95d87725d"
-  integrity sha512-X25Qu27oYPppNGc+Yv4nw9USMZmUOUa/30xF8b2wPFGz2bdHjkoRwAhJgM3G//NxfwOwZWt66HdwURP1cEhD9A==
-
 "@hmcts/nodejs-healthcheck@^1.7.0":
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/@hmcts/nodejs-healthcheck/-/nodejs-healthcheck-1.7.0.tgz#82b496d8f23f32d9670564ada3e773a55f544721"
