@@ -3,6 +3,7 @@
 const co = require('co');
 const {curry, set, isEmpty, forEach} = require('lodash');
 const FormatUrl = require('app/utils/FormatUrl');
+const config = require('config');
 
 class UIStepRunner {
 
@@ -31,6 +32,7 @@ class UIStepRunner {
                 session.back.push(step.constructor.getUrl());
             }
             const common = step.commonContent(session.language);
+            common.SECURITY_COOKIE = `__auth-token-${config.payloadVersion}`;
             res.render(step.template, {content, fields, errors, common}, (err, html) => {
                 if (err) {
                     req.log.error(err);

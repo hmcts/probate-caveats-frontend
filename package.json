@@ -43,8 +43,9 @@
     "test:stryker": "NODE_PATH=. stryker run ",
     "test:mutation": "NODE_PATH=. stryker run test/mutation/mutation_unittests.conf.js",
     "test:mutation-shell": "./bin/run-mutation-tests.sh",
+    "sonar-scan-comment": "cookies has been excluded by -Dcpd.exclusions - it is covered by both unit and component test yet reports incorrectly as not covered",
     "sonar-scanner": "node_modules/sonar-scanner/bin/sonar-scanner",
-    "sonar-scan": "node_modules/sonar-scanner/bin/sonar-scanner -Dsonar.projectName='Probate :: caveats-fe' -Dsonar.sources=app -Dsonar.cpd.exclusions=app/utils/FeatureToggle.js,app/utils/FormatName.js,app/core/runners/ActionStepRunner.js,app/**/template.html,app/**/scripts.html -Dsonar.exclusions=app/assets/**,app/**/scripts.html -Dsonar.language=js -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info",
+    "sonar-scan": "node_modules/sonar-scanner/bin/sonar-scanner -Dsonar.projectName='probate-caveats-frontend' -Dsonar.sources=app -Dsonar.cpd.exclusions=app/utils/FeatureToggle.js,app/utils/FormatName.js,app/core/runners/ActionStepRunner.js,app/**/template.html,app/**/scripts.html -Dsonar.exclusions=app/assets/**,app/**/scripts.html,app/steps/ui/static/cookies/index.js -Dsonar.language=js -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info",
     "git-info": "node-git-info-json",
     "//": "The below scripts are just stubs, don't use them in production",
     "stub:orchestrator": "NODE_PATH=. node test/service-stubs/orchestrator.js",
@@ -57,7 +58,6 @@
     "lint"
   ],
   "dependencies": {
-    "@hmcts/ctsc-web-chat": "^0.3.11",
     "@hmcts/nodejs-healthcheck": "^1.7.0",
     "@hmcts/nodejs-logging": "^3.0.0",
     "@hmcts/os-places-client": "^1.1.2",
@@ -85,7 +85,7 @@
     "i18next": "^17.0.11",
     "ioredis": "^4.19.4",
     "js-yaml": "^3.13.1",
-    "launchdarkly-node-server-sdk": "^5.13.3",
+    "launchdarkly-node-server-sdk": "^6.2.0",
     "lodash": "^4.17.15",
     "mocha-lcov-reporter": "^1.3.0",
     "multer": "^1.4.2",
@@ -146,5 +146,8 @@
     "watch": "^1.0.2",
     "webdriverio": "^6.11.3",
     "when": "^3.7.8"
+  },
+  "resolutions": {
+    "launchdarkly-node-server-sdk/launchdarkly-eventsource/original/url-parse": "^1.5.2"
   }
 }
