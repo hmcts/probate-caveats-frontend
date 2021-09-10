@@ -1,8 +1,9 @@
 {
-  "title": "Deceased date of birth",
+  "title": "Do you know the deceased's date of birth",
   "question": "Do you know {deceasedName}&rsquo;s date of birth?",
   "optionYes": "Yes",
   "optionNo": "No",
+  "hiddenSummaryText": "awareness of deceased's date of birth",
 
   "errors": {
     "dobknown": {

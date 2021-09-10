@@ -2,7 +2,7 @@
 
 const config = require('config');
 const get = require('lodash').get;
-const uuidv4 = require('uuid/v4');
+const {v4: uuidv4} = require('uuid');
 const featureToggle = new (require('app/utils/FeatureToggle'))();
 
 const completeEqualityTask = (params) => {

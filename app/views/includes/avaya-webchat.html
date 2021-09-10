@@ -1,0 +1,20 @@
+<div id="avaya-webchat-open" class="govuk-body">
+    <a href="#" class="govuk-link" rel="noreferrer noopener" id="avaya-webchat-link">{{ common.helpChatWithAnAgent | safe }}</a>
+</div>
+<p class="govuk-body" id="avaya-webchat-close"> {{ common.helpChatClosed | replace("\n", "\\n") | replace("{chatOpeningHours}", common.helpChatOpeningHours) | safe }} </p>
+<p class="govuk-body" id="webchat-agent-busy"> {{ common.helpAllAgentsBusy | replace("\n", "\\n") | safe }} </p>
+<p class="govuk-body" id="webchat-maintenance"> {{ common.helpChatMaintenance | replace("\n", "\\n") | safe }} </p>
+<web-chat
+    id="avayaWebchatMetric"
+    class="hidden"
+    chat-title="Ask Probate" 
+    locale-url="public/locales/avaya-webchat"
+    url="{{ globals.webchat.avayaUrl }}"
+    secure-connections="true"
+    api-version="1.0"
+    metrics-polling-interval="30"
+    Language="English"
+    Service="{{ globals.webchat.avayaService }}"
+    page-name="Stop a grant of probate"
+    aria-hidden="true"> 
+</web-chat>

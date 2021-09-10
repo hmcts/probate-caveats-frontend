@@ -5,6 +5,7 @@ class TestConfigurator {
     constructor() {
         this.useGovPay = testConfig.TestUseGovPay;
         this.retryScenarios = testConfig.TestRetryScenarios;
+        this.environment = testConfig.TestFrontendUrl.includes('local') ? 'local' : 'aat';
     }
 
     getUseGovPay() {
@@ -13,6 +14,10 @@ class TestConfigurator {
 
     getRetryScenarios() {
         return this.retryScenarios;
+    }
+
+    equalityAndDiversityEnabled() {
+        return this.environment !== 'local';
     }
 
 }

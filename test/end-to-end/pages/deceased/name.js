@@ -1,12 +1,17 @@
 'use strict';
 
-const commonContent = require('app/resources/en/translation/common');
+const commonContentEn = require('app/resources/en/translation/common');
+const commonContentCy = require('app/resources/cy/translation/common');
 const pageUnderTest = require('app/steps/ui/deceased/name/index');
 
-module.exports = function (firstName, lastName) {
+async function enterDeceasedName(language ='en', firstName, lastName) {
+    const commonContent = language === 'en' ? commonContentEn : commonContentCy;
     const I = this;
-    I.seeCurrentUrlEquals(pageUnderTest.getUrl());
-    I.fillField('#firstName', firstName);
-    I.fillField('lastName', lastName);
-    I.waitForNavigationToComplete(`input[value="${commonContent.saveAndContinue}"]`);
-};
+
+    await I.waitInUrl(pageUnderTest.getUrl());
+    await I.fillField('#firstName', firstName);
+    await I.fillField('lastName', lastName);
+    await I.navByClick(commonContent.saveAndContinue);
+}
+
+module.exports = {enterDeceasedName};

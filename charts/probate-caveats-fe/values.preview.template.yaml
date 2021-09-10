@@ -9,6 +9,7 @@ nodejs:
     EQUALITY_URL: http://pcq-frontend-pr-217.service.core-compute-preview.internal
   keyVaults:
     probate:
+      resourceGroup: probate
       secrets:
         - idam-s2s-secret
         - ccidam-idam-api-secrets-probate
@@ -21,6 +22,10 @@ nodejs:
         - caveat-user-name
         - caveat-user-password
         - launchdarkly-key
+        - launchdarklyUserkeyCaveatFrontend
+        - webchat-avaya-url
+        - webchat-avaya-client-url
+        - webchat-avaya-service
 idam-pr:
   enabled: true
   redirect_uris:

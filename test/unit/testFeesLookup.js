@@ -8,6 +8,7 @@ const utils = require('app/components/api-utils');
 const services = require('app/components/services');
 
 describe('FeesLookup', () => {
+
     describe('lookup()', () => {
         let feesLookup;
         let servicesMock;
@@ -15,7 +16,7 @@ describe('FeesLookup', () => {
         let authToken;
 
         beforeEach(() => {
-            feesLookup = new FeesLookup('dummyApplicantId', 'dummyHostname');
+            feesLookup = new FeesLookup('dummyApplicantId');
             servicesMock = sinon.mock(services);
             fetchJsonStub = sinon.stub(utils, 'fetchJson');
             authToken = 'dummyToken';
@@ -24,6 +25,22 @@ describe('FeesLookup', () => {
         afterEach(() => {
             servicesMock.restore();
             fetchJsonStub.restore();
+        });
+
+        it('should lookup caveats fees with correct keyword Caveats', (done) => {
+            const newfee_data = {
+                applicant_type: 'all',
+                channel: 'default',
+                event: 'miscellaneous',
+                jurisdiction1: 'family',
+                jurisdiction2: 'probate registry',
+                keyword: 'Caveat',
+                service: 'probate'
+            };
+
+            feesLookup = new FeesLookup('dummyApplicantId');
+            expect(feesLookup.data).to.deep.equal(newfee_data);
+            done();
         });
 
         it('should lookup caveats fees', (done) => {
