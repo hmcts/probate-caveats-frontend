@@ -26,6 +26,7 @@ nodejs:
         - webchat-avaya-url
         - webchat-avaya-client-url
         - webchat-avaya-service
+        - pcq-token-key
 idam-pr:
   enabled: true
   redirect_uris:
