@@ -6,6 +6,7 @@ nodejs:
     REDIS_HOST: ${SERVICE_NAME}-redis-master
     REDIS_PORT: 6379
     LAUNCHDARKLY_ENABLED: false
+    EQUALITY_URL: http://pcq-frontend-pr-217.service.core-compute-preview.internal
   keyVaults:
     probate:
       secrets:
