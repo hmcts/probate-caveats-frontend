@@ -20,15 +20,13 @@ const setupSecrets = () => {
         setSecret('secrets.probate.probate-site-id', 'payment.siteId');
         setSecret('secrets.probate.caveat-user-name', 'services.idam.caveat_user_email');
         setSecret('secrets.probate.caveat-user-password', 'services.idam.caveat_user_password');
-        setSecret('secrets.probate.probate-webchat-id', 'webChat.chatId');
-        setSecret('secrets.probate.probate-webchat-tenant', 'webChat.tenant');
-        setSecret('secrets.probate.probate-webchat-button-no-agents', 'webChat.buttonNoAgents');
-        setSecret('secrets.probate.probate-webchat-button-busy', 'webChat.buttonAgentsBusy');
-        setSecret('secrets.probate.probate-webchat-button-service-closed', 'webChat.buttonServiceClosed');
         setSecret('secrets.probate.AppInsightsInstrumentationKey', 'appInsights.instrumentationKey');
         setSecret('secrets.probate.launchdarkly-key', 'featureToggles.launchDarklyKey');
         setSecret('secrets.probate.launchdarklyUserkeyCaveatFrontend', 'featureToggles.launchDarklyUser.key');
         setSecret('secrets.probate.pcq-token-key', 'services.equalityAndDiversity.tokenKey');
+        setSecret('secrets.probate.webchat-avaya-url', 'webchat.avayaUrl');
+        setSecret('secrets.probate.webchat-avaya-client-url', 'webchat.avayaClientUrl');
+        setSecret('secrets.probate.webchat-avaya-service', 'webchat.avayaService');
     }
 };
 
