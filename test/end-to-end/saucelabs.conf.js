@@ -9,7 +9,6 @@ const browser = process.env.BROWSER_GROUP || 'chrome';
 const defaultSauceOptions = {
     username: process.env.SAUCE_USERNAME,
     accessKey: process.env.SAUCE_ACCESS_KEY,
-    tunnelIdentifier: process.env.TUNNEL_IDENTIFIER || 'reformtunnel',
     acceptSslCerts: true,
     windowSize: '1600x900',
     tags: ['probate_caveats']
