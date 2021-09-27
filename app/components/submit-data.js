@@ -21,10 +21,6 @@ const submitData = (ctx, formdata) => {
 
     body.deceased.dod_date = dateformat(formdata.deceased['dod-date'], 'yyyy-mm-dd');
 
-    if (formdata.deceased.dobknown === 'optionYes') {
-        body.deceased.dob_date = dateformat(formdata.deceased['dob-date'], 'yyyy-mm-dd');
-    }
-
     if (formdata.deceased.alias === 'optionYes') {
         body.deceased.otherNames = formdata.deceased.otherNames;
     }
