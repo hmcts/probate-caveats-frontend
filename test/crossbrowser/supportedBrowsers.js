@@ -3,15 +3,15 @@ const LATEST_WINDOWS = 'Windows 10';
 
 const supportedBrowsers = {
     microsoft: {
-        ie11_win: {
-            browserName: 'internet explorer',
-            platformName: LATEST_WINDOWS,
-            browserVersion: 'latest',
-            'sauce:options': {
-                name: 'Probate Caveats: IE11',
-                screenResolution: '1400x1050'
-            }
-        },
+//        ie11_win: {
+//            browserName: 'internet explorer',
+//            platformName: LATEST_WINDOWS,
+//            browserVersion: 'latest',
+//            'sauce:options': {
+//                name: 'Probate Caveats: IE11',
+//                screenResolution: '1400x1050'
+//            }
+//        },
         edge_win_latest: {
             browserName: 'MicrosoftEdge',
             platformName: LATEST_WINDOWS,
