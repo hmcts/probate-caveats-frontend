@@ -97,6 +97,8 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
                 'webchat.training.ctsc.hmcts.net',
                 'webchat.ctsc.hmcts.net',
                 'webchat-client.training.ctsc.hmcts.net',
+                'webchat.pp.ctsc.hmcts.net',
+                'webchat-client.pp.ctsc.hmcts.net',
                 'webchat-client.ctsc.hmcts.net'
             ],
             connectSrc: [
@@ -109,6 +111,8 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
                 'https://webchat-client.training.ctsc.hmcts.net',
                 'https://webchat-client.ctsc.hmcts.net',
                 'wss://webchat.ctsc.hmcts.net',
+                'wss://webchat.pp.ctsc.hmcts.net',
+                'https://webchat-client.pp.ctsc.hmcts.net',
                 'wss://webchat.training.ctsc.hmcts.net'
             ],
             mediaSrc: [
