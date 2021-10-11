@@ -112,6 +112,7 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
                 'https://webchat-client.ctsc.hmcts.net',
                 'wss://webchat.ctsc.hmcts.net',
                 'wss://webchat.pp.ctsc.hmcts.net',
+                'https://webchat.pp.ctsc.hmcts.net',
                 'https://webchat-client.pp.ctsc.hmcts.net',
                 'wss://webchat.training.ctsc.hmcts.net'
             ],
