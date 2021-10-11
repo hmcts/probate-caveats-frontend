@@ -8,19 +8,18 @@
       </span>
     </summary>
     <div class="govuk-details__text">
-      <p class="govuk-heading-s"> {{ common.helpHeading1 | safe }}</p>
-      <p class="govuk-body"> {{ common.helpTelephoneNumber | safe }}</p>
-      <p class="govuk-body"> {{ common.helpTelephoneOpeningHours | safe }}</p>
-      <p class="govuk-heading-s"> {{ common.helpHeading2 | safe }} </p>
-      <p class="govuk-body"> {{ common.helpEmailLabel | replace("{contactEmailAddress}", common.helpEmail) | safe }} </p>
-      {% if fields.language.value == "en" and fields.isAvayaWebChatEnabled.value !== 'true'%}
-        <p class="govuk-heading-s" id="ctsc-web-chat-header"> {{ common.helpHeading3 | safe }} </p>
-        <div id="ctsc-web-chat"></div>
-      {% endif %}
-      {% if fields.language.value == "en" and fields.isAvayaWebChatEnabled.value === 'true'%}
+      {% if fields.language.value === 'en' %}
         <p class="govuk-heading-s" id="avaya-web-chat-header"> {{ common.helpHeading3 | safe }} </p>
         {% include "includes/avaya-webchat.html" %}
       {% endif %}
+      <p class="govuk-heading-s govuk-!-padding-top-2"> {{ common.helpHeading1 | safe }}</p>
+      <p class="govuk-body"> {{ common.helpTelephoneNumber | safe }}</p>
+      <p class="govuk-heading-s"> {{ common.helpHeading2 | safe }} </p>
+      <p class="govuk-body"> {{ common.helpEmailLabel | replace("{contactEmailAddress}", common.helpEmail) | safe }} </p>
+      <p class="govuk-heading-s"> {{ common.helpTelephoneOpeningHoursTitle | safe }} </p>
+      <p class="govuk-body"> {{ common.helpTelephoneOpeningHours1 | safe }} </p>
+      <p class="govuk-body"> {{ common.helpTelephoneOpeningHours2 | safe }} </p>
+      <p class="govuk-body"> {{ common.helpTelephoneOpeningHours3 | safe }} </p>
     </div>
 
   </details>

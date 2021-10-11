@@ -37,8 +37,6 @@ describe('submitData/index.js', () => {
                 'dod-year': 2018,
                 'dod-date': '2018-11-20T00:00:00.000Z',
                 'dod-formattedDate': '20 November 2018',
-                'dobknown': 'optionYes',
-                'dob-date': '1977-01-01T00:00:00.000Z',
                 'alias': 'optionYes',
                 'deceasedName': 'Mike Samuels',
                 'address': {
@@ -92,7 +90,6 @@ describe('submitData/index.js', () => {
                 'dod-year': 2018,
                 'dod-date': '2018-11-20T00:00:00.000Z',
                 'dod-formattedDate': '20 November 2018',
-                'dobknown': 'optionNo',
                 'alias': 'optionNo',
                 'deceasedName': 'Mike Samuels',
                 'address': {
