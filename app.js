@@ -69,7 +69,7 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
             avayaService: config.webchat.avayaService
         }
     };
-    console.log('GLOBALS VALUE ', globals);
+
     njkEnv.addGlobal('globals', globals);
 
     app.use(rewrite(`${globals.basePath}/public/*`, '/public/$1'));
