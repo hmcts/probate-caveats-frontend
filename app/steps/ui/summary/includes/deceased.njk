@@ -35,36 +35,6 @@
 {{checkanswer(
     items = [
         {
-            question: content.DeceasedDobKnown.question,
-            answer: content.DeceasedDobKnown[fields.deceased.dobknown.value],
-            visible: true,
-            hiddenText: content.DeceasedDobKnown.hiddenSummaryText
-        }
-    ],
-    url = content.DeceasedDobKnown.url,
-    common = common,
-    basePath = globals.basePath
-)}}
-
-{% if fields.deceased.dobknown.value == "optionYes" %}
-    {{checkanswer(
-        items = [
-            {
-                question: content.DeceasedDob.question,
-                answer: fields.deceased["dob-formattedDate"].value,
-                visible: true,
-                hiddenText: content.DeceasedDob.hiddenSummaryText
-            }
-        ],
-        url = content.DeceasedDob.url,
-        common = common,
-        basePath = globals.basePath
-    )}}
-{% endif %}
-
-{{checkanswer(
-    items = [
-        {
             question: content.DeceasedAlias.question,
             answer: content.DeceasedAlias[fields.deceased.alias.value],
             visible: true,

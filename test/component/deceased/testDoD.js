@@ -1,7 +1,7 @@
 'use strict';
 
 const TestWrapper = require('test/util/TestWrapper');
-const DeceasedDobKnown = require('app/steps/ui/deceased/dobknown/index');
+const DeceasedAlias = require('app/steps/ui/deceased/alias/index');
 const testCommonContent = require('test/component/common/testCommonContent.js');
 const config = require('config');
 const basePath = config.app.basePath;
@@ -9,7 +9,7 @@ const nock = require('nock');
 
 describe('deceased-dod', () => {
     let testWrapper;
-    const expectedNextUrlForDeceasedDobKnown = basePath + DeceasedDobKnown.getUrl();
+    const expectedNextUrlForDeceasedAlias = basePath + DeceasedAlias.getUrl();
 
     beforeEach(() => {
         testWrapper = new TestWrapper('DeceasedDod');
@@ -113,14 +113,14 @@ describe('deceased-dod', () => {
                 });
         });
 
-        it(`test it redirects to deceased dob known: ${expectedNextUrlForDeceasedDobKnown}`, (done) => {
+        it(`test it redirects to deceased alias: ${expectedNextUrlForDeceasedAlias}`, (done) => {
             const data = {
                 'dod-day': '01',
                 'dod-month': '01',
                 'dod-year': '2000'
             };
 
-            testWrapper.testRedirect(done, data, expectedNextUrlForDeceasedDobKnown);
+            testWrapper.testRedirect(done, data, expectedNextUrlForDeceasedAlias);
         });
     });
 });

@@ -6,12 +6,7 @@ const stepList = {
     ApplicantEmail: 'ApplicantAddress',
     ApplicantAddress: 'DeceasedName',
     DeceasedName: 'DeceasedDod',
-    DeceasedDod: 'DeceasedDobKnown',
-    DeceasedDobKnown: {
-        dobknown: 'DeceasedDob',
-        otherwise: 'DeceasedAlias'
-    },
-    DeceasedDob: 'DeceasedAlias',
+    DeceasedDod: 'DeceasedAlias',
     DeceasedAlias: {
         assetsInOtherNames: 'DeceasedOtherNames',
         otherwise: 'DeceasedAddress'
