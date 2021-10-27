@@ -299,7 +299,8 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
         const sslDirectory = path.join(__dirname, 'app', 'resources', 'localhost-ssl');
         const sslOptions = {
             key: fs.readFileSync(path.join(sslDirectory, 'localhost.key')),
-            cert: fs.readFileSync(path.join(sslDirectory, 'localhost.crt'))
+            cert: fs.readFileSync(path.join(sslDirectory, 'localhost.crt')),
+            secureProtocol: 'TLSv1_2_method'
         };
         const server = https.createServer(sslOptions, app);
 
