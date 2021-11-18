@@ -100,7 +100,7 @@
     "require-directory": "^2.1.1",
     "serve-favicon": "^2.5.0",
     "uuid": "^8.3.2",
-    "validator": "^11.1.0"
+    "validator": "^13.7.0"
   },
   "devDependencies": {
     "@pact-foundation/pact": "^9.13.0",
