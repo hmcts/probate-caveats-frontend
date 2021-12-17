@@ -1,4 +1,5 @@
 #!groovy
+def yarnBuilder = new uk.gov.hmcts.contino.YarnBuilder(this)
 
 properties([
         pipelineTriggers([cron('00 22 * * *')]),
@@ -45,7 +46,7 @@ withNightlyPipeline("nodejs", product, component) {
     enableFortifyScan()
     after('build') {
         sh 'mkdir -p functional-output'
-        sh 'yarn setup'
+        yarnBuilder.yarn('setup')
     }
 
     after('fullFunctionalTest') {

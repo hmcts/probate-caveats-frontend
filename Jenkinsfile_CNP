@@ -6,6 +6,8 @@ import uk.gov.hmcts.contino.AppPipelineDsl
 String product = "probate"
 String component = "caveats-fe"
 
+def yarnBuilder = new uk.gov.hmcts.contino.YarnBuilder(this)
+
 def secrets = [
   'probate-${env}': [
     secret('testIdamBaseUrl', 'IDAM_API_URL'),
@@ -33,7 +35,7 @@ def branchesToSync = ['demo', 'ithc', 'perftest']
 withPipeline("nodejs", product, component) {
   env.RUN_E2E_TEST = true
   after('build') {
-    sh 'yarn setup'
+    yarnBuilder.yarn('setup')
   }
 
   enableAksStagingDeployment()
