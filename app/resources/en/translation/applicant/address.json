@@ -1,7 +1,7 @@
 {
   "title": "Applicant address",
   "question": "What is your address?",
-  "explanation1": "We need this to send you a letter to confirm we've lodged your caveat",
+  "explanation1": "We need this to send you a letter to confirm we&rsquo;ve lodged your caveat",
   "postTown": "Town or city",
   "postcode": "Postcode",
   "country": "Country (optional)",
