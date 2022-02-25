@@ -37,7 +37,6 @@ describe('summary-deceased-section', () => {
                         firstName: deceasedContent.name.firstName,
                         lastName: deceasedContent.name.lastName,
                         alias: deceasedContent.alias.question.replace('{deceasedName}', deceasedContent.alias.theDeceased),
-                        dobKnown: deceasedContent.dobknown.question.replace('{deceasedName}', ''),
                         dod: deceasedContent.dod.question,
                         address: deceasedContent.address.question.replace('{deceasedName}', ''),
                     };
@@ -58,9 +57,7 @@ describe('summary-deceased-section', () => {
                         firstName: deceasedContent.name.firstName,
                         lastName: deceasedContent.name.lastName,
                         alias: deceasedContent.alias.question.replace('{deceasedName}', deceasedName),
-                        dobKnown: deceasedContent.dobknown.question.replace('{deceasedName}', deceasedName),
                         dod: deceasedContent.dod.question,
-                        dob: deceasedContent.dob.question,
                         address: deceasedContent.address.question
                     };
                     Object.assign(playbackData, deceasedData.deceased);

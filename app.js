@@ -69,6 +69,7 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
             avayaService: config.webchat.avayaService
         }
     };
+
     njkEnv.addGlobal('globals', globals);
 
     app.use(rewrite(`${globals.basePath}/public/*`, '/public/$1'));
@@ -97,6 +98,8 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
                 'webchat.training.ctsc.hmcts.net',
                 'webchat.ctsc.hmcts.net',
                 'webchat-client.training.ctsc.hmcts.net',
+                'webchat.pp.ctsc.hmcts.net',
+                'webchat-client.pp.ctsc.hmcts.net',
                 'webchat-client.ctsc.hmcts.net'
             ],
             connectSrc: [
@@ -109,6 +112,9 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
                 'https://webchat-client.training.ctsc.hmcts.net',
                 'https://webchat-client.ctsc.hmcts.net',
                 'wss://webchat.ctsc.hmcts.net',
+                'wss://webchat.pp.ctsc.hmcts.net',
+                'https://webchat.pp.ctsc.hmcts.net',
+                'https://webchat-client.pp.ctsc.hmcts.net',
                 'wss://webchat.training.ctsc.hmcts.net'
             ],
             mediaSrc: [
@@ -293,7 +299,8 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
         const sslDirectory = path.join(__dirname, 'app', 'resources', 'localhost-ssl');
         const sslOptions = {
             key: fs.readFileSync(path.join(sslDirectory, 'localhost.key')),
-            cert: fs.readFileSync(path.join(sslDirectory, 'localhost.crt'))
+            cert: fs.readFileSync(path.join(sslDirectory, 'localhost.crt')),
+            secureProtocol: 'TLSv1_2_method'
         };
         const server = https.createServer(sslOptions, app);
 
