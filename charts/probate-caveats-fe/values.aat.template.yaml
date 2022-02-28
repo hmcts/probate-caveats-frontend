@@ -3,3 +3,4 @@ nodejs:
   ingressHost: ${SERVICE_FQDN}
   environment:
     LAUNCHDARKLY_ENABLED: true
+    EQUALITY_URL: https://pcq.aat.platform.hmcts.net
