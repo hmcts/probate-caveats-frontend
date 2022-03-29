@@ -1,7 +1,7 @@
 {
   "title": "Applicant address",
   "question": "What is your address?",
-  "explanation1": "We&rsquo;ll send the grant of probate to this address.",
+  "explanation1": "We need this to send you a letter to confirm we&rsquo;ve lodged your caveat",
   "postTown": "Town or city",
   "postcode": "Postcode",
   "country": "Country (optional)",
