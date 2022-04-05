@@ -49,16 +49,16 @@
     "conversationEnded": "The chat session has ended but you can start a new one if you need more help",
     "startNewSession": "Start new session",
     "endChat": "End chat",
-    "offerSurvey": "Send me a feedback survey",
     "prompt": {
       "message": "If you leave the chat you will lose your place in the queue. Are you sure?",
       "yes": "Yes",
       "no": "No"
     },
-    "survey": {
-      "propose": "Would you like to take part in an Email survey at the end of your Webchat?",
-      "yes": "Yes",
-      "no": "No"
-    }
+    "offerSurvey": "Send me a feedback survey"
+  },
+  "survey": {
+    "propose": "Would you like to take part in an Email survey at the end of your Webchat?",
+    "yes": "Yes",
+    "no": "No"
   }
 }
