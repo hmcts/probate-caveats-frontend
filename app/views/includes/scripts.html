@@ -7,8 +7,8 @@
 
 {% if fields.language.value == "en" and fields.isAvayaWebChatEnabled.value === 'true'%}
    <!-- https://www.srihash.org/ creating the integrity from this url wheneverthe file changes -->
-    <script src="https://{{ globals.webchat.avayaClientUrl }}/chat-client/2/app-es2015.js" defer type="module" crossorigin="anonymous"></script>
-    <script src="https://{{ globals.webchat.avayaClientUrl }}/chat-client/2/app-es5.js" nomodule defer crossorigin="anonymous"></script>
+    <script src="https://{{ globals.webchat.avayaClientUrl }}/chat-client/1/app-es2015.js" defer type="module" crossorigin="anonymous"></script>
+    <script src="https://{{ globals.webchat.avayaClientUrl }}/chat-client/1/app-es5.js" nomodule defer crossorigin="anonymous"></script>
    
 {% endif %}
 <script src="{{ globals.basePath }}/public/javascripts/avaya-webchat-1.js"></script>
