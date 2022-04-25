@@ -16,10 +16,7 @@ describe('FeesLookup', () => {
         let authToken;
 
         beforeEach(() => {
-            const session = {
-                featureToggles: {'ft_newfee_register_code': false}
-            };
-            feesLookup = new FeesLookup('dummyApplicantId', session, 'dummyHostname');
+            feesLookup = new FeesLookup('dummyApplicantId');
             servicesMock = sinon.mock(services);
             fetchJsonStub = sinon.stub(utils, 'fetchJson');
             authToken = 'dummyToken';
@@ -30,22 +27,7 @@ describe('FeesLookup', () => {
             fetchJsonStub.restore();
         });
 
-        it('should lookup caveats fees with correct keyword MNO when feature toggle is off', (done) => {
-            const current_fee_data = {
-                applicant_type: 'all',
-                channel: 'default',
-                event: 'miscellaneous',
-                jurisdiction1: 'family',
-                jurisdiction2: 'probate registry',
-                keyword: 'Caveat',
-                service: 'probate'
-            };
-
-            expect(feesLookup.data).to.deep.equal(current_fee_data);
-            done();
-        });
-
-        it('should lookup caveats fees with correct keyword Caveats when feature toggle is on', (done) => {
+        it('should lookup caveats fees with correct keyword Caveats', (done) => {
             const newfee_data = {
                 applicant_type: 'all',
                 channel: 'default',
@@ -56,11 +38,7 @@ describe('FeesLookup', () => {
                 service: 'probate'
             };
 
-            const session = {
-                featureToggles: {'ft_newfee_register_code': true}
-            };
-
-            feesLookup = new FeesLookup('dummyApplicantId', session, 'dummyHostname');
+            feesLookup = new FeesLookup('dummyApplicantId');
             expect(feesLookup.data).to.deep.equal(newfee_data);
             done();
         });

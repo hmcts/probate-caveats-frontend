@@ -40,10 +40,12 @@ $ ln -s ../../commit-msg.sh .git/hooks/commit-msg
 
 Run the application local server:
 ```
-$ yarn start
+$ yarn start:ld
 ```
 
 The application can be completed locally at [https://localhost:3000](https://localhost:3000), provided all services are running in the background as described in the next section.
+
+add a dev.yaml file to the /config folder with contents if you want to run LauchDarkly locally
 
 ### Running the other services in Docker
 

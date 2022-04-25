@@ -23,6 +23,9 @@ nodejs:
         - caveat-user-password
         - launchdarkly-key
         - launchdarklyUserkeyCaveatFrontend
+        - webchat-avaya-url
+        - webchat-avaya-client-url
+        - webchat-avaya-service
 idam-pr:
   enabled: true
   redirect_uris:

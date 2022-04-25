@@ -4,17 +4,19 @@
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
             <h1 class="govuk-heading-l">{{ content.heading1 | safe }}</h1>
-            {% if fields.language.value == "en" and fields.isAvayaWebChatEnabled.value !== 'true'%}
-                <p class="govuk-heading-m" id="ctsc-web-chat-header"> {{ common.helpHeading3 | safe }} </p>
-                <div id="ctsc-web-chat"></div>
-            {% endif %}
-            {% if fields.language.value == "en" and fields.isAvayaWebChatEnabled.value === 'true'%}
-                <p class="govuk-heading-m" id="avaya-web-chat-header"> {{ common.helpHeading3 | safe }} </p>
+            {% if fields.language.value === 'en' %}
+                <p class="govuk-heading-s" id="avaya-web-chat-header"> {{ common.helpHeading3 | safe }} </p>
                 {% include "includes/avaya-webchat.html" %}
             {% endif %}
-            <p class="govuk-!-padding-bottom-4"> </p>
-            <p class="govuk-body">{{ content.paragraph1 | replace("{helpLineNumber}", common.helpTelephoneNumber) | safe }}</p>
-            <p class="govuk-body">{{ content.paragraph2 | replace("{helpLineHours}", common.helpTelephoneOpeningHours) | safe }}</p>
+            <p class="govuk-heading-s govuk-!-padding-top-2"> {{ common.helpHeading2 | safe }} </p>
+            <p class="govuk-body"> {{ common.helpEmailLabel | replace("{contactEmailAddress}", common.helpEmail) | safe }} </p>
+            <p class="govuk-heading-s"> {{ common.helpHeading1 | safe }}</p>
+            <p class="govuk-body"> {{ common.helpTelephoneNumber | safe }}</p>
+            <p class="govuk-heading-m govuk-!-padding-top-6"> {{ common.helpTelephoneOpeningHoursTitle | safe }} </p>
+            <p class="govuk-body"> {{ common.helpTelephoneOpeningHours1 | safe }} </p>
+            <p class="govuk-body"> {{ common.helpTelephoneOpeningHours2 | safe }} </p>
+            <p class="govuk-body"> {{ common.helpTelephoneOpeningHours3 | safe }} </p>
+            <p class="govuk-body"> {{ common.helpTelephoneOpeningHours4 | safe }} </p>
             <p class="govuk-body">{{ content.paragraph3 | replace("{callChargesLink}", globals.links.callCharges) | safe }}</p>
         </div>
     </div>

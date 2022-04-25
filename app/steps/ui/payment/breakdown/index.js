@@ -46,7 +46,7 @@ class PaymentBreakdown extends Step {
         this.nextStepUrl = () => this.next(ctx).constructor.getUrl();
 
         try {
-            const feesLookup = new FeesLookup(formdata.applicationId, session, hostname);
+            const feesLookup = new FeesLookup(formdata.applicationId);
             const confirmFees = yield feesLookup.lookup(ctx.authToken);
             this.checkFeesStatus(confirmFees);
             const originalFees = formdata.fees;
