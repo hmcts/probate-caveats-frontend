@@ -20,6 +20,10 @@ def secrets = [
   ]
 ]
 
+def checkForEnableHelmLabel(branch_name) {
+  return new GithubAPI(this).getLabelsbyPattern(branch_name, "nightly").contains("nightly")
+}
+
 static LinkedHashMap<String, Object> secret(String secretName, String envVar) {
   [ $class: 'AzureKeyVaultSecret',
     secretType: 'Secret',
@@ -43,6 +47,18 @@ withPipeline("nodejs", product, component) {
   loadVaultSecrets(secrets)
   enableSlackNotifications('#probate-jenkins')
   syncBranchesWithMaster(branchesToSync)
+
+  after('functionalTest:preview') {
+    publishHTML target: [
+            reportDir            : "functional-output/",
+            reportFiles          : "mochawesome.html",
+            reportName           : "Caveat Preview E2E Tests",
+            alwaysLinkToLastBuild: true
+    ]
+    if (checkForEnableHelmLabel(env.BRANCH_NAME)) {
+      yarnBuilder.yarn('test:fullfunctional');
+    }
+  }
 
   after('functionalTest:aat') {
       publishHTML target: [
