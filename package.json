@@ -60,7 +60,7 @@
   ],
   "dependencies": {
     "@hmcts/nodejs-healthcheck": "^1.7.0",
-    "@hmcts/nodejs-logging": "^3.0.0",
+    "@hmcts/nodejs-logging": "^4.0.0",
     "@hmcts/os-places-client": "^1.1.2",
     "@hmcts/properties-volume": "^0.0.13",
     "ajv": "^6.12.6",
