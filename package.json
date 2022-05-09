@@ -80,7 +80,7 @@
     "express-urlrewrite": "^1.2.0",
     "file-type": "^12.1.0",
     "get-port": "^4.2.0",
-    "govuk-frontend": "^3.10.2",
+    "govuk-frontend": "^4.0.0",
     "helmet": "^3.21.3",
     "https-proxy-agent": "^5.0.0",
     "i18next": "^17.0.11",
