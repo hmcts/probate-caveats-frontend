@@ -143,7 +143,7 @@
     "stryker-mocha-framework": "^0.15.1",
     "stryker-mocha-runner": "^0.17.1",
     "superagent": "^5.1.0",
-    "supertest": "^4.0.2",
+    "supertest": "^6.0.0",
     "watch": "^1.0.2",
     "webdriverio": "^6.11.3",
     "when": "^3.7.8"
