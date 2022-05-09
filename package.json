@@ -121,7 +121,7 @@
     "mocha-junit-reporter": "^1.23.3",
     "mocha-multi": "^1.1.3",
     "mochawesome": "^4.0.1",
-    "nock": "^10.0.6",
+    "nock": "^13.0.0",
     "node-sass": "^6.0.0",
     "nodemon": "^2.0.7",
     "nsp": "^3.2.1",
