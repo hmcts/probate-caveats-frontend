@@ -134,6 +134,8 @@
     "selenium-standalone": "^6.16.0",
     "sinon": "^1.17.7",
     "sinon-chai": "^3.3.0",
+    "sonar-scanner": "^3.1.0",
+    "sonarqube-scanner": "^2.5.0",
     "stryker": "^1.0.1",
     "stryker-api": "^0.24.1",
     "stryker-html-reporter": "^0.18.1",
