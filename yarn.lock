@@ -7553,7 +7553,7 @@ sonar-scanner@^3.1.0:
   resolved "https://registry.yarnpkg.com/sonar-scanner/-/sonar-scanner-3.1.0.tgz#51c1c1101f54b98abc5d8565209b1d9232979343"
   integrity sha1-UcHBEB9UuYq8XYVlIJsdkjKXk0M=
 
-sonarqube-scanner@^2.5.0:
+sonarqube-scanner@^2.8.1:
   version "2.8.1"
   resolved "https://registry.yarnpkg.com/sonarqube-scanner/-/sonarqube-scanner-2.8.1.tgz#a9a1344df1522424a071f9edcaa6a15593b9d555"
   integrity sha512-TPeHnkegi0lbb46Jk6TBqiHz09kco2AUZQLOvLzs0/9pEknQQFwfoaYqSfW7GSOYAn+BBJaD271golJaqVGHyw==
