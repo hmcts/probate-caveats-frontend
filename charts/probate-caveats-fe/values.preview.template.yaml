@@ -32,3 +32,5 @@ idam-pr:
       - https://${SERVICE_FQDN}/oauth2/callback
 redis:
   enabled: true
+  auth.enabled: false
+  replica.replicaCount: 1
