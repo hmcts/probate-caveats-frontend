@@ -38,7 +38,9 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
 
     if (config.appInsights.instrumentationKey) {
         appInsights.setup(config.appInsights.instrumentationKey);
+        appInsights.defaultClient.context.tags[appInsights.defaultClient.context.keys.cloudRole] = 'probate-frontend';
         appInsights.start();
+        appInsights.defaultClient.trackTrace({message: 'App insights activated'});
     }
 
     // Application settings
