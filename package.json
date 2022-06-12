@@ -149,6 +149,7 @@
     "when": "^3.7.8"
   },
   "resolutions": {
-    "launchdarkly-node-server-sdk/launchdarkly-eventsource/original/url-parse": "^1.5.2"
+    "launchdarkly-node-server-sdk/launchdarkly-eventsource/original/url-parse": "^1.5.10",
+    "minimist": "^1.2.6"
   }
 }
