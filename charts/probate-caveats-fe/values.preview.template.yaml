@@ -12,6 +12,7 @@ nodejs:
     probate:
       resourceGroup: probate
       secrets:
+        - AppInsightsInstrumentationKey
         - idam-s2s-secret
         - ccidam-idam-api-secrets-probate
         - postcode-service-url
