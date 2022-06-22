@@ -24,7 +24,6 @@ const FormatUrl = require('app/utils/FormatUrl');
 const os = require('os');
 const fs = require('fs');
 const https = require('https');
-const appInsights = require('applicationinsights');
 const {v4: uuidv4} = require('uuid');
 const nonce = uuidv4().replace(/-/g, '');
 const isEmpty = require('lodash').isEmpty;
@@ -35,13 +34,6 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
     const port = config.app.port;
     const releaseVersion = packageJson.version;
     const useHttps = config.app.useHttps.toLowerCase();
-
-    if (config.appInsights.instrumentationKey) {
-        appInsights.setup(config.appInsights.instrumentationKey);
-        appInsights.defaultClient.context.tags[appInsights.defaultClient.context.keys.cloudRole] = 'probate-frontend';
-        appInsights.start();
-        appInsights.defaultClient.trackTrace({message: 'App insights activated'});
-    }
 
     // Application settings
     app.set('view engine', 'html');
