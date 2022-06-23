@@ -192,6 +192,15 @@
     on-finished "^2.3.0"
     winston "^2.4.5"
 
+"@hmcts/nodejs-logging@^4.0.2":
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/@hmcts/nodejs-logging/-/nodejs-logging-4.0.2.tgz#15a7a558c78471ce60360a82b5e2f30001b4ce6f"
+  integrity sha512-wEQ7cjfQcZ4CL55zlPrFhJkg/hC+2US++ZiR35wfLfMBJEtLCEYbiRu1YzLVjQXMgGn8oaH2woYIIvpLdpt4Yg==
+  dependencies:
+    moment "^2.19.3"
+    on-finished "^2.3.0"
+    winston "^2.4.5"
+
 "@hmcts/os-places-client@^1.1.2":
   version "1.1.7"
   resolved "https://registry.yarnpkg.com/@hmcts/os-places-client/-/os-places-client-1.1.7.tgz#e8a5e32122f7f7af43c314e6026785535a8022d3"
@@ -807,7 +816,7 @@ append-transform@^0.4.0:
   dependencies:
     default-require-extensions "^1.0.0"
 
-applicationinsights@^2.2.2:
+applicationinsights@^2.3.3:
   version "2.3.3"
   resolved "https://registry.yarnpkg.com/applicationinsights/-/applicationinsights-2.3.3.tgz#2c92aaccf85cc75c7212be1764cc51c55f10501c"
   integrity sha512-Q4o6gexNhzukgmzzWYzXLa2gdJ6DhM+c35tw0lRNNjc/qldWxGHVxV65DMRYrQIp4vetLdCK7Pyd/dmEsGO4qA==
@@ -983,7 +992,7 @@ async-listener@^0.6.0:
     semver "^5.3.0"
     shimmer "^1.1.0"
 
-async@1.x, async@>=2.6.4, async@^2.1.4, async@^2.6.3, async@^3.1.0, async@^3.2.0:
+async@1.x, async@>=2.6.4, async@^2.1.4, async@^3.1.0, async@^3.2.0, async@~1.0.0:
   version "3.2.4"
   resolved "https://registry.yarnpkg.com/async/-/async-3.2.4.tgz#2d22e00f8cddeb5fde5dd33522b56d1cf569a81c"
   integrity sha512-iAB+JbDEGXhyIUavoDl9WP/Jj106Kz9DEn1DPgYw5ruDn0e3Wgi3sKFm55sASdGBNOQB8F59d9qQ7deqrHA8wQ==
