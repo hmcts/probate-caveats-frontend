@@ -1,12 +1,34 @@
 {
-    "labels": ["dependencies"],
-    "helm-requirements": 
-      {
-        "enabled": true,
-        "fileMatch": ["\\Chart.yaml|requirements.yaml$"],
-        "aliases": {
-          "hmctspublic": "https://hmctspublic.azurecr.io/helm/v1/repo/"
-        }
-      }
-  }
+  "enabledManagers": ["helm-requirements", "nvm", "npm"],
+  "labels": ["dependencies"],
+  "helm-requirements": {
+    "fileMatch": ["\\Chart.yaml$"],
+    "aliases": {
+      "hmctspublic": "https://hmctspublic.azurecr.io/helm/v1/repo/"
+    }
+  },
+  "groupName": "all dependencies",
+  "separateMajorMinor": false,
+  "groupSlug": "all",
+  "packageRules": [
+    {
+      "matchPackagePatterns": ["*"],
+      "groupName": "all dependencies",
+      "groupSlug": "all"
+    },
+    {
+      "matchPackageNames": ["ansi-regex"],
+      "allowedVersions": "<=5"
+    },
+    {
+      "matchPackageNames": ["redis"],
+      "allowedVersions": "<=3"
+    }
+  ],
+  "lockFileMaintenance": {
+    "enabled": false
+  },
+  "schedule": ["before 6am on Monday"]
+}
+
   
