@@ -1,6 +1,8 @@
 nodejs:
   image: ${IMAGE_NAME}
   ingressHost: ${SERVICE_FQDN}
+  autoscaling:
+    enabled: false
   environment:
     REDIS_USE_TLS: false
     REDIS_HOST: ${SERVICE_NAME}-redis-master
@@ -34,3 +36,6 @@ idam-pr:
       - https://${SERVICE_FQDN}/oauth2/callback
 redis:
   enabled: true
+  architecture: standalone
+  auth:
+    enabled: false
