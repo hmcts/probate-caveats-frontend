@@ -36,6 +36,3 @@ idam-pr:
       - https://${SERVICE_FQDN}/oauth2/callback
 redis:
   enabled: true
-  architecture: standalone
-  auth:
-    enabled: false
