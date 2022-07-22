@@ -78,7 +78,7 @@
     "express": "^4.17.1",
     "express-session": "^1.16.2",
     "express-urlrewrite": "^1.2.0",
-    "file-type": "^12.1.0",
+    "file-type": "^16.5.4",
     "get-port": "^4.2.0",
     "govuk-frontend": "^3.10.2",
     "helmet": "^3.21.3",
