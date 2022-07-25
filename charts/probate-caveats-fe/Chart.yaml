@@ -6,7 +6,7 @@ home: https://github.com/hmcts/probate-caveats-frontend
 version: 2.3.15
 dependencies:
   - name: nodejs
-    version: 2.4.5
+    version: 2.4.6
     repository: 'https://hmctspublic.azurecr.io/helm/v1/repo/'
   - name: redis
     version: 16.11.3
