@@ -21,7 +21,7 @@
     }
 
     if(avayaWebchatOpen){
-        avayaWebchatOpen.hidden = true;
+        avayaWebchatOpen.hidden = false;
     }
 
     if(avayaWebchatClose){
