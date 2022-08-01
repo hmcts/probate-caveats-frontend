@@ -4,7 +4,7 @@ const crypto = require('crypto');
 const config = require('config');
 const logger = require('app/components/logger')('Init');
 
-const algorithm = 'aes-256-cbc';
+const algorithm = 'aes-256-gcm';
 const iv = Buffer.alloc(16, 0); // Initialization vector.
 
 const createToken = (params) => {

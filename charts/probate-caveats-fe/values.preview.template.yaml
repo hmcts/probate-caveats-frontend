@@ -8,6 +8,7 @@ nodejs:
     REDIS_HOST: ${SERVICE_NAME}-redis-master
     REDIS_PORT: 6379
     LAUNCHDARKLY_ENABLED: false
+    EQUALITY_URL: https://pcq.aat.platform.hmcts.net
   keyVaults:
     probate:
       resourceGroup: probate
@@ -27,6 +28,7 @@ nodejs:
         - webchat-avaya-url
         - webchat-avaya-client-url
         - webchat-avaya-service
+        - pcq-token-key
 idam-pr:
   enabled: true
   redirect_uris:
