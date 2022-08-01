@@ -62,7 +62,7 @@
   "helpAllAgentsBusy": "Mae ein asiantau sgwrsio dros y we i gyd yn brysur yn helpu eraill. Rhowch gynnig arall arni hwyrach ymlaen neu cysylltwch &acirc; ni gan ddefnyddio un o&rsquo;r dulliau uchod.",
   "helpChatClosed": "Mae&rsquo;r gwasanaeth sgwrsio dros y we nawr ar gau. Yr oriau agor yw {chatOpeningHours}.",
   "helpChatAlreadyOpen": "Mae ffenestr sgwrsio dros y we ar agor yn barod.",
-  "helpChatOpeningHours": "Dydd Llun i ddydd Gwener, 8:00am i 8:00pm.",
+  "helpChatOpeningHours": "Dydd Llun i ddydd Gwener, 8:00am i 6:00pm.",
   "helpChatMaintenance": "Probate webchat is temporarily unavailable while we address a technical issue. Were sorry for any inconvenience caused.",
   "serviceTelephoneNumber": "0300 123 7050",
   "serviceTelephoneOpeningHours": "Dydd Llun i ddydd Gwener, 8:00am i 2:00pm",
