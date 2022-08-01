@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "license": "MIT",
   "engines": {
-    "node": ">=12.15.0"
+    "node": ">=14.9.3"
   },
   "scripts": {
     "setup": "NODE_PATH=. yarn sass && yarn git-info && yarn sass-ie8",
@@ -45,7 +45,7 @@
     "test:mutation-shell": "./bin/run-mutation-tests.sh",
     "sonar-scan-comment": "cookies has been excluded by -Dcpd.exclusions - it is covered by both unit and component test yet reports incorrectly as not covered",
     "sonar-scanner": "node_modules/sonar-scanner/bin/sonar-scanner",
-    "sonar-scan": "node_modules/sonar-scanner/bin/sonar-scanner -Dsonar.projectName='probate-caveats-frontend' -Dsonar.sources=app -Dsonar.cpd.exclusions=app/utils/FeatureToggle.js,app/utils/FormatName.js,app/core/runners/ActionStepRunner.js,app/**/template.html,app/**/scripts.html -Dsonar.exclusions=app/assets/**,app/**/scripts.html,app/steps/ui/static/cookies/index.js -Dsonar.language=js -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info",
+    "sonar-scan": "node_modules/sonar-scanner/bin/sonar-scanner -Dsonar.projectName='probate-caveats-frontend' -Dsonar.sources=app -Dsonar.cpd.exclusions=app/utils/FeatureToggle.js,app/utils/FormatName.js,app/core/runners/ActionStepRunner.js,app/**/template.html,app/**/scripts.html -Dsonar.exclusions=app/assets/**,app/**/scripts.html,app/steps/ui/static/cookies/index.js,app/steps/ui/equality/createToken.js -Dsonar.language=js -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info",
     "git-info": "node-git-info-json",
     "//": "The below scripts are just stubs, don't use them in production",
     "stub:orchestrator": "NODE_PATH=. node test/service-stubs/orchestrator.js",
@@ -78,7 +78,7 @@
     "express": "^4.17.1",
     "express-session": "^1.16.2",
     "express-urlrewrite": "^1.2.0",
-    "file-type": "^12.1.0",
+    "file-type": "^17.1.4",
     "get-port": "^4.2.0",
     "govuk-frontend": "^3.10.2",
     "helmet": "^3.21.3",
