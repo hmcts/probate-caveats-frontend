@@ -1,7 +1,7 @@
 {
   "name": "probate-caveats-frontend",
   "description": "Web app to check if an applicant is eligible to apply for caveats online",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "engines": {
     "node": ">=14.9.3"
