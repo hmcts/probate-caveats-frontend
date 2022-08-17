@@ -265,7 +265,7 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
     // health
     const healthCheckConfig = {
         checks: {
-            [config.services.orchestrator.name]: healthcheck.web(FormatUrl.format(config.services.orchestrator.url, config.endpoints.health), healthOptions),
+            [config.services.orchestrator.name]: healthcheck.web(FormatUrl.format(config.services.orchestrator.url, config.endpoints.health), healthOptions()),
         },
         buildInfo: {
             name: config.health.service_name,
