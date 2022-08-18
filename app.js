@@ -18,10 +18,7 @@ const utils = require(`${__dirname}/app/components/utils`);
 const packageJson = require(`${__dirname}/package`);
 const helmet = require('helmet');
 const csrf = require('csurf');
-const healthcheck = require('@hmcts/nodejs-healthcheck');
-const healthOptions = require('app/utils/healthOptions');
-const FormatUrl = require('app/utils/FormatUrl');
-const os = require('os');
+const setupHealthCheck = require('app/utils/setupHealthCheck');
 const fs = require('fs');
 const https = require('https');
 const {v4: uuidv4} = require('uuid');
@@ -263,19 +260,7 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
     }
 
     // health
-    const healthCheckConfig = {
-        checks: {
-            [config.services.orchestrator.name]: healthcheck.web(FormatUrl.format(config.services.orchestrator.url, config.endpoints.health), healthOptions()),
-        },
-        buildInfo: {
-            name: config.health.service_name,
-            host: os.hostname(),
-            uptime: process.uptime(),
-        },
-    };
-
-    healthcheck.addTo(app, healthCheckConfig);
-    app.get(`${config.app.basePath}/health`, healthcheck.configure(healthCheckConfig));
+    setupHealthCheck(app);
     app.get(`${config.app.basePath}/health/liveness`, (req, res) => res.json({status: 'UP'}));
     app.get(`${config.app.basePath}/health/readiness`, (req, res) => res.json({status: 'UP'}));
 
