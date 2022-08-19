@@ -4,6 +4,7 @@ const setupHealthCheck = require('app/utils/setupHealthCheck');
 const config = require('config');
 const modulePath = 'app/utils';
 const sinon = require('sinon');
+const assert = require('sinon').assert;
 const expect = require('chai').expect;
 const outputs = require('@hmcts/nodejs-healthcheck/healthcheck/outputs');
 const logger = require('app/components/logger')('Init');
@@ -31,7 +32,7 @@ describe(modulePath, () => {
 
     it('set up health check endpoint', () => {
         setupHealthCheck(app);
-        sinon.assert.calledWith(app.get, config.endpoints.health);
+        assert.calledWith(app.get, config.endpoints.health);
     });
 
     describe('case-orchestration-service', () => {
@@ -46,7 +47,7 @@ describe(modulePath, () => {
             const cosCallback = callArgs[1].callback;
             cosCallback(null, res);
 
-            sinon.assert.called(outputs.up);
+            assert.called(outputs.up);
         });
 
         it('throws an error if health check fails for case-orchestration-service', () => {
@@ -60,7 +61,7 @@ describe(modulePath, () => {
             const cosCallback = callArgs[1].callback;
             cosCallback('error');
 
-            sinon.assert.calledOnce(logger.error);
+            assert.calledOnce(logger.error);
         });
     });
 });
