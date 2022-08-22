@@ -296,10 +296,18 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
 
         http = server.listen(port, () => {
             console.log(`Application started: http://localhost:${port}${config.app.basePath}`);
+        }).on('error', function (err) {
+            if (err.code === 'EADDRINUSE') {
+                console.log('Address in use, assume we already opened it ' + port);
+            }
         });
     } else {
         http = app.listen(port, () => {
             console.log(`Application started: http://localhost:${port}${config.app.basePath}`);
+        }).on('error', function (err) {
+            if (err.code === 'EADDRINUSE') {
+                console.log('Address in use, assume we already opened it ' + port);
+            }
         });
     }
 
