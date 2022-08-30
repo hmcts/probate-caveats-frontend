@@ -22,8 +22,8 @@ app:
   basePath: ''
 health:
   service_name: 'Stop a grand of probate - caveats'
-  timeout: 10000
-  deadline: 15000
+  timeout: 30000
+  deadline: 30000
 services:
   orchestrator:
     name: 'Orchestrator Service'
