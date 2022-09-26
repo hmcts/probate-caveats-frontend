@@ -35,7 +35,7 @@
     "test:fullfunctional": "NODE_ENV=testing  ./bin/run-nightly-functional-tests.sh",
     "test:nightly": "NODE_ENV=testing  NODE_PATH=. node ./node_modules/codeceptjs/bin/codecept.js run-multiple parallel -c ./test/end-to-end/ --grep @nightly --steps --reporter mocha-multi",
     "test:codecov-upload": "NODE_ENV=test NODE_PATH=. istanbul cover _mocha './test/**/test*.js' -- -R spec && codecov",
-    "test:coverage": "NODE_ENV=test NODE_PATH=. istanbul cover -x 'app/utils/FormatName.js' _mocha './test/**/test*.js'",
+    "test:coverage": "NODE_ENV=test NODE_PATH=. istanbul cover -x 'app/utils/FormatName.js' _mocha './test/unit/**/test*.js' './test/component/**/test*.js'",
     "test-pact": "NODE_ENV=test NODE_PATH=. LOG_LEVEL=error mocha 'test/contract/pact/**/*.js' --timeout 10000 --reporter spec",
     "test-contract": "NODE_ENV=test NODE_PATH=. LOG_LEVEL=error mocha 'test/contract/addresslookup/**' --timeout 10000 --reporter spec",
     "publish-pact": "NODE_ENV=test NODE_PATH=. LOG_LEVEL=error mocha 'test/contract/publish/*.js' --timeout 10000 --reporter spec",
