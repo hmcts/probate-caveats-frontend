@@ -34,9 +34,10 @@ describe('Pact FeesRegisterClient', () => {
         featureToggles: {'ft_newfee_register_code': true}
     };
     const feeResponseBodyExpectation = {
-        fee_amount: like(99.00),
+        fee_amount: like(3),
         code: somethingLike('FEE0288'),
-        version: like(1),
+        description: 'Application for the entry or extension of a caveat',
+        version: like(2),
     };
     // Setup a Mock Server before unit tests run.
     // This server acts as a Test Double for the real Provider API.

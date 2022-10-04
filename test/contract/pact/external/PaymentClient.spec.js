@@ -36,7 +36,7 @@ describe('Pact PaymentClient', () => {
 
     const paymentBodyExpectation = {
         channel: somethingLike('online'),
-        amount: like(99.00),
+        amount: like(3),
         ccd_case_number: somethingLike('1535395401245028'),
         reference: somethingLike('RC-1519-9028-2432-0001'),
         status: somethingLike('Initiated'),
@@ -45,31 +45,17 @@ describe('Pact PaymentClient', () => {
     };
 
     const createPaymentData = {
-        amount: 300.00,
+        amount: 3,
         authToken: ctx.authToken,
         serviceAuthToken: ctx.session.serviceAuthorization,
         userId: ctx.userId,
-        applicationFee: 12.50,
+        applicationFee: 3,
         code: 'FEE0288',
-        copies: {
-            uk: {
-                number: 1,
-                cost: 1.50
-            },
-            overseas: {
-                number: 1,
-                cost: 3.50
-            }
-        },
         version: 1,
         deceasedLastName: 'deceasedLastName',
         ccdCaseId: '1234567891011123',
         applicationversion: 1,
         applicationcode: 'FEE0026',
-        ukcopiesversion: 0,
-        ukcopiescode: 'FEE0003',
-        overseascopiesversion: 3,
-        overseascopiescode: 'FEE0003',
     };
     const postPaymentData = {
         amount: 300,
@@ -78,17 +64,7 @@ describe('Pact PaymentClient', () => {
         service: 'PROBATE',
         currency: 'GBP',
         site_id: 'P223',
-        fees: [
-            {
-                calculated_amount: 12.5,
-                ccd_case_number: '1234567891011123',
-                memo_line: 'Probate Fees',
-                reference: 'userId',
-                volume: 1,
-                code: 'FEE0288',
-                version: 1
-            }
-        ],
+        fees: [],
         language: ''
     };
     const paymentPostedExpectation = {
@@ -158,7 +134,7 @@ describe('Pact PaymentClient', () => {
                             'Content-Type': 'application/json',
                             'Authorization': ctx.authToken,
                             'ServiceAuthorization': ctx.serviceAuthorization,
-                            'return-url': 'http://localhost/payment-status',
+                            'return-url': 'http://localhost:3000/payment-status',
                             'service-callback-url': 'http://localhost:8888/payment-updates'
                         },
                         body: postPaymentData
@@ -172,7 +148,7 @@ describe('Pact PaymentClient', () => {
             );
 
             it('successfully returns created payment', (done) => {
-                const verificationPromise = services.createPayment(createPaymentData, 'http://localhost', 'en');
+                const verificationPromise = services.createPayment(createPaymentData, 'http://localhost:3000', 'en');
                 assert.eventually.ok(verificationPromise).notify(done);
             });
         });
