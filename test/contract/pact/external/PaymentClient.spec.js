@@ -58,13 +58,21 @@ describe('Pact PaymentClient', () => {
         applicationcode: 'FEE0026',
     };
     const postPaymentData = {
-        amount: 300,
+        amount: 3,
         description: 'Probate Fees',
         ccd_case_number: '1234567891011123',
         service: 'PROBATE',
         currency: 'GBP',
         site_id: 'P223',
-        fees: [],
+        fees: [{
+            calculated_amount: 3,
+            ccd_case_number: '1234567891011123',
+            code: 'FEE0288',
+            memo_line: 'Probate Fees',
+            reference: 'userId',
+            version: 1,
+            volume: 1
+        }],
         language: ''
     };
     const paymentPostedExpectation = {
