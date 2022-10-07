@@ -4,9 +4,9 @@
   "paragraph1": "Mae&rsquo;r polisi preifatrwydd hwn yn egluro pam rydym yn casglu eich data personol a beth rydym yn ei wneud ag ef. Mae hefyd yn egluro eich hawliau a sut i&rsquo;w gorfodi.",
 
   "whoManagesThisServiceHeading": "Pwy sy&rsquo;n rheoli&rsquo;r gwasanaeth hwn",
-  "whoManagesThisServiceParagraph1": "Gwasanaeth Llysoedd a Thribiwnlysoedd EM (GLlTEM) sy&rsquo;n rheoli&rsquo;r gwasanaeth hwn, sef  un o asiantaethau gweithredol y Weinyddiaeth Gyfiawnder (MoJ).",
+  "whoManagesThisServiceParagraph1": "Gwasanaeth Llysoedd a Thribiwnlysoedd EF (GLlTEF) sy&rsquo;n rheoli&rsquo;r gwasanaeth hwn, sef  un o asiantaethau gweithredol y Weinyddiaeth Gyfiawnder (MoJ).",
   "whoManagesThisServiceParagraph2": "MoJ yw&rsquo;r rheolydd data at ddibenion diogelu data. Mae <a href=\"{mojPersonalInformationCharterLink}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener\" aria-label=\"siarter gwybodaeth bersonol MoJ (agor mewn ffenestr newydd)\">siarter gwybodaeth bersonol MoJ (agor mewn ffenestr newydd)</a> yn egluro sut mae&rsquo;r MoJ yn prosesu data personol.",
-  "whoManagesThisServiceParagraph3": "Fel rhan o&rsquo;r MoJ, mae GLlTEM yn gyfrifol am benderfynu sut mae eich data personol yn cael ei ddefnyddio ac mae&rsquo;n gyfrifol am ddiogelu&rsquo;r data personol rydych yn ei ddarparu.",
+  "whoManagesThisServiceParagraph3": "Fel rhan o&rsquo;r MoJ, mae GLlTEF yn gyfrifol am benderfynu sut mae eich data personol yn cael ei ddefnyddio ac mae&rsquo;n gyfrifol am ddiogelu&rsquo;r data personol rydych yn ei ddarparu.",
   "whoManagesThisServiceParagraph4": "Ceir rhagor o wybodaeth am ddefnyddio&rsquo;r gwasanaeth hwn yn y <a href=\"{termsLink}\" class=\"govuk-link\">telerau ac amodau</a>.",
 
   "whyWeCollectDataHeading": "Pam ydym ni&rsquo;n casglu eich data personol",
@@ -26,7 +26,7 @@
   "dataWeCollect-item6": "manylion cyswllt yr holl ysgutorion sy&rsquo;n gwneud cais am brofiant",
 
   "usingYourDataHeading": "Defnyddio eich data",
-  "usingYourDataParagraph1": "Fel rhan o&rsquo;ch cais fe ofynnir ichi ddefnyddio&rsquo;ch cyfeiriad e-bost i greu cyfrif. Byddwch yn gallu defnyddio&rsquo;r cyfeiriad e-bost hwn a chyfrinair i fewngofnodi i wasanaethau eraill GLlTEM.",
+  "usingYourDataParagraph1": "Fel rhan o&rsquo;ch cais fe ofynnir ichi ddefnyddio&rsquo;ch cyfeiriad e-bost i greu cyfrif. Byddwch yn gallu defnyddio&rsquo;r cyfeiriad e-bost hwn a chyfrinair i fewngofnodi i wasanaethau eraill GLlTEF.",
   "usingYourDataParagraph2": "Efallai y byddwn yn gofyn am eich caniat&acirc;d i ddefnyddio eich cyfeiriad e-bost i anfon negeseuon e-bost atoch trwy&rsquo;r system GOV.UK Notify. Mae&rsquo;r system hon yn prosesu negeseuon e-bost o fewn Ardal Economaidd Ewrop yn unig hyd nes y pwynt lle mae&rsquo;r negeseuon e-bost yn cael eu trosglwyddo i&rsquo;r darparwr e-bost rydych chi&rsquo;n ei ddefnyddio.",
   "usingYourDataParagraph3": "Rydym yn defnyddio <a href=\"{cookiesLink}\" class=\"govuk-link\">cwcis</a> i gasglu data am sut rydych yn defnyddio&rsquo;r gwasanaeth hwn, gan gynnwys:",
   "usingYourData-item1": "os byddwch yn agor neges e-bost gennym neu&rsquo;n clicio ar ddolen mewn e-bost",
@@ -35,7 +35,7 @@
   "usingYourData-item4": "y porwr gwe rydych yn ei ddefnyddio",
 
   "storingYourDataHeading1": "Storio eich data",
-  "storingYourDataParagraph1": "Pan fyddwch yn defnyddio&rsquo;r gwasanaeth hwn fe ofynnir ichi ddefnyddio&rsquo;ch cyfeiriad e-bost i greu cyfrif. Gallwch ddefnyddio&rsquo;r cyfeiriad e-bost hwn a chyfrinair i fewngofnodi i wasanaethau eraill GLlTEM.",
+  "storingYourDataParagraph1": "Pan fyddwch yn defnyddio&rsquo;r gwasanaeth hwn fe ofynnir ichi ddefnyddio&rsquo;ch cyfeiriad e-bost i greu cyfrif. Gallwch ddefnyddio&rsquo;r cyfeiriad e-bost hwn a chyfrinair i fewngofnodi i wasanaethau eraill GLlTEF.",
   "storingYourDataHeading2": "Cyn ichi gyflwyno eich gwybodaeth",
   "storingYourDataParagraph2": "Caiff yr wybodaeth rydych yn ei rhoi yn eich cais am brofiant ei storio hyd nes y byddwch yn penderfynu cyflwyno&rsquo;ch cais. Bydd hyn yn eich galluogi i arbed beth ydych yn ei wneud a pharhau &acirc;&rsquo;ch cais yn hwyrach ymlaen. Bydd gwybodaeth sydd wedi cael ei storio nad ydych yn ei chyflwyno yn cael ei dileu ar &ocirc;l 90 diwrnod.",
   "storingYourDataHeading3": "Ar &ocirc;l ichi gyflwyno eich cais",
