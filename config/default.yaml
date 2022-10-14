@@ -48,7 +48,7 @@ services:
   pact:
     name: 'PACT Service'
     url: 'https://pact-broker.platform.hmcts.net'
-    tag: 'Dev'
+    tag: 'master'
     pactDirectory: 'pacts'
   payment:
     name: 'Payment Service'
