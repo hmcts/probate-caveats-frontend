@@ -54,7 +54,8 @@
     "stub:idam": "NODE_PATH=. node test/service-stubs/idam.js",
     "stub:equality-and-diversity-endpoint": "NODE_PATH=. node test/service-stubs/equalityAndDiversityEndpoint.js",
     "fortifyScan": "./test/java/gradlew -p test/java fortifyScan",
-    "stub:equality-and-diversity-health": "NODE_PATH=. node test/service-stubs/equalityAndDiversityHealth.js"
+    "stub:equality-and-diversity-health": "NODE_PATH=. node test/service-stubs/equalityAndDiversityHealth.js",
+    "test:can-i-deploy:consumer": "export VERSION=$(git rev-parse --short HEAD) && SSL_CERT_FILE=test/contract/pact/cer/ca-bundle.crt pact-broker can-i-deploy --pacticipant 'probate_caveatsFrontEnd' --version ${VERSION} --broker-base-url https://pact-broker.platform.hmcts.net"
   },
   "pre-commit": [
     "lint"
