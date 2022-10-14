@@ -75,6 +75,6 @@ withPipeline("nodejs", product, component) {
   }
 
     onPR() {
-    enablePactAs([AppPipelineDsl.PactRoles.CONSUMER])
+    enablePactAs([AppPipelineDsl.PactRoles.CONSUMER_DEPLOY_CHECK])
   }
 }
