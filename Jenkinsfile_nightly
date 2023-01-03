@@ -44,20 +44,20 @@ withNightlyPipeline("nodejs", product, component) {
     enableCrossBrowserTest()
     //enableSecurityScan()
     enableFortifyScan()
-    after('build') {
+    afterSuccess('build') {
         sh 'mkdir -p functional-output'
         yarnBuilder.yarn('setup')
     }
 
-    after('fullFunctionalTest') {
+    afterSuccess('fullFunctionalTest') {
         steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'functional-output/**/*'
     }
 
-    after('crossBrowserTest') {
+    afterSuccess('crossBrowserTest') {
         steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'functional-output/**/*'
     }
 
-    after('fortify-scan') {
+    afterSuccess('fortify-scan') {
         steps.archiveArtifacts allowEmptyArchive: true, artifacts: '**/Fortify Scan/**/*'
     }
 
