@@ -28,5 +28,8 @@ describe('terms-conditions', () => {
 
             testWrapper.testContent(done, contentData);
         });
+        it('test right HM content loaded on the page', (done) => {
+            testWrapper.testContentPresent(done, ['This service is managed by His Majesty&rsquo;s Courts and Tribunals service.']);
+        });
     });
 });

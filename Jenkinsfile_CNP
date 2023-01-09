@@ -39,7 +39,7 @@ def branchesToSync = ['demo', 'ithc', 'perftest']
 
 withPipeline("nodejs", product, component) {
   env.RUN_E2E_TEST = true
-  after('build') {
+  afterSuccess('build') {
     yarnBuilder.yarn('setup')
   }
 
@@ -49,7 +49,7 @@ withPipeline("nodejs", product, component) {
   enableSlackNotifications('#probate-jenkins')
   syncBranchesWithMaster(branchesToSync)
 
-  after('functionalTest:preview') {
+  afterSuccess('functionalTest:preview') {
     publishHTML target: [
             reportDir            : "functional-output/",
             reportFiles          : "mochawesome.html",
@@ -61,7 +61,7 @@ withPipeline("nodejs", product, component) {
     }
   }
 
-  after('functionalTest:aat') {
+  afterSuccess('functionalTest:aat') {
       publishHTML target: [
 
               reportDir            : "functional-output/",
