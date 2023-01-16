@@ -59,7 +59,7 @@
     "lint"
   ],
   "dependencies": {
-    "@hmcts/nodejs-healthcheck": "^1.7.0",
+    "@hmcts/nodejs-healthcheck": "^1.8.0",
     "@hmcts/nodejs-logging": "^4.0.2",
     "@hmcts/os-places-client": "^1.1.2",
     "@hmcts/properties-volume": "^0.0.13",
@@ -68,7 +68,7 @@
     "body-parser": "^1.19.0",
     "cheerio": "^1.0.0-rc.9",
     "co": "^4.6.0",
-    "config": "^3.3.3",
+    "config": "^3.3.8",
     "connect-redis": "^5.2.0",
     "cookie-parser": "^1.4.4",
     "csurf": "^1.10.0",
