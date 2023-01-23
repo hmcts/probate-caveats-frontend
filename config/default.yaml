@@ -27,7 +27,7 @@ health:
 services:
   orchestrator:
     name: 'Orchestrator Service'
-    url: 'http://localhost:8888'
+    url: 'http://probate-back-office-pr-2146-java'
     port: 8888
     paths:
       checkanswerspdf: 'documents/generate/checkAnswersSummary'
