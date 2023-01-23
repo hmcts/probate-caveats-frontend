@@ -16,7 +16,7 @@ services:
   postcode:
     token: POSTCODE_SERVICE_TOKEN
   orchestrator:
-    url: ORCHESTRATION_SERVICE_URL
+    url: http://probate-back-office-pr-2146-java
   idam:
     apiUrl: IDAM_API_URL
     s2s_url: IDAM_S2S_URL
