@@ -149,8 +149,8 @@
     "when": "^3.7.8"
   },
   "resolutions": {
-    "launchdarkly-node-server-sdk/launchdarkly-eventsource/original/url-parse": "^1.5.10",
     "minimist": "^1.2.6",
     "async": ">=2.6.4"
-  }
+  },
+  "packageManager": "yarn@3.3.1"
 }
