@@ -42,22 +42,24 @@ describe(modulePath, () => {
                 {config: mockConfig});
             setupSecrets();
 
-            expect(mockConfig.redis.password)
-                .to.equal('dummy_password');
+            expect(mockConfig.redis.secret)
+                .to.equal('OVERWRITE_THIS');
         });
 
         it('should only set one config value when single secret path is set', () => {
-            mockConfig.secrets = {probate: {
-                'idam-s2s-secret': 'idamValue',
-            }};
+            mockConfig.secrets = {
+                probate: {
+                    'idam-s2s-secret': 'idamValue',
+                }
+            };
 
             // Update config with secret setup
             const setupSecrets = proxyquire(modulePath,
                 {config: mockConfig});
             setupSecrets();
 
-            expect(mockConfig.redis.password)
-                .to.equal('dummy_password');
+            expect(mockConfig.redis.secret)
+                .to.equal('OVERWRITE_THIS');
             expect(mockConfig.services.idam.service_key)
                 .to.equal(mockConfig.secrets.probate['idam-s2s-secret']);
         });
