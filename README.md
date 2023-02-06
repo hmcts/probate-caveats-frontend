@@ -104,7 +104,7 @@ Run the application local server alongside Redis server:
 $ yarn start:dev:ld:aat
 ```
 
-The application can be completed locally at [https://localhost:3002](https://localhost:3002). Caveats will appear in AAT. 
+The application can be completed locally at [https://localhost:3001](https://localhost:3001). Caveats will appear in AAT. 
 
 ## Developing
 ### Code style

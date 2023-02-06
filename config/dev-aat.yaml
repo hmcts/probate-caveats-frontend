@@ -3,7 +3,7 @@ featureToggles:
 app:
   useIDAM: 'true'
   requireCcdCaseId: 'true'
-  port: '3002'
+  port: '3001'
   useCSRFProtection: 'false'
 services:
   idam:
@@ -12,7 +12,7 @@ services:
     s2s_url: http://rpe-service-auth-provider-aat.service.core-compute-aat.internal
     service_name: probate_frontend
     probate_oauth2_client: probate
-    probate_redirect_base_url: http://localhost:3002
+    probate_redirect_base_url: http://localhost:3001
     probate_oauth_token_path: /o/token
   orchestrator:
     url: http://probate-orchestrator-service-aat.service.core-compute-aat.internal
