@@ -49,17 +49,7 @@ Build a `git.properties.json` by running the following command:
 $ yarn git-info
 ```
 
-Note. if setting up on an M1 with ARM architecure, node-sass is not currently supported, so before yarn install and yarn setup, run
-```
-yarn remove node-sass
-yarn add sass
-```
-Then in package.json, replace sass and sass-ie8 scripts with:
-```
-"sass": "NODE_PATH=. sass app/assets/sass/application.scss:public/stylesheets/application.css --quiet --style expanded",
-"sass-ie8": "NODE_PATH=. sass app/assets/sass/application-ie8.scss:public/stylesheets/application.css --quiet --style expanded",
-```
-Finally in ```app/assets/sass/application.scss``` and ```app/assets/sass/application-ie8.scss``` replace ```node_modules``` with ```../../../node_modules``` for all the imports.
+Note. if setting up on an M1 with ARM architecure, and node-sass is not successfully installing, make sure you're using node version 15
 
 Git hooks:
 
