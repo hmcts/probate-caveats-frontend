@@ -222,7 +222,6 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
         if (isA11yTest && !isEmpty(a11yTestSession)) {
             req.session = Object.assign(req.session, a11yTestSession);
         }
-
         next();
     });
 
