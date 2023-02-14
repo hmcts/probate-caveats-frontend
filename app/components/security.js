@@ -7,8 +7,8 @@ const logInfo = (message, applicationId = 'Unknown') => logger(applicationId).in
 const {URLSearchParams} = require('url');
 const FormatUrl = require('app/utils/FormatUrl');
 
-const getUserToken = (applicationId) => {
-    const redirect_url = FormatUrl.format(config.services.idam.caveat_redirect_base_url, config.services.idam.caveat_redirectUrl);
+const getUserToken = (hostname, applicationId) => {
+    const redirect_url = FormatUrl.format(hostname, config.services.idam.caveat_redirectUrl);
     return getOauth2Code(redirect_url, applicationId)
         .then((result) => {
             checkForError(result);
