@@ -37,7 +37,7 @@ static LinkedHashMap<String, Object> secret(String secretName, String envVar) {
 }
 
 withParameterizedPipeline('nodejs', product, component, params.ENVIRONMENT, slot) {
-  after('build') {
+  afterSuccess('build') {
     sh '''
     yarn setup
     printenv '''
@@ -46,7 +46,7 @@ withParameterizedPipeline('nodejs', product, component, params.ENVIRONMENT, slot
   loadVaultSecrets(secrets)
   env.RUN_E2E_TEST = true
 	/*
-  after('functionalTest:saat') {
+  afterSuccess('functionalTest:saat') {
 	sh "mkdir functional-output"
 	sh "cp -r output/mochawesome.* functional-output/."
         publishHTML target: [
