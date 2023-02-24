@@ -1,2 +1,5 @@
+app:
+  port: '3001'
+
 featureToggles:
   enabled: false
