@@ -13,7 +13,7 @@ const stepsToExclude = ['AddAlias', 'RemoveAlias', 'AddressLookup', 'Equality', 
 const steps = initSteps([`${__dirname}/../../app/steps/action/`, `${__dirname}/../../app/steps/ui`], 'en');
 const nock = require('nock');
 const config = require('config');
-const languages = ['en', 'cy'];
+const {getTestLanguages} = require('../end-to-end/helpers/GeneralHelpers');
 
 const commonSessionData = {
     form: {
@@ -93,6 +93,6 @@ const runTests = (language ='en') => {
 
 };
 
-languages.forEach(language => {
+getTestLanguages().forEach(language => {
     runTests(language);
 });

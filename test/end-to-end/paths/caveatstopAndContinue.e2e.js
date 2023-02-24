@@ -1,9 +1,9 @@
+const {getTestLanguages} = require('../helpers/GeneralHelpers');
 const testConfigurator = new (require('test/end-to-end/helpers/TestConfigurator'))();
-const languages = ['en', 'cy'];
 
 Feature('Caveat Stop and Continuation of Main applicant E2E...').retry(2);
 
-languages.forEach(language => {
+getTestLanguages().forEach(language => {
 
     Scenario(`${language.toUpperCase()} - Caveat Stop and Continuation of Main applicant journey:`, async function ({I}) {
         await startApplicationToApplicantAddress(I, language);
