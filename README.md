@@ -132,9 +132,9 @@ For test coverage:
 #### Running tests on the pipeline
 If you are concerned about the impact of your code changes, you may want to run a more comprehensive set of tests as
 part of the PR build. To do this, you can add the appropriate label to the PR (in GitHub), as detailed below:
-- `nightly`: This will run `yarn test:fullfunctional-pr` command which picks up all the e2e tests with the tag
+- `nightly`: This will run `yarn test:fullfunctional` command which picks up all the e2e tests with the tag
   `@e2enightly-pr`.
-- `nightly-without-welsh-tests`: This will run `yarn test:fullfunctional-pr` command which picks up all the e2e tests
+- `nightly-without-welsh-tests`: This will run `yarn test:fullfunctional` command which picks up all the e2e tests
   with the tag `@e2enightly-pr`, but only in English language.
 
 ## License

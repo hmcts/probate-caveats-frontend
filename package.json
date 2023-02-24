@@ -116,7 +116,6 @@
     "eslint": "^6.1.0",
     "eslint-plugin-mocha": "^6.0.0",
     "git-rev-sync": "^1.12.0",
-    "istanbul": "^1.1.0-alpha.1",
     "mocha": "^8.4.0",
     "mocha-jenkins-reporter": "^0.4.5",
     "mocha-junit-reporter": "^1.23.3",
