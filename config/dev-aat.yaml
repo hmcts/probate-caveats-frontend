@@ -1,0 +1,27 @@
+featureToggles:
+  enabled: 'true'
+app:
+  useIDAM: 'true'
+  requireCcdCaseId: 'true'
+  port: '3001'
+  useCSRFProtection: 'false'
+services:
+  idam:
+    loginUrl: http://idam-web-public.aat.platform.hmcts.net/login
+    apiUrl: https://idam-api.aat.platform.hmcts.net
+    s2s_url: http://rpe-service-auth-provider-aat.service.core-compute-aat.internal
+    service_name: probate_frontend
+    probate_oauth2_client: probate
+    probate_redirect_base_url: http://localhost:3001
+    probate_oauth_token_path: /o/token
+  orchestrator:
+    url: http://probate-orchestrator-service-aat.service.core-compute-aat.internal
+  validation:
+    url: http://probate-business-service-aat.service.core-compute-aat.internal/validate
+  payment:
+    createPaymentUrl: http://payment-api-aat.service.core-compute-aat.internal/card-payments
+  feesRegister:
+    url: http://fees-register-api-aat.service.core-compute-aat.internal/fees-register
+redis:
+  enabled: 'true'
+  password: ''
