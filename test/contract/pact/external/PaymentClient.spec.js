@@ -36,12 +36,25 @@ describe('Pact PaymentClient', () => {
 
     const paymentBodyExpectation = {
         channel: somethingLike('online'),
+        method: somethingLike('card'),
         amount: like(3),
         ccd_case_number: somethingLike('1535395401245028'),
         reference: somethingLike('RC-1519-9028-2432-0001'),
-        status: somethingLike('Initiated'),
-        site_id: somethingLike('siteId0001'),
-        external_reference: somethingLike('23459BC')
+        payment_group_reference: somethingLike('2019-15470733181'),
+        site_id: somethingLike('P223'),
+        external_provider: ('gov pay'),
+        external_reference: somethingLike('06kd1v30vm45hqvggphdjqbeqa'),
+        fees: [
+            {
+                calculated_amount: 3,
+                ccd_case_number: '1535395401245028',
+                memo_line: 'Caveat Fees',
+                reference: 'userId',
+                volume: 1,
+                code: 'FEE0288',
+                version: 1
+            }
+        ]
     };
 
     const createPaymentData = {
@@ -78,7 +91,7 @@ describe('Pact PaymentClient', () => {
     const paymentPostedExpectation = {
         reference: somethingLike('RC-1519-9028-2432-0001'),
         external_reference: somethingLike('e2kkddts5215h9qqoeuth5c0v'),
-        status: somethingLike('Initiated'),
+        status: somethingLike('submitted'),
         date_created: somethingLike('2020-12-11T15:40:40.079+0000')
     };
     before(() =>
