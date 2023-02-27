@@ -133,6 +133,9 @@ links:
   myAbilityLink: 'https://mcmw.abilitynet.org.uk/'
   equalityAdvisorLink: 'https://www.equalityadvisoryservice.com/'
   wcag21Link: 'https://www.w3.org/TR/WCAG21/'
+  applyForCaveatFrontpage: 'https://www.gov.uk/stop-probate-application/apply-for-a-caveat'
+  applyForCaveatFrontpageWelsh: 'https://www.gov.uk/atal-cais-am-brofiant/gwneud-cais-i-gofnodi-cafeat'
+  paymentsAccessibilityStatement: 'https://www.payments.service.gov.uk/accessibility-statement/'
 utils:
   api:
     retries: 10
