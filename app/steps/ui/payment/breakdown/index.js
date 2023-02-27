@@ -125,7 +125,7 @@ class PaymentBreakdown extends Step {
             errors.push(FieldError('authorisation', 'failure', this.resourcePath, ctx, language));
             return;
         }
-        const authToken = yield security.getUserToken(ctx.applicationId);
+        const authToken = yield security.getUserToken(ctx.hostname, ctx.applicationId);
         if (authToken.name === 'Error') {
             logInfo('failed to obtain authToken', ctx.applicationId);
             errors.push(FieldError('authorisation', 'failure', this.resourcePath, ctx, language));

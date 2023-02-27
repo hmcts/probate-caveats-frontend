@@ -49,6 +49,8 @@ Build a `git.properties.json` by running the following command:
 $ yarn git-info
 ```
 
+Note. if setting up on an M1 with ARM architecure, and node-sass is not successfully installing, make sure you're using node version 15
+
 Git hooks:
 
 We have git hooks that enforce rules for commit messages.
@@ -77,6 +79,22 @@ To run probate-frontend with the other services locally you will need to clone a
 - probate-back-office: `https://github.com/hmcts/probate-back-office` - Follow the instructions in `probate-back-office/compose/README.md`.
 - probate-orchestrator-service: `https://github.com/hmcts/probate-orchestrator-service` - Follow the instructions in `probate-orchestrator-service/README.md`
 - probate-submit-service: `https://github.com/hmcts/probate-submit-service` - Follow the instructions in `probate-submit-service/README.md`
+
+### Running the application locally with backend pointing to AAT
+Install Redis to local machine i.e.
+```
+$ brew install Redis
+```
+Then run Redis server from where redis was installed to
+```
+$ redis-server
+```
+Run the application local server alongside Redis server:
+```
+$ yarn start:dev:ld:aat
+```
+
+The application can be completed locally at [https://localhost:3001](https://localhost:3001). Caveats will appear in AAT. 
 
 ## Developing
 ### Code style
