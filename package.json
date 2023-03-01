@@ -35,8 +35,7 @@
     "test:functional": "NODE_ENV=testing  ./bin/run-functional-tests.sh",
     "test:fullfunctional": "NODE_ENV=testing  ./bin/run-nightly-functional-tests.sh",
     "test:nightly": "NODE_ENV=testing  NODE_PATH=. node ./node_modules/codeceptjs/bin/codecept.js run-multiple parallel -c ./test/end-to-end/ --grep @nightly --steps --reporter mocha-multi",
-    "test:codecov-upload": "NODE_ENV=test NODE_PATH=. istanbul cover _mocha './test/**/test*.js' -- -R spec && codecov",
-    "test:coverage": "NODE_ENV=test NODE_PATH=. istanbul cover -x 'app/utils/FormatName.js' _mocha './test/**/test*.js'",
+    "test:coverage": "NODE_ENV=test NODE_PATH=. nyc --reporter=lcov mocha './test/**/test*.js' --timeout 10000 --recursive --exit",
     "test-pact": "NODE_ENV=test NODE_PATH=. LOG_LEVEL=error mocha 'test/contract/pact/external/*.js' --timeout 10000 --reporter spec",
     "publish-pact": "NODE_ENV=test NODE_PATH=. LOG_LEVEL=error mocha 'test/contract/publish/*.js' --timeout 10000 --reporter spec",
     "test:pact:run-and-publish": "yarn test-pact && yarn publish-pact",
@@ -95,6 +94,7 @@
     "node-git-info-json": "^0.1.1",
     "numeral": "^2.0.6",
     "nunjucks": "^3.2.0",
+    "nyc": "^15.1.0",
     "otp": "^0.1.3",
     "randomstring": "^1.1.5",
     "request": "^2.88.0",
@@ -116,7 +116,6 @@
     "eslint": "^6.1.0",
     "eslint-plugin-mocha": "^6.0.0",
     "git-rev-sync": "^1.12.0",
-    "istanbul": "^1.1.0-alpha.1",
     "mocha": "^8.4.0",
     "mocha-jenkins-reporter": "^0.4.5",
     "mocha-junit-reporter": "^1.23.3",
@@ -150,10 +149,10 @@
     "when": "^3.7.8"
   },
   "resolutions": {
-    "launchdarkly-node-server-sdk/launchdarkly-eventsource/original/url-parse": "^1.5.10",
     "minimist": "^1.2.6",
     "async": ">=2.6.4",
     "cookiejar": ">=2.1.4",
     "qs": ">=6.9.7"
-  }
+  },
+  "packageManager": "yarn@3.4.1"
 }
