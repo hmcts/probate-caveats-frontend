@@ -21,7 +21,7 @@ def secrets = [
   ]
 ]
 
-def checkForEnableHelmLabel(branch_name) {
+def checkForNightlyLabel(branch_name) {
   return new GithubAPI(this).getLabelsbyPattern(branch_name, "nightly").contains("nightly")
 }
 
