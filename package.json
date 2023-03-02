@@ -109,7 +109,7 @@
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
     "chai-http": "^4.3.0",
-    "codacy-coverage": "3.2.0",
+    "codacy-coverage": "3.4.0",
     "codeceptjs": "^3.0.7",
     "codecov": "^4.0.0-0",
     "config": "^3.3.3",
