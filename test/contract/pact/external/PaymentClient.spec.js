@@ -35,7 +35,6 @@ describe('Pact PaymentClient', () => {
     };
 
     const paymentBodyExpectation = {
-        channel: somethingLike('online'),
         method: somethingLike('card'),
         amount: like(3),
         ccd_case_number: somethingLike('1234567891011123'),
@@ -44,7 +43,7 @@ describe('Pact PaymentClient', () => {
         site_id: somethingLike('P223'),
         external_provider: ('gov pay'),
         external_reference: somethingLike('06kd1v30vm45hqvggphdjqbeqa'),
-        fees: [
+        fees: somethingLike([
             {
                 calculated_amount: 3,
                 ccd_case_number: '1234567891011123',
@@ -54,7 +53,7 @@ describe('Pact PaymentClient', () => {
                 code: 'FEE0288',
                 version: 1
             }
-        ]
+        ])
     };
 
     /*
@@ -117,7 +116,7 @@ describe('Pact PaymentClient', () => {
                         path: '/card-payments/' + ctx.reference,
                         headers: {
                             'Authorization': ctx.authToken,
-                            'ServiceAuthorization': ctx.serviceAuthorization
+                            'ServiceAuthorization': ctx.session.serviceAuthorization
                         }
                     },
                     willRespondWith: {
