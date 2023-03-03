@@ -265,7 +265,33 @@
   resolved "https://registry.yarnpkg.com/@opentelemetry/semantic-conventions/-/semantic-conventions-1.4.0.tgz#facf2c67d6063b9918d5a5e3fdf25f3a30d547b6"
   integrity sha512-Hzl8soGpmyzja9w3kiFFcYJ7n5HNETpplY6cb67KR4QPlxp4FTTresO06qXHgHDhyIInmbLJXuwARjjpsKYGuQ==
 
-"@pact-foundation/pact-node@^10.11.0", "@pact-foundation/pact-node@^10.17.2":
+"@pact-foundation/pact-node@^10.13.8":
+  version "10.17.7"
+  resolved "https://registry.yarnpkg.com/@pact-foundation/pact-node/-/pact-node-10.17.7.tgz#05c611d6ceaab90857a0089cc1feef1c73769938"
+  integrity sha512-VtQQksFXbfRikdb7vse0aq3aQFU8MIisCvbVVyxNOF4jB2hjg/v0hlAci5AFVEltdL4ywFbAKbnc6c3xIbQLDA==
+  dependencies:
+    "@types/needle" "^2.5.1"
+    "@types/pino" "^6.3.5"
+    "@types/q" "1.0.7"
+    "@types/request" "2.48.2"
+    chalk "2.3.1"
+    check-types "7.3.0"
+    cross-spawn "^7.0.1"
+    libnpmconfig "^1.2.1"
+    mkdirp "1.0.0"
+    needle "^2.6.0"
+    pino "^6.11.0"
+    pino-pretty "^4.1.0"
+    q "1.5.1"
+    rimraf "2.6.2"
+    sumchecker "^2.0.2"
+    tar "^6.1.11"
+    underscore "1.12.1"
+    unixify "1.0.0"
+    unzipper "^0.10.10"
+    url-join "^4.0.0"
+
+"@pact-foundation/pact-node@^10.17.2":
   version "10.17.6"
   resolved "https://registry.yarnpkg.com/@pact-foundation/pact-node/-/pact-node-10.17.6.tgz#855c8a37efb5f224d57fa7f50e400c892ae839f6"
   integrity sha512-bBitJQa7Zlyg5drPYQHJ/yrXkGSMbE3V+owFkFJc51phfFGhcNV8ZpArid1+PqDmgMSnUG+tw1iTBEmQlzrskQ==
@@ -291,7 +317,7 @@
     unzipper "^0.10.10"
     url-join "^4.0.0"
 
-"@pact-foundation/pact@^9.13.0":
+"@pact-foundation/pact@^9.18.1":
   version "9.18.1"
   resolved "https://registry.yarnpkg.com/@pact-foundation/pact/-/pact-9.18.1.tgz#26efee5467b529af38b804fa7b10cf1b0541550b"
   integrity sha512-4AJuFmNCepy622jpu69/JJXmDhePaXBHmMtHu3NMqPOY8st8Xky2cJz+ngyFEDN6pqfy40XwCUBMUkC74RjzrQ==
