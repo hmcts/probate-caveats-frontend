@@ -5,7 +5,7 @@ const path = require('path');
 const chai = require('chai');
 const {Pact, Matchers} = require('@pact-foundation/pact');
 // Alias flexible matchers for simplicity
-const somethingLike = Matchers;
+const {somethingLike} = Matchers;
 const chaiAsPromised = require('chai-as-promised');
 const config = require('config');
 const services = require('app/components/services');
