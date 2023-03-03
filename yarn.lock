@@ -651,7 +651,43 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@pact-foundation/pact-node@npm:^10.11.0, @pact-foundation/pact-node@npm:^10.17.2":
+"@pact-foundation/pact-node@npm:^10.13.8":
+  version: 10.17.7
+  resolution: "@pact-foundation/pact-node@npm:10.17.7"
+  dependencies:
+    "@types/needle": ^2.5.1
+    "@types/pino": ^6.3.5
+    "@types/q": 1.0.7
+    "@types/request": 2.48.2
+    chalk: 2.3.1
+    check-types: 7.3.0
+    cross-spawn: ^7.0.1
+    libnpmconfig: ^1.2.1
+    mkdirp: 1.0.0
+    needle: ^2.6.0
+    pino: ^6.11.0
+    pino-pretty: ^4.1.0
+    q: 1.5.1
+    rimraf: 2.6.2
+    sumchecker: ^2.0.2
+    tar: ^6.1.11
+    underscore: 1.12.1
+    unixify: 1.0.0
+    unzipper: ^0.10.10
+    url-join: ^4.0.0
+  bin:
+    pact: bin/pact.js
+    pact-broker: bin/pact-broker.js
+    pact-message: bin/pact-message.js
+    pact-mock-service: bin/pact-mock-service.js
+    pact-provider-verifier: bin/pact-provider-verifier.js
+    pact-stub-service: bin/pact-stub-service.js
+  checksum: e56b12230da1b069f69cb5c43d3ff60fce8bc00ebb1432f1c20b8f27a00d573eebc655c1cebe7fbc5892bf2cb70a5b48b95a393ae084c1938c4527f83cbc2558
+  conditions: (os=darwin | os=linux | os=win32) & (cpu=x64 | cpu=ia32 | cpu=arm64)
+  languageName: node
+  linkType: hard
+
+"@pact-foundation/pact-node@npm:^10.17.2":
   version: 10.17.6
   resolution: "@pact-foundation/pact-node@npm:10.17.6"
   dependencies:
@@ -687,7 +723,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@pact-foundation/pact@npm:^9.13.0":
+"@pact-foundation/pact@npm:^9.18.1":
   version: 9.18.1
   resolution: "@pact-foundation/pact@npm:9.18.1"
   dependencies:
@@ -2919,7 +2955,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"config@npm:^3.3.3":
+"config@npm:^3.3.8":
   version: 3.3.9
   resolution: "config@npm:3.3.9"
   dependencies:
@@ -9444,8 +9480,8 @@ __metadata:
     "@hmcts/nodejs-logging": ^4.0.2
     "@hmcts/os-places-client": ^1.1.2
     "@hmcts/properties-volume": ^0.0.13
-    "@pact-foundation/pact": ^9.13.0
-    "@pact-foundation/pact-node": ^10.11.0
+    "@pact-foundation/pact": ^9.18.1
+    "@pact-foundation/pact-node": ^10.13.8
     ajv: ^6.12.6
     applicationinsights: ^2.3.3
     body-parser: ^1.19.0
@@ -9457,7 +9493,7 @@ __metadata:
     codacy-coverage: 3.4.0
     codeceptjs: ^3.0.7
     codecov: ^4.0.0-0
-    config: ^3.3.3
+    config: ^3.3.8
     connect-redis: ^5.2.0
     cookie-parser: ^1.4.4
     csurf: ^1.10.0
