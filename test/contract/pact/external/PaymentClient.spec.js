@@ -5,7 +5,7 @@ const path = require('path');
 const chai = require('chai');
 const {Pact, Matchers} = require('@pact-foundation/pact');
 // Alias flexible matchers for simplicity
-const {somethingLike, like} = Matchers;
+const somethingLike = Matchers;
 const chaiAsPromised = require('chai-as-promised');
 const config = require('config');
 const services = require('app/components/services');
@@ -35,25 +35,21 @@ describe('Pact PaymentClient', () => {
     };
 
     const paymentBodyExpectation = {
-        method: somethingLike('card'),
-        amount: like(3),
         ccd_case_number: somethingLike('1234567891011123'),
-        reference: somethingLike('RC-1519-9028-2432-0001'),
-        payment_group_reference: somethingLike('2019-15470733181'),
-        site_id: somethingLike('P223'),
-        external_provider: ('gov pay'),
-        external_reference: somethingLike('06kd1v30vm45hqvggphdjqbeqa'),
+        amount: somethingLike(3),
         fees: somethingLike([
-            {
-                calculated_amount: 3,
-                ccd_case_number: '1234567891011123',
-                memo_line: 'Caveat Fees',
-                reference: 'userId',
-                volume: 1,
-                code: 'FEE0288',
-                version: 1
-            }
-        ])
+
+        ]),
+        method: somethingLike('card'),
+        service_name: 'Probate',
+        channel: 'online',
+        description: 'Application for the entry or extension of a caveat',
+        external_provider: ('gov pay'),
+        reference: somethingLike('RC-1519-9028-2432-0001'),
+        external_reference: somethingLike('06kd1v30vm45hqvggphdjqbeqa'),
+        site_id: somethingLike('P223'),
+        payment_group_reference: somethingLike('2019-15470733181'),
+        currency: 'GBP'
     };
 
     /*
