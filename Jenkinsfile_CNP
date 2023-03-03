@@ -21,8 +21,12 @@ def secrets = [
   ]
 ]
 
-def checkForEnableHelmLabel(branch_name) {
+def checkForNightlyLabel(branch_name) {
   return new GithubAPI(this).getLabelsbyPattern(branch_name, "nightly").contains("nightly")
+}
+
+def checkForNightlyWithoutWelshTestsLabel(branch_name) {
+  return new GithubAPI(this).getLabelsbyPattern(branch_name, "nightly-without-welsh-tests").contains("nightly-without-welsh-tests")
 }
 
 static LinkedHashMap<String, Object> secret(String secretName, String envVar) {
@@ -56,7 +60,10 @@ withPipeline("nodejs", product, component) {
             reportName           : "Caveat Preview E2E Tests",
             alwaysLinkToLastBuild: true
     ]
-    if (checkForEnableHelmLabel(env.BRANCH_NAME)) {
+    if (checkForNightlyWithoutWelshTestsLabel(env.BRANCH_NAME)) {
+      env.DONT_TEST_WELSH = true
+      yarnBuilder.yarn('test:fullfunctional');
+    } else if (checkForNightlyLabel(env.BRANCH_NAME)) {
       yarnBuilder.yarn('test:fullfunctional');
     }
   }

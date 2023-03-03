@@ -1,0 +1,6 @@
+{
+  "all": true,
+  "check-coverage": false,
+  "include": ["app/"],
+  "exclude": ["app/assets/**", "app/utils/FormatName.js", "app/**/scripts.html"]
+}

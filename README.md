@@ -129,6 +129,12 @@ For accessibility tests:
 For test coverage:
 `$ yarn test:coverage`
 
+#### Running tests on the pipeline
+If you are concerned about the impact of your code changes, you may want to run a more comprehensive set of tests as
+part of the PR build. To do this, you can add the appropriate label to the PR (in GitHub), as detailed below:
+- `nightly`: This will run `yarn test:fullfunctional` command.
+- `nightly-without-welsh-tests`: This will run `yarn test:fullfunctional` command but only in English language.
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](https://github.com/hmcts/probate-caveats-frontend/blob/develop/LICENSE.md) file for details
