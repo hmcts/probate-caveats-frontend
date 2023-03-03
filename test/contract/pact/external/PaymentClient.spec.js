@@ -26,20 +26,23 @@ describe('Pact PaymentClient', () => {
     });
     const ctx = {
         sessionID: 'someSessionId',
-        authToken: 'authToken',
+        authToken: 'Bearer UserAuthToken',
         userId: 'userId',
         reference: '654321ABC',
         session: {
-            serviceAuthorization: 'someServiceAuthorization'
+            serviceAuthorization: 'ServiceToken'
         }
     };
 
     const paymentBodyExpectation = {
         ccd_case_number: somethingLike('1234567891011123'),
-        amount: somethingLike(3),
-        fees: somethingLike([
-
-        ]),
+        amount: somethingLike(3.00),
+        fees: somethingLike([{
+            calculated_amount: 3.00,
+            volume: 1,
+            code: 'FEE0002',
+            version: 1
+        }]),
         method: somethingLike('card'),
         service_name: 'Probate',
         channel: 'online',
@@ -106,7 +109,7 @@ describe('Pact PaymentClient', () => {
                 provider.addInteraction({
                     // The 'state' field specifies a 'Provider State'
                     state: 'A payment reference exists',
-                    uponReceiving: ' a request for information for that payment reference ',
+                    uponReceiving: 'a request for information for that payment reference',
                     withRequest: {
                         method: 'GET',
                         path: '/card-payments/' + ctx.reference,
