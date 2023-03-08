@@ -2665,12 +2665,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"codacy-coverage@npm:3.2.0":
-  version: 3.2.0
-  resolution: "codacy-coverage@npm:3.2.0"
+"codacy-coverage@npm:3.4.0":
+  version: 3.4.0
+  resolution: "codacy-coverage@npm:3.4.0"
   dependencies:
     bluebird: ^3.5.x
     commander: ^2.x
+    jacoco-parse: ^2.x
     joi: ^13.x
     lcov-parse: ^1.x
     lodash: ^4.17.4
@@ -2679,7 +2680,7 @@ __metadata:
     request-promise: ^4.x
   bin:
     codacy-coverage: ./bin/codacy-coverage.js
-  checksum: a7e94f39282b22861f449dd25759925e9e7e56688657241a13f4a816bf463566b9b77dad60f049e99b1d04ce1965beb8002204ca050fd708060ab6449dd2c443
+  checksum: 3ee2a8aab1c6bb83b767de72514091f5753652b8644bdc72852555f2a802229882ce61f007ebc3cda8799e43170607e51005d407bb83d8dced70704905f86465
   languageName: node
   linkType: hard
 
@@ -2822,6 +2823,13 @@ __metadata:
   bin:
     command-line-args: bin/cli.js
   checksum: ffabd1fb463e5cf43d3b6647ba3ef2ed9dee58459a7fda66e158b521bafd1e1fa3bd7e41e1722476ac022f0af45d626f3e7bbb2af2c65295a508e4050921a05d
+  languageName: node
+  linkType: hard
+
+"commander@npm:2.15.1":
+  version: 2.15.1
+  resolution: "commander@npm:2.15.1"
+  checksum: a1b6b66a98cd1862084fcb230d11f56d3af0e5a42c307158d987464d65112fd9f8de2a682895247d2e475f925895e70e5bda21379b1286b21c55dd5c17f0d5fa
   languageName: node
   linkType: hard
 
@@ -3269,6 +3277,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"debug@npm:3.1.0":
+  version: 3.1.0
+  resolution: "debug@npm:3.1.0"
+  dependencies:
+    ms: 2.0.0
+  checksum: 0b52718ab957254a5b3ca07fc34543bc778f358620c206a08452251eb7fc193c3ea3505072acbf4350219c14e2d71ceb7bdaa0d3370aa630b50da790458d08b3
+  languageName: node
+  linkType: hard
+
 "debug@npm:4.1.1":
   version: 4.1.1
   resolution: "debug@npm:4.1.1"
@@ -3586,6 +3603,13 @@ __metadata:
   dependencies:
     semver: ^5.3.0
   checksum: 4298b83d556d45fd411279ca6fb8b05bf73552a8a46ae8d72b2624e3ce3131ce40aedddd8f37633485944776299e4b7dec4e9e267246ff0f97654a36f4272656
+  languageName: node
+  linkType: hard
+
+"diff@npm:3.5.0":
+  version: 3.5.0
+  resolution: "diff@npm:3.5.0"
+  checksum: 00842950a6551e26ce495bdbce11047e31667deea546527902661f25cc2e73358967ebc78cf86b1a9736ec3e14286433225f9970678155753a6291c3bca5227b
   languageName: node
   linkType: hard
 
@@ -5354,6 +5378,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"glob@npm:7.1.2":
+  version: 7.1.2
+  resolution: "glob@npm:7.1.2"
+  dependencies:
+    fs.realpath: ^1.0.0
+    inflight: ^1.0.4
+    inherits: 2
+    minimatch: ^3.0.4
+    once: ^1.3.0
+    path-is-absolute: ^1.0.0
+  checksum: 821460a6cbd4e1f7feff8c24fb3eaecc2014569bd7dfd80c411fe15a5ec6f23cfdb7181574220fb52f8164cb8e9c558b68a36def4aa2a6b971641e838b8b7675
+  languageName: node
+  linkType: hard
+
 "glob@npm:7.1.6":
   version: 7.1.6
   resolution: "glob@npm:7.1.6"
@@ -5711,6 +5749,15 @@ __metadata:
     is-stream: ^2.0.0
     type-fest: ^0.8.0
   checksum: 06cc474bed246761ff61c19d629977eb5f53fa817be4313a255a64ae0f433e831a29e83acb6555e3f4592b348497596f1d1653751008dda4f21c9c21ca60ac5a
+  languageName: node
+  linkType: hard
+
+"he@npm:1.1.1":
+  version: 1.1.1
+  resolution: "he@npm:1.1.1"
+  bin:
+    he: bin/he
+  checksum: 714f98d831e912202d67d4e0b456c8b63747220e11d847069d1c3eead7c1e3ed7be28e56fd7ca3425a7ef8e857340801e8f3cec036bf00f8ebe4a2519235112f
   languageName: node
   linkType: hard
 
@@ -6726,6 +6773,16 @@ __metadata:
     es-get-iterator: ^1.0.2
     iterate-iterator: ^1.0.1
   checksum: 446a4181657df1872e5020713206806757157db6ab375dee05eb4565b66e1244d7a99cd36ce06862261ad4bd059e66ba8192f62b5d1ff41d788c3b61953af6c3
+  languageName: node
+  linkType: hard
+
+"jacoco-parse@npm:^2.x":
+  version: 2.0.1
+  resolution: "jacoco-parse@npm:2.0.1"
+  dependencies:
+    mocha: ^5.2.0
+    xml2js: ^0.4.9
+  checksum: b7d366c1ac6d5144ff0c327b4b1cd84f954996e72c37936d976729fff8f7e1b598e7c7dccf3e0dbf2c466a79c2fcb4d60f4ac6cbc2d861fde8a29d8d7a138149
   languageName: node
   linkType: hard
 
@@ -7845,6 +7902,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"mkdirp@npm:0.5.1":
+  version: 0.5.1
+  resolution: "mkdirp@npm:0.5.1"
+  dependencies:
+    minimist: 0.0.8
+  bin:
+    mkdirp: bin/cmd.js
+  checksum: ed1ab49bb1d06c88dba7cfe930a3186f2605b5465aab7c8f24119baaba6e38f9ab4ac1695c68f476c65a48df2a69a8495049cd6e26c360ea082151a0771343d2
+  languageName: node
+  linkType: hard
+
 "mkdirp@npm:0.5.x, mkdirp@npm:>=0.5 0, mkdirp@npm:^0.5.0, mkdirp@npm:^0.5.1, mkdirp@npm:^0.5.3, mkdirp@npm:^0.5.4, mkdirp@npm:~0.5.1":
   version: 0.5.6
   resolution: "mkdirp@npm:0.5.6"
@@ -7972,6 +8040,28 @@ __metadata:
     _mocha: bin/_mocha
     mocha: bin/mocha
   checksum: cf9f159f181aa640d94be9f00a7c0c646606d8a1aea5451fff2b8100cc68e8cfcd412f9056ac27fafc6dffa6a5970862bad2422f710a8ca35b6e2c83ada30481
+  languageName: node
+  linkType: hard
+
+"mocha@npm:^5.2.0":
+  version: 5.2.0
+  resolution: "mocha@npm:5.2.0"
+  dependencies:
+    browser-stdout: 1.3.1
+    commander: 2.15.1
+    debug: 3.1.0
+    diff: 3.5.0
+    escape-string-regexp: 1.0.5
+    glob: 7.1.2
+    growl: 1.10.5
+    he: 1.1.1
+    minimatch: 3.0.4
+    mkdirp: 0.5.1
+    supports-color: 5.4.0
+  bin:
+    _mocha: ./bin/_mocha
+    mocha: ./bin/mocha
+  checksum: 08d37a9fa0e67141d8e062356a6915402788fb4d7b1ff9cb7311efa140aa3f255c98f6fa64697981d721d3a41f4eb4d9a28fc986f84499456f1978c0ea2d4109
   languageName: node
   linkType: hard
 
@@ -9364,7 +9454,7 @@ __metadata:
     chai-http: ^4.3.0
     cheerio: ^1.0.0-rc.9
     co: ^4.6.0
-    codacy-coverage: 3.2.0
+    codacy-coverage: 3.4.0
     codeceptjs: ^3.0.7
     codecov: ^4.0.0-0
     config: ^3.3.3
@@ -11514,6 +11604,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"supports-color@npm:5.4.0":
+  version: 5.4.0
+  resolution: "supports-color@npm:5.4.0"
+  dependencies:
+    has-flag: ^3.0.0
+  checksum: bc84f495b07a5cdfd871243d94a5d390972e5203ca07b189f49467c46102df348044c411ce9be872f77265f6c65bea0052c4898b9b7dac25f4a45253d23caa5b
+  languageName: node
+  linkType: hard
+
 "supports-color@npm:7.1.0":
   version: 7.1.0
   resolution: "supports-color@npm:7.1.0"
@@ -12680,7 +12779,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"xml2js@npm:^0.4.19":
+"xml2js@npm:^0.4.19, xml2js@npm:^0.4.9":
   version: 0.4.23
   resolution: "xml2js@npm:0.4.23"
   dependencies:
