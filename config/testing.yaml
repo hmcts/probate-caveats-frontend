@@ -1,3 +1,6 @@
+app:
+  port: '3001'
+
 TestFrontendUrl: 'http://localhost:3000'
 TestE2EFrontendUrl: 'https://localhost:3000'
 TestUseGovPay: 'false'
