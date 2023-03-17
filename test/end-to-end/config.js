@@ -57,7 +57,7 @@ module.exports = {
         url: process.env.TEST_VALIDATION_SERVICE_URL || 'http://localhost:8080/validate'
     },
 
-    TestGovUkConfirmPaymentUrl: 'www.card.payments.service.gov.uk',
+    TestGovUkConfirmPaymentUrl: 'card.payments.service.gov.uk',
 
     TestEnvEmailAddress: 'masah.aspyn@sellcow.net',
     TestEnvMobileNumber: '07545480473',
