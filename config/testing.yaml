@@ -32,7 +32,7 @@ govPayTestCardDetails:
 validation:
   url: 'http://localhost:8080/validate'
 
-TestGovUkConfirmPaymentUrl: 'www.payments.service.gov.uk'
+TestGovUkConfirmPaymentUrl: 'www.card.payments.service.gov.uk'
 TestEnvEmailAddress: 'masah.aspyn@sellcow.net'
 TestEnvMobileNumber: '07545480473'
 s2sStubErrorSequence: '000'
