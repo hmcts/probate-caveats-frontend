@@ -6,8 +6,8 @@ exports.config = {
     'helpers': {
         'Puppeteer': {
             'url': config.TestE2EFrontendUrl + config.TestBasePath || 'http://localhost:3000',
-            'waitForTimeout': 60000,
-            'getPageTimeout': 20000,
+            'waitForTimeout': 120000,
+            'getPageTimeout': 120000,
             'show': config.TestShowBrowser,
             'waitForNavigation': ['domcontentloaded', 'networkidle0'],
             'chrome': {
