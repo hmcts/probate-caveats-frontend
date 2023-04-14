@@ -14,9 +14,7 @@ const getContentSecurityPolicy = (nonce) => (
                 'www.google-analytics.com',
                 'www.googletagmanager.com',
                 `'nonce-${nonce}'`,
-                'webchat.training.ctsc.hmcts.net',
                 'webchat.ctsc.hmcts.net',
-                'webchat-client.training.ctsc.hmcts.net',
                 'webchat.pp.ctsc.hmcts.net',
                 'webchat-client.pp.ctsc.hmcts.net',
                 'webchat-client.ctsc.hmcts.net'
@@ -26,15 +24,12 @@ const getContentSecurityPolicy = (nonce) => (
                 'www.google-analytics.com',
                 'stats.g.doubleclick.net',
                 'tagmanager.google.com',
-                'https://webchat.training.ctsc.hmcts.net',
                 'https://webchat.ctsc.hmcts.net',
-                'https://webchat-client.training.ctsc.hmcts.net',
                 'https://webchat-client.ctsc.hmcts.net',
                 'wss://webchat.ctsc.hmcts.net',
                 'wss://webchat.pp.ctsc.hmcts.net',
                 'https://webchat.pp.ctsc.hmcts.net',
-                'https://webchat-client.pp.ctsc.hmcts.net',
-                'wss://webchat.training.ctsc.hmcts.net'
+                'https://webchat-client.pp.ctsc.hmcts.net'
             ],
             mediaSrc: [
                 '\'self\''
