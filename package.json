@@ -8,6 +8,7 @@
   },
   "scripts": {
     "setup": "NODE_PATH=. yarn sass && yarn git-info && yarn sass-ie8",
+    "setup-sass": "NODE_PATH=. yarn sass && yarn sass-ie8",
     "start": "NODE_PATH=. node server.js",
     "start:ld": "NODE_ENV=dev NODE_PATH=. node server.js",
     "debug": "NODE_PATH=. node inspect server.js",

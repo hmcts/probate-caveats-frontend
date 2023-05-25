@@ -19,7 +19,7 @@ RUN apk add git
 USER hmcts
 
 RUN PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true yarn install \
-    && yarn setup \
+    && yarn setup-sass \
     && rm -rf /opt/app/.git
 
 # ---- Runtime image ----
