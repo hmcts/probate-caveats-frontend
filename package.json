@@ -139,7 +139,9 @@
     "minimist": "^1.2.6",
     "async": ">=2.6.4",
     "cookiejar": ">=2.1.4",
-    "qs": ">=6.9.7"
+    "qs": ">=6.9.7",
+    "puppeteer": "20.4.0",
+    "puppeteer-core": "20.4.0"
   },
   "packageManager": "yarn@3.4.1"
 }
