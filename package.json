@@ -58,7 +58,7 @@
     "@hmcts/nodejs-healthcheck": "^1.8.0",
     "@hmcts/nodejs-logging": "^4.0.4",
     "@hmcts/os-places-client": "^1.1.7",
-    "@hmcts/properties-volume": "^0.0.13",
+    "@hmcts/properties-volume": "^0.0.14",
     "ajv": "^6.12.6",
     "applicationinsights": "^2.3.3",
     "body-parser": "^1.19.0",
