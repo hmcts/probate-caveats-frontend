@@ -18,6 +18,6 @@
         tag: {
             text: common.phase | safe
         },
-        html: common.feedback | replace("{smartSurveyFeedbackUrl}", globals.links.survey) | replace("{currentPageUrl}", error) | safe
+        html: | safe
     }) }}
 {% endblock %}

@@ -30,6 +30,7 @@ $path: "/public/images/";
 @import "node_modules/govuk-frontend/govuk/utilities/all";
 @import "node_modules/govuk-frontend/govuk/overrides/all";
 @import "node_modules/govuk-frontend/govuk/components/cookie-banner/cookie-banner";
+@import "node_modules/govuk-frontend/govuk/components/notification-banner/notification-banner";
 
 @import "patterns/phase-banner";
 @import "patterns/header";
