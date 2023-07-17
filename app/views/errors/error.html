@@ -12,12 +12,3 @@
         </div>
     </div>
 {% endblock %}
-
-{% block beforeContent %}
-    {{ govukPhaseBanner({
-        tag: {
-            text: common.phase | safe
-        },
-        html:
-    }) }}
-{% endblock %}
