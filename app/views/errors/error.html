@@ -12,3 +12,12 @@
         </div>
     </div>
 {% endblock %}
+
+{% block beforeContent %}
+{{ govukPhaseBanner({
+tag: {
+text: common.phase | safe
+},
+html: common.feedback | replace("{smartSurveyFeedbackUrl}", globals.links.survey) | replace("{currentPageUrl}", error) | safe
+}) }}
+{% endblock %}
