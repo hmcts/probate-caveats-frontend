@@ -40,7 +40,7 @@
         tag: {
             text: common.phase | safe
         },
-        html: (common.languageToggle) | safe
+        html: (common.feedback + common.languageToggle) | replace("{smartSurveyFeedbackUrl}", globals.links.survey) | replace("{currentPageUrl}", pageUrl) | safe
     }) }}
 {% endblock %}
 
