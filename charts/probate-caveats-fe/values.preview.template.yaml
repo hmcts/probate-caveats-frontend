@@ -36,3 +36,7 @@ idam-pr:
       - https://${SERVICE_FQDN}/oauth2/callback
 redis:
   enabled: true
+  image:
+    registry: hmctspublic.azurecr.io
+    repository: imported/bitnami/redis
+    tag: '6.2.7'
