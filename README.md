@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Caveat&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Caveat) [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=Caveat&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=Caveat) [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=Caveat&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=Caveat) [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=Caveat&metric=coverage)](https://sonarcloud.io/summary/new_code?id=Caveat)
 
-This is the frontend caveats application for the Probate Caveats online service. The service provides a clear interface for citizens, presented as sequence of HTML 5 web pages designed to GDS Service Design guidelines, so that they can check that they're eligible to apply for Caveats online.
+This is the frontend caveats application for the Probate Caveats online service. The service provides a clear interface for citizens, presented as sequence of HTML 5 web pages designed to GDS Service Design guidelines, so that they can check that they're eligible to apply for Caveats online..
 
 ## Overview
 
