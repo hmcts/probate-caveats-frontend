@@ -3274,10 +3274,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"connect-redis@npm:^5.2.0":
-  version: 5.2.0
-  resolution: "connect-redis@npm:5.2.0"
-  checksum: 7ff68b342fc963bcdcc86cfbd5bc3803f99bcc02decd5d5d797c442e30bd75a749fde58123bfbcf20e1f1aca21a3f67e9fd41939546ca7d6d1a32b3351a50514
+"connect-redis@npm:^7.0.0":
+  version: 7.1.0
+  resolution: "connect-redis@npm:7.1.0"
+  peerDependencies:
+    express-session: ">=1"
+  checksum: fb493fae8910a2d61e3babd579c6344c56d7d31d67669d9941465ef00eb54ef9c1a35ccfa761136d36fa38d1f82ebe48c2b10888f292d55b4aadb8ecf1fddf34
   languageName: node
   linkType: hard
 
@@ -9714,7 +9716,7 @@ __metadata:
     codeceptjs: ^3.4.1
     codecov: ^4.0.0-0
     config: ^3.3.9
-    connect-redis: ^5.2.0
+    connect-redis: ^7.0.0
     cookie-parser: ^1.4.6
     csurf: ^1.10.0
     dateformat: ^3.0.3
