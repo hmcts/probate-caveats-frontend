@@ -141,7 +141,8 @@
     "cookiejar": ">=2.1.4",
     "qs": ">=6.9.7",
     "puppeteer": "20.4.0",
-    "puppeteer-core": "20.4.0"
+    "puppeteer-core": "20.4.0",
+    "@babel/traverse": "^7.23.2"
   },
   "packageManager": "yarn@3.4.1"
 }
