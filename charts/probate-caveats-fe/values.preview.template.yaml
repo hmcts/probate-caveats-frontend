@@ -1,6 +1,6 @@
 nodejs:
   image: ${IMAGE_NAME}
-  ingressHost: ${SERVICE_FQDN}
+  ingressHost: ${SERVICE_NAME}.preview.platform.hmcts.net
   autoscaling:
     enabled: false
   environment:
@@ -36,3 +36,7 @@ idam-pr:
       - https://${SERVICE_FQDN}/oauth2/callback
 redis:
   enabled: true
+  image:
+    registry: hmctspublic.azurecr.io
+    repository: imported/bitnami/redis
+    tag: '6.2.7'

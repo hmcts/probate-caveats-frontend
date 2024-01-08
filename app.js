@@ -1,4 +1,3 @@
-// eslint-disable-line max-lines
 /* eslint no-console: 0 no-unused-vars: 0 */
 
 'use strict';
@@ -25,6 +24,7 @@ const {v4: uuidv4} = require('uuid');
 const nonce = uuidv4().replace(/-/g, '');
 const isEmpty = require('lodash').isEmpty;
 const featureToggles = require('app/featureToggles');
+const {getContentSecurityPolicy} = require('./app/utils/getContentSecurityPolicy');
 
 exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
     const app = express();
@@ -71,66 +71,7 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
     app.use(helmet());
 
     // Content security policy to allow just assets from same domain
-    app.use(helmet.contentSecurityPolicy({
-        directives: {
-            defaultSrc: ['\'self\''],
-            fontSrc: [
-                '\'self\' data:',
-                'fonts.gstatic.com'
-            ],
-            scriptSrc: [
-                '\'self\'',
-                '\'sha256-+6WnXIl4mbFTCARd8N3COQmT3bJJmo32N8q8ZSQAIcU=\'',
-                '\'sha256-AaA9Rn5LTFZ5vKyp3xOfFcP4YbyOjvWn2up8IKHVAKk=\'',
-                '\'sha256-G29/qSW/JHHANtFhlrZVDZW1HOkCDRc78ggbqwwIJ2g=\'',
-                'www.google-analytics.com',
-                'www.googletagmanager.com',
-                `'nonce-${nonce}'`,
-                'webchat.training.ctsc.hmcts.net',
-                'webchat.ctsc.hmcts.net',
-                'webchat-client.training.ctsc.hmcts.net',
-                'webchat.pp.ctsc.hmcts.net',
-                'webchat-client.pp.ctsc.hmcts.net',
-                'webchat-client.ctsc.hmcts.net'
-            ],
-            connectSrc: [
-                '\'self\'',
-                'www.google-analytics.com',
-                'stats.g.doubleclick.net',
-                'tagmanager.google.com',
-                'https://webchat.training.ctsc.hmcts.net',
-                'https://webchat.ctsc.hmcts.net',
-                'https://webchat-client.training.ctsc.hmcts.net',
-                'https://webchat-client.ctsc.hmcts.net',
-                'wss://webchat.ctsc.hmcts.net',
-                'wss://webchat.pp.ctsc.hmcts.net',
-                'https://webchat.pp.ctsc.hmcts.net',
-                'https://webchat-client.pp.ctsc.hmcts.net',
-                'wss://webchat.training.ctsc.hmcts.net'
-            ],
-            mediaSrc: [
-                '\'self\''
-            ],
-            imgSrc: [
-                '\'self\'',
-                '\'self\' data:',
-                'www.google-analytics.com',
-                'stats.g.doubleclick.net',
-                'ssl.gstatic.com',
-                'www.gstatic.com',
-                'lh3.googleusercontent.com'
-            ],
-            styleSrc: [
-                '\'self\'',
-                '\'unsafe-inline\'',
-                'tagmanager.google.com',
-                'fonts.googleapis.com'
-            ],
-            frameAncestors: ['\'self\'']
-        },
-        browserSniff: true,
-        setAllHeaders: true
-    }));
+    app.use(helmet.contentSecurityPolicy(getContentSecurityPolicy(nonce)));
 
     // Http public key pinning
     app.use(helmet.hpkp({

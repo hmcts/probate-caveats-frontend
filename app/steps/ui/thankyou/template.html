@@ -36,9 +36,13 @@
                 {{ govukInsetText({
                     text: content.successParagraph3 | replace("{citizenAdvice}", globals.links.citizenAdvice) | safe
                 }) }}
-
-                <a href="{{ globals.links.surveyEndOfApplication | safe }}" class="govuk-link" target="_blank" rel="external noopener noreferrer" aria-label="{{ content.survey | safe }}">{{ content.survey | safe }}</a>
+            <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner" style="margin-bottom:30px;">
+                <div class="govuk-notification-banner__content">
+                    <p class="govuk-notification-banner__heading" style="max-width: 600px">{{ common.exitFeedbackHeading | safe }}</p>
+                    <p class="govuk-body" style="max-width: 600px">{{ common.exitFeedback | replace("{smartSurveyFeedbackUrl}", globals.links.surveyEndOfApplication) | replace("{currentPageUrl}", pageUrl) | safe }}</p>
+                </div>
             </div>
+        </div>
         </div>
     </main>
 {% endblock %}
