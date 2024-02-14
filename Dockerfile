@@ -28,7 +28,7 @@ FROM build as runtime
 #COPY --from=build ${WORKDIR}/app app/
 #COPY --from=build ${WORKDIR}/config config/
 #COPY --from=build ${WORKDIR}/public public/
-#COPY --from=build ${WORKDIR}/server.js ${WORKDIR}/app.js ${WORKDIR}/git.properties.jsonn ./
+#COPY --from=build ${WORKDIR}/server.js ${WORKDIR}/app.js ${WORKDIR}/git.properties.json ./
 EXPOSE 3000
 CMD ["yarn", "start" ]
 
