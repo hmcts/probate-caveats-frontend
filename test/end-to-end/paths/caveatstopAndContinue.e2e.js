@@ -17,6 +17,7 @@ getTestLanguages().forEach(language => {
         await I.selectBilingualGopNo(language);
         if (testConfigurator.equalityAndDiversityEnabled) {
             await I.completeEquality(language);
+            await I.selectBilingualGopNo(language);
         }
 
         await I.seeSummaryPage(language);
