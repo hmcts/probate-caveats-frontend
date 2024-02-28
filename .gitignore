@@ -33,3 +33,7 @@ git.properties.json
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/

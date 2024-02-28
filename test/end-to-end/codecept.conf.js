@@ -4,7 +4,7 @@ exports.config = {
     'tests': config.TestPathToRun,
     'output': `${process.cwd()}/${config.TestOutputDir}`,
     'helpers': {
-        'Puppeteer': {
+        'Playwright': {
             'url': config.TestE2EFrontendUrl + config.TestBasePath || 'http://localhost:3000',
             'waitForTimeout': 60000,
             'getPageTimeout': 20000,
@@ -14,7 +14,7 @@ exports.config = {
                 'ignoreHTTPSErrors': true,
                 'ignore-certificate-errors': true,
                 args: [
-                    '--headless', '--disable-gpu', '--no-sandbox', '--allow-running-insecure-content', '--ignore-certificate-errors',
+                    '--disable-gpu', '--no-sandbox', '--allow-running-insecure-content', '--ignore-certificate-errors',
                     //'--proxy-server=proxyout.reform.hmcts.net:8080',
                     //'--proxy-bypass-list=*beta*LB.reform.hmcts.net'
                 ]
