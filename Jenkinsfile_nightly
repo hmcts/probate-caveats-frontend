@@ -42,6 +42,7 @@ withNightlyPipeline("nodejs", product, component) {
     loadVaultSecrets(secrets)
     enableFullFunctionalTest()
     enableCrossBrowserTest()
+    enableFortifyScan('probate-aat')
     //enableSecurityScan()
     afterAlways('build') {
         sh 'mkdir -p functional-output'
