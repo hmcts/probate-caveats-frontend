@@ -60,7 +60,7 @@ payment:
   version: version
   currency: currency
 appInsights:
-  instrumentationKey: APPINSIGHTS_INSTRUMENTATION_KEY
+  connectionString: APP-INSIGHTS-CONNECTION-STRING
 
 TestFrontendUrl: TEST_URL
 TestE2EFrontendUrl: TEST_E2E_URL
