@@ -42,8 +42,8 @@ withNightlyPipeline("nodejs", product, component) {
     loadVaultSecrets(secrets)
     enableFullFunctionalTest()
     enableCrossBrowserTest()
+    enableFortifyScan('probate-aat')
     //enableSecurityScan()
-    enableFortifyScan()
     afterAlways('build') {
         sh 'mkdir -p functional-output'
         yarnBuilder.yarn('setup')
@@ -55,10 +55,6 @@ withNightlyPipeline("nodejs", product, component) {
 
     afterAlways('crossBrowserTest') {
         steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'functional-output/**/*'
-    }
-
-    afterAlways('fortify-scan') {
-        steps.archiveArtifacts allowEmptyArchive: true, artifacts: '**/Fortify Scan/**/*'
     }
 
     //    enableSlackNotifications('#probate-qa')  // can be turned back on once the overnight functionality is working fully
