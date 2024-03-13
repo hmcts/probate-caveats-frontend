@@ -16,7 +16,6 @@ services:
       REFORM_SERVICE_NAME: ccd-user-profile-api
       REFORM_TEAM: ccd
       REFORM_ENVIRONMENT: local
-      APPINSIGHTS_INSTRUMENTATIONKEY: key
     ports:
       - 4453:4453
     depends_on:
@@ -40,7 +39,6 @@ services:
       REFORM_SERVICE_NAME: ccd-definition-store-api
       REFORM_TEAM: ccd
       REFORM_ENVIRONMENT: local
-      APPINSIGHTS_INSTRUMENTATIONKEY: key
       ELASTIC_SEARCH_ENABLED: "${ES_ENABLED_DOCKER}"
       ELASTIC_SEARCH_HOST: "ccd-elasticsearch"
       ELASTIC_SEARCH_FAIL_ON_IMPORT: "true"
@@ -72,7 +70,6 @@ services:
       REFORM_SERVICE_NAME: ccd-data-store-api
       REFORM_TEAM: ccd
       REFORM_ENVIRONMENT: local
-      APPINSIGHTS_INSTRUMENTATIONKEY: key
       ELASTIC_SEARCH_ENABLED: "${ES_ENABLED_DOCKER}"
       ELASTIC_SEARCH_HOSTS: ccd-elasticsearch:9200
       ELASTIC_SEARCH_DATA_NODES_HOSTS: "http://ccd-elasticsearch:9200"
@@ -121,7 +118,6 @@ services:
       PROXY_DEFINITION_DATA: http://ccd-definition-store-api:4451/api/data
       PROXY_DEFINITION_DISPLAY: http://ccd-definition-store-api:4451/api/display
       PROXY_PAYMENTS: http://payments-api:8080
-      APPINSIGHTS_INSTRUMENTATIONKEY: 4
     ports:
       - 3453:3453
     depends_on:
@@ -289,7 +285,6 @@ services:
       SPRING_DATASOURCE_USERNAME: ${DB_USERNAME}
       SPRING_DATASOURCE_PASSWORD: ${DB_USERNAME}
       AUTH_IDAM_CLIENT_BASEURL: "http://sidam-api:5000"
-      APPINSIGHTS_INSTRUMENTATIONKEY: "key"
       SPRING_LIQUIBASE_ENABLED: "true"
       ENABLE_FEE_LOADER: "true"
     ports:
@@ -406,7 +401,6 @@ services:
     image: hmctspublic.azurecr.io/rpe/send-letter-service
     environment:
       - JAVA_TOOL_OPTIONS=-Xms128m -Xmx400m
-      - APPINSIGHTS_INSTRUMENTATIONKEY=DUMMY
       - SERVER_PORT=8485
       - FTP_FINGERPRINT=fingerprint
       - FTP_HOSTNAME=hostname
@@ -549,7 +543,6 @@ services:
       - PAYBUBBLE_HOME_URL=https://ccpay-bubble-frontend-aat.service.core-compute-aat.internal
       - PCI_PAL_CALLBACK_URL=https://core-api-mgmt-aat.azure-api.net/telephony-api/telephony/callback
       - ASB_CONNECTION_STRING=some-azure-service-bus-connection-string
-      - APPINSIGHTS_INSTRUMENTATIONKEY=DUMMY
       - CORE_CASE_DATA_API_URL=http://ccd-data-store-api:4452
     ports:
       - 8383:8080
