@@ -8,10 +8,10 @@ exports.forceHttps = function (req, res, next) {
     next();
 };
 
-exports.getStore = (redisConfig, session) => {
+exports.getStore = (redisConfig) => {
     if (redisConfig.enabled === 'true') {
         const Redis = require('ioredis');
-        const RedisStore = require('connect-redis')(session);
+        const RedisStore = require('connect-redis').default;
         const tlsOptions = {
             password: redisConfig.password,
             tls: true
