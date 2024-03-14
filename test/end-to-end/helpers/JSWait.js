@@ -2,7 +2,7 @@ class JSWait extends codecept_helper {
 
     _beforeStep(step) {
 
-        const helper = this.helpers.WebDriver || this.helpers.Puppeteer;
+        const helper = this.helpers.WebDriver || this.helpers.Playwright;
 
         if (step.name === 'seeCurrentUrlEquals' || step.name === 'seeInCurrentUrl') {
             return helper.waitForElement('body', 30);
@@ -10,8 +10,8 @@ class JSWait extends codecept_helper {
     }
 
     async navByClick (text, locator) {
-        const helper = this.helpers.WebDriver || this.helpers.Puppeteer;
-        const helperIsPuppeteer = this.helpers.Puppeteer;
+        const helper = this.helpers.WebDriver || this.helpers.Playwright;
+        const helperIsPlaywright = this.helpers.Playwright;
 
         if (locator) {
             locator = this.appendNotCookieBannerToSelector(locator);
@@ -19,7 +19,7 @@ class JSWait extends codecept_helper {
             text = this.appendNotCookieBannerToSelector(text);
         }
 
-        if (helperIsPuppeteer) {
+        if (helperIsPlaywright) {
             helper.click(text, locator).catch(err => {
                 console.error(err.message);
             });
@@ -42,14 +42,14 @@ class JSWait extends codecept_helper {
 
     async amOnLoadedPage (url, language ='en') {
         let newUrl = `${url}?lng=${language}`;
-        const helper = this.helpers.WebDriver || this.helpers.Puppeteer;
-        const helperIsPuppeteer = this.helpers.Puppeteer;
+        const helper = this.helpers.WebDriver || this.helpers.Playwright;
+        const helperIsPlaywright = this.helpers.Playwright;
 
         if (newUrl.indexOf('http') !== 0) {
             newUrl = helper.options.url + newUrl;
         }
 
-        if (helperIsPuppeteer) {
+        if (helperIsPlaywright) {
             helper.page.goto(newUrl).catch(err => {
                 console.error(err.message);
             });
@@ -63,7 +63,7 @@ class JSWait extends codecept_helper {
     }
 
     async waitForOptionalPage(url) {
-        const helper = this.helpers.WebDriver || this.helpers.Puppeteer;
+        const helper = this.helpers.WebDriver || this.helpers.Playwright;
         try {
             await helper.waitInUrl(url);
         } catch (e) {
@@ -74,12 +74,12 @@ class JSWait extends codecept_helper {
     }
 
     clickBrowserBackButton() {
-        const page = this.helpers.WebDriver.page || this.helpers.Puppeteer.page;
+        const page = this.helpers.WebDriver.page || this.helpers.Playwright.page;
         return page.goBack();
     }
 
     async checkElementExist(selector) {
-        const helper = this.helpers.WebDriver || this.helpers.Puppeteer;
+        const helper = this.helpers.WebDriver || this.helpers.Playwright;
 
         try {
             await helper.waitForElement(selector, 3);

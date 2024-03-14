@@ -148,7 +148,7 @@ payment:
   siteId: 'P223'
   currency: 'GBP'
 appInsights:
-  instrumentationKey: ''
+  connectionString: ''
 livenessEndpoint: '/health/liveness'
 endpoints:
   health: '/health'
