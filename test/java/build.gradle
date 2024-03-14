@@ -3,8 +3,8 @@ plugins {
     id 'application'
 }
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+sourceCompatibility = 17
+targetCompatibility = 17
 
 // tag::repositories[]
 repositories {
@@ -18,7 +18,7 @@ repositories {
 
 // tag::dependencies[]
 dependencies {
-    testImplementation 'com.github.hmcts:fortify-client:1.1.0:all'
+    testImplementation 'com.github.hmcts:fortify-client:1.4.1:all'
 }
 // end::dependencies[]
 
