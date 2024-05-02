@@ -17,3 +17,9 @@
 !test
 !git.properties.json
 !.git
+!.yarnrc.yml
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions

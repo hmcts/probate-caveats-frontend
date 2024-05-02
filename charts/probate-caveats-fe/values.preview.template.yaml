@@ -1,6 +1,6 @@
 nodejs:
   image: ${IMAGE_NAME}
-  ingressHost: ${SERVICE_FQDN}
+  ingressHost: ${SERVICE_NAME}.preview.platform.hmcts.net
   autoscaling:
     enabled: false
   environment:
@@ -13,22 +13,44 @@ nodejs:
     probate:
       resourceGroup: probate
       secrets:
-        - idam-s2s-secret
-        - ccidam-idam-api-secrets-probate
-        - postcode-service-url
-        - postcode-service-token2
-        - probate-survey
-        - probate-survey-end
-        - probate-service-id
-        - probate-site-id
-        - caveat-user-name
-        - caveat-user-password
-        - launchdarkly-key
-        - launchdarklyUserkeyCaveatFrontend
-        - webchat-avaya-url
-        - webchat-avaya-client-url
-        - webchat-avaya-service
-        - pcq-token-key
+        - name: caveats-fe-redis-access-key
+          alias: caveats-fe-redis-access-key
+        - name: idam-s2s-secret
+          alias: idam-s2s-secret
+        - name: ccidam-idam-api-secrets-probate
+          alias: ccidam-idam-api-secrets-probate
+        - name: postcode-service-url
+          alias: postcode-service-url
+        - name: postcode-service-token2
+          alias: postcode-service-token2
+        - name: probate-survey
+          alias: probate-survey
+        - name: probate-survey-end
+          alias: probate-survey-end
+        - name: probate-service-id
+          alias: probate-service-id
+        - name: probate-site-id
+          alias: probate-site-id
+        - name: caveat-user-name
+          alias: caveat-user-name
+        - name: caveat-user-password
+          alias: caveat-user-password
+        - name: app-insights-connection-string
+          alias: app-insights-connection-string
+        - name: launchdarkly-key
+          alias: launchdarkly-key
+        - name: launchdarklyUserkeyCaveatFrontend
+          alias: launchdarklyUserkeyCaveatFrontend
+        - name: pcq-token-key
+          alias: pcq-token-key
+        - name: webchat-avaya-url
+          alias: webchat-avaya-url
+        - name: webchat-avaya-client-url
+          alias: webchat-avaya-client-url
+        - name: webchat-avaya-service
+          alias: webchat-avaya-service
+
+redis:
 idam-pr:
   enabled: true
   redirect_uris:
@@ -36,3 +58,7 @@ idam-pr:
       - https://${SERVICE_FQDN}/oauth2/callback
 redis:
   enabled: true
+  image:
+    registry: hmctspublic.azurecr.io
+    repository: imported/bitnami/redis
+    tag: '6.2.7'
