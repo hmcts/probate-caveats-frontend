@@ -79,11 +79,14 @@ withPipeline("nodejs", product, component) {
       ]
   }
   onMaster() {
-    enablePactAs([AppPipelineDsl.PactRoles.CONSUMER])
+    enablePactAs([
+      AppPipelineDsl.PactRoles.CONSUMER
+    ])
   }
 
   onPR() {
-    env.ENV='preview'
-    enablePactAs([AppPipelineDsl.PactRoles.CONSUMER])
+    enablePactAs([
+      AppPipelineDsl.PactRoles.CONSUMER
+    ])
   }
 }

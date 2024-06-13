@@ -25,9 +25,7 @@ describe('Pact FeesRegisterClient', () => {
     const ctx = {
         sessionID: 'someSessionId',
         authToken: 'authToken',
-        session: {
-            serviceAuthorization: 'someServiceAuthorization'
-        }
+        serviceAuthorization: 'someServiceAuthorization'
     };
 
     const session = {
@@ -64,11 +62,18 @@ describe('Pact FeesRegisterClient', () => {
                     withRequest: {
                         method: 'GET',
                         path: '/fees-register/fees/lookup',
-                        query: 'applicant_type=all&channel=default&event=miscellaneous&jurisdiction1=family&jurisdiction2=probate+registry&keyword=Caveat&service=probate',
+                        query: {
+                            'applicant_type': 'all',
+                            'channel': 'default',
+                            'event': 'miscellaneous',
+                            'jurisdiction1': 'family',
+                            'jurisdiction2': 'probate registry',
+                            'keyword': 'Caveat',
+                            'service': 'probate'
+                        },
                         headers: {
                             'Content-Type': 'application/json',
-                            'Authorization': ctx.authToken,
-                            'ServiceAuthorization': ctx.serviceAuthorization
+                            'Authorization': ctx.authToken
                         }
                     },
                     willRespondWith: {

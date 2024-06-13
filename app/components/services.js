@@ -129,6 +129,9 @@ const feesLookup = (data, authToken, applicationId) => {
     const params = new URLSearchParams(data);
     const url = `${FEES_SERVICE_URL}${config.services.feesRegister.paths.feesLookup}?${params.toString()}`;
     const fetchOptions = utils.fetchOptions({}, 'GET', headers);
+    console.log('Request URL:', url);
+    console.log('Request Headers:', JSON.stringify(headers, null, 2));
+    console.log('Fetch Options:', JSON.stringify(fetchOptions, null, 2));
     return utils.fetchJson(url, fetchOptions);
 };
 
