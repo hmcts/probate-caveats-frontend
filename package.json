@@ -60,17 +60,17 @@
     "@hmcts/os-places-client": "^1.1.7",
     "@hmcts/properties-volume": "^1.0.0",
     "ajv": "^6.12.6",
-    "applicationinsights": "^2.3.3",
+    "applicationinsights": "^2.9.4",
     "body-parser": "^1.19.0",
     "cheerio": "^1.0.0-rc.9",
     "co": "^4.6.0",
-    "connect-redis": "^5.2.0",
+    "connect-redis": "^7.0.0",
     "cookie-parser": "^1.4.6",
     "csurf": "^1.10.0",
     "dateformat": "^3.0.3",
     "debug": "^4.3.4",
     "email-validator": "^2.0.4",
-    "express": "^4.17.1",
+    "express": "^4.19.2",
     "express-session": "^1.16.2",
     "express-urlrewrite": "^1.2.0",
     "file-type": "^17.1.6",
@@ -143,7 +143,10 @@
     "qs": ">=6.9.7",
     "@babel/traverse": "^7.23.2",
     "semver": "^7.5.4",
-    "tough-cookie": "^4.1.3"
+    "tough-cookie": "^4.1.3",
+    "express": "^4.19.2",
+    "puppeteer": "^22.0.0",
+    "formidable": "3.5.1"
   },
-  "packageManager": "yarn@3.4.1"
+  "packageManager": "yarn@4.1.1"
 }
