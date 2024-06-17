@@ -67,7 +67,7 @@
     "connect-redis": "^7.0.0",
     "cookie-parser": "^1.4.6",
     "csurf": "^1.10.0",
-    "dateformat": "^3.0.3",
+    "dateformat": "^5.0.0",
     "debug": "^4.3.4",
     "email-validator": "^2.0.4",
     "express": "^4.19.2",
