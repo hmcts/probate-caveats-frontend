@@ -4509,15 +4509,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-mocha@npm:^6.0.0":
-  version: 6.3.0
-  resolution: "eslint-plugin-mocha@npm:6.3.0"
+"eslint-plugin-mocha@npm:^10.0.0":
+  version: 10.4.3
+  resolution: "eslint-plugin-mocha@npm:10.4.3"
   dependencies:
-    eslint-utils: ^2.0.0
-    ramda: ^0.27.0
+    eslint-utils: ^3.0.0
+    globals: ^13.24.0
+    rambda: ^7.4.0
   peerDependencies:
-    eslint: ">= 4.0.0"
-  checksum: 8f127f4c0cd410ffebf825bda330f937e6b46841a39d0cae962d12a0646930409448c5822f4325e24297a8210d6acd52b75c83aba70b2be8dd403a7346e636c5
+    eslint: ">=7.0.0"
+  checksum: 67176a889099cb68733d13ba17af5d13f48dc2a7ac9360b04abe94e81e5e9c35346ae2070aa50dce8a4c80dca4602f62375b074f3485369c3a66867fa683ba3c
   languageName: node
   linkType: hard
 
@@ -4541,12 +4542,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-utils@npm:^2.0.0, eslint-utils@npm:^2.1.0":
+"eslint-utils@npm:^2.1.0":
   version: 2.1.0
   resolution: "eslint-utils@npm:2.1.0"
   dependencies:
     eslint-visitor-keys: ^1.1.0
   checksum: 27500938f348da42100d9e6ad03ae29b3de19ba757ae1a7f4a087bdcf83ac60949bbb54286492ca61fac1f5f3ac8692dd21537ce6214240bf95ad0122f24d71d
+  languageName: node
+  linkType: hard
+
+"eslint-utils@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "eslint-utils@npm:3.0.0"
+  dependencies:
+    eslint-visitor-keys: ^2.0.0
+  peerDependencies:
+    eslint: ">=5"
+  checksum: 0668fe02f5adab2e5a367eee5089f4c39033af20499df88fe4e6aba2015c20720404d8c3d6349b6f716b08fdf91b9da4e5d5481f265049278099c4c836ccb619
   languageName: node
   linkType: hard
 
@@ -5774,6 +5786,15 @@ __metadata:
   dependencies:
     type-fest: ^0.20.2
   checksum: 194c97cf8d1ef6ba59417234c2386549c4103b6e5f24b1ff1952de61a4753e5d2069435ba629de711a6480b1b1d114a98e2ab27f85e966d5a10c319c3bbd3dc3
+  languageName: node
+  linkType: hard
+
+"globals@npm:^13.24.0":
+  version: 13.24.0
+  resolution: "globals@npm:13.24.0"
+  dependencies:
+    type-fest: ^0.20.2
+  checksum: 56066ef058f6867c04ff203b8a44c15b038346a62efbc3060052a1016be9f56f4cf0b2cd45b74b22b81e521a889fc7786c73691b0549c2f3a6e825b3d394f43c
   languageName: node
   linkType: hard
 
@@ -9578,7 +9599,7 @@ __metadata:
     debug: ^4.3.4
     email-validator: ^2.0.4
     eslint: ^8.35.0
-    eslint-plugin-mocha: ^6.0.0
+    eslint-plugin-mocha: ^10.0.0
     express: ^4.19.2
     express-session: ^1.16.2
     express-urlrewrite: ^1.2.0
@@ -9961,7 +9982,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ramda@npm:^0.27.0, ramda@npm:^0.27.2":
+"rambda@npm:^7.4.0":
+  version: 7.5.0
+  resolution: "rambda@npm:7.5.0"
+  checksum: ad608a9a4160d0b6b0921047cea1329276bf239ff58d439135288712dcdbbf0df47c76591843ad249d89e7c5a9109ce86fe099aa54aef0dc0aa92a9b4dd1b8eb
+  languageName: node
+  linkType: hard
+
+"ramda@npm:^0.27.2":
   version: 0.27.2
   resolution: "ramda@npm:0.27.2"
   checksum: 28d6735dd1eea1a796c56cf6111f3673c6105bbd736e521cdd7826c46a18eeff337c2dba4668f6eed990d539b9961fd6db19aa46ccc1530ba67a396c0a9f580d
