@@ -3826,7 +3826,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"debug@npm:*, debug@npm:4, debug@npm:4.3.4, debug@npm:^4.0.1, debug@npm:^4.1.0, debug@npm:^4.1.1, debug@npm:^4.3.1, debug@npm:^4.3.2, debug@npm:^4.3.3, debug@npm:^4.3.4":
+"debug@npm:2.6.9, debug@npm:^2.2.0, debug@npm:^2.6.9":
+  version: 2.6.9
+  resolution: "debug@npm:2.6.9"
+  dependencies:
+    ms: 2.0.0
+  checksum: d2f51589ca66df60bf36e1fa6e4386b318c3f1e06772280eea5b1ae9fd3d05e9c2b7fd8a7d862457d00853c75b00451aa2d7459b924629ee385287a650f58fe6
+  languageName: node
+  linkType: hard
+
+"debug@npm:4, debug@npm:4.3.4, debug@npm:^4.0.1, debug@npm:^4.1.0, debug@npm:^4.1.1, debug@npm:^4.3.1, debug@npm:^4.3.2, debug@npm:^4.3.3, debug@npm:^4.3.4":
   version: 4.3.4
   resolution: "debug@npm:4.3.4"
   dependencies:
@@ -3835,15 +3844,6 @@ __metadata:
     supports-color:
       optional: true
   checksum: 3dbad3f94ea64f34431a9cbf0bafb61853eda57bff2880036153438f50fb5a84f27683ba0d8e5426bf41a8c6ff03879488120cf5b3a761e77953169c0600a708
-  languageName: node
-  linkType: hard
-
-"debug@npm:2.6.9, debug@npm:^2.2.0, debug@npm:^2.6.9":
-  version: 2.6.9
-  resolution: "debug@npm:2.6.9"
-  dependencies:
-    ms: 2.0.0
-  checksum: d2f51589ca66df60bf36e1fa6e4386b318c3f1e06772280eea5b1ae9fd3d05e9c2b7fd8a7d862457d00853c75b00451aa2d7459b924629ee385287a650f58fe6
   languageName: node
   linkType: hard
 
@@ -4827,13 +4827,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"express-urlrewrite@npm:^1.2.0":
-  version: 1.4.0
-  resolution: "express-urlrewrite@npm:1.4.0"
+"express-urlrewrite@npm:^2.0.0":
+  version: 2.0.2
+  resolution: "express-urlrewrite@npm:2.0.2"
   dependencies:
-    debug: "*"
-    path-to-regexp: ^1.0.3
-  checksum: 44d451804e82c5dfbea2a6dc9df2a3fd95375a298563957723623ce823e0c688e58853f52039e486424137e68b25fbff3caa938ce84b62889dc0e77d5477d5dd
+    debug: ^4.3.4
+    path-to-regexp: ^6.2.2
+  checksum: 3c0851f6e65429cad5636c41bb0f8791bbf72cfcb4e05b09417119c13f3a4bf53f31a064fb980d9fe2051df4d6c9889808a8c74c60ccf31ccae655a65db69378
   languageName: node
   linkType: hard
 
@@ -9379,12 +9379,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"path-to-regexp@npm:^1.0.3, path-to-regexp@npm:^1.7.0":
+"path-to-regexp@npm:^1.7.0":
   version: 1.8.0
   resolution: "path-to-regexp@npm:1.8.0"
   dependencies:
     isarray: 0.0.1
   checksum: 709f6f083c0552514ef4780cb2e7e4cf49b0cc89a97439f2b7cc69a608982b7690fb5d1720a7473a59806508fc2dae0be751ba49f495ecf89fd8fbc62abccbcd
+  languageName: node
+  linkType: hard
+
+"path-to-regexp@npm:^6.2.2":
+  version: 6.2.2
+  resolution: "path-to-regexp@npm:6.2.2"
+  checksum: b7b0005c36f5099f9ed1fb20a820d2e4ed1297ffe683ea1d678f5e976eb9544f01debb281369dabdc26da82e6453901bf71acf2c7ed14b9243536c2a45286c33
   languageName: node
   linkType: hard
 
@@ -9602,7 +9609,7 @@ __metadata:
     eslint-plugin-mocha: ^10.0.0
     express: ^4.19.2
     express-session: ^1.16.2
-    express-urlrewrite: ^1.2.0
+    express-urlrewrite: ^2.0.0
     file-type: ^17.1.6
     get-port: ^4.2.0
     git-rev-sync: ^3.0.0

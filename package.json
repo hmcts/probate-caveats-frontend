@@ -72,7 +72,7 @@
     "email-validator": "^2.0.4",
     "express": "^4.19.2",
     "express-session": "^1.16.2",
-    "express-urlrewrite": "^1.2.0",
+    "express-urlrewrite": "^2.0.0",
     "file-type": "^17.1.6",
     "get-port": "^4.2.0",
     "govuk-frontend": "^4.8.0",
