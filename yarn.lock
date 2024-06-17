@@ -5589,13 +5589,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"get-port@npm:^4.2.0":
-  version: 4.2.0
-  resolution: "get-port@npm:4.2.0"
-  checksum: 6c9a452b2d6e81fe36781a69ed201883d37c02f141ba5770eaef3eca768ca38777c2eba4bec303f6b8c3f45f29036f95d5606b255f613320a6b4b680e1975c07
-  languageName: node
-  linkType: hard
-
 "get-port@npm:^7.0.0":
   version: 7.0.0
   resolution: "get-port@npm:7.0.0"
@@ -9611,7 +9604,7 @@ __metadata:
     express-session: ^1.16.2
     express-urlrewrite: ^2.0.0
     file-type: ^19.0.0
-    get-port: ^4.2.0
+    get-port: ^7.0.0
     git-rev-sync: ^3.0.0
     govuk-frontend: ^4.8.0
     helmet: ^3.23.3
