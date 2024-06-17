@@ -5647,14 +5647,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"git-rev-sync@npm:^1.12.0":
-  version: 1.12.0
-  resolution: "git-rev-sync@npm:1.12.0"
+"git-rev-sync@npm:^3.0.0":
+  version: 3.0.2
+  resolution: "git-rev-sync@npm:3.0.2"
   dependencies:
     escape-string-regexp: 1.0.5
-    graceful-fs: 4.1.11
-    shelljs: 0.7.7
-  checksum: a71b8f3efb46dd5c1b58fd62a27361772c123817d85c3baf545e0acc038ed9faf3433f3fd24f5acd6e080c4e8137de7bc11aeaa6ca8e4d640824e298229df598
+    graceful-fs: 4.1.15
+    shelljs: 0.8.5
+  checksum: a6c1b8d9417643f40db0e005df9f05b0f6440756ef5ed379f1565cb90ad58ac1192da193838b243ccf8979ca5109a43c9ca7eb016c612af06912868dab307dd3
   languageName: node
   linkType: hard
 
@@ -5863,10 +5863,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"graceful-fs@npm:4.1.11":
-  version: 4.1.11
-  resolution: "graceful-fs@npm:4.1.11"
-  checksum: 263cfa68580ca25c312e67211aa34ef18209c0ab163b0213c5edc0325e8d078f0fb5684dc746e8bef7705ae1c9e0f448d733327e73411c5a07944f9186efd396
+"graceful-fs@npm:4.1.15":
+  version: 4.1.15
+  resolution: "graceful-fs@npm:4.1.15"
+  checksum: 0c7d7fcb739f760b3b702f993b64e2c111fce22084bbc9c5c8ff7f1a051691a7bba2baf0bf1c464ea5081225f8e17610c6b30167bcd6899aaabca820d55e403c
   languageName: node
   linkType: hard
 
@@ -9605,7 +9605,7 @@ __metadata:
     express-urlrewrite: ^1.2.0
     file-type: ^17.1.6
     get-port: ^4.2.0
-    git-rev-sync: ^1.12.0
+    git-rev-sync: ^3.0.0
     govuk-frontend: ^4.8.0
     helmet: ^3.23.3
     https-proxy-agent: ^5.0.1
@@ -10855,16 +10855,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"shelljs@npm:0.7.7":
-  version: 0.7.7
-  resolution: "shelljs@npm:0.7.7"
+"shelljs@npm:0.8.5":
+  version: 0.8.5
+  resolution: "shelljs@npm:0.8.5"
   dependencies:
     glob: ^7.0.0
     interpret: ^1.0.0
     rechoir: ^0.6.2
   bin:
-    shjs: ./bin/shjs
-  checksum: bc505d8663080ba44b71577d52c6d8d4764df0ffb3cb71c49c1038fc7ab19911ecdb868a0d0324d144c6b3c64881d982aa83ac078739728628fc51dd55319560
+    shjs: bin/shjs
+  checksum: 7babc46f732a98f4c054ec1f048b55b9149b98aa2da32f6cf9844c434b43c6251efebd6eec120937bd0999e13811ebd45efe17410edb3ca938f82f9381302748
   languageName: node
   linkType: hard
 
