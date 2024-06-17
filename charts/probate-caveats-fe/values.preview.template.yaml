@@ -50,12 +50,12 @@ nodejs:
         - name: webchat-avaya-service
           alias: webchat-avaya-service
 
-redis:
 idam-pr:
   enabled: true
   redirect_uris:
     Probate:
       - https://${SERVICE_FQDN}/oauth2/callback
+
 redis:
   enabled: true
   image:
