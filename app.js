@@ -30,7 +30,6 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
     const app = express();
     const port = config.app.port;
     const releaseVersion = packageJson.version;
-    const useHttps = config.app.useHttps.toLowerCase();
 
     // Application settings
     app.set('view engine', 'html');
@@ -194,11 +193,6 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
         res.locals.releaseVersion = 'v' + releaseVersion;
         next();
     });
-
-    // Force HTTPs on production connections
-    if (useHttps === 'true') {
-        app.use(utils.forceHttps);
-    }
 
     // health
     setupHealthCheck(app);
