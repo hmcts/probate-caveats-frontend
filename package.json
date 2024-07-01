@@ -60,7 +60,7 @@
     "@hmcts/os-places-client": "^1.1.7",
     "@hmcts/properties-volume": "^1.0.0",
     "ajv": "^6.12.6",
-    "applicationinsights": "^2.9.4",
+    "applicationinsights": "^3.0.0",
     "body-parser": "^1.19.0",
     "cheerio": "^1.0.0-rc.9",
     "co": "^4.6.0",
