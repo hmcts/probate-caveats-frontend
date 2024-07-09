@@ -4203,8 +4203,8 @@ __metadata:
   linkType: hard
 
 "applicationinsights@npm:^3.0.0":
-  version: 3.2.0
-  resolution: "applicationinsights@npm:3.2.0"
+  version: 3.2.1
+  resolution: "applicationinsights@npm:3.2.1"
   dependencies:
     "@azure/core-auth": "npm:^1.3.0"
     "@azure/core-client": "npm:^1.0.0"
@@ -4228,7 +4228,7 @@ __metadata:
     "@opentelemetry/semantic-conventions": "npm:^1.24.0"
     diagnostic-channel: "npm:1.1.1"
     diagnostic-channel-publishers: "npm:1.0.8"
-  checksum: 10c0/cb405a72f5453fab35cad8419bcbac3b12af73a146df6202bc9b633e0a2c3c6d62f6fe2bc6d166a9877522ea96d3f021c47ba6453cdf2aaf64a6dec54f2e21dd
+  checksum: 10c0/bb9f7dbf55c1c3fbbe12c8381b8240c84a93acba3ec346fc874f8b6346d9a2e885fae926b6d5bfe47706817c40a77a19b6a70297a3df8116bc3324cd7e4fa693
   languageName: node
   linkType: hard
 
