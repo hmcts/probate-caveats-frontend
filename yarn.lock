@@ -1477,12 +1477,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.3.1":
-  version: 7.23.5
-  resolution: "@babel/runtime@npm:7.23.5"
+"@babel/runtime@npm:^7.23.2":
+  version: 7.24.8
+  resolution: "@babel/runtime@npm:7.24.8"
   dependencies:
     regenerator-runtime: "npm:^0.14.0"
-  checksum: 10c0/ca679cc91bb7e424bc2db87bb58cc3b06ade916b9adb21fbbdc43e54cdaacb3eea201ceba2a0464b11d2eb65b9fe6a6ffcf4d7521fa52994f19be96f1af14788
+  checksum: 10c0/f24b30af6b3ecae19165b3b032f9bc37b2d1769677bd63b69a6f81061967cfc847aa822518402ea6616b1d301d7eb46986b99c9f69cdb5880834fca2e6b34881
   languageName: node
   linkType: hard
 
@@ -9533,12 +9533,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"i18next@npm:^17.0.11":
-  version: 17.3.1
-  resolution: "i18next@npm:17.3.1"
+"i18next@npm:^23.0.0":
+  version: 23.12.1
+  resolution: "i18next@npm:23.12.1"
   dependencies:
-    "@babel/runtime": "npm:^7.3.1"
-  checksum: 10c0/214cf7279ebdf3f40e41b7b19f1a621f41a32007eb9098008181e804f8e0c2cb8f5600a471d522f2337a6304bae289a10a962e1c14d15f95abc52eaf42f5fb5f
+    "@babel/runtime": "npm:^7.23.2"
+  checksum: 10c0/dab710559a63da6d9a5ed8b15c9670fa106e6274aada42e2270d7001255e8e855015d2253c857d5e8a41c6e9a49bd5700f3a09546482fd08b3a1e5bf100070a8
   languageName: node
   linkType: hard
 
@@ -14179,7 +14179,7 @@ __metadata:
     govuk-frontend: "npm:^4.8.0"
     helmet: "npm:^3.23.3"
     https-proxy-agent: "npm:^7.0.0"
-    i18next: "npm:^17.0.11"
+    i18next: "npm:^23.0.0"
     ioredis: "npm:^4.28.5"
     js-yaml: "npm:^3.13.1"
     launchdarkly-node-server-sdk: "npm:^6.4.3"

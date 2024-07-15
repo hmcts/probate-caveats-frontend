@@ -78,7 +78,7 @@
     "govuk-frontend": "^4.8.0",
     "helmet": "^3.23.3",
     "https-proxy-agent": "^7.0.0",
-    "i18next": "^17.0.11",
+    "i18next": "^23.0.0",
     "ioredis": "^4.28.5",
     "js-yaml": "^3.13.1",
     "launchdarkly-node-server-sdk": "^6.4.3",
