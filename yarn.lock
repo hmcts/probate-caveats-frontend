@@ -10825,18 +10825,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"launchdarkly-node-server-sdk@npm:^6.4.3":
-  version: 6.4.3
-  resolution: "launchdarkly-node-server-sdk@npm:6.4.3"
+"launchdarkly-node-server-sdk@npm:^7.0.0":
+  version: 7.0.4
+  resolution: "launchdarkly-node-server-sdk@npm:7.0.4"
   dependencies:
-    async: "npm:^3.1.0"
+    async: "npm:^3.2.4"
     launchdarkly-eventsource: "npm:1.4.4"
     lru-cache: "npm:^6.0.0"
     node-cache: "npm:^5.1.0"
-    semver: "npm:^7.3.0"
+    semver: "npm:^7.5.4"
     tunnel: "npm:0.0.6"
     uuid: "npm:^8.3.2"
-  checksum: 10c0/dc50d385685bc3d9da243b28f9e431ed2913cf5b076bd3ac87549f01d1ca1549d61eb1015b5c0ff6fb57e24bce5e039e6b797219b20ca8b9c8d4c278607615b0
+  checksum: 10c0/bb90a918ae9e8bc2d947d3bdc597e6ac934220b33f1eb068046919a93189aab990dbece7a6a76e4b853be285127983a304d249693d29d3f32d97e026a64b1a75
   languageName: node
   linkType: hard
 
@@ -14173,7 +14173,7 @@ __metadata:
     i18next: "npm:^23.0.0"
     ioredis: "npm:^5.0.0"
     js-yaml: "npm:^4.0.0"
-    launchdarkly-node-server-sdk: "npm:^6.4.3"
+    launchdarkly-node-server-sdk: "npm:^7.0.0"
     lodash: "npm:^4.17.21"
     mocha: "npm:^8.4.0"
     mocha-jenkins-reporter: "npm:^0.4.8"
