@@ -11478,7 +11478,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"md5@npm:^2.1.0":
+"md5@npm:^2.3.0":
   version: 2.3.0
   resolution: "md5@npm:2.3.0"
   dependencies:
@@ -12126,7 +12126,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mkdirp@npm:3.0.1":
+"mkdirp@npm:3.0.1, mkdirp@npm:^3.0.0":
   version: 3.0.1
   resolution: "mkdirp@npm:3.0.1"
   bin:
@@ -12159,18 +12159,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mocha-junit-reporter@npm:^1.23.3":
-  version: 1.23.3
-  resolution: "mocha-junit-reporter@npm:1.23.3"
+"mocha-junit-reporter@npm:^2.0.0":
+  version: 2.2.1
+  resolution: "mocha-junit-reporter@npm:2.2.1"
   dependencies:
-    debug: "npm:^2.2.0"
-    md5: "npm:^2.1.0"
-    mkdirp: "npm:~0.5.1"
-    strip-ansi: "npm:^4.0.0"
-    xml: "npm:^1.0.0"
+    debug: "npm:^4.3.4"
+    md5: "npm:^2.3.0"
+    mkdirp: "npm:^3.0.0"
+    strip-ansi: "npm:^6.0.1"
+    xml: "npm:^1.0.1"
   peerDependencies:
     mocha: ">=2.2.5"
-  checksum: 10c0/e87c8988e7933dd6acbdfe5fc0ad0972907724a6c497552c5164e0b301537106f75b7f564b190157954eb841fa38fbb3a930c302aad71d0e030b22e75b5ecd62
+  checksum: 10c0/365a7a3f2f442864e0b75fa5bda2f7b0594e3056dc8db440445c9eb9a2f2b00b70c0ec4220ade61f441eeeeee5fa2a76465fa58fb7f7f914c6e9cbd02d76fba2
   languageName: node
   linkType: hard
 
@@ -14101,7 +14101,7 @@ __metadata:
     lodash: "npm:^4.17.21"
     mocha: "npm:^10.0.0"
     mocha-jenkins-reporter: "npm:^0.4.8"
-    mocha-junit-reporter: "npm:^1.23.3"
+    mocha-junit-reporter: "npm:^2.0.0"
     mocha-lcov-reporter: "npm:^1.3.0"
     mocha-multi: "npm:^1.1.7"
     mochawesome: "npm:^7.1.3"
@@ -17806,7 +17806,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"xml@npm:^1.0.0, xml@npm:^1.0.1":
+"xml@npm:^1.0.1":
   version: 1.0.1
   resolution: "xml@npm:1.0.1"
   checksum: 10c0/04bcc9b8b5e7b49392072fbd9c6b0f0958bd8e8f8606fee460318e43991349a68cbc5384038d179ff15aef7d222285f69ca0f067f53d071084eb14c7fdb30411
