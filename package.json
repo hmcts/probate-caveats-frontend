@@ -109,7 +109,7 @@
     "codeceptjs": "^3.4.1",
     "codecov": "^4.0.0-0",
     "config": "^3.3.9",
-    "eslint": "^8.35.0",
+    "eslint": "^9.0.0",
     "eslint-plugin-mocha": "^10.0.0",
     "git-rev-sync": "^3.0.0",
     "mocha": "^10.0.0",
