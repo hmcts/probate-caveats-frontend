@@ -120,7 +120,7 @@
     "nock": "^13.0.0",
     "node-sass": "^9.0.0",
     "nodemon": "^3.0.0",
-    "pa11y": "^6.2.3",
+    "pa11y": "^8.0.0",
     "phantomjs-prebuilt": "^2.1.16",
     "pre-commit": "^1.2.2",
     "proxyquire": "^2.1.3",
