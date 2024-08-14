@@ -5130,7 +5130,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"charenc@npm:0.0.2":
+"charenc@npm:0.0.2, charenc@npm:>= 0.0.1":
   version: 0.0.2
   resolution: "charenc@npm:0.0.2"
   checksum: 10c0/a45ec39363a16799d0f9365c8dd0c78e711415113c6f14787a22462ef451f5013efae8a28f1c058f81fc01f2a6a16955f7a5fd0cd56247ce94a45349c89877d8
@@ -6078,7 +6078,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"crypt@npm:0.0.2":
+"crypt@npm:0.0.2, crypt@npm:>= 0.0.1":
   version: 0.0.2
   resolution: "crypt@npm:0.0.2"
   checksum: 10c0/adbf263441dd801665d5425f044647533f39f4612544071b1471962209d235042fb703c27eea2795c7c53e1dfc242405173003f83cf4f4761a633d11f9653f18
@@ -12741,12 +12741,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"otp@npm:^0.1.3":
-  version: 0.1.3
-  resolution: "otp@npm:0.1.3"
+"otp@npm:^1.0.0":
+  version: 1.1.2
+  resolution: "otp@npm:1.1.2"
   dependencies:
-    thirty-two: "npm:^0.0.2"
-  checksum: 10c0/9ea77ca33b1f9bb3dc378cc4c8fa75b3d6afdeba497f03ec893f282836b31d6a6206c8f960e8dbbf1c9655d9ad06002a7c2278bf4c170f278fb1763ce0c48b0e
+    sha1: "npm:^1.1.1"
+  checksum: 10c0/289da71bcf0ea9b9d8888fded4cb1835407f21a05d2e3d174dab7ed5bcc5221d46fd3779bb757d03d38311fc3d6d2a6a4d2598cd8c73b0ec90a0ae8627b85afe
   languageName: node
   linkType: hard
 
@@ -13556,7 +13556,7 @@ __metadata:
     numeral: "npm:^2.0.6"
     nunjucks: "npm:^3.2.4"
     nyc: "npm:^17.0.0"
-    otp: "npm:^0.1.3"
+    otp: "npm:^1.0.0"
     pa11y: "npm:^8.0.0"
     phantomjs-prebuilt: "npm:^2.1.16"
     pre-commit: "npm:^1.2.2"
@@ -15034,6 +15034,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"sha1@npm:^1.1.1":
+  version: 1.1.1
+  resolution: "sha1@npm:1.1.1"
+  dependencies:
+    charenc: "npm:>= 0.0.1"
+    crypt: "npm:>= 0.0.1"
+  checksum: 10c0/1bb36c89c112c741c265cca66712f883ae01d5c55b71aec80635fe2ad5d0c976a1a8a994dda774ae9f93b2da99fd111238758a8bf985adc400bd86f0e4452865
+  languageName: node
+  linkType: hard
+
 "shallow-clone@npm:^3.0.0":
   version: 3.0.1
   resolution: "shallow-clone@npm:3.0.1"
@@ -16023,13 +16033,6 @@ __metadata:
   version: 0.2.0
   resolution: "text-table@npm:0.2.0"
   checksum: 10c0/02805740c12851ea5982686810702e2f14369a5f4c5c40a836821e3eefc65ffeec3131ba324692a37608294b0fd8c1e55a2dd571ffed4909822787668ddbee5c
-  languageName: node
-  linkType: hard
-
-"thirty-two@npm:^0.0.2":
-  version: 0.0.2
-  resolution: "thirty-two@npm:0.0.2"
-  checksum: 10c0/861675f7bb2164be94d4c0a469a1ecb919f364d4189c637747f4a69c759b0b6bc136ec53a2628861f548a47cf8345917356bab55ff57d8aa7d54e4ca5489fbdf
   languageName: node
   linkType: hard
 
