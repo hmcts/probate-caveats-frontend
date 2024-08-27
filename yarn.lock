@@ -7620,7 +7620,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-safe-stringify@npm:^2.0.7, fast-safe-stringify@npm:^2.1.1":
+"fast-safe-stringify@npm:^2.1.1":
   version: 2.1.1
   resolution: "fast-safe-stringify@npm:2.1.1"
   checksum: 10c0/d90ec1c963394919828872f21edaa3ad6f1dddd288d2bd4e977027afff09f5db40f94e39536d4646f7e01761d704d72d51dce5af1b93717f3489ef808f5f4e4d
@@ -8017,17 +8017,6 @@ __metadata:
     combined-stream: "npm:^1.0.6"
     mime-types: "npm:^2.1.12"
   checksum: 10c0/7e8fb913b84a7ac04074781a18d0f94735bbe82815ff35348803331f6480956ff0035db5bcf15826edee09fe01e665cfac664678f1526646a6374ee13f960e56
-  languageName: node
-  linkType: hard
-
-"form-data@npm:^3.0.0":
-  version: 3.0.1
-  resolution: "form-data@npm:3.0.1"
-  dependencies:
-    asynckit: "npm:^0.4.0"
-    combined-stream: "npm:^1.0.8"
-    mime-types: "npm:^2.1.12"
-  checksum: 10c0/1ccc3ae064a080a799923f754d49fcebdd90515a8924f0f54de557540b50e7f1fe48ba5f2bd0435a5664aa2d49729107e6aaf2155a9abf52339474c5638b4485
   languageName: node
   linkType: hard
 
@@ -11339,7 +11328,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mime@npm:2.6.0, mime@npm:^2.4.1, mime@npm:^2.4.6":
+"mime@npm:2.6.0, mime@npm:^2.4.1":
   version: 2.6.0
   resolution: "mime@npm:2.6.0"
   bin:
@@ -13547,7 +13536,7 @@ __metadata:
     sinon-chai: "npm:^3.3.0"
     sonar-scanner: "npm:^3.1.0"
     sonarqube-scanner: "npm:^4.0.0"
-    superagent: "npm:^5.3.1"
+    superagent: "npm:^10.0.0"
     supertest: "npm:^4.0.2"
     uuid: "npm:^8.3.2"
     validator: "npm:^13.7.0"
@@ -15716,6 +15705,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"superagent@npm:^10.0.0":
+  version: 10.1.0
+  resolution: "superagent@npm:10.1.0"
+  dependencies:
+    component-emitter: "npm:^1.3.0"
+    cookiejar: "npm:^2.1.4"
+    debug: "npm:^4.3.4"
+    fast-safe-stringify: "npm:^2.1.1"
+    form-data: "npm:^4.0.0"
+    formidable: "npm:^3.5.1"
+    methods: "npm:^1.1.2"
+    mime: "npm:2.6.0"
+    qs: "npm:^6.11.0"
+  checksum: 10c0/114fa031c395deaf093036612efa11ceb649ad9e431f6d84e7ab51f628a711e3f9c683446a1407cb170d8c68902c1f2238ee446af43ea2e70e944af37309997a
+  languageName: node
+  linkType: hard
+
 "superagent@npm:^3.8.3":
   version: 3.8.3
   resolution: "superagent@npm:3.8.3"
@@ -15731,25 +15737,6 @@ __metadata:
     qs: "npm:^6.5.1"
     readable-stream: "npm:^2.3.5"
   checksum: 10c0/e467c39aee7aa57dc2e45b5c7c76d70a7ad4fff8d3d2b57a2da0edfaca0e598562fc9f8f74a1383661744f68b3dfd2cca388a3000b41d6c2d8e0e5d031d152fe
-  languageName: node
-  linkType: hard
-
-"superagent@npm:^5.3.1":
-  version: 5.3.1
-  resolution: "superagent@npm:5.3.1"
-  dependencies:
-    component-emitter: "npm:^1.3.0"
-    cookiejar: "npm:^2.1.2"
-    debug: "npm:^4.1.1"
-    fast-safe-stringify: "npm:^2.0.7"
-    form-data: "npm:^3.0.0"
-    formidable: "npm:^1.2.2"
-    methods: "npm:^1.1.2"
-    mime: "npm:^2.4.6"
-    qs: "npm:^6.9.4"
-    readable-stream: "npm:^3.6.0"
-    semver: "npm:^7.3.2"
-  checksum: 10c0/3714daa24436f81f637fbc7c47183a669aaa3a2a6e2c32ef4867f001b7309cbd01836c0bc605c7cead26291a971c3905afe50173a2f17961b4a488c492fe5fc6
   languageName: node
   linkType: hard
 
