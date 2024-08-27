@@ -95,7 +95,7 @@
     "request": "^2.88.2",
     "require-directory": "^2.1.1",
     "serve-favicon": "^2.5.0",
-    "uuid": "^8.3.2",
+    "uuid": "^10.0.0",
     "validator": "^13.7.0"
   },
   "devDependencies": {
