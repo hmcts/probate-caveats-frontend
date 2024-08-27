@@ -5790,7 +5790,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"component-emitter@npm:^1.2.0, component-emitter@npm:^1.3.0":
+"component-emitter@npm:^1.3.0":
   version: 1.3.1
   resolution: "component-emitter@npm:1.3.1"
   checksum: 10c0/e4900b1b790b5e76b8d71b328da41482118c0f3523a516a41be598dc2785a07fd721098d9bf6e22d89b19f4fa4e1025160dc00317ea111633a3e4f75c2b86032
@@ -6315,7 +6315,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"debug@npm:^3.1.0, debug@npm:^3.2.6":
+"debug@npm:^3.2.6":
   version: 3.2.7
   resolution: "debug@npm:3.2.7"
   dependencies:
@@ -7501,7 +7501,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"extend@npm:^3.0.0, extend@npm:~3.0.2":
+"extend@npm:~3.0.2":
   version: 3.0.2
   resolution: "extend@npm:3.0.2"
   checksum: 10c0/73bf6e27406e80aa3e85b0d1c4fd987261e628064e170ca781125c0b635a3dabad5e05adbf07595ea0cf1e6c5396cacb214af933da7cbaf24fe75ff14818e8f9
@@ -8009,7 +8009,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"form-data@npm:^2.3.1, form-data@npm:^2.5.0":
+"form-data@npm:^2.5.0":
   version: 2.5.1
   resolution: "form-data@npm:2.5.1"
   dependencies:
@@ -11061,7 +11061,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"methods@npm:^1.1.1, methods@npm:^1.1.2, methods@npm:~1.1.2":
+"methods@npm:^1.1.2, methods@npm:~1.1.2":
   version: 1.1.2
   resolution: "methods@npm:1.1.2"
   checksum: 10c0/bdf7cc72ff0a33e3eede03708c08983c4d7a173f91348b4b1e4f47d4cdbf734433ad971e7d1e8c77247d9e5cd8adb81ea4c67b0a2db526b758b2233d7814b8b2
@@ -11319,7 +11319,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mime@npm:1.6.0, mime@npm:^1.4.1":
+"mime@npm:1.6.0":
   version: 1.6.0
   resolution: "mime@npm:1.6.0"
   bin:
@@ -13537,7 +13537,7 @@ __metadata:
     sonar-scanner: "npm:^3.1.0"
     sonarqube-scanner: "npm:^4.0.0"
     superagent: "npm:^10.0.0"
-    supertest: "npm:^4.0.2"
+    supertest: "npm:^7.0.0"
     uuid: "npm:^10.0.0"
     validator: "npm:^13.7.0"
     watch: "npm:^1.0.2"
@@ -14178,7 +14178,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"readable-stream@npm:^2.0.1, readable-stream@npm:^2.0.2, readable-stream@npm:^2.0.5, readable-stream@npm:^2.2.2, readable-stream@npm:^2.3.5, readable-stream@npm:~2.3.6":
+"readable-stream@npm:^2.0.1, readable-stream@npm:^2.0.2, readable-stream@npm:^2.0.5, readable-stream@npm:^2.2.2, readable-stream@npm:~2.3.6":
   version: 2.3.8
   resolution: "readable-stream@npm:2.3.8"
   dependencies:
@@ -15688,7 +15688,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"superagent@npm:9":
+"superagent@npm:9, superagent@npm:^9.0.1":
   version: 9.0.2
   resolution: "superagent@npm:9.0.2"
   dependencies:
@@ -15722,24 +15722,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"superagent@npm:^3.8.3":
-  version: 3.8.3
-  resolution: "superagent@npm:3.8.3"
-  dependencies:
-    component-emitter: "npm:^1.2.0"
-    cookiejar: "npm:^2.1.0"
-    debug: "npm:^3.1.0"
-    extend: "npm:^3.0.0"
-    form-data: "npm:^2.3.1"
-    formidable: "npm:^1.2.0"
-    methods: "npm:^1.1.1"
-    mime: "npm:^1.4.1"
-    qs: "npm:^6.5.1"
-    readable-stream: "npm:^2.3.5"
-  checksum: 10c0/e467c39aee7aa57dc2e45b5c7c76d70a7ad4fff8d3d2b57a2da0edfaca0e598562fc9f8f74a1383661744f68b3dfd2cca388a3000b41d6c2d8e0e5d031d152fe
-  languageName: node
-  linkType: hard
-
 "superagent@npm:^8.0.9":
   version: 8.1.2
   resolution: "superagent@npm:8.1.2"
@@ -15758,13 +15740,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"supertest@npm:^4.0.2":
-  version: 4.0.2
-  resolution: "supertest@npm:4.0.2"
+"supertest@npm:^7.0.0":
+  version: 7.0.0
+  resolution: "supertest@npm:7.0.0"
   dependencies:
     methods: "npm:^1.1.2"
-    superagent: "npm:^3.8.3"
-  checksum: 10c0/436ab991ae9242e695374d0006bf2dd16fbbab287966d0176c92eaf8f9a124a839a0ff6db22f46d1de0faeec3752ff8ebfbe051681c050032acab9f4af192399
+    superagent: "npm:^9.0.1"
+  checksum: 10c0/f0b10a1d292e6156fab16efdbb90d8cb1df54367667ae4108a6da67b81058d35182720dd9a3b4b2f538b14729dc8633741e6242724f1a0ccfde5197341ea96ec
   languageName: node
   linkType: hard
 
