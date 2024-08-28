@@ -12443,6 +12443,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"normalize-url@npm:^8.0.0":
+  version: 8.0.0
+  resolution: "normalize-url@npm:8.0.0"
+  checksum: 10c0/09582d56acd562d89849d9239852c2aff225c72be726556d6883ff36de50006803d32a023c10e917bcc1c55f73f3bb16434f67992fe9b61906a3db882192753c
+  languageName: node
+  linkType: hard
+
 "npm-run-all@npm:1.4.0":
   version: 1.4.0
   resolution: "npm-run-all@npm:1.4.0"
@@ -12455,13 +12462,6 @@ __metadata:
   bin:
     npm-run-all: bin/npm-run-all.js
   checksum: 10c0/67ed05b78d5c8ed0ab5aa0505fb355a35c03cd8de305f0c4d3061c6126c6de73ac7f1239bea805c7c6442975216befc4f34c9995c26a0610412834ceac56027c
-  languageName: node
-  linkType: hard
-
-"normalize-url@npm:^8.0.0":
-  version: 8.0.0
-  resolution: "normalize-url@npm:8.0.0"
-  checksum: 10c0/09582d56acd562d89849d9239852c2aff225c72be726556d6883ff36de50006803d32a023c10e917bcc1c55f73f3bb16434f67992fe9b61906a3db882192753c
   languageName: node
   linkType: hard
 
