@@ -6628,10 +6628,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"devtools-protocol@npm:^0.0.1340018":
-  version: 0.0.1340018
-  resolution: "devtools-protocol@npm:0.0.1340018"
-  checksum: 10c0/b920159f49921166900fed3435e497bd17f0ec6cc9724a64248babb7e0dc1de14269c7be220a4f6eba402e692434f53fc544e528bccfdd55ed86209dbf55d1a6
+"devtools-protocol@npm:^0.0.1342118":
+  version: 0.0.1342118
+  resolution: "devtools-protocol@npm:0.0.1342118"
+  checksum: 10c0/7ed1b8285629c5121be33757bcbe8b2272bf4bb907c2ac0ac979900413bc06ee52bf6d6de054c0db2459931343d02ee8acb539a64fd49a5d8a440decb7808998
   languageName: node
   linkType: hard
 
@@ -16970,8 +16970,8 @@ __metadata:
   linkType: hard
 
 "webdriverio@npm:^8.10.5":
-  version: 8.40.3
-  resolution: "webdriverio@npm:8.40.3"
+  version: 8.40.5
+  resolution: "webdriverio@npm:8.40.5"
   dependencies:
     "@types/node": "npm:^22.2.0"
     "@wdio/config": "npm:8.40.3"
@@ -16984,7 +16984,7 @@ __metadata:
     aria-query: "npm:^5.0.0"
     css-shorthand-properties: "npm:^1.1.1"
     css-value: "npm:^0.0.1"
-    devtools-protocol: "npm:^0.0.1340018"
+    devtools-protocol: "npm:^0.0.1342118"
     grapheme-splitter: "npm:^1.0.2"
     import-meta-resolve: "npm:^4.0.0"
     is-plain-obj: "npm:^4.1.0"
@@ -17003,7 +17003,7 @@ __metadata:
   peerDependenciesMeta:
     devtools:
       optional: true
-  checksum: 10c0/ef5a6ff3caec9c281d9f1d1ca6412663260eda160ad7133d67faad8961af41dff1e3e2ed8f0d248ed2f108e339bf8d4dc71afd16cdf3d8c307f8d74f926c0757
+  checksum: 10c0/51c71080fbc39a9d3ddd39e83e6c27020e199003ae10baea54b680de4274e30ae40ee179ec930c906ea8e49e588afe25f2ef4475762ef62188c56828471d2118
   languageName: node
   linkType: hard
 
