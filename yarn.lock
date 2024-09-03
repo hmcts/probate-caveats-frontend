@@ -4263,17 +4263,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:1.6.8":
-  version: 1.6.8
-  resolution: "axios@npm:1.6.8"
-  dependencies:
-    follow-redirects: "npm:^1.15.6"
-    form-data: "npm:^4.0.0"
-    proxy-from-env: "npm:^1.1.0"
-  checksum: 10c0/0f22da6f490335479a89878bc7d5a1419484fbb437b564a80c34888fc36759ae4f56ea28d55a191695e5ed327f0bad56e7ff60fb6770c14d1be6501505d47ab9
-  languageName: node
-  linkType: hard
-
 "axios@npm:1.7.2, axios@npm:^1.6.1":
   version: 1.7.2
   resolution: "axios@npm:1.7.2"
@@ -4282,6 +4271,17 @@ __metadata:
     form-data: "npm:^4.0.0"
     proxy-from-env: "npm:^1.1.0"
   checksum: 10c0/cbd47ce380fe045313364e740bb03b936420b8b5558c7ea36a4563db1258c658f05e40feb5ddd41f6633fdd96d37ac2a76f884dad599c5b0224b4c451b3fa7ae
+  languageName: node
+  linkType: hard
+
+"axios@npm:1.7.7":
+  version: 1.7.7
+  resolution: "axios@npm:1.7.7"
+  dependencies:
+    follow-redirects: "npm:^1.15.6"
+    form-data: "npm:^4.0.0"
+    proxy-from-env: "npm:^1.1.0"
+  checksum: 10c0/4499efc89e86b0b49ffddc018798de05fab26e3bf57913818266be73279a6418c3ce8f9e934c7d2d707ab8c095e837fc6c90608fb7715b94d357720b5f568af7
   languageName: node
   linkType: hard
 
@@ -15347,11 +15347,11 @@ __metadata:
   linkType: hard
 
 "sonarqube-scanner@npm:^4.0.0":
-  version: 4.2.1
-  resolution: "sonarqube-scanner@npm:4.2.1"
+  version: 4.2.2
+  resolution: "sonarqube-scanner@npm:4.2.2"
   dependencies:
     adm-zip: "npm:0.5.12"
-    axios: "npm:1.6.8"
+    axios: "npm:1.7.7"
     commander: "npm:12.0.0"
     fs-extra: "npm:11.2.0"
     hpagent: "npm:1.2.0"
@@ -15364,7 +15364,7 @@ __metadata:
     tar-stream: "npm:3.1.7"
   bin:
     sonar-scanner: bin/sonar-scanner
-  checksum: 10c0/570cedc537f8c7bea08995f25077fea0ae6715cb08b4508722eb9e13cf6102d3c0d1a6846c406681bec334bfbfb154d24cf0bbb45746da45cd9b078027e3cfa4
+  checksum: 10c0/7e00662cb2ddb74922712a07f2c014f67ee5053458708f5a4797dd024bf1f30451d379cf04c1c986eabdc003fadf712f7934e39795ea67624deb237ae60ae787
   languageName: node
   linkType: hard
 
