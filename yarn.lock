@@ -13604,7 +13604,7 @@ __metadata:
     email-validator: "npm:^2.0.4"
     eslint: "npm:^8.35.0"
     eslint-plugin-mocha: "npm:^10.0.0"
-    express: "npm:^4.19.2"
+    express: "npm:^4.20.0"
     express-session: "npm:^1.16.2"
     express-urlrewrite: "npm:^2.0.0"
     file-type: "npm:^19.0.0"
