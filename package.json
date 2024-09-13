@@ -70,7 +70,7 @@
     "dateformat": "^3.0.3",
     "debug": "^4.3.4",
     "email-validator": "^2.0.4",
-    "express": "^4.19.2",
+    "express": "^4.21.0",
     "express-session": "^1.16.2",
     "express-urlrewrite": "^2.0.0",
     "file-type": "^19.0.0",
