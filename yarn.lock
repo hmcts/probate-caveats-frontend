@@ -5652,8 +5652,8 @@ __metadata:
   linkType: hard
 
 "codeceptjs@npm:^3.4.1":
-  version: 3.6.6
-  resolution: "codeceptjs@npm:3.6.6"
+  version: 3.6.7
+  resolution: "codeceptjs@npm:3.6.7"
   dependencies:
     "@codeceptjs/configure": "npm:1.0.1"
     "@codeceptjs/detox-helper": "npm:1.1.2"
@@ -5678,7 +5678,7 @@ __metadata:
     css-to-xpath: "npm:0.1.0"
     csstoxpath: "npm:1.6.0"
     devtools: "npm:8.40.2"
-    envinfo: "npm:7.11.1"
+    envinfo: "npm:7.14.0"
     escape-string-regexp: "npm:4.0.0"
     figures: "npm:3.2.0"
     fn-args: "npm:4.0.0"
@@ -5707,7 +5707,7 @@ __metadata:
       optional: true
   bin:
     codeceptjs: bin/codecept.js
-  checksum: 10c0/1703f234f7ec2e4cdb6e8a76b7f2161823900ec88a8aefa314e62afba7b7a82676945b42092f7d1a9edcb4abc6374d9cc14e214be220c3eba64d33741af5a7e5
+  checksum: 10c0/ebdc8ca731bfc77733439086c70caca86a23a1800205ec46e7c9effbe3ecde190ef38139caa5d977ca9693e2f4c391d06353365b5ecdafbf1244ab4bcb62bc93
   languageName: node
   linkType: hard
 
@@ -7023,12 +7023,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"envinfo@npm:7.11.1, envinfo@npm:~7.11.1":
-  version: 7.11.1
-  resolution: "envinfo@npm:7.11.1"
+"envinfo@npm:7.14.0":
+  version: 7.14.0
+  resolution: "envinfo@npm:7.14.0"
   bin:
     envinfo: dist/cli.js
-  checksum: 10c0/4550cce03d4d8a7b137d548faaf9c920356474231636cb4a6e74ae75db3b9cb04aa0a052ee391e2363af5db697166c207ba76e106338d758c6126830b3e16d75
+  checksum: 10c0/059a031eee101e056bd9cc5cbfe25c2fab433fe1780e86cf0a82d24a000c6931e327da6a8ffb3dce528a24f83f256e7efc0b36813113eff8fdc6839018efe327
   languageName: node
   linkType: hard
 
@@ -7038,6 +7038,15 @@ __metadata:
   bin:
     envinfo: dist/cli.js
   checksum: 10c0/9c279213cbbb353b3171e8e333fd2ed564054abade08ab3d735fe136e10a0e14e0588e1ce77e6f01285f2462eaca945d64f0778be5ae3d9e82804943e36a4411
+  languageName: node
+  linkType: hard
+
+"envinfo@npm:~7.11.1":
+  version: 7.11.1
+  resolution: "envinfo@npm:7.11.1"
+  bin:
+    envinfo: dist/cli.js
+  checksum: 10c0/4550cce03d4d8a7b137d548faaf9c920356474231636cb4a6e74ae75db3b9cb04aa0a052ee391e2363af5db697166c207ba76e106338d758c6126830b3e16d75
   languageName: node
   linkType: hard
 
