@@ -2499,31 +2499,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@pact-foundation/pact-core@npm:^14.3.4":
-  version: 14.3.8
-  resolution: "@pact-foundation/pact-core@npm:14.3.8"
+"@pact-foundation/pact-core@npm:^15.1.0":
+  version: 15.2.1
+  resolution: "@pact-foundation/pact-core@npm:15.2.1"
   dependencies:
-    chalk: "npm:4.1.2"
     check-types: "npm:7.3.0"
-    cross-spawn: "npm:7.0.3"
-    mkdirp: "npm:1.0.0"
-    needle: "npm:^3.2.0"
     node-gyp-build: "npm:^4.6.0"
     pino: "npm:^8.7.0"
     pino-pretty: "npm:^9.1.1"
-    promise-timeout: "npm:1.3.0"
-    rimraf: "npm:2.6.2"
     underscore: "npm:1.12.1"
-    unixify: "npm:1.0.0"
-  bin:
-    pact: bin/pact.js
-    pact-broker: bin/pact-broker.js
-    pact-message: bin/pact-message.js
-    pact-mock-service: bin/pact-mock-service.js
-    pact-provider-verifier: bin/pact-provider-verifier.js
-    pact-stub-service: bin/pact-stub-service.js
-    pactflow: bin/pactflow.js
-  checksum: 10c0/0e72991b7275e04dcc7d83dcca04230e1330445e2d68cc0c9c120fe696d4a2a323702ea86d07480c937b9994078d9a8649a489be580c8ed66add5b05e31f4a26
+  checksum: 10c0/f810a30e4d95ac7ba0a0b65c1c8158b4e8cc5a0254aad11dccff5210262574f7f94acd58e40c8a7e01c137663d31cd40950e7fc9278e4dded31db9bfd6166764
   conditions: (os=darwin | os=linux | os=win32) & (cpu=x64 | cpu=ia32 | cpu=arm64)
   languageName: node
   linkType: hard
@@ -2563,16 +2548,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@pact-foundation/pact@npm:^12.5.2":
-  version: 12.5.2
-  resolution: "@pact-foundation/pact@npm:12.5.2"
+"@pact-foundation/pact@npm:^13.0.0":
+  version: 13.1.3
+  resolution: "@pact-foundation/pact@npm:13.1.3"
   dependencies:
-    "@pact-foundation/pact-core": "npm:^14.3.4"
+    "@pact-foundation/pact-core": "npm:^15.1.0"
     "@types/express": "npm:^4.17.11"
-    axios: "npm:^1.6.1"
-    body-parser: "npm:^1.20.0"
+    axios: "npm:^1.7.4"
+    body-parser: "npm:^1.20.3"
     cli-color: "npm:^2.0.1"
-    express: "npm:^4.19.2"
+    express: "npm:^4.21.0"
     graphql: "npm:^14.0.0"
     graphql-tag: "npm:^2.9.1"
     http-proxy: "npm:^1.18.1"
@@ -2586,7 +2571,7 @@ __metadata:
     pkginfo: "npm:^0.4.1"
     ramda: "npm:^0.30.0"
     randexp: "npm:^0.5.3"
-  checksum: 10c0/fe629b0790571995cd39f50aae6f8b34cbeb22483ab18304ee715ab0a16c2d4c7f35a6738f0bfeed247c2427e9a53d47bbd499177c6f3ae192d4f7d35eeb94e7
+  checksum: 10c0/c93b907cd493ed63b693bea1456a6ce6b58760be720caa2fb01e867a8fba206abbe9df634e4cca86f3096221143b74757dd9d2df2f72efc073a54993832d7164
   languageName: node
   linkType: hard
 
@@ -4346,7 +4331,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:1.7.7":
+"axios@npm:1.7.7, axios@npm:^1.7.4":
   version: 1.7.7
   resolution: "axios@npm:1.7.7"
   dependencies:
@@ -4354,17 +4339,6 @@ __metadata:
     form-data: "npm:^4.0.0"
     proxy-from-env: "npm:^1.1.0"
   checksum: 10c0/4499efc89e86b0b49ffddc018798de05fab26e3bf57913818266be73279a6418c3ce8f9e934c7d2d707ab8c095e837fc6c90608fb7715b94d357720b5f568af7
-  languageName: node
-  linkType: hard
-
-"axios@npm:^1.6.1":
-  version: 1.7.2
-  resolution: "axios@npm:1.7.2"
-  dependencies:
-    follow-redirects: "npm:^1.15.6"
-    form-data: "npm:^4.0.0"
-    proxy-from-env: "npm:^1.1.0"
-  checksum: 10c0/cbd47ce380fe045313364e740bb03b936420b8b5558c7ea36a4563db1258c658f05e40feb5ddd41f6633fdd96d37ac2a76f884dad599c5b0224b4c451b3fa7ae
   languageName: node
   linkType: hard
 
@@ -4584,7 +4558,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"body-parser@npm:1.20.3, body-parser@npm:^1.19.0, body-parser@npm:^1.20.0":
+"body-parser@npm:1.20.3, body-parser@npm:^1.19.0, body-parser@npm:^1.20.3":
   version: 1.20.3
   resolution: "body-parser@npm:1.20.3"
   dependencies:
@@ -8554,7 +8528,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"glob@npm:^7.0.0, glob@npm:^7.0.3, glob@npm:^7.0.5, glob@npm:^7.1.1, glob@npm:^7.1.3, glob@npm:^7.1.4, glob@npm:^7.1.6":
+"glob@npm:^7.0.0, glob@npm:^7.0.3, glob@npm:^7.1.1, glob@npm:^7.1.3, glob@npm:^7.1.4, glob@npm:^7.1.6":
   version: 7.2.3
   resolution: "glob@npm:7.2.3"
   dependencies:
@@ -11705,15 +11679,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mkdirp@npm:1.0.0":
-  version: 1.0.0
-  resolution: "mkdirp@npm:1.0.0"
-  bin:
-    mkdirp: bin/cmd.js
-  checksum: 10c0/f4715470fb0ede6cd833aec1f5778ea9eb32c671cf97fd224b838979bdf1492c301802d3880c50c3be17491c426b81f9a03cb28a398625c291d2002c7eaa06fe
-  languageName: node
-  linkType: hard
-
 "mkdirp@npm:1.0.4, mkdirp@npm:^1.0.3, mkdirp@npm:^1.0.4":
   version: 1.0.4
   resolution: "mkdirp@npm:1.0.4"
@@ -12056,18 +12021,6 @@ __metadata:
   bin:
     needle: ./bin/needle
   checksum: 10c0/65a7eaeaf4ca3410de492957474592af9838e02875273d9232ff6cff331393c58a95e48c592bd9a05f575e5bb9b08543d6cfd19eb96595dbd3d7da2c5fe1accb
-  languageName: node
-  linkType: hard
-
-"needle@npm:^3.2.0":
-  version: 3.3.1
-  resolution: "needle@npm:3.3.1"
-  dependencies:
-    iconv-lite: "npm:^0.6.3"
-    sax: "npm:^1.2.4"
-  bin:
-    needle: bin/needle
-  checksum: 10c0/233b9315d47b735867d03e7a018fb665ee6cacf3a83b991b19538019cf42b538a3e85ca745c840b4c5e9a0ffdca76472f941363bf7c166214ae8cbc650fd4d39
   languageName: node
   linkType: hard
 
@@ -13588,7 +13541,7 @@ __metadata:
     "@hmcts/nodejs-logging": "npm:^4.0.4"
     "@hmcts/os-places-client": "npm:^1.1.7"
     "@hmcts/properties-volume": "npm:^1.0.0"
-    "@pact-foundation/pact": "npm:^12.5.2"
+    "@pact-foundation/pact": "npm:^13.0.0"
     "@pact-foundation/pact-node": "npm:^10.18.0"
     "@playwright/test": "npm:^1.41.2"
     "@types/node": "npm:^20.11.19"
@@ -13757,13 +13710,6 @@ __metadata:
     err-code: "npm:^2.0.2"
     retry: "npm:^0.12.0"
   checksum: 10c0/9c7045a1a2928094b5b9b15336dcd2a7b1c052f674550df63cc3f36cd44028e5080448175b6f6ca32b642de81150f5e7b1a98b728f15cb069f2dd60ac2616b96
-  languageName: node
-  linkType: hard
-
-"promise-timeout@npm:1.3.0":
-  version: 1.3.0
-  resolution: "promise-timeout@npm:1.3.0"
-  checksum: 10c0/1d1ad9b9a4a6ef3fa7a56136e990d0997a5b37f38b103e723c635cddb0c50ed59ffcedd41c8adb6052e266b4439f4df41407b9a012ce32080c694e9b4463fb66
   languageName: node
   linkType: hard
 
@@ -14778,17 +14724,6 @@ __metadata:
   bin:
     rimraf: ./bin.js
   checksum: 10c0/4eef73d406c6940927479a3a9dee551e14a54faf54b31ef861250ac815172bade86cc6f7d64a4dc5e98b65e4b18a2e1c9ff3b68d296be0c748413f092bb0dd40
-  languageName: node
-  linkType: hard
-
-"rimraf@npm:2.6.2":
-  version: 2.6.2
-  resolution: "rimraf@npm:2.6.2"
-  dependencies:
-    glob: "npm:^7.0.5"
-  bin:
-    rimraf: ./bin.js
-  checksum: 10c0/8caac0e6c36dad94556ec0ca97125d148a813b3f661f3fa9f4bcd6d60ed8e145d94258e102a05557f428086ab9d8de5c714cb2748b2020495056d6730a9ecc72
   languageName: node
   linkType: hard
 
