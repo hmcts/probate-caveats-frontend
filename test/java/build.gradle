@@ -1,10 +1,12 @@
-
 plugins {
     id 'application'
 }
 
-sourceCompatibility = 17
-targetCompatibility = 17
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
 
 // tag::repositories[]
 repositories {
@@ -18,7 +20,7 @@ repositories {
 
 // tag::dependencies[]
 dependencies {
-    testImplementation 'com.github.hmcts:fortify-client:1.4.1:all'
+    testImplementation 'com.github.hmcts:fortify-client:1.4.4:all'
 }
 // end::dependencies[]
 
