@@ -187,7 +187,7 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
     // Add variables that are available in all views
     app.use((req, res, next) => {
         const commonContent = require(`app/resources/${req.session.language}/translation/common`);
-
+        njkEnv.addGlobal('currentHost', req?.headers?.host?.toLowerCase());
         res.locals.serviceName = commonContent.serviceName;
         res.locals.cookieText = commonContent.cookieText;
         res.locals.releaseVersion = 'v' + releaseVersion;

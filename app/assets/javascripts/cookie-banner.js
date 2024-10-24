@@ -38,14 +38,28 @@
             
             // Dynatrace RUM Consent
             const dtrum = window.dtrum;
+            /*
+
+                Session Replay creates anonymized, video-like recordings of users' interactions with
+                your website or mobile app, right down to each click, scroll, and tap. You can watch
+                their mouse movements to identify what they’re trying to do, where they’re having trouble,
+                and what’s frustrating them (or causing them to abandon their journey altogether).
+
+                This is set in the function below. If its needed then dtrum.enableSessionReplay() needs to
+                be added after the dtrum.enable() line. Conversly, dtrum.disableSessionReplay() should be added
+                after the disable call.
+
+                dtrum.enableSessionReplay = function () {
+
+                }
+
+            */
             if (dtrum) {
                 if (cookieStatus.apm === 'on') {
                     dtrum.enable();
-                    dtrum.enableSessionReplay();
                 } else {
-                    dtrum.disableSessionReplay();
                     dtrum.disable();
-                }    
+                }
             }
         }
 
