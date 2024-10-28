@@ -13373,7 +13373,7 @@ __metadata:
     sonarqube-scanner: "npm:^4.0.0"
     superagent: "npm:^10.0.0"
     supertest: "npm:^7.0.0"
-    uuid: "npm:^10.0.0"
+    uuid: "npm:^11.0.0"
     validator: "npm:^13.7.0"
     watch: "npm:^1.0.2"
     webdriverio: "npm:^8.10.5"
@@ -16499,6 +16499,15 @@ __metadata:
   bin:
     uuid: dist/bin/uuid
   checksum: 10c0/1607dd32ac7fc22f2d8f77051e6a64845c9bce5cd3dd8aa0070c074ec73e666a1f63c7b4e0f4bf2bc8b9d59dc85a15e17807446d9d2b17c8485fbc2147b27f9b
+  languageName: node
+  linkType: hard
+
+"uuid@npm:^11.0.0":
+  version: 11.0.1
+  resolution: "uuid@npm:11.0.1"
+  bin:
+    uuid: dist/esm/bin/uuid
+  checksum: 10c0/cd5a1d7eccfd6da80382ec88cfa28b68dce2c1c1402228b813fc0065ab8b29d20594cffeb67d850bc166ade677a6c35741072bd9dd0cc7d565c1fe8eca14ef22
   languageName: node
   linkType: hard
 
