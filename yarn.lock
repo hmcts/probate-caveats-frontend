@@ -3278,7 +3278,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:>=13.7.0, @types/node@npm:^22.2.0":
+"@types/node@npm:*, @types/node@npm:>=13.7.0, @types/node@npm:^22.0.0, @types/node@npm:^22.2.0":
   version: 22.8.4
   resolution: "@types/node@npm:22.8.4"
   dependencies:
@@ -3287,7 +3287,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^20.1.0, @types/node@npm:^20.11.19":
+"@types/node@npm:^20.1.0":
   version: 20.17.3
   resolution: "@types/node@npm:20.17.3"
   dependencies:
@@ -13361,7 +13361,7 @@ __metadata:
     "@pact-foundation/pact": "npm:^13.0.0"
     "@pact-foundation/pact-node": "npm:^10.18.0"
     "@playwright/test": "npm:^1.41.2"
-    "@types/node": "npm:^20.11.19"
+    "@types/node": "npm:^22.0.0"
     ajv: "npm:^6.12.6"
     applicationinsights: "npm:^3.0.0"
     body-parser: "npm:^1.19.0"
