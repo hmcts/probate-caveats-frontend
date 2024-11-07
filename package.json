@@ -148,7 +148,8 @@
     "tough-cookie": "^5.0.0",
     "express": "^4.21.0",
     "puppeteer": "^23.0.0",
-    "formidable": "3.5.2"
+    "formidable": "3.5.2",
+    "import-in-the-middle": "^1.11.2"
   },
   "packageManager": "yarn@4.5.1"
 }
