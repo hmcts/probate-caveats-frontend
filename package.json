@@ -149,7 +149,8 @@
     "express": "^4.21.0",
     "puppeteer": "^23.0.0",
     "formidable": "3.5.2",
-    "import-in-the-middle": "^1.11.2"
+    "import-in-the-middle": "^1.11.2",
+    "cross-spawn": "^7.0.5"
   },
   "packageManager": "yarn@4.5.1"
 }
