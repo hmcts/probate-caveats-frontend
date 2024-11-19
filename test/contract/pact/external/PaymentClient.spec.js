@@ -103,6 +103,12 @@ describe('Pact PaymentClient', () => {
     afterEach(() => provider.verify());
 
     describe('when a request to get an initiated payment', () => {
+        describe('is a newly added entry 8a4e910d', () => {
+            it('succeeds 8a4e910d', (done) => {
+                done();
+            }
+        });
+        
         describe('is required from a GET', () => {
             before(() =>
                 provider.addInteraction({
