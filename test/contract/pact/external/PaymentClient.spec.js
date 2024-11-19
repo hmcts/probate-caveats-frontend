@@ -106,7 +106,7 @@ describe('Pact PaymentClient', () => {
         describe('is a newly added entry 8a4e910d', () => {
             it('succeeds 8a4e910d', (done) => {
                 done();
-            }
+            });
         });
         
         describe('is required from a GET', () => {
