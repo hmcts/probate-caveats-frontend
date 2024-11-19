@@ -108,7 +108,7 @@ describe('Pact PaymentClient', () => {
                 done();
             });
         });
-        
+
         describe('is required from a GET', () => {
             before(() =>
                 provider.addInteraction({
