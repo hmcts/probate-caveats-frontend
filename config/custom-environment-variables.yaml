@@ -7,7 +7,7 @@ featureToggles:
   enabled: LAUNCHDARKLY_ENABLED
   launchDarklyKey: LAUNCHDARKLY_KEY
   launchDarklyUser:
-    key: LAUNCHDARKLY_USER_KEY  
+    key: LAUNCHDARKLY_USER_KEY
 app:
   useHttps: USE_HTTPS
   port: PORT
@@ -25,6 +25,11 @@ services:
     caveat_user_email: CAVEAT_USER_EMAIL
     caveat_user_password: CAVEAT_USER_PASSWORD
     caveat_redirect_base_url: CAVEAT_REDIRECT_BASE_URL
+  pact:
+    name: 'PACT Service'
+    url: PACT_BROKER_URL
+    tag: PACT_BRANCH_NAME
+    pactDirectory: 'pacts'
   payment:
     createPaymentUrl: PAYMENT_CREATE_URL
     authorization: PAYMENT_AUTHORIZATION
@@ -72,8 +77,6 @@ postcodeLookup:
   token: POSTCODE_SERVICE_TOKEN
 validation:
   url: TEST_VALIDATION_SERVICE_URL
-pact:
-  pactBrokerUrl: PACT_BROKER_URL
 webchat:
   avayaUrl: WEBCHAT_AVAYA_URL
   avayaClientUrl: WEBCHAT_AVAYA_CLIENT_URL
