@@ -11,8 +11,17 @@ const opts = {
     pactFilesOrDirs: [path.resolve(process.cwd(), config.services.pact.pactDirectory)],
     pactBroker: config.services.pact.url,
     consumerVersion: git.short(),
-    tags: config.services.pact.tag || 'Dev'
 };
+
+const tags = config.services.pact.tag;
+
+if (tags === 'master') {
+    console.log(`tags is [${tags}], using directly`);
+    opts.tags = tags;
+} else {
+    console.log(`tags is [${tags}], using value Dev`);
+    opts.tags = 'Dev';
+}
 
 pact.publishPacts(opts)
     .then(() => {
