@@ -44,13 +44,10 @@ describe('Pact PaymentClient', () => {
         external_reference: somethingLike('06kd1v30vm45hqvggphdjqbeqa'),
         fees: [
             {
-                calculated_amount: 3,
-                ccd_case_number: '1535395401245028',
-                memo_line: 'Caveat Fees',
-                reference: 'userId',
+                calculated_amount: 99.99,
                 volume: 1,
-                code: 'FEE0288',
-                version: 1
+                code: 'FEE0001',
+                version: '1',
             }
         ]
     };
