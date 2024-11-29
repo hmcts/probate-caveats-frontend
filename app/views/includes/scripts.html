@@ -1,4 +1,4 @@
-<script src="{{ globals.basePath }}/public/javascripts/govuk-frontend/govuk/all.js"></script>
+<script type="module" src="/public/javascripts/govuk-frontend/dist/govuk/govuk-frontend.min.js"></script>
 <script nonce="{{ globals.nonce }}">window.GOVUKFrontend.initAll()</script>
 
 <!--[if lte IE 9]>
@@ -9,6 +9,6 @@
    <!-- https://www.srihash.org/ creating the integrity from this url wheneverthe file changes -->
     <script src="https://{{ globals.webchat.avayaClientUrl }}/chat-client/1/app-es2015.js" defer type="module" crossorigin="anonymous"></script>
     <script src="https://{{ globals.webchat.avayaClientUrl }}/chat-client/1/app-es5.js" nomodule defer crossorigin="anonymous"></script>
-   
+
 {% endif %}
 <script src="{{ globals.basePath }}/public/javascripts/avaya-webchat-3.js"></script>

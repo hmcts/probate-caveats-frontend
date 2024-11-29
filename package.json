@@ -75,7 +75,7 @@
     "express-urlrewrite": "^2.0.2",
     "file-type": "^20.0.0",
     "get-port": "^7.0.0",
-    "govuk-frontend": "^4.8.0",
+    "govuk-frontend": "^5.7.0",
     "helmet": "^3.23.3",
     "https-proxy-agent": "^7.0.0",
     "i18next": "^24.0.0",
