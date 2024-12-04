@@ -3,7 +3,7 @@
 exports.getStore = (redisConfig) => {
     if (redisConfig.enabled === 'true') {
         const Redis = require('ioredis');
-        const RedisStore = require('connect-redis').default;
+        const {RedisStore} = require('connect-redis');
         const tlsOptions = {
             password: redisConfig.password,
             tls: true
