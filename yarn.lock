@@ -5676,11 +5676,11 @@ __metadata:
   linkType: hard
 
 "connect-redis@npm:^8.0.0":
-  version: 8.0.0
-  resolution: "connect-redis@npm:8.0.0"
+  version: 8.0.1
+  resolution: "connect-redis@npm:8.0.1"
   peerDependencies:
     express-session: ">=1"
-  checksum: 10c0/2b60ac4b4821a0f7d834805e7d6d04251b8f714c0850fbe4422dc19effbfe22c552072de9c42ad2c125d02d9f5e83daa744b94624fa237137b30dc43926b3c95
+  checksum: 10c0/0503e2eb99b3b623008cca008d514fd23ffa19961d9fc29a2f2c7be67716b5176ed12570634954456360d0048c0bc26b076ff290901dc8e27efea915e5c50087
   languageName: node
   linkType: hard
 
