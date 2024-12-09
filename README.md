@@ -29,7 +29,7 @@ This is the frontend caveats application for the Probate Caveats online service.
 
 ### Prerequisites
 
-- [Node.js](nodejs.org) >= 12.15.0
+- [Node.js](nodejs.org) >= 20.0.0
 - [yarn](yarnpkg.com)
 
 ### Installation

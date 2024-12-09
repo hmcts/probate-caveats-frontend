@@ -138,19 +138,19 @@
     "when": "^3.7.8"
   },
   "resolutions": {
-    "minimist": "^1.2.6",
-    "async": ">=2.6.4",
-    "cookie": "^1.0.0",
+    "@babel/traverse": "^7.26.4",
+    "async": ">=3.2.6",
+    "cookie": "^1.0.2",
     "cookiejar": ">=2.1.4",
-    "qs": ">=6.9.7",
-    "@babel/traverse": "^7.23.2",
-    "semver": "^7.5.4",
-    "tough-cookie": "^5.0.0",
+    "cross-spawn": "^7.0.6",
     "express": "^4.21.2",
-    "puppeteer": "^24.0.0",
-    "formidable": "3.5.2",
-    "import-in-the-middle": "^1.11.2",
-    "cross-spawn": "^7.0.5"
+    "formidable": "^3.5.2",
+    "import-in-the-middle": "^1.11.3",
+    "minimist": "^1.2.8",
+    "puppeteer": "^23.10.1",
+    "qs": ">=6.9.7",
+    "semver": "^7.6.3",
+    "tough-cookie": "^5.0.0"
   },
   "packageManager": "yarn@4.6.0"
 }
