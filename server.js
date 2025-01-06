@@ -7,10 +7,16 @@ const setupSecrets = require('app/setupSecrets');
 setupSecrets();
 
 if (config.appInsights.connectionString) {
-    appInsights.setup(config.appInsights.connectionString);
+    appInsights.setup(config.appInsights.connectionString)
+        .setAutoDependencyCorrelation(true)
+        .setAutoCollectRequests(true)
+        .setAutoCollectDependencies(true)
+        .setAutoCollectConsole(true, true);
     appInsights.defaultClient.context.tags[appInsights.defaultClient.context.keys.cloudRole] = 'probate-frontend';
+    appInsights.defaultClient.addTelemetryProcessor(
+        (envelope) => !envelope.data.baseData.url?.includes('/health/')
+    );
     appInsights.start();
-    appInsights.defaultClient.trackTrace({message: 'App insights activated'});
 } else {
     console.log('No app-insights-connection-string present');
 }
