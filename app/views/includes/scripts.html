@@ -1,5 +1,8 @@
 <script type="module" src="/public/javascripts/govuk-frontend/govuk/govuk-frontend.min.js"></script>
-<script nonce="{{ globals.nonce }}">window.GOVUKFrontend.initAll()</script>
+<script nonce="{{ globals.nonce }}" type="module">
+    import { initAll } from '{{ globals.basePath }}/public/javascripts/govuk-frontend/govuk/govuk-frontend.min.js'
+    initAll()
+</script>
 
 <!--[if lte IE 9]>
 <script src="{{ globals.basePath }}/public/javascripts/form-polyfill.js"></script>
