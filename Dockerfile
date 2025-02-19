@@ -9,9 +9,10 @@ ENV WORKDIR /opt/app
 WORKDIR ${WORKDIR}
 
 COPY --chown=hmcts:hmcts package.json yarn.lock ./
-RUN yarn config set http-proxy "$http_proxy" && yarn config set https-proxy "$https_proxy"
-RUN yarn install --production  \
-    && yarn cache clean
+RUN yarn config set httpProxy "$http_proxy" \
+    && yarn config set httpsProxy "$https_proxy" \
+    && yarn workspaces focus --all --production  \
+    && rm -rf $(yarn cache clean)
 
 # ---- Build image ----
 FROM base as build
