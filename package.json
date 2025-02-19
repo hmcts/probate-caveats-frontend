@@ -100,7 +100,7 @@
     "validator": "^13.7.0"
   },
   "devDependencies": {
-    "@pact-foundation/pact": "^13.0.0",
+    "@pact-foundation/pact": "^14.0.0",
     "@pact-foundation/pact-node": "^10.18.0",
     "@playwright/test": "^1.41.2",
     "@types/node": "^22.10.9",
