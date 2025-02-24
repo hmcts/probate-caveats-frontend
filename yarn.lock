@@ -8908,15 +8908,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-sonar-reporter@npm:2.0.0":
-  version: 2.0.0
-  resolution: "jest-sonar-reporter@npm:2.0.0"
-  dependencies:
-    xml: "npm:^1.0.1"
-  checksum: 10c0/a1add541442ceba499e786ce9febcdbc8bb8ec27bafaaa9f52db06cc065944c7c2416a5e526555450ba72ce345b83dcbdcd459e5dec57554c17182079022d56d
-  languageName: node
-  linkType: hard
-
 "jest-util@npm:^29.7.0":
   version: 29.7.0
   resolution: "jest-util@npm:29.7.0"
@@ -14188,15 +14179,14 @@ __metadata:
   linkType: hard
 
 "sonarqube-scanner@npm:^4.0.0":
-  version: 4.2.6
-  resolution: "sonarqube-scanner@npm:4.2.6"
+  version: 4.2.7
+  resolution: "sonarqube-scanner@npm:4.2.7"
   dependencies:
     adm-zip: "npm:0.5.12"
     axios: "npm:1.7.7"
     commander: "npm:12.0.0"
     fs-extra: "npm:11.2.0"
     hpagent: "npm:1.2.0"
-    jest-sonar-reporter: "npm:2.0.0"
     node-forge: "npm:^1.3.1"
     properties-file: "npm:3.5.4"
     proxy-from-env: "npm:^1.1.0"
@@ -14204,8 +14194,9 @@ __metadata:
     slugify: "npm:1.6.6"
     tar-stream: "npm:3.1.7"
   bin:
-    sonar-scanner: bin/sonar-scanner
-  checksum: 10c0/e8b279f722bfd1eba666cc865d733d82893d18145b092ea934b8b900a65550b0d6bb6941bd2b4dc5c794dcf2380c335558d3ea62e4b9483a4229a37102c7b3c8
+    sonar: bin/sonar-scanner.js
+    sonar-scanner: bin/sonar-scanner.js
+  checksum: 10c0/3acc82d2f9e2557d28f4f99c17c203ae673bcf810f0d7c868340a37ce40888f76613d8239a002fb23135c6108cafcfd40ece4c965efad1fd88aea8959fe0ef55
   languageName: node
   linkType: hard
 
