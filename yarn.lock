@@ -6896,14 +6896,14 @@ __metadata:
   linkType: hard
 
 "file-type@npm:^20.0.0":
-  version: 20.3.0
-  resolution: "file-type@npm:20.3.0"
+  version: 20.4.0
+  resolution: "file-type@npm:20.4.0"
   dependencies:
     "@tokenizer/inflate": "npm:^0.2.6"
     strtok3: "npm:^10.2.0"
     token-types: "npm:^6.0.0"
     uint8array-extras: "npm:^1.4.0"
-  checksum: 10c0/c43547654e13669efa91c27ab6256ad2283ba1eb333a9fb3adc1459f2f78e7d51ffc3b1893f59ac8f4ceb384ccd4c05f24d9687ca6799e82dd493ea07a4ec798
+  checksum: 10c0/3fa1aa9482d681cbe3ee2ef14cf7dc043e1c698e2e79a92f0d6177419f8048c5a247fa815dafa339aa7f30b3a639f4cd6dbf1fb9f3b040ac552821b39d96166d
   languageName: node
   linkType: hard
 
