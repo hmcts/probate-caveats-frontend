@@ -150,7 +150,8 @@
     "puppeteer": "^24.2.0",
     "qs": "^6.14.0",
     "semver": "^7.6.3",
-    "tough-cookie": "^5.1.1"
+    "tough-cookie": "^5.1.1",
+    "@babel/helpers": "^7.26.10"
   },
   "packageManager": "yarn@4.7.0"
 }
