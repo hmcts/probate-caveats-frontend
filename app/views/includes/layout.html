@@ -42,6 +42,19 @@
         },
         html: (common.feedback + common.languageToggle) | replace("{smartSurveyFeedbackUrl}", globals.links.survey) | replace("{currentPageUrl}", pageUrl) | safe
     }) }}
+
+{% if showBackLink is not defined %}
+{% set showBackLink = true %}
+{% endif %}
+{% if showBackLink %}
+<a href="#" class="govuk-back-link">{{ common.back | safe }}</a>
+{% endif %}
+<script nonce="{{ globals.nonce }}">
+    document.querySelector('.govuk-back-link').addEventListener('click', function(event) {
+        event.preventDefault();
+        history.go(-1);
+    });
+</script>
 {% endblock %}
 
 {% block footer %}
