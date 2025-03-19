@@ -47,7 +47,7 @@
 {% set showBackLink = true %}
 {% endif %}
 {% if showBackLink %}
-<a href="#" class="govuk-back-link">{{ common.back | safe }}</a>
+<a href="javascript:void(0);" class="govuk-back-link">{{ common.back | safe }}</a>
 {% endif %}
 <script nonce="{{ globals.nonce }}">
     document.querySelector('.govuk-back-link').addEventListener('click', function(event) {
