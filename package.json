@@ -153,5 +153,5 @@
     "tough-cookie": "^5.1.1",
     "@babel/helpers": "^7.26.10"
   },
-  "packageManager": "yarn@4.7.0"
+  "packageManager": "yarn@4.8.1"
 }
