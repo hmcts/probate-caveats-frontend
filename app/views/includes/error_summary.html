@@ -9,13 +9,16 @@
         <script nonce="{{ globals.nonce }}">
             let error = "{{ item.msg }}";
             error = error.replace(/&amp;lsquo;/g, '').replace(/&amp;rsquo;/g, '');
-            window.dataLayer = window.dataLayer || [];            
+            window.dataLayer = window.dataLayer || [];
             window.dataLayer.push({'event': 'Errorshown', 'error_msg': error });
         </script>
     {% endfor %}
 
     {{ govukErrorSummary({
         "titleText": common.errorSummaryHeading | safe,
-        "errorList": errorList
+        "errorList": errorList,
+        "attributes": {
+            "aria-live": "assertive"
+        }
     }) }}
 {% endif %}
