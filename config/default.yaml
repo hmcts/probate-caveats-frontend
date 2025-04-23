@@ -53,6 +53,7 @@ services:
   payment:
     name: 'Payment Service'
     createPaymentUrl: 'http://localhost:8383/card-payments'
+    externalUrl: 'https://card.payments.service.gov.uk'
     authorization: 'dummy_token'
     serviceAuthorization: 'dummy_token'
     userId: 46

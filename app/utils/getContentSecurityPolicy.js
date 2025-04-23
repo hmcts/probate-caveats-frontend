@@ -1,3 +1,5 @@
+const config = require('config');
+
 const getContentSecurityPolicy = (nonce) => (
     {
         directives: {
@@ -51,7 +53,12 @@ const getContentSecurityPolicy = (nonce) => (
                 'tagmanager.google.com',
                 'fonts.googleapis.com'
             ],
-            frameAncestors: ['\'self\'']
+            frameAncestors: ['\'self\''],
+            formAction: [
+                '\'self\'',
+                config.services.equalityAndDiversity.url,
+                config.services.payment.externalUrl
+            ]
         },
         browserSniff: true,
         setAllHeaders: true
