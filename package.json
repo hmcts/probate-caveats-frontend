@@ -132,7 +132,7 @@
     "sinon": "^20.0.0",
     "sinon-chai": "^3.3.0",
     "sonar-scanner": "^3.1.0",
-    "sonarqube-scanner": "^4.0.0",
+    "sonarqube-scanner": "^4.3.0",
     "superagent": "^10.0.0",
     "supertest": "^7.0.0",
     "watch": "^1.0.2",
@@ -140,7 +140,7 @@
     "when": "^3.7.8"
   },
   "resolutions": {
-    "@babel/traverse": "^7.26.4",
+    "@babel/traverse": "^7.27.0",
     "async": ">=3.2.6",
     "cookie": "^1.0.2",
     "cookiejar": ">=2.1.4",
@@ -153,7 +153,7 @@
     "qs": "^6.14.0",
     "semver": "^7.6.3",
     "tough-cookie": "^5.1.1",
-    "@babel/helpers": "^7.26.10"
+    "@babel/helpers": "^7.27.0"
   },
   "packageManager": "yarn@4.9.1"
 }
