@@ -14621,7 +14621,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"superagent@npm:9, superagent@npm:^9.0.1":
+"superagent@npm:9":
   version: 9.0.2
   resolution: "superagent@npm:9.0.2"
   dependencies:
@@ -14638,7 +14638,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"superagent@npm:^10.0.0":
+"superagent@npm:^10.0.0, superagent@npm:^10.2.1":
   version: 10.2.1
   resolution: "superagent@npm:10.2.1"
   dependencies:
@@ -14674,12 +14674,12 @@ __metadata:
   linkType: hard
 
 "supertest@npm:^7.0.0":
-  version: 7.0.0
-  resolution: "supertest@npm:7.0.0"
+  version: 7.1.1
+  resolution: "supertest@npm:7.1.1"
   dependencies:
     methods: "npm:^1.1.2"
-    superagent: "npm:^9.0.1"
-  checksum: 10c0/f0b10a1d292e6156fab16efdbb90d8cb1df54367667ae4108a6da67b81058d35182720dd9a3b4b2f538b14729dc8633741e6242724f1a0ccfde5197341ea96ec
+    superagent: "npm:^10.2.1"
+  checksum: 10c0/d5ca56e5a78b145bcfb44c0d9518bdcfce4657b62d0b4c37561c772a8a21b91a6a7c63832e73764484dfc32e4183e6e42028595d539028c05458e8d9867baf75
   languageName: node
   linkType: hard
 
