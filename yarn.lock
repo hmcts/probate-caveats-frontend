@@ -7793,9 +7793,9 @@ __metadata:
   linkType: hard
 
 "govuk-frontend@npm:^5.8.0":
-  version: 5.10.1
-  resolution: "govuk-frontend@npm:5.10.1"
-  checksum: 10c0/d39ea1359964c84e91fb820fdac54911c6daea594f4f3abbf64c0a76bbc4e2cdd325f333315a448e8a0b53aae15a75f3befcd7cf448d69e2eb6bda8e4f16e587
+  version: 5.10.2
+  resolution: "govuk-frontend@npm:5.10.2"
+  checksum: 10c0/d18d5f101072f63ce18183e2ded89da7fa255596de18cc43a8845a9f2dcb2e583ba36181119a1ba9fec456db09c0d1921a734d030f75c4befd7bffef2ba94909
   languageName: node
   linkType: hard
 
