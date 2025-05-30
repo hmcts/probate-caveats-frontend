@@ -3,13 +3,13 @@ appVersion: "1.0"
 description: A Helm chart for the HMCTS probate product
 name: probate-caveats-fe
 home: https://github.com/hmcts/probate-caveats-frontend
-version: 2.4.20
+version: 2.4.21
 dependencies:
   - name: nodejs
     version: 3.2.0
     repository: 'oci://hmctspublic.azurecr.io/helm'
   - name: redis
-    version: 20.13.4
+    version: 21.1.10
     repository: "oci://registry-1.docker.io/bitnamicharts"
     condition: redis.enabled
   - name: idam-pr
