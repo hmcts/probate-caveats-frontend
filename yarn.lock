@@ -12509,7 +12509,7 @@ __metadata:
     randomstring: "npm:^1.3.1"
     request: "npm:^2.88.2"
     require-directory: "npm:^2.1.1"
-    rewire: "npm:^7.0.0"
+    rewire: "npm:^8.0.0"
     selenium-standalone: "npm:^10.0.1"
     serve-favicon: "npm:^2.5.0"
     sinon: "npm:^20.0.0"
@@ -13578,12 +13578,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rewire@npm:^7.0.0":
-  version: 7.0.0
-  resolution: "rewire@npm:7.0.0"
+"rewire@npm:^8.0.0":
+  version: 8.0.0
+  resolution: "rewire@npm:8.0.0"
   dependencies:
     eslint: "npm:^8.47.0"
-  checksum: 10c0/fa0f2a97477e0497e333d94ec52cf48f4414b4ed598fdc3672b17324e9b00b37ef6d283b3e6830aaa42e22b62a4736ffc6781a4c222ddf03ea20f55cc5ec5b31
+  checksum: 10c0/5511a68a0064105135f1441f09f11ce965dd016ff65a9869d389ed42d1e11069776b49603057cf9ad4bf974a3cc8deb32bd43a23828ba3f99e1ec7a306ef5ccb
   languageName: node
   linkType: hard
 
