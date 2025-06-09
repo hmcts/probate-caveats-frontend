@@ -43,26 +43,25 @@
 
   "heading9": "Cynnwys anhygyrch",
   "paragraph17": "Mae&rsquo;r cynnwys a restrir isod yn anhygyrch am y rhesymau canlynol. Nid ydym wedi gallu gwirio ein bod yn llwyr gydymffurfio yn y meysydd canlynol, a hynny oherwydd cyfyngiadau gyda&rsquo;n adnoddau profi mewnol:",
-  "list6-item1": "Nid yw canlyniadau&rsquo;r cyfleuster chwilio am gyfeiriad yn chwyddo ar rai tabledi. Mae hyn yn gyfyngiad o fewn porwyr rhai tabledi.",
-  "list6-item2": "Efallai ni fydd hyn yn bodloni WCAG 2.1 maen prawf llwyddiant 1.4.4 (Newid Maint Testun). Rydym yn bwriadu datrys y broblem hon erbyn Medi 2023",
-  "list6-item3": "Mae 4 problem yn parhau y tu allan i&rsquo;r gwasanaeth hwn, yng ngwasanaeth taliadau&rsquo;r llywodraeth, na fydd efallai&rsquo;n bodloni meini prawf llwyddiant WCAG 2.1 - 1.3.1 (Gwybodaeth a Pherthnasoedd), 1.3.2 (Dilyniant Ystyrlon), 1.4.4 (Newid Maint Testun) a 2.4.1 (Blociau Osgoi)",
-  "list6-item4": "Mae&rsquo;r tudalennau hyn yn rhan o&rsquo;r gwasanaeth gov.pay. Mae eu datganiad hygyrchedd ar gael yn:<a href=\"{paymentsAccessibilityStatement}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener\" aria-label=\"Datganiad hygyrchedd ar gyfer GOV.UK Pay – GOV.UK Pay (payments.service.gov.uk)\">Datganiad hygyrchedd ar gyfer GOV.UK Pay – GOV.UK Pay (payments.service.gov.uk)</a> a chafodd ei ddiweddaru diwethaf ar 22 Ionawr. Rydym yn bwriadu datrys y broblem hon erbyn Rhagfyr 2023.",
+  "list6-item1": "1.3.1: Gwybodaeth a Pherthnasoedd (Lefel A):",
+  "list6-item2": "\tNid oes penawdau yn y dogfennau PDF.",
 
   "heading10": "Cynnwys sydd ddim o fewn cwmpas y rheoliadau hygyrchedd",
   "heading10-1": "Dogfennau PDF a dogfennau eraill",
   "paragraph18": "Mae&rsquo;n bosib na fydd dogfennau PDF, dogfennau eraill ac atodiadau mewn negeseuon e-bost a gyhoeddwyd cyn 23 Medi 2018 yn cydymffurfio â&rsquo;r safonau hygyrchedd. Er enghraifft, efallai nad ydynt wedi&rsquo;u strwythuro fel eu bod yn hygyrch i raglen darllen sgrîn.",
   "heading10-2": "Cynnwys trydydd parti sydd dan reolaeth rhywun arall",
-  "paragraph19": "Efallai na fydd tudalennau a gwefannau sy&rsquo;n berthnasol i&rsquo;r gwasanaeth profiant yn gwbl hygyrch. Mae&rsquo;r rhain yn cynnwys:",
-  "list7-item1": "Tudalennau allanol sy&rsquo;n cynnwys dogfennau PDF e.e.<br><a href=\"{applicationFormPA15}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener\" aria-label=\"{applicationFormPA15} (yn agor mewn ffenestr newydd)\">{applicationFormPA15} (yn agor mewn ffenestr newydd)</a>",
-  "list7-item2": "Y tudalennau mewngofnodi a thalu",
-  "list7-item3": "Negeseuon e-bost a anfonir gan gov.uk.notify",
-  "list7-item4": "Tudalennau cyfarwyddiadau ar gov.uk e.e.<br><a href=\"{deathReportedToCoroner}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener\" aria-label=\"{deathReportedToCoroner} (yn agor mewn ffenestr newydd)\">{deathReportedToCoroner} (yn agor mewn ffenestr newydd)</a>",
-  "list7-item5": "Y gwasanaeth sgwrsio dros y we yn Saesneg sy&rsquo;n cynnig cefnogaeth byw i ddefnyddwyr",
+  "paragraph19": "Efallai na fydd tudalennau a gwefannau sy&rsquo;n berthnasol i&rsquo;r gwasanaeth profiant yn gwbl hygyrch. Mae&rsquo;r rhain yn cynnwys:",  "list7-item1": "Tudalennau allanol sy&rsquo;n cynnwys dogfennau PDF er enghraifft <a href=\"{applicationFormPA15}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener\" aria-label=\"Ffurflen PA15  (yn agor mewn tab newydd)\">Ffurflen PA15 (yn agor mewn tab newydd)</a>",
+  "list7-item2": "y tudalennau mewngofnodi – edrychwch ar ddatganiad hygyrchedd <a href=\"{hmctAccessAccessibilityStatement}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener\" aria-label=\"HMCTS Access (yn agor mewn tab newydd)\">HMCTS Access (yn agor mewn tab newydd)</a> i gael rhagor o wybodaeth",
+  "list7-item3": "tudalennau talu – edrychwch ar ddatganiad hygyrchedd <a href=\"{payAccessibilityStatement}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener\" aria-label=\"GOV.UK Pay (yn agor mewn tab newydd)\">GOV.UK Pay (yn agor mewn tab newydd)</a> i gael rhagor o wybodaeth",
+  "list7-item4": "e-byst a anfonir gan GOV.UK Notify – edrychwch ar ddatganiad hygyrchedd <a href=\"{notifyAccessibilityStatement}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener\" aria-label=\"GOV.UK Notify (yn agor mewn tab newydd)\">GOV.UK Notify (yn agor mewn tab newydd)</a> i gael rhagor o wybodaeth",
+  "list7-item5": "tudalennau cyfarwyddiadau ar GOV.UK, er enghraifft <a href=\"{deathReportedToCoroner}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener\" aria-label=\"Pan fydd marwolaeth yn cael ei gofnodi gan grwner - GOV.UK (yn agor mewn tab newydd)\">Pan fydd marwolaeth yn cael ei gofnodi gan grwner - GOV.UK (yn agor mewn tab newydd)</a>",
+  "list7-item6": "Y gwasanaeth sgwrsio dros y we yn Saesneg sy&rsquo;n cynnig cefnogaeth byw i ddefnyddwyr",
+
 
   "heading11": "Beth rydym yn ei wneud i wella hygyrchedd y gwasanaeth hwn",
-  "paragraph20": "Rydym yn cynnal profion hygyrchedd yn rheolaidd fel rhan o&rsquo;n arferion datblygu ac yn datrys unrhyw broblemau cyn i wefannau a swyddogaethau newydd gael eu rhyddhau. Rydym yn defnyddio Pa11y ac Axe gyda&rsquo;n prosesau sicrhau ansawdd. Mae&rsquo;r wefan yn cael ei phrofi&rsquo;n barhaus gan ddefnyddio meddalwedd hygyrchedd. Bydd unrhyw nodweddion newydd a fydd yn cael eu cyflwyno hefyd yn cael eu profi&rsquo;n fewnol neu gan y Ganolfan Hygyrchedd Digidol (DAC).",
+  "paragraph20": "Rydym yn cynnal profion hygyrchedd yn rheolaidd fel rhan o&rsquo;n arferion datblygu ac yn datrys unrhyw broblemau cyn i wefannau a swyddogaethau newydd gael eu rhyddhau. Rydym yn defnyddio Pa11y ac Axe gyda&rsquo;n prosesau sicrhau ansawdd.<br><br>Mae&rsquo;r wefan yn cael ei phrofi&rsquo;n barhaus gan ddefnyddio meddalwedd hygyrchedd. Bydd unrhyw nodweddion newydd a fydd yn cael eu cyflwyno hefyd yn cael eu profi&rsquo;n fewnol neu gan y Ganolfan Hygyrchedd Digidol (DAC).",
 
   "heading12": "Paratoi&rsquo;r datganiad hygyrchedd hwn",
-  "paragraph21": "Cafodd y datganiad hwn ei baratoi ar 7 Chwefror 2023. Cafodd ei ddiweddaru diwethaf ar 10 Chwefror 2023.",
-  "paragraph22": "Cafodd y wefan &lsquo;Gwneud cais am brofiant&rsquo; hon ei phrofi diwethaf gan y Ganolfan Hygyrchedd Digidol (DAC) ym mis Hydref 2019."
+  "paragraph21": "Cafodd y datganiad hwn ei baratoi ym mis Mawrth 2025. Diweddarwyd ddiwethaf ar 7 Ebrill 2025.",
+  "paragraph22": "Profwyd y gwasanaeth &lsquo;Gwneud cais am brofiant&rsquo; ddiwethaf gan dîm mewnol y Ganolfan Ragoriaeth Profi Hygyrchedd (ATCoE) ym mis Medi 2024."
 }

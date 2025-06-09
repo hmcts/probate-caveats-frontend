@@ -48,10 +48,6 @@
             <ul class="govuk-list govuk-list--bullet">
                 <li>{{ content["list6-item2"] | safe }}</li>
             </ul>
-            <li>{{ content["list6-item3"] | safe }}</li>
-            <ul class="govuk-list govuk-list--bullet">
-                <li>{{ content["list6-item4"] | replace("{paymentsAccessibilityStatement}", globals.links.paymentsAccessibilityStatement) | safe }}</li>
-            </ul>
         </ul>
 
         <h2 class="govuk-heading-m">{{ content.heading10 | safe }}</h2>
@@ -59,8 +55,14 @@
         <p class="govuk-body">{{ content.paragraph18 | safe }}</p>
         <h3 class="govuk-heading-s">{{ content["heading10-2"] | safe }}</h3>
         <p class="govuk-body">{{ content.paragraph19 | safe }}</p>
-        {{ unorderedList([content["list7-item1"] | replace("{applicationFormPA15}", globals.links.applicationFormPA15), content["list7-item2"], content["list7-item3"], content["list7-item4"] | replace("{deathReportedToCoroner}", globals.links.deathReportedToCoroner), content["list7-item5"]]) }}
-
+        {{ unorderedList([content["list7-item1"] | replace("{applicationFormPA15}", globals.links.applicationFormPA15)
+                        , content["list7-item2"] | replace("{hmctAccessAccessibilityStatement}", globals.links.hmctAccessAccessibilityStatement)
+                        , content["list7-item3"] | replace("{payAccessibilityStatement}", globals.links.payAccessibilityStatement)
+                        , content["list7-item4"] | replace("{notifyAccessibilityStatement}", globals.links.notifyAccessibilityStatement)
+                        , content["list7-item5"] | replace("{deathReportedToCoroner}", globals.links.deathReportedToCoroner)
+                        , content["list7-item6"]
+        ])
+        }}
         <h2 class="govuk-heading-m">{{ content.heading11 | safe }}</h2>
         <p class="govuk-body">{{ content.paragraph20 | safe }}</p>
 
