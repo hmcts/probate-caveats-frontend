@@ -1,7 +1,7 @@
 {
   "title": "Accessibility statement",
   "heading1": "Accessibility statement for &lsquo;Stopping a probate application&rsquo; service",
-  "paragraph1": "This accessibility statement applies to content published on <a href=\"{applyForCaveatFrontpage}\"class=\"govuk-link\" rel=\"external noopener\"\">https://www.gov.uk/stop-probate-application/apply-for-a-caveat</a>",
+  "paragraph1": "This accessibility statement applies to <a href=\"{applyForCaveatFrontpage}\"class=\"govuk-link\" rel=\"external noopener\"\">Stop a grant of probate - GOV.UK (opens in a new tab)</a>",
   "paragraph2": "This service allows users to apply to stop an application for a grant of representation (also known as probate) online.",
   "paragraph3": "This website is run by HM Courts and Tribunals. We want as many people as possible to be able to use this website, so we have designed it to be accessible. For example, that means you should be able to:",
   "list1-item1": "change colours, contrast levels and fonts",
@@ -10,7 +10,7 @@
   "list1-item4": "navigate most of the website using speech recognition software",
   "list1-item5": "listen to most of the website using a screen reader (including the most recent versions of JAWS, NVDA and VoiceOver)",
   "paragraph4": "We&rsquo;ve also made the website text as simple as possible to understand.",
-  "paragraph5": "<a href=\"{myAbilityLink}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener\" aria-label=\"AbilityNet (opens in a new window)\">AbilityNet (opens in a new window)</a> has advice on making your device easier to use if you have a disability.",
+  "paragraph5": "<a href=\"{myAbilityLink}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener\" aria-label=\"AbilityNet (opens in a new tab)\">AbilityNet (opens in a new tab)</a> has advice on making your device easier to use if you have a disability.",
 
   "heading2": "How accessible this website is",
   "paragraph6": "We know some parts of this website are not fully accessible:",
@@ -18,26 +18,24 @@
   "list2-item2": "There are outstanding accessibility issues outside of this service, in the government payments service, which may result in accessible technology users having difficulties using this area.",
 
   "heading3": "Feedback and contact information",
-  "paragraph7": "If you need information on this website in a different format like accessible PDF, large print, easy read or braille:",
+  "paragraph7": "If you need information on this website in a different format like accessible PDF, large print, easy read or braille, contact:",
   "list3-item1": "Email <a href=\"mailto:HMCTSforms@justice.gov.uk\" class=\"govuk-link\">HMCTSforms@justice.gov.uk</a>",
   "list3-item2": "call: {helpLineNumber}<br>{helpLineHours}",
   "paragraph8": "We&rsquo;ll consider your request and get back to you within 10 working days.",
 
+  "heading3a": "Contacting us by phone or visiting us in person",
+  "paragraph8a": "We provide a text relay service for people who are D/deaf, hearing impaired or have a speech impediment.",
+  "paragraph8b": "Our offices have audio induction loops, or if you contact us before your visit we can arrange a British Sign Language (BSL) interpreter.",
+  "list3a-item1": "Contact us:<br>Phone: {helpLineNumber}<br>{helpLineHours}",
+
+
   "heading4": "Reporting accessibility problems with this website",
-  "paragraph9": "We&rsquo;re always looking to improve the accessibility of this website. If you find any problems that are not listed on this page or think we&rsquo;re not meeting accessibility requirements, phone:",
-  "list4-item1": "Email <a href=\"mailto:HMCTSforms@justice.gov.uk\" class=\"govuk-link\">HMCTSforms@justice.gov.uk</a> or phone:",
-  "list4-item2": "<strong>Probate helpline:</strong><br>Telephone: {helpLineNumber}<br>{helpLineHours}",
+  "paragraph9": "We&rsquo;re always looking to improve the accessibility of this website. If you find any problems that are not listed on this page or think we&rsquo;re not meeting accessibility requirements, contact us using the phone number above.",
   "paragraph10": "We&rsquo;ll consider your request and get back to you within 10 working days.",
+
 
   "heading5": "Enforcement procedure",
   "paragraph11": "The Equality and Human Rights Commission (EHRC) is responsible for enforcing the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018 (the &lsquo;accessibility regulations&rsquo;). If you&rsquo;re not happy with how we respond to your complaint, <a href=\"{equalityAdvisorLink}\" target=\"_blank\" rel=\"external noopener\" class=\"govuk-link\" aria-label=\"contact the Equality Advisory and Support Service (EASS) (opens in a new window)\">contact the Equality Advisory and Support Service (EASS) (opens in a new window)</a>.",
-
-  "heading6": "Contacting us by phone or visiting us in person",
-  "paragraph12": "We provide a text relay service for people who are D/deaf, hearing impaired or have a speech impediment.",
-  "paragraph13": "Our offices have audio induction loops, or if you contact us before your visit we can arrange a British Sign Language (BSL) interpreter.",
-  "paragraph14": "Find out how to contact us:",
-  "list5-item1": "Email <a href=\"mailto:HMCTSforms@justice.gov.uk\" class=\"govuk-link\">HMCTSforms@justice.gov.uk</a> or phone:",
-  "list5-item2": "<strong>Probate helpline:</strong><br>Telephone: {helpLineNumber}<br>{helpLineHours}",
 
 
   "heading7": "Technical information about this website&rsquo;s accessibility",

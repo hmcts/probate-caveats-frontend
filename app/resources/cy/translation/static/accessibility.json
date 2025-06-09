@@ -1,7 +1,7 @@
 {
   "title": "Datganiad Hygyrchedd",
   "heading1": "Datganiad Hygyrchedd ar gyfer y gwasanaeth &lsquo;Atal cais am brofiant&rsquo;",
-  "paragraph1": "Mae&rsquo;r datganiad hygyrchedd hwn yn berthnasol i gynnwys a gyhoeddir ar <a href=\"{applyForCaveatFrontpageWelsh}\"class=\"govuk-link\" rel=\"external noopener\"\">https://www.gov.uk/atal-cais-am-brofiant/gwneud-cais-i-gofnodi-cafeat</a>",
+  "paragraph1": "Mae’r datganiad hygyrchedd hwn yn berthnasol i <a href=\"{applyForCaveatFrontpageWelsh}\"class=\"govuk-link\" rel=\"external noopener\"\">Atal grant am brofiant - GOV.UK (yn agor mewn tab newydd)</a>",
   "paragraph2": "Mae&rsquo;r gwasanaeth hwn yn galluogi defnyddwyr i atal cais am grant cynrychiolaeth ar-lein (a elwir hefyd yn profiant).",
   "paragraph3": "Gwasanaeth Llysoedd a Thribiwnlysoedd EF sy&rsquo;n gyfrifol am y wefan hon, Rydym eisiau i gymaint o bobl â phosibl allu defnyddio&rsquo;r wefan hon, felly rydym wedi ceisio ei gwneud mor hygyrch â phosibl. Er enghraifft, golyga hyn y dylech allu:",
   "list1-item1": "newid y lliwiau, y lefelau cyferbyniad a&rsquo;r ffontiau",
@@ -10,7 +10,7 @@
   "list1-item4": "mynd drwy&rsquo;r rhan fwyaf o&rsquo;r wefan gan ddefnyddio meddalwedd adnabod llais",
   "list1-item5": "gwrando ar y rhan fwyaf o&rsquo;r wefan gan ddefnyddio darllenydd sgrin (gan gynnwys fersiynau diweddaraf JAWS, NVDA a VoiceOver)",
   "paragraph4": "Rydym hefyd wedi sicrhau ein bod wedi defnyddio iaith syml ar y wefan.",
-  "paragraph5": "Mae gan <a href=\"{myAbilityLink}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener\" aria-label=\"AbilityNet (agor mewn ffenestr newydd)\">AbilityNet (agor mewn ffenestr newydd)</a> gyngor ar wneud eich dyfais yn haws i&rsquo;w defnyddio os oes gennych anabledd.",
+  "paragraph5": "<a href=\"{myAbilityLink}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener\" aria-label=\"Mae gan AbilityNet (yn agor mewn tab newydd)\">Mae gan AbilityNet (yn agor mewn tab newydd)</a> gyngor ar wneud eich dyfais yn haws i&rsquo;w defnyddio os oes gennych anabledd.",
 
   "heading2": "Pa mor hygyrch yw&rsquo;r wefan hon",
   "paragraph6": "Gwyddwn nad yw rhai rhannau o&rsquo;r wefan hon yn gwbl hygyrch:",
@@ -18,27 +18,22 @@
   "list2-item2": "Mae problemau hygyrchedd yn parhau y tu allan i&rsquo;r gwasanaeth hwn, yng ngwasanaeth taliadau&rsquo;r llywodraeth, a allai arwain at ddefnyddwyr technoleg hygyrch yn cael anawsterau gyda defnyddio&rsquo;r gwasanaeth hwn.",
 
   "heading3": "Adborth a gwybodaeth gyswllt",
-  "paragraph7": "Os ydych angen gwybodaeth sydd ar y wefan hon mewn fformat gwahanol fel PDF hygyrch, print bras, fersiwn hawdd ei ddarllen neu Braille:",
+  "paragraph7": "Os ydych angen gwybodaeth sydd ar y wefan hon mewn fformat gwahanol fel PDF hygyrch, print bras, fersiwn hawdd ei ddarllen neu Braille, cysylltwch â:",
   "list3-item1": "anfonwch e-bost i:<a href=\"mailto:HMCTSforms@justice.gov.uk\" class=\"govuk-link\">HMCTSforms@justice.gov.uk</a>",
   "list3-item2": "ffoniwch: {helpLineNumber}<br>{helpLineHours}",
   "paragraph8": "Byddwn yn ystyried eich cais ac yn ymateb o fewn 10 diwrnod gwaith.",
 
+  "heading3a": "Cysylltu â ni dros y ffôn neu ymweld â ni’n bersonol",
+  "paragraph8a": "Rydym yn darparu gwasanaeth cyfnewid negeseuon testun ar gyfer pobl fyddar, pobl sydd â nam ar eu clyw a phobl sydd â nam ar eu lleferydd.",
+  "paragraph8b": "Mae yna ddolenni sain yn ein swyddfeydd, neu os byddwch yn cysylltu â ni cyn eich ymweliad, gallwn drefnu cyfieithydd Iaith Arwyddion Prydain (BSL) ar eich cyfer.",
+  "list3a-item1": "Cysylltwch â ni:<br>Rhif ffôn: {helpLineNumber}<br>{helpLineHours}",
+
   "heading4": "Riportio problemau hygyrchedd gyda&rsquo;r wefan hon",
-  "paragraph9": "Rydym wastad yn ceisio gwella hygyrchedd y wefan hon. Os byddwch yn cael unrhyw broblemau sydd heb eu rhestru ar y dudalen hon, neu&rsquo;n credu nad ydym yn bodloni&rsquo;r gofynion o ran hygyrchedd:",
-  "list4-item1": "anfonwch e-bost i <a href=\"mailto:HMCTSforms@justice.gov.uk\" class=\"govuk-link\">HMCTSforms@justice.gov.uk</a> neu ffoniwch:",
-  "list4-item2": "<strong>Llinell Gymorth Profiant:</strong><br>{helpLineNumber}<br>{helpLineHours}",
+  "paragraph9": "Rydym wastad yn ceisio gwella hygyrchedd y wefan hon. Os byddwch yn cael unrhyw broblemau nad ydynt wedi’u cynnwys ar y dudalen hon, neu’n credu nad ydym yn bodloni’r gofynion o ran hygyrchedd, cysylltwch â ni gan ddefnyddio’r rhif ffôn uchod.",
   "paragraph10": "Byddwn yn ystyried eich cais ac yn ymateb o fewn 10 diwrnod gwaith.",
 
   "heading5": "Y Weithdrefn Orfodi",
   "paragraph11": "Y Comisiwn Cydraddoldeb a Hawliau Dynol (EHRC) sy&rsquo;n gyfrifol am orfodi Rheoliadau Hygyrchedd Cyrff y Sector Cyhoeddus (Gwefannau a Rhaglenni Symudol) (Rhif 2) 2018 (y &lsquo;rheoliadau hygyrchedd&rsquo;). Os ydych yn anhapus â&rsquo;r ffordd rydym yn ymateb i&rsquo;ch cwyn, <a href=\"{equalityAdvisorLink}\" target=\"_blank\" rel=\"external noopener\" class=\"govuk-link\" aria-label=\"cysylltwch â&rsquo;r Gwasanaeth Cynghori a Chefnogi Cydraddoldeb (EASS) (yn agor mewn ffenest newydd)\">cysylltwch â&rsquo;r Gwasanaeth Cynghori a Chefnogi Cydraddoldeb (EASS) (yn agor mewn ffenest newydd)</a>.",
-
-  "heading6": "Cysylltu â ni dros y ffôn neu ymweld â ni&rsquo;n bersonol",
-  "paragraph12": "Rydym yn darparu gwasanaeth cyfnewid negeseuon testun ar gyfer pobl fyddar, pobl sydd â nam ar eu clyw a phobl sydd â nam ar eu lleferydd.",
-  "paragraph13": "Mae yna ddolenni sain yn ein swyddfeydd, neu os byddwch yn cysylltu â ni cyn eich ymweliad, gallwn drefnu cyfieithydd Iaith Arwyddion Prydain (BSL) ar eich cyfer.",
-  "paragraph14": "Gwybodaeth am sut i i gysylltu â ni:",
-  "list5-item1": "E-bost <a href=\"mailto:HMCTSforms@justice.gov.uk\" class=\"govuk-link\">HMCTSforms@justice.gov.uk</a> neu ffoniwch:",
-  "list5-item2": "<strong>Llinell Gymorth Profiant:</strong><br>{helpLineNumber}<br>{helpLineHours}",
-
 
   "heading7": "Gwybodaeth dechnegol am hygyrchedd y wefan hon",
   "paragraph15": "Mae GLlTEF wedi ymrwymo i sicrhau bod ei wefannau yn hygyrch, a hynny yn unol â Rheoliadau Hygyrchedd Cyrff y Sector Cyhoeddus (Gwefannau a Rhaglenni Symudol) (Rhif 2) 2018.",
