@@ -54,7 +54,7 @@
   "helpEmailLabel": "Anfonwch e-bost i <a href=\"mailto:{contactEmailAddress}\" class=\"govuk-link\" tabindex=\"-1\">{contactEmailAddress}</a>.",
   "helpEmail": "contactprobate@justice.gov.uk",
   "helpTelephoneNumber": "0300 303 0654",
-  "helpTelephoneOpeningHours": "Dydd Llun i ddydd Iau, 9am – 5pm, dydd Gwener, 9am – 4.30pm.",
+  "helpTelephoneOpeningHours": "Dydd Llun i Ddydd Gwener, 9am - 1pm (ar gau ar wyliau banc)",
   "helpTelephoneOpeningHoursTitle": "Amseroedd agor (ffôn)",
   "helpTelephoneOpeningHours1": "9am - 5pm dydd Llun i ddydd Iau, 9am – 4.30pm dydd Gwener",
   "helpTelephoneOpeningHours2": "Ar gau ar ddyddiau Sadwrn a Sul",
