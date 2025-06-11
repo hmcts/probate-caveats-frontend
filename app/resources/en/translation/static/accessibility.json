@@ -1,15 +1,15 @@
 {
   "title": "Accessibility statement",
-  "heading1": "Accessibility statement for &lsquo;Stopping a probate application&rsquo; service",
+  "heading1": "Accessibility statement for the &lsquo;Stop a grant of probate&rsquo; service",
   "paragraph1": "This accessibility statement applies to <a href=\"{applyForCaveatFrontpage}\"class=\"govuk-link\" target=\"_blank\" rel=\"external noopener\"\">Stop a grant of probate - GOV.UK (opens in a new tab)</a>",
   "paragraph2": "This service allows users to apply to stop an application for a grant of representation (also known as probate) online.",
-  "paragraph3": "This website is run by HM Courts and Tribunals. We want as many people as possible to be able to use this website, so we have designed it to be accessible. For example, that means you should be able to:",
+  "paragraph3": "This website is run by HM Courts and Tribunals (HMCTS). We want as many people as possible to be able to use this website, so we have designed it to be accessible. For example, that means you should be able to:",
   "list1-item1": "change colours, contrast levels and fonts",
   "list1-item2": "zoom in up to 300% without the text spilling off the screen",
   "list1-item3": "navigate most of the website using just a keyboard",
   "list1-item4": "navigate most of the website using speech recognition software",
   "list1-item5": "listen to most of the website using a screen reader (including the most recent versions of JAWS, NVDA and VoiceOver)",
-  "paragraph4": "We&rsquo;ve also made the website text as simple as possible to understand.",
+  "paragraph4": "We have also made the website text as simple as possible to understand.",
   "paragraph5": "<a href=\"{myAbilityLink}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener\" aria-label=\"AbilityNet (opens in a new tab)\">AbilityNet (opens in a new tab)</a> has advice on making your device easier to use if you have a disability.",
 
   "heading2": "How accessible this website is",
@@ -19,9 +19,9 @@
 
   "heading3": "Feedback and contact information",
   "paragraph7": "If you need information on this website in a different format like accessible PDF, large print, easy read or braille, contact:",
-  "list3-item1": "Email <a href=\"mailto:HMCTSforms@justice.gov.uk\" class=\"govuk-link\">HMCTSforms@justice.gov.uk</a>",
-  "list3-item2": "call: {helpLineNumber}<br>{helpLineHours}",
-  "paragraph8": "We&rsquo;ll consider your request and get back to you within 10 working days.",
+  "list3-item1": "email: <a href=\"mailto:HMCTSforms@justice.gov.uk\" class=\"govuk-link\">HMCTSforms@justice.gov.uk</a>",
+  "list3-item2": "phone: {helpLineNumber}<br>{helpLineHours}",
+  "paragraph8": "We will consider your request and get back to you within 10 working days.",
 
   "heading3a": "Contacting us by phone or visiting us in person",
   "paragraph8a": "We provide a text relay service for people who are D/deaf, hearing impaired or have a speech impediment.",
@@ -35,24 +35,24 @@
 
 
   "heading5": "Enforcement procedure",
-  "paragraph11": "The Equality and Human Rights Commission (EHRC) is responsible for enforcing the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018 (the &lsquo;accessibility regulations&rsquo;). If you&rsquo;re not happy with how we respond to your complaint, <a href=\"{equalityAdvisorLink}\" target=\"_blank\" rel=\"external noopener\" class=\"govuk-link\" aria-label=\"contact the Equality Advisory and Support Service (EASS) (opens in a new window)\">contact the Equality Advisory and Support Service (EASS) (opens in a new window)</a>.",
+  "paragraph11": "The Equality and Human Rights Commission (EHRC) is responsible for enforcing the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018 (the &lsquo;accessibility regulations&rsquo;). If you are not happy with how we respond to your complaint, <a href=\"{equalityAdvisorLink}\" target=\"_blank\" rel=\"external noopener\" class=\"govuk-link\" aria-label=\"contact the Equality Advisory and Support Service (EASS) (opens in a new tab)\">contact the Equality Advisory and Support Service (EASS) (opens in a new tab)</a>.",
 
 
   "heading7": "Technical information about this website&rsquo;s accessibility",
-  "paragraph15": "HMCTS is committed to making its websites accessible, in accordance with the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018.",
+  "paragraph15": "HMCTS is committed to making its websites accessible in accordance with the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018.",
 
   "heading8": "Compliance Status",
-  "paragraph16": "The website is partially compliant with the <a href=\"{wcag21Link}\" target=\"_blank\" rel=\"external noopener\" class=\"govuk-link\" aria-label=\"Web Content Accessibility Guidelines version 2.1 AA standard (opens in a new window)\">Web Content Accessibility Guidelines version 2.1 AA standard (opens in a new window)</a> due to the non-compliances listed below.",
+  "paragraph16": "The website is partially compliant with the <a href=\"{wcag21Link}\" target=\"_blank\" rel=\"external noopener\" class=\"govuk-link\" aria-label=\"Web Content Accessibility Guidelines version 2.1 AA standard (opens in a new tab)\">Web Content Accessibility Guidelines version 2.1 AA standard (opens in a new tab)</a> due to the non-compliances listed below.",
 
   "heading9": "Non-accessible content",
   "paragraph17": "The content listed below is non-accessible for the following reasons. We haven&rsquo;t been able to verify that we are fully compliant in the following areas, due to constraints with our internal testing tools:",
   "list6-item1": "1.3.1: Info and Relationships (Level A):",
   "list6-item2": "\tThere are no headings in the PDF documents.",
 
-  "heading10": "Content that&rsquo;s not within the scope of the accessibility regulations",
+  "heading10": "Content that is not within the scope of the accessibility regulations",
   "heading10-1": "PDFs and other documents",
-  "paragraph18": "PDFs, documents and attachments to email notifications published before 23 September 2018 may not meet accessibility standards. For example, they may not be structured so they&rsquo;re accessible to a screen reader.",
-  "heading10-2": "Third party content that&rsquo;s under someone else&rsquo;s control",
+  "paragraph18": "PDFs, documents and attachments to email notifications published before 23 September 2018 may not meet accessibility standards. For example, they may not be structured so they are accessible to a screen reader.",
+  "heading10-2": "Third party content that is under someone else&rsquo;s control",
   "paragraph19": "Pages and websites that are linked to and from the probate service may not be fully accessible. These include:",
   "list7-item1": "External pages hosting PDF documents for example <a href=\"{applicationFormPA15}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener\" aria-label=\"Form PA15 (opens in a new tab)\">Form PA15 (opens in a new tab)</a>",
   "list7-item2": "the login pages – check the <a href=\"{hmctAccessAccessibilityStatement}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener\" aria-label=\"HMCTS Access accessibility statement (opens in a new tab)\">HMCTS Access accessibility statement (opens in a new tab)</a> for more information ",
@@ -61,10 +61,10 @@
   "list7-item5": "instruction pages on GOV.UK, for example <a href=\"{deathReportedToCoroner}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener\" aria-label=\"When a death is reported to a coroner - GOV.UK (opens in a new tab)\">When a death is reported to a coroner - GOV.UK  (opens in a new tab)</a>",
   "list7-item6": "The webchat application which provides live service support for users",
 
-  "heading11": "What we&rsquo;re doing to improve accessibility",
+  "heading11": "What we are doing to improve accessibility",
   "paragraph20": "We continually run automated accessibility testing as part of our development practices and resolve issues before websites and new functionality is released. We use Pa11y and Axe with our quality assurance processes.<br><br>This website is continually tested using accessibility software. Any new features which are introduced will also be tested internally or with the Digital Accessibility Centre (DAC).",
 
   "heading12": "Preparation of this Accessibility Statement",
   "paragraph21": "This statement was prepared in March 2025. It was last updated on 7 April 2025",
-  "paragraph22": "The &lsquo;Apply for probate&rsquo; was last tested by the internal Accessibility Testing Centre of Excellence (ATCoE) team in September 2024."
+  "paragraph22": "The &lsquo;Apply for probate&rsquo; service was last tested by the internal Accessibility Testing Centre of Excellence (ATCoE) team in September 2024."
 }
