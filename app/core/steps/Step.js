@@ -1,6 +1,6 @@
 'use strict';
 
-const {mapValues, map, reduce, escape, isObject, isEmpty} = require('lodash');
+const {mapValues, map, reduce, escape, isObject, isEmpty, merge} = require('lodash');
 const UIStepRunner = require('app/core/runners/UIStepRunner');
 const journeyMap = require('app/core/journeyMap');
 const mapErrorsToFields = require('app/components/error').mapErrorsToFields;
@@ -53,11 +53,21 @@ class Step {
         Object.assign(ctx, session.form[this.section] || {});
         ctx.sessionID = req.sessionID;
         ctx.language = req.session.language ? req.session.language : 'en';
-        ctx = Object.assign(ctx, req.body);
+        ctx = merge(ctx, this.sanitizeInput(req.body));
         ctx = FeatureToggle.appwideToggles(req, ctx, config.featureToggles.appwideToggles);
         ctx.isAvayaWebChatEnabled = ctx.featureToggles && ctx.featureToggles.ft_avaya_webchat && ctx.featureToggles.ft_avaya_webchat === 'true';
 
         return ctx;
+    }
+
+    sanitizeInput(input) {
+        const sanitized = {};
+        for (const key in input) {
+            if (!['__proto__', 'constructor', 'prototype'].includes(key)) {
+                sanitized[key] = input[key];
+            }
+        }
+        return sanitized;
     }
 
     handleGet(ctx) {
