@@ -79,6 +79,16 @@ class Step {
         return [ctx, errors];
     }
 
+    sanitizeInput(input) {
+        const sanitized = {};
+        for (const key in input) {
+            if (!['__proto__', 'constructor', 'prototype'].includes(key)) {
+                sanitized[key] = input[key];
+            }
+        }
+        return sanitized;
+    }
+
     validate() {
         return [true, []];
     }
