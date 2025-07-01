@@ -51,7 +51,7 @@ class Step {
         const session = req.session;
         let ctx = {};
         const safeSectionData = this.sanitizeInput(session.form[this.section] || {});
-        Object.assign(ctx, safeSectionData);
+        ctx = merge(ctx, safeSectionData);
         ctx.sessionID = req.sessionID;
         ctx.language = req.session.language ? req.session.language : 'en';
         ctx = merge(ctx, this.sanitizeInput(req.body));
