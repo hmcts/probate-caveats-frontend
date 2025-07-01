@@ -50,7 +50,8 @@ class Step {
     getContextData(req) {
         const session = req.session;
         let ctx = {};
-        Object.assign(ctx, session.form[this.section] || {});
+        const safeSectionData = this.sanitizeInput(session.form[this.section] || {});
+        Object.assign(ctx, safeSectionData);
         ctx.sessionID = req.sessionID;
         ctx.language = req.session.language ? req.session.language : 'en';
         ctx = merge(ctx, this.sanitizeInput(req.body));
