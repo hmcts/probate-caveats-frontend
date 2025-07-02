@@ -8,6 +8,7 @@ const config = require('config');
 const FeatureToggle = require('app/utils/FeatureToggle');
 const utils = require('app/components/step-utils');
 const moment = require('moment');
+const {sanitizeInput} = require('../../utils/Sanitize');
 
 class Step {
 
@@ -50,25 +51,15 @@ class Step {
     getContextData(req) {
         const session = req.session;
         let ctx = {};
-        const safeSectionData = this.sanitizeInput(session.form[this.section] || {});
+        const safeSectionData = sanitizeInput(session.form[this.section] || {});
         ctx = merge(ctx, safeSectionData);
         ctx.sessionID = req.sessionID;
         ctx.language = req.session.language ? req.session.language : 'en';
-        ctx = merge(ctx, this.sanitizeInput(req.body));
+        ctx = merge(ctx, sanitizeInput(req.body));
         ctx = FeatureToggle.appwideToggles(req, ctx, config.featureToggles.appwideToggles);
         ctx.isAvayaWebChatEnabled = ctx.featureToggles && ctx.featureToggles.ft_avaya_webchat && ctx.featureToggles.ft_avaya_webchat === 'true';
 
         return ctx;
-    }
-
-    sanitizeInput(input) {
-        const sanitized = {};
-        for (const key in input) {
-            if (!['__proto__', 'constructor', 'prototype'].includes(key)) {
-                sanitized[key] = input[key];
-            }
-        }
-        return sanitized;
     }
 
     handleGet(ctx) {
@@ -77,16 +68,6 @@ class Step {
 
     handlePost(ctx, errors) {
         return [ctx, errors];
-    }
-
-    sanitizeInput(input) {
-        const sanitized = {};
-        for (const key in input) {
-            if (!['__proto__', 'constructor', 'prototype'].includes(key)) {
-                sanitized[key] = input[key];
-            }
-        }
-        return sanitized;
     }
 
     validate() {
@@ -101,7 +82,8 @@ class Step {
         if (!this.content) {
             throw new ReferenceError(`Step ${this.name} has no content.json in its resource folder`);
         }
-        const contentCtx = Object.assign({}, formdata, ctx, this.commonProps);
+        const safeFormData = sanitizeInput(formdata);
+        const contentCtx = merge({}, safeFormData, ctx, this.commonProps);
         this.i18next.changeLanguage(language);
 
         return mapValues(this.content, (value, key) => this.i18next.t(`${this.resourcePath.replace(/\//g, '.')}.${key}`, contentCtx));
