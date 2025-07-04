@@ -1,7 +1,8 @@
 'use strict';
 
-const {filter, isEqual, map, uniqWith} = require('lodash');
+const {filter, isEqual, map, uniqWith, merge} = require('lodash');
 const i18next = require('i18next');
+const {sanitizeInput} = require('../utils/Sanitize');
 const init18next = require('app/core/initSteps').initI18Next;
 
 const FieldError = (param, keyword, resourcePath, contentCtx = {}, language = 'en') => {
@@ -22,7 +23,7 @@ const FieldError = (param, keyword, resourcePath, contentCtx = {}, language = 'e
 
 const generateErrors = (errs, ctx, formdata, errorPath, language = 'en') => {
     i18next.changeLanguage(language);
-    const contentCtx = Object.assign({}, formdata, ctx, {});
+    const contentCtx = merge({}, sanitizeInput(formdata), ctx, {});
     if (errs.find((e) => e.keyword === 'oneOf')) {
         return [FieldError('crossField', 'oneOf', errorPath, contentCtx, language)];
     }
