@@ -5155,11 +5155,11 @@ __metadata:
   linkType: hard
 
 "config@npm:^4.0.0":
-  version: 4.0.0
-  resolution: "config@npm:4.0.0"
+  version: 4.0.1
+  resolution: "config@npm:4.0.1"
   dependencies:
     json5: "npm:^2.2.3"
-  checksum: 10c0/8dee527a8aefa02eebc7cabcb793608619010cf9c8645aae1dff9dba3ee41ff49790ad8b7267952b7a6d9a1bae5e724e0fa9f3da44be1f9b8abb035df1d7a361
+  checksum: 10c0/2a33ab615015e83d282ec71c32d2abe9bee0350491f3f916262c7c787bb9d7ed0d6d050146c30a3cc025bc3e1b286f6d5c99fb3c172febfde4e38afecc9d70bd
   languageName: node
   linkType: hard
 
