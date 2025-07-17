@@ -21,6 +21,7 @@ const getContentSecurityPolicy = (nonce) => (
                 'webchat.pp.ctsc.hmcts.net',
                 'webchat-client.pp.ctsc.hmcts.net',
                 'webchat-client.ctsc.hmcts.net',
+                'apps.euw.pure.cloud',
             ],
             connectSrc: [
                 '\'self\'',
@@ -34,6 +35,10 @@ const getContentSecurityPolicy = (nonce) => (
                 'wss://webchat.pp.ctsc.hmcts.net',
                 'https://webchat.pp.ctsc.hmcts.net',
                 'https://webchat-client.pp.ctsc.hmcts.net',
+                'https://api.hmcts.hs-cx.com',
+                'https://api.euw2.pure.cloud',
+                'https://api-cdn.euw2.pure.cloud',
+                'wss://webmessaging.euw2.pure.cloud',
             ],
             mediaSrc: [
                 '\'self\''
@@ -58,6 +63,10 @@ const getContentSecurityPolicy = (nonce) => (
                 '\'self\'',
                 config.services.equalityAndDiversity.url,
                 config.services.payment.externalUrl
+            ],
+            frameSrc: [
+                '\'self\'',
+                'https://apps.euw2.pure.cloud',
             ],
         },
         browserSniff: true,
