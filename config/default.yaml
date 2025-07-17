@@ -14,7 +14,8 @@ featureToggles:
   ft_pcq: 'probate-caveats-pcq'
   ft_pcq_token: 'probate-caveats-pcq-token'
   ft_avaya_webchat: 'probate-avaya-webchat'
-  appwideToggles: ['ft_avaya_webchat']
+  ft_use_new_webchat: 'probate-use-new-webchat'
+  appwideToggles: ['ft_avaya_webchat', 'ft_use_new_webchat']
 app:
   useHttps: 'false'
   port: '3000'
