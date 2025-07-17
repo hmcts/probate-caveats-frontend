@@ -20,7 +20,7 @@ const getContentSecurityPolicy = (nonce) => (
                 'webchat.ctsc.hmcts.net',
                 'webchat.pp.ctsc.hmcts.net',
                 'webchat-client.pp.ctsc.hmcts.net',
-                'webchat-client.ctsc.hmcts.net'
+                'webchat-client.ctsc.hmcts.net',
             ],
             connectSrc: [
                 '\'self\'',
@@ -33,7 +33,7 @@ const getContentSecurityPolicy = (nonce) => (
                 'wss://webchat.ctsc.hmcts.net',
                 'wss://webchat.pp.ctsc.hmcts.net',
                 'https://webchat.pp.ctsc.hmcts.net',
-                'https://webchat-client.pp.ctsc.hmcts.net'
+                'https://webchat-client.pp.ctsc.hmcts.net',
             ],
             mediaSrc: [
                 '\'self\''
@@ -58,7 +58,7 @@ const getContentSecurityPolicy = (nonce) => (
                 '\'self\'',
                 config.services.equalityAndDiversity.url,
                 config.services.payment.externalUrl
-            ]
+            ],
         },
         browserSniff: true,
         setAllHeaders: true
