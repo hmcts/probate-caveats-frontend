@@ -44,7 +44,13 @@
        Config — change these in one place
     --------------------------------------------------------------- */
     const REFERRER_PAGE    = 'Divorce Site';
-    const DEPLOYMENT_ID    = '3ccd9792-0530-4a2e-9e84-aaf8a59c0ef5';
+    {% if fields.language.value === 'en' %}
+        <!-- english deployment id -->
+        const DEPLOYMENT_ID    = '3ccd9792-0530-4a2e-9e84-aaf8a59c0ef5';
+    {% else %}
+        <!-- welsh deployment id -->
+        const DEPLOYMENT_ID    = 'b7684a70-e39f-4ae7-b070-1e063060113e';
+    {% endif %}
     const GENESYS_BASE_URL = 'https://apps.euw2.pure.cloud';
     const ENVIRONMENT      = 'prod-euw2';
     const KERV_BASE_URL    = 'https://api.hmcts.hs-cx.com/web-availability';
