@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat Availability Widget</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/govuk-frontend@4.7.0/govuk/all.min.css">
     <style>
         body {
             color: #0b0c0c;
@@ -40,7 +39,7 @@
     </main>
 </div>
 
-<script>
+<script nonce="{{ globals.nonce }}">
     /* ---------------------------------------------------------------
        Config — change these in one place
     --------------------------------------------------------------- */
@@ -80,7 +79,7 @@
       background: #f0f0f0;
     }
   </style>
-  <script type="text/javascript">
+  <script nonce="{{ globals.nonce }}" type="text/javascript">
     (function (g, e, n, es) {
       g._genesysJs = e;
       g[e] = g[e] || function () { (g[e].q = g[e].q || []).push(arguments); };
