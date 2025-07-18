@@ -21,7 +21,7 @@ const getContentSecurityPolicy = (nonce) => (
                 'webchat.pp.ctsc.hmcts.net',
                 'webchat-client.pp.ctsc.hmcts.net',
                 'webchat-client.ctsc.hmcts.net',
-                'apps.euw.pure.cloud',
+                'https://apps.euw2.pure.cloud',
             ],
             connectSrc: [
                 '\'self\'',
