@@ -60,8 +60,18 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
         webchat: {
             avayaUrl: config.webchat.avayaUrl,
             avayaClientUrl: config.webchat.avayaClientUrl,
-            avayaService: config.webchat.avayaService
-        }
+            avayaService: config.webchat.avayaService,
+            kerv: {
+                deploymentId: {
+                    en: config.webchat.kerv.deploymentId.en,
+                    cy: config.webchat.kerv.deploymentId.cy,
+                },
+                genesysBaseUrl: config.webchat.kerv.genesysBaseUrl,
+                environment: config.webchat.kerv.environment,
+                kervBaseUrl: config.webchat.kerv.kervBaseUrl,
+                apiKey: config.webchat.kerv.apiKey,
+            },
+        },
     };
 
     njkEnv.addGlobal('globals', globals);
