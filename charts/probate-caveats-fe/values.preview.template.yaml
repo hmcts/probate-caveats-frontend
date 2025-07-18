@@ -49,6 +49,18 @@ nodejs:
           alias: webchat-avaya-client-url
         - name: webchat-avaya-service
           alias: webchat-avaya-service
+        - name: webchat-kerv-deployment-en
+          alias: webchat-kerv-deployment-en
+        - name: webchat-kerv-deployment-cy
+          alias: webchat-kerv-deployment-cy
+        - name: webchat-kerv-genesys-base-url
+          alias: webchat-kerv-genesys-base-url
+        - name: webchat-kerv-environment
+          alias: webchat-kerv-environment
+        - name: webchat-kerv-kerv-base-url
+          alias: webchat-kerv-kerv-base-url
+        - name: webchat-kerv-api-key
+          alias: webchat-kerv-api-key
 
 idam-pr:
   enabled: true

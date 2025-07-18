@@ -21,7 +21,7 @@ const getContentSecurityPolicy = (nonce) => (
                 'webchat.pp.ctsc.hmcts.net',
                 'webchat-client.pp.ctsc.hmcts.net',
                 'webchat-client.ctsc.hmcts.net',
-                'https://apps.euw2.pure.cloud',
+                config.webchat.kerv.genesysBaseUrl,
             ],
             connectSrc: [
                 '\'self\'',
@@ -36,7 +36,8 @@ const getContentSecurityPolicy = (nonce) => (
                 'https://webchat.pp.ctsc.hmcts.net',
                 'https://webchat-client.pp.ctsc.hmcts.net',
                 'https://api.hmcts.hs-cx.com',
-                'https://api.euw2.pure.cloud',
+                config.webchat.kerv.kervBaseUrl,
+                // these being fixed values here seems like it's going to fail at some point
                 'https://api-cdn.euw2.pure.cloud',
                 'wss://webmessaging.euw2.pure.cloud',
             ],
@@ -66,7 +67,7 @@ const getContentSecurityPolicy = (nonce) => (
             ],
             frameSrc: [
                 '\'self\'',
-                'https://apps.euw2.pure.cloud',
+                config.webchat.kerv.genesysBaseUrl,
             ],
         },
         browserSniff: true,
