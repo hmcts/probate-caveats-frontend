@@ -106,6 +106,14 @@ webchat:
   avayaUrl: 'webchat.pp.ctsc.hmcts.net'
   avayaClientUrl: 'webchat-client.pp.ctsc.hmcts.net'
   avayaService: 'Testing'
+  kerv:
+    deploymentId:
+      en: 'kerv-deployment-en'
+      cy: 'kerv-deployment-cy'
+    genesysBaseUrl: 'kerv-genesys-base-url'
+    environment: 'kerv-environment'
+    kervBaseUrl: 'kerv-kerv-base-url'
+    apiKey: 'kerv-api-key'
 links:
   accessibility: '/caveats/accessibility-statement'
   cookies: '/caveats/cookies'
