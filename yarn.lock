@@ -13349,8 +13349,8 @@ __metadata:
   linkType: hard
 
 "selenium-standalone@npm:^10.0.1":
-  version: 10.0.1
-  resolution: "selenium-standalone@npm:10.0.1"
+  version: 10.0.2
+  resolution: "selenium-standalone@npm:10.0.2"
   dependencies:
     commander: "npm:^8.3.0"
     cross-spawn: "npm:^7.0.3"
@@ -13373,7 +13373,7 @@ __metadata:
     yauzl: "npm:^3.1.2"
   bin:
     selenium-standalone: bin/selenium-standalone
-  checksum: 10c0/782647d31ec022ebb23781cffe374fd4fa464f431c35e71d619aeba945f9927d69b9dc54b8542d55c6bd4e1cbf5c2d079bce56fe6bda9ea2a700dbf9c9a982f7
+  checksum: 10c0/37b62166e90bf8952cb41589195ef0568d08f791f8857851aaafbe3a392b13ba8f029a51a918293094d256a8140ebbc621435d1730bfcec7a2d009f388600869
   languageName: node
   linkType: hard
 
