@@ -31,7 +31,7 @@
 <body class="govuk-template__body">
 <div class="govuk-width-container">
     <main class="govuk-main-wrapper">
-        <div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-6" id="chatWidget">
+        <div class="govuk-!-margin-bottom-6" id="chatWidget">
             <div id="chatContent" class="govuk-body">
                 <p><span class="spinner"></span>Checking availability...</p>
             </div>
@@ -43,7 +43,7 @@
     /* ---------------------------------------------------------------
        Config — change these in one place
     --------------------------------------------------------------- */
-    const REFERRER_PAGE    = 'Divorce Site';
+    const REFERRER_PAGE    = 'Probate Site';
     {% if fields.language.value === 'en' %}
     <!-- english deployment id -->
     const DEPLOYMENT_ID    = '{{ globals.webchat.kerv.deploymentId.en }}';
@@ -180,66 +180,29 @@
         <p class="govuk-body">Get some help by messaging an agent online.</p>
         <p class="govuk-body">
           <a href="#" class="govuk-link" id="startChatLink">Start web chat (opens in a new window)</a>
-        </p>
-
-        <h2 class="govuk-heading-m">Web chat (Scotland only)</h2>
-        <p class="govuk-body">Get some help by messaging an agent online.</p>
-        <p class="govuk-body govuk-!-font-weight-bold">I’m sorry but our Webchat service is now closed for the day.</p>
-        <p class="govuk-body">We are open Monday to Friday from 8:30 am to 5 pm – excluding public holidays.</p>
-
-        <h2 class="govuk-heading-m">Telephone</h2>
-        <p class="govuk-body">Talk to one of our agents now over the phone.</p>
-        <p class="govuk-body"><strong class="govuk-!-font-weight-bold">0300 303 0642</strong></p>`;
+        </p>`;
     }
 
     function renderBusyNoAgentsWidget() {
         return `
-        <h2 class="govuk-heading-m">Contact us</h2>
-        <p class="govuk-body"><strong class="govuk-!-font-weight-bold">Web chat</strong><br>
-          No agents are available, please try again later.
-        <p class="govuk-body"><strong class="govuk-!-font-weight-bold">Send us a message</strong><br>
-          <a href="#" class="govuk-link">Send us a message</a></p>
-        <p class="govuk-body"><strong class="govuk-!-font-weight-bold">Telephone</strong><br>
-          0300 303 0642</p>
-        <p class="govuk-body"><strong class="govuk-!-font-weight-bold">Opening times (webchat and telephone)</strong><br>
-          Monday to Friday, 10 am to 6 pm<br>
-          Closed on bank holidays</p>`;
+        <p class="govuk-body">No agents are available, please try again later.</p>`;
     }
 
     function renderBusyEWTWidget() {
         return `
-        <h2 class="govuk-heading-m">Contact us</h2>
-        <p class="govuk-body"><strong class="govuk-!-font-weight-bold">Web chat</strong><br>
-          All out web chat agents are busy helping other people. Please try again later or contact us using one of the ways below.
-        <p class="govuk-body"><strong class="govuk-!-font-weight-bold">Send us a message</strong><br>
-          <a href="#" class="govuk-link">Send us a message</a></p>
-        <p class="govuk-body"><strong class="govuk-!-font-weight-bold">Telephone</strong><br>
-          0300 303 0642</p>
-        <p class="govuk-body"><strong class="govuk-!-font-weight-bold">Opening times (webchat and telephone)</strong><br>
-          Monday to Friday, 10 am to 6 pm<br>
-          Closed on bank holidays</p>`;
+        <p class="govuk-body">All out web chat agents are busy helping other people. Please try again later or contact us using one of the ways below.</p>`;
     }
 
 
     function renderClosedWidget(reason) {
         return `
-        <h2 class="govuk-heading-m">Contact us</h2>
-        <p class="govuk-body"><strong class="govuk-!-font-weight-bold">Web chat</strong><br>
-          Our online advice service is currently closed${reason ? ` (${reason})` : ''}.</p>
-        <p class="govuk-body"><strong class="govuk-!-font-weight-bold">Send us a message</strong><br>
-          <a href="#" class="govuk-link">Send us a message</a></p>
-        <p class="govuk-body"><strong class="govuk-!-font-weight-bold">Telephone</strong><br>
-          0300 303 0642</p>
-        <p class="govuk-body"><strong class="govuk-!-font-weight-bold">Opening times (webchat and telephone)</strong><br>
-          Monday to Friday, 10 am to 6 pm<br>
-          Closed on bank holidays</p>`;
+        <p class="govuk-body">Our online advice service is currently closed${reason ? ` (${reason})` : ''}.</p>`;
     }
 
     function renderErrorWidget() {
         return `
         <h2 class="govuk-heading-m">Service unavailable</h2>
-        <p class="govuk-body">We’re currently unable to check the availability of our team. Please try again later or contact us by phone.</p>
-        <p class="govuk-body"><strong>Telephone:</strong> 0300 303 0642</p>`;
+        <p class="govuk-body">We’re currently unable to check the availability of our team. Please try again later or contact us by phone.</p>`;
     }
 
     /* ---------------------------------------------------------------
