@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Availability Widget</title>
+    <style>
+        body {
+            color: #0b0c0c;
+            font-family: "GDS Transport", arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-weight: 400;
+        }
+        .spinner {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            border: 3px solid rgba(0, 0, 0, 0.1);
+            border-left-color: #1d70b8;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="govuk-template__body">
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper">
+        <div class="govuk-!-margin-bottom-6" id="chatWidget">
+            <div id="chatContent" class="govuk-body">
+                <p><span class="spinner"></span>Checking availability...</p>
+            </div>
+        </div>
+    </main>
+</div>
+
+<script nonce="{{ globals.nonce }}">
+    /* ---------------------------------------------------------------
+       Config — change these in one place
+    --------------------------------------------------------------- */
+    const REFERRER_PAGE    = 'Probate Site';
+    {% if fields.language.value === 'en' %}
+    <!-- english deployment id -->
+    const DEPLOYMENT_ID    = '{{ globals.webchat.kerv.deploymentId.en }}';
+    {% else %}
+    <!-- welsh deployment id -->
+    const DEPLOYMENT_ID    = '{{ globals.webchat.kerv.deploymentId.cy }}';
+    {% endif %}
+    const GENESYS_BASE_URL = '{{ globals.webchat.kerv.genesysBaseUrl }}';
+    const ENVIRONMENT     = '{{ globals.webchat.kerv.environment}}';
+    const KERV_BASE_URL    = '{{ globals.webchat.kerv.kervBaseUrl }}';
+    const API_KEY          = '{{ globals.webchat.kerv.apiKey }}';
+
+    /* ---------------------------------------------------------------
+       Open‑chat popup
+    --------------------------------------------------------------- */
+    function attachStartChatHandler() {
+        const link = document.getElementById('startChatLink');
+        if (!link) return;
+
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const popup = window.open('', 'GenesysChatWindow', 'width=420,height=600');
+            if (!popup) {
+                alert('Popup blocked. Please allow pop‑ups for this site.');
+                return;
+            }
+
+            /* build the popup document in one go */
+            const genesysHTML = `<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Chat with Us</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f0f0f0;
+    }
+  </style>
+  <script nonce="{{ globals.nonce }}" type="text/javascript">
+    (function (g, e, n, es) {
+      g._genesysJs = e;
+      g[e] = g[e] || function () { (g[e].q = g[e].q || []).push(arguments); };
+      g[e].t = Date.now();
+      g[e].c = es;
+
+      /* inject the Genesys bootstrap script */
+      var s = document.createElement('script');
+      s.async = true;
+      s.src   = n;
+      document.head.appendChild(s);
+    })(window, 'Genesys',
+       '${GENESYS_BASE_URL}/genesys-bootstrap/genesys.min.js',
+       { environment: '${ENVIRONMENT}', deploymentId: '${DEPLOYMENT_ID}' });
+
+    Genesys("command", "Database.set", {
+      messaging: { customAttributes: { webReferrerPage: '${REFERRER_PAGE}'}}
+          },
+      function(data){ /* fulfilled, returns data */}, function(){ /* rejected */ }
+    );
+
+    window.addEventListener('load', function () {
+      Genesys('subscribe', 'Messenger.ready', function () {
+        Genesys('command', 'Messenger.open');
+      });
+    });
+  <\/script>
+</head>
+<body>
+  <div id="genesys-web-messaging"></div>
+</body>
+</html>`;
+
+            popup.document.open();
+            popup.document.write(genesysHTML);
+            popup.document.close();
+        });
+    }
+
+    /* ---------------------------------------------------------------
+       Availability checker (polls your service)
+    --------------------------------------------------------------- */
+    async function checkChatAvailability(maxRetries = 5, initialDelay = 1000) {
+        const URL   = KERV_BASE_URL + '?deploymentId=' + DEPLOYMENT_ID;
+        let attempt = 0;
+        let delay   = initialDelay;
+
+        while (attempt < maxRetries) {
+            try {
+                const response = await fetch(URL, {
+                    method: 'GET',
+                    headers: {
+                        'x-api': API_KEY,
+                        'Accept'   : 'application/json'
+                    }
+                });
+
+                if (response.status === 429) {
+                    console.warn(`🚫 Rate‑limited; retrying in ${delay} ms …`);
+                    await new Promise(r => setTimeout(r, delay));
+                    delay *= 2;
+                    attempt++;
+                    continue;
+                }
+
+                if (!response.ok) throw new Error(`status ${response.status}`);
+
+                const data = await response.json();
+              console.log(data.Status)
+                return data.Status
+
+            } catch (err) {
+                if (attempt >= maxRetries - 1) {
+                    console.error('❌ Final error after retries:', err);
+                    return 'Error';
+                }
+                console.warn(`⚠️  Attempt ${attempt + 1} failed; retrying in ${delay} ms …`);
+                await new Promise(r => setTimeout(r, delay));
+                delay *= 2;
+                attempt++;
+            }
+        }
+        return 'Error';
+    }
+
+    /* ---------------------------------------------------------------
+       Widget templates
+    --------------------------------------------------------------- */
+    function renderOpenWidget() {
+        return `
+        <h2 class="govuk-heading-m">Web chat (England and Wales)</h2>
+        <p class="govuk-body">Get some help by messaging an agent online.</p>
+        <p class="govuk-body">
+          <a href="#" class="govuk-link" id="startChatLink">Start web chat (opens in a new window)</a>
+        </p>`;
+    }
+
+    function renderBusyNoAgentsWidget() {
+        return `
+        <p class="govuk-body">No agents are available, please try again later.</p>`;
+    }
+
+    function renderBusyEWTWidget() {
+        return `
+        <p class="govuk-body">All out web chat agents are busy helping other people. Please try again later or contact us using one of the ways below.</p>`;
+    }
+
+
+    function renderClosedWidget(reason) {
+        return `
+        <p class="govuk-body">Our online advice service is currently closed${reason ? ` (${reason})` : ''}.</p>`;
+    }
+
+    function renderErrorWidget() {
+        return `
+        <h2 class="govuk-heading-m">Service unavailable</h2>
+        <p class="govuk-body">We’re currently unable to check the availability of our team. Please try again later or contact us by phone.</p>`;
+    }
+
+    /* ---------------------------------------------------------------
+       Switch placeholder to correct widget
+    --------------------------------------------------------------- */
+    function updateChatWidget(status) {
+        const chatContent = document.getElementById('chatContent');
+
+        switch (status) {
+            case 'Open':
+                chatContent.innerHTML = renderOpenWidget();
+                attachStartChatHandler();
+                break;
+            case 'BusyNoAgents':
+                chatContent.innerHTML = renderBusyNoAgentsWidget();
+                break;
+            case 'BusyEWT':
+                chatContent.innerHTML = renderBusyEWTWidget();
+                break;
+            case 'Closed':
+            case 'Holiday':
+            case 'Emergency':
+                chatContent.innerHTML = renderClosedWidget(status);
+                break;
+            case 'Error':
+            default:
+                chatContent.innerHTML = renderErrorWidget();
+                break;
+        }
+    }
+
+    /* ---------------------------------------------------------------
+       Bootstrap on DOM ready
+    --------------------------------------------------------------- */
+    document.addEventListener('DOMContentLoaded', async () => {
+        const chatContent = document.getElementById('chatContent');
+        chatContent.innerHTML = '<p><span class="spinner"></span>Checking availability…</p>';
+
+        try {
+            const status = await checkChatAvailability();
+            updateChatWidget(status);
+        } catch (err) {
+            console.error('Error checking availability:', err);
+            chatContent.innerHTML = `
+          <p>Sorry, we couldn’t check the availability of our team.</p>
+          <p>Please try refreshing the page or contact us at <a class="govuk-link" href="mailto:help@gov.uk">help@gov.uk</a>.</p>`;
+        }
+    });
+</script>
+</body>
+</html>

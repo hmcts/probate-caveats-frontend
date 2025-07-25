@@ -23,6 +23,12 @@ const setupSecrets = () => {
         setSecret('secrets.probate.webchat-avaya-url', 'webchat.avayaUrl');
         setSecret('secrets.probate.webchat-avaya-client-url', 'webchat.avayaClientUrl');
         setSecret('secrets.probate.webchat-avaya-service', 'webchat.avayaService');
+        setSecret('secrets.probate.webchat-kerv-deployment-en', 'webchat.kerv.deploymentId.en');
+        setSecret('secrets.probate.webchat-kerv-deployment-cy', 'webchat.kerv.deploymentId.cy');
+        setSecret('secrets.probate.webchat-kerv-genesys-base-url', 'webchat.kerv.genesysBaseUrl');
+        setSecret('secrets.probate.webchat-kerv-environment', 'webchat.kerv.environment');
+        setSecret('secrets.probate.webchat-kerv-kerv-base-url', 'webchat.kerv.kervBaseUrl');
+        setSecret('secrets.probate.webchat-kerv-api-key', 'webchat.kerv.apiKey');
     }
 
     if (process.env.NODE_ENV === 'dev-aat') {
