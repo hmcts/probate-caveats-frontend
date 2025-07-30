@@ -1,42 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat Availability Widget</title>
-    <style>
-        body {
-            color: #0b0c0c;
-            font-family: "GDS Transport", arial, sans-serif;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            font-weight: 400;
-        }
-        .spinner {
-            display: inline-block;
-            width: 24px;
-            height: 24px;
-            border: 3px solid rgba(0, 0, 0, 0.1);
-            border-left-color: #1d70b8;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin-right: 10px;
-            vertical-align: middle;
-        }
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-    </style>
-</head>
-<body class="govuk-template__body">
-<div class="govuk-width-container">
-    <main class="govuk-main-wrapper">
-        <div class="govuk-!-margin-bottom-6" id="chatWidget">
-            <div id="chatContent" class="govuk-body">
-                <p><span class="spinner"></span>Checking availability...</p>
-            </div>
-        </div>
-    </main>
+<div id="chatContent" class="govuk-body">
+    <p>{{ common.helpChatNeedsJavascript }}</p>
 </div>
 
 <script nonce="{{ globals.nonce }}">
@@ -67,7 +30,7 @@
             e.preventDefault();
             const popup = window.open('', 'GenesysChatWindow', 'width=420,height=600');
             if (!popup) {
-                alert('Popup blocked. Please allow pop‑ups for this site.');
+                alert('{{ common.helpChatNeedsPopups }}');
                 return;
             }
 
@@ -154,7 +117,7 @@
                 if (!response.ok) throw new Error(`status ${response.status}`);
 
                 const data = await response.json();
-              console.log(data.Status)
+                console.log(data.Status)
                 return data.Status
 
             } catch (err) {
@@ -176,33 +139,30 @@
     --------------------------------------------------------------- */
     function renderOpenWidget() {
         return `
-        <h2 class="govuk-heading-m">Web chat (England and Wales)</h2>
-        <p class="govuk-body">Get some help by messaging an agent online.</p>
         <p class="govuk-body">
-          <a href="#" class="govuk-link" id="startChatLink">Start web chat (opens in a new window)</a>
+          <a href="#" class="govuk-link" id="startChatLink">{{ common.helpChatWithAnAgent }}</a>
         </p>`;
     }
 
     function renderBusyNoAgentsWidget() {
         return `
-        <p class="govuk-body">No agents are available, please try again later.</p>`;
+        <p class="govuk-body">{{ common.helpNoAgentsAvailable }}</p>`;
     }
 
     function renderBusyEWTWidget() {
         return `
-        <p class="govuk-body">All out web chat agents are busy helping other people. Please try again later or contact us using one of the ways below.</p>`;
+        <p class="govuk-body">{{ common.helpAllAgentsBusy }}</p>`;
     }
 
 
     function renderClosedWidget(reason) {
         return `
-        <p class="govuk-body">Our online advice service is currently closed${reason ? ` (${reason})` : ''}.</p>`;
+        <p class="govuk-body">{{ common.helpChatClosed | replace("\n", "\\n") | replace("{chatOpeningHours}", common.helpChatOpeningHours) }}</p>`;
     }
 
     function renderErrorWidget() {
         return `
-        <h2 class="govuk-heading-m">Service unavailable</h2>
-        <p class="govuk-body">We’re currently unable to check the availability of our team. Please try again later or contact us by phone.</p>`;
+        <p class="govuk-body">{{ common.helpChatMaintenance }}</p>`;
     }
 
     /* ---------------------------------------------------------------
@@ -239,7 +199,7 @@
     --------------------------------------------------------------- */
     document.addEventListener('DOMContentLoaded', async () => {
         const chatContent = document.getElementById('chatContent');
-        chatContent.innerHTML = '<p><span class="spinner"></span>Checking availability…</p>';
+        chatContent.innerHTML = '<p><span class="spinner"></span>{{ common.helpChatCheckingAvail }}</p>';
 
         try {
             const status = await checkChatAvailability();
@@ -247,10 +207,7 @@
         } catch (err) {
             console.error('Error checking availability:', err);
             chatContent.innerHTML = `
-          <p>Sorry, we couldn’t check the availability of our team.</p>
-          <p>Please try refreshing the page or contact us at <a class="govuk-link" href="mailto:help@gov.uk">help@gov.uk</a>.</p>`;
+          <p class="govuk-body">{{ common.helpChatMaintenance }}</p>`;
         }
     });
 </script>
-</body>
-</html>
