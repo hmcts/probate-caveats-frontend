@@ -9,7 +9,7 @@
   "bullet4": "the will was not properly signed and witnessed",
   "bullet5": "the person applying for probate refuses to share a copy of the will with you",
   "bullet6": "you are in dispute with the person applying or you think they are not suitable to carry out the instructions in the will",
-  "bullet7": "you think the person applying is not eligible to apply if there is no will (see <a href=\"{whoInheritsLink}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener\" aria-label=\"who inherits if there is no will (opens in a new window)\">who inherits if there is no will (opens in a new window)</a>)",
+  "bullet7": "you think the person applying is not eligible to apply if there is no will (see <a href=\"{whoInheritsLink}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener\" aria-label=\"who inherits if there is no will (opens in a new tab)\">who inherits if there is no will (opens in a new tab)</a>)",
   "bullet8":  "you are entitled to apply but have not been included in the application",
   "bullet9": "the person who died got married or entered into a civil partnership after the will was signed",
   "paragraph3": "These are the most common reasons, but there may be others too.",
@@ -27,6 +27,6 @@
   "paragraph10": "If an application is approved on the same day you make the request, it will not be stopped. But you will stop any future applications for probate made on the estate for 6 months.",
   "header1a": "Legal representatives",
   "header1b": "Personal applicants",
-  "paragraph1a": "If you are a legal representative with a MyHMCTS account applying on behalf of someone else <a href=\"{myhmctsManageCasesLink}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener\" aria-label=\"use this service for legal professional's probate and caveat service (opens in a new window) for\">use this service <span class=\"govuk-visually-hidden\">for legal professional's probate and caveat service </span>(opens in a new window)</a>.",
-  "paragraph1b": "If you are a legal representative without a MyHMCTS account, <a href=\"{myhmctsRegisterLink}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener\" aria-label=\"register with MyHMCTS (opens in a new window)\">register with MyHMCTS (opens in a new window)</a> before you make an online application."
+  "paragraph1a": "If you are a legal representative with a MyHMCTS account applying on behalf of someone else <a href=\"{myhmctsManageCasesLink}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener\" aria-label=\"use this service for legal professional's probate and caveat service (opens in a new tab) for\">use this service <span class=\"govuk-visually-hidden\">for legal professional's probate and caveat service </span>(opens in a new tab)</a>.",
+  "paragraph1b": "If you are a legal representative without a MyHMCTS account, <a href=\"{myhmctsRegisterLink}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener\" aria-label=\"register with MyHMCTS (opens in a new tab)\">register with MyHMCTS (opens in a new tab)</a> before you make an online application."
 }
