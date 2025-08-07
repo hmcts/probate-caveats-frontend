@@ -67,8 +67,8 @@
   "helpChatOpeningHours": "Monday to Friday, 9:00am to 5:00pm.",
   "helpChatMaintenance": "Sorry, we’re having technical difficulties. Try email or telephone instead.",
   "helpChatCheckingAvail": "Checking availability…",
-  "helpChatNeedsJavascript": "Webchat needs javascript enabling.",
-  "helpChatNeedsPopups": "Popup blocked. Please allow pop-ups for this site.",
+  "helpChatNeedsJavascript": "Webchat requires JavaScript to be enabled. Please enable JavaScript in your browser settings to use this feature.",
+  "helpChatNeedsPopups": "Webchat opens in a pop-up window, but your browser settings are currently blocking pop-ups for this site. To use webchat, please allow pop-ups in your browser settings.",
   "serviceTelephoneNumber": "0300 123 7050",
   "serviceTelephoneOpeningHours": "Monday to Friday, 9:30am to 5pm",
   "serviceEmail": "contactprobate@justice.gov.uk"
