@@ -1,13 +1,13 @@
 module.exports = {
 
-    TestFrontendUrl: process.env.TEST_URL || 'https://probate-caveats-fe-pr-1327.preview.platform.hmcts.net/caveats/start-eligibility',
-    TestE2EFrontendUrl: process.env.TEST_E2E_URL || 'https://probate-caveats-fe-pr-1327.preview.platform.hmcts.net/caveats/start-eligibility',
-    TestUseGovPay: process.env.USE_GOV_PAY || 'True',
-    TestRetryFeatures: process.env.RETRY_FEATURES || 0,
+    TestFrontendUrl: process.env.TEST_URL || 'http://localhost:3000',
+    TestE2EFrontendUrl: process.env.TEST_E2E_URL || 'https://localhost:3000',
+    TestUseGovPay: process.env.USE_GOV_PAY || 'true',
+    TestRetryFeatures: process.env.RETRY_FEATURES || 2,
     TestRetryScenarios: process.env.RETRY_SCENARIOS || 0,
     TestOutputDir: process.env.E2E_OUTPUT_DIR || './functional-output',
     TestPathToRun: './paths/**/*.js',
-    TestShowBrowser: true,
+    TestShowBrowser: false,
     TestBasePath: '/caveats',
 
     postcodeLookup: {
