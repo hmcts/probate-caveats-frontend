@@ -19,6 +19,8 @@
   "answer": "Ateb",
   "send": "Anfon",
   "error": "Gwall",
+  "cancelPayment": "Mae eich taliad wedi ei ganslo",
+  "cancelButton": "Canslo’r taliad",
   "paymentProbateFees": "Ffioedd Profiant",
   "cookieText": "Mae GOV.UK yn defnyddio cwcis i wneud y safle&rsquo;n symlach. <a href=\"{cookiesLink}\" class=\"govuk-link\" aria-label=\"Mwy o wybodaeth am cwcis\">Mwy o wybodaeth am cwcis</a>",
   "errorSummaryHeading": "Problem",
@@ -66,6 +68,9 @@
   "helpChatAlreadyOpen": "Mae ffenestr sgwrsio dros y we ar agor yn barod.",
   "helpChatOpeningHours": "Dydd Llun i ddydd Gwener, 8:00am i 6:00pm.",
   "helpChatMaintenance": "Probate webchat is temporarily unavailable while we address a technical issue. Were sorry for any inconvenience caused.",
+  "helpChatCheckingAvail": "WIP (not translated) Checking availability… WIP",
+  "helpChatNeedsJavascript": "WIP (not translated) Webchat needs javascript enabling WIP",
+  "helpChatNeedsPopups": "WIP (not translated) Popup blocked. Please allow pop-ups for this site. WIP",
   "serviceTelephoneNumber": "0300 123 7050",
   "serviceTelephoneOpeningHours": "Dydd Llun i ddydd Gwener, 8:00am i 2:00pm",
   "serviceEmail": "contactprobate@justice.gov.uk"
