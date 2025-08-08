@@ -9,7 +9,7 @@
   "bullet4": "os na chafodd yr ewyllys ei llofnodi neu ei thystio&rsquo;n iawn",
   "bullet5": "os yw&rsquo;r unigolyn sy&rsquo;n gwneud cais am brofiant yn gwrthod rhannu copi o&rsquo;r ewyllys gyda chi",
   "bullet6": "os ydych mewn anghydfod &acirc;&rsquo;r unigolyn sy&rsquo;n gwneud cais am brofiant neu os ydych yn credu nad yw&rsquo;r unigolyn yn addas i gyflawni cyfarwyddiadau&rsquo;r ewyllys",
-  "bullet7": "os ydych yn credu nad yw&rsquo;r unigolyn sy&rsquo;n gwneud y cais yn gymwys i wneud hynny os nad oes ewyllys (gweler <a href=\"{whoInheritsLink}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener\" aria-label=\"pwy sy&rsquo;n etifeddu os nad oes ewyllys (agor mewn ffenestr newydd)\">pwy sy&rsquo;n etifeddu os nad oes ewyllys (agor mewn ffenestr newydd)</a>)",
+  "bullet7": "os ydych yn credu nad yw&rsquo;r unigolyn sy&rsquo;n gwneud y cais yn gymwys i wneud hynny os nad oes ewyllys (gweler <a href=\"{whoInheritsLink}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener\" aria-label=\"pwy sy&rsquo;n etifeddu os nad oes ewyllys (yn agor mewn tab newydd)\">pwy sy&rsquo;n etifeddu os nad oes ewyllys (yn agor mewn tab newydd)</a>)",
   "bullet8": "os ydych &acirc; hawl i wneud cais ond nad ydych wedi&rsquo;ch cynnwys yn y cais",
   "bullet9": "os bu i&rsquo;r unigolyn a fu farw briodi neu ymrwymo i bartneriaeth sifil ar &ocirc;l i&rsquo;r ewyllys gael ei harwyddo",
   "paragraph3": "Dyma&rsquo;r rhesymau mwyaf cyffredinol, ond gall fod rhesymau eraill hefyd.",
@@ -27,6 +27,6 @@
   "paragraph10": "Os caiff cais am brofiant ei gymeradwyo ar yr un diwrnod ag yr ydych yn gwneud y cais, ni fydd yn cael ei atal. Ond byddwch yn atal unrhyw geisiadau am brofiant rhag cael eu gwneud ynghylch yr ystad am 6 mis.",
   "header1a": "Cynrychiolwyr cyfreithiol",
   "header1b": "Ceiswyr personol",
-  "paragraph1a": "Os ydych chi'n gynrychiolydd cyfreithiol gyda chyfrif MyHMCTS yn gwneud cais ar ran rhywun arall, <a href=\"{myhmctsManageCasesLink}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener\" aria-label=\"defnyddiwch y gwasanaeth hwn (agor mewn ffenestr newydd)\">defnyddiwch y gwasanaeth hwn (agor mewn ffenestr newydd)</a>.",
-  "paragraph1b": "Os ydych chi'n gynrychiolydd cyfreithiol heb gyfrif MyHMCTS, <a href=\"{myhmctsRegisterLink}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener\" aria-label=\"cofrestrwch gyda MyHMCTS (agor mewn ffenestr newydd)\">cofrestrwch gyda MyHMCTS (agor mewn ffenestr newydd)</a> cyn i chi wneud cais ar-lein."
+  "paragraph1a": "Os ydych chi'n gynrychiolydd cyfreithiol gyda chyfrif MyHMCTS yn gwneud cais ar ran rhywun arall, <a href=\"{myhmctsManageCasesLink}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener\" aria-label=\"defnyddiwch y gwasanaeth hwn (yn agor mewn tab newydd)\">defnyddiwch y gwasanaeth hwn (yn agor mewn tab newydd)</a>.",
+  "paragraph1b": "Os ydych chi'n gynrychiolydd cyfreithiol heb gyfrif MyHMCTS, <a href=\"{myhmctsRegisterLink}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener\" aria-label=\"cofrestrwch gyda MyHMCTS (yn agor mewn tab newydd)\">cofrestrwch gyda MyHMCTS (yn agor mewn tab newydd)</a> cyn i chi wneud cais ar-lein."
 }

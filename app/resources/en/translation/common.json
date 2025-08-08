@@ -1,6 +1,6 @@
 {
   "phase": "Beta",
-  "feedback": "This is a new service – your <a href=\"{smartSurveyFeedbackUrl}?pageurl={currentPageUrl}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener noreferrer\" aria-label=\"feedback (opens in a new window)\">feedback (opens in a new window)</a> will help us to improve it.",
+  "feedback": "This is a new service – your <a href=\"{smartSurveyFeedbackUrl}?pageurl={currentPageUrl}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener noreferrer\" aria-label=\"feedback (opens in a new tab)\">feedback (opens in a new tab)</a> will help us to improve it.",
   "exitFeedbackHeading": "We'd like to hear your thoughts",
   "exitFeedback": "Complete this short, 5-minute survey to help improve our services for you and others.<br><br><a aria-label=\"Please leave your feedback here\" href=\"{smartSurveyFeedbackUrl}&pageurl={currentPageUrl}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener noreferrer\">Please leave your feedback here</a>",
   "languageToggle": "<a href=\"?lng=cy\" class=\"govuk-link language\">Cymraeg</a>",
@@ -59,7 +59,7 @@
   "helpTelephoneOpeningHours1": "<strong>Telephone</strong><br>Monday to Friday, 9am to 1pm",
   "helpTelephoneOpeningHours2": "<strong>Webchat</strong><br>Monday to Friday, 9am to 5pm<br><br>Telephone and webchat closed on Saturdays, Sundays and bank holidays",
   "helpChatDown": "The web chat service is temporarily unavailable, please try again later.",
-  "helpChatWithAnAgent": "Speak to an advisor online (opens in a new window)",
+  "helpChatWithAnAgent": "Speak to an advisor online (opens in a new tab)",
   "helpNoAgentsAvailable": "All our advisors are busy. Try again in a few minutes.",
   "helpAllAgentsBusy": "All our advisors are busy. Try again in a few minutes.",
   "helpChatClosed": "We are sorry, the Contact Centre is now closed.",
