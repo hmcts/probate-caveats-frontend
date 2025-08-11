@@ -2,7 +2,7 @@
   "phase": "Beta",
   "feedback": "This is a new service – your <a href=\"{smartSurveyFeedbackUrl}?pageurl={currentPageUrl}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener noreferrer\" aria-label=\"feedback (opens in a new tab)\">feedback (opens in a new tab)</a> will help us to improve it.",
   "exitFeedbackHeading": "We'd like to hear your thoughts",
-  "exitFeedback": "Complete this short, 5-minute survey to help improve our services for you and others.<br><br><a aria-label=\"Please leave your feedback here\" href=\"{smartSurveyFeedbackUrl}&pageurl={currentPageUrl}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener noreferrer\">Please leave your feedback here</a>",
+  "exitFeedback": "Complete this short, 5-minute survey to help improve our services for you and others.<br><br><a aria-label=\"Please leave your feedback here (opens in a new tab)\" href=\"{smartSurveyFeedbackUrl}&pageurl={currentPageUrl}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener noreferrer\">Please leave your feedback here (opens in a new tab)</a>",
   "languageToggle": "<a href=\"?lng=cy\" class=\"govuk-link language\">Cymraeg</a>",
   "serviceName": "Stop a grant of probate - GOV.UK",
   "start": "Start now",
