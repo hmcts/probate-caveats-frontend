@@ -1,8 +1,8 @@
 {
   "phase": "Beta ",
-  "feedback": "Mae hwn yn wasanaeth newydd - bydd eich <a aria-label=\"adborth (agor mewn ffenestr newydd)\" href=\"{smartSurveyFeedbackUrl}?pageurl={currentPageUrl}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener noreferrer\">adborth (agor mewn ffenestr newydd)</a> yn ein helpu ni i&rsquo;w wella.",
+  "feedback": "Mae hwn yn wasanaeth newydd - bydd eich <a aria-label=\"adborth (yn agor mewn tab newydd)\" href=\"{smartSurveyFeedbackUrl}?pageurl={currentPageUrl}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener noreferrer\">adborth (yn agor mewn tab newydd)</a> yn ein helpu ni i&rsquo;w wella.",
   "exitFeedbackHeading": "Rydym am glywed eich barn",
-  "exitFeedback": "Gellir llenwi’r arolwg hwn mewn 5 munud a bydd yn helpu i wella ein gwasanaethau i chi ac eraill.<br><br><a aria-label=\"Gadewch eich sylwadau yma\" href=\"{smartSurveyFeedbackUrl}&pageurl={currentPageUrl}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener noreferrer\">Gadewch eich sylwadau yma</a>",
+  "exitFeedback": "Gellir llenwi’r arolwg hwn mewn 5 munud a bydd yn helpu i wella ein gwasanaethau i chi ac eraill.<br><br><a aria-label=\"Gadewch eich sylwadau yma (yn agor mewn tab newydd)\" href=\"{smartSurveyFeedbackUrl}&pageurl={currentPageUrl}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener noreferrer\">Gadewch eich sylwadau yma (yn agor mewn tab newydd)</a>",
   "languageToggle": "<a href=\"?lng=en\" class=\"govuk-link language\">English</a>",
   "serviceName": "Atal grant profiant - GOV.UK",
   "start": "Dechrau nawr",
