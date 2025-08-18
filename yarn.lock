@@ -11991,6 +11991,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"pirates@npm:^4.0.7":
+  version: 4.0.7
+  resolution: "pirates@npm:4.0.7"
+  checksum: 10c0/a51f108dd811beb779d58a76864bbd49e239fa40c7984cd11596c75a121a8cc789f1c8971d8bb15f0dbf9d48b76c05bb62fcbce840f89b688c0fa64b37e8478a
+  languageName: node
+  linkType: hard
+
 "pkg-dir@npm:^3.0.0":
   version: 3.0.0
   resolution: "pkg-dir@npm:3.0.0"
@@ -13178,11 +13185,12 @@ __metadata:
   linkType: hard
 
 "rewire@npm:^9.0.0":
-  version: 9.0.0
-  resolution: "rewire@npm:9.0.0"
+  version: 9.0.1
+  resolution: "rewire@npm:9.0.1"
   dependencies:
     eslint: "npm:^9.30"
-  checksum: 10c0/0c0b39b1fd9805262c109805abc9ce00a87a0cd43b64c0dbc76d8a43fd0141790267f3084411c53cd7517e5deb1b63ed018a2abc5eb843ead78bd4e108c5b8f3
+    pirates: "npm:^4.0.7"
+  checksum: 10c0/d99879bd093e562276105e7fcc713739565fb2f921c3671d03c3fc08e2f9cf7214328e444dcc08aad8739bdce3372768a49f2fcb5d8fa822386c49efba8f9a86
   languageName: node
   linkType: hard
 
