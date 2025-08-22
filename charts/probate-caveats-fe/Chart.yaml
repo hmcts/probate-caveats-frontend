@@ -9,8 +9,8 @@ dependencies:
     version: 3.2.0
     repository: 'oci://hmctspublic.azurecr.io/helm'
   - name: redis
-    version: 22.0.4
-    repository: "oci://registry-1.docker.io/bitnamicharts"
+    version: 20.11.5
+    repository: "oci://hmctspublic.azurecr.io/imported/bitnamicharts"
     condition: redis.enabled
   - name: idam-pr
     version: 2.3.0
