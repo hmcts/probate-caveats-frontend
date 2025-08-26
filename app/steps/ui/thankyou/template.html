@@ -33,9 +33,15 @@
                     </p>
                 </div>
 
+            {% if fields.language.value == "en" %}
                 {{ govukInsetText({
                     text: content.successParagraph3 | replace("{citizenAdvice}", globals.links.citizenAdvice) | safe
                 }) }}
+            {% else %}
+                {{ govukInsetText({
+                    text: content.successParagraph3 | replace("{citizenAdviceWelsh}", globals.links.citizenAdviceWelsh) | safe
+                }) }}
+            {% endif %}
             <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner" style="margin-bottom:30px;">
                 <div class="govuk-notification-banner__content">
                     <p class="govuk-notification-banner__heading" style="max-width: 600px">{{ common.exitFeedbackHeading | safe }}</p>
