@@ -1,8 +1,8 @@
 {
   "phase": "Beta ",
-  "feedback": "Mae hwn yn wasanaeth newydd - bydd eich <a aria-label=\"adborth (agor mewn ffenestr newydd)\" href=\"{smartSurveyFeedbackUrl}?pageurl={currentPageUrl}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener noreferrer\">adborth (agor mewn ffenestr newydd)</a> yn ein helpu ni i&rsquo;w wella.",
+  "feedback": "Mae hwn yn wasanaeth newydd - bydd eich <a aria-label=\"adborth (yn agor mewn tab newydd)\" href=\"{smartSurveyFeedbackUrl}?pageurl={currentPageUrl}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener noreferrer\">adborth (yn agor mewn tab newydd)</a> yn ein helpu ni i&rsquo;w wella.",
   "exitFeedbackHeading": "Rydym am glywed eich barn",
-  "exitFeedback": "Gellir llenwi’r arolwg hwn mewn 5 munud a bydd yn helpu i wella ein gwasanaethau i chi ac eraill.<br><br><a aria-label=\"Gadewch eich sylwadau yma\" href=\"{smartSurveyFeedbackUrl}&pageurl={currentPageUrl}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener noreferrer\">Gadewch eich sylwadau yma</a>",
+  "exitFeedback": "Gellir llenwi’r arolwg hwn mewn 5 munud a bydd yn helpu i wella ein gwasanaethau i chi ac eraill.<br><br><a aria-label=\"Gadewch eich sylwadau yma (yn agor mewn tab newydd)\" href=\"{smartSurveyFeedbackUrl}&pageurl={currentPageUrl}\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener noreferrer\">Gadewch eich sylwadau yma (yn agor mewn tab newydd)</a>",
   "languageToggle": "<a href=\"?lng=en\" class=\"govuk-link language\">English</a>",
   "serviceName": "Atal grant profiant - GOV.UK",
   "start": "Dechrau nawr",
@@ -68,9 +68,9 @@
   "helpChatAlreadyOpen": "Mae ffenestr sgwrsio dros y we ar agor yn barod.",
   "helpChatOpeningHours": "Dydd Llun i ddydd Gwener, 8:00am i 6:00pm.",
   "helpChatMaintenance": "Probate webchat is temporarily unavailable while we address a technical issue. Were sorry for any inconvenience caused.",
-  "helpChatCheckingAvail": "WIP (not translated) Checking availability… WIP",
-  "helpChatNeedsJavascript": "WIP (not translated) Webchat needs javascript enabling WIP",
-  "helpChatNeedsPopups": "WIP (not translated) Popup blocked. Please allow pop-ups for this site. WIP",
+  "helpChatCheckingAvail": "Gwirio argaeledd…",
+  "helpChatNeedsJavascript": "Mae sgwrsio dros y we yn gofyn i JavaScript fod yn weithredol. Sicrhewch fod JavaScript yn weithredol yn gosodiadau eich porwr i ddefnyddio’r nodwedd hon.",
+  "helpChatNeedsPopups": "Mae sgwrsio dros y we yn agor mewn ffenestr naid newydd, ond mae gosodiadau eich porwr yn gwahardd agor ffenestri naid ar y wefan hon. Rhaid i chi newid gosodiadau eich porwr i ganiatáu ffenestri naid.",
   "serviceTelephoneNumber": "0300 123 7050",
   "serviceTelephoneOpeningHours": "Dydd Llun i ddydd Gwener, 8:00am i 2:00pm",
   "serviceEmail": "contactprobate@justice.gov.uk"
