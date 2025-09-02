@@ -39,22 +39,21 @@ exports.config = {
         }
     },
     mocha: {
+        reporter: 'mocha-multi-reporters',
         reporterOptions: {
-            'codeceptjs-cli-reporter': {
-                stdout: '-',
-                options: {steps: true}
+            reporterEnabled: 'mocha-junit-reporter, mochawesome',
+            mochaJunitReporterReporterOptions: {
+                mochaFile: 'functional-output/junit/results-[hash].xml',
+                useFullSuiteTitle: true,
+                suiteTitleSeparatedBy: ' › ',
+                attachments: true
             },
-            'mocha-junit-reporter': {
-                stdout: '-',
-                options: {mochaFile: './functional-output/result.xml'}
-            },
-            mochawesome: {
-                stdout: './functional-output/console.log',
-                options: {
-                    reportDir: config.TestOutputDir || './functional-output',
-                    reportName: 'index',
-                    inlineAssets: true
-                }
+            mochawesomeReporterOptions: {
+                reportDir: config.TestOutputDir || './functional-output',
+                reportFilename: 'mochawesome',
+                quiet: true,
+                json: true,
+                html: true
             }
         }
     },
