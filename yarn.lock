@@ -10064,8 +10064,8 @@ __metadata:
   linkType: hard
 
 "pa11y@npm:^9.0.0":
-  version: 9.0.0
-  resolution: "pa11y@npm:9.0.0"
+  version: 9.0.1
+  resolution: "pa11y@npm:9.0.1"
   dependencies:
     axe-core: "npm:~4.10.3"
     bfj: "npm:~9.1.2"
@@ -10079,7 +10079,7 @@ __metadata:
     semver: "npm:~7.7.1"
   bin:
     pa11y: bin/pa11y.js
-  checksum: 10c0/f6910f8a7fae16c4affe17fd97ffaa44d54143a2fc97052af9ab2281b29c490ea7a6ba935662be71309f8525515406099798e461a62069b2cffb0ef748b8a5c0
+  checksum: 10c0/fa2c0c9e3023cc6e5b31dd7b44772bd5a503866ec0a40a980b29e2ba16cfc0586099cb698ea310c7813a8806d8caf0803791a52634c2ef5c09a1f70584217ddd
   languageName: node
   linkType: hard
 
