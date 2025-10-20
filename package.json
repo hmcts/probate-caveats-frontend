@@ -49,7 +49,8 @@
     "stub:idam": "NODE_PATH=. node test/service-stubs/idam.js",
     "stub:equality-and-diversity-endpoint": "NODE_PATH=. node test/service-stubs/equalityAndDiversityEndpoint.js",
     "fortifyScan": "./test/java/gradlew -p test/java fortifyScan",
-    "stub:equality-and-diversity-health": "NODE_PATH=. node test/service-stubs/equalityAndDiversityHealth.js"
+    "stub:equality-and-diversity-health": "NODE_PATH=. node test/service-stubs/equalityAndDiversityHealth.js",
+    "suppress-cve": "yarn npm audit --recursive --environment production --json > yarn-audit-known-issues"
   },
   "pre-commit": [
     "lint"
