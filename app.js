@@ -105,6 +105,11 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
 
     app.use(helmet.xssFilter({setOnOldIE: true}));
 
+    app.use((req, res, next) => {
+        res.header('X-Robots-Tag', 'noindex');
+        next();
+    });
+
     const caching = {cacheControl: true, setHeaders: (res) => res.setHeader('Cache-Control', 'max-age=604800')};
 
     // Middleware to serve static assets
