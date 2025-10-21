@@ -148,7 +148,7 @@
     "cross-spawn": "^7.0.6",
     "express": "^4.21.2",
     "formidable": "^3.5.4",
-    "import-in-the-middle": "^1.13.0",
+    "import-in-the-middle": "^2.0.0",
     "minimist": "^1.2.8",
     "puppeteer": "^24.7.0",
     "qs": "^6.14.0",
