@@ -57,7 +57,7 @@ class Step {
         ctx.language = req.session.language ? req.session.language : 'en';
         ctx = merge(ctx, sanitizeInput(req.body));
         ctx = FeatureToggle.appwideToggles(req, ctx, config.featureToggles.appwideToggles);
-        ctx.isAvayaWebChatEnabled = ctx.featureToggles && ctx.featureToggles.ft_avaya_webchat && ctx.featureToggles.ft_avaya_webchat === 'true';
+        ctx.isWebChatEnabled = ctx.featureToggles && ctx.featureToggles.ft_enable_webchat && ctx.featureToggles.ft_enable_webchat === 'true';
         ctx.useNewWebChat = ctx.featureToggles && ctx.featureToggles.ft_use_new_webchat && ctx.featureToggles.ft_use_new_webchat === 'true';
 
         return ctx;
