@@ -8,6 +8,7 @@
       </span>
     </summary>
     <div class="govuk-details__text">
+    {% if fields.isWebChatEnabled.value === 'true' %}
       {% if fields.useNewWebChat.value === 'true' %}
         <p class="govuk-heading-s" id="avaya-web-chat-header"> {{ common.helpHeading3 | safe }} </p>
         {% include "includes/kerv-webchat.html" %}
@@ -17,6 +18,7 @@
           {% include "includes/avaya-webchat.html" %}
         {% endif %}
       {% endif %}
+    {% endif %}
       <p class="govuk-heading-s govuk-!-padding-top-2"> {{ common.helpHeading1 | safe }}</p>
       <p class="govuk-body"> {{ common.helpTelephoneNumber | safe }}</p>
       <p class="govuk-heading-s"> {{ common.helpHeading2 | safe }} </p>
