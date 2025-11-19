@@ -65,7 +65,6 @@ const sendToOrchestrationService = (data, ctx) => {
 };
 
 const updateCcdCasePaymentStatus = (data, ctx) => {
-    logInfo('update case payment status', data.applicationId);
     const headers = {
         'Content-Type': 'application/json',
         'Session-Id': ctx.sessionID,
@@ -74,6 +73,16 @@ const updateCcdCasePaymentStatus = (data, ctx) => {
     };
     const body = submitData(ctx, data);
     const fetchOptions = utils.fetchOptions(body, 'POST', headers);
+
+    const appId = data.applicationId;
+    const ccdId = data?.ccdCase?.id;
+    const useCcdLookupForPayment = ctx.useCcdLookupForPayment;
+
+    if (useCcdLookupForPayment) {
+        logInfo(`Use ccdId ${ccdId} to update case payment status (appId: ${appId})`, appId);
+        return utils.fetchJson(`${ORCHESTRATION_SERVICE_URL}/forms/${ccdId}/payments`, fetchOptions);
+    }
+    logInfo(`Use appId ${appId} to update case payment status (ccdId: ${ccdId})`, appId);
     return utils.fetchJson(`${ORCHESTRATION_SERVICE_URL}/forms/${data.applicationId}/payments`, fetchOptions);
 };
 
