@@ -149,6 +149,7 @@
     "express": "^4.21.2",
     "formidable": "^3.5.4",
     "import-in-the-middle": "^2.0.0",
+    "js-yaml": "^4.1.1",
     "minimist": "^1.2.8",
     "puppeteer": "^24.7.0",
     "qs": "^6.14.0",
@@ -157,5 +158,5 @@
     "@babel/helpers": "^7.27.0",
     "form-data": "^4.0.4"
   },
-  "packageManager": "yarn@4.10.3"
+  "packageManager": "yarn@4.11.0"
 }
