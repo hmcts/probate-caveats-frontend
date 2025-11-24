@@ -59,9 +59,7 @@ class Step {
         ctx = FeatureToggle.appwideToggles(req, ctx, config.featureToggles.appwideToggles);
 
         const isFTEnabled = (key) => {
-            return ctx.featureToggles &&
-                ctx.featureToggles[key] &&
-                ctx.featureToggles[key] === 'true';
+            return ctx.featureToggles?.[key] === 'true';
         };
         ctx.isWebChatEnabled = isFTEnabled('ft_enable_webchat');
         ctx.useNewWebChat = isFTEnabled('ft_use_new_webchat');
