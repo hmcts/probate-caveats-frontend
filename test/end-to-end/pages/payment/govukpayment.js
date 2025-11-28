@@ -2,11 +2,18 @@
 const contentEn = require('app/resources/en/translation/common');
 const contentCy = require('app/resources/cy/translation/common');
 const testConfig = require('config');
+const pageUnderTest = require('app/steps/ui/payment/status/index');
 
 async function seeGovUkPaymentPage(language ='en') {
     const commonContent = language === 'en' ? contentEn : contentCy;
     const I = this;
 
+    await I.waitForElement({css: '#card-no'});
+    await I.navByClick(commonContent.cancelButton);
+    I.seeInCurrentUrl(pageUnderTest.getPaymentCancelUrl());
+    await I.waitForText(commonContent.cancelPayment);
+    await I.navByClick(commonContent.continue);
+    await I.seePaymentBreakdownPage(language);
     await I.waitForElement({css: '#card-no'});
     await I.fillField('#card-no', testConfig.govPayTestCardNos.validCardNo);
     await I.fillField('#expiry-month', testConfig.govPayTestCardDetails.expiryMonth);
