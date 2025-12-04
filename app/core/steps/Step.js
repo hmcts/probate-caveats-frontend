@@ -62,7 +62,6 @@ class Step {
             return ctx.featureToggles?.[key] === 'true';
         };
         ctx.isWebChatEnabled = isFTEnabled('ft_enable_webchat');
-        ctx.useNewWebChat = isFTEnabled('ft_use_new_webchat');
         ctx.useCcdLookupForPayment = isFTEnabled('ft_use_ccd_lookup_for_payment');
 
         return ctx;
