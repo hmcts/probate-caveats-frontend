@@ -43,12 +43,6 @@ nodejs:
           alias: launchdarklyUserkeyCaveatFrontend
         - name: pcq-token-key
           alias: pcq-token-key
-        - name: webchat-avaya-url
-          alias: webchat-avaya-url
-        - name: webchat-avaya-client-url
-          alias: webchat-avaya-client-url
-        - name: webchat-avaya-service
-          alias: webchat-avaya-service
         - name: webchat-kerv-deployment-en
           alias: webchat-kerv-deployment-en
         - name: webchat-kerv-deployment-cy
