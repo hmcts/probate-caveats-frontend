@@ -58,7 +58,6 @@ class Step {
         ctx = merge(ctx, sanitizeInput(req.body));
         ctx = FeatureToggle.appwideToggles(req, ctx, config.featureToggles.appwideToggles);
         ctx.isWebChatEnabled = ctx.featureToggles && ctx.featureToggles.ft_enable_webchat && ctx.featureToggles.ft_enable_webchat === 'true';
-        ctx.useNewWebChat = ctx.featureToggles && ctx.featureToggles.ft_use_new_webchat && ctx.featureToggles.ft_use_new_webchat === 'true';
 
         return ctx;
     }
