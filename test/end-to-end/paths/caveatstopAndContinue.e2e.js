@@ -28,10 +28,7 @@ getTestLanguages().forEach(language => {
             await I.seeGovUkConfirmPage();
         }
 
-        const caseIDGenerated = await I.checkElementExist('//*[@id="main-content"]/div/div/div[1]/h1');
-        if (caseIDGenerated) {
-            await I.seeThankYouPage(language);
-        }
+        await I.seeThankYouPage(language);
 
     }).tag('@nightly')
         .retry(2);

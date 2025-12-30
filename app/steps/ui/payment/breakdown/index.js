@@ -41,10 +41,14 @@ class PaymentBreakdown extends Step {
         }
     }
 
-    * handlePost(ctx, errors, formdata, session, hostname) {
-        // this is required since this page is re-entrant for failues on /payment-status
-        this.nextStepUrl = () => this.next(ctx).constructor.getUrl();
+    nextStepUrl(ctx) {
+        if (ctx?.paymentNextUrl) {
+            return ctx.paymentNextUrl;
+        }
+        return super.nextStepUrl(ctx);
+    }
 
+    * handlePost(ctx, errors, formdata, session, hostname) {
         try {
             const feesLookup = new FeesLookup(formdata.applicationId);
             const confirmFees = yield feesLookup.lookup(ctx.authToken);
@@ -102,9 +106,9 @@ class PaymentBreakdown extends Step {
             set(ctx, 'status', paymentResponse.status);
 
             // Forward toGov.pay
-            this.nextStepUrl = () => paymentResponse._links.next_url.href;
+            ctx.paymentNextUrl = paymentResponse._links.next_url.href;
 
-            logInfo('nextStepUrl is: ' + this.nextStepUrl(ctx), formdata.applicationId);
+            logInfo('nextStepUrl is: ' + ctx.paymentNextUrl, formdata.applicationId);
             return [ctx, errors];
         } finally {
             this.unlockPayment(session);
@@ -154,6 +158,7 @@ class PaymentBreakdown extends Step {
         delete ctx.total;
         delete ctx.hostname;
         delete ctx.applicationId;
+        delete ctx.paymentNextUrl;
         return [ctx, formdata];
     }
 
