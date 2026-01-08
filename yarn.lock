@@ -2872,6 +2872,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"axios@npm:1.13.2":
+  version: 1.13.2
+  resolution: "axios@npm:1.13.2"
+  dependencies:
+    follow-redirects: "npm:^1.15.6"
+    form-data: "npm:^4.0.4"
+    proxy-from-env: "npm:^1.1.0"
+  checksum: 10c0/e8a42e37e5568ae9c7a28c348db0e8cf3e43d06fcbef73f0048669edfe4f71219664da7b6cc991b0c0f01c28a48f037c515263cb79be1f1ae8ff034cd813867b
+  languageName: node
+  linkType: hard
+
 "b4a@npm:^1.6.4":
   version: 1.6.7
   resolution: "b4a@npm:1.6.7"
@@ -6311,6 +6322,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"fs-extra@npm:11.3.3":
+  version: 11.3.3
+  resolution: "fs-extra@npm:11.3.3"
+  dependencies:
+    graceful-fs: "npm:^4.2.0"
+    jsonfile: "npm:^6.0.1"
+    universalify: "npm:^2.0.0"
+  checksum: 10c0/984924ff4104e3e9f351b658a864bf3b354b2c90429f57aec0acd12d92c4e6b762cbacacdffb4e745b280adce882e1f980c485d9f02c453f769ab4e7fc646ce3
+  languageName: node
+  linkType: hard
+
 "fs-extra@npm:^1.0.0":
   version: 1.0.0
   resolution: "fs-extra@npm:1.0.0"
@@ -9659,10 +9681,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"node-forge@npm:1.3.1":
-  version: 1.3.1
-  resolution: "node-forge@npm:1.3.1"
-  checksum: 10c0/e882819b251a4321f9fc1d67c85d1501d3004b4ee889af822fd07f64de3d1a8e272ff00b689570af0465d65d6bf5074df9c76e900e0aff23e60b847f2a46fbe8
+"node-forge@npm:1.3.3":
+  version: 1.3.3
+  resolution: "node-forge@npm:1.3.3"
+  checksum: 10c0/9c6f53b0ebb34865872cf62a35b0aef8fb337e2efc766626c2e3a0040f4c02933bf29a62ba999eb44a2aca73bd512c4eda22705a47b94654b9fb8ed53db9a1db
   languageName: node
   linkType: hard
 
@@ -10908,10 +10930,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"properties-file@npm:3.6.1":
-  version: 3.6.1
-  resolution: "properties-file@npm:3.6.1"
-  checksum: 10c0/5a1b5c22318899be8efc5b7b0e0bda5bfd5134b9d771d13cb04dbc66cbdf728492e3b89e4c6ab26cf6f0f63fc29f429477d11e73735964e6b2f08b3f40a24c12
+"properties-file@npm:3.6.3":
+  version: 3.6.3
+  resolution: "properties-file@npm:3.6.3"
+  checksum: 10c0/cc30ad9a6c1e7e728b280f8dac6b409626565f02c78974375d1db7e0b1f444c41f776e5d6e3f61f3c8ee21840f3faed7bb4724a9613fc8285a452a8443455395
   languageName: node
   linkType: hard
 
@@ -12205,24 +12227,24 @@ __metadata:
   linkType: hard
 
 "sonarqube-scanner@npm:^4.3.2":
-  version: 4.3.2
-  resolution: "sonarqube-scanner@npm:4.3.2"
+  version: 4.3.4
+  resolution: "sonarqube-scanner@npm:4.3.4"
   dependencies:
     adm-zip: "npm:0.5.16"
-    axios: "npm:1.12.2"
+    axios: "npm:1.13.2"
     commander: "npm:13.1.0"
-    fs-extra: "npm:11.3.2"
+    fs-extra: "npm:11.3.3"
     hpagent: "npm:1.2.0"
-    node-forge: "npm:1.3.1"
-    properties-file: "npm:3.6.1"
+    node-forge: "npm:1.3.3"
+    properties-file: "npm:3.6.3"
     proxy-from-env: "npm:1.1.0"
-    semver: "npm:7.7.2"
+    semver: "npm:7.7.3"
     slugify: "npm:1.6.6"
     tar-stream: "npm:3.1.7"
   bin:
     sonar: bin/sonar-scanner.js
     sonar-scanner: bin/sonar-scanner.js
-  checksum: 10c0/dd9ac925189cdc900f73b25eea608dd3fedf1fddb2c7c049ec30391b378da4a36c2ed7f45aedbe329f3db8c7afdbf7c73eb03c6c6b34028a1e915eee4d8a7447
+  checksum: 10c0/62fea6959e8b6a5dbb4b214b37557caa6ce12c7f310887464db6ea1ca1ff2e3e7e89fb031eb87ca90f7067733d52ff1585359bddb22c0a7a072997c821a8ad39
   languageName: node
   linkType: hard
 
