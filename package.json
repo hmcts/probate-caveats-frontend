@@ -157,7 +157,8 @@
     "puppeteer": "^24.7.0",
     "qs": "^6.14.0",
     "semver": "^7.6.3",
-    "tough-cookie": "^6.0.0"
+    "tough-cookie": "^6.0.0",
+    "undici": "^7.18.2"
   },
   "packageManager": "yarn@4.12.0"
 }
