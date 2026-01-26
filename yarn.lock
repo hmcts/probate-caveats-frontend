@@ -7291,14 +7291,14 @@ __metadata:
   linkType: hard
 
 "import-in-the-middle@npm:^2.0.0":
-  version: 2.0.4
-  resolution: "import-in-the-middle@npm:2.0.4"
+  version: 2.0.5
+  resolution: "import-in-the-middle@npm:2.0.5"
   dependencies:
     acorn: "npm:^8.15.0"
     acorn-import-attributes: "npm:^1.9.5"
     cjs-module-lexer: "npm:^2.2.0"
     module-details-from-path: "npm:^1.0.4"
-  checksum: 10c0/5ffe270e8f8d588550d4c23d7e63bc62283d686a7c358cbc4eada5144294a1d518a22ee5b0cf373ab98995a7252ffd2dc2836d2e32010579d4c9a259274a1e1c
+  checksum: 10c0/633cfa5f5f6ed387f55bbacc72e0d5c711259062f9c190256dbba89f344655f91cde7358e86941e10c813fbcd075c90707d63bcae227c467c9dc8b93a4cc672e
   languageName: node
   linkType: hard
 
@@ -11858,8 +11858,8 @@ __metadata:
   linkType: hard
 
 "sass@npm:^1.94.2":
-  version: 1.97.2
-  resolution: "sass@npm:1.97.2"
+  version: 1.97.3
+  resolution: "sass@npm:1.97.3"
   dependencies:
     "@parcel/watcher": "npm:^2.4.1"
     chokidar: "npm:^4.0.0"
@@ -11870,7 +11870,7 @@ __metadata:
       optional: true
   bin:
     sass: sass.js
-  checksum: 10c0/5622a4f9d0acf5cdfb72c73c448366b3ec7bfe2b6e1ecb62c6e9f8eaff9c02a6afd86a31ded246fc818fe660cedea6bd27335e82fc9bd7cce46c29f95774bece
+  checksum: 10c0/67f6b5d220f20c1c23a8b16dda5fd1c5d119ad5caf8195b185d553b5b239fb188a3787f04fc00171c62515f2c4e5e0eb5ad4992a80f8543428556883c1240ba3
   languageName: node
   linkType: hard
 
