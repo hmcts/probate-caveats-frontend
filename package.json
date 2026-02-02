@@ -25,7 +25,7 @@
     "test:a11y": "NODE_ENV=testing NODE_PATH=. LOG_LEVEL=ERROR mocha --exit test/accessibility --reporter spec --recursive --timeout 15000 --exit --reporter mochawesome --reporter-options reportDir=functional-output,reportFilename=a11y",
     "test-accessibility": "NODE_ENV=testing  NODE_PATH=. LOG_LEVEL=error ENABLE_TRACKING=false mocha test/accessibility --timeout 30000",
     "test-e2e": "yarn playwright install && DONT_FAIL_ON_EMPTY_RUN=1 NODE_ENV=testing  NODE_PATH=. node ./node_modules/codeceptjs/bin/codecept.js run-multiple parallel -c ./test/end-to-end/ --grep @e2e --steps --reporter mocha-multi",
-    "test-crossbrowser-e2e": "yarn playwright install && DONT_FAIL_ON_EMPTY_RUN=1 NODE_ENV=testing NODE_PATH=. codeceptjs run-multiple ${BROWSER_GROUP:-'--all'} -c test/end-to-end/saucelabs.conf.js --plugins retryFailedStep --steps --grep @e2e --reporter mocha-multi",
+    "test-crossbrowser-e2e": "bash -c 'yarn playwright install && DONT_FAIL_ON_EMPTY_RUN=1 NODE_ENV=testing NODE_PATH=. codeceptjs run-multiple ${BROWSER_GROUP:-'--all'} -c test/end-to-end/saucelabs.conf.js --plugins retryFailedStep --steps --grep @e2e --reporter mocha-multi'",
     "test:smoke": "NODE_ENV=testing  mocha test/smoke/healthcheck.js --timeout 30000 --reporter spec",
     "lint": "NODE_PATH=. eslint .",
     "eslint": "NODE_PATH=. eslint .",
