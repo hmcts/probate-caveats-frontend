@@ -6,10 +6,11 @@ const logger = require('app/components/logger');
 const logInfo = (message, applicationId = 'Unknown') => logger(applicationId).info(message);
 const logError = (message, applicationId = 'Unknown') => logger(applicationId).error(message);
 const RedirectRunner = require('app/core/runners/RedirectRunner');
-const {get, set} = require('lodash');
+const {get, set, merge} = require('lodash');
 const Thankyou = require('app/steps/ui/thankyou');
 const formatUrl = require('app/utils/FormatUrl');
 const config = require('config');
+const {sanitizeInput} = require('../../../../utils/Sanitize');
 
 class PaymentStatus extends Step {
 
@@ -89,7 +90,8 @@ class PaymentStatus extends Step {
 
     * updateCcdCasePaymentStatus(ctx, formdata) {
         const submitData = {};
-        Object.assign(submitData, formdata);
+        const safeFormData = sanitizeInput(formdata);
+        merge(submitData, safeFormData);
         const updateCasePaymentStatusResult = yield services.updateCcdCasePaymentStatus(submitData, ctx);
 
         if (updateCasePaymentStatusResult.name === 'Error') {
@@ -109,7 +111,7 @@ class PaymentStatus extends Step {
     }
 
     updateFormDataPayment(formdata, findPaymentResponse, date) {
-        Object.assign(formdata.payment, {
+        const safePaymentData = sanitizeInput({
             channel: findPaymentResponse.channel,
             transactionId: findPaymentResponse.external_reference,
             reference: findPaymentResponse.reference,
@@ -118,6 +120,7 @@ class PaymentStatus extends Step {
             status: findPaymentResponse.status,
             siteId: findPaymentResponse.site_id
         });
+        merge(formdata.payment, safePaymentData);
     }
 }
 

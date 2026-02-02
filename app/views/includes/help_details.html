@@ -8,10 +8,10 @@
       </span>
     </summary>
     <div class="govuk-details__text">
-      {% if fields.language.value === 'en' %}
-        <p class="govuk-heading-s" id="avaya-web-chat-header"> {{ common.helpHeading3 | safe }} </p>
-        {% include "includes/avaya-webchat.html" %}
-      {% endif %}
+    {% if fields.isWebChatEnabled.value === 'true' %}
+      <p class="govuk-heading-s" id="avaya-web-chat-header"> {{ common.helpHeading3 | safe }} </p>
+      {% include "includes/kerv-webchat.html" %}
+    {% endif %}
       <p class="govuk-heading-s govuk-!-padding-top-2"> {{ common.helpHeading1 | safe }}</p>
       <p class="govuk-body"> {{ common.helpTelephoneNumber | safe }}</p>
       <p class="govuk-heading-s"> {{ common.helpHeading2 | safe }} </p>

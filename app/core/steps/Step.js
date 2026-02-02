@@ -1,6 +1,6 @@
 'use strict';
 
-const {mapValues, map, reduce, escape, isObject, isEmpty} = require('lodash');
+const {mapValues, map, reduce, escape, isObject, isEmpty, merge} = require('lodash');
 const UIStepRunner = require('app/core/runners/UIStepRunner');
 const journeyMap = require('app/core/journeyMap');
 const mapErrorsToFields = require('app/components/error').mapErrorsToFields;
@@ -8,6 +8,7 @@ const config = require('config');
 const FeatureToggle = require('app/utils/FeatureToggle');
 const utils = require('app/components/step-utils');
 const moment = require('moment');
+const {sanitizeInput} = require('../../utils/Sanitize');
 
 class Step {
 
@@ -50,12 +51,18 @@ class Step {
     getContextData(req) {
         const session = req.session;
         let ctx = {};
-        Object.assign(ctx, session.form[this.section] || {});
+        const safeSectionData = sanitizeInput(session.form[this.section] || {});
+        ctx = merge(ctx, safeSectionData);
         ctx.sessionID = req.sessionID;
         ctx.language = req.session.language ? req.session.language : 'en';
-        ctx = Object.assign(ctx, req.body);
+        ctx = merge(ctx, sanitizeInput(req.body));
         ctx = FeatureToggle.appwideToggles(req, ctx, config.featureToggles.appwideToggles);
-        ctx.isAvayaWebChatEnabled = ctx.featureToggles && ctx.featureToggles.ft_avaya_webchat && ctx.featureToggles.ft_avaya_webchat === 'true';
+
+        const isFTEnabled = (key) => {
+            return ctx.featureToggles?.[key] === 'true';
+        };
+        ctx.isWebChatEnabled = isFTEnabled('ft_enable_webchat');
+        ctx.useCcdLookupForPayment = isFTEnabled('ft_use_ccd_lookup_for_payment');
 
         return ctx;
     }
@@ -80,7 +87,8 @@ class Step {
         if (!this.content) {
             throw new ReferenceError(`Step ${this.name} has no content.json in its resource folder`);
         }
-        const contentCtx = Object.assign({}, formdata, ctx, this.commonProps);
+        const safeFormData = sanitizeInput(formdata);
+        const contentCtx = merge({}, safeFormData, ctx, this.commonProps);
         this.i18next.changeLanguage(language);
 
         return mapValues(this.content, (value, key) => this.i18next.t(`${this.resourcePath.replace(/\//g, '.')}.${key}`, contentCtx));

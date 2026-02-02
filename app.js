@@ -27,6 +27,8 @@ const nonce = uuidv4().replace(/-/g, '');
 const isEmpty = require('lodash').isEmpty;
 const featureToggles = require('app/featureToggles');
 const {getContentSecurityPolicy} = require('./app/utils/getContentSecurityPolicy');
+const {sanitizeInput} = require('./app/utils/Sanitize');
+const {merge} = require('lodash');
 
 exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
     const app = express();
@@ -56,10 +58,17 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
         nonce: nonce,
         basePath: config.app.basePath,
         webchat: {
-            avayaUrl: config.webchat.avayaUrl,
-            avayaClientUrl: config.webchat.avayaClientUrl,
-            avayaService: config.webchat.avayaService
-        }
+            kerv: {
+                deploymentId: {
+                    en: config.webchat.kerv.deploymentId.en,
+                    cy: config.webchat.kerv.deploymentId.cy,
+                },
+                genesysBaseUrl: config.webchat.kerv.genesysBaseUrl,
+                environment: config.webchat.kerv.environment,
+                kervBaseUrl: config.webchat.kerv.kervBaseUrl,
+                apiKey: config.webchat.kerv.apiKey,
+            },
+        },
     };
 
     njkEnv.addGlobal('globals', globals);
@@ -87,7 +96,16 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
 
     app.use(nocache());
 
+    app.use(helmet.strictTransportSecurity({
+        maxAge: 31536000,
+    }));
+
     app.use(helmet.xssFilter({setOnOldIE: true}));
+
+    app.use((req, res, next) => {
+        res.header('X-Robots-Tag', 'noindex');
+        next();
+    });
 
     const caching = {cacheControl: true, setHeaders: (res) => res.setHeader('Cache-Control', 'max-age=604800')};
 
@@ -99,7 +117,6 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
     app.use('/public/pdf', express.static(`${__dirname}/app/assets/pdf`));
     app.use('/assets', express.static(`${__dirname}/node_modules/govuk-frontend/dist/govuk/assets`, caching));
     app.use('/public/locales', express.static(`${__dirname}/app/assets/locales`, caching));
-    app.use('/assets/locale', express.static(`${__dirname}/app/assets/locales/avaya-webchat`, caching));
 
     // Elements refers to icon folder instead of images folder
     app.use(favicon(path.join(__dirname, 'node_modules', 'govuk-frontend', 'dist', 'govuk', 'assets', 'images', 'favicon.ico')));
@@ -137,7 +154,8 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
         }
 
         if (isA11yTest && !isEmpty(a11yTestSession)) {
-            req.session = Object.assign(req.session, a11yTestSession);
+            const safeA11yTestSession = sanitizeInput(a11yTestSession);
+            req.session = merge(req.session, safeA11yTestSession);
         }
 
         next();
@@ -162,7 +180,8 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
         }
 
         if (isA11yTest && !isEmpty(a11yTestSession)) {
-            req.session = Object.assign(req.session, a11yTestSession);
+            const safeA11yTestSession = sanitizeInput(a11yTestSession);
+            req.session = merge(req.session, safeA11yTestSession);
         }
 
         next();

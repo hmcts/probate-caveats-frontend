@@ -78,6 +78,11 @@ postcodeLookup:
 validation:
   url: TEST_VALIDATION_SERVICE_URL
 webchat:
-  avayaUrl: WEBCHAT_AVAYA_URL
-  avayaClientUrl: WEBCHAT_AVAYA_CLIENT_URL
-  avayaService: WEBCHAT_AVAYA_SERVICE
+  kerv:
+    deploymentId:
+      en: KERV_DEPLOYMENT_ID_EN
+      cy: KERV_DEPLOYMENT_ID_CY
+    genesysBaseUrl: KERV_GENESYS_BASE_URL
+    environment: KERV_ENVIRONMENT
+    kervBaseUrl: KERV_BASE_URL
+    apiKey: KERV_API_KEY

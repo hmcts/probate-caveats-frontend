@@ -13,8 +13,9 @@ featureToggles:
   ft_caveats_shutter: 'probate-caveats-fe-shutter'
   ft_pcq: 'probate-caveats-pcq'
   ft_pcq_token: 'probate-caveats-pcq-token'
-  ft_avaya_webchat: 'probate-avaya-webchat'
-  appwideToggles: ['ft_avaya_webchat']
+  ft_enable_webchat: 'probate-caveat-enable-webchat'
+  ft_use_ccd_lookup_for_payment: 'probate-use-ccd-lookup-not-elastic-when-paying'
+  appwideToggles: ['ft_enable_webchat', 'ft_use_ccd_lookup_for_payment']
 app:
   useHttps: 'false'
   port: '3000'
@@ -53,6 +54,7 @@ services:
   payment:
     name: 'Payment Service'
     createPaymentUrl: 'http://localhost:8383/card-payments'
+    externalUrl: 'https://card.payments.service.gov.uk'
     authorization: 'dummy_token'
     serviceAuthorization: 'dummy_token'
     userId: 46
@@ -101,16 +103,20 @@ payloadVersion: '4.1.0'
 hostname: 'localhost:3000'
 enableTracking: 'true'
 webchat:
-  avayaUrl: 'webchat.pp.ctsc.hmcts.net'
-  avayaClientUrl: 'webchat-client.pp.ctsc.hmcts.net'
-  avayaService: 'Testing'
+  kerv:
+    deploymentId:
+      en: 'kerv-deployment-en'
+      cy: 'kerv-deployment-cy'
+    genesysBaseUrl: 'kerv-genesys-base-url'
+    environment: 'kerv-environment'
+    kervBaseUrl: 'kerv-kerv-base-url'
+    apiKey: 'kerv-api-key'
 links:
   accessibility: '/caveats/accessibility-statement'
   cookies: '/caveats/cookies'
   privacy: '/caveats/privacy-policy'
   terms: '/caveats/terms-conditions'
   contact: '/caveats/contact-us'
-  avaya-webchat: '/caveats/avaya-webchat'
   callCharges: 'https://www.gov.uk/call-charges'
   howToManageCookies: 'https://www.aboutcookies.org'
   googlePrivacyPolicy: 'https://www.google.com/policies/privacy/partners/'
@@ -128,13 +134,16 @@ links:
   subjectAccessRequest: 'https://www.gov.uk/government/publications/request-your-personal-data-from-moj'
   complaintsProcedure: 'https://www.gov.uk/government/organisations/hm-courts-and-tribunals-service/about/complaints-procedure'
   informationCommissionersOffice: 'https://ico.org.uk/global/contact-us'
-  applicationFormPA15: 'https://www.gov.uk/government/publications/form-pa15-apply-for-renunciation-will'
+  applicationFormPA15: 'https://www.gov.uk/government/publications/form-pa15-give-up-probate-executor-rights'
   deathReportedToCoroner: 'https://www.gov.uk/after-a-death/when-a-death-is-reported-to-a-coroner'
+  hmctAccessAccessibilityStatement: 'https://hmcts-access.service.gov.uk/accessibility-statement'
+  payAccessibilityStatement: 'https://www.payments.service.gov.uk/accessibility-statement/'
+  notifyAccessibilityStatement: 'https://www.notifications.service.gov.uk/accessibility-statement'
   myAbilityLink: 'https://mcmw.abilitynet.org.uk/'
   equalityAdvisorLink: 'https://www.equalityadvisoryservice.com/'
   wcag21Link: 'https://www.w3.org/TR/WCAG21/'
-  applyForCaveatFrontpage: 'https://www.gov.uk/stop-probate-application/apply-for-a-caveat'
-  applyForCaveatFrontpageWelsh: 'https://www.gov.uk/atal-cais-am-brofiant/gwneud-cais-i-gofnodi-cafeat'
+  applyForCaveatFrontpage: 'https://www.apply-for-probate.service.gov.uk/caveats/start-apply'
+  applyForCaveatFrontpageWelsh: 'https://www.apply-for-probate.service.gov.uk/caveats/start-apply?lng=cy'
   paymentsAccessibilityStatement: 'https://www.payments.service.gov.uk/accessibility-statement/'
 utils:
   api:
@@ -164,8 +173,7 @@ whitelistedPagesForStartApplyPageRedirect: [
   '/terms-conditions',
   '/contact-us',
   '/offline',
-  '/health/liveness',
-  '/avaya-webchat'
+  '/health/liveness'
 ]
 whiteListedPagesForThankyou: [
   '/public',
@@ -176,8 +184,7 @@ whiteListedPagesForThankyou: [
   '/contact-us',
   '/offline',
   '/health/liveness',
-  '/thank-you',
-  '/avaya-webchat'
+  '/thank-you'
 ]
 whiteListedPagesForPaymentBreakdown: [
   '/public',
@@ -190,7 +197,6 @@ whiteListedPagesForPaymentBreakdown: [
   '/health/liveness',
   '/payment-breakdown',
   '/payment-status',
-  '/thank-you',
-  '/avaya-webchat'
+  '/thank-you'
 ]
 
