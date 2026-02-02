@@ -11,40 +11,34 @@ function updateSauceLabsResult(result, sessionId) {
 function getWebDriverSession() {
     try {
         const helper = container.helpers('WebDriver');
-
         // Check if WebDriver helper exists and is enabled
         if (!helper) {
             console.log('WebDriver helper not found - skipping SauceLabs reporting');
             return null;
         }
-
         // Check if browser session exists
         if (!helper.browser) {
             console.log('No browser session found - skipping SauceLabs reporting');
             return null;
         }
-
         // Check if sessionId exists (WebDriver only, not Playwright)
         if (!helper.browser.sessionId) {
             console.log('No sessionId found (likely Playwright) - skipping SauceLabs reporting');
             return null;
         }
-
         return helper.browser.sessionId;
-
     } catch (error) {
         console.log('Error getting WebDriver session:', error.message);
         return null;
     }
 }
-
 module.exports = function() {
 
     // Setting test success on SauceLabs
     event.dispatcher.on(event.test.passed, () => {
+
         try {
             const sessionId = getWebDriverSession();
-
             if (sessionId) {
                 exec(updateSauceLabsResult('true', sessionId));
             }
@@ -55,9 +49,9 @@ module.exports = function() {
 
     // Setting test failure on SauceLabs
     event.dispatcher.on(event.test.failed, () => {
+
         try {
             const sessionId = getWebDriverSession();
-
             if (sessionId) {
                 exec(updateSauceLabsResult('false', sessionId));
             }

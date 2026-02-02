@@ -7,7 +7,7 @@ then
     BROWSER_GROUP=chrome yarn test-crossbrowser-e2e || EXIT_STATUS=$?
     BROWSER_GROUP=firefox yarn test-crossbrowser-e2e || EXIT_STATUS=$?
     BROWSER_GROUP=microsoft yarn test-crossbrowser-e2e || EXIT_STATUS=$?
-    BROWSER_GROUP=webkit_safari yarn test-crossbrowser-e2e || EXIT_STATUS=$?
+    BROWSER_GROUP=webkit_safari yarn test-crossbrowser-e2e -- webkit_safari || EXIT_STATUS=$?
     echo EXIT_STATUS: $EXIT_STATUS
     exit $EXIT_STATUS
 else

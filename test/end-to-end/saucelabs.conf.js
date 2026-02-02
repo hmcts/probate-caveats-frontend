@@ -3,9 +3,8 @@
 const supportedBrowsers = require('../crossbrowser/supportedBrowsers.js');
 const testConfig = require('config');
 
-// const waitForTimeout = parseInt(process.env.WAIT_FOR_TIMEOUT) || 45000;
-// const smartWait = parseInt(process.env.SMART_WAIT) || 30000;
 const browser = process.env.BROWSER_GROUP || 'chrome';
+
 const defaultSauceOptions = {
     username: process.env.SAUCE_USERNAME,
     accessKey: process.env.SAUCE_ACCESS_KEY,
@@ -14,53 +13,40 @@ const defaultSauceOptions = {
     tags: ['probate_caveats']
 };
 
-function merge (intoObject, fromObject) {
+const isWebKit = process.env.BROWSER_GROUP === 'webkit_safari';
+
+function merge(intoObject, fromObject) {
     return Object.assign({}, intoObject, fromObject);
 }
-
-/*const sauceLabsHelpers = {
-    WebDriver: {
-        host: 'ondemand.saucelabs.com',
-        port: 80,
-        user: process.env.SAUCE_USERNAME,
-        key: process.env.SAUCE_ACCESS_KEY,
-        region: 'eu',
-        browser: 'chrome',
-        desiredCapabilities: {
-            // your capabilities
-        }
-    },
-    SauceLabsReportingHelper: {
-        require: './helpers/SauceLabsReportingHelper.js'
-    }
-};*/
-
-const isWebKit = process.env.BROWSER_GROUP === 'webkit_safari';
 
 function getBrowserConfig(browserGroup) {
     const browserConfig = [];
     for (const candidateBrowser in supportedBrowsers[browserGroup]) {
-        if (candidateBrowser) {
-            const candidateCapabilities = supportedBrowsers[browserGroup][candidateBrowser];
-            candidateCapabilities['sauce:options'] = merge(
-                defaultSauceOptions, candidateCapabilities['sauce:options']
-            );
-            browserConfig.push({
-                browser: candidateCapabilities.browserName,
-                capabilities: candidateCapabilities
-            });
-        } else {
-            console.error('ERROR: supportedBrowsers.js is empty or incorrectly defined');
-        }
+        const candidateCapabilities = supportedBrowsers[browserGroup][candidateBrowser];
+        candidateCapabilities['sauce:options'] = merge(
+            defaultSauceOptions,
+            candidateCapabilities['sauce:options']
+        );
+
+        browserConfig.push({
+            browser: candidateCapabilities.browserName,
+            capabilities: candidateCapabilities
+        });
     }
     return browserConfig;
 }
 
-const setupConfig = {
+exports.config = {
+    name: 'Probate Caveats FrontEnd Cross-Browser Tests',
+
     tests: testConfig.TestPathToRun,
     output: `${process.cwd()}/${testConfig.TestOutputDir}`,
+
+    /**
+     * 🔑 CRITICAL PART
+     * WebDriver does NOT exist at all for WebKit
+     */
     helpers: isWebKit ? {
-        // Only Playwright for webkit
         Playwright: {
             url: testConfig.TestE2EFrontendUrl + testConfig.TestBasePath,
             browser: 'webkit',
@@ -70,8 +56,7 @@ const setupConfig = {
             show: false,
             waitForTimeout: 10000
         }
-    } : {
-        // WebDriver for other browsers
+    }: {
         WebDriver: {
             host: 'ondemand.saucelabs.com',
             port: 80,
@@ -84,6 +69,11 @@ const setupConfig = {
             require: './helpers/SauceLabsReportingHelper.js'
         }
     },
+
+    include: {
+        I: './pages/steps.js'
+    },
+
     plugins: {
         retryFailedStep: {
             enabled: true,
@@ -94,19 +84,9 @@ const setupConfig = {
             delayAfter: 2000
         }
     },
-    include: {
-        I: './pages/steps.js'
-    },
+
     mocha: {
         reporterOptions: {
-            'codeceptjs-cli-reporter': {
-                stdout: '-',
-                options: {steps: true}
-            },
-            'mocha-junit-reporter': {
-                stdout: '-',
-                options: {mochaFile: `${testConfig.TestOutputDir}/result.xml`}
-            },
             mochawesome: {
                 stdout: testConfig.TestOutputDir + '/console.log',
                 options: {
@@ -118,6 +98,10 @@ const setupConfig = {
             }
         }
     },
+
+    /**
+     * Browser groups for run-multiple
+     */
     multiple: {
         microsoft: {
             browsers: getBrowserConfig('microsoft')
@@ -128,22 +112,13 @@ const setupConfig = {
         firefox: {
             browsers: getBrowserConfig('firefox')
         },
-        webkit_safari: {
-            browsers: ['webkit'],
-            helpers: {
-                Playwright: {// Use Playwright helper, not WebDriver
-                    url: testConfig.TestE2EFrontendUrl + testConfig.TestBasePath,
-                    browser: 'webkit',
-                    restart: true,
-                    keepBrowserState: false,
-                    keepCookies: false,
-                    show: false,
-                    waitForTimeout: 10000
-                }
-            }
-        }
-    },
-    name: 'Probate Caveats FrontEnd Cross-Browser Tests'
-};
 
-exports.config = setupConfig;
+        /**
+         * ✅ WebKit group
+         * No WebDriver, no SauceLabs
+         */
+        webkit_safari: {
+            browsers: ['webkit']
+        }
+    }
+};
