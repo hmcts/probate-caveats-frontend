@@ -61,7 +61,7 @@ exports.config = {
     multiple: {
         parallel: {
             chunks: 2,
-            browsers: ['chrome']
+            browsers: ['chrome', 'firefox', 'edge_win_latest', 'webkit']
         }
     },
     'name': 'Caveat E2E Tests'
