@@ -64,7 +64,7 @@ exports.config = {
             browsers: ['chrome', 'firefox', 'edge_win_latest', 'webkit_safari']
         },
 
-        webkit_safari: {
+        webkit: {
             browsers: ['webkit'],
             helpers: {
                 Playwright: {
