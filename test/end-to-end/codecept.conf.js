@@ -62,17 +62,17 @@ exports.config = {
         parallel: {
             chunks: 2,
             browsers: ['chrome', 'firefox', 'edge_win_latest', 'webkit']
-        }
-    },
+        },
 
-    webkit: {
-        browsers: ['webkit'],
-        helpers: {
-            Playwright: {
-                browser: 'webkit',
-                restart: true,
-                keepBrowserState: false,
-                keepCookies: false
+        webkit: {
+            browsers: ['webkit'],
+            helpers: {
+                Playwright: {
+                    browser: 'webkit',
+                    restart: true,
+                    keepBrowserState: false,
+                    keepCookies: false
+                }
             }
         }
     },
