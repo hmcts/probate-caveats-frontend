@@ -1,9 +1,8 @@
-/* eslint-disable no-console */
-
 const supportedBrowsers = require('../crossbrowser/supportedBrowsers.js');
 const testConfig = require('config');
 
 const browser = process.env.BROWSER_GROUP || 'chrome';
+const isWebKit = process.env.BROWSER_GROUP === 'webkit_safari';
 
 const defaultSauceOptions = {
     username: process.env.SAUCE_USERNAME,
@@ -12,8 +11,6 @@ const defaultSauceOptions = {
     windowSize: '1600x900',
     tags: ['probate_caveats']
 };
-
-const isWebKit = process.env.BROWSER_GROUP === 'webkit_safari';
 
 function merge(intoObject, fromObject) {
     return Object.assign({}, intoObject, fromObject);
@@ -38,14 +35,10 @@ function getBrowserConfig(browserGroup) {
 
 exports.config = {
     name: 'Probate Caveats FrontEnd Cross-Browser Tests',
-
     tests: testConfig.TestPathToRun,
     output: `${process.cwd()}/${testConfig.TestOutputDir}`,
 
-    /**
-     * 🔑 CRITICAL PART
-     * WebDriver does NOT exist at all for WebKit
-     */
+    // ✅ Default helpers for SauceLabs browsers
     helpers: isWebKit ? {
         Playwright: {
             url: testConfig.TestE2EFrontendUrl + testConfig.TestBasePath,
@@ -56,7 +49,7 @@ exports.config = {
             show: false,
             waitForTimeout: 10000
         }
-    }: {
+    } : {
         WebDriver: {
             host: 'ondemand.saucelabs.com',
             port: 80,
@@ -99,26 +92,37 @@ exports.config = {
         }
     },
 
-    /**
-     * Browser groups for run-multiple
-     */
     multiple: {
         microsoft: {
             browsers: getBrowserConfig('microsoft')
-        },
-        chrome: {
-            browsers: getBrowserConfig('chrome')
-        },
-        firefox: {
-            browsers: getBrowserConfig('firefox')
+            // Uses default WebDriver helpers
         },
 
-        /**
-         * ✅ WebKit group
-         * No WebDriver, no SauceLabs
-         */
+        chrome: {
+            browsers: getBrowserConfig('chrome')
+            // Uses default WebDriver helpers
+        },
+
+        firefox: {
+            browsers: getBrowserConfig('firefox')
+            // Uses default WebDriver helpers
+        },
+
+        // ✅ WebKit - explicitly override helpers
         webkit_safari: {
-            browsers: ['webkit']
+            browsers: ['webkit'],
+            helpers: {
+                Playwright: {
+                    url: testConfig.TestE2EFrontendUrl + testConfig.TestBasePath,
+                    browser: 'webkit',
+                    restart: true,
+                    keepBrowserState: false,
+                    keepCookies: false,
+                    show: false,
+                    waitForTimeout: 10000,
+                    timeout: 30000
+                }
+            }
         }
     }
 };
