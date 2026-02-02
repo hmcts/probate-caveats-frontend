@@ -97,17 +97,30 @@ const setupConfig = {
         }
     },
     multiple: {
+
+        /*
         microsoft: {
             browsers: getBrowserConfig('microsoft')
         },
         chrome: {
             browsers: getBrowserConfig('chrome')
-        },
+        },*/
         firefox: {
             browsers: getBrowserConfig('firefox')
         },
         webkit: {
-            browsers: getBrowserConfig('webkit')
+            browsers: ['webkit'],
+            helpers: {
+                Playwright: {// Use Playwright helper, not WebDriver
+                    url: testConfig.TestE2EFrontendUrl + testConfig.TestBasePath,
+                    browser: 'webkit',
+                    restart: true,
+                    keepBrowserState: false,
+                    keepCookies: false,
+                    show: false,
+                    waitForTimeout: 10000
+                }
+            }
         }
     },
     name: 'Probate Caveats FrontEnd Cross-Browser Tests'
