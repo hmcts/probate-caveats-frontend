@@ -61,7 +61,7 @@ exports.config = {
     multiple: {
         parallel: {
             chunks: 2,
-            browsers: ['chrome', 'firefox', 'edge_win_latest', 'webkit']
+            browsers: ['chrome', 'firefox', 'edge_win_latest', 'webkit_safari']
         },
 
         webkit_safari: {
