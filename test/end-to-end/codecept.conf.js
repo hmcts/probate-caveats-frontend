@@ -61,12 +61,14 @@ exports.config = {
     multiple: {
         parallel: {
             chunks: 2,
-            browsers: ['chrome', 'firefox', 'edge_win_latest', 'webkit']
+            browsers: ['chrome', 'firefox', 'edge_win_latest', 'webkit_safari']
         },
 
-        webkit: {
+        webkit_safari: {
             browsers: ['webkit'],
             helpers: {
+                WebDriver: {_enabled: false},
+                SauceLabsReportingHelper: {_enabled: false},
                 Playwright: {
                     browser: 'webkit',
                     restart: true,
