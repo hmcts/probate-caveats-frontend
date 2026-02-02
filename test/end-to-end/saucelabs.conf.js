@@ -3,8 +3,8 @@
 const supportedBrowsers = require('../crossbrowser/supportedBrowsers.js');
 const testConfig = require('config');
 
-const waitForTimeout = parseInt(process.env.WAIT_FOR_TIMEOUT) || 45000;
-const smartWait = parseInt(process.env.SMART_WAIT) || 30000;
+// const waitForTimeout = parseInt(process.env.WAIT_FOR_TIMEOUT) || 45000;
+// const smartWait = parseInt(process.env.SMART_WAIT) || 30000;
 const browser = process.env.BROWSER_GROUP || 'chrome';
 const defaultSauceOptions = {
     username: process.env.SAUCE_USERNAME,
@@ -17,6 +17,25 @@ const defaultSauceOptions = {
 function merge (intoObject, fromObject) {
     return Object.assign({}, intoObject, fromObject);
 }
+
+/*const sauceLabsHelpers = {
+    WebDriver: {
+        host: 'ondemand.saucelabs.com',
+        port: 80,
+        user: process.env.SAUCE_USERNAME,
+        key: process.env.SAUCE_ACCESS_KEY,
+        region: 'eu',
+        browser: 'chrome',
+        desiredCapabilities: {
+            // your capabilities
+        }
+    },
+    SauceLabsReportingHelper: {
+        require: './helpers/SauceLabsReportingHelper.js'
+    }
+};*/
+
+const isWebKit = process.env.BROWSER_GROUP === 'webkit_safari';
 
 function getBrowserConfig(browserGroup) {
     const browserConfig = [];
@@ -40,26 +59,29 @@ function getBrowserConfig(browserGroup) {
 const setupConfig = {
     tests: testConfig.TestPathToRun,
     output: `${process.cwd()}/${testConfig.TestOutputDir}`,
-    helpers: {
-        WebDriver: {
+    helpers: isWebKit ? {
+        // Only Playwright for webkit
+        Playwright: {
             url: testConfig.TestE2EFrontendUrl + testConfig.TestBasePath,
-            browser,
-            smartWait,
-            waitForTimeout,
-            cssSelectorsEnabled: 'true',
-            host: 'ondemand.eu-central-1.saucelabs.com',
+            browser: 'webkit',
+            restart: true,
+            keepBrowserState: false,
+            keepCookies: false,
+            show: false,
+            waitForTimeout: 10000
+        }
+    } : {
+        // WebDriver for other browsers
+        WebDriver: {
+            host: 'ondemand.saucelabs.com',
             port: 80,
+            user: process.env.SAUCE_USERNAME,
+            key: process.env.SAUCE_ACCESS_KEY,
             region: 'eu',
-            capabilities: {}
+            browser: 'chrome'
         },
         SauceLabsReportingHelper: {
             require: './helpers/SauceLabsReportingHelper.js'
-        },
-        JSWait: {
-            require: './helpers/JSWait.js'
-        },
-        Mochawesome: {
-            uniqueScreenshotNames: 'true'
         }
     },
     plugins: {
