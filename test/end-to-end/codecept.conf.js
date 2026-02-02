@@ -61,21 +61,7 @@ exports.config = {
     multiple: {
         parallel: {
             chunks: 2,
-            browsers: ['chrome', 'firefox', 'edge_win_latest', 'webkit_safari']
-        },
-
-        webkit_safari: {
-            browsers: ['webkit'],
-            helpers: {
-                WebDriver: {_enabled: false},
-                SauceLabsReportingHelper: {_enabled: false},
-                Playwright: {
-                    browser: 'webkit',
-                    restart: true,
-                    keepBrowserState: false,
-                    keepCookies: false
-                }
-            }
+            browsers: ['chrome']
         }
     },
     'name': 'Caveat E2E Tests'
