@@ -1,5 +1,4 @@
 const config = require('config');
-
 exports.config = {
     'tests': config.TestPathToRun,
     'output': `${process.cwd()}/${config.TestOutputDir}`,
