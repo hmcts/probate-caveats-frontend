@@ -1,4 +1,5 @@
 const config = require('config');
+
 exports.config = {
     'tests': config.TestPathToRun,
     'output': `${process.cwd()}/${config.TestOutputDir}`,
@@ -76,6 +77,18 @@ exports.config = {
             }
         }
 
+    },
+
+    webkit: {
+        browsers: ['webkit'],
+        helpers: {
+            Playwright: {
+                browser: 'webkit',
+                restart: true,
+                keepBrowserState: false,
+                keepCookies: false
+            }
+        }
     },
     'name': 'Caveat E2E Tests'
 };
