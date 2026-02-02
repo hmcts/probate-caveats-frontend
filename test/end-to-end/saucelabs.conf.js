@@ -106,9 +106,11 @@ const setupConfig = {
         firefox: {
             browsers: getBrowserConfig('firefox')
         },
-        webkit: {
+        webkit_safari: {
             browsers: ['webkit'],
             helpers: {
+                WebDriver: {_enabled: false},
+                SauceLabsReportingHelper: {_enabled: false},
                 Playwright: {// Use Playwright helper, not WebDriver
                     url: testConfig.TestE2EFrontendUrl + testConfig.TestBasePath,
                     browser: 'webkit',
