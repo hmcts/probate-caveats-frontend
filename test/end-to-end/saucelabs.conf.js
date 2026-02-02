@@ -1,8 +1,9 @@
+// test/end-to-end/saucelabs.conf.js - Used for cross-browser tests on SauceLabs
+
 const supportedBrowsers = require('../crossbrowser/supportedBrowsers.js');
 const testConfig = require('config');
 
 const browser = process.env.BROWSER_GROUP || 'chrome';
-const isWebKit = process.env.BROWSER_GROUP === 'webkit_safari';
 
 const defaultSauceOptions = {
     username: process.env.SAUCE_USERNAME,
@@ -38,18 +39,8 @@ exports.config = {
     tests: testConfig.TestPathToRun,
     output: `${process.cwd()}/${testConfig.TestOutputDir}`,
 
-    // ✅ Default helpers for SauceLabs browsers
-    helpers: isWebKit ? {
-        Playwright: {
-            url: testConfig.TestE2EFrontendUrl + testConfig.TestBasePath,
-            browser: 'webkit',
-            restart: true,
-            keepBrowserState: false,
-            keepCookies: false,
-            show: false,
-            waitForTimeout: 10000
-        }
-    } : {
+    // ✅ Default helpers for SauceLabs (chrome, firefox, microsoft)
+    helpers: {
         WebDriver: {
             host: 'ondemand.saucelabs.com',
             port: 80,
@@ -95,23 +86,26 @@ exports.config = {
     multiple: {
         microsoft: {
             browsers: getBrowserConfig('microsoft')
-            // Uses default WebDriver helpers
+            // Inherits WebDriver + SauceLabsReportingHelper from parent
         },
 
         chrome: {
             browsers: getBrowserConfig('chrome')
-            // Uses default WebDriver helpers
+            // Inherits WebDriver + SauceLabsReportingHelper from parent
         },
 
         firefox: {
             browsers: getBrowserConfig('firefox')
-            // Uses default WebDriver helpers
+            // Inherits WebDriver + SauceLabsReportingHelper from parent
         },
 
-        // ✅ WebKit - explicitly override helpers
+        // ✅ WebKit - COMPLETELY different helpers (no SauceLabs)
         webkit_safari: {
             browsers: ['webkit'],
+
+            // ✅ CRITICAL: Override helpers completely for webkit
             helpers: {
+                // Only Playwright - no WebDriver, no SauceLabsReportingHelper
                 Playwright: {
                     url: testConfig.TestE2EFrontendUrl + testConfig.TestBasePath,
                     browser: 'webkit',
