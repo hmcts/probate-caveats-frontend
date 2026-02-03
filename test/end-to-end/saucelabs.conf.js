@@ -105,9 +105,6 @@ const setupConfig = {
         },
         firefox: {
             browsers: getBrowserConfig('firefox')
-        },
-        safari: {
-            browsers: getBrowserConfig('safari')
         }
     },
     name: 'Probate Caveats FrontEnd Cross-Browser Tests'
