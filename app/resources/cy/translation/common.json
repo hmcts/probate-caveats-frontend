@@ -19,6 +19,8 @@
   "answer": "Ateb",
   "send": "Anfon",
   "error": "Gwall",
+  "cancelPayment": "Mae eich taliad wedi ei ganslo",
+  "cancelButton": "Canslo’r taliad",
   "paymentProbateFees": "Ffioedd Profiant",
   "cookieText": "Mae GOV.UK yn defnyddio cwcis i wneud y safle&rsquo;n symlach. <a href=\"{cookiesLink}\" class=\"govuk-link\" aria-label=\"Mwy o wybodaeth am cwcis\">Mwy o wybodaeth am cwcis</a>",
   "errorSummaryHeading": "Problem",
