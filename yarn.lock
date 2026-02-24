@@ -1535,6 +1535,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@pa11y/html_codesniffer@npm:^2.6.0":
+  version: 2.6.0
+  resolution: "@pa11y/html_codesniffer@npm:2.6.0"
+  checksum: 10c0/b02efab93bf13e08e3aac061b1c26e4276fe5896087cba980b404924ec1482e95d7015c1ad6cbe16f4cc6ff882211a6c4609c8142a741ea0f8b236f9ada6ded8
+  languageName: node
+  linkType: hard
+
 "@pact-foundation/pact-core-darwin-arm64@npm:16.0.0":
   version: 16.0.0
   resolution: "@pact-foundation/pact-core-darwin-arm64@npm:16.0.0"
@@ -2942,10 +2949,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axe-core@npm:~4.10.3":
-  version: 4.10.3
-  resolution: "axe-core@npm:4.10.3"
-  checksum: 10c0/1b1c24f435b2ffe89d76eca0001cbfff42dbf012ad9bd37398b70b11f0d614281a38a28bc3069e8972e3c90ec929a8937994bd24b0ebcbaab87b8d1e241ab0c7
+"axe-core@npm:~4.11.1":
+  version: 4.11.1
+  resolution: "axe-core@npm:4.11.1"
+  checksum: 10c0/1e6997454b61c7c9a4d740f395952835dcf87f2c04fd81577217d68634d197d602c224f9e8f17b22815db4c117a2519980cfc8911fc0027c54a6d8ebca47c6a7
   languageName: node
   linkType: hard
 
@@ -4241,7 +4248,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"commander@npm:13.1.0, commander@npm:~13.1.0":
+"commander@npm:13.1.0":
   version: 13.1.0
   resolution: "commander@npm:13.1.0"
   checksum: 10c0/7b8c5544bba704fbe84b7cab2e043df8586d5c114a4c5b607f83ae5060708940ed0b5bd5838cf8ce27539cde265c1cbd59ce3c8c6b017ed3eec8943e3a415164
@@ -4294,6 +4301,13 @@ __metadata:
   version: 9.5.0
   resolution: "commander@npm:9.5.0"
   checksum: 10c0/5f7784fbda2aaec39e89eb46f06a999e00224b3763dc65976e05929ec486e174fe9aac2655f03ba6a5e83875bd173be5283dc19309b7c65954701c02025b3c1d
+  languageName: node
+  linkType: hard
+
+"commander@npm:~14.0.1":
+  version: 14.0.3
+  resolution: "commander@npm:14.0.3"
+  checksum: 10c0/755652564bbf56ff2ff083313912b326450d3f8d8c85f4b71416539c9a05c3c67dbd206821ca72635bf6b160e2afdefcb458e86b317827d5cb333b69ce7f1a24
   languageName: node
   linkType: hard
 
@@ -5336,12 +5350,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"envinfo@npm:~7.14.0":
-  version: 7.14.0
-  resolution: "envinfo@npm:7.14.0"
+"envinfo@npm:~7.21.0":
+  version: 7.21.0
+  resolution: "envinfo@npm:7.21.0"
   bin:
     envinfo: dist/cli.js
-  checksum: 10c0/059a031eee101e056bd9cc5cbfe25c2fab433fe1780e86cf0a82d24a000c6931e327da6a8ffb3dce528a24f83f256e7efc0b36813113eff8fdc6839018efe327
+  checksum: 10c0/4170127ca72dbf85be2c114f85558bd08178e8a43b394951ba9fd72d067c6fea3374df45a7b040e39e4e7b30bdd268e5bdf8661d99ae28302c2a88dedb41b5e6
   languageName: node
   linkType: hard
 
@@ -7093,13 +7107,6 @@ __metadata:
   bin:
     html-minifier-terser: cli.js
   checksum: 10c0/ffc97c17299d9ec30e17269781b816ea2fc411a9206fc9e768be8f2decb1ea1470892809babb23bb4e3ab1f64d606d97e1803bf526ae3af71edc0fd3070b94b9
-  languageName: node
-  linkType: hard
-
-"html_codesniffer@npm:~2.5.1":
-  version: 2.5.1
-  resolution: "html_codesniffer@npm:2.5.1"
-  checksum: 10c0/f1827e136ecf293181edd22cb8910fe86e4b22f626da96d1048eddc0212bb3a9172e2240733280a1dd34aa289fe084d430943c70d0abf4b83894dc8e084219fd
   languageName: node
   linkType: hard
 
@@ -10348,14 +10355,14 @@ __metadata:
   linkType: hard
 
 "pa11y@npm:^9.0.1":
-  version: 9.0.1
-  resolution: "pa11y@npm:9.0.1"
+  version: 9.1.0
+  resolution: "pa11y@npm:9.1.0"
   dependencies:
-    axe-core: "npm:~4.10.3"
+    "@pa11y/html_codesniffer": "npm:^2.6.0"
+    axe-core: "npm:~4.11.1"
     bfj: "npm:~9.1.2"
-    commander: "npm:~13.1.0"
-    envinfo: "npm:~7.14.0"
-    html_codesniffer: "npm:~2.5.1"
+    commander: "npm:~14.0.1"
+    envinfo: "npm:~7.21.0"
     kleur: "npm:~4.1.5"
     mustache: "npm:~4.2.0"
     node.extend: "npm:~2.0.3"
@@ -10363,7 +10370,7 @@ __metadata:
     semver: "npm:~7.7.1"
   bin:
     pa11y: bin/pa11y.js
-  checksum: 10c0/fa2c0c9e3023cc6e5b31dd7b44772bd5a503866ec0a40a980b29e2ba16cfc0586099cb698ea310c7813a8806d8caf0803791a52634c2ef5c09a1f70584217ddd
+  checksum: 10c0/3971439be41bec68cacd09e5918f6fa3c1c54da4813d7438ffe430a2474683066d2ecb5fef1a877683798beb8ecb98b183a453b143d7999c3bc833424a47c24f
   languageName: node
   linkType: hard
 
