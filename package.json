@@ -80,7 +80,7 @@
     "govuk-frontend": "^5.13.0",
     "helmet": "^8.1.0",
     "hpkp": "^3.0.0",
-    "https-proxy-agent": "^7.0.6",
+    "https-proxy-agent": "^8.0.0",
     "i18next": "^25.7.2",
     "if-env": "^1.0.4",
     "ioredis": "^5.8.2",
