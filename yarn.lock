@@ -2800,6 +2800,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"axios@npm:1.13.6":
+  version: 1.13.6
+  resolution: "axios@npm:1.13.6"
+  dependencies:
+    follow-redirects: "npm:^1.15.11"
+    form-data: "npm:^4.0.5"
+    proxy-from-env: "npm:^1.1.0"
+  checksum: 10c0/51fb5af055c3b85662fa97df17d986ae2c37d13bf86d50b6bb36b6b3a2dec6966a1d3a14ab3774b71707b155ae3597ed9b7babdf1a1a863d1a31840cb8e7ec71
+  languageName: node
+  linkType: hard
+
 "b4a@npm:^1.6.4":
   version: 1.6.7
   resolution: "b4a@npm:1.6.7"
@@ -2953,6 +2964,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"bare-fs@npm:^4.5.5":
+  version: 4.5.5
+  resolution: "bare-fs@npm:4.5.5"
+  dependencies:
+    bare-events: "npm:^2.5.4"
+    bare-path: "npm:^3.0.0"
+    bare-stream: "npm:^2.6.4"
+    bare-url: "npm:^2.2.2"
+    fast-fifo: "npm:^1.3.2"
+  peerDependencies:
+    bare-buffer: "*"
+  peerDependenciesMeta:
+    bare-buffer:
+      optional: true
+  checksum: 10c0/1f8b31b73848639fff4ab46fb9d8c0477dc571813fd6790ec75edc192abc467310f1082ecb81170aeffca91b4d08f0e9a002d6f9fa6968a07d11ea22be1597ff
+  languageName: node
+  linkType: hard
+
 "bare-os@npm:^3.0.1":
   version: 3.6.1
   resolution: "bare-os@npm:3.6.1"
@@ -2983,6 +3012,15 @@ __metadata:
     bare-events:
       optional: true
   checksum: 10c0/1242286f8f3147e9fd353cdaa9cf53226a807ac0dde8177c13f1463aa4cd1f88e07407c883a1b322b901e9af2d1cd30aacd873529031132c384622972e0419df
+  languageName: node
+  linkType: hard
+
+"bare-url@npm:^2.2.2":
+  version: 2.3.2
+  resolution: "bare-url@npm:2.3.2"
+  dependencies:
+    bare-path: "npm:^3.0.0"
+  checksum: 10c0/4fd0046314390a54404519d9db20e130ab3a341ef638d040f9603ae3fa0a1d84f6970357d21c8fc64e6163d1f61fd212cb1cfa4cb537dfead99fb06e3c030b15
   languageName: node
   linkType: hard
 
@@ -6124,6 +6162,16 @@ __metadata:
     debug:
       optional: true
   checksum: 10c0/5829165bd112c3c0e82be6c15b1a58fa9dcfaede3b3c54697a82fe4a62dd5ae5e8222956b448d2f98e331525f05d00404aba7d696de9e761ef6e42fdc780244f
+  languageName: node
+  linkType: hard
+
+"follow-redirects@npm:^1.15.11":
+  version: 1.15.11
+  resolution: "follow-redirects@npm:1.15.11"
+  peerDependenciesMeta:
+    debug:
+      optional: true
+  checksum: 10c0/d301f430542520a54058d4aeeb453233c564aaccac835d29d15e050beb33f339ad67d9bddbce01739c5dc46a6716dbe3d9d0d5134b1ca203effa11a7ef092343
   languageName: node
   linkType: hard
 
@@ -10766,10 +10814,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"properties-file@npm:3.6.3":
-  version: 3.6.3
-  resolution: "properties-file@npm:3.6.3"
-  checksum: 10c0/cc30ad9a6c1e7e728b280f8dac6b409626565f02c78974375d1db7e0b1f444c41f776e5d6e3f61f3c8ee21840f3faed7bb4724a9613fc8285a452a8443455395
+"properties-file@npm:3.6.4":
+  version: 3.6.4
+  resolution: "properties-file@npm:3.6.4"
+  checksum: 10c0/c9958cdd6a8e3c8df04616215ada8beec6ac8fd6001ed88d32396929fbb55331a843791ddf5c9b4965d26fddbfa62341a6ea58e4fb3367e2ddc7f874be0dfbd1
   languageName: node
   linkType: hard
 
@@ -12075,24 +12123,23 @@ __metadata:
   linkType: hard
 
 "sonarqube-scanner@npm:^4.3.2":
-  version: 4.3.4
-  resolution: "sonarqube-scanner@npm:4.3.4"
+  version: 4.3.5
+  resolution: "sonarqube-scanner@npm:4.3.5"
   dependencies:
     adm-zip: "npm:0.5.16"
-    axios: "npm:1.13.2"
+    axios: "npm:1.13.6"
     commander: "npm:13.1.0"
-    fs-extra: "npm:11.3.3"
     hpagent: "npm:1.2.0"
     node-forge: "npm:1.3.3"
-    properties-file: "npm:3.6.3"
+    properties-file: "npm:3.6.4"
     proxy-from-env: "npm:1.1.0"
-    semver: "npm:7.7.3"
+    semver: "npm:7.7.4"
     slugify: "npm:1.6.6"
-    tar-stream: "npm:3.1.7"
+    tar-stream: "npm:3.1.8"
   bin:
     sonar: bin/sonar-scanner.js
     sonar-scanner: bin/sonar-scanner.js
-  checksum: 10c0/62fea6959e8b6a5dbb4b214b37557caa6ce12c7f310887464db6ea1ca1ff2e3e7e89fb031eb87ca90f7067733d52ff1585359bddb22c0a7a072997c821a8ad39
+  checksum: 10c0/7f153a7e21f8418e0e532b5867979c473a24fc561c18a5a54ed8a4c7d0893d6923ef18463a5798226e403a1c9b24915f5fa4dfe97cd64bf313a2aa6864b4ae0c
   languageName: node
   linkType: hard
 
@@ -12568,6 +12615,18 @@ __metadata:
     fast-fifo: "npm:^1.2.0"
     streamx: "npm:^2.15.0"
   checksum: 10c0/a09199d21f8714bd729993ac49b6c8efcb808b544b89f23378ad6ffff6d1cb540878614ba9d4cfec11a64ef39e1a6f009a5398371491eb1fda606ffc7f70f718
+  languageName: node
+  linkType: hard
+
+"tar-stream@npm:3.1.8":
+  version: 3.1.8
+  resolution: "tar-stream@npm:3.1.8"
+  dependencies:
+    b4a: "npm:^1.6.4"
+    bare-fs: "npm:^4.5.5"
+    fast-fifo: "npm:^1.2.0"
+    streamx: "npm:^2.15.0"
+  checksum: 10c0/c4bf369de2302fcf30218d091167a5372ee79b69a1b5bb493ddb7714193ca805719558966334bab1f2775c8142826865f24e25459ff1c5f0a096bc3a3d5c5ce2
   languageName: node
   linkType: hard
 
