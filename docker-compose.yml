@@ -3,7 +3,7 @@ version: '3'
 
 services:
   ccd-user-profile-api:
-    image: "${CCD_USER_PROFILE_API_USE_LOCAL-hmctspublic.azurecr.io/}ccd/user-profile-api:${CCD_USER_PROFILE_API_TAG:-latest}"
+    image: "${CCD_USER_PROFILE_API_USE_LOCAL-hmctsprod.azurecr.io/}ccd/user-profile-api:${CCD_USER_PROFILE_API_TAG:-latest}"
     environment:
       JAVA_TOOL_OPTIONS: -Xms128m -Xmx400m
       USER_PROFILE_DB_HOST: shared-database
@@ -23,7 +23,7 @@ services:
       - service-auth-provider-api
 
   ccd-definition-store-api:
-    image: "${CCD_DEFINITION_STORE_API_USE_LOCAL-hmctspublic.azurecr.io/}ccd/definition-store-api:${CCD_DEFINITION_STORE_API_TAG:-latest}"
+    image: "${CCD_DEFINITION_STORE_API_USE_LOCAL-hmctsprod.azurecr.io/}ccd/definition-store-api:${CCD_DEFINITION_STORE_API_TAG:-latest}"
     environment:
       JAVA_TOOL_OPTIONS: -Xms128m -Xmx400m
       DEFINITION_STORE_DB_HOST: shared-database
@@ -51,7 +51,7 @@ services:
       - service-auth-provider-api
 
   ccd-data-store-api:
-    image: "${CCD_DATA_STORE_API_USE_LOCAL-hmctspublic.azurecr.io/}ccd/data-store-api:${CCD_DATA_STORE_API_TAG:-latest}"
+    image: "${CCD_DATA_STORE_API_USE_LOCAL-hmctsprod.azurecr.io/}ccd/data-store-api:${CCD_DATA_STORE_API_TAG:-latest}"
     environment:
       JAVA_TOOL_OPTIONS: -Xms128m -Xmx400m
       DATA_STORE_DB_HOST: shared-database
@@ -85,7 +85,7 @@ services:
       - service-auth-provider-api
 
   ccd-case-management-web:
-    image: hmctspublic.azurecr.io/ccd/case-management-web:latest
+    image: hmctsprod.azurecr.io/ccd/case-management-web:latest
     environment:
       IDAM_LOGIN_URL: http://localhost:3501/login
       CCD_GATEWAY_BASE_URL: http://localhost:3453
@@ -100,7 +100,7 @@ services:
       - ccd-api-gateway
 
   ccd-api-gateway:
-    image: hmctspublic.azurecr.io/ccd/api-gateway-web:latest
+    image: hmctsprod.azurecr.io/ccd/api-gateway-web:latest
     environment:
       IDAM_BASE_URL: http://sidam-api:5000
       IDAM_USER_URL: http://sidam-api:5000
@@ -127,7 +127,7 @@ services:
       - dm-store
 
   service-auth-provider-api:
-    image: "hmctspublic.azurecr.io/rpe/service-auth-provider:latest"
+    image: "hmctsprod.azurecr.io/rpe/service-auth-provider:latest"
     healthcheck:
       interval: 10s
       timeout: 10s
@@ -154,12 +154,12 @@ services:
       - 4502:8080
 
   shared-db:
-    image: hmctsprivate.azurecr.io/idam/shared-db:latest
+    image: hmctsprod.azurecr.io/idam/shared-db:latest
     ports:
       - 5051:5432
 
   sidam-api:
-    image: "hmctspublic.azurecr.io/idam/api:stable"
+    image: "hmctsprod.azurecr.io/idam/api:stable"
     environment:
       JAVA_TOOL_OPTIONS: -Xms128m -Xmx400m
       TESTING_SUPPORT_ENABLED: "true"
@@ -192,7 +192,7 @@ services:
       - shared-db
 
   fr-am:
-    image: "hmctsprivate.azurecr.io/idam/idam-fr-am:latest"
+    image: "hmctsprod.azurecr.io/idam/idam-fr-am:latest"
     environment:
       JAVA_TOOL_OPTIONS: -Xms128m -Xmx400m
     ports:
@@ -202,7 +202,7 @@ services:
       - shared-db
 
   fr-idm:
-    image: "hmctsprivate.azurecr.io/idam/idam-fr-idm:latest"
+    image: "hmctsprod.azurecr.io/idam/idam-fr-idm:latest"
     environment:
       JAVA_TOOL_OPTIONS: -Xms128m -Xmx400m
     ports:
@@ -225,7 +225,7 @@ services:
       - 5050:5432
 
   dm-store:
-    image: hmctspublic.azurecr.io/dm/store:latest
+    image: hmctsprod.azurecr.io/dm/store:latest
     environment:
       - JAVA_TOOL_OPTIONS=-Xms128m -Xmx256m
       - SERVER_PORT=8080
@@ -263,7 +263,7 @@ services:
       - azure-storage-emulator-azurite
 
   pdf-service-api:
-    image: hmctspublic.azurecr.io/cmc/pdf-service:latest
+    image: hmctsprod.azurecr.io/cmc/pdf-service:latest
     environment:
       - JAVA_TOOL_OPTIONS=-Xms128m -Xmx256m -Djavx.security.egd=file:/dev/./urandom -XX:MaxMetaspaceSize=128m
       - AZURE_APPLICATIONINSIGHTS_INSTRUMENTATIONKEY=fake-key
@@ -278,7 +278,7 @@ services:
       - 5500:5500
 
   fees-api:
-    image: hmctspublic.azurecr.io/fees-register/api
+    image: hmctsprod.azurecr.io/fees-register/api
     environment:
       JAVA_TOOL_OPTIONS: -Xms128m -Xmx256m
       SPRING_DATASOURCE_URL: "jdbc:postgresql://shared-database:5432/fees_register"
@@ -294,7 +294,7 @@ services:
       - shared-database
 
   idam-web-admin:
-    image: "hmctspublic.azurecr.io/idam/web-admin:stable"
+    image: "hmctsprod.azurecr.io/idam/web-admin:stable"
     environment:
       JAVA_TOOL_OPTIONS: -Xms128m -Xmx256m
       STRATEGIC_SERVICE_URL: http://sidam-api:5000
@@ -306,7 +306,7 @@ services:
       - sidam-api
 
   idam-web-public:
-    image: "hmctspublic.azurecr.io/idam/web-public:stable"
+    image: "hmctsprod.azurecr.io/idam/web-public:stable"
     environment:
       JAVA_TOOL_OPTIONS: -Xms128m -Xmx256m
       STRATEGIC_SERVICE_URL: http://sidam-api:5000
@@ -322,7 +322,7 @@ services:
       - sidam-api
 
   probate-orchestrator:
-    image: hmctspublic.azurecr.io/probate/orchestrator-service:latest
+    image: hmctsprod.azurecr.io/probate/orchestrator-service:latest
     environment:
       JAVA_TOOL_OPTIONS: -Xms128m -Xmx256m
       AUTH_IDAM_CLIENT_BASEURL: http://sidam-api:5000
@@ -339,7 +339,7 @@ services:
       - probate-back-office
 
   probate-back-office:
-    image: hmctspublic.azurecr.io/probate/back-office:latest
+    image: hmctsprod.azurecr.io/probate/back-office:latest
     dns:
       - 172.16.0.10
       - 172.16.0.14
@@ -370,7 +370,7 @@ services:
       - dm-store
 
   probate-submit-service:
-    image: hmctspublic.azurecr.io/probate/submit-service:latest
+    image: hmctsprod.azurecr.io/probate/submit-service:latest
     environment:
       JAVA_TOOL_OPTIONS: -Xms128m -Xmx400m
       AUTH_IDAM_CLIENT_BASEURL: http://sidam-api:5000
@@ -385,7 +385,7 @@ services:
       - service-auth-provider-api
 
   probate-business-service:
-    image: hmctspublic.azurecr.io/probate/business-service:latest
+    image: hmctsprod.azurecr.io/probate/business-service:latest
     environment:
       - JAVA_TOOL_OPTIONS=-Xms128m -Xmx400m
       - SERVER_PORT=8081
@@ -398,7 +398,7 @@ services:
     - 8081:8081
 
   send-letter-service:
-    image: hmctspublic.azurecr.io/rpe/send-letter-service
+    image: hmctsprod.azurecr.io/rpe/send-letter-service
     environment:
       - JAVA_TOOL_OPTIONS=-Xms128m -Xmx400m
       - SERVER_PORT=8485
@@ -466,7 +466,7 @@ services:
       - 9200:9200
 
   ccd-logstash:
-    image: hmctspublic.azurecr.io/ccd/logstash:probate-latest
+    image: hmctsprod.azurecr.io/ccd/logstash:probate-latest
     environment:
       - JAVA_TOOL_OPTIONS=-Xms128m -Xmx400m
       - XPACK_MONITORING_ENABLED=false
@@ -480,7 +480,7 @@ services:
       - shared-database
 
   payments-api:
-    image: hmctspublic.azurecr.io/payment/api:latest
+    image: hmctsprod.azurecr.io/payment/api:latest
     environment:
       - JAVA_TOOL_OPTIONS=-Xms128m -Xmx400m
       - auth.provider.service.client.baseUrl=http://service-auth-provider-api:8080/
