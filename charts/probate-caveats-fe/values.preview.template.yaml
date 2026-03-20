@@ -56,12 +56,6 @@ nodejs:
         - name: webchat-kerv-api-key
           alias: webchat-kerv-api-key
 
-idam-pr:
-  enabled: true
-  redirect_uris:
-    Probate:
-      - https://${SERVICE_FQDN}/oauth2/callback
-
 redis:
   enabled: true
   serviceAccount:
