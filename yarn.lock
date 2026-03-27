@@ -637,6 +637,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@borewit/text-codec@npm:^0.2.1":
+  version: 0.2.2
+  resolution: "@borewit/text-codec@npm:0.2.2"
+  checksum: 10c0/2d3fb132bc6a132914a8fbf8e9ff2fa1ead210ecc395b28bb7355bd7719548a5e351ffe39f21c3bee8048f6cabd99eabd404bb5cc809cad9cba25abed19d271f
+  languageName: node
+  linkType: hard
+
 "@codeceptjs/configure@npm:1.0.6":
   version: 1.0.6
   resolution: "@codeceptjs/configure@npm:1.0.6"
@@ -5979,15 +5986,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"file-type@npm:^21.1.1":
-  version: 21.3.4
-  resolution: "file-type@npm:21.3.4"
+"file-type@npm:^22.0.0":
+  version: 22.0.0
+  resolution: "file-type@npm:22.0.0"
   dependencies:
     "@tokenizer/inflate": "npm:^0.4.1"
-    strtok3: "npm:^10.3.4"
-    token-types: "npm:^6.1.1"
-    uint8array-extras: "npm:^1.4.0"
-  checksum: 10c0/6f15e7538c5d73f9308d2e897365d253a6647a6751bb1b0d85c78aebc02b8976afb7c6c9b3759687a064b1b3d60246e5504746b8f11e38b0d5a1b339087e00d2
+    strtok3: "npm:^10.3.5"
+    token-types: "npm:^6.1.2"
+    uint8array-extras: "npm:^1.5.0"
+  checksum: 10c0/61436eff794f27e6eb3bf40110ae6656d412472fbde88dab42093dc847e5b795ce74c1de5d8ad0798b9a287a40b49d65ed78ed7f0522cfdee0bb709f3fa0a38d
   languageName: node
   linkType: hard
 
@@ -10613,7 +10620,7 @@ __metadata:
     express: "npm:^4.22.1"
     express-session: "npm:^1.18.2"
     express-urlrewrite: "npm:^2.0.3"
-    file-type: "npm:^21.1.1"
+    file-type: "npm:^22.0.0"
     get-port: "npm:^7.1.0"
     git-rev-sync: "npm:^3.0.2"
     govuk-frontend: "npm:^5.13.0"
@@ -12465,12 +12472,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"strtok3@npm:^10.3.4":
-  version: 10.3.4
-  resolution: "strtok3@npm:10.3.4"
+"strtok3@npm:^10.3.5":
+  version: 10.3.5
+  resolution: "strtok3@npm:10.3.5"
   dependencies:
     "@tokenizer/token": "npm:^0.3.0"
-  checksum: 10c0/277ab69e417f4545e364ffaf9d560c991f531045dbace32d77b5c822cccd76a608b782785a2c60595274288d4d32dced184a5c21dc20348791da697127dc69a8
+  checksum: 10c0/8d2477b239054c9f1f5b14a65d531147ca158ab9887fdc2d0938e77b7ec8891fb683b58254c7643afd5d98a421a59207534d491762b111f58c795071ecbe9fd1
   languageName: node
   linkType: hard
 
@@ -12857,6 +12864,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"token-types@npm:^6.1.2":
+  version: 6.1.2
+  resolution: "token-types@npm:6.1.2"
+  dependencies:
+    "@borewit/text-codec": "npm:^0.2.1"
+    "@tokenizer/token": "npm:^0.3.0"
+    ieee754: "npm:^1.2.1"
+  checksum: 10c0/8786e28e3cb65b9e890bc3c38def98e6dfe4565538237f8c0e47dbe549ed8f5f00de8dc464717868308abb4729f1958f78f69e1c4c3deebbb685729113a6fee8
+  languageName: node
+  linkType: hard
+
 "touch@npm:^3.1.0":
   version: 3.1.1
   resolution: "touch@npm:3.1.1"
@@ -13096,10 +13114,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"uint8array-extras@npm:^1.4.0":
-  version: 1.4.0
-  resolution: "uint8array-extras@npm:1.4.0"
-  checksum: 10c0/eaffd3388634b7e5e1496073b878dd19136043137d3e7e0d2a453e37f566a5a551e640819e1a6596c6df9b9d1f7b70884cc29db6a357bdd424811f3598d504dd
+"uint8array-extras@npm:^1.5.0":
+  version: 1.5.0
+  resolution: "uint8array-extras@npm:1.5.0"
+  checksum: 10c0/0e74641ac7dadb02eadefc1ccdadba6010e007757bda824960de3c72bbe2b04e6d3af75648441f412148c4103261d54fcb60be45a2863beb76643a55fddba3bd
   languageName: node
   linkType: hard
 
