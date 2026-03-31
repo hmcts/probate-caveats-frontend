@@ -11,6 +11,8 @@
   "back": "Back",
   "continue": "Continue",
   "saveAndContinue": "Save and continue",
+  "cancelPayment": "Your payment has been cancelled",
+  "cancelButton": "Cancel payment",
   "saveAndClose": "Save and close",
   "acceptAndContinue": "Accept and continue",
   "submit": "Submit your application",
