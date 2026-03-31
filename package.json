@@ -81,7 +81,7 @@
     "helmet": "^8.1.0",
     "hpkp": "^3.0.0",
     "https-proxy-agent": "^7.0.6",
-    "i18next": "^25.7.2",
+    "i18next": "^26.0.0",
     "if-env": "^1.0.4",
     "ioredis": "^5.8.2",
     "js-yaml": "^4.1.1",
