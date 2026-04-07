@@ -5,7 +5,7 @@ nodejs:
     enabled: false
   environment:
     REDIS_USE_TLS: false
-    REDIS_HOST: ${SERVICE_NAME}-redis-master
+    REDIS_HOST: ${SERVICE_NAME}-hmcts-redis-master
     REDIS_PORT: 6379
     LAUNCHDARKLY_ENABLED: false
     EQUALITY_URL: https://pcq.aat.platform.hmcts.net
@@ -56,12 +56,22 @@ nodejs:
         - name: webchat-kerv-api-key
           alias: webchat-kerv-api-key
 
-redis:
+hmcts-redis:
   enabled: true
   serviceAccount:
     create: false
     name: "probate"
     automountServiceAccountToken: true
+  architecture: standalone
+  image:
+    registry: hmctsprod.azurecr.io
+    repository: imported/redis
+    tag: 8.2.1
+  master:
+    persistence:
+      enabled: false
+  auth:
+    enabled: false
 
 global:
   security:
