@@ -682,7 +682,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@cucumber/cucumber-expressions@npm:19":
+"@cucumber/cucumber-expressions@npm:^19.0.0":
   version: 19.0.0
   resolution: "@cucumber/cucumber-expressions@npm:19.0.0"
   dependencies:
@@ -2383,10 +2383,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xmldom/xmldom@npm:0.9.8":
-  version: 0.9.8
-  resolution: "@xmldom/xmldom@npm:0.9.8"
-  checksum: 10c0/2ea984270832de2843ab0bbb6df71bde9aa02126b69e5fd56b5512b98ace48e94aff7186e77d0b22fe4b6780483862be752bcf8577436638a9210109029a0503
+"@xmldom/xmldom@npm:0.9.9":
+  version: 0.9.9
+  resolution: "@xmldom/xmldom@npm:0.9.9"
+  checksum: 10c0/f1ecf6cd6926651a752d578fe662c10c47b8f8d98abe646f3318998283ac4a0e591161f89c8d1fc1822ae2524b82f8ff3de4ab396fba7ad7988f508cd5118e89
   languageName: node
   linkType: hard
 
@@ -2848,6 +2848,17 @@ __metadata:
     form-data: "npm:^4.0.5"
     proxy-from-env: "npm:^1.1.0"
   checksum: 10c0/51fb5af055c3b85662fa97df17d986ae2c37d13bf86d50b6bb36b6b3a2dec6966a1d3a14ab3774b71707b155ae3597ed9b7babdf1a1a863d1a31840cb8e7ec71
+  languageName: node
+  linkType: hard
+
+"axios@npm:1.14.0":
+  version: 1.14.0
+  resolution: "axios@npm:1.14.0"
+  dependencies:
+    follow-redirects: "npm:^1.15.11"
+    form-data: "npm:^4.0.5"
+    proxy-from-env: "npm:^2.1.0"
+  checksum: 10c0/2541f4aa215a7d1842429dad006fc682d82bc0e74bd14500823f7d8cce3bbae0e0a8c328c8538946718f366ab8ce5a4c12e9ad40e5a0f3482ff8bff0cd115d45
   languageName: node
   linkType: hard
 
@@ -3699,7 +3710,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cheerio@npm:^1.0.0, cheerio@npm:^1.1.2":
+"cheerio@npm:^1.1.2, cheerio@npm:^1.2.0":
   version: 1.2.0
   resolution: "cheerio@npm:1.2.0"
   dependencies:
@@ -3954,21 +3965,21 @@ __metadata:
   linkType: hard
 
 "codeceptjs@npm:^3.4.1":
-  version: 3.7.7
-  resolution: "codeceptjs@npm:3.7.7"
+  version: 3.7.8
+  resolution: "codeceptjs@npm:3.7.8"
   dependencies:
     "@codeceptjs/configure": "npm:1.0.6"
     "@codeceptjs/detox-helper": "npm:1.1.14"
     "@codeceptjs/helper": "npm:2.0.4"
-    "@cucumber/cucumber-expressions": "npm:19"
+    "@cucumber/cucumber-expressions": "npm:^19.0.0"
     "@cucumber/gherkin": "npm:39.0.0"
     "@cucumber/messages": "npm:32.2.0"
-    "@xmldom/xmldom": "npm:0.9.8"
+    "@xmldom/xmldom": "npm:0.9.9"
     acorn: "npm:8.16.0"
     arrify: "npm:3.0.0"
-    axios: "npm:1.13.6"
+    axios: "npm:1.14.0"
     chalk: "npm:4.1.2"
-    cheerio: "npm:^1.0.0"
+    cheerio: "npm:^1.2.0"
     chokidar: "npm:^4.0.3"
     commander: "npm:11.1.0"
     cross-spawn: "npm:7.0.6"
@@ -3979,11 +3990,11 @@ __metadata:
     figures: "npm:3.2.0"
     fn-args: "npm:4.0.0"
     fs-extra: "npm:11.3.4"
-    fuse.js: "npm:^7.0.0"
-    glob: "npm:>=9.0.0 <12"
+    fuse.js: "npm:^7.3.0"
+    glob: "npm:^11.1.0"
     html-minifier-terser: "npm:7.2.0"
     inquirer: "npm:^8.2.7"
-    invisi-data: "npm:^1.0.0"
+    invisi-data: "npm:^1.2.0"
     joi: "npm:18.0.2"
     js-beautify: "npm:1.15.4"
     lodash.clonedeep: "npm:4.5.0"
@@ -3992,7 +4003,7 @@ __metadata:
     mocha: "npm:11.7.5"
     monocart-coverage-reports: "npm:2.12.9"
     ms: "npm:2.1.3"
-    multer: "npm:^2.0.2"
+    multer: "npm:^2.1.1"
     ora-classic: "npm:5.4.2"
     parse-function: "npm:5.6.10"
     parse5: "npm:7.3.0"
@@ -4005,7 +4016,7 @@ __metadata:
       optional: true
   bin:
     codeceptjs: bin/codecept.js
-  checksum: 10c0/d8f5aea4e3d7441d104de19e9cada9051a42e965f5da146c973b04fde906dcc2e95092c324bb7e5e315dae6896e2bd6e4c512f1b4d70c3b055d8799298c1d4cb
+  checksum: 10c0/e323ce4c7b4a3eed1eea317474c2f2a67c4b9e4a7f4f4d5d9561233b715b7708c98e5b5c3f5b073a91767ae851d87eb912213411b4a0550c4dcb57db9e1dc60a
   languageName: node
   linkType: hard
 
@@ -6412,10 +6423,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fuse.js@npm:^7.0.0":
-  version: 7.1.0
-  resolution: "fuse.js@npm:7.1.0"
-  checksum: 10c0/c0d1b1d192a4bdf3eade897453ddd28aff96b70bf3e49161a45880f9845ebaee97265595db633776700a5bcf8942223c752754a848d70c508c3c9fd997faad1e
+"fuse.js@npm:^7.3.0":
+  version: 7.3.0
+  resolution: "fuse.js@npm:7.3.0"
+  checksum: 10c0/5e60b6687f3f23dc242d387f355ba970caf6f5cbaedb5767e849ef4014fa71a6109c71810ff06a1c3d4f05e4a6ab7d1fc3c8e2ef98e286a60ff0052ae30e930a
   languageName: node
   linkType: hard
 
@@ -6566,22 +6577,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"glob@npm:>=9.0.0 <12":
-  version: 11.1.0
-  resolution: "glob@npm:11.1.0"
-  dependencies:
-    foreground-child: "npm:^3.3.1"
-    jackspeak: "npm:^4.1.1"
-    minimatch: "npm:^10.1.1"
-    minipass: "npm:^7.1.2"
-    package-json-from-dist: "npm:^1.0.0"
-    path-scurry: "npm:^2.0.0"
-  bin:
-    glob: dist/esm/bin.mjs
-  checksum: 10c0/1ceae07f23e316a6fa74581d9a74be6e8c2e590d2f7205034dd5c0435c53f5f7b712c2be00c3b65bf0a49294a1c6f4b98cd84c7637e29453b5aa13b79f1763a2
-  languageName: node
-  linkType: hard
-
 "glob@npm:^10.0.0, glob@npm:^10.2.2, glob@npm:^10.4.2, glob@npm:^10.4.5":
   version: 10.5.0
   resolution: "glob@npm:10.5.0"
@@ -6595,6 +6590,22 @@ __metadata:
   bin:
     glob: dist/esm/bin.mjs
   checksum: 10c0/100705eddbde6323e7b35e1d1ac28bcb58322095bd8e63a7d0bef1a2cdafe0d0f7922a981b2b48369a4f8c1b077be5c171804534c3509dfe950dde15fbe6d828
+  languageName: node
+  linkType: hard
+
+"glob@npm:^11.1.0":
+  version: 11.1.0
+  resolution: "glob@npm:11.1.0"
+  dependencies:
+    foreground-child: "npm:^3.3.1"
+    jackspeak: "npm:^4.1.1"
+    minimatch: "npm:^10.1.1"
+    minipass: "npm:^7.1.2"
+    package-json-from-dist: "npm:^1.0.0"
+    path-scurry: "npm:^2.0.0"
+  bin:
+    glob: dist/esm/bin.mjs
+  checksum: 10c0/1ceae07f23e316a6fa74581d9a74be6e8c2e590d2f7205034dd5c0435c53f5f7b712c2be00c3b65bf0a49294a1c6f4b98cd84c7637e29453b5aa13b79f1763a2
   languageName: node
   linkType: hard
 
@@ -7297,7 +7308,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"invisi-data@npm:^1.0.0":
+"invisi-data@npm:^1.2.0":
   version: 1.2.0
   resolution: "invisi-data@npm:1.2.0"
   checksum: 10c0/0336f6172c7484798e7552ca36fd564f1d8cccf1bef715e7260945805ddb9b47dba165cd72a40c7fb1b78275f9cd1e6cf5a6274936468958b3973fef5b8cac93
@@ -9377,7 +9388,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"multer@npm:2.1.1, multer@npm:^2.0.2":
+"multer@npm:2.1.1, multer@npm:^2.1.1":
   version: 2.1.1
   resolution: "multer@npm:2.1.1"
   dependencies:
@@ -10849,6 +10860,13 @@ __metadata:
   version: 1.1.0
   resolution: "proxy-from-env@npm:1.1.0"
   checksum: 10c0/fe7dd8b1bdbbbea18d1459107729c3e4a2243ca870d26d34c2c1bcd3e4425b7bcc5112362df2d93cc7fb9746f6142b5e272fd1cc5c86ddf8580175186f6ad42b
+  languageName: node
+  linkType: hard
+
+"proxy-from-env@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "proxy-from-env@npm:2.1.0"
+  checksum: 10c0/ed01729fd4d094eab619cd7e17ce3698b3413b31eb102c4904f9875e677cd207392795d5b4adee9cec359dfd31c44d5ad7595a3a3ad51c40250e141512281c58
   languageName: node
   linkType: hard
 
