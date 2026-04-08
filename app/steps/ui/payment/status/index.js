@@ -22,6 +22,10 @@ class PaymentStatus extends Step {
         return '/payment-status';
     }
 
+    static getPaymentCancelUrl() {
+        return '/cancel';
+    }
+
     getContextData(req) {
         const ctx = super.getContextData(req);
         const formdata = req.session.form;
