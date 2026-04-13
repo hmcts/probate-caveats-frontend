@@ -1,5 +1,5 @@
 nodejs:
-  image: hmctspublic.azurecr.io/probate/caveats-fe:latest
+  image: hmctsprod.azurecr.io/probate/caveats-fe:latest
   applicationPort: 3000
   cpuLimits: 500m
   cpuRequests: 100m
@@ -73,16 +73,7 @@ nodejs:
           alias: webchat-kerv-kerv-base-url
         - name: webchat-kerv-api-key
           alias: webchat-kerv-api-key
-redis:
+hmcts-redis:
   enabled: false
-  architecture: standalone
-  image:
-    registry: hmctspublic.azurecr.io
-    repository: imported/bitnami/redis
-  master:
-    persistence:
-      enabled: false
-  auth:
-    enabled: false
 idam-pr:
   enabled: false
