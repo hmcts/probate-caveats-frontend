@@ -1,6 +1,10 @@
 nodejs:
   image: ${IMAGE_NAME}
   ingressHost: ${SERVICE_NAME}.preview.platform.hmcts.net
+  devcpuRequests: 10m
+  devcpuLimits: 100m
+  devmemoryRequests: 256Mi
+  devmemoryLimits: 512Mi
   autoscaling:
     enabled: false
   environment:
@@ -67,6 +71,10 @@ hmcts-redis:
     registry: hmctsprod.azurecr.io
     repository: imported/redis
     tag: 8.2.1
+  devcpuRequests: 50m
+  devcpuLimits: 200m
+  devmemoryRequests: 64Mi
+  devmemoryLimits: 256Mi
   master:
     persistence:
       enabled: false
