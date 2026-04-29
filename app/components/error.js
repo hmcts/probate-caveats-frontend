@@ -41,6 +41,7 @@ const generateErrors = (errs, ctx, formdata, errorPath, language = 'en') => {
 
             return FieldError(param, 'invalid', errorPath, ctx, language);
 
+            // eslint-disable-next-line no-unused-vars
         } catch (e) {
             throw new ReferenceError(`Error messages have not been defined for Step in content.json for errors.${param}`);
         }

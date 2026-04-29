@@ -22,6 +22,7 @@ const initStep = (filePath, language) => {
 
     try {
         schema = require(schemaPath);
+        // eslint-disable-next-line no-unused-vars
     } catch (e) {
         schema = {};
     }

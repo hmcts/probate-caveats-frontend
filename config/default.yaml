@@ -14,9 +14,8 @@ featureToggles:
   ft_pcq: 'probate-caveats-pcq'
   ft_pcq_token: 'probate-caveats-pcq-token'
   ft_enable_webchat: 'probate-caveat-enable-webchat'
-  ft_use_new_webchat: 'probate-use-new-webchat'
   ft_use_ccd_lookup_for_payment: 'probate-use-ccd-lookup-not-elastic-when-paying'
-  appwideToggles: ['ft_enable_webchat', 'ft_use_new_webchat', 'ft_use_ccd_lookup_for_payment']
+  appwideToggles: ['ft_enable_webchat', 'ft_use_ccd_lookup_for_payment']
 app:
   useHttps: 'false'
   port: '3000'
@@ -104,9 +103,6 @@ payloadVersion: '4.1.0'
 hostname: 'localhost:3000'
 enableTracking: 'true'
 webchat:
-  avayaUrl: 'webchat.pp.ctsc.hmcts.net'
-  avayaClientUrl: 'webchat-client.pp.ctsc.hmcts.net'
-  avayaService: 'Testing'
   kerv:
     deploymentId:
       en: 'kerv-deployment-en'
@@ -121,7 +117,6 @@ links:
   privacy: '/caveats/privacy-policy'
   terms: '/caveats/terms-conditions'
   contact: '/caveats/contact-us'
-  avaya-webchat: '/caveats/avaya-webchat'
   callCharges: 'https://www.gov.uk/call-charges'
   howToManageCookies: 'https://www.aboutcookies.org'
   googlePrivacyPolicy: 'https://www.google.com/policies/privacy/partners/'
@@ -178,8 +173,7 @@ whitelistedPagesForStartApplyPageRedirect: [
   '/terms-conditions',
   '/contact-us',
   '/offline',
-  '/health/liveness',
-  '/avaya-webchat'
+  '/health/liveness'
 ]
 whiteListedPagesForThankyou: [
   '/public',
@@ -190,8 +184,7 @@ whiteListedPagesForThankyou: [
   '/contact-us',
   '/offline',
   '/health/liveness',
-  '/thank-you',
-  '/avaya-webchat'
+  '/thank-you'
 ]
 whiteListedPagesForPaymentBreakdown: [
   '/public',
@@ -204,7 +197,6 @@ whiteListedPagesForPaymentBreakdown: [
   '/health/liveness',
   '/payment-breakdown',
   '/payment-status',
-  '/thank-you',
-  '/avaya-webchat'
+  '/thank-you'
 ]
 

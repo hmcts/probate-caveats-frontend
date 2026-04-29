@@ -58,9 +58,6 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
         nonce: nonce,
         basePath: config.app.basePath,
         webchat: {
-            avayaUrl: config.webchat.avayaUrl,
-            avayaClientUrl: config.webchat.avayaClientUrl,
-            avayaService: config.webchat.avayaService,
             kerv: {
                 deploymentId: {
                     en: config.webchat.kerv.deploymentId.en,
@@ -120,7 +117,6 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
     app.use('/public/pdf', express.static(`${__dirname}/app/assets/pdf`));
     app.use('/assets', express.static(`${__dirname}/node_modules/govuk-frontend/dist/govuk/assets`, caching));
     app.use('/public/locales', express.static(`${__dirname}/app/assets/locales`, caching));
-    app.use('/assets/locale', express.static(`${__dirname}/app/assets/locales/avaya-webchat`, caching));
 
     // Elements refers to icon folder instead of images folder
     app.use(favicon(path.join(__dirname, 'node_modules', 'govuk-frontend', 'dist', 'govuk', 'assets', 'images', 'favicon.ico')));

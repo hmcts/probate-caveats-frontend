@@ -44,6 +44,7 @@ class FeatureToggle {
                     });
                 }
             });
+            // eslint-disable-next-line no-unused-vars
         } catch (err) {
             params.next();
         }
