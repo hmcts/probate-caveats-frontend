@@ -9,7 +9,7 @@ properties([
         ])
 ])
 
-@Library("Infrastructure") _
+@Library("Infrastructure@removemavencentral") _
 
 String product = "probate"
 String component = "caveats-fe"
