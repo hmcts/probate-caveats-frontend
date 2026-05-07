@@ -55,7 +55,7 @@ class Step {
         ctx = merge(ctx, safeSectionData);
         ctx.sessionID = req.sessionID;
         ctx.language = req.session.language ? req.session.language : 'en';
-        ctx = merge(ctx, sanitizeInput(req.body));
+        ctx = {...ctx, ...sanitizeInput(req.body)};
         ctx = FeatureToggle.appwideToggles(req, ctx, config.featureToggles.appwideToggles);
 
         const isFTEnabled = (key) => {

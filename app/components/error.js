@@ -23,7 +23,7 @@ const FieldError = (param, keyword, resourcePath, contentCtx = {}, language = 'e
 
 const generateErrors = (errs, ctx, formdata, errorPath, language = 'en') => {
     i18next.changeLanguage(language);
-    const contentCtx = merge({}, sanitizeInput(formdata), ctx, {});
+    const contentCtx = merge({}, sanitizeInput(formdata), sanitizeInput(ctx), {});
     if (errs.find((e) => e.keyword === 'oneOf')) {
         return [FieldError('crossField', 'oneOf', errorPath, contentCtx, language)];
     }
