@@ -155,7 +155,7 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
 
         if (isA11yTest && !isEmpty(a11yTestSession)) {
             const safeA11yTestSession = sanitizeInput(a11yTestSession);
-            req.session = merge({}, req.session, safeA11yTestSession);
+            req.session = merge(req.session, safeA11yTestSession);
         }
 
         next();
@@ -181,7 +181,7 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
 
         if (isA11yTest && !isEmpty(a11yTestSession)) {
             const safeA11yTestSession = sanitizeInput(a11yTestSession);
-            req.session = merge({}, req.session, safeA11yTestSession);
+            req.session = merge(req.session, safeA11yTestSession);
         }
 
         next();
