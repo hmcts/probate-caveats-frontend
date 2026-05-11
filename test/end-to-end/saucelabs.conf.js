@@ -1,10 +1,9 @@
-/* eslint-disable no-console */
 
 const supportedBrowsers = require('../crossbrowser/supportedBrowsers.js');
 const testConfig = require('config');
 
-const waitForTimeout = parseInt(process.env.WAIT_FOR_TIMEOUT) || 45000;
-const smartWait = parseInt(process.env.SMART_WAIT) || 30000;
+const waitForTimeout = parseInt(process.env.WAIT_FOR_TIMEOUT, 10) || 45000;
+const smartWait = parseInt(process.env.SMART_WAIT, 10) || 30000;
 const browser = process.env.BROWSER_GROUP || 'chrome';
 const defaultSauceOptions = {
     username: process.env.SAUCE_USERNAME,

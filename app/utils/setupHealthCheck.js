@@ -8,7 +8,7 @@ const os = require('os');
 
 const healthOptions = message => {
     return {
-        callback: (error, res) => { // eslint-disable-line id-blacklist
+        callback: (error, res) => {
             if (error) {
                 logger.error(null, 'health_check_error', message, error);
             }
