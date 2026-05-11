@@ -13,7 +13,7 @@ describe('Sanitize.sanitizeInput', () => {
         const sanitized = sanitizeInput(input);
 
         expect(sanitized).to.deep.equal({name: 'John'});
-        // eslint-disable-next-line no-proto,no-unused-expressions
+        // eslint-disable-next-line no-unused-expressions
         expect(Object.prototype.hasOwnProperty.call(sanitized, '__proto__')).to.be.false;
     });
 
