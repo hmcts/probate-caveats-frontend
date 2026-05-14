@@ -292,6 +292,6 @@ module.exports = defineConfig([
         'public/*',
         'app/assets/javascripts/*.js',
         '**/coverage',
-        '.yarn/releases/yarn-4.13.0.cjs'
+        '.yarn/releases/*'
     ])
 ]);
