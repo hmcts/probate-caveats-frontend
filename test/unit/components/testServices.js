@@ -30,7 +30,7 @@ describe('services', () => {
             submitDataStub.reset();
         });
 
-        it('should update with appId if feature toggle off', (done) => {
+        it('should update with appId', (done) => {
             submitDataStub.returns({});
             fetchJsonStub.returns(Promise.resolve({}));
             fetchOptionsStub.returns({});
@@ -41,39 +41,7 @@ describe('services', () => {
                     id: ccdId,
                 },
             };
-            const ctx = {
-                useCcdLookupForPayment: false,
-            };
-
-            const orch_url = config.services.orchestrator.url;
-            const expected_url = `${orch_url}/forms/${appId}/payments`;
-
-            services.updateCcdCasePaymentStatus(data, ctx)
-                .then(() => {
-                    sinon.assert.callCount(fetchJsonStub, 1);
-
-                    const [url] = fetchJsonStub.getCall(0).args;
-
-                    expect(url).to.equal(expected_url);
-
-                    done();
-                });
-        });
-
-        it('should update with appId if feature toggle off', (done) => {
-            submitDataStub.returns({});
-            fetchJsonStub.returns(Promise.resolve({}));
-            fetchOptionsStub.returns({});
-
-            const data = {
-                applicationId: appId,
-                ccdCase: {
-                    id: ccdId,
-                },
-            };
-            const ctx = {
-                useCcdLookupForPayment: true,
-            };
+            const ctx = {};
 
             const orch_url = config.services.orchestrator.url;
             const expected_url = `${orch_url}/forms/${ccdId}/payments`;
