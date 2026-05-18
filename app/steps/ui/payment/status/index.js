@@ -6,7 +6,7 @@ const logger = require('app/components/logger');
 const logInfo = (message, applicationId = 'Unknown') => logger(applicationId).info(message);
 const logError = (message, applicationId = 'Unknown') => logger(applicationId).error(message);
 const RedirectRunner = require('app/core/runners/RedirectRunner');
-const {get, set, merge} = require('lodash');
+const {get, set, assign} = require('lodash');
 const Thankyou = require('app/steps/ui/thankyou');
 const formatUrl = require('app/utils/FormatUrl');
 const config = require('config');
@@ -91,7 +91,7 @@ class PaymentStatus extends Step {
     * updateCcdCasePaymentStatus(ctx, formdata) {
         const submitData = {};
         const safeFormData = sanitizeInput(formdata);
-        merge(submitData, safeFormData);
+        assign(submitData, safeFormData);
         const updateCasePaymentStatusResult = yield services.updateCcdCasePaymentStatus(submitData, ctx);
 
         if (updateCasePaymentStatusResult.name === 'Error') {
@@ -120,7 +120,7 @@ class PaymentStatus extends Step {
             status: findPaymentResponse.status,
             siteId: findPaymentResponse.site_id
         });
-        merge(formdata.payment, safePaymentData);
+        assign(formdata.payment, safePaymentData);
     }
 }
 
