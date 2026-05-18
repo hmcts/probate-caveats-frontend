@@ -14,6 +14,7 @@ const getContentSecurityPolicy = (nonce) => (
                 '\'sha256-AaA9Rn5LTFZ5vKyp3xOfFcP4YbyOjvWn2up8IKHVAKk=\'',
                 '\'sha256-G29/qSW/JHHANtFhlrZVDZW1HOkCDRc78ggbqwwIJ2g=\'',
                 '\'sha256-nWZRr0RF4OANYiYcCteeOrMWiiSKIEIE+qPfFTq/WyI=\'',
+                '\'sha256-L7viC3kUpXu9uCOi97VqCR2bLlMwSQlmLmSuuQ93ngU=\'',
                 '*.google-analytics.com',
                 'https://*.dynatrace.com',
                 '*.googletagmanager.com',
@@ -29,6 +30,7 @@ const getContentSecurityPolicy = (nonce) => (
                 'https://api.hmcts.hs-cx.com',
                 config.webchat.kerv.kervBaseUrl,
                 // these being fixed values here seems like it's going to fail at some point
+                'https://api.euw2.pure.cloud',
                 'https://api-cdn.euw2.pure.cloud',
                 'wss://webmessaging.euw2.pure.cloud',
             ],
@@ -42,7 +44,8 @@ const getContentSecurityPolicy = (nonce) => (
                 '*.g.doubleclick.net',
                 'ssl.gstatic.com',
                 'www.gstatic.com',
-                'lh3.googleusercontent.com'
+                'lh3.googleusercontent.com',
+                '*.googletagmanager.com',
             ],
             styleSrc: [
                 '\'self\'',
