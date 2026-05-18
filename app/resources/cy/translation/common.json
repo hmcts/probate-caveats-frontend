@@ -59,7 +59,7 @@
   "helpTelephoneOpeningHours1": "Dydd Llun i ddydd Iau, 9:00am – 4:30pm a Dydd Gwener 9:00am i 4:00pm.",
   "helpTelephoneOpeningHours2": "Ar gau ar ddyddiau Sadwrn a Sul",
   "helpChatDown": "Nid yw&rsquo;r gwasanaeth sgwrsio dros y we ar gael ar hyn o bryd, rhowch gynnig arall arni hwyrach ymlaen.",
-  "helpChatWithAnAgent": "Sgwrsio dros y we gydag asiant (yn agor mewn tab newydd)",
+  "helpChatWithAnAgent": "Sgwrsio dros y we gydag asiant",
   "helpNoAgentsAvailable": "Nid oes asiant ar gael ar hyn o bryd, rhowch gynnig arall arni hwyrach ymlaen.",
   "helpAllAgentsBusy": "Mae ein asiantau sgwrsio dros y we i gyd yn brysur yn helpu eraill. Rhowch gynnig arall arni hwyrach ymlaen neu cysylltwch &acirc; ni gan ddefnyddio un o&rsquo;r dulliau uchod.",
   "helpChatClosed": "Mae&rsquo;r gwasanaeth sgwrsio dros y we nawr ar gau. Yr oriau agor yw {chatOpeningHours}",
