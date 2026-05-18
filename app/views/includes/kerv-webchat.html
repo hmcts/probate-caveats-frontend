@@ -6,7 +6,7 @@
     /* ---------------------------------------------------------------
        Config — change these in one place
     --------------------------------------------------------------- */
-    const REFERRER_PAGE    = 'Probate Site';
+    const REFERRER_PAGE      = 'Probate Site';
     {% if fields.language.value === 'en' %}
     <!-- english deployment id -->
     const DEPLOYMENT_ID    = '{{ globals.webchat.kerv.deploymentId.en }}';
@@ -14,10 +14,19 @@
     <!-- welsh deployment id -->
     const DEPLOYMENT_ID    = '{{ globals.webchat.kerv.deploymentId.cy }}';
     {% endif %}
-    const GENESYS_BASE_URL = '{{ globals.webchat.kerv.genesysBaseUrl }}';
-    const ENVIRONMENT     = '{{ globals.webchat.kerv.environment}}';
-    const KERV_BASE_URL    = '{{ globals.webchat.kerv.kervBaseUrl }}';
-    const API_KEY          = '{{ globals.webchat.kerv.apiKey }}';
+    const GENESYS_BASE_URL   = '{{ globals.webchat.kerv.genesysBaseUrl }}';
+    const ENVIRONMENT        = '{{ globals.webchat.kerv.environment}}';
+    const API_KEY            = '{{ globals.webchat.kerv.apiKey }}';
+
+    /* ---------------------------------------------------------------
+       Widget template — always show the launch link
+    --------------------------------------------------------------- */
+    function renderOpenWidget() {
+        return `
+        <p class="govuk-body">
+          <a href="#" class="govuk-link" id="startChatLink">{{ common.helpChatWithAnAgent }}</a>
+        </p>`;
+    }
 
     /* ---------------------------------------------------------------
        Open‑chat popup
@@ -64,10 +73,27 @@
        '${GENESYS_BASE_URL}/genesys-bootstrap/genesys.min.js',
        { environment: '${ENVIRONMENT}', deploymentId: '${DEPLOYMENT_ID}' });
 
-    Genesys("command", "Database.set", {
-      messaging: { customAttributes: { webReferrerPage: '${REFERRER_PAGE}'}}
-          },
-      function(data){ /* fulfilled, returns data */}, function(){ /* rejected */ }
+    Genesys(
+      "subscribe",
+      "Messenger.ready",
+      function () {
+        Genesys("command", "Database.set",
+          { messaging: { customAttributes: { webReferrerPage: '${REFERRER_PAGE}' } } },
+            () => { console.log("database set"); },
+            (error) => { console.log("Couldn't set database.", error); }
+        )
+      }
+    );
+    Genesys(
+      "subscribe",
+      "MessagingService.conversationCleared",
+      function () {
+        Genesys("command", "Database.set",
+          { messaging: { customAttributes: { webReferrerPage: '${REFERRER_PAGE}' } } },
+            () => { console.log("database set"); },
+            (error) => { console.log("Couldn't set database.", error); }
+        )
+      }
     );
 
     window.addEventListener('load', function () {
@@ -88,126 +114,13 @@
         });
     }
 
-    /* ---------------------------------------------------------------
-       Availability checker (polls your service)
-    --------------------------------------------------------------- */
-    async function checkChatAvailability(maxRetries = 5, initialDelay = 1000) {
-        const URL   = KERV_BASE_URL + '?deploymentId=' + DEPLOYMENT_ID;
-        let attempt = 0;
-        let delay   = initialDelay;
-
-        while (attempt < maxRetries) {
-            try {
-                const response = await fetch(URL, {
-                    method: 'GET',
-                    headers: {
-                        'x-api': API_KEY,
-                        'Accept'   : 'application/json'
-                    }
-                });
-
-                if (response.status === 429) {
-                    console.warn(`🚫 Rate‑limited; retrying in ${delay} ms …`);
-                    await new Promise(r => setTimeout(r, delay));
-                    delay *= 2;
-                    attempt++;
-                    continue;
-                }
-
-                if (!response.ok) throw new Error(`status ${response.status}`);
-
-                const data = await response.json();
-                console.log(data.Status)
-                return data.Status
-
-            } catch (err) {
-                if (attempt >= maxRetries - 1) {
-                    console.error('❌ Final error after retries:', err);
-                    return 'Error';
-                }
-                console.warn(`⚠️  Attempt ${attempt + 1} failed; retrying in ${delay} ms …`);
-                await new Promise(r => setTimeout(r, delay));
-                delay *= 2;
-                attempt++;
-            }
-        }
-        return 'Error';
-    }
 
     /* ---------------------------------------------------------------
-       Widget templates
+       Bootstrap on DOM ready - no availability pre-check here
     --------------------------------------------------------------- */
-    function renderOpenWidget() {
-        return `
-        <p class="govuk-body">
-          <a href="#" class="govuk-link" id="startChatLink">{{ common.helpChatWithAnAgent }}</a>
-        </p>`;
-    }
-
-    function renderBusyNoAgentsWidget() {
-        return `
-        <p class="govuk-body">{{ common.helpNoAgentsAvailable }}</p>`;
-    }
-
-    function renderBusyEWTWidget() {
-        return `
-        <p class="govuk-body">{{ common.helpAllAgentsBusy }}</p>`;
-    }
-
-
-    function renderClosedWidget(reason) {
-        return `
-        <p class="govuk-body">{{ common.helpChatClosed | replace("\n", "\\n") | replace("{chatOpeningHours}", common.helpChatOpeningHours) }}</p>`;
-    }
-
-    function renderErrorWidget() {
-        return `
-        <p class="govuk-body">{{ common.helpChatMaintenance }}</p>`;
-    }
-
-    /* ---------------------------------------------------------------
-       Switch placeholder to correct widget
-    --------------------------------------------------------------- */
-    function updateChatWidget(status) {
+    document.addEventListener('DOMContentLoaded', () => {
         const chatContent = document.getElementById('chatContent');
-
-        switch (status) {
-            case 'Open':
-                chatContent.innerHTML = renderOpenWidget();
-                attachStartChatHandler();
-                break;
-            case 'BusyNoAgents':
-                chatContent.innerHTML = renderBusyNoAgentsWidget();
-                break;
-            case 'BusyEWT':
-                chatContent.innerHTML = renderBusyEWTWidget();
-                break;
-            case 'Closed':
-            case 'Holiday':
-            case 'Emergency':
-                chatContent.innerHTML = renderClosedWidget(status);
-                break;
-            case 'Error':
-            default:
-                chatContent.innerHTML = renderErrorWidget();
-                break;
-        }
-    }
-
-    /* ---------------------------------------------------------------
-       Bootstrap on DOM ready
-    --------------------------------------------------------------- */
-    document.addEventListener('DOMContentLoaded', async () => {
-        const chatContent = document.getElementById('chatContent');
-        chatContent.innerHTML = '<p><span class="spinner"></span>{{ common.helpChatCheckingAvail }}</p>';
-
-        try {
-            const status = await checkChatAvailability();
-            updateChatWidget(status);
-        } catch (err) {
-            console.error('Error checking availability:', err);
-            chatContent.innerHTML = `
-          <p class="govuk-body">{{ common.helpChatMaintenance }}</p>`;
-        }
+        chatContent.innerHTML = renderOpenWidget();
+        attachStartChatHandler();
     });
 </script>
