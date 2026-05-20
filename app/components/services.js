@@ -76,14 +76,9 @@ const updateCcdCasePaymentStatus = (data, ctx) => {
 
     const appId = data.applicationId;
     const ccdId = data?.ccdCase?.id;
-    const useCcdLookupForPayment = ctx.useCcdLookupForPayment;
+    logInfo(`Use ccdId ${ccdId} to update case payment status (appId: ${appId})`, appId);
+    return utils.fetchJson(`${ORCHESTRATION_SERVICE_URL}/forms/${ccdId}/payments`, fetchOptions);
 
-    if (useCcdLookupForPayment) {
-        logInfo(`Use ccdId ${ccdId} to update case payment status (appId: ${appId})`, appId);
-        return utils.fetchJson(`${ORCHESTRATION_SERVICE_URL}/forms/${ccdId}/payments`, fetchOptions);
-    }
-    logInfo(`Use appId ${appId} to update case payment status (ccdId: ${ccdId})`, appId);
-    return utils.fetchJson(`${ORCHESTRATION_SERVICE_URL}/forms/${data.applicationId}/payments`, fetchOptions);
 };
 
 const createPayment = (data, hostname, language) => {
