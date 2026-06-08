@@ -171,5 +171,5 @@
     "underscore": "^1.13.8",
     "undici": "^8.0.0"
   },
-  "packageManager": "yarn@4.15.0"
+  "packageManager": "yarn@4.16.0"
 }
