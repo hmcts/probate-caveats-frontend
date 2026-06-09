@@ -23,9 +23,9 @@ class DateStep extends ValidationStep {
         dateNames.forEach((dateName) => {
             const [day, month, year] = [`${dateName}-day`, `${dateName}-month`, `${dateName}-year`];
 
-            ctx[day] = ctx[day] ? parseInt(ctx[day]) : ctx[day];
-            ctx[month] = ctx[month] ? parseInt(ctx[month]) : ctx[month];
-            ctx[year] = ctx[year] ? parseInt(ctx[year]) : ctx[year];
+            ctx[day] = ctx[day] ? parseInt(ctx[day], 10) : ctx[day];
+            ctx[month] = ctx[month] ? parseInt(ctx[month], 10) : ctx[month];
+            ctx[year] = ctx[year] ? parseInt(ctx[year], 10) : ctx[year];
 
             const date = moment(`${ctx[day]}/${ctx[month]}/${ctx[year]}`, config.dateFormat).parseZone();
 
