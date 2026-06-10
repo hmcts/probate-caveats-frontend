@@ -275,7 +275,7 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
         res.status(500).render('errors/error', {common: commonContent, content: content, error: '500'});
     });
     const environment = config.environment;
-    const memlogEnvironments = ['aat'];
+    const memlogEnvironments = ['aat', 'prod'];
     if (memlogEnvironments.includes(environment)) {
         const v8 = require('node:v8');
 
