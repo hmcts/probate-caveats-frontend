@@ -164,6 +164,7 @@
     "puppeteer": "^25.0.0",
     "qs": "^6.15.1",
     "semver": "^7.6.3",
+    "shell-quote": "^1.8.4",
     "serialize-javascript": "^7.0.5",
     "tar": "^7.5.15",
     "tar-fs": "^3.1.2",
