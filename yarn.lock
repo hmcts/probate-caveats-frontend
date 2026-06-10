@@ -1195,7 +1195,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@launchdarkly/node-server-sdk@npm:^9.10.12":
+"@launchdarkly/node-server-sdk@npm:^9.11.2":
   version: 9.11.2
   resolution: "@launchdarkly/node-server-sdk@npm:9.11.2"
   dependencies:
@@ -1708,7 +1708,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@playwright/test@npm:^1.59.1":
+"@playwright/test@npm:^1.60.0":
   version: 1.60.0
   resolution: "@playwright/test@npm:1.60.0"
   dependencies:
@@ -2169,7 +2169,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^24.12.2":
+"@types/node@npm:^24.13.1":
   version: 24.13.1
   resolution: "@types/node@npm:24.13.1"
   dependencies:
@@ -7116,7 +7116,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"i18next@npm:^26.0.8":
+"i18next@npm:^26.3.1":
   version: 26.3.1
   resolution: "i18next@npm:26.3.1"
   peerDependencies:
@@ -7336,7 +7336,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ioredis@npm:^5.10.1":
+"ioredis@npm:^5.11.1":
   version: 5.11.1
   resolution: "ioredis@npm:5.11.1"
   dependencies:
@@ -9588,7 +9588,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nock@npm:^14.0.13":
+"nock@npm:^14.0.15":
   version: 14.0.15
   resolution: "nock@npm:14.0.15"
   dependencies:
@@ -10675,15 +10675,15 @@ __metadata:
     "@hmcts/nodejs-logging": "npm:^4.0.4"
     "@hmcts/os-places-client": "npm:^1.1.7"
     "@hmcts/properties-volume": "npm:^1.4.0"
-    "@launchdarkly/node-server-sdk": "npm:^9.10.12"
+    "@launchdarkly/node-server-sdk": "npm:^9.11.2"
     "@pact-foundation/pact": "npm:^15.0.0"
     "@pact-foundation/pact-node": "npm:^10.18.0"
-    "@playwright/test": "npm:^1.59.1"
+    "@playwright/test": "npm:^1.60.0"
     "@stylistic/eslint-plugin": "npm:^5.10.0"
-    "@types/node": "npm:^24.12.2"
+    "@types/node": "npm:^24.13.1"
     ajv: "npm:^6.15.0"
     applicationinsights: "npm:^2.9.8"
-    axios: "npm:^1.16.1"
+    axios: "npm:^1.17.0"
     body-parser: "npm:^2.2.2"
     chai: "npm:^6.0.0"
     chai-as-promised: "npm:^7.1.2"
@@ -10713,10 +10713,10 @@ __metadata:
     helmet: "npm:^8.1.0"
     hpkp: "npm:^3.0.0"
     https-proxy-agent: "npm:^9.0.0"
-    i18next: "npm:^26.0.8"
+    i18next: "npm:^26.3.1"
     if-env: "npm:^1.0.4"
-    ioredis: "npm:^5.10.1"
-    js-yaml: "npm:^4.1.1"
+    ioredis: "npm:^5.11.1"
+    js-yaml: "npm:^4.2.0"
     lodash: "npm:^4.18.1"
     mocha: "npm:^11.0.0"
     mocha-junit-reporter: "npm:^2.2.1"
@@ -10725,7 +10725,7 @@ __metadata:
     mochawesome: "npm:^7.1.4"
     multer: "npm:2.1.1"
     nocache: "npm:^4.0.0"
-    nock: "npm:^14.0.13"
+    nock: "npm:^14.0.15"
     node-fetch: "npm:^2.7.0"
     node-git-info-json: "npm:^0.1.1"
     nodemon: "npm:^3.1.14"
@@ -10739,7 +10739,7 @@ __metadata:
     randomstring: "npm:^1.3.1"
     require-directory: "npm:^2.1.1"
     rewire: "npm:^9.0.1"
-    sass: "npm:^1.99.0"
+    sass: "npm:^1.100.0"
     selenium-standalone: "npm:^10.0.2"
     serve-favicon: "npm:^2.5.1"
     sinon: "npm:^22.0.0"
@@ -10750,7 +10750,7 @@ __metadata:
     supertest: "npm:^7.0.0"
     uuid: "npm:^11.1.1"
     validator: "npm:^13.15.35"
-    webdriverio: "npm:^9.27.0"
+    webdriverio: "npm:^9.27.2"
     when: "npm:^3.7.8"
   languageName: unknown
   linkType: soft
@@ -11801,7 +11801,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:^1.99.0":
+"sass@npm:^1.100.0":
   version: 1.100.0
   resolution: "sass@npm:1.100.0"
   dependencies:
@@ -13596,7 +13596,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"webdriverio@npm:^9.27.0":
+"webdriverio@npm:^9.27.2":
   version: 9.27.2
   resolution: "webdriverio@npm:9.27.2"
   dependencies:
