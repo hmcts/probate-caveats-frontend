@@ -53,9 +53,6 @@
                 name: "otherNames[" + index + "][firstName]",
                 value: otherName["firstName"].value | safe,
                 errorMessage: { text: otherName["firstName"].errorMessage | safe } if otherName["firstName"].errorMessage,
-                attributes: {
-                    maxlength: 100
-                },
                 classes: "govuk-!-width-three-quarters",
                 hint: {
                     text: content.firstNameHint | safe
@@ -69,9 +66,6 @@
                 name: "otherNames[" + index + "][lastName]",
                 value: otherName["lastName"].value | safe,
                 errorMessage: { text: otherName["lastName"].errorMessage | safe } if otherName["lastName"].errorMessage,
-                attributes: {
-                    maxlength: 100
-                },
                 classes: "govuk-!-width-three-quarters"
             }) }}
         {% endcall %}
