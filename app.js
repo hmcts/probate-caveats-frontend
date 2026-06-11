@@ -28,7 +28,7 @@ const isEmpty = require('lodash').isEmpty;
 const featureToggles = require('app/featureToggles');
 const {getContentSecurityPolicy} = require('./app/utils/getContentSecurityPolicy');
 const {sanitizeInput} = require('./app/utils/Sanitize');
-const {merge} = require('lodash');
+const {assign} = require('lodash');
 
 exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
     const app = express();
@@ -155,7 +155,7 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
 
         if (isA11yTest && !isEmpty(a11yTestSession)) {
             const safeA11yTestSession = sanitizeInput(a11yTestSession);
-            req.session = merge(req.session, safeA11yTestSession);
+            req.session = assign(req.session, safeA11yTestSession);
         }
 
         next();
@@ -181,7 +181,7 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
 
         if (isA11yTest && !isEmpty(a11yTestSession)) {
             const safeA11yTestSession = sanitizeInput(a11yTestSession);
-            req.session = merge(req.session, safeA11yTestSession);
+            req.session = assign(req.session, safeA11yTestSession);
         }
 
         next();
