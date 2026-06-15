@@ -18,7 +18,7 @@ const packageJson = require(`${__dirname}/package`);
 const helmet = require('helmet');
 const hpkp = require('hpkp');
 const nocache = require('nocache');
-const csrf = require('csurf');
+const {csrfSync} = require('csrf-sync');
 const setupHealthCheck = require('app/utils/setupHealthCheck');
 const fs = require('fs');
 const https = require('https');
@@ -187,20 +187,25 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
         next();
     });
 
+    const {
+        csrfSynchronisedProtection,
+        generateToken,
+    } = csrfSync({
+        getTokenFromRequest: (req) => req.body._csrf,
+    });
+
     if (config.app.useCSRFProtection === 'true') {
         app.use((req, res, next) => {
             // Exclude Dynatrace Beacon POST requests from CSRF check
             if (req.method === 'POST' && req.path.startsWith('/rb_')) {
                 next();
-            } else {
-                csrf({})(req, res, next);
             }
+
+            csrfSynchronisedProtection(req, res, next);
         });
 
         app.use((req, res, next) => {
-            if (req.csrfToken) {
-                res.locals.csrfToken = req.csrfToken();
-            }
+            res.locals.csrfToken = generateToken(req);
             next();
         });
     }
