@@ -1,10 +1,11 @@
-'use strict';
+import {expect} from 'chai';
+import he from 'he';
+import initSteps from '../../app/core/initSteps.js';
 
-const initSteps = require('app/core/initSteps');
-const expect = require('chai').expect;
+const __dirname = import.meta.dirname;
+
 const steps = initSteps([`${__dirname}/../../app/steps/action/`, `${__dirname}/../../app/steps/ui`]);
 const DeceasedAddress = steps.DeceasedAddress;
-const he = require('he');
 
 describe('DeceasedAddress', () => {
     describe('getUrl()', () => {

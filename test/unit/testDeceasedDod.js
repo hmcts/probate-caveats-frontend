@@ -1,10 +1,11 @@
-'use strict';
+import content from '../../app/resources/en/translation/deceased/dod.json';
+import {expect} from 'chai';
+import initSteps from '../../app/core/initSteps.js';
 
-const initSteps = require('app/core/initSteps');
-const expect = require('chai').expect;
+const __dirname = import.meta.dirname;
+
 const steps = initSteps([`${__dirname}/../../app/steps/action/`, `${__dirname}/../../app/steps/ui`]);
 const DeceasedDod = steps.DeceasedDod;
-const content = require('app/resources/en/translation/deceased/dod');
 
 describe('DeceasedDod', () => {
     describe('dateName()', () => {

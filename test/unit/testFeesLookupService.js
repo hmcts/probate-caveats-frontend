@@ -1,8 +1,7 @@
-'use strict';
-const assert = require('chai').assert;
-const sinon = require('sinon');
-const services = require('app/components/services');
-const utils = require('app/components/api-utils');
+import {assert} from 'chai';
+import services from '../../app/components/services.js';
+import sinon from 'sinon';
+import utils from '../../app/components/api-utils.js';
 
 describe('feesLookup service tests', function () {
     let fetchJsonStub;

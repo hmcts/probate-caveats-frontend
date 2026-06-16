@@ -1,7 +1,8 @@
-'use strict';
+import {expect} from 'chai';
+import initSteps from '../../app/core/initSteps.js';
 
-const initSteps = require('app/core/initSteps');
-const expect = require('chai').expect;
+const __dirname = import.meta.dirname;
+
 const steps = initSteps([`${__dirname}/../../app/steps/action/`, `${__dirname}/../../app/steps/ui`]);
 const PaymentBreakdown = steps.PaymentBreakdown;
 

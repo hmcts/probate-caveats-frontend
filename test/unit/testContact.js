@@ -1,7 +1,5 @@
-'use strict';
-
-const ContactUs = require('app/steps/ui/static/contact/index');
-const expect = require('chai').expect;
+import ContactUs from '../../app/steps/ui/static/contact/index.js';
+import {expect} from 'chai';
 
 describe('contact/index.js', () => {
     describe('getUrl()', () => {

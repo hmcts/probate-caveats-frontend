@@ -1,7 +1,7 @@
-'use strict';
+import {assert} from 'chai';
+import initSteps from '../../app/core/initSteps.js';
 
-const initSteps = require('app/core/initSteps');
-const assert = require('chai').assert;
+const __dirname = import.meta.dirname;
 
 describe('AddAlias', () => {
     const steps = initSteps([`${__dirname}/../../app/steps/action/`, `${__dirname}/../../app/steps/ui`]);

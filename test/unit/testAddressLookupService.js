@@ -1,10 +1,8 @@
-'use strict';
-
-const assert = require('chai').assert;
-const sinon = require('sinon');
-const when = require('when');
-const services = require('app/components/services');
-const OSPlacesClient = require('@hmcts/os-places-client').OSPlacesClient;
+import {OSPlacesClient} from '@hmcts/os-places-client';
+import {assert} from 'chai';
+import services from '../../app/components/services.js';
+import sinon from 'sinon';
+import when from 'when';
 
 const osPlacesClientResponse = {
     valid: true,

@@ -1,11 +1,12 @@
-'use strict';
+import {assert, expect} from 'chai';
 
-const initSteps = require('app/core/initSteps');
-const {assert, expect} = require('chai');
-const sinon = require('sinon');
-const when = require('when');
-const services = require('app/components/services');
-const co = require('co');
+import co from 'co';
+import initSteps from '../../app/core/initSteps.js';
+import services from '../../app/components/services.js';
+import sinon from 'sinon';
+import when from 'when';
+
+const __dirname = import.meta.dirname;
 
 describe('AddressLookup', function () {
     const steps = initSteps([`${__dirname}/../../app/steps/action/`, `${__dirname}/../../app/steps/ui`]);

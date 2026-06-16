@@ -1,11 +1,8 @@
-
-'use strict';
-
-const {expect} = require('chai');
-const FeesLookup = require('app/utils/FeesLookup');
-const sinon = require('sinon');
-const utils = require('app/components/api-utils');
-const services = require('app/components/services');
+import FeesLookup from '../../app/utils/FeesLookup.js';
+import {expect} from 'chai';
+import services from '../../app/components/services.js';
+import sinon from 'sinon';
+import utils from '../../app/components/api-utils.js';
 
 describe('FeesLookup', () => {
 

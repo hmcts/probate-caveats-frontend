@@ -1,10 +1,8 @@
-'use strict';
-
-const {expect} = require('chai');
-const sinon = require('sinon');
-const FeatureToggle = require('app/services/FeatureToggle');
-const config = require('config');
-const utils = require('app/components/api-utils');
+import FeatureToggle from '../../app/services/FeatureToggle.js';
+import config from 'config';
+import {expect} from 'chai';
+import sinon from 'sinon';
+import utils from '../../app/components/api-utils.js';
 
 describe('FeatureToggleService', () => {
     describe('get()', () => {
