@@ -1,17 +1,18 @@
-'use strict';
+import {get, includes} from 'lodash';
 
-const config = require('config');
-const router = require('express').Router();
-const initSteps = require('app/core/initSteps');
-const logger = require('app/components/logger');
-const {get, includes} = require('lodash');
-const documentDownloads = require('app/documentDownloads');
-const paymentFees = require('app/paymentFees');
-const lockPaymentAttempt = require('app/middleware/lockPaymentAttempt');
-const {v4: uuidv4} = require('uuid');
-const featureToggles = require('app/featureToggles');
-const shutter = require('app/shutter');
-const FormatUrl = require('app/utils/FormatUrl');
+import FormatUrl from './utils/FormatUrl.js';
+import config from 'config';
+import documentDownloads from './documentDownloads.js';
+import express from 'express';
+import featureToggles from './featureToggles.js';
+import initSteps from './core/initSteps.js';
+import lockPaymentAttempt from './middleware/lockPaymentAttempt.js';
+import logger from './components/logger.js';
+import paymentFees from './paymentFees.js';
+import shutter from './shutter.js';
+import {v4 as uuidv4} from 'uuid';
+
+const router = express.Router();
 
 router.use(featureToggles);
 router.use(shutter);
@@ -82,4 +83,4 @@ router.get('/*', (req, res, next) => {
     }
 });
 
-module.exports = router;
+export default router;
