@@ -7,11 +7,13 @@ import globals from 'globals';
 import n from 'eslint-plugin-n';
 import jsdoc from 'eslint-plugin-jsdoc';
 import stylistic from '@stylistic/eslint-plugin';
+import import_plugin from 'eslint-plugin-import';
 
 export default defineConfig([
     js.configs.recommended,
     {
         plugins: {
+            "import": import_plugin,
             jsdoc,
             n,
             stylistic,
@@ -36,6 +38,9 @@ export default defineConfig([
         },
 
         rules: {
+            'import/no-unresolved': 2,
+            'import/no-commonjs': 2,
+            "import/extensions": [2, "ignorePackages"],
             'accessor-pairs': 'error',
             'array-bracket-spacing': ['error', 'never'],
             'array-callback-return': 'error',
