@@ -1,14 +1,14 @@
-const {
+import {
     defineConfig,
     globalIgnores,
-} = require('eslint/config');
-const js = require('@eslint/js');
-const globals = require('globals');
-const n = require('eslint-plugin-n');
-const jsdoc = require('eslint-plugin-jsdoc');
-const stylistic = require('@stylistic/eslint-plugin');
+} from 'eslint/config';
+import js from '@eslint/js';
+import globals from 'globals';
+import n from 'eslint-plugin-n';
+import jsdoc from 'eslint-plugin-jsdoc';
+import stylistic from '@stylistic/eslint-plugin';
 
-module.exports = defineConfig([
+export default defineConfig([
     js.configs.recommended,
     {
         plugins: {
