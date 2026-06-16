@@ -1,7 +1,7 @@
 'use strict';
 
-const StartApply = require('app/steps/ui/startapply/index');
-const expect = require('chai').expect;
+import StartApply from '../../app/steps/ui/startapply/index.js';
+import {expect} from 'chai';
 
 describe('startapply/index.js', () => {
     describe('getUrl()', () => {

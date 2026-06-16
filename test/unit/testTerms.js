@@ -1,7 +1,5 @@
-'use strict';
-
-const TermsConditions = require('app/steps/ui/static/terms/index');
-const expect = require('chai').expect;
+import TermsConditions from '../../app/steps/ui/static/terms/index.js';
+import {expect} from 'chai';
 
 describe('terms/index.js', () => {
     describe('getUrl()', () => {

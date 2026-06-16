@@ -1,10 +1,10 @@
-const expect = require('chai').expect;
-const {cloneDeep} = require('lodash');
-const config = require('config');
-const proxyquire = require('proxyquire');
-const sinon = require('sinon');
+import {cloneDeep} from 'lodash';
+import config from 'config';
+import {expect} from 'chai';
+import proxyquire from 'proxyquire';
+import sinon from 'sinon';
 
-const modulePath = 'app/setupSecrets';
+const modulePath = '../../setupSecrets.js';
 
 let mockConfig = {};
 

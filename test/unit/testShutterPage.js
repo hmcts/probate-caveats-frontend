@@ -1,7 +1,5 @@
-'use strict';
-
-const ShutterPage = require('app/steps/ui/shutterpage');
-const expect = require('chai').expect;
+import ShutterPage from '../../app/steps/ui/shutterpage/index.js';
+import {expect} from 'chai';
 
 describe('ShutterPage', () => {
     describe('getUrl()', () => {
