@@ -1,9 +1,7 @@
-'use strict';
-
-const {expect} = require('chai');
-const sinon = require('sinon');
-const downloadCheckAnswersPdf = require('app/middleware/downloadCheckAnswersPdf');
-const pdfServices = require('app/components/pdf-services');
+import downloadCheckAnswersPdf from '../../../app/middleware/downloadCheckAnswersPdf.js';
+import {expect} from 'chai';
+import pdfServices from '../../../app/components/pdf-services.js';
+import sinon from 'sinon';
 
 describe('getCheckAnswersPdf', () => {
     describe('createCheckAnswersPdf()', () => {

@@ -1,8 +1,6 @@
-'use strict';
-
-const {expect} = require('chai');
-const sinon = require('sinon');
-const lockPaymentAttempt = require('app/middleware/lockPaymentAttempt');
+import {expect} from 'chai';
+import lockPaymentAttempt from '../../../app/middleware/lockPaymentAttempt.js';
+import sinon from 'sinon';
 
 describe('lockPaymentAttempt', () => {
     let req, res, next;

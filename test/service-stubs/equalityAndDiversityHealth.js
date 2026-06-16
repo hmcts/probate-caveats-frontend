@@ -1,39 +1,52 @@
-'use strict';
+import config from 'config';
+import express from 'express';
+import logger from '../../app/components/logger.js';
 
-const config = require('config');
-const express = require('express');
-const router = require('express').Router();
-const logger = require('app/components/logger')('Init');
-const app = express();
-const equalityPort = config.services.equalityAndDiversity.port;
+class EqualityAndDiversityHealthStub {
+    constructor() {
+        this.app = express();
+        this.logger = logger('EqualityAndDiversityHealthStub');
+        this.equalityPort = config.services.equalityAndDiversity.port;
+        this.router = express.Router();
 
-app.use(express.json());
+        this.app.use(express.json());
 
-app.get('/health', (req, res) => {
-    logger.info(req.body);
-    res.send({
-        status: 'UP',
-        'pcq-backend': {
-            status: 'UP'
-        }
-    });
-});
+        this.app.get('/health', (req, res) => {
+            this.logger.info(req.body);
+            res.send({
+                status: 'UP',
+                'pcq-backend': {
+                    status: 'UP'
+                }
+            });
+        });
 
-router.get('/info', (req, res) => {
-    res.send({
-        'git': {
-            'commit': {
-                'time': '2018-06-05T16:31+0000',
-                'id': 'e210e75b38c6b8da03551b9f83fd909fe80832e4'
-            }
-        }
-    });
-});
+        this.router.get('/info', (req, res) => {
+            res.send({
+                'git': {
+                    'commit': {
+                        'time': '2018-06-05T16:31+0000',
+                        'id': 'e210e75b38c6b8da03551b9f83fd909fe80832e4'
+                    }
+                }
+            });
+        });
 
-app.use(router);
+        this.app.use(this.router);
+    }
 
-logger.info(`Listening on: ${equalityPort}`);
+    start() {
+        this.logger.info(`starting, listening on: ${this.equalityPort}`);
 
-const server = app.listen(equalityPort);
+        this.server = this.app.listen(this.equalityPort);
+        this.logger.info('started');
+    }
 
-module.exports = server;
+    stop() {
+        this.logger.info('stopping');
+        this.server.close();
+        this.logger.info('stopped');
+    }
+}
+
+export default EqualityAndDiversityHealthStub;

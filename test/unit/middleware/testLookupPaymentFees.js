@@ -1,7 +1,7 @@
-const {expect} = require('chai');
-const sinon = require('sinon');
-const lookupPaymentFees = require('app/middleware/lookupPaymentFees');
-const FeesLookup = require('app/utils/FeesLookup');
+import FeesLookup from '../../../app/utils/FeesLookup.js';
+import {expect} from 'chai';
+import lookupPaymentFees from '../../../app/middleware/lookupPaymentFees.js';
+import sinon from 'sinon';
 
 describe('lookupPaymentFees', () => {
     let req, res, next;

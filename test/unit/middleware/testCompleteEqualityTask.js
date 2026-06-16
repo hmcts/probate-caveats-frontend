@@ -1,22 +1,16 @@
-'use strict';
+import EqualityStub from '../../service-stubs/equalityAndDiversityHealth.js';
+import completeEqualityTask from '../../../app/middleware/completeEqualityTask.js';
+import config from 'config';
+import {expect} from 'chai';
+import sinon from 'sinon';
 
-const expect = require('chai').expect;
-const sinon = require('sinon');
-const rewire = require('rewire');
-const completeEqualityTask = rewire('app/middleware/completeEqualityTask');
-const config = require('config');
-
-let equalityStub;
-const startStub = () => {
-    equalityStub = require('test/service-stubs/equalityAndDiversityHealth');
-};
-const stopStub = () => {
-    equalityStub.close();
-    delete require.cache[require.resolve('test/service-stubs/equalityAndDiversityHealth')];
-};
 describe('completeEqualityTask', () => {
     describe('PCQ feature toggle is ON and health is UP', () => {
-        before(() => startStub());
+        let equalityStub;
+        before(() => {
+            equalityStub = EqualityStub();
+            equalityStub.start();
+        });
 
         it('should redirect to PCQ', (done) => {
             const params = {
@@ -45,7 +39,7 @@ describe('completeEqualityTask', () => {
             }, 500);
         });
 
-        after(() => stopStub());
+        after(() => equalityStub.stop());
     });
 
     describe('PCQ feature toggle is ON and health is DOWN', () => {
