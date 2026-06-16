@@ -1,13 +1,15 @@
-'use strict';
+import {assert, expect} from 'chai';
+import {cloneDeep, filter, forEach, get, isEmpty, set} from 'lodash';
 
-const {forEach, filter, isEmpty, set, get, cloneDeep} = require('lodash');
-const {expect, assert} = require('chai');
-const app = require('app');
-const routes = require('app/routes');
-const config = require('config');
-const request = require('supertest');
-const journeyMap = require('app/core/journeyMap');
-const initSteps = require('app/core/initSteps');
+import app from '../../app.js';
+import config from 'config';
+import initSteps from '../../app/core/initSteps.js';
+import journeyMap from '../../app/core/journeyMap.js';
+import request from 'supertest';
+import routes from '../../app/routes.js';
+
+const __dirname = import.meta.dirname;
+
 const steps = initSteps([`${__dirname}/../../app/steps/action/`, `${__dirname}/../../app/steps/ui`], 'en');
 
 class TestWrapper {
@@ -198,4 +200,4 @@ class TestWrapper {
     }
 }
 
-module.exports = TestWrapper;
+export default TestWrapper;

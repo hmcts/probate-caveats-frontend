@@ -1,8 +1,6 @@
-'use strict';
+import pa11y from 'pa11y';
 
-const pa11y = require('pa11y');
-
-module.exports = (testPage) => {
+export default (testPage) => {
     return new Promise((resolve, reject) => {
         pa11y(testPage, {
             includeWarnings: true,

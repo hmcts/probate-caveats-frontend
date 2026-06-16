@@ -1,7 +1,5 @@
-'use strict';
-
-const CheckAnswersSummaryJSONObjectBuilder = require('app/utils/CheckAnswersSummaryJSONObjectBuilder');
-const {assert} = require('chai');
+import CheckAnswersSummaryJSONObjectBuilder from '../../../app/utils/CheckAnswersSummaryJSONObjectBuilder.js';
+import {assert} from 'chai';
 
 let checkAnswersSummaryJSONObjBuilder;
 

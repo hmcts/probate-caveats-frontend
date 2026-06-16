@@ -1,7 +1,7 @@
-'use strict';
+import DeceasedWrapper from '../../../app/wrappers/Deceased.js';
+import chai from 'chai';
 
-const DeceasedWrapper = require('app/wrappers/Deceased');
-const expect = require('chai').expect;
+const expect = chai.expect;
 
 describe('Deceased.js', () => {
     describe('hasAlias()', () => {

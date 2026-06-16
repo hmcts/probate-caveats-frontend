@@ -1,10 +1,9 @@
-'use strict';
+import FeatureToggle from '../../../app/utils/FeatureToggle.js';
+import {expect} from 'chai';
+import rewire from 'rewire';
+import sinon from 'sinon';
 
-const expect = require('chai').expect;
-const sinon = require('sinon');
-const rewire = require('rewire');
-const FeatureToggle = require('app/utils/FeatureToggle');
-const RewiredFeatureToggle = rewire('app/utils/FeatureToggle');
+const RewiredFeatureToggle = rewire('../../../app/utils/FeatureToggle.js');
 
 describe('FeatureToggle', () => {
     describe('checkToggle()', () => {

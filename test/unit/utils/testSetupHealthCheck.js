@@ -1,13 +1,15 @@
-'use strict';
-const healthcheck = require('@hmcts/nodejs-healthcheck');
-const setupHealthCheck = require('app/utils/setupHealthCheck');
-const config = require('config');
+import config from 'config';
+import {expect} from 'chai';
+import healthcheck from '@hmcts/nodejs-healthcheck';
+import logger from '../../../app/components/logger.js';
+import outputs from '@hmcts/nodejs-healthcheck/healthcheck/outputs';
+import setupHealthCheck from '../../../app/utils/setupHealthCheck.js';
+import sinon from 'sinon';
+
+const assert = sinon.assert;
+const loggerInit = logger('Init');
 const modulePath = 'app/utils';
-const sinon = require('sinon');
-const assert = require('sinon').assert;
-const expect = require('chai').expect;
-const outputs = require('@hmcts/nodejs-healthcheck/healthcheck/outputs');
-const logger = require('app/components/logger')('Init');
+
 const app = {};
 let res = {};
 
@@ -17,7 +19,7 @@ describe(modulePath, () => {
         sinon.stub(healthcheck, 'web');
         sinon.stub(healthcheck, 'raw');
         sinon.stub(healthcheck, 'status');
-        sinon.stub(logger, 'error');
+        sinon.stub(loggerInit, 'error');
         sinon.stub(outputs, 'up');
         res = {status: 200};
     });
@@ -26,7 +28,7 @@ describe(modulePath, () => {
         healthcheck.web.restore();
         healthcheck.raw.restore();
         healthcheck.status.restore();
-        logger.error.restore();
+        loggerInit.error.restore();
         outputs.up.restore();
     });
 
@@ -61,7 +63,7 @@ describe(modulePath, () => {
             const cosCallback = callArgs[1].callback;
             cosCallback('error');
 
-            assert.calledOnce(logger.error);
+            assert.calledOnce(loggerInit.error);
         });
     });
 });

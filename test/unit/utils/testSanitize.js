@@ -1,7 +1,6 @@
-'use strict';
+import {expect} from 'chai';
+import {sanitizeInput} from '../../../app/utils/Sanitize.js';
 
-const {sanitizeInput} = require('../../../app/utils/Sanitize');
-const {expect} = require('chai');
 describe('Sanitize.sanitizeInput', () => {
     it('should remove dangerous keys from the input object', () => {
         const input = {
