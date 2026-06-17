@@ -1,6 +1,8 @@
 import {assert} from 'chai';
 import initSteps from '../../app/core/initSteps.js';
 
+const __dirname = import.meta.dirname;
+
 describe('RemoveAlias', () => {
     const steps = initSteps([`${__dirname}/../../app/steps/action/`, `${__dirname}/../../app/steps/ui`]);
 

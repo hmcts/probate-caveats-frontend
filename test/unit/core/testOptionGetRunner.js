@@ -1,10 +1,8 @@
-'use strict';
+import chai, {expect} from 'chai';
 
-const OptionGetRunner = require('app/core/runners/OptionGetRunner');
-const sinon = require('sinon');
-const chai = require('chai');
-const expect = chai.expect;
-const sinonChai = require('sinon-chai');
+import OptionGetRunner from '../../../app/core/runners/OptionGetRunner.js';
+import sinon from 'sinon';
+import sinonChai from 'sinon-chai';
 
 chai.use(sinonChai);
 

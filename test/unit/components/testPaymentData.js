@@ -1,7 +1,6 @@
-'use strict';
+import {assert, expect} from 'chai';
 
-const paymentData = require('app/components/payment-data');
-const {assert, expect} = require('chai');
+import paymentData from '../../../app/components/payment-data.js';
 
 describe('payment-data.js', () => {
     describe('createPaymentData()', () => {

@@ -1,9 +1,7 @@
-'use strict';
-
-const submitData = require('app/components/submit-data');
-const fullcaveatform = require('test/data/unit/fullcaveatform.json');
-const minimalcaveatform = require('test/data/unit/minimalcaveatform.json');
-const expect = require('chai').expect;
+import {expect} from 'chai';
+import fullcaveatform from '../../data/unit/fullcaveatform.json';
+import minimalcaveatform from '../../data/unit/minimalcaveatform.json';
+import submitData from '../../../app/components/submit-data.js';
 
 describe('submitData/index.js', () => {
     describe('correct form created for full details', () => {

@@ -1,9 +1,7 @@
-'use strict';
-
-const expect = require('chai').expect;
-const DateStep = require('app/core/steps/DateStep');
-const sinon = require('sinon');
-const i18next = require('i18next');
+import DateStep from '../../../app/core/steps/DateStep.js';
+import {expect} from 'chai';
+import i18next from 'i18next';
+import sinon from 'sinon';
 
 describe('DateStep', () => {
     const steps = {};

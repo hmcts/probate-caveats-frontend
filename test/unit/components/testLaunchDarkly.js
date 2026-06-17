@@ -1,7 +1,5 @@
-'use strict';
-
-const expect = require('chai').expect;
-const LaunchDarkly = require('app/components/launch-darkly');
+import LaunchDarkly from '../../../app/components/launch-darkly.js';
+import {expect} from 'chai';
 
 describe('LaunchDarkly', () => {
     let ld = null;

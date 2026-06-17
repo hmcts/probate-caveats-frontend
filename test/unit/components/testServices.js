@@ -1,14 +1,12 @@
-'use strict';
-
-const {expect} = require('chai');
-const sinon = require('sinon');
-const proxyquire = require('proxyquire');
-const utils = require('app/components/api-utils');
-const config = require('config');
+import config from 'config';
+import {expect} from 'chai';
+import proxyquire from 'proxyquire';
+import sinon from 'sinon';
+import utils from '../../../app/components/api-utils.js';
 
 const submitDataStub = sinon.stub();
-const services = proxyquire('app/components/services', {
-    'app/components/submit-data': submitDataStub
+const services = proxyquire('../../../app/components/services.js', {
+    './submit-data.js': submitDataStub
 });
 
 describe('services', () => {

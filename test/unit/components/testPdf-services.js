@@ -1,10 +1,8 @@
-'use strict';
-
-const {expect} = require('chai');
-const sinon = require('sinon');
-const pdfServices = require('app/components/pdf-services');
-const services = require('app/components/services');
-const utils = require('app/components/api-utils');
+import {expect} from 'chai';
+import pdfServices from '../../../app/components/pdf-services.js';
+import services from '../../../app/components/services.js';
+import sinon from 'sinon';
+import utils from '../../../app/components/api-utils.js';
 
 describe('pdf-services', () => {
     describe('createCheckAnswersPdf()', () => {

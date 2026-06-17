@@ -1,9 +1,7 @@
-'use strict';
-
-const {expect} = require('chai');
-const sinon = require('sinon');
-const security = require('app/components/security');
-const utils = require('app/components/api-utils');
+import {expect} from 'chai';
+import security from '../../../app/components/security.js';
+import sinon from 'sinon';
+import utils from '../../../app/components/api-utils.js';
 
 describe('security', () => {
     describe('getUserToken()', () => {

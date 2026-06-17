@@ -1,7 +1,5 @@
-'use strict';
-
-const expect = require('chai').expect;
-const stringUtils = require('app/components/string-utils');
+import {expect} from 'chai';
+import stringUtils from '../../../app/components/string-utils.js';
 
 const CAPITALISATION_TEST_POSTCODE_1 = 'UB8 1PJ';
 const CAPITALISATION_TEST_SOURCE_FORMAT_1 = '17, GLADE COURT, 65, HAREFIELD ROAD, UXBRIDGE, UB8 1PJ';

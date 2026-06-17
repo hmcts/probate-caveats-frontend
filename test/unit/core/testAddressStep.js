@@ -1,7 +1,5 @@
-'use strict';
-
-const AddressStep = require('app/core/steps/AddressStep');
-const expect = require('chai').expect;
+import AddressStep from '../../../app/core/steps/AddressStep.js';
+import {expect} from 'chai';
 
 describe('AddressStep', () => {
     let steps;

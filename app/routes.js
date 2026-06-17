@@ -12,6 +12,8 @@ import paymentFees from './paymentFees.js';
 import shutter from './shutter.js';
 import {v4 as uuidv4} from 'uuid';
 
+const __dirname = import.meta.dirname;
+
 const router = express.Router();
 
 router.use(featureToggles);
