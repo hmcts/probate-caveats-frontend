@@ -1,7 +1,6 @@
-'use strict';
+import TestWrapper from '../util/TestWrapper.js';
+import initSteps from '../../app/core/initSteps.js';
 
-const TestWrapper = require('test/util/TestWrapper');
-const initSteps = require('app/core/initSteps');
 const steps = initSteps.steps;
 
 describe('PaymentBreakdown router redirects', () => {

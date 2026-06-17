@@ -1,10 +1,9 @@
-'use strict';
+import TestWrapper from '../../util/TestWrapper.js';
+import commonContent from '../../../app/resources/en/translation/common.json' with {type: 'json'};
+import config from 'config';
+import content from '../../../app/resources/en/translation/thankyou.json' with {type: 'json'};
 
-const TestWrapper = require('test/util/TestWrapper');
-const config = require('config');
 const basePath = config.app.basePath;
-const content = require('app/resources/en/translation/thankyou');
-const commonContent = require('app/resources/en/translation/common');
 
 describe('thank-you', () => {
     let testWrapper;

@@ -1,6 +1,4 @@
-'use strict';
-
-const TestWrapper = require('test/util/TestWrapper');
+import TestWrapper from '../util/TestWrapper.js';
 
 describe('shutter-page', () => {
     let testWrapper;
