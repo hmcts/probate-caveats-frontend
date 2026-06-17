@@ -1,10 +1,7 @@
-'use strict';
-
-const {Logger} = require('@hmcts/nodejs-logging');
-let logger;
+import {Logger} from '@hmcts/nodejs-logging';
 
 const log = (sessionId) => {
-    return (logger) ? logger : Logger.getLogger(`caveat-frontend, sessionId: ${sessionId}`);
+    return Logger.getLogger(`caveat-frontend, sessionId: ${sessionId}`);
 };
 
-module.exports = log;
+export default log;

@@ -1,5 +1,7 @@
 'use strict';
 
+/* eslint import/no-commonjs: 0 */
+
 const config = require('config');
 const express = require('express');
 const router = require('express').Router();

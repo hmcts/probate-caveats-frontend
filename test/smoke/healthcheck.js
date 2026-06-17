@@ -1,8 +1,9 @@
-const chai = require('chai');
-const expect = require('chai').expect;
-const chaiHttp = require('chai-http');
-const request = require('superagent');
-const config = require('config');
+import chai, {expect} from 'chai';
+
+import chaiHttp from 'chai-http';
+import config from 'config';
+import request from 'superagent';
+
 const frontendUrl = config.TestFrontendUrl;
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';

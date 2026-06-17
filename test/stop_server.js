@@ -1,2 +1,3 @@
-const childProcess = require('child_process');
+import childProcess from 'child_process';
+
 childProcess.spawn('killall', ['phantomjs']);
