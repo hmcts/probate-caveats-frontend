@@ -8,10 +8,10 @@
 !package.json
 !yarn.lock
 !app
-!app.js
+!app.mjs
 !gulpfile.js
 !tsconfig.json
-!server.js
+!server.mjs
 !app/**
 !config/**
 !test

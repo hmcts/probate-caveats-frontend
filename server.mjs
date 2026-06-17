@@ -1,13 +1,16 @@
-'use strict';
-const appInsights = require('applicationinsights');
-const config = require('@hmcts/properties-volume').addTo(require('config'));
-const setupSecrets = require('app/setupSecrets');
+import app from './app.js';
+import appInsights from 'applicationinsights';
+import config from 'config';
+import propertiesVolume from '@hmcts/properties-volume';
+import setupSecrets from './app/setupSecrets.js';
+
+const extendedConfig = propertiesVolume.addTo(config);
 
 // Setup secrets before loading the app
 setupSecrets();
 
-if (config.appInsights.connectionString) {
-    appInsights.setup(config.appInsights.connectionString)
+if (extendedConfig.appInsights.connectionString) {
+    appInsights.setup(extendedConfig.appInsights.connectionString)
         .setAutoDependencyCorrelation(true)
         .setAutoCollectRequests(true)
         .setAutoCollectDependencies(true)
@@ -20,7 +23,5 @@ if (config.appInsights.connectionString) {
 } else {
     console.log('No app-insights-connection-string present');
 }
-
-const app = require('app');
 
 app.init();
