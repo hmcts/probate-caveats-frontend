@@ -4,7 +4,7 @@ import config from 'config';
 import security from '../../../app/components/security.js';
 import services from '../../../app/components/services.js';
 import sinon from 'sinon';
-import testCommonContent from '../common/testCommonContent.js';
+import testCommonContent from '../common/testCommonContent.mjs';
 
 const basePath = config.app.basePath;
 let feesLookup;

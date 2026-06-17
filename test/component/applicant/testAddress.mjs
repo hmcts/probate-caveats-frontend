@@ -2,7 +2,7 @@ import DeceasedName from '../../../app/steps/ui/deceased/name/index.js';
 import TestWrapper from '../../util/TestWrapper.js';
 import config from 'config';
 import testAddressData from '../../data/find-address.json' with {type: 'json'};
-import testCommonContent from '../common/testCommonContent.js';
+import testCommonContent from '../common/testCommonContent.mjs';
 
 const formatAddress = address => address.replace(/,/g, ', ');
 const basePath = config.app.basePath;

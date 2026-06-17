@@ -1,7 +1,7 @@
 import Language from '../../../app/steps/ui/language/index.js';
 import TestWrapper from '../../util/TestWrapper.js';
 import config from 'config';
-import testCommonContent from '../common/testCommonContent.js';
+import testCommonContent from '../common/testCommonContent.mjs';
 
 const basePath = config.app.basePath;
 

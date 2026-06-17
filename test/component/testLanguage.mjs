@@ -1,6 +1,6 @@
 import ApplicantName from '../../app/steps/ui/applicant/name/index.js';
 import TestWrapper from '../util/TestWrapper.js';
-import testCommonContent from './common/testCommonContent.js';
+import testCommonContent from './common/testCommonContent.mjs';
 
 describe('bilingual-gop', () => {
     let testWrapper;

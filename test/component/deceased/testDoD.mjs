@@ -2,7 +2,7 @@ import DeceasedAlias from '../../../app/steps/ui/deceased/alias/index.js';
 import TestWrapper from '../../util/TestWrapper.js';
 import config from 'config';
 import nock from 'nock';
-import testCommonContent from '../common/testCommonContent.js';
+import testCommonContent from '../common/testCommonContent.mjs';
 
 const basePath = config.app.basePath;
 
