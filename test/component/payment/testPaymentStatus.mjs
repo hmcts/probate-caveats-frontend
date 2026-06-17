@@ -1,5 +1,5 @@
 import PaymentBreakdown from '../../../app/steps/ui/payment/breakdown/index.js';
-import TestWrapper from '../../util/TestWrapper.js';
+import TestWrapper from '../../util/TestWrapper.mjs';
 import Thankyou from '../../../app/steps/ui/thankyou/index.js';
 import config from 'config';
 import security from '../../../app/components/security.js';
@@ -15,8 +15,8 @@ describe('paymentStatus', () => {
     const expectedNextUrlForPaymentBreakdown = basePath + PaymentBreakdown.getUrl();
     let servicesMock, securityMock;
 
-    beforeEach(() => {
-        testWrapper = new TestWrapper('PaymentStatus');
+    beforeEach(async () => {
+        testWrapper = await TestWrapper.getInstance('PaymentStatus');
         servicesMock = sinon.mock(services);
         securityMock = sinon.mock(security);
     });

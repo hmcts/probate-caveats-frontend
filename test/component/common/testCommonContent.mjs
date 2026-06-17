@@ -1,10 +1,10 @@
-import TestWrapper from '../../util/TestWrapper.js';
+import TestWrapper from '../../util/TestWrapper.mjs';
 import commonContent from '../../../app/resources/en/translation/common.json' with {type: 'json'};
 
 class TestCommonContent {
     static runTest(page, beforeEach, afterEach) {
-        describe('Test the help content', () => {
-            const testWrapper = new TestWrapper(page);
+        describe('Test the help content', async () => {
+            const testWrapper = await TestWrapper.getInstance(page);
 
             it('test help block content is loaded on page', (done) => {
                 if (typeof beforeEach === 'function') {

@@ -1,4 +1,4 @@
-import TestWrapper from '../../util/TestWrapper.js';
+import TestWrapper from '../../util/TestWrapper.mjs';
 import commonContent from '../../../app/resources/en/translation/common.json' with {type: 'json'};
 import config from 'config';
 import content from '../../../app/resources/en/translation/thankyou.json' with {type: 'json'};
@@ -8,8 +8,8 @@ const basePath = config.app.basePath;
 describe('thank-you', () => {
     let testWrapper;
 
-    beforeEach(() => {
-        testWrapper = new TestWrapper('ThankYou');
+    beforeEach(async () => {
+        testWrapper = await TestWrapper.getInstance('ThankYou');
     });
 
     afterEach(() => {

@@ -1,11 +1,11 @@
-import TestWrapper from '../util/TestWrapper.js';
+import TestWrapper from '../util/TestWrapper.mjs';
 import commonContent from '../../app/resources/en/translation/common.json' with {type: 'json'};
 
 describe('cookie-banner', () => {
     let testWrapper;
 
-    beforeEach(() => {
-        testWrapper = new TestWrapper('StartApply');
+    beforeEach(async () => {
+        testWrapper = await TestWrapper.getInstance('StartApply');
     });
 
     afterEach(async () => {

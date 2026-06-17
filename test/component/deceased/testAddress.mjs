@@ -1,5 +1,5 @@
 import Language from '../../../app/steps/ui/language/index.js';
-import TestWrapper from '../../util/TestWrapper.js';
+import TestWrapper from '../../util/TestWrapper.mjs';
 import config from 'config';
 import testCommonContent from '../common/testCommonContent.mjs';
 
@@ -9,8 +9,8 @@ describe('deceased-address', () => {
     let testWrapper;
     const expectedNextUrlForLanguage = basePath + Language.getUrl();
 
-    beforeEach(() => {
-        testWrapper = new TestWrapper('DeceasedAddress');
+    beforeEach(async () => {
+        testWrapper = await TestWrapper.getInstance('DeceasedAddress');
     });
 
     afterEach(() => {

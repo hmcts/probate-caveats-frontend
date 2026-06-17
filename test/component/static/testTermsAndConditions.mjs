@@ -1,12 +1,12 @@
-import TestWrapper from '../../util/TestWrapper.js';
+import TestWrapper from '../../util/TestWrapper.mjs';
 import commonContent from '../../../app/resources/en/translation/common.json' with {type: 'json'};
 import config from 'config';
 
 describe('terms-conditions', () => {
     let testWrapper;
 
-    beforeEach(() => {
-        testWrapper = new TestWrapper('TermsConditions');
+    beforeEach(async () => {
+        testWrapper = await TestWrapper.getInstance('TermsConditions');
     });
 
     afterEach(() => {

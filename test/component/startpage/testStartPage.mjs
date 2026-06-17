@@ -1,11 +1,11 @@
-import TestWrapper from '../../util/TestWrapper.js';
+import TestWrapper from '../../util/TestWrapper.mjs';
 import config from 'config';
 
 describe('start-apply', () => {
     let testWrapper;
 
-    beforeEach(() => {
-        testWrapper = new TestWrapper('StartApply');
+    beforeEach(async () => {
+        testWrapper = await TestWrapper.getInstance('StartApply');
     });
 
     afterEach(() => {

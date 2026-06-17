@@ -1,5 +1,5 @@
 import DeceasedAlias from '../../../app/steps/ui/deceased/alias/index.js';
-import TestWrapper from '../../util/TestWrapper.js';
+import TestWrapper from '../../util/TestWrapper.mjs';
 import config from 'config';
 import nock from 'nock';
 import testCommonContent from '../common/testCommonContent.mjs';
@@ -10,8 +10,8 @@ describe('deceased-dod', () => {
     let testWrapper;
     const expectedNextUrlForDeceasedAlias = basePath + DeceasedAlias.getUrl();
 
-    beforeEach(() => {
-        testWrapper = new TestWrapper('DeceasedDod');
+    beforeEach(async () => {
+        testWrapper = await TestWrapper.getInstance('DeceasedDod');
     });
 
     afterEach(() => {

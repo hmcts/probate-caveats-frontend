@@ -1,4 +1,4 @@
-import TestWrapper from '../util/TestWrapper.js';
+import TestWrapper from '../util/TestWrapper.mjs';
 import initSteps from '../../app/core/initSteps.js';
 
 const steps = initSteps.steps;
@@ -12,8 +12,8 @@ describe('PaymentBreakdown router redirects', () => {
         for (const step in steps) {
             ((step) => {
                 if (!stepsToExclude.includes(step.name)) {
-                    it('test route after a payment breakdown', (done) => {
-                        testWrapper = new TestWrapper(step.name);
+                    it('test route after a payment breakdown', async (done) => {
+                        testWrapper = await TestWrapper.getInstance(step.name);
                         testWrapper.agent.post('/prepare-session/form')
                             .send({
                                 applicant: {

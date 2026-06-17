@@ -1,5 +1,5 @@
 import FormatName from '../../../app/utils/FormatName.js';
-import TestWrapper from '../../util/TestWrapper.js';
+import TestWrapper from '../../util/TestWrapper.mjs';
 import config from 'config';
 import deceasedContentAddress from '../../../app/resources/en/translation/deceased/address.json' with {type: 'json'};
 import deceasedContentAlias from '../../../app/resources/en/translation/deceased/alias.json' with {type: 'json'};
@@ -21,8 +21,8 @@ const basePath = config.app.basePath;
 describe('summary-deceased-section', () => {
     let testWrapper, sessionData;
 
-    beforeEach(() => {
-        testWrapper = new TestWrapper('Summary');
+    beforeEach(async () => {
+        testWrapper = await TestWrapper.getInstance('Summary');
         sessionData = structuredClone(deceasedData);
     });
 

@@ -1,10 +1,10 @@
-import TestWrapper from '../util/TestWrapper.js';
+import TestWrapper from '../util/TestWrapper.mjs';
 
 describe('shutter-page', () => {
     let testWrapper;
 
-    beforeEach(() => {
-        testWrapper = new TestWrapper('ShutterPage', {ft_caveats_shutter: true});
+    beforeEach(async () => {
+        testWrapper = await TestWrapper.getInstance('ShutterPage', {ft_caveats_shutter: true});
     });
 
     afterEach(() => {

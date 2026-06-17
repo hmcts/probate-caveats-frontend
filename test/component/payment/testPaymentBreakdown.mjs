@@ -1,5 +1,5 @@
 import FeesLookup from '../../../app/utils/FeesLookup.js';
-import TestWrapper from '../../util/TestWrapper.js';
+import TestWrapper from '../../util/TestWrapper.mjs';
 import config from 'config';
 import security from '../../../app/components/security.js';
 import services from '../../../app/components/services.js';
@@ -13,8 +13,8 @@ describe('paymentBreakdown', () => {
     let testWrapper;
     let servicesMock, securityMock;
 
-    beforeEach(() => {
-        testWrapper = new TestWrapper('PaymentBreakdown');
+    beforeEach(async () => {
+        testWrapper = await TestWrapper.getInstance('PaymentBreakdown');
         servicesMock = sinon.mock(services);
         securityMock = sinon.mock(security);
         feesLookup = sinon.stub(FeesLookup.prototype, 'lookup');

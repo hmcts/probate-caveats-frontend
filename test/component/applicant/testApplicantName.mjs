@@ -1,5 +1,5 @@
 import ApplicantEmail from '../../../app/steps/ui/applicant/email/index.js';
-import TestWrapper from '../../util/TestWrapper.js';
+import TestWrapper from '../../util/TestWrapper.mjs';
 import config from 'config';
 import testCommonContent from '../common/testCommonContent.mjs';
 
@@ -9,8 +9,8 @@ describe('applicant-name', () => {
     let testWrapper;
     const expectedNextUrlForApplicantEmail = basePath + ApplicantEmail.getUrl();
 
-    beforeEach(() => {
-        testWrapper = new TestWrapper('ApplicantName');
+    beforeEach(async () => {
+        testWrapper = await TestWrapper.getInstance('ApplicantName');
     });
 
     afterEach(() => {

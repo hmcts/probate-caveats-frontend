@@ -1,4 +1,4 @@
-import TestWrapper from '../util/TestWrapper.js';
+import TestWrapper from '../util/TestWrapper.mjs';
 import initSteps from '../../app/core/initSteps.js';
 
 const steps = initSteps.steps;
@@ -12,8 +12,8 @@ describe('StartApply router redirects', () => {
         for (const step in steps) {
             if (!stepsToIgnore.includes(step)) {
                 ((step) => {
-                    it('test route when no session data / applicant', (done) => {
-                        testWrapper = new TestWrapper(step.name);
+                    it('test route when no session data / applicant', async (done) => {
+                        testWrapper = await TestWrapper.getInstance(step.name);
                         testWrapper.testGetRedirect(done, {}, '/start-apply');
                         testWrapper.destroy();
                     });

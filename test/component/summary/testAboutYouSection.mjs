@@ -1,4 +1,4 @@
-import TestWrapper from '../../util/TestWrapper.js';
+import TestWrapper from '../../util/TestWrapper.mjs';
 import applicantContentAddress from '../../../app/resources/en/translation/applicant/address.json' with {type: 'json'};
 import applicantContentEmail from '../../../app/resources/en/translation/applicant/email.json' with {type: 'json'};
 import applicantContentName from '../../../app/resources/en/translation/applicant/name.json' with {type: 'json'};
@@ -16,8 +16,8 @@ const basePath = config.app.basePath;
 describe('summary-about-you-section', () => {
     let testWrapper, sessionData;
 
-    beforeEach(() => {
-        testWrapper = new TestWrapper('Summary');
+    beforeEach(async () => {
+        testWrapper = await TestWrapper.getInstance('Summary');
         sessionData = structuredClone(applicantData);
     });
 

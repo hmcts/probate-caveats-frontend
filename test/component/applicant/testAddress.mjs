@@ -1,5 +1,5 @@
 import DeceasedName from '../../../app/steps/ui/deceased/name/index.js';
-import TestWrapper from '../../util/TestWrapper.js';
+import TestWrapper from '../../util/TestWrapper.mjs';
 import config from 'config';
 import testAddressData from '../../data/find-address.json' with {type: 'json'};
 import testCommonContent from '../common/testCommonContent.mjs';
@@ -11,8 +11,8 @@ describe('applicant-address', () => {
     let testWrapper;
     const expectedNextUrlForDeceasedName = basePath + DeceasedName.getUrl();
 
-    beforeEach(() => {
-        testWrapper = new TestWrapper('ApplicantAddress');
+    beforeEach(async () => {
+        testWrapper = await TestWrapper.getInstance('ApplicantAddress');
     });
 
     afterEach(() => {

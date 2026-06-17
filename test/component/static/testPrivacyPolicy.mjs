@@ -1,11 +1,11 @@
-import TestWrapper from '../../util/TestWrapper.js';
+import TestWrapper from '../../util/TestWrapper.mjs';
 import config from 'config';
 
 describe('privacy-policy', () => {
     let testWrapper;
 
-    beforeEach(() => {
-        testWrapper = new TestWrapper('PrivacyPolicy');
+    beforeEach(async() => {
+        testWrapper = await TestWrapper.getInstance('PrivacyPolicy');
     });
 
     afterEach(() => {

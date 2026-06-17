@@ -1,21 +1,36 @@
-'use strict';
+import {assert, expect} from 'chai';
 
-const {forEach, filter, isEmpty, set, get, cloneDeep} = require('lodash');
-const {expect, assert} = require('chai');
-const app = require('app');
-const routes = require('app/routes');
-const config = require('config');
-const request = require('supertest');
-const journeyMap = require('app/core/journeyMap');
-const initSteps = require('app/core/initSteps');
+import app from '../../app.js';
+import cloneDeep from 'lodash/cloneDeep.js';
+import config from 'config';
+import filter from 'lodash/filter.js';
+import forEach from 'lodash/forEach.js';
+import get from 'lodash/get.js';
+import initSteps from '../../app/core/initSteps.js';
+import isEmpty from 'lodash/isEmpty.js';
+import journeyMap from '../../app/core/journeyMap.js';
+import request from 'supertest';
+import routes from '../../app/routes.js';
+import set from 'lodash/set.js';
+
+const __dirname = import.meta.dirname;
+
 const steps = initSteps([`${__dirname}/../../app/steps/action/`, `${__dirname}/../../app/steps/ui`], 'en');
 
 class TestWrapper {
-    constructor(stepName, ftValue) {
-        this.pageToTest = steps[stepName];
+
+    static async getInstance(stepName, ftValue) {
+        const pageToTest = steps[stepName];
+        const content = await import(`../../app/resources/en/translation/${pageToTest.resourcePath}.json`, {with: {type: 'json'}});
+        const newWrapper = new TestWrapper(ftValue, pageToTest, content.default);
+        return newWrapper;
+    }
+
+    constructor(ftValue, pageToTest, content) {
+        this.pageToTest = pageToTest;
         this.pageUrl = this.pageToTest.constructor.getUrl();
 
-        this.content = require(`app/resources/en/translation/${this.pageToTest.resourcePath}`);
+        this.content = content;
         routes.post('/prepare-session/:path', (req, res) => {
             set(req.session, req.params.path, req.body);
             res.send('OK');
@@ -131,13 +146,20 @@ class TestWrapper {
     }
 
     testGetRedirect(done, postData, expectedNextUrl) {
-        this.agent.get(this.pageUrl)
-            .type('form')
-            .send(postData)
-            .expect('location', expectedNextUrl)
-            .expect(302)
-            .then(() => done())
-            .catch(() => done());
+        // this.agent.get(this.pageUrl)
+        //     .type('form')
+        //     .send(postData)
+        //     .expect('location', expectedNextUrl)
+        //     .expect(302)
+        //     .then(() => done())
+        //     .catch(() => done());
+        const r0 = this.agent.get(this.pageUrl);
+        const r1 = r0.type('form');
+        const r2 = r1.send(postData);
+        const r3 = r2.expect('location', expectedNextUrl);
+        const r4 = r3.expect(302);
+        const r5 = r4.then(() => done());
+        r5.catch(() => done());
     }
 
     nextStep(data = {}) {
@@ -199,5 +221,4 @@ class TestWrapper {
         this.server.http.close();
     }
 }
-
-module.exports = TestWrapper;
+export default TestWrapper;

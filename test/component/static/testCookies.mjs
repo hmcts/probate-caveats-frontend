@@ -1,10 +1,10 @@
-import TestWrapper from '../../util/TestWrapper.js';
+import TestWrapper from '../../util/TestWrapper.mjs';
 
 describe('cookies', () => {
     let testWrapper;
 
-    beforeEach(() => {
-        testWrapper = new TestWrapper('Cookies');
+    beforeEach(async () => {
+        testWrapper = await TestWrapper.getInstance('Cookies');
     });
 
     afterEach(() => {

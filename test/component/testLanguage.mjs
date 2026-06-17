@@ -1,13 +1,13 @@
 import ApplicantName from '../../app/steps/ui/applicant/name/index.js';
-import TestWrapper from '../util/TestWrapper.js';
+import TestWrapper from '../util/TestWrapper.mjs';
 import testCommonContent from './common/testCommonContent.mjs';
 
 describe('bilingual-gop', () => {
     let testWrapper;
     const expectedNextUrlForApplicantName = ApplicantName.getUrl();
 
-    beforeEach(() => {
-        testWrapper = new TestWrapper('BilingualGOP');
+    beforeEach(async () => {
+        testWrapper = await TestWrapper.getInstance('BilingualGOP');
     });
 
     afterEach(() => {

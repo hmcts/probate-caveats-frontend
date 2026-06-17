@@ -1,5 +1,5 @@
 import DeceasedDoD from '../../../app/steps/ui/deceased/dod/index.js';
-import TestWrapper from '../../util/TestWrapper.js';
+import TestWrapper from '../../util/TestWrapper.mjs';
 import config from 'config';
 import testCommonContent from '../common/testCommonContent.mjs';
 
@@ -9,8 +9,8 @@ describe('deceased-name', () => {
     let testWrapper;
     const expectedNextUrlForDeceasedDoD = basePath + DeceasedDoD.getUrl();
 
-    beforeEach(() => {
-        testWrapper = new TestWrapper('DeceasedName');
+    beforeEach(async () => {
+        testWrapper = await TestWrapper.getInstance('DeceasedName');
     });
 
     afterEach(() => {
