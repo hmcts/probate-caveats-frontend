@@ -1,11 +1,16 @@
-'use strict';
+import TestWrapper from '../../util/TestWrapper.js';
+import applicantContentAddress from '../../../app/resources/en/translation/applicant/address.json' with {type: 'json'};
+import applicantContentEmail from '../../../app/resources/en/translation/applicant/email.json' with {type: 'json'};
+import applicantContentName from '../../../app/resources/en/translation/applicant/name.json' with {type: 'json'};
+import applicantData from '../../data/applicant.json' with {type: 'json'};
+import config from 'config';
+import languageContent from '../../../app/resources/en/translation/language.json' with {type: 'json'};
 
-const requireDir = require('require-directory');
-const TestWrapper = require('test/util/TestWrapper');
-const applicantData = require('test/data/applicant');
-const languageContent = require('../../../app/resources/en/translation/language');
-const applicantContent = requireDir(module, '../../../app/resources/en/translation/applicant');
-const config = require('config');
+const applicantContent = {
+    address: applicantContentAddress,
+    email: applicantContentEmail,
+    name: applicantContentName,
+};
 const basePath = config.app.basePath;
 
 describe('summary-about-you-section', () => {
@@ -13,7 +18,7 @@ describe('summary-about-you-section', () => {
 
     beforeEach(() => {
         testWrapper = new TestWrapper('Summary');
-        sessionData = applicantData;
+        sessionData = structuredClone(applicantData);
     });
 
     afterEach(() => {

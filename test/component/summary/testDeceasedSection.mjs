@@ -1,13 +1,21 @@
-'use strict';
+import FormatName from '../../../app/utils/FormatName.js';
+import TestWrapper from '../../util/TestWrapper.js';
+import config from 'config';
+import deceasedContentAddress from '../../../app/resources/en/translation/deceased/address.json' with {type: 'json'};
+import deceasedContentAlias from '../../../app/resources/en/translation/deceased/alias.json' with {type: 'json'};
+import deceasedContentDod from '../../../app/resources/en/translation/deceased/dod.json' with {type: 'json'};
+import deceasedContentName from '../../../app/resources/en/translation/deceased/name.json' with {type: 'json'};
+import deceasedContentOthernames from '../../../app/resources/en/translation/deceased/othernames.json' with {type: 'json'};
+import deceasedData from '../../data/deceased.json' with {type: 'json'};
+import summaryContent from '../../../app/resources/en/translation/summary.json' with {type: 'json'};
 
-const requireDir = require('require-directory');
-const TestWrapper = require('test/util/TestWrapper');
-
-const deceasedData = require('test/data/deceased');
-const deceasedContent = requireDir(module, '../../../app/resources/en/translation/deceased');
-const summaryContent = require('app/resources/en/translation/summary');
-const FormatName = require('app/utils/FormatName');
-const config = require('config');
+const deceasedContent = {
+    address: deceasedContentAddress,
+    alias: deceasedContentAlias,
+    dod: deceasedContentDod,
+    name: deceasedContentName,
+    othernames: deceasedContentOthernames,
+};
 const basePath = config.app.basePath;
 
 describe('summary-deceased-section', () => {
@@ -15,7 +23,7 @@ describe('summary-deceased-section', () => {
 
     beforeEach(() => {
         testWrapper = new TestWrapper('Summary');
-        sessionData = require('test/data/deceased');
+        sessionData = structuredClone(deceasedData);
     });
 
     afterEach(() => {

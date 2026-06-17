@@ -1,7 +1,5 @@
-'use strict';
-
-const TestWrapper = require('test/util/TestWrapper');
-const config = require('config');
+import TestWrapper from '../../util/TestWrapper.js';
+import config from 'config';
 
 describe('privacy-policy', () => {
     let testWrapper;
