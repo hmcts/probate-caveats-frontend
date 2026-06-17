@@ -1,19 +1,20 @@
-'use strict';
+import a11y from '../util/a11y.js';
+import app from '../app.js';
+import co from 'co';
+import commonContentCy from '../app/resources/cy/translation/common.json';
+import commonContentEn from '../app/resources/en/translation/common.json';
+import config from 'config';
+import {endsWith} from 'lodash';
+import {expect} from 'chai';
+import {getTestLanguages} from '../end-to-end/helpers/GeneralHelpers.js';
+import initSteps from '../app/core/initSteps.js';
+import nock from 'nock';
+import request from 'supertest';
 
-const co = require('co');
-const request = require('supertest');
-const a11y = require('test/util/a11y');
-const expect = require('chai').expect;
-const app = require('app');
-const initSteps = require('app/core/initSteps');
-const {endsWith} = require('lodash');
-const commonContentEn = require('app/resources/en/translation/common');
-const commonContentCy = require('app/resources/cy/translation/common');
+const __dirname = import.meta.dirname;
+
 const stepsToExclude = ['AddAlias', 'RemoveAlias', 'AddressLookup', 'Equality', 'Summary', 'PaymentBreakdown', 'PaymentStatus'];
 const steps = initSteps([`${__dirname}/../../app/steps/action/`, `${__dirname}/../../app/steps/ui`], 'en');
-const nock = require('nock');
-const config = require('config');
-const {getTestLanguages} = require('../end-to-end/helpers/GeneralHelpers');
 
 const commonSessionData = {
     form: {
