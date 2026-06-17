@@ -2,6 +2,8 @@ import config from 'config';
 import express from 'express';
 import logger from '../../app/components/logger.js';
 
+const __filename = import.meta.filename;
+
 class EqualityAndDiversityHealthStub {
     constructor() {
         this.app = express();
@@ -50,3 +52,11 @@ class EqualityAndDiversityHealthStub {
 }
 
 export default EqualityAndDiversityHealthStub;
+
+const entryFile = process.argv?.[1];
+
+if (entryFile === __filename) {
+    logger().info(`entryFile: ${entryFile}`);
+    const instance = new EqualityAndDiversityHealthStub();
+    instance.start();
+}
