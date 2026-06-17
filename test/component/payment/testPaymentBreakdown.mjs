@@ -1,14 +1,12 @@
+import FeesLookup from '../../../app/utils/FeesLookup.js';
+import TestWrapper from '../../util/TestWrapper.js';
+import config from 'config';
+import security from '../../../app/components/security.js';
+import services from '../../../app/components/services.js';
+import sinon from 'sinon';
+import testCommonContent from '../common/testCommonContent.js';
 
-'use strict';
-
-const sinon = require('sinon');
-const testCommonContent = require('test/component/common/testCommonContent');
-const TestWrapper = require('test/util/TestWrapper');
-const services = require('app/components/services');
-const security = require('app/components/security');
-const config = require('config');
 const basePath = config.app.basePath;
-const FeesLookup = require('app/utils/FeesLookup');
 let feesLookup;
 
 describe('paymentBreakdown', () => {

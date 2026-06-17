@@ -1,9 +1,8 @@
-'use strict';
+import ApplicantEmail from '../../../app/steps/ui/applicant/email/index.js';
+import TestWrapper from '../../util/TestWrapper.js';
+import config from 'config';
+import testCommonContent from '../common/testCommonContent.js';
 
-const TestWrapper = require('test/util/TestWrapper');
-const ApplicantEmail = require('app/steps/ui/applicant/email/index');
-const testCommonContent = require('test/component/common/testCommonContent.js');
-const config = require('config');
 const basePath = config.app.basePath;
 
 describe('applicant-name', () => {

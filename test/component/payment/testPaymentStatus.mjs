@@ -1,14 +1,12 @@
+import PaymentBreakdown from '../../../app/steps/ui/payment/breakdown/index.js';
+import TestWrapper from '../../util/TestWrapper.js';
+import Thankyou from '../../../app/steps/ui/thankyou/index.js';
+import config from 'config';
+import security from '../../../app/components/security.js';
+import services from '../../../app/components/services.js';
+import sinon from 'sinon';
+import testCommonContent from '../common/testCommonContent.js';
 
-'use strict';
-
-const Thankyou = require('app/steps/ui/thankyou');
-const PaymentBreakdown = require('app/steps/ui/payment/breakdown');
-const sinon = require('sinon');
-const TestWrapper = require('test/util/TestWrapper');
-const services = require('app/components/services');
-const security = require('app/components/security');
-const testCommonContent = require('test/component/common/testCommonContent');
-const config = require('config');
 const basePath = config.app.basePath;
 
 describe('paymentStatus', () => {

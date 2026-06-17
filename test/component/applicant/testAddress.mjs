@@ -1,10 +1,10 @@
-'use strict';
-const TestWrapper = require('test/util/TestWrapper');
-const DeceasedName = require('app/steps/ui/deceased/name/index');
-const testAddressData = require('test/data/find-address');
+import DeceasedName from '../../../app/steps/ui/deceased/name/index.js';
+import TestWrapper from '../../util/TestWrapper.js';
+import config from 'config';
+import testAddressData from '../../data/find-address.json' with {type: 'json'};
+import testCommonContent from '../common/testCommonContent.js';
+
 const formatAddress = address => address.replace(/,/g, ', ');
-const testCommonContent = require('test/component/common/testCommonContent.js');
-const config = require('config');
 const basePath = config.app.basePath;
 
 describe('applicant-address', () => {

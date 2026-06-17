@@ -1,14 +1,13 @@
-'use strict';
+import PaymentBreakdown from '../../../app/steps/ui/payment/breakdown/index.js';
+import TestWrapper from '../../util/TestWrapper.js';
+import config from 'config';
+import minimalCaveatForm from '../../data/unit/minimalCaveatForm.json' with {type: 'json'};
+import nock from 'nock';
+import security from '../../../app/components/security.js';
+import services from '../../../app/components/services.js';
+import sinon from 'sinon';
+import testCommonContent from '../common/testCommonContent.js';
 
-const TestWrapper = require('test/util/TestWrapper');
-const PaymentBreakdown = require('app/steps/ui/payment/breakdown');
-const nock = require('nock');
-const testCommonContent = require('test/component/common/testCommonContent.js');
-const minimalCaveatForm = require('test/data/unit/minimalcaveatform');
-const sinon = require('sinon');
-const services = require('app/components/services');
-const security = require('app/components/security');
-const config = require('config');
 const basePath = config.app.basePath;
 
 describe('summary', () => {

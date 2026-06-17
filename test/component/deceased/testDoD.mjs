@@ -1,11 +1,10 @@
-'use strict';
+import DeceasedAlias from '../../../app/steps/ui/deceased/alias/index.js';
+import TestWrapper from '../../util/TestWrapper.js';
+import config from 'config';
+import nock from 'nock';
+import testCommonContent from '../common/testCommonContent.js';
 
-const TestWrapper = require('test/util/TestWrapper');
-const DeceasedAlias = require('app/steps/ui/deceased/alias/index');
-const testCommonContent = require('test/component/common/testCommonContent.js');
-const config = require('config');
 const basePath = config.app.basePath;
-const nock = require('nock');
 
 describe('deceased-dod', () => {
     let testWrapper;

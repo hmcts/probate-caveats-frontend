@@ -1,10 +1,9 @@
-'use strict';
+import DeceasedAddress from '../../../app/steps/ui/deceased/address/index.js';
+import DeceasedOtherNames from '../../../app/steps/ui/deceased/othernames/index.js';
+import TestWrapper from '../../util/TestWrapper.js';
+import config from 'config';
+import testCommonContent from '../common/testCommonContent.js';
 
-const TestWrapper = require('test/util/TestWrapper');
-const DeceasedOtherNames = require('app/steps/ui/deceased/othernames/index');
-const DeceasedAddress = require('app/steps/ui/deceased/address/index');
-const testCommonContent = require('test/component/common/testCommonContent.js');
-const config = require('config');
 const basePath = config.app.basePath;
 
 describe('deceased-alias', () => {

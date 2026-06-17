@@ -1,8 +1,6 @@
-'use strict';
-
-const TestWrapper = require('test/util/TestWrapper');
-const ApplicantName = require('app/steps/ui/applicant/name');
-const testCommonContent = require('test/component/common/testCommonContent.js');
+import ApplicantName from '../../app/steps/ui/applicant/name/index.js';
+import TestWrapper from '../util/TestWrapper.js';
+import testCommonContent from './common/testCommonContent.js';
 
 describe('bilingual-gop', () => {
     let testWrapper;
