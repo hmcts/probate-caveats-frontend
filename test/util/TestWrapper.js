@@ -30,6 +30,8 @@ class TestWrapper {
         });
 
         config.app.useCSRFProtection = 'false';
+        config.app.port = 0;
+
         this.server = app.init(false, {}, ftValue);
         this.agent = request.agent(this.server.app);
     }
