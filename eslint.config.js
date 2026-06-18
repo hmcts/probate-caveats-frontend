@@ -109,7 +109,9 @@ module.exports = defineConfig([
             'padding-line-between-statements': 'error',
             'max-depth': 'error',
             'max-len': 'off',
-            'max-lines': 'off',
+            'max-lines': ['error', {
+                'skipBlankLines': true
+            }],
             'max-nested-callbacks': 'error',
             'max-params': 'off',
             'max-statements': 'off',
