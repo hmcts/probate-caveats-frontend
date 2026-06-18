@@ -109,7 +109,9 @@ module.exports = defineConfig([
             'padding-line-between-statements': 'error',
             'max-depth': 'error',
             'max-len': 'off',
-            'max-lines': 'error',
+            'max-lines': ['error', {
+                'skipBlankLines': true
+            }],
             'max-nested-callbacks': 'error',
             'max-params': 'off',
             'max-statements': 'off',
@@ -284,6 +286,12 @@ module.exports = defineConfig([
             'yield-star-spacing': 'error',
             'require-yield': 'off',
             'yoda': ['error', 'never'],
+        },
+    },
+    {
+        files: ['app.js'],
+        rules: {
+            'max-lines': 'off',
         },
     },
     globalIgnores([
