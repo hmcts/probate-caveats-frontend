@@ -150,7 +150,10 @@ class TestWrapper {
             .type('form')
             .send(postData)
             .expect('location', expectedNextUrl)
-            .expect(302);
+            .expect(302)
+            .catch(() => {
+                // we intentionally ignore this because that's the behaviour in the non-async...
+            });
     }
 
     testGetRedirect(done, postData, expectedNextUrl) {
