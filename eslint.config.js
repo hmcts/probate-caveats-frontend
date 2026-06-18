@@ -286,6 +286,12 @@ module.exports = defineConfig([
             'yoda': ['error', 'never'],
         },
     },
+    {
+        files: ['app.mjs', 'eslint.config.js'],
+        rules: {
+            'max-lines': 'off',
+        },
+    },
     globalIgnores([
         'node_modules/*',
         'govuk/*',

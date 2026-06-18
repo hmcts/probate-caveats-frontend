@@ -1,4 +1,4 @@
-import app from '../../app.js';
+import App from '../../app.mjs';
 import {expect} from 'chai';
 import request from 'supertest';
 
@@ -6,7 +6,7 @@ describe('Liveness check', () => {
     describe('/health/liveness endpoint', () => {
         let server;
         before(() => {
-            server = app.init();
+            server = App.init();
         });
 
         after(() => {

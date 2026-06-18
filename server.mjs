@@ -1,4 +1,4 @@
-import app from './app.js';
+import App from './app.mjs';
 import appInsights from 'applicationinsights';
 import config from 'config';
 import propertiesVolume from '@hmcts/properties-volume';
@@ -24,4 +24,4 @@ if (extendedConfig.appInsights.connectionString) {
     console.log('No app-insights-connection-string present');
 }
 
-app.init();
+App.init();

@@ -1,5 +1,5 @@
+import App from '../../app.mjs';
 import a11y from '../util/a11y.js';
-import app from '../../app.js';
 import co from 'co';
 import commonContentCy from '../../app/resources/cy/translation/common.json' with {type: 'json'};
 import commonContentEn from '../../app/resources/en/translation/common.json' with {type: 'json'};
@@ -52,9 +52,9 @@ const runTests = (language ='en') => {
 
                 before((done) => {
                     if (step.name === 'ShutterPage' && language === 'en') {
-                        server = app.init(true, sessionData, {ft_caveats_shutter: true});
+                        server = App.init(true, sessionData, {ft_caveats_shutter: true});
                     } else {
-                        server = app.init(true, sessionData);
+                        server = App.init(true, sessionData);
                     }
 
                     agent = request.agent(server.app);

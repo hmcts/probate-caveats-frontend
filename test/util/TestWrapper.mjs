@@ -1,6 +1,6 @@
 import {assert, expect} from 'chai';
 
-import app from '../../app.js';
+import App from '../../app.mjs';
 import cloneDeep from 'lodash/cloneDeep.js';
 import config from 'config';
 import filter from 'lodash/filter.js';
@@ -47,7 +47,7 @@ class TestWrapper {
         config.app.useCSRFProtection = 'false';
         config.app.port = 0;
 
-        this.server = app.init(false, {}, ftValue);
+        this.server = App.init(false, {}, ftValue);
         this.agent = request.agent(this.server.app);
     }
 
