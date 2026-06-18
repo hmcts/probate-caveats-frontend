@@ -1,7 +1,7 @@
 import PaymentBreakdown from '../../../app/steps/ui/payment/breakdown/index.js';
 import TestWrapper from '../../util/TestWrapper.mjs';
 import config from 'config';
-import minimalCaveatForm from '../../data/unit/minimalCaveatForm.json' with {type: 'json'};
+import minimalCaveatForm from '../../data/unit/minimalcaveatform.json' with {type: 'json'};
 import nock from 'nock';
 import security from '../../../app/components/security.js';
 import services from '../../../app/components/services.js';
