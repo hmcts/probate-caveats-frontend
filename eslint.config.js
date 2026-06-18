@@ -288,6 +288,12 @@ module.exports = defineConfig([
             'yoda': ['error', 'never'],
         },
     },
+    {
+        files: ['app.js'],
+        rules: {
+            'max-lines': 'off',
+        },
+    },
     globalIgnores([
         'node_modules/*',
         'govuk/*',
