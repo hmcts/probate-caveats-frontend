@@ -4,13 +4,11 @@ const utils = require('app/components/api-utils');
 const config = require('config');
 const submitData = require('app/components/submit-data');
 const paymentData = require('app/components/payment-data');
-const OSPlacesClient = require('@hmcts/os-places-client').OSPlacesClient;
 const otp = require('otp');
 const FormatUrl = require('app/utils/FormatUrl');
 const {URLSearchParams} = require('url');
 const ORCHESTRATION_SERVICE_URL = config.services.orchestrator.url;
 const CREATE_PAYMENT_SERVICE_URL = config.services.payment.createPaymentUrl;
-const POSTCODE_SERVICE_TOKEN = config.services.postcode.token;
 const SERVICE_AUTHORISATION_URL = `${config.services.idam.s2s_url}/lease`;
 const FEES_SERVICE_URL = config.services.feesRegister.url;
 const serviceName = config.services.idam.service_name;
@@ -18,28 +16,7 @@ const externalHostNameUrl = config.externalHostNameUrl;
 const secret = config.services.idam.service_key;
 const FEATURE_TOGGLE_URL = config.featureToggles.url;
 const logger = require('app/components/logger');
-const logError = (message, applicationId = 'Init') => logger(applicationId).error(message);
 const logInfo = (message, applicationId = 'Init') => logger(applicationId).info(message);
-const osPlacesClient = new OSPlacesClient(POSTCODE_SERVICE_TOKEN);
-
-const findAddress = (postcode) => {
-    logInfo('findAddress');
-    return new Promise((resolve, reject) => {
-        osPlacesClient.lookupByPostcode(postcode)
-            .then(res => {
-                if (res.valid) {
-                    resolve(res.addresses);
-                } else {
-                    logError('Postcode invalid returning empty list');
-                    resolve({});
-                }
-            })
-            .catch(err => {
-                logError(`Postcode lookup failed to run: ${err}`);
-                reject(new Error('Failed to retrieve address list'));
-            });
-    });
-};
 
 const featureToggle = (featureToggleKey) => {
     logInfo('featureToggle');
@@ -137,7 +114,6 @@ const feesLookup = (data, authToken, applicationId) => {
 };
 
 module.exports = {
-    findAddress,
     sendToOrchestrationService,
     updateCcdCasePaymentStatus,
     createPayment,
