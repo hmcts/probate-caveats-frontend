@@ -154,20 +154,13 @@ class TestWrapper {
     }
 
     testGetRedirect(done, postData, expectedNextUrl) {
-        // this.agent.get(this.pageUrl)
-        //     .type('form')
-        //     .send(postData)
-        //     .expect('location', expectedNextUrl)
-        //     .expect(302)
-        //     .then(() => done())
-        //     .catch(() => done());
-        const r0 = this.agent.get(this.pageUrl);
-        const r1 = r0.type('form');
-        const r2 = r1.send(postData);
-        const r3 = r2.expect('location', expectedNextUrl);
-        const r4 = r3.expect(302);
-        const r5 = r4.then(() => done());
-        r5.catch(() => done());
+        this.agent.get(this.pageUrl)
+            .type('form')
+            .send(postData)
+            .expect('location', expectedNextUrl)
+            .expect(302)
+            .then(() => done())
+            .catch(() => done());
     }
 
     nextStep(data = {}) {
