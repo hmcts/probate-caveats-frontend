@@ -1,13 +1,13 @@
 import a11y from '../util/a11y.js';
-import app from '../app.js';
+import app from '../../app.js';
 import co from 'co';
-import commonContentCy from '../app/resources/cy/translation/common.json';
-import commonContentEn from '../app/resources/en/translation/common.json';
+import commonContentCy from '../../app/resources/cy/translation/common.json' with {type: 'json'};
+import commonContentEn from '../../app/resources/en/translation/common.json' with {type: 'json'};
 import config from 'config';
 import {endsWith} from 'lodash';
 import {expect} from 'chai';
 import {getTestLanguages} from '../end-to-end/helpers/GeneralHelpers.js';
-import initSteps from '../app/core/initSteps.js';
+import initSteps from '../../app/core/initSteps.js';
 import nock from 'nock';
 import request from 'supertest';
 
