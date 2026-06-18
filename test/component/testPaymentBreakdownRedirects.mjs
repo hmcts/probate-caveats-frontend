@@ -12,7 +12,7 @@ describe('PaymentBreakdown router redirects', () => {
         for (const step in steps) {
             ((step) => {
                 if (!stepsToExclude.includes(step.name)) {
-                    it('test route after a payment breakdown', async (done) => {
+                    it('test route after a payment breakdown', async () => {
                         testWrapper = await TestWrapper.getInstance(step.name);
                         testWrapper.agent.post('/prepare-session/form')
                             .send({
@@ -23,11 +23,11 @@ describe('PaymentBreakdown router redirects', () => {
                                     id: '12345'
                                 }
                             })
-                            .end((err) => {
+                            .then(testWrapper.testGetRedirectAsync({}, '/payment-breakdown'))
+                            .catch((err) => {
                                 if (err) {
                                     throw err;
                                 }
-                                testWrapper.testGetRedirect(done, {}, '/payment-breakdown');
                             });
                         testWrapper.destroy();
                     });

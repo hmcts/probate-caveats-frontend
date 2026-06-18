@@ -11,7 +11,7 @@ describe('ThankYou router redirects', () => {
         for (const step in steps) {
             ((step) => {
                 if (!stepsToExclude.includes(step.name)) {
-                    it(`test route after a payment success for page [${step}]`, async (done) => {
+                    it(`test route after a payment success for page [${step}]`, async () => {
                         testWrapper = await TestWrapper.getInstance(step.name);
                         testWrapper.agent.post('/prepare-session/form')
                             .send({
@@ -21,11 +21,11 @@ describe('ThankYou router redirects', () => {
                                     status: 'Success'
                                 }
                             })
-                            .end((err) => {
+                            .then(testWrapper.testGetRedirectAsync({}, '/thank-you'))
+                            .catch((err) => {
                                 if (err) {
                                     throw err;
                                 }
-                                testWrapper.testGetRedirect(done, {}, '/thank-you');
                             });
                         testWrapper.destroy();
                     });

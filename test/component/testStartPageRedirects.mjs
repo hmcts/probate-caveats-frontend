@@ -12,9 +12,9 @@ describe('StartApply router redirects', () => {
         for (const step in steps) {
             if (!stepsToIgnore.includes(step)) {
                 ((step) => {
-                    it('test route when no session data / applicant', async (done) => {
+                    it('test route when no session data / applicant', async () => {
                         testWrapper = await TestWrapper.getInstance(step.name);
-                        testWrapper.testGetRedirect(done, {}, '/start-apply');
+                        await testWrapper.testGetRedirectAsync({}, '/start-apply');
                         testWrapper.destroy();
                     });
                 })(steps[step]);

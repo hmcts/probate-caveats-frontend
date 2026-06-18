@@ -145,6 +145,14 @@ class TestWrapper {
             .catch(() => done());
     }
 
+    async testGetRedirectAsync(postData = {}, expectedNextUrl) {
+        await this.agent.get(this.pageUrl)
+            .type('form')
+            .send(postData)
+            .expect('location', expectedNextUrl)
+            .expect(302);
+    }
+
     testGetRedirect(done, postData, expectedNextUrl) {
         // this.agent.get(this.pageUrl)
         //     .type('form')
