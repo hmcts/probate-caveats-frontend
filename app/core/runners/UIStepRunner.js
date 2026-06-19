@@ -38,8 +38,9 @@ class UIStepRunner {
                     req.log.error(err);
                     return res.status(500).render('errors/500', {common: commonContent});
                 }
+                req.log.info('about to call step.renderPage');
                 step.renderPage(res, html);
-
+                req.log.info('step.renderPage complete');
             });
         }).catch((error) => {
             req.log.error(error);
