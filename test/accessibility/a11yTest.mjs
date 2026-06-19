@@ -4,7 +4,7 @@ import co from 'co';
 import commonContentCy from '../../app/resources/cy/translation/common.json' with {type: 'json'};
 import commonContentEn from '../../app/resources/en/translation/common.json' with {type: 'json'};
 import config from 'config';
-import {endsWith} from 'lodash';
+import endsWith from 'lodash/endsWith.js';
 import {expect} from 'chai';
 import {getTestLanguages} from '../end-to-end/helpers/GeneralHelpers.js';
 import initSteps from '../../app/core/initSteps.js';
