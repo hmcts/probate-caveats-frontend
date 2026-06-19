@@ -278,6 +278,26 @@ export default class App {
 
         app.use(featureToggles);
 
+        app.all('*', (req, res) => {
+            const commonContent = this.#getCommonContent(req.session.language);
+            const content = this.#getContent404(req.session.language);
+
+            logger(req.sessionID)
+                .error(`Unhandled request ${req.url}`);
+            res.status(404)
+                .render('errors/error', {common: commonContent, content: content, error: '404'});
+        });
+
+        app.use((err, req, res, next) => {
+            const commonContent = this.#getCommonContent(req.session.language);
+            const content = this.#getContent500(req.session.language);
+
+            logger(req.sessionID)
+                .error(err);
+            res.status(500)
+                .render('errors/error', {common: commonContent, content: content, error: '500'});
+        });
+
         // Start the app
         let http;
 
@@ -299,25 +319,6 @@ export default class App {
             });
         }
 
-        app.all('*', (req, res) => {
-            const commonContent = this.#getCommonContent(req.session.language);
-            const content = this.#getContent404(req.session.language);
-
-            logger(req.sessionID)
-                .error(`Unhandled request ${req.url}`);
-            res.status(404)
-                .render('errors/error', {common: commonContent, content: content, error: '404'});
-        });
-
-        app.use((err, req, res, next) => {
-            const commonContent = this.#getCommonContent(req.session.language);
-            const content = this.#getContent500(req.session.language);
-
-            logger(req.sessionID)
-                .error(err);
-            res.status(500)
-                .render('errors/error', {common: commonContent, content: content, error: '500'});
-        });
         const environment = config.environment;
         const memlogEnvironments = ['aat'];
         if (memlogEnvironments.includes(environment)) {
