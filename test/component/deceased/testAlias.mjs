@@ -1,0 +1,68 @@
+import DeceasedAddress from '../../../app/steps/ui/deceased/address/index.js';
+import DeceasedOtherNames from '../../../app/steps/ui/deceased/othernames/index.js';
+import TestWrapper from '../../util/TestWrapper.mjs';
+import config from 'config';
+import testCommonContent from '../common/testCommonContent.mjs';
+
+const basePath = config.app.basePath;
+
+describe('deceased-alias', () => {
+    let testWrapper;
+    const expectedNextUrlForDeceasedOtherNames = basePath + DeceasedOtherNames.getUrl();
+    const expectedNextUrlForDeceasedAddress = basePath + DeceasedAddress.getUrl();
+
+    beforeEach(async () => {
+        testWrapper = await TestWrapper.getInstance('DeceasedAlias');
+    });
+
+    afterEach(() => {
+        testWrapper.destroy();
+    });
+
+    describe('Verify Content, Errors and Redirection', () => {
+        testCommonContent.runTest('DeceasedAlias');
+
+        it('test right content loaded on the page', (done) => {
+            const sessionData = {
+                applicant: {
+                    firstName: 'value'
+                },
+                deceased: {
+                    firstName: 'John',
+                    lastName: 'Doe'
+                }
+            };
+            const contentToExclude = ['theDeceased'];
+
+            testWrapper.agent.post(`${basePath}/prepare-session/form`)
+                .send(sessionData)
+                .end(() => {
+                    const contentData = {deceasedName: 'John Doe'};
+
+                    testWrapper.testContent(done, contentData, contentToExclude);
+
+                });
+        });
+
+        it('test alias schema validation when no data is entered', (done) => {
+            testWrapper.testErrors(done, {}, 'required');
+        });
+
+        it(`test it redirects to deceased other names page: ${expectedNextUrlForDeceasedOtherNames}`, (done) => {
+            const data = {
+                alias: 'optionYes'
+            };
+
+            testWrapper.testRedirect(done, data, expectedNextUrlForDeceasedOtherNames);
+        });
+
+        it(`test it redirects to deceased address page: ${expectedNextUrlForDeceasedAddress}`, (done) => {
+            const data = {
+                alias: 'optionNo'
+            };
+
+            testWrapper.testRedirect(done, data, expectedNextUrlForDeceasedAddress);
+        });
+
+    });
+});

@@ -30,7 +30,7 @@ module.exports = defineConfig([
                 'After': true,
                 'codecept_helper': true,
             },
-            ecmaVersion: 2020,
+            ecmaVersion: 2025,
             sourceType: 'module',
             parserOptions: {},
         },
@@ -289,7 +289,7 @@ module.exports = defineConfig([
         },
     },
     {
-        files: ['app.js'],
+        files: ['app.mjs', 'eslint.config.js'],
         rules: {
             'max-lines': 'off',
         },

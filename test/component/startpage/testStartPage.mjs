@@ -1,0 +1,26 @@
+import TestWrapper from '../../util/TestWrapper.mjs';
+import config from 'config';
+
+describe('start-apply', () => {
+    let testWrapper;
+
+    beforeEach(async () => {
+        testWrapper = await TestWrapper.getInstance('StartApply');
+    });
+
+    afterEach(() => {
+        testWrapper.destroy();
+    });
+
+    describe('Verify Content, Errors and Redirection', () => {
+        it('test right content loaded on the page', (done) => {
+            const contentToExclude = [
+                'bullet7',
+                'paragraph7'
+            ];
+            const contentData = {applicationFormPA8A: config.links.applicationFormPA8A};
+
+            testWrapper.testContent(done, contentData, contentToExclude);
+        });
+    });
+});
