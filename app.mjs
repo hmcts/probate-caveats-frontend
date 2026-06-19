@@ -10,7 +10,7 @@ import content404En from './app/resources/en/translation/errors/404.json' with {
 import content500Cy from './app/resources/cy/translation/errors/500.json' with {type: 'json'};
 import content500En from './app/resources/en/translation/errors/500.json' with {type: 'json'};
 import cookieParser from 'cookie-parser';
-import csrf from 'csurf';
+import {csrfSync} from 'csrf-sync';
 import express from 'express';
 import favicon from 'serve-favicon';
 import featureToggles from './app/featureToggles.js';
@@ -223,20 +223,24 @@ export default class App {
             next();
         });
 
+        const {
+            csrfSynchronisedProtection,
+            generateToken,
+        } = csrfSync({
+            getTokenFromRequest: (req) => req.body._csrf,
+        });
+
         if (config.app.useCSRFProtection === 'true') {
             app.use((req, res, next) => {
                 // Exclude Dynatrace Beacon POST requests from CSRF check
                 if (req.method === 'POST' && req.path.startsWith('/rb_')) {
                     next();
-                } else {
-                    csrf({})(req, res, next);
                 }
+                csrfSynchronisedProtection(req, res, next);
             });
 
             app.use((req, res, next) => {
-                if (req.csrfToken) {
-                    res.locals.csrfToken = req.csrfToken();
-                }
+                res.locals.csrfToken = generateToken(req);
                 next();
             });
         }
@@ -314,6 +318,33 @@ export default class App {
             res.status(500)
                 .render('errors/error', {common: commonContent, content: content, error: '500'});
         });
+        const environment = config.environment;
+        const memlogEnvironments = ['aat'];
+        if (memlogEnvironments.includes(environment)) {
+            const v8 = require('node:v8');
+
+            const inMb = (v) => (v / 1024 / 1024).toFixed(2);
+            const doLogMem = () => {
+                const heapStat = v8.getHeapStatistics();
+
+                const logMsg = 'Current memory usage (in mb): ' +
+                    `totalHeapSize=${inMb(heapStat.total_heap_size)} ` +
+                    `totalHeapSizeExec=${inMb(heapStat.total_heap_size_executable)} ` +
+                    `totalPhysicalSize=${inMb(heapStat.total_physical_size)} ` +
+                    `totalAvailableSize=${inMb(heapStat.total_available_size)} ` +
+                    `usedHeapSize=${inMb(heapStat.used_heap_size)} ` +
+                    `heapSizeLimit=${inMb(heapStat.heap_size_limit)}`;
+
+                logger('MemUsage').info(logMsg);
+            };
+
+            logger('MemUsage')
+                .info(`Scheduling memory reporting every 60 seconds in config.environment: ${environment}`);
+            const logMem = setInterval(doLogMem, 60000);
+        } else {
+            logger('MemUsage')
+                .info(`Not triggering regular memory logging for config.environment: ${environment}`);
+        }
 
         return {app, http};
     }
