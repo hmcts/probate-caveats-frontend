@@ -18,7 +18,7 @@ const packageJson = require(`${__dirname}/package`);
 const helmet = require('helmet');
 const hpkp = require('hpkp');
 const nocache = require('nocache');
-const csrf = require('csurf');
+const {csrfSync} = require('csrf-sync');
 const setupHealthCheck = require('app/utils/setupHealthCheck');
 const fs = require('fs');
 const https = require('https');
@@ -187,20 +187,25 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
         next();
     });
 
+    const {
+        csrfSynchronisedProtection,
+        generateToken,
+    } = csrfSync({
+        getTokenFromRequest: (req) => req.body._csrf,
+    });
+
     if (config.app.useCSRFProtection === 'true') {
         app.use((req, res, next) => {
             // Exclude Dynatrace Beacon POST requests from CSRF check
             if (req.method === 'POST' && req.path.startsWith('/rb_')) {
                 next();
-            } else {
-                csrf({})(req, res, next);
             }
+
+            csrfSynchronisedProtection(req, res, next);
         });
 
         app.use((req, res, next) => {
-            if (req.csrfToken) {
-                res.locals.csrfToken = req.csrfToken();
-            }
+            res.locals.csrfToken = generateToken(req);
             next();
         });
     }
@@ -274,6 +279,33 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
         logger(req.sessionID).error(err);
         res.status(500).render('errors/error', {common: commonContent, content: content, error: '500'});
     });
+    const environment = config.environment;
+    const memlogEnvironments = ['aat'];
+    if (memlogEnvironments.includes(environment)) {
+        const v8 = require('node:v8');
+
+        const inMb = (v) => (v / 1024 / 1024).toFixed(2);
+        const doLogMem = () => {
+            const heapStat = v8.getHeapStatistics();
+
+            const logMsg = 'Current memory usage (in mb): ' +
+                `totalHeapSize=${inMb(heapStat.total_heap_size)} ` +
+                `totalHeapSizeExec=${inMb(heapStat.total_heap_size_executable)} ` +
+                `totalPhysicalSize=${inMb(heapStat.total_physical_size)} ` +
+                `totalAvailableSize=${inMb(heapStat.total_available_size)} ` +
+                `usedHeapSize=${inMb(heapStat.used_heap_size)} ` +
+                `heapSizeLimit=${inMb(heapStat.heap_size_limit)}`;
+
+            logger('MemUsage').info(logMsg);
+        };
+
+        logger('MemUsage')
+            .info(`Scheduling memory reporting every 60 seconds in config.environment: ${environment}`);
+        const logMem = setInterval(doLogMem, 60000);
+    } else {
+        logger('MemUsage')
+            .info(`Not triggering regular memory logging for config.environment: ${environment}`);
+    }
 
     return {app, http};
 };
