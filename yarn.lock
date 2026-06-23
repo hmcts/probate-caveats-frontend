@@ -10923,10 +10923,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"properties-file@npm:4.0.0":
-  version: 4.0.0
-  resolution: "properties-file@npm:4.0.0"
-  checksum: 10c0/e53aadedea3b7cbe13689671e3322ec86144eabea3fc12b67c244c52bebd5006faeff8dd72cab728aebbdfd07dafe0f38e0b6bb5f76c6d8899e6c570744d1152
+"properties-file@npm:5.0.5":
+  version: 5.0.5
+  resolution: "properties-file@npm:5.0.5"
+  checksum: 10c0/168842b2cb6360ad300ff14f47a671bc0c9d8a60605c998080fdb32011b061f665c70ab099ba6a22e864b78affdf995f95c4f6ee6bdb9fede0954c957560171b
   languageName: node
   linkType: hard
 
@@ -12259,23 +12259,23 @@ __metadata:
   linkType: hard
 
 "sonarqube-scanner@npm:^4.3.6":
-  version: 4.3.6
-  resolution: "sonarqube-scanner@npm:4.3.6"
+  version: 4.3.8
+  resolution: "sonarqube-scanner@npm:4.3.8"
   dependencies:
     adm-zip: "npm:0.5.17"
-    axios: "npm:1.15.0"
+    axios: "npm:1.17.0"
     commander: "npm:14.0.3"
     hpagent: "npm:1.2.0"
     node-forge: "npm:1.4.0"
-    properties-file: "npm:4.0.0"
+    properties-file: "npm:5.0.5"
     proxy-from-env: "npm:2.1.0"
-    semver: "npm:7.7.4"
+    semver: "npm:7.8.4"
     slugify: "npm:1.6.9"
-    tar-stream: "npm:3.1.8"
+    tar-stream: "npm:3.2.0"
   bin:
     sonar: bin/sonar-scanner.js
     sonar-scanner: bin/sonar-scanner.js
-  checksum: 10c0/9da64f5f34a0124f149824368311b93e04e3ffde5ef63e45bddf1c6cb8cfd00f6e554cc176bbc39088308b5f383bf28e2cc66acc49d3d715d5417ed44ec3e860
+  checksum: 10c0/014e71f877cb25da41657b6ee366b9f1cc182672a81f72d5bbeb4473428021a7deaee193f915e6616778332bf99e6bc5370d357fc13e5c0f9198737036b6848e
   languageName: node
   linkType: hard
 
@@ -12816,7 +12816,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tar-stream@npm:3.1.8, tar-stream@npm:^3.0.0, tar-stream@npm:^3.1.5":
+"tar-stream@npm:3.2.0":
+  version: 3.2.0
+  resolution: "tar-stream@npm:3.2.0"
+  dependencies:
+    b4a: "npm:^1.6.4"
+    bare-fs: "npm:^4.5.5"
+    fast-fifo: "npm:^1.2.0"
+    streamx: "npm:^2.15.0"
+  checksum: 10c0/8a06c915f93c9b0906e79867e36a9cfe197da4d41b72e89ec0de99577ae755505d14815c1346b70c2410aa09d3145c3e3af2ff5802b6af84990cdd6c60dbb997
+  languageName: node
+  linkType: hard
+
+"tar-stream@npm:^3.0.0, tar-stream@npm:^3.1.5":
   version: 3.1.8
   resolution: "tar-stream@npm:3.1.8"
   dependencies:
