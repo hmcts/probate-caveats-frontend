@@ -33,4 +33,26 @@ describe('Sanitize.sanitizeInput', () => {
 
         expect(sanitized).to.deep.equal({});
     });
+
+    it('should return an empty object when passed a non object', () => {
+        const input = 'hello';
+        const sanitized = sanitizeInput(input);
+
+        expect(sanitized).to.deep.equal({});
+    });
+
+    it('should return arrays without processing', () => {
+        const input = ['hello', {}];
+        const sanitized = sanitizeInput(input);
+
+        expect(sanitized).to.equal(input);
+    });
+
+    it('should return null if passed', () => {
+        const input = null;
+        const sanitized = sanitizeInput(input);
+
+        // eslint-disable-next-line no-unused-expressions
+        expect(sanitized).to.be.null;
+    });
 });
