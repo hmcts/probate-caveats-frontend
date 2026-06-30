@@ -41,12 +41,18 @@ class PostcodeLookup {
                 });
             })
             .catch(err => {
-                if (err.response?.status === 401) {
+                const status = err.response?.status;
+                const isTimeout = err.code === 'ECONNABORTED';
+                if (status === 401) {
                     logError('Postcode lookup token is invalid', err);
+                    throw new Error('systemError');
+                } else if (status >= 500 || isTimeout) {
+                    logError('Postcode lookup service outage/timeout', err);
+                    throw new Error('systemError');
                 } else {
                     logError('Postcode lookup service error', err);
+                    throw new Error('systemError');
                 }
-                return [];
             });
     }
 }

@@ -3,6 +3,7 @@
     "postcode": {
       "required": "Nodwch god post",
       "invalid": "Nodwch god post dilys",
+      "systemError": "The postcode lookup service is currently experiencing issues. Please try again later.",
       "noAddresses": "Nodwch god post dilys"
     }
   }

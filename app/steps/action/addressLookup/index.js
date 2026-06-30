@@ -47,7 +47,7 @@ class AddressLookup extends ValidationStep {
                 // eslint-disable-next-line no-unused-vars
             } catch (e) {
                 referrerData.addressFound = 'false';
-                referrerData.errors = [FieldError('postcode', 'invalid', this.resourcePath, this.generateContent(ctx, {}, session.language), session.language)];
+                referrerData.errors = [FieldError('postcode', e.message, this.resourcePath, this.generateContent(ctx, {}, session.language), session.language)];
             }
         } else {
             referrerData.errors = errors;
