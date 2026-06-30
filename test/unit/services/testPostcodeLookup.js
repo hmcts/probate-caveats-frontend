@@ -14,7 +14,6 @@ describe('PostcodeLookup', () => {
         config.services.postcode.url= 'https://api.postcode-service.com';
         config.services.postcode.token = 'mock-token';
         axiosGetStub = sinon.stub(axios, 'get');
-
         postcodeLookup = new PostcodeLookup();
     });
 
@@ -76,12 +75,65 @@ describe('PostcodeLookup', () => {
             expect(result).to.be.an('array').and.have.lengthOf(0);
         });
 
-        it('should catch errors, log them, and return an empty array if the axios call rejects', async () => {
-            const mockError = new Error('Network Error');
-            axiosGetStub.rejects(mockError);
-
-            const result = await postcodeLookup.get(samplePostcode);
-            expect(result).to.be.an('array').and.have.lengthOf(0);
+        it('throws a systemError when the token is invalid (401)', async () => {
+            const mockErrorResponse = {status: 401};
+            axiosGetStub.rejects(mockErrorResponse);
+            try {
+                await postcodeLookup.get('SW1A');
+                expect.fail('Expected error to be thrown');
+            } catch (err) {
+                expect(err).to.be.instanceOf(Error);
+                expect(err.message).to.equal('systemError');
+            }
         });
+
+        it('should throw systemError when service returns 500', async () => {
+            const mockErrorResponse = {status: 500};
+            axiosGetStub.rejects(mockErrorResponse);
+            try {
+                await postcodeLookup.get('SW1A');
+                expect.fail('Expected error to be thrown');
+            } catch (err) {
+                expect(err).to.be.instanceOf(Error);
+                expect(err.message).to.equal('systemError');
+            }
+        });
+
+        it('should throw systemError when service returns 503', async () => {
+            const mockErrorResponse = {status: 503};
+            axiosGetStub.rejects(mockErrorResponse);
+            try {
+                await postcodeLookup.get('SW1A');
+                expect.fail('Expected error to be thrown');
+            } catch (err) {
+                expect(err).to.be.instanceOf(Error);
+                expect(err.message).to.equal('systemError');
+            }
+        });
+
+        it('should throw systemError on timeout', async () => {
+            const mockErrorResponse = {code: 'ECONNABORTED'};
+            axiosGetStub.rejects(mockErrorResponse);
+            try {
+                await postcodeLookup.get('SW1A');
+                expect.fail('Expected error to be thrown');
+            } catch (err) {
+                expect(err).to.be.instanceOf(Error);
+                expect(err.message).to.equal('systemError');
+            }
+        });
+
+        it('should throw systemError when service returns 400', async () => {
+            const mockErrorResponse = {status: 400};
+            axiosGetStub.rejects(mockErrorResponse);
+            try {
+                await postcodeLookup.get('SW1A');
+                expect.fail('Expected error to be thrown');
+            } catch (err) {
+                expect(err).to.be.instanceOf(Error);
+                expect(err.message).to.equal('systemError');
+            }
+        });
+
     });
 });
