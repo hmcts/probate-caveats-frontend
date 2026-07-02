@@ -2,7 +2,7 @@
 
 const {isEmpty} = require('lodash');
 const ValidationStep = require('app/core/steps/ValidationStep');
-const services = require('app/components/services');
+const PostcodeLookup = require('app/services/PostcodeLookup');
 const stringUtils = require('app/components/string-utils');
 const ActionStepRunner = require('app/core/runners/ActionStepRunner');
 const FieldError = require('app/components/error');
@@ -28,7 +28,8 @@ class AddressLookup extends ValidationStep {
 
         if (isEmpty(errors)) {
             try {
-                const addresses = yield services.findAddress(ctx.postcode);
+                const postcodeLookup = new PostcodeLookup();
+                const addresses = yield postcodeLookup.get(ctx.postcode);
                 if (!isEmpty(addresses)) {
                     referrerData.addresses = addresses;
                     referrerData.addressFound = 'true';
@@ -46,7 +47,7 @@ class AddressLookup extends ValidationStep {
                 // eslint-disable-next-line no-unused-vars
             } catch (e) {
                 referrerData.addressFound = 'false';
-                referrerData.errors = [FieldError('postcode', 'invalid', this.resourcePath, this.generateContent(ctx, {}, session.language), session.language)];
+                referrerData.errors = [FieldError('postcode', e.message, this.resourcePath, this.generateContent(ctx, {}, session.language), session.language)];
             }
         } else {
             referrerData.errors = errors;

@@ -3,8 +3,7 @@
 const initSteps = require('app/core/initSteps');
 const {assert, expect} = require('chai');
 const sinon = require('sinon');
-const when = require('when');
-const services = require('app/components/services');
+const PostcodeLookup = require('app/services/PostcodeLookup');
 const co = require('co');
 
 describe('AddressLookup', function () {
@@ -12,14 +11,13 @@ describe('AddressLookup', function () {
     const AddressLookup = steps.AddressLookup;
 
     describe('handlePost', function () {
-        let findAddressStub;
-
+        let postcodeLookupStub;
         beforeEach(function () {
-            findAddressStub = sinon.stub(services, 'findAddress');
+            postcodeLookupStub = sinon.stub(PostcodeLookup.prototype, 'get');
         });
 
         afterEach(function () {
-            findAddressStub.restore();
+            postcodeLookupStub.restore();
         });
 
         it('Adds addresses to formdata', function (done) {
@@ -31,8 +29,7 @@ describe('AddressLookup', function () {
                 formattedAddress: 'MINISTRY OF JUSTICE,SEVENTH FLOOR,102 PETTY FRANCE,LONDON,SW1H 9AJ',
                 postcode: 'SW1H 9AJ'
             }];
-            findAddressStub.returns(when(expectedResponse));
-
+            postcodeLookupStub.resolves(expectedResponse);
             let ctx = {
                 referrer: 'ApplicantAddress',
                 postcode: 'SW1H 9AJ'
@@ -50,7 +47,7 @@ describe('AddressLookup', function () {
 
         it('Creates an error if address not found', function (done) {
             const expectedResponse = {};
-            findAddressStub.returns(when(expectedResponse));
+            postcodeLookupStub.resolves(expectedResponse);
 
             const session = {
                 language: 'en'
@@ -75,7 +72,7 @@ describe('AddressLookup', function () {
 
         it('Returns the errors in referrerData if errors present', function (done) {
             const expectedResponse = {};
-            findAddressStub.returns(when(expectedResponse));
+            postcodeLookupStub.resolves(expectedResponse);
 
             const session = {
                 language: 'en'
