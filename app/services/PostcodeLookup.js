@@ -10,7 +10,12 @@ const logInfo = (message, applicationId = 'Init') => logger(applicationId).info(
 class PostcodeLookup {
 
     get(postcode) {
-        logInfo(`PostcodeLookup.get postcode: ${postcode}`);
+        const normalisedPostcode = postcode?.trim();
+        if (!normalisedPostcode) {
+            logInfo('No postcode supplied, returning empty list');
+            return Promise.resolve([]);
+        }
+        logInfo('PostcodeLookup.get postcode: performing postcode lookup');
         return axios.get('postcode', {
             baseURL: config.services.postcode.url,
             headers: {
@@ -19,7 +24,7 @@ class PostcodeLookup {
             params: {
                 key: config.services.postcode.token,
                 lr: 'EN',
-                postcode,
+                postcode: normalisedPostcode,
             },
         })
             .then(response => {
@@ -42,17 +47,21 @@ class PostcodeLookup {
             })
             .catch(err => {
                 const status = err.response?.status;
-                const isTimeout = err.code === 'ECONNABORTED';
-                if (status === 401) {
-                    logError('Postcode lookup token is invalid', err);
-                    throw new Error('systemError');
-                } else if (status >= 500 || isTimeout) {
-                    logError('Postcode lookup service outage/timeout', err);
-                    throw new Error('systemError');
-                } else {
-                    logError('Postcode lookup service error', err);
+                const isTimeout = ['ECONNABORTED', 'ETIMEDOUT'].includes(err.code);
+                if (status === 400 || status === 404) {
+                    logInfo(`Postcode lookup rejected invalid input, returning empty list. Status: ${status}`);
+                    return [];
+                }
+                if (status === 401 || status === 403) {
+                    logError(`Postcode lookup token is invalid. Status: ${status}; error: ${err.message}`);
                     throw new Error('systemError');
                 }
+                if (status >= 500 || isTimeout) {
+                    logError(`Postcode lookup service outage/timeout. Status: ${status}; error: ${err.message}`);
+                    throw new Error('systemError');
+                }
+                logError(`Postcode lookup service error. Status: ${status}; error: ${err.message}`);
+                throw new Error('systemError');
             });
     }
 }
