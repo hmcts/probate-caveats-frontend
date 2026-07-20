@@ -955,15 +955,15 @@ __metadata:
   linkType: hard
 
 "@hmcts/properties-volume@npm:^1.4.0":
-  version: 1.4.0
-  resolution: "@hmcts/properties-volume@npm:1.4.0"
+  version: 1.4.1
+  resolution: "@hmcts/properties-volume@npm:1.4.1"
   dependencies:
     "@azure/identity": "npm:^4.13.0"
     "@azure/keyvault-secrets": "npm:^4.10.0"
     "@hmcts/nodejs-logging": "npm:^4.0.4"
     js-yaml: "npm:^4.1.1"
     lodash: "npm:^4.18.0"
-  checksum: 10c0/9d93b327e7ad40a89898696fe673ace2648a8d988dbca119a03e47ef516e24d23d169c40c4ddd203ed6f12b35ec20d6c89103edee5d68c144226d83973d12482
+  checksum: 10c0/0e707d94afd87a24cb92840e752fa7380d64fc0c8143b5f98c3cca2c9606cb24b52e4feda3391ee192abd6d9043284ca82a82974970dc2a051cdbfb32db81119
   languageName: node
   linkType: hard
 
