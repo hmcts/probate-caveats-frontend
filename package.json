@@ -57,7 +57,6 @@
   "dependencies": {
     "@hmcts/nodejs-healthcheck": "^1.8.6",
     "@hmcts/nodejs-logging": "^4.0.4",
-    "@hmcts/os-places-client": "^1.1.7",
     "@hmcts/properties-volume": "^1.4.0",
     "@launchdarkly/node-server-sdk": "^9.11.3",
     "ajv": "^6.15.0",
