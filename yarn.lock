@@ -2545,10 +2545,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"adm-zip@npm:0.5.17":
-  version: 0.5.17
-  resolution: "adm-zip@npm:0.5.17"
-  checksum: 10c0/29b8f2a1070fc540ad9a45b13d0ceffd141d78e5a4501f102e978f0256f8290326009ccd3411213e90f3a810c830b39453548638879b3295ddc3814c20a8307b
+"adm-zip@npm:^0.6.0":
+  version: 0.6.0
+  resolution: "adm-zip@npm:0.6.0"
+  checksum: 10c0/440f37590c62255226f1db4cb1a5a618879347f5106ad5b9a24c67c20f9a54bd5b4efcd2b35af858e39c7885d05f4bd35f4c2f42378c98d13f779be380bc9ae4
   languageName: node
   linkType: hard
 
@@ -12021,8 +12021,8 @@ __metadata:
   linkType: hard
 
 "sonarqube-scanner@npm:^4.3.8":
-  version: 4.3.8
-  resolution: "sonarqube-scanner@npm:4.3.8"
+  version: 4.4.0
+  resolution: "sonarqube-scanner@npm:4.4.0"
   dependencies:
     adm-zip: "npm:0.5.17"
     axios: "npm:1.17.0"
@@ -12037,7 +12037,8 @@ __metadata:
   bin:
     sonar: bin/sonar-scanner.js
     sonar-scanner: bin/sonar-scanner.js
-  checksum: 10c0/014e71f877cb25da41657b6ee366b9f1cc182672a81f72d5bbeb4473428021a7deaee193f915e6616778332bf99e6bc5370d357fc13e5c0f9198737036b6848e
+    sonar-scanner-npm: bin/sonar-scanner.js
+  checksum: 10c0/3fb4781b590f1effe4e68d51e2b606aefb23027b3e48ae335792d6be98d017b97c10c7508422c535d7938e1058fdeacdbb11944efc8765c786f8069f10674d2e
   languageName: node
   linkType: hard
 
