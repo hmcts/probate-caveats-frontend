@@ -99,7 +99,7 @@
     "validator": "^13.15.35"
   },
   "devDependencies": {
-    "@pact-foundation/pact": "^15.0.1",
+    "@pact-foundation/pact": "^17.0.0",
     "@pact-foundation/pact-node": "^10.18.0",
     "@playwright/test": "^1.61.1",
     "@stylistic/eslint-plugin": "^5.10.0",
