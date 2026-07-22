@@ -954,7 +954,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hmcts/properties-volume@npm:^1.4.0":
+"@hmcts/properties-volume@npm:^1.4.1":
   version: 1.4.1
   resolution: "@hmcts/properties-volume@npm:1.4.1"
   dependencies:
@@ -1229,7 +1229,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@launchdarkly/node-server-sdk@npm:^9.11.3":
+"@launchdarkly/node-server-sdk@npm:^9.12.1":
   version: 9.12.1
   resolution: "@launchdarkly/node-server-sdk@npm:9.12.1"
   dependencies:
@@ -2209,7 +2209,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^24.13.2":
+"@types/node@npm:^24.13.3":
   version: 24.13.3
   resolution: "@types/node@npm:24.13.3"
   dependencies:
@@ -3212,8 +3212,8 @@ __metadata:
   linkType: hard
 
 "body-parser@npm:^1.20.3, body-parser@npm:~1.20.5":
-  version: 1.20.5
-  resolution: "body-parser@npm:1.20.5"
+  version: 1.20.6
+  resolution: "body-parser@npm:1.20.6"
   dependencies:
     bytes: "npm:~3.1.2"
     content-type: "npm:~1.0.5"
@@ -3227,7 +3227,7 @@ __metadata:
     raw-body: "npm:~2.5.3"
     type-is: "npm:~1.6.18"
     unpipe: "npm:~1.0.0"
-  checksum: 10c0/ad777ca5e4711eae253c93f50fdc4608c60b76a9710d79e5e5b84581c76691e6ad21ecc9158986d9ea2b365df73e403ca33c27a8bccc1a7cfc2ccc248548118d
+  checksum: 10c0/ad477209f1e714c41fa892a7d2fe22e10b23262103cc25cc6492dd3e6f7869cd2d8b00928b543a1a14d3c3663432452a192efd00422fad6f3687b0e38f7e3b07
   languageName: node
   linkType: hard
 
@@ -5387,7 +5387,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-mocha@npm:^11.2.0":
+"eslint-plugin-mocha@npm:^11.3.0":
   version: 11.3.0
   resolution: "eslint-plugin-mocha@npm:11.3.0"
   dependencies:
@@ -5461,7 +5461,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^10.6.0":
+"eslint@npm:^10.7.0":
   version: 10.7.0
   resolution: "eslint@npm:10.7.0"
   dependencies:
@@ -6799,7 +6799,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"helmet@npm:^8.2.0":
+"helmet@npm:^8.3.0":
   version: 8.3.0
   resolution: "helmet@npm:8.3.0"
   checksum: 10c0/69f33ca716ed3ce34f1f2f48ce8618846dfa9c89e3a15d6bccefc882541e8b028517448c6b0e7450792fd23e5580bfe6d410d4f22bedc2a94f6b1188817a059a
@@ -7022,7 +7022,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"i18next@npm:^26.3.4":
+"i18next@npm:^26.3.6":
   version: 26.3.6
   resolution: "i18next@npm:26.3.6"
   peerDependencies:
@@ -10542,13 +10542,13 @@ __metadata:
   dependencies:
     "@hmcts/nodejs-healthcheck": "npm:^1.8.6"
     "@hmcts/nodejs-logging": "npm:^4.0.4"
-    "@hmcts/properties-volume": "npm:^1.4.0"
-    "@launchdarkly/node-server-sdk": "npm:^9.11.3"
+    "@hmcts/properties-volume": "npm:^1.4.1"
+    "@launchdarkly/node-server-sdk": "npm:^9.12.1"
     "@pact-foundation/pact": "npm:^15.0.1"
     "@pact-foundation/pact-node": "npm:^10.18.0"
     "@playwright/test": "npm:^1.61.1"
     "@stylistic/eslint-plugin": "npm:^5.10.0"
-    "@types/node": "npm:^24.13.2"
+    "@types/node": "npm:^24.13.3"
     ajv: "npm:^6.15.0"
     applicationinsights: "npm:^2.9.8"
     axios: "npm:^1.18.1"
@@ -10566,9 +10566,9 @@ __metadata:
     dateformat: "npm:^3.0.3"
     debug: "npm:^4.4.3"
     email-validator: "npm:^2.0.4"
-    eslint: "npm:^10.6.0"
+    eslint: "npm:^10.7.0"
     eslint-plugin-jsdoc: "npm:^62.9.0"
-    eslint-plugin-mocha: "npm:^11.2.0"
+    eslint-plugin-mocha: "npm:^11.3.0"
     eslint-plugin-n: "npm:^17.24.0"
     express: "npm:^4.22.2"
     express-session: "npm:^1.19.0"
@@ -10577,13 +10577,13 @@ __metadata:
     get-port: "npm:^7.2.0"
     git-rev-sync: "npm:^3.0.2"
     govuk-frontend: "npm:^5.14.0"
-    helmet: "npm:^8.2.0"
+    helmet: "npm:^8.3.0"
     hpkp: "npm:^3.0.0"
     https-proxy-agent: "npm:^9.1.0"
-    i18next: "npm:^26.3.4"
+    i18next: "npm:^26.3.6"
     if-env: "npm:^1.0.4"
     ioredis: "npm:^5.11.1"
-    js-yaml: "npm:^5.1.0"
+    js-yaml: "npm:^5.2.1"
     lodash: "npm:^4.18.1"
     mocha: "npm:^11.7.6"
     mocha-junit-reporter: "npm:^2.2.1"
@@ -10611,7 +10611,7 @@ __metadata:
     sinon: "npm:^22.0.0"
     sinon-chai: "npm:^3.7.0"
     sonar-scanner: "npm:^3.1.0"
-    sonarqube-scanner: "npm:^4.3.8"
+    sonarqube-scanner: "npm:^4.4.0"
     superagent: "npm:^10.3.0"
     supertest: "npm:^7.0.0"
     uuid: "npm:^11.1.1"
@@ -12020,7 +12020,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sonarqube-scanner@npm:^4.3.8":
+"sonarqube-scanner@npm:^4.4.0":
   version: 4.4.0
   resolution: "sonarqube-scanner@npm:4.4.0"
   dependencies:
