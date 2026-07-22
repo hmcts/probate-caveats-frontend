@@ -130,7 +130,7 @@
     "sinon": "^22.0.0",
     "sinon-chai": "^3.7.0",
     "sonar-scanner": "^3.1.0",
-    "sonarqube-scanner": "^4.4.0",
+    "sonarqube-scanner": "^5.0.0",
     "superagent": "^10.3.0",
     "supertest": "^7.0.0",
     "webdriverio": "^9.29.1",
