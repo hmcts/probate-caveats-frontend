@@ -2343,18 +2343,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@wdio/config@npm:9.29.1":
-  version: 9.29.1
-  resolution: "@wdio/config@npm:9.29.1"
+"@wdio/config@npm:9.30.0":
+  version: 9.30.0
+  resolution: "@wdio/config@npm:9.30.0"
   dependencies:
     "@wdio/logger": "npm:9.29.1"
     "@wdio/types": "npm:9.29.1"
-    "@wdio/utils": "npm:9.29.1"
+    "@wdio/utils": "npm:9.30.0"
     deepmerge-ts: "npm:^7.0.3"
     glob: "npm:^10.2.2"
     import-meta-resolve: "npm:^4.0.0"
     jiti: "npm:^2.6.1"
-  checksum: 10c0/898d05e45e14746194810e422fc22fc2d24cd51d88b31e2e779f86e2e46f9cf9b189834c8dd9645e48aafad133f4d5a3fe19784f2a63eef05ee57f38eb8d35b4
+  checksum: 10c0/083cb010f19b16199027f59709d749a67356be01cf9c406f84e098d1f2c01a32556f688617057300c3d0b8954a6746a9d2b831f53f2c941f2c08dd4a116032a3
   languageName: node
   linkType: hard
 
@@ -2371,10 +2371,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@wdio/protocols@npm:9.29.1":
-  version: 9.29.1
-  resolution: "@wdio/protocols@npm:9.29.1"
-  checksum: 10c0/c5528dcf380c5e644d580e75e1fb49ac00424dc33d7cab0459dcca066144e66c129a95fdaa56e933d4890ff80c96baaa01ddc41dfc797f7d6a972fadccc47c87
+"@wdio/protocols@npm:9.30.0":
+  version: 9.30.0
+  resolution: "@wdio/protocols@npm:9.30.0"
+  checksum: 10c0/1c8593cc6feede2cfab00580919612949b9bab23bceb2278fd99d9fca2e17b90ce65bedc1dc700fa5535d4f0d2cd79616e5fdd252157237e0e50bf179a370158
   languageName: node
   linkType: hard
 
@@ -2396,9 +2396,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@wdio/utils@npm:9.29.1":
-  version: 9.29.1
-  resolution: "@wdio/utils@npm:9.29.1"
+"@wdio/utils@npm:9.30.0":
+  version: 9.30.0
+  resolution: "@wdio/utils@npm:9.30.0"
   dependencies:
     "@puppeteer/browsers": "npm:^2.2.0"
     "@wdio/logger": "npm:9.29.1"
@@ -2406,7 +2406,7 @@ __metadata:
     decamelize: "npm:^6.0.0"
     deepmerge-ts: "npm:^7.0.3"
     edgedriver: "npm:^6.1.2"
-    geckodriver: "npm:^6.1.0"
+    geckodriver: "npm:^6.1.1"
     get-port: "npm:^7.0.0"
     import-meta-resolve: "npm:^4.0.0"
     locate-app: "npm:^2.2.24"
@@ -2414,7 +2414,7 @@ __metadata:
     safaridriver: "npm:^1.0.0"
     split2: "npm:^4.2.0"
     wait-port: "npm:^1.1.0"
-  checksum: 10c0/4b7bf540f7e9f8a12601f1002bdd9df06d1301ee7bd5da6e09cd4ae348f9c7fb551e261a5cde0134d4e159995e556eff4edbfd610ebcf6f73640eb3b70f92df2
+  checksum: 10c0/e63f5a7b8cead20fe132705fd7ff12f21900735c6aef8f626589b946176d1669d687e407f01b97ec9b6fd1f0e91f5cbaf2f217884a4af468a2fa0130a049af04
   languageName: node
   linkType: hard
 
@@ -6361,19 +6361,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"geckodriver@npm:^6.1.0":
-  version: 6.1.0
-  resolution: "geckodriver@npm:6.1.0"
+"geckodriver@npm:^6.1.1":
+  version: 6.1.1
+  resolution: "geckodriver@npm:6.1.1"
   dependencies:
     "@wdio/logger": "npm:^9.18.0"
     "@zip.js/zip.js": "npm:^2.8.11"
     decamelize: "npm:^6.0.1"
     http-proxy-agent: "npm:^7.0.2"
     https-proxy-agent: "npm:^7.0.6"
-    modern-tar: "npm:^0.7.2"
+    modern-tar: "npm:^0.7.3"
   bin:
     geckodriver: bin/geckodriver.js
-  checksum: 10c0/d7e28b02b40ee3af01a061f33382ef7874bc8d2a9a46fc0ce6209274b1c21c27f7297a0307b6ffd2af87f19f4e8d24c23ca99e03bfed16f9f170e30ffc3437f6
+  checksum: 10c0/036a961c6e352c09811fb173846e947957e6632a18ca678577fc48d6cb2b3cef8be894a6a80b9c36340ff82ddbd3873b059e0898a938e2fad7f5995fe05173fd
   languageName: node
   linkType: hard
 
@@ -9261,7 +9261,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"modern-tar@npm:^0.7.2, modern-tar@npm:^0.7.6":
+"modern-tar@npm:^0.7.3":
+  version: 0.7.7
+  resolution: "modern-tar@npm:0.7.7"
+  checksum: 10c0/5363f46514e2be5dc76726cd252bf8adde159268358bc21980b63d581d1072046bba51207455989ddcd3c794c42fc809c81737a15cb970a880868ad6e40299fb
+  languageName: node
+  linkType: hard
+
+"modern-tar@npm:^0.7.6":
   version: 0.7.6
   resolution: "modern-tar@npm:0.7.6"
   checksum: 10c0/1733590c67f31141a7efafd084d82f1da6818f20a7e6edc66623bf9e91b7451f4da079536e3e0e29b20947ea92219cba8d415cea19734edd15fe3bbd874b4846
@@ -13299,37 +13306,37 @@ __metadata:
   languageName: node
   linkType: hard
 
-"webdriver@npm:9.29.1":
-  version: 9.29.1
-  resolution: "webdriver@npm:9.29.1"
+"webdriver@npm:9.30.0":
+  version: 9.30.0
+  resolution: "webdriver@npm:9.30.0"
   dependencies:
     "@types/node": "npm:^20.1.0"
     "@types/ws": "npm:^8.5.3"
-    "@wdio/config": "npm:9.29.1"
+    "@wdio/config": "npm:9.30.0"
     "@wdio/logger": "npm:9.29.1"
-    "@wdio/protocols": "npm:9.29.1"
+    "@wdio/protocols": "npm:9.30.0"
     "@wdio/types": "npm:9.29.1"
-    "@wdio/utils": "npm:9.29.1"
+    "@wdio/utils": "npm:9.30.0"
     deepmerge-ts: "npm:^7.0.3"
     https-proxy-agent: "npm:^7.0.6"
-    undici: "npm:^6.21.3"
-    ws: "npm:^8.8.0"
-  checksum: 10c0/1103d7bef952acb4f7e2e2ee441fe28355cabc5cbf9b141a74a0e800db9da5ac56cecd0d14c9b9bb52c357dad5c2ab205a1b92a1a86b11e42fd7d266583e6c30
+    undici: "npm:^6.27.0"
+    ws: "npm:^8.21.0"
+  checksum: 10c0/93914e28d5c3c4627f7cfcc1b46718ed56627abe95f11b790be573b443e2982d9b409c39421e328041e2e7a5d7bf7fa9647a2718bffcf7eb72847dbd721a2214
   languageName: node
   linkType: hard
 
 "webdriverio@npm:^9.29.1":
-  version: 9.29.1
-  resolution: "webdriverio@npm:9.29.1"
+  version: 9.30.0
+  resolution: "webdriverio@npm:9.30.0"
   dependencies:
     "@types/node": "npm:^20.11.30"
     "@types/sinonjs__fake-timers": "npm:^8.1.5"
-    "@wdio/config": "npm:9.29.1"
+    "@wdio/config": "npm:9.30.0"
     "@wdio/logger": "npm:9.29.1"
-    "@wdio/protocols": "npm:9.29.1"
+    "@wdio/protocols": "npm:9.30.0"
     "@wdio/repl": "npm:9.16.2"
     "@wdio/types": "npm:9.29.1"
-    "@wdio/utils": "npm:9.29.1"
+    "@wdio/utils": "npm:9.30.0"
     archiver: "npm:^7.0.1"
     aria-query: "npm:^5.3.0"
     cheerio: "npm:^1.0.0-rc.12"
@@ -13346,13 +13353,13 @@ __metadata:
     rgb2hex: "npm:0.2.5"
     serialize-error: "npm:^12.0.0"
     urlpattern-polyfill: "npm:^10.0.0"
-    webdriver: "npm:9.29.1"
+    webdriver: "npm:9.30.0"
   peerDependencies:
     puppeteer-core: ">=22.x || <=24.x"
   peerDependenciesMeta:
     puppeteer-core:
       optional: true
-  checksum: 10c0/a4c46767a07b313a5e2adfeff5c546e90432ec4fe15f2cb82170b3c7a2f932f09797c8195bc81e3bc9221999ab8c6511627d8eeb8346a543e521df8704815de7
+  checksum: 10c0/6d62d64b77dacaa06b4ec1de638657abac65587d6ce6b31e06260dbdb55dad82235c2655d03f62411cfc3d8fcd1f5552b6ce3b063f4f679fbf781827679b1c53
   languageName: node
   linkType: hard
 
@@ -13670,7 +13677,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ws@npm:^8.21.0, ws@npm:^8.8.0":
+"ws@npm:^8.21.0":
   version: 8.21.0
   resolution: "ws@npm:8.21.0"
   peerDependencies:
