@@ -64,7 +64,7 @@
     "body-parser": "^2.3.0",
     "cheerio": "^1.2.0",
     "co": "^4.6.0",
-    "connect-redis": "^8.1.0",
+    "connect-redis": "^10.0.0",
     "cookie-parser": "^1.4.7",
     "csrf-sync": "^4.2.1",
     "dateformat": "^3.0.3",
