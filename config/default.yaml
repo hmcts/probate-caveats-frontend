@@ -13,9 +13,9 @@ featureToggles:
   ft_caveats_shutter: 'probate-caveats-fe-shutter'
   ft_pcq: 'probate-caveats-pcq'
   ft_pcq_token: 'probate-caveats-pcq-token'
-  ft_avaya_webchat: 'probate-avaya-webchat'
-  ft_use_new_webchat: 'probate-use-new-webchat'
-  appwideToggles: ['ft_avaya_webchat', 'ft_use_new_webchat']
+  ft_probate_fee_increase_2026 : 'probate-fee-increase-2026'
+  ft_enable_webchat: 'probate-caveat-enable-webchat'
+  appwideToggles: ['ft_enable_webchat']
 app:
   useHttps: 'false'
   port: '3000'
@@ -77,6 +77,7 @@ services:
       service: 'probate'
   postcode:
     name: 'Postcode Lookup Service'
+    url: 'https://api.os.uk/search/places/v1'
     token: ''
   equalityAndDiversity:
     name: 'Equality and Diversity Service'
@@ -103,9 +104,6 @@ payloadVersion: '4.1.0'
 hostname: 'localhost:3000'
 enableTracking: 'true'
 webchat:
-  avayaUrl: 'webchat.pp.ctsc.hmcts.net'
-  avayaClientUrl: 'webchat-client.pp.ctsc.hmcts.net'
-  avayaService: 'Testing'
   kerv:
     deploymentId:
       en: 'kerv-deployment-en'
@@ -120,7 +118,6 @@ links:
   privacy: '/caveats/privacy-policy'
   terms: '/caveats/terms-conditions'
   contact: '/caveats/contact-us'
-  avaya-webchat: '/caveats/avaya-webchat'
   callCharges: 'https://www.gov.uk/call-charges'
   howToManageCookies: 'https://www.aboutcookies.org'
   googlePrivacyPolicy: 'https://www.google.com/policies/privacy/partners/'
@@ -157,6 +154,7 @@ utils:
     timeout: 30000
 payment:
   applicationFee: 3
+  applicationFee2026: 4
   applicationFeeThreshold: 5000
   serviceId: 'PROBATE'
   siteId: 'P223'
@@ -178,8 +176,7 @@ whitelistedPagesForStartApplyPageRedirect: [
   '/terms-conditions',
   '/contact-us',
   '/offline',
-  '/health/liveness',
-  '/avaya-webchat'
+  '/health/liveness'
 ]
 whiteListedPagesForThankyou: [
   '/public',
@@ -190,8 +187,7 @@ whiteListedPagesForThankyou: [
   '/contact-us',
   '/offline',
   '/health/liveness',
-  '/thank-you',
-  '/avaya-webchat'
+  '/thank-you'
 ]
 whiteListedPagesForPaymentBreakdown: [
   '/public',
@@ -204,7 +200,6 @@ whiteListedPagesForPaymentBreakdown: [
   '/health/liveness',
   '/payment-breakdown',
   '/payment-status',
-  '/thank-you',
-  '/avaya-webchat'
+  '/thank-you'
 ]
 

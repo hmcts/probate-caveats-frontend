@@ -1,11 +1,15 @@
 nodejs:
   image: ${IMAGE_NAME}
   ingressHost: ${SERVICE_NAME}.preview.platform.hmcts.net
+  devcpuRequests: 10m
+  devcpuLimits: 100m
+  devmemoryRequests: 256Mi
+  devmemoryLimits: 512Mi
   autoscaling:
     enabled: false
   environment:
     REDIS_USE_TLS: false
-    REDIS_HOST: ${SERVICE_NAME}-redis-master
+    REDIS_HOST: ${SERVICE_NAME}-hmcts-redis-master
     REDIS_PORT: 6379
     LAUNCHDARKLY_ENABLED: false
     EQUALITY_URL: https://pcq.aat.platform.hmcts.net
@@ -43,12 +47,6 @@ nodejs:
           alias: launchdarklyUserkeyCaveatFrontend
         - name: pcq-token-key
           alias: pcq-token-key
-        - name: webchat-avaya-url
-          alias: webchat-avaya-url
-        - name: webchat-avaya-client-url
-          alias: webchat-avaya-client-url
-        - name: webchat-avaya-service
-          alias: webchat-avaya-service
         - name: webchat-kerv-deployment-en
           alias: webchat-kerv-deployment-en
         - name: webchat-kerv-deployment-cy
@@ -62,15 +60,27 @@ nodejs:
         - name: webchat-kerv-api-key
           alias: webchat-kerv-api-key
 
-idam-pr:
-  enabled: true
-  redirect_uris:
-    Probate:
-      - https://${SERVICE_FQDN}/oauth2/callback
-
-redis:
+hmcts-redis:
   enabled: true
   serviceAccount:
     create: false
     name: "probate"
     automountServiceAccountToken: true
+  architecture: standalone
+  image:
+    registry: hmctsprod.azurecr.io
+    repository: imported/redis
+    tag: 8.2.1
+  devcpuRequests: 50m
+  devcpuLimits: 200m
+  devmemoryRequests: 64Mi
+  devmemoryLimits: 256Mi
+  master:
+    persistence:
+      enabled: false
+  auth:
+    enabled: false
+
+global:
+  security:
+    allowInsecureImages: true

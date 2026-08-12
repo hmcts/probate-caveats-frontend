@@ -20,9 +20,6 @@ const setupSecrets = () => {
         setSecret('secrets.probate.launchdarkly-key', 'featureToggles.launchDarklyKey');
         setSecret('secrets.probate.launchdarklyUserkeyCaveatFrontend', 'featureToggles.launchDarklyUser.key');
         setSecret('secrets.probate.pcq-token-key', 'services.equalityAndDiversity.tokenKey');
-        setSecret('secrets.probate.webchat-avaya-url', 'webchat.avayaUrl');
-        setSecret('secrets.probate.webchat-avaya-client-url', 'webchat.avayaClientUrl');
-        setSecret('secrets.probate.webchat-avaya-service', 'webchat.avayaService');
         setSecret('secrets.probate.webchat-kerv-deployment-en', 'webchat.kerv.deploymentId.en');
         setSecret('secrets.probate.webchat-kerv-deployment-cy', 'webchat.kerv.deploymentId.cy');
         setSecret('secrets.probate.webchat-kerv-genesys-base-url', 'webchat.kerv.genesysBaseUrl');

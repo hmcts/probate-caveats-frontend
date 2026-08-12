@@ -39,24 +39,11 @@ router.get('/', (req, res) => {
     res.redirect(`${config.app.basePath}/start-apply`);
 });
 
-const allSteps = {
-    'en': initSteps([`${__dirname}/steps/action/`, `${__dirname}/steps/ui`], 'en'),
-    'cy': initSteps([`${__dirname}/steps/action/`, `${__dirname}/steps/ui`], 'cy')
-};
-
 router.use((req, res, next) => {
-    const steps = allSteps[req.session.language];
-
-    Object.entries(steps).forEach(([, step]) => {
-        router.get(step.constructor.getUrl(), step.runner().GET(step));
-        router.post(step.constructor.getUrl(), step.runner().POST(step));
-    });
-
     res.locals.session = req.session;
     res.locals.pageUrl = req.url;
     next();
 });
-
 router.use(documentDownloads);
 router.use(paymentFees);
 
@@ -80,6 +67,22 @@ router.get('/*', (req, res, next) => {
     } else {
         next();
     }
+});
+
+const allSteps = {
+    'en': initSteps([`${__dirname}/steps/action/`, `${__dirname}/steps/ui`], 'en'),
+    'cy': initSteps([`${__dirname}/steps/action/`, `${__dirname}/steps/ui`], 'cy')
+};
+const allPageUrls = [];
+Object.entries(allSteps.en).forEach(([, step]) => {
+    const stepUrl = step.constructor.getUrl();
+    const cleanStepUrl = FormatUrl.getCleanPageUrl(stepUrl, 1);
+    if (!allPageUrls.includes(cleanStepUrl)) {
+        allPageUrls.push(cleanStepUrl);
+    }
+
+    router.get(stepUrl, step.runner().GET(step));
+    router.post(stepUrl, step.runner().POST(step));
 });
 
 module.exports = router;

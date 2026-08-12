@@ -83,6 +83,7 @@ class JSWait extends codecept_helper {
 
         try {
             await helper.waitForElement(selector, 3);
+            // eslint-disable-next-line no-unused-vars
         } catch (e) {
             console.log('Element Not Found:', selector);
         }

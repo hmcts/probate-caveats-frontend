@@ -1,5 +1,6 @@
 {% if globals.enableTracking == "true" %}
     <!-- Data Layer -->
+    <meta name="gtm-one-time" content="{{globals.nonce}}">
     <script nonce="{{ globals.nonce }}">
         window.dataLayer = window.dataLayer || [];
       const userPreferenceCookie = document.cookie.match(new RegExp('(^| )' + 'cm-user-preferences' + '=([^;]+)'));

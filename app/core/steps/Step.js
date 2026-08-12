@@ -1,6 +1,6 @@
 'use strict';
 
-const {mapValues, map, reduce, escape, isObject, isEmpty, merge} = require('lodash');
+const {mapValues, map, reduce, escape, isObject, isEmpty, assign} = require('lodash');
 const UIStepRunner = require('app/core/runners/UIStepRunner');
 const journeyMap = require('app/core/journeyMap');
 const mapErrorsToFields = require('app/components/error').mapErrorsToFields;
@@ -52,13 +52,16 @@ class Step {
         const session = req.session;
         let ctx = {};
         const safeSectionData = sanitizeInput(session.form[this.section] || {});
-        ctx = merge(ctx, safeSectionData);
+        ctx = assign(ctx, safeSectionData);
         ctx.sessionID = req.sessionID;
         ctx.language = req.session.language ? req.session.language : 'en';
-        ctx = merge(ctx, sanitizeInput(req.body));
+        ctx = assign(ctx, sanitizeInput(req.body));
         ctx = FeatureToggle.appwideToggles(req, ctx, config.featureToggles.appwideToggles);
-        ctx.isAvayaWebChatEnabled = ctx.featureToggles && ctx.featureToggles.ft_avaya_webchat && ctx.featureToggles.ft_avaya_webchat === 'true';
-        ctx.useNewWebChat = ctx.featureToggles && ctx.featureToggles.ft_use_new_webchat && ctx.featureToggles.ft_use_new_webchat === 'true';
+
+        const isFTEnabled = (key) => {
+            return ctx.featureToggles?.[key] === 'true';
+        };
+        ctx.isWebChatEnabled = isFTEnabled('ft_enable_webchat');
 
         return ctx;
     }
@@ -84,7 +87,7 @@ class Step {
             throw new ReferenceError(`Step ${this.name} has no content.json in its resource folder`);
         }
         const safeFormData = sanitizeInput(formdata);
-        const contentCtx = merge({}, safeFormData, ctx, this.commonProps);
+        const contentCtx = assign({}, safeFormData, ctx, this.commonProps);
         this.i18next.changeLanguage(language);
 
         return mapValues(this.content, (value, key) => this.i18next.t(`${this.resourcePath.replace(/\//g, '.')}.${key}`, contentCtx));

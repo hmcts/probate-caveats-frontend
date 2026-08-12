@@ -1,6 +1,6 @@
 'use strict';
 
-const {filter, isEqual, map, uniqWith, merge} = require('lodash');
+const {filter, isEqual, map, uniqWith, assign} = require('lodash');
 const i18next = require('i18next');
 const {sanitizeInput} = require('../utils/Sanitize');
 const init18next = require('app/core/initSteps').initI18Next;
@@ -23,7 +23,7 @@ const FieldError = (param, keyword, resourcePath, contentCtx = {}, language = 'e
 
 const generateErrors = (errs, ctx, formdata, errorPath, language = 'en') => {
     i18next.changeLanguage(language);
-    const contentCtx = merge({}, sanitizeInput(formdata), ctx, {});
+    const contentCtx = assign({}, sanitizeInput(formdata), sanitizeInput(ctx), {});
     if (errs.find((e) => e.keyword === 'oneOf')) {
         return [FieldError('crossField', 'oneOf', errorPath, contentCtx, language)];
     }
@@ -41,6 +41,7 @@ const generateErrors = (errs, ctx, formdata, errorPath, language = 'en') => {
 
             return FieldError(param, 'invalid', errorPath, ctx, language);
 
+            // eslint-disable-next-line no-unused-vars
         } catch (e) {
             throw new ReferenceError(`Error messages have not been defined for Step in content.json for errors.${param}`);
         }

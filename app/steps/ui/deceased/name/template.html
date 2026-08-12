@@ -22,9 +22,6 @@
             name: "firstName",
             value: fields.firstName.value | safe,
             errorMessage: { text: fields.firstName.errorMessage | safe } if fields.firstName.errorMessage,
-            attributes: {
-                maxlength: 100
-            },
             classes: "govuk-!-width-three-quarters"
         }) }}
         {{ govukInput({
@@ -35,9 +32,6 @@
             name: "lastName",
             value: fields.lastName.value | safe,
             errorMessage: { text: fields.lastName.errorMessage | safe } if fields.lastName.errorMessage,
-            attributes: {
-                maxlength: 100
-            },
             classes: "govuk-!-width-three-quarters"
         }) }}
     {% endcall %}

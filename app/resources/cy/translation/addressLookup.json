@@ -3,6 +3,7 @@
     "postcode": {
       "required": "Nodwch god post",
       "invalid": "Nodwch god post dilys",
+      "systemError": "Ni allwn chwilio am y cod post hwn ar hyn o bryd. Rhowch gynnig arall arni yn hwyrach ymlaen.",
       "noAddresses": "Nodwch god post dilys"
     }
   }

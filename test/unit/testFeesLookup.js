@@ -1,4 +1,4 @@
-// eslint-disable-line max-lines
+
 'use strict';
 
 const {expect} = require('chai');

@@ -18,7 +18,7 @@ const packageJson = require(`${__dirname}/package`);
 const helmet = require('helmet');
 const hpkp = require('hpkp');
 const nocache = require('nocache');
-const csrf = require('csurf');
+const {csrfSync} = require('csrf-sync');
 const setupHealthCheck = require('app/utils/setupHealthCheck');
 const fs = require('fs');
 const https = require('https');
@@ -28,7 +28,7 @@ const isEmpty = require('lodash').isEmpty;
 const featureToggles = require('app/featureToggles');
 const {getContentSecurityPolicy} = require('./app/utils/getContentSecurityPolicy');
 const {sanitizeInput} = require('./app/utils/Sanitize');
-const {merge} = require('lodash');
+const {assign} = require('lodash');
 
 exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
     const app = express();
@@ -58,9 +58,6 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
         nonce: nonce,
         basePath: config.app.basePath,
         webchat: {
-            avayaUrl: config.webchat.avayaUrl,
-            avayaClientUrl: config.webchat.avayaClientUrl,
-            avayaService: config.webchat.avayaService,
             kerv: {
                 deploymentId: {
                     en: config.webchat.kerv.deploymentId.en,
@@ -105,6 +102,11 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
 
     app.use(helmet.xssFilter({setOnOldIE: true}));
 
+    app.use((req, res, next) => {
+        res.header('X-Robots-Tag', 'noindex');
+        next();
+    });
+
     const caching = {cacheControl: true, setHeaders: (res) => res.setHeader('Cache-Control', 'max-age=604800')};
 
     // Middleware to serve static assets
@@ -115,7 +117,6 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
     app.use('/public/pdf', express.static(`${__dirname}/app/assets/pdf`));
     app.use('/assets', express.static(`${__dirname}/node_modules/govuk-frontend/dist/govuk/assets`, caching));
     app.use('/public/locales', express.static(`${__dirname}/app/assets/locales`, caching));
-    app.use('/assets/locale', express.static(`${__dirname}/app/assets/locales/avaya-webchat`, caching));
 
     // Elements refers to icon folder instead of images folder
     app.use(favicon(path.join(__dirname, 'node_modules', 'govuk-frontend', 'dist', 'govuk', 'assets', 'images', 'favicon.ico')));
@@ -154,7 +155,7 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
 
         if (isA11yTest && !isEmpty(a11yTestSession)) {
             const safeA11yTestSession = sanitizeInput(a11yTestSession);
-            req.session = merge(req.session, safeA11yTestSession);
+            req.session = assign(req.session, safeA11yTestSession);
         }
 
         next();
@@ -180,10 +181,17 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
 
         if (isA11yTest && !isEmpty(a11yTestSession)) {
             const safeA11yTestSession = sanitizeInput(a11yTestSession);
-            req.session = merge(req.session, safeA11yTestSession);
+            req.session = assign(req.session, safeA11yTestSession);
         }
 
         next();
+    });
+
+    const {
+        csrfSynchronisedProtection,
+        generateToken,
+    } = csrfSync({
+        getTokenFromRequest: (req) => req.body._csrf,
     });
 
     if (config.app.useCSRFProtection === 'true') {
@@ -191,15 +199,13 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
             // Exclude Dynatrace Beacon POST requests from CSRF check
             if (req.method === 'POST' && req.path.startsWith('/rb_')) {
                 next();
-            } else {
-                csrf({})(req, res, next);
             }
+
+            csrfSynchronisedProtection(req, res, next);
         });
 
         app.use((req, res, next) => {
-            if (req.csrfToken) {
-                res.locals.csrfToken = req.csrfToken();
-            }
+            res.locals.csrfToken = generateToken(req);
             next();
         });
     }
@@ -273,6 +279,33 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
         logger(req.sessionID).error(err);
         res.status(500).render('errors/error', {common: commonContent, content: content, error: '500'});
     });
+    const environment = config.environment;
+    const memlogEnvironments = ['aat'];
+    if (memlogEnvironments.includes(environment)) {
+        const v8 = require('node:v8');
+
+        const inMb = (v) => (v / 1024 / 1024).toFixed(2);
+        const doLogMem = () => {
+            const heapStat = v8.getHeapStatistics();
+
+            const logMsg = 'Current memory usage (in mb): ' +
+                `totalHeapSize=${inMb(heapStat.total_heap_size)} ` +
+                `totalHeapSizeExec=${inMb(heapStat.total_heap_size_executable)} ` +
+                `totalPhysicalSize=${inMb(heapStat.total_physical_size)} ` +
+                `totalAvailableSize=${inMb(heapStat.total_available_size)} ` +
+                `usedHeapSize=${inMb(heapStat.used_heap_size)} ` +
+                `heapSizeLimit=${inMb(heapStat.heap_size_limit)}`;
+
+            logger('MemUsage').info(logMsg);
+        };
+
+        logger('MemUsage')
+            .info(`Scheduling memory reporting every 60 seconds in config.environment: ${environment}`);
+        const logMem = setInterval(doLogMem, 60000);
+    } else {
+        logger('MemUsage')
+            .info(`Not triggering regular memory logging for config.environment: ${environment}`);
+    }
 
     return {app, http};
 };

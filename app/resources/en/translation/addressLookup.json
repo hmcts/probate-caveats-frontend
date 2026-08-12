@@ -3,6 +3,7 @@
     "postcode": {
       "required": "Enter a postcode",
       "invalid": "Enter a valid postcode",
+      "systemError": "We are unable to look up that postcode right now. Please try again later.",
       "noAddresses": "Please enter a valid postcode"
     }
   }

@@ -20,7 +20,8 @@ class UIStepRunner {
 
         return co(function * () {
             let ctx = step.getContextData(req);
-            [ctx, errors] = yield step.handleGet(ctx, formdata, session.language);
+            const featureToggles = session.featureToggles;
+            [ctx, errors] = yield step.handleGet(ctx, formdata, featureToggles, session.language);
             forEach(errors, (error) =>
                 req.log.info({type: 'Validation Message', url: step.constructor.getUrl()}, JSON.stringify(error))
             );
