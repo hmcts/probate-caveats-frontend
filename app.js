@@ -77,8 +77,11 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
 
     app.enable('trust proxy');
 
-    // Security library helmet to verify 11 smaller middleware functions
-    app.use(helmet());
+    app.use(helmet({
+        contentSecurityPolicy: false,
+        xFrameOptions: false,
+        xXssProtection: false,
+    }));
 
     // Content security policy to allow just assets from same domain
     app.use(helmet.contentSecurityPolicy(getContentSecurityPolicy(nonce)));
@@ -100,10 +103,9 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
         maxAge: 31536000,
     }));
 
-    app.use(helmet.xssFilter({setOnOldIE: true}));
-
     app.use((req, res, next) => {
         res.header('X-Robots-Tag', 'noindex');
+        res.header('Permissions-Policy', 'geolocation=(), camera=(), microphone=()');
         next();
     });
 

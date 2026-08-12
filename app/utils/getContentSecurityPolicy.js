@@ -10,6 +10,7 @@ const getContentSecurityPolicy = (nonce) => (
             ],
             scriptSrc: [
                 '\'self\'',
+                '\'strict-dynamic\'',
                 '\'sha256-GUQ5ad8JK5KmEWmROf3LZd9ge94daqNvd8xy9YS1iDw=\'',
                 '\'sha256-AaA9Rn5LTFZ5vKyp3xOfFcP4YbyOjvWn2up8IKHVAKk=\'',
                 '\'sha256-G29/qSW/JHHANtFhlrZVDZW1HOkCDRc78ggbqwwIJ2g=\'',
@@ -49,7 +50,6 @@ const getContentSecurityPolicy = (nonce) => (
             ],
             styleSrc: [
                 '\'self\'',
-                '\'unsafe-inline\'',
                 'tagmanager.google.com',
                 'fonts.googleapis.com'
             ],
