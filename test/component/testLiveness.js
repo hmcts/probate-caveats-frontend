@@ -19,7 +19,8 @@ describe('Liveness check', () => {
                     expect(res.body).to.have.property('status').and.equal('UP');
                     expect(res.headers['permissions-policy']).to.equal('geolocation=(), camera=(), microphone=()');
                     expect(res.headers['content-security-policy']).to.contain('script-src \'self\' \'strict-dynamic\'');
-                    expect(res.headers['content-security-policy']).to.not.contain('\'unsafe-inline\'');
+                    expect(res.headers['content-security-policy']).to.contain('style-src \'self\' \'unsafe-inline\'');
+                    expect(res.headers['content-security-policy']).to.not.contain('script-src \'unsafe-inline\'');
                     // eslint-disable-next-line no-undefined
                     expect(res.headers['x-frame-options']).to.equal(undefined);
                     // eslint-disable-next-line no-undefined
