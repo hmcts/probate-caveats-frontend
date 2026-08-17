@@ -81,7 +81,6 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
         xXssProtection: false,
     }));
 
-    // ADD: per-request nonce, before the CSP middleware
     app.use((req, res, next) => {
         res.locals.cspNonce = uuidv4().replace(/-/g, '');
         res.locals.globals = {...globals, nonce: res.locals.cspNonce};
