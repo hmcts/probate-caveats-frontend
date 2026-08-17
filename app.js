@@ -23,7 +23,6 @@ const setupHealthCheck = require('app/utils/setupHealthCheck');
 const fs = require('fs');
 const https = require('https');
 const {v4: uuidv4} = require('uuid');
-const nonce = uuidv4().replace(/-/g, '');
 const isEmpty = require('lodash').isEmpty;
 const featureToggles = require('app/featureToggles');
 const {getContentSecurityPolicy} = require('./app/utils/getContentSecurityPolicy');
@@ -55,7 +54,6 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
         enableTracking: config.enableTracking,
         links: config.links,
         applicationFee: config.payment.applicationFee,
-        nonce: nonce,
         basePath: config.app.basePath,
         webchat: {
             kerv: {
@@ -83,8 +81,15 @@ exports.init = function(isA11yTest = false, a11yTestSession = {}, ftValue) {
         xXssProtection: false,
     }));
 
+    // ADD: per-request nonce, before the CSP middleware
+    app.use((req, res, next) => {
+        res.locals.cspNonce = uuidv4().replace(/-/g, '');
+        res.locals.globals = {...globals, nonce: res.locals.cspNonce};
+        next();
+    });
+
     // Content security policy to allow just assets from same domain
-    app.use(helmet.contentSecurityPolicy(getContentSecurityPolicy(nonce)));
+    app.use(helmet.contentSecurityPolicy(getContentSecurityPolicy()));
 
     // Http public key pinning
     app.use(hpkp({
