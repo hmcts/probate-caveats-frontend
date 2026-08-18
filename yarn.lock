@@ -4563,10 +4563,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"deepmerge-ts@npm:^7.0.3":
-  version: 7.1.5
-  resolution: "deepmerge-ts@npm:7.1.5"
-  checksum: 10c0/3a265a2086f334e3ecf43a7d4138c950cb99e0b39e816fa7fd7f5326161364e51b13010906908212667619066f5b48de738ed42543212323fbbb5d4ed7ebdc84
+"deepmerge-ts@npm:^8.0.0":
+  version: 8.0.1
+  resolution: "deepmerge-ts@npm:8.0.1"
+  checksum: 10c0/5d41e24ac88f652698179f1ddad02269ac7f91af216a359e528bf35d60fa660046d82001a500a1fa984fc895a8c505249f348a414215da88722fca90108ac083
   languageName: node
   linkType: hard
 
