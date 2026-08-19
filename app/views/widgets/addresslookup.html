@@ -1,7 +1,7 @@
 {% from "govuk/components/button/macro.njk" import govukButton %}
 {% from "widgets/fielderror.html" import fieldError %}
 
-{% macro addressFinder(fields,content,basePath,step) %}
+{% macro addressFinder(fields,content,basePath,step,nonce) %}
     <div class="govuk-form-group {{ "govuk-form-group--error" if fields.postcode.error }}">
         <label for="postcode" class="govuk-label">{{ content.postcode | safe }}</label>
 
@@ -26,7 +26,7 @@
         </div>
     {% endif %}
 
-    <script nonce="{{ globals.nonce }}">
+    <script nonce="{{ nonce }}">
         (function() {
             if (document.getElementById('postcodeAddress')) {
                 const addresses = [
@@ -56,5 +56,5 @@
             }
         })();
     </script>
-    <script nonce="{{ globals.nonce }}" src="{{ globals.basePath }}/public/javascripts/address-fields-focus.js"></script>
+    <script nonce="{{ nonce }}" src="{{ basePath }}/public/javascripts/address-fields-focus.js"></script>
 {% endmacro %}
