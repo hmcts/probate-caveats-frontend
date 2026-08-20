@@ -1,6 +1,6 @@
 const config = require('config');
 
-const getContentSecurityPolicy = (nonce) => (
+const getContentSecurityPolicy = () => (
     {
         directives: {
             defaultSrc: ['\'self\''],
@@ -10,6 +10,7 @@ const getContentSecurityPolicy = (nonce) => (
             ],
             scriptSrc: [
                 '\'self\'',
+                '\'strict-dynamic\'',
                 '\'sha256-GUQ5ad8JK5KmEWmROf3LZd9ge94daqNvd8xy9YS1iDw=\'',
                 '\'sha256-AaA9Rn5LTFZ5vKyp3xOfFcP4YbyOjvWn2up8IKHVAKk=\'',
                 '\'sha256-G29/qSW/JHHANtFhlrZVDZW1HOkCDRc78ggbqwwIJ2g=\'',
@@ -18,7 +19,7 @@ const getContentSecurityPolicy = (nonce) => (
                 '*.google-analytics.com',
                 'https://*.dynatrace.com',
                 '*.googletagmanager.com',
-                `'nonce-${nonce}'`,
+                (req, res) => `'nonce-${res.locals.cspNonce}'`,
                 config.webchat.kerv.genesysBaseUrl,
             ],
             connectSrc: [
