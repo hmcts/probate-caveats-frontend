@@ -4572,9 +4572,9 @@ __metadata:
   linkType: hard
 
 "deepmerge-ts@npm:^8.0.0":
-  version: 8.0.1
-  resolution: "deepmerge-ts@npm:8.0.1"
-  checksum: 10c0/5d41e24ac88f652698179f1ddad02269ac7f91af216a359e528bf35d60fa660046d82001a500a1fa984fc895a8c505249f348a414215da88722fca90108ac083
+  version: 8.0.2
+  resolution: "deepmerge-ts@npm:8.0.2"
+  checksum: 10c0/2be1628a305b8621e4e1abec9ec397aba9745d3c50da714a12e1ac60dc3eb32ee4ea8e1be4c240baf18bbc26f6c6c3e75a4492cfa74cebef70321e5a4ad4f1c2
   languageName: node
   linkType: hard
 
