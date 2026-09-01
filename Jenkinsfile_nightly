@@ -41,7 +41,9 @@ withNightlyPipeline("nodejs", product, component) {
 
     loadVaultSecrets(secrets)
     enableFullFunctionalTest()
-    enableCrossBrowserTest()
+
+//    Disable cross browser test for now due to saucelabs licence issue
+//    enableCrossBrowserTest()
     enableFortifyScan('probate-aat')
     //enableSecurityScan()
     afterAlways('build') {
