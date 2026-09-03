@@ -1237,7 +1237,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@launchdarkly/node-server-sdk@npm:^9.12.1":
+"@launchdarkly/node-server-sdk@npm:^9.13.1":
   version: 9.13.1
   resolution: "@launchdarkly/node-server-sdk@npm:9.13.1"
   dependencies:
@@ -1739,7 +1739,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@playwright/test@npm:^1.61.1":
+"@playwright/test@npm:^1.62.1":
   version: 1.62.1
   resolution: "@playwright/test@npm:1.62.1"
   dependencies:
@@ -2332,17 +2332,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/types@npm:8.69.0, @typescript-eslint/types@npm:^8.69.0":
+"@typescript-eslint/types@npm:8.69.0, @typescript-eslint/types@npm:^8.56.0, @typescript-eslint/types@npm:^8.67.0, @typescript-eslint/types@npm:^8.69.0":
   version: 8.69.0
   resolution: "@typescript-eslint/types@npm:8.69.0"
   checksum: 10c0/f260a33c5befb591e01dd8fa3e19de8cb599d04ca8f063b745a48f1b3314fce29682b43727531aed076761a8a56added5e51a9e123ae885944729626411e6288
-  languageName: node
-  linkType: hard
-
-"@typescript-eslint/types@npm:^8.56.0, @typescript-eslint/types@npm:^8.67.0":
-  version: 8.67.0
-  resolution: "@typescript-eslint/types@npm:8.67.0"
-  checksum: 10c0/b892a00d4cbea9604a0abf6eedd0ea019b27df4220a1d90e0035101cb4f846722c9e3eeadce40b423c1e0240709bbc787c6ca49bcc4f8c25ba23b4bd0436492a
   languageName: node
   linkType: hard
 
@@ -5383,7 +5376,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-jsdoc@npm:^64.0.0":
+"eslint-plugin-jsdoc@npm:^64.3.4":
   version: 64.3.4
   resolution: "eslint-plugin-jsdoc@npm:64.3.4"
   dependencies:
@@ -5408,7 +5401,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-mocha@npm:^12.0.0":
+"eslint-plugin-mocha@npm:^12.0.2":
   version: 12.0.2
   resolution: "eslint-plugin-mocha@npm:12.0.2"
   dependencies:
@@ -5486,7 +5479,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^10.7.0":
+"eslint@npm:^10.9.1":
   version: 10.9.1
   resolution: "eslint@npm:10.9.1"
   dependencies:
@@ -5941,7 +5934,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"file-type@npm:^22.0.1":
+"file-type@npm:^22.0.2":
   version: 22.0.2
   resolution: "file-type@npm:22.0.2"
   dependencies:
@@ -7007,7 +7000,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"i18next@npm:^26.3.6":
+"i18next@npm:^26.4.1":
   version: 26.4.1
   resolution: "i18next@npm:26.4.1"
   peerDependencies:
@@ -9149,7 +9142,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mocha@npm:^11.7.6":
+"mocha@npm:^11.8.0":
   version: 11.8.0
   resolution: "mocha@npm:11.8.0"
   dependencies:
@@ -9202,7 +9195,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mochawesome@npm:^8.0.0":
+"mochawesome@npm:^8.0.1":
   version: 8.0.1
   resolution: "mochawesome@npm:8.0.1"
   dependencies:
@@ -9293,7 +9286,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"multer@npm:2.3.0":
+"multer@npm:2.3.0, multer@npm:^2.1.1":
   version: 2.3.0
   resolution: "multer@npm:2.3.0"
   dependencies:
@@ -9302,18 +9295,6 @@ __metadata:
     concat-stream: "npm:^2.0.0"
     type-is: "npm:^1.6.18"
   checksum: 10c0/e78fe6b1fe2132cdd33eeec4146643b906046edc1bbbcc90a43ea3d3aed6a7271272897a6d2e40e711e595a156d99b6761848a76fecca6ae3b9a7ee4892ee30c
-  languageName: node
-  linkType: hard
-
-"multer@npm:^2.1.1":
-  version: 2.2.0
-  resolution: "multer@npm:2.2.0"
-  dependencies:
-    append-field: "npm:^1.0.0"
-    busboy: "npm:^1.6.0"
-    concat-stream: "npm:^2.0.0"
-    type-is: "npm:^1.6.18"
-  checksum: 10c0/7aa366d89042427347b6ab8e4a203405d7fe942e4a3095648a14526fcf3691d98ffc2da62abf85d8aca0a341f828168eb197b33cfdcfcce29d6ef593a5625591
   languageName: node
   linkType: hard
 
@@ -9430,7 +9411,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nock@npm:^14.0.16":
+"nock@npm:^14.0.17":
   version: 14.0.17
   resolution: "nock@npm:14.0.17"
   dependencies:
@@ -10482,15 +10463,15 @@ __metadata:
     "@hmcts/nodejs-healthcheck": "npm:^1.8.6"
     "@hmcts/nodejs-logging": "npm:^4.0.4"
     "@hmcts/properties-volume": "npm:^1.4.1"
-    "@launchdarkly/node-server-sdk": "npm:^9.12.1"
+    "@launchdarkly/node-server-sdk": "npm:^9.13.1"
     "@pact-foundation/pact": "npm:^15.0.1"
     "@pact-foundation/pact-node": "npm:^10.18.0"
-    "@playwright/test": "npm:^1.61.1"
+    "@playwright/test": "npm:^1.62.1"
     "@stylistic/eslint-plugin": "npm:^5.10.0"
     "@types/node": "npm:^24.13.3"
     ajv: "npm:^6.15.0"
     applicationinsights: "npm:^2.9.8"
-    axios: "npm:^1.18.1"
+    axios: "npm:^1.20.0"
     body-parser: "npm:^2.3.0"
     chai: "npm:^6.2.2"
     chai-as-promised: "npm:^7.1.2"
@@ -10505,32 +10486,32 @@ __metadata:
     dateformat: "npm:^3.0.3"
     debug: "npm:^4.4.3"
     email-validator: "npm:^2.0.4"
-    eslint: "npm:^10.7.0"
-    eslint-plugin-jsdoc: "npm:^64.0.0"
-    eslint-plugin-mocha: "npm:^12.0.0"
+    eslint: "npm:^10.9.1"
+    eslint-plugin-jsdoc: "npm:^64.3.4"
+    eslint-plugin-mocha: "npm:^12.0.2"
     eslint-plugin-n: "npm:^17.24.0"
     express: "npm:^4.22.2"
     express-session: "npm:^1.19.0"
     express-urlrewrite: "npm:^2.0.3"
-    file-type: "npm:^22.0.1"
+    file-type: "npm:^22.0.2"
     get-port: "npm:^7.2.0"
     git-rev-sync: "npm:^3.0.2"
     govuk-frontend: "npm:^5.14.0"
     helmet: "npm:^8.3.0"
     hpkp: "npm:^3.0.0"
     https-proxy-agent: "npm:^9.1.0"
-    i18next: "npm:^26.3.6"
+    i18next: "npm:^26.4.1"
     if-env: "npm:^1.0.4"
     ioredis: "npm:^6.0.0"
-    js-yaml: "npm:^5.2.2"
+    js-yaml: "npm:^5.4.1"
     lodash: "npm:^4.18.1"
-    mocha: "npm:^11.7.6"
+    mocha: "npm:^11.8.0"
     mocha-junit-reporter: "npm:^2.2.1"
     mocha-multi: "npm:^1.1.7"
-    mochawesome: "npm:^8.0.0"
+    mochawesome: "npm:^8.0.1"
     multer: "npm:2.3.0"
     nocache: "npm:^4.0.0"
-    nock: "npm:^14.0.16"
+    nock: "npm:^14.0.17"
     node-fetch: "npm:^2.7.0"
     node-git-info-json: "npm:^0.1.1"
     nodemon: "npm:^3.1.14"
@@ -10544,10 +10525,10 @@ __metadata:
     randomstring: "npm:^1.3.1"
     require-directory: "npm:^2.1.1"
     rewire: "npm:^9.0.1"
-    sass: "npm:^1.101.0"
+    sass: "npm:^1.103.1"
     selenium-standalone: "npm:^10.0.2"
     serve-favicon: "npm:^2.5.1"
-    sinon: "npm:^22.0.0"
+    sinon: "npm:^22.1.0"
     sinon-chai: "npm:^3.7.0"
     sonar-scanner: "npm:^3.1.0"
     sonarqube-scanner: "npm:^4.4.0"
@@ -10555,7 +10536,7 @@ __metadata:
     supertest: "npm:^7.0.0"
     uuid: "npm:^11.1.1"
     validator: "npm:^13.15.35"
-    webdriverio: "npm:^9.29.1"
+    webdriverio: "npm:^9.31.5"
     when: "npm:^3.7.8"
   languageName: unknown
   linkType: soft
@@ -11528,7 +11509,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:^1.101.0":
+"sass@npm:^1.103.1":
   version: 1.103.1
   resolution: "sass@npm:1.103.1"
   dependencies:
@@ -11864,7 +11845,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sinon@npm:^22.0.0":
+"sinon@npm:^22.1.0":
   version: 22.1.0
   resolution: "sinon@npm:22.1.0"
   dependencies:
@@ -12582,17 +12563,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tinyglobby@npm:^0.2.12":
-  version: 0.2.16
-  resolution: "tinyglobby@npm:0.2.16"
-  dependencies:
-    fdir: "npm:^6.5.0"
-    picomatch: "npm:^4.0.4"
-  checksum: 10c0/f2e09fd93dd95c41e522113b686ff6f7c13020962f8698a864a257f3d7737599afc47722b7ab726e12f8a813f779906187911ff8ee6701ede65072671a7e934b
-  languageName: node
-  linkType: hard
-
-"tinyglobby@npm:^0.2.15":
+"tinyglobby@npm:^0.2.12, tinyglobby@npm:^0.2.15":
   version: 0.2.17
   resolution: "tinyglobby@npm:0.2.17"
   dependencies:
@@ -13213,7 +13184,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"webdriverio@npm:^9.29.1":
+"webdriverio@npm:^9.31.5":
   version: 9.31.5
   resolution: "webdriverio@npm:9.31.5"
   dependencies:
@@ -13565,22 +13536,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ws@npm:^8.21.0":
-  version: 8.21.1
-  resolution: "ws@npm:8.21.1"
-  peerDependencies:
-    bufferutil: ^4.0.1
-    utf-8-validate: ">=5.0.2"
-  peerDependenciesMeta:
-    bufferutil:
-      optional: true
-    utf-8-validate:
-      optional: true
-  checksum: 10c0/c4c6f1d95f6d465262de2037c57c715725d67e078dd49420ede4e19115668aba159cb64d85c5e89c06eb2826be599e62e5095860ad6cc54ff42e8bd7684e1db8
-  languageName: node
-  linkType: hard
-
-"ws@npm:^8.21.3":
+"ws@npm:^8.21.0, ws@npm:^8.21.3":
   version: 8.21.3
   resolution: "ws@npm:8.21.3"
   peerDependencies:
