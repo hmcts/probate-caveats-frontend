@@ -1268,24 +1268,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@launchdarkly/js-server-sdk-common@npm:2.20.1":
-  version: 2.20.1
-  resolution: "@launchdarkly/js-server-sdk-common@npm:2.20.1"
+"@launchdarkly/js-server-sdk-common@npm:2.21.1":
+  version: 2.21.1
+  resolution: "@launchdarkly/js-server-sdk-common@npm:2.21.1"
   dependencies:
     "@launchdarkly/js-sdk-common": "npm:2.25.2"
     semver: "npm:7.5.4"
-  checksum: 10c0/b7655d6486b3eb5f79f6f787f24e5a97ee04f106254b862de61c73ad545e58d69355decbdf5ac6a9b3925a6f06e506fb4e665969410af06728d75538f29f851a
+  checksum: 10c0/4f5f0d82fe071a6c7a1eec85444dcbe6f5cfd8528bde2799689e2c6b0c80df803d3ee4f57c9bf7d271a51e92fd4f37bcdf553e95e1eab269e1c84f964e405d10
   languageName: node
   linkType: hard
 
 "@launchdarkly/node-server-sdk@npm:^9.13.1":
-  version: 9.13.1
-  resolution: "@launchdarkly/node-server-sdk@npm:9.13.1"
+  version: 9.13.3
+  resolution: "@launchdarkly/node-server-sdk@npm:9.13.3"
   dependencies:
-    "@launchdarkly/js-server-sdk-common": "npm:2.20.1"
+    "@launchdarkly/js-server-sdk-common": "npm:2.21.1"
     https-proxy-agent: "npm:^7.0.6"
     launchdarkly-eventsource: "npm:2.2.0"
-  checksum: 10c0/8b2f152042ab628a9b22a2a9f5b172e5e7a20da11dbfe1b3e0481b4ee5de426f4e35cc864784ed43f6e5798ff127d1eacbd5d216e00b82c19012a19e7ddbbc21
+  checksum: 10c0/5b8b2729f4ea63e6c8ede43367898b8acf80432bb03b1a6a1d5098ddf0076d64e63c327b5ed804bb9a5e4932f3a780035a988d2ff0f8ae14216b8ac8b506e241
   languageName: node
   linkType: hard
 
