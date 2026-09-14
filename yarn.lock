@@ -9293,15 +9293,15 @@ __metadata:
   linkType: hard
 
 "mochawesome@npm:^8.0.1":
-  version: 8.0.1
-  resolution: "mochawesome@npm:8.0.1"
+  version: 8.1.0
+  resolution: "mochawesome@npm:8.1.0"
   dependencies:
     diff: "npm:^5.2.0"
     json-stringify-safe: "npm:^5.0.1"
     mochawesome-report-generator: "npm:^6.3.2"
   peerDependencies:
     mocha: ">=8"
-  checksum: 10c0/7ffcbfe422635e0886649b77bf3ffa8c07c840e8cfbf78948bcc338a6a24252020e03d2be40585512334409f4a9c6f8c62c475cd9efc817582121ee4e7e9ab5f
+  checksum: 10c0/7ab2630e3a90fc7e9fce70220da7e2673da6c20435f8c26f40c88295e5355721a4ebed7d8f0d72f73801930f30ee37d3ece541b929419a121d7a0aae40cc35fe
   languageName: node
   linkType: hard
 
