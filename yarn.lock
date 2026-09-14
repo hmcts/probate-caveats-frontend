@@ -13323,8 +13323,8 @@ __metadata:
   linkType: hard
 
 "webdriverio@npm:^9.31.5":
-  version: 9.31.7
-  resolution: "webdriverio@npm:9.31.7"
+  version: 9.31.8
+  resolution: "webdriverio@npm:9.31.8"
   dependencies:
     "@types/node": "npm:^20.11.30"
     "@types/sinonjs__fake-timers": "npm:^8.1.5"
@@ -13356,7 +13356,7 @@ __metadata:
   peerDependenciesMeta:
     puppeteer-core:
       optional: true
-  checksum: 10c0/94ba283439436f1e59ee0bec84f27968cfb1d7782ad728a0ce06949e47c859e2d9c4fbb866166360f5e162442bb989e4e5c2a1a87e8e3fa079ce5b5e88018e9f
+  checksum: 10c0/e58514d271f34183dc0a43a304276b198d9772bed032f008a3ee6ded42f446561953fca90126d4a9fa5e5602c32120f074a7ef6d5a623831bd1f6c11a8afe2ba
   languageName: node
   linkType: hard
 
