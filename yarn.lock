@@ -9364,7 +9364,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"multer@npm:2.3.0, multer@npm:^2.1.1":
+"multer@npm:2.4.0":
+  version: 2.4.0
+  resolution: "multer@npm:2.4.0"
+  dependencies:
+    append-field: "npm:^1.0.0"
+    busboy: "npm:^1.6.0"
+    type-is: "npm:^1.6.18"
+  checksum: 10c0/4e271959ba4c9184f26dbd98a06eeb2ee8008e8ca2d1d30cb7856f642678648c085ed064627e9db01ae07442adfd275a7124fb409335a8f754ec41df51f1f1d0
+  languageName: node
+  linkType: hard
+
+"multer@npm:^2.1.1":
   version: 2.3.0
   resolution: "multer@npm:2.3.0"
   dependencies:
@@ -10576,7 +10587,7 @@ __metadata:
     mocha-junit-reporter: "npm:^2.2.1"
     mocha-multi: "npm:^1.1.7"
     mochawesome: "npm:^8.0.1"
-    multer: "npm:2.3.0"
+    multer: "npm:2.4.0"
     nocache: "npm:^4.0.0"
     nock: "npm:^14.0.17"
     node-fetch: "npm:^2.7.0"
