@@ -419,18 +419,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/parser@npm:^8.0.0":
-  version: 8.0.4
-  resolution: "@babel/parser@npm:8.0.4"
-  dependencies:
-    "@babel/types": "npm:^8.0.4"
-  bin:
-    parser: ./bin/babel-parser.js
-  checksum: 10c0/b98ebc350e6583ccec0c59ab653e6c5967935826b8e03210a96e638a98b0c552587d4ca9cc44502964bac42463e2bab93ca1a6ac519279a25e190bd78f3ce513
-  languageName: node
-  linkType: hard
-
-"@babel/parser@npm:^8.0.5":
+"@babel/parser@npm:^8.0.0, @babel/parser@npm:^8.0.5":
   version: 8.0.5
   resolution: "@babel/parser@npm:8.0.5"
   dependencies:
@@ -660,17 +649,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/types@npm:^8.0.0, @babel/types@npm:^8.0.4":
-  version: 8.0.4
-  resolution: "@babel/types@npm:8.0.4"
-  dependencies:
-    "@babel/helper-string-parser": "npm:^8.0.0"
-    "@babel/helper-validator-identifier": "npm:^8.0.4"
-  checksum: 10c0/c1549372b5544a797c9dd3cfba27c17e0c986cfadb1c4a99246743073e3be99c7c671572326be1739b313a2194e3bfe5a74b1bd213d80c4bbc2c520c8cb4ff1f
-  languageName: node
-  linkType: hard
-
-"@babel/types@npm:^8.0.5":
+"@babel/types@npm:^8.0.0, @babel/types@npm:^8.0.5":
   version: 8.0.5
   resolution: "@babel/types@npm:8.0.5"
   dependencies:
@@ -1256,14 +1235,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jridgewell/sourcemap-codec@npm:^1.4.14, @jridgewell/sourcemap-codec@npm:^1.5.0":
-  version: 1.5.5
-  resolution: "@jridgewell/sourcemap-codec@npm:1.5.5"
-  checksum: 10c0/f9e538f302b63c0ebc06eecb1dd9918dd4289ed36147a0ddce35d6ea4d7ebbda243cda7b2213b6a5e1d8087a298d5cf630fb2bd39329cdecb82017023f6081a0
-  languageName: node
-  linkType: hard
-
-"@jridgewell/sourcemap-codec@npm:^1.6.0-beta.0":
+"@jridgewell/sourcemap-codec@npm:^1.4.14, @jridgewell/sourcemap-codec@npm:^1.5.0, @jridgewell/sourcemap-codec@npm:^1.6.0-beta.0":
   version: 1.6.0
   resolution: "@jridgewell/sourcemap-codec@npm:1.6.0"
   checksum: 10c0/b5be700e45a775f218589c3466c4ffea630582b4988657652da464e5ab8a7d18bf928ee4fd2363fb346ede4bea9c6ff0bae05a538358c4565ece6199531b5f72
@@ -1316,7 +1288,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@launchdarkly/node-server-sdk@npm:^9.13.1":
+"@launchdarkly/node-server-sdk@npm:^9.13.4":
   version: 9.13.4
   resolution: "@launchdarkly/node-server-sdk@npm:9.13.4"
   dependencies:
@@ -1811,7 +1783,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@playwright/test@npm:^1.62.1":
+"@playwright/test@npm:^1.63.0":
   version: 1.63.0
   resolution: "@playwright/test@npm:1.63.0"
   dependencies:
@@ -2265,7 +2237,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^24.13.3":
+"@types/node@npm:^24.13.4":
   version: 24.13.4
   resolution: "@types/node@npm:24.13.4"
   dependencies:
@@ -4347,18 +4319,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"concat-stream@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "concat-stream@npm:2.0.0"
-  dependencies:
-    buffer-from: "npm:^1.0.0"
-    inherits: "npm:^2.0.3"
-    readable-stream: "npm:^3.0.2"
-    typedarray: "npm:^0.0.6"
-  checksum: 10c0/29565dd9198fe1d8cf57f6cc71527dbc6ad67e12e4ac9401feb389c53042b2dceedf47034cbe702dfc4fd8df3ae7e6bfeeebe732cc4fa2674e484c13f04c219a
-  languageName: node
-  linkType: hard
-
 "config-chain@npm:^1.1.13":
   version: 1.1.13
   resolution: "config-chain@npm:1.1.13"
@@ -5453,9 +5413,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-jsdoc@npm:^64.3.4":
-  version: 64.3.10
-  resolution: "eslint-plugin-jsdoc@npm:64.3.10"
+"eslint-plugin-jsdoc@npm:^64.5.0":
+  version: 64.5.0
+  resolution: "eslint-plugin-jsdoc@npm:64.5.0"
   dependencies:
     "@es-joy/jsdoccomment": "npm:~0.97.0"
     "@es-joy/resolve.exports": "npm:1.2.0"
@@ -5474,7 +5434,7 @@ __metadata:
     to-valid-identifier: "npm:^1.0.0"
   peerDependencies:
     eslint: ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0
-  checksum: 10c0/fe72c96f434b386ce18c1e71c07c356730dd013baac7d10be4cd4544b8a9e2777a9749aa161e21a8afbe861f8932185a71f78bdc5f16a96c10bd5c280a31b934
+  checksum: 10c0/bb3250ad497eb421d3a589ed48fc0d1cf7b0d7f750057203a7ce32a7d0f231742c6c73017c6293965d12407d58b6e8b2d956adb9f7e9b669b4e235fe086a3e39
   languageName: node
   linkType: hard
 
@@ -5556,7 +5516,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^10.9.1":
+"eslint@npm:^10.10.0":
   version: 10.10.0
   resolution: "eslint@npm:10.10.0"
   dependencies:
@@ -5823,7 +5783,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"express@npm:^4.22.2":
+"express@npm:^4.22.3":
   version: 4.22.3
   resolution: "express@npm:4.22.3"
   dependencies:
@@ -5994,7 +5954,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"file-type@npm:^22.0.2":
+"file-type@npm:^22.1.0":
   version: 22.1.0
   resolution: "file-type@npm:22.1.0"
   dependencies:
@@ -7075,7 +7035,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"i18next@npm:^26.4.1":
+"i18next@npm:^26.4.2":
   version: 26.4.2
   resolution: "i18next@npm:26.4.2"
   peerDependencies:
@@ -9273,7 +9233,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mochawesome@npm:^8.0.1":
+"mochawesome@npm:^8.1.0":
   version: 8.1.0
   resolution: "mochawesome@npm:8.1.0"
   dependencies:
@@ -9364,15 +9324,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"multer@npm:2.3.0, multer@npm:^2.1.1":
-  version: 2.3.0
-  resolution: "multer@npm:2.3.0"
+"multer@npm:2.4.0, multer@npm:^2.1.1":
+  version: 2.4.0
+  resolution: "multer@npm:2.4.0"
   dependencies:
     append-field: "npm:^1.0.0"
     busboy: "npm:^1.6.0"
-    concat-stream: "npm:^2.0.0"
     type-is: "npm:^1.6.18"
-  checksum: 10c0/e78fe6b1fe2132cdd33eeec4146643b906046edc1bbbcc90a43ea3d3aed6a7271272897a6d2e40e711e595a156d99b6761848a76fecca6ae3b9a7ee4892ee30c
+  checksum: 10c0/4e271959ba4c9184f26dbd98a06eeb2ee8008e8ca2d1d30cb7856f642678648c085ed064627e9db01ae07442adfd275a7124fb409335a8f754ec41df51f1f1d0
   languageName: node
   linkType: hard
 
@@ -10530,12 +10489,12 @@ __metadata:
     "@hmcts/nodejs-healthcheck": "npm:^1.8.6"
     "@hmcts/nodejs-logging": "npm:^4.0.4"
     "@hmcts/properties-volume": "npm:^1.4.1"
-    "@launchdarkly/node-server-sdk": "npm:^9.13.1"
+    "@launchdarkly/node-server-sdk": "npm:^9.13.4"
     "@pact-foundation/pact": "npm:^15.0.1"
     "@pact-foundation/pact-node": "npm:^10.18.0"
-    "@playwright/test": "npm:^1.62.1"
+    "@playwright/test": "npm:^1.63.0"
     "@stylistic/eslint-plugin": "npm:^5.10.0"
-    "@types/node": "npm:^24.13.3"
+    "@types/node": "npm:^24.13.4"
     ajv: "npm:^6.15.0"
     applicationinsights: "npm:^2.9.8"
     axios: "npm:^1.20.0"
@@ -10553,30 +10512,30 @@ __metadata:
     dateformat: "npm:^3.0.3"
     debug: "npm:^4.4.3"
     email-validator: "npm:^2.0.4"
-    eslint: "npm:^10.9.1"
-    eslint-plugin-jsdoc: "npm:^64.3.4"
+    eslint: "npm:^10.10.0"
+    eslint-plugin-jsdoc: "npm:^64.5.0"
     eslint-plugin-mocha: "npm:^12.0.2"
     eslint-plugin-n: "npm:^17.24.0"
-    express: "npm:^4.22.2"
+    express: "npm:^4.22.3"
     express-session: "npm:^1.19.0"
     express-urlrewrite: "npm:^2.0.3"
-    file-type: "npm:^22.0.2"
+    file-type: "npm:^22.1.0"
     get-port: "npm:^7.2.0"
     git-rev-sync: "npm:^3.0.2"
     govuk-frontend: "npm:^5.14.0"
     helmet: "npm:^8.3.0"
     hpkp: "npm:^3.0.0"
     https-proxy-agent: "npm:^9.1.0"
-    i18next: "npm:^26.4.1"
+    i18next: "npm:^26.4.2"
     if-env: "npm:^1.0.4"
     ioredis: "npm:^6.0.0"
-    js-yaml: "npm:^5.4.1"
+    js-yaml: "npm:^5.4.2"
     lodash: "npm:^4.18.1"
     mocha: "npm:^11.8.0"
     mocha-junit-reporter: "npm:^2.2.1"
     mocha-multi: "npm:^1.1.7"
-    mochawesome: "npm:^8.0.1"
-    multer: "npm:2.3.0"
+    mochawesome: "npm:^8.1.0"
+    multer: "npm:2.4.0"
     nocache: "npm:^4.0.0"
     nock: "npm:^14.0.17"
     node-fetch: "npm:^2.7.0"
@@ -10592,7 +10551,7 @@ __metadata:
     randomstring: "npm:^1.3.1"
     require-directory: "npm:^2.1.1"
     rewire: "npm:^9.0.1"
-    sass: "npm:^1.103.1"
+    sass: "npm:^1.104.1"
     selenium-standalone: "npm:^10.0.2"
     serve-favicon: "npm:^2.5.1"
     sinon: "npm:^22.1.0"
@@ -10603,7 +10562,7 @@ __metadata:
     supertest: "npm:^7.0.0"
     uuid: "npm:^11.1.1"
     validator: "npm:^13.15.35"
-    webdriverio: "npm:^9.31.5"
+    webdriverio: "npm:^9.31.9"
     when: "npm:^3.7.8"
   languageName: unknown
   linkType: soft
@@ -11083,7 +11042,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"readable-stream@npm:^3.0.2, readable-stream@npm:^3.4.0, readable-stream@npm:^3.6.0, readable-stream@npm:^3.6.2":
+"readable-stream@npm:^3.4.0, readable-stream@npm:^3.6.0, readable-stream@npm:^3.6.2":
   version: 3.6.2
   resolution: "readable-stream@npm:3.6.2"
   dependencies:
@@ -11585,7 +11544,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:^1.103.1":
+"sass@npm:^1.104.1":
   version: 1.104.1
   resolution: "sass@npm:1.104.1"
   dependencies:
@@ -12944,13 +12903,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typedarray@npm:^0.0.6":
-  version: 0.0.6
-  resolution: "typedarray@npm:0.0.6"
-  checksum: 10c0/6005cb31df50eef8b1f3c780eb71a17925f3038a100d82f9406ac2ad1de5eb59f8e6decbdc145b3a1f8e5836e17b0c0002fb698b9fe2516b8f9f9ff602d36412
-  languageName: node
-  linkType: hard
-
 "typescript@npm:^5.1.3":
   version: 5.9.3
   resolution: "typescript@npm:5.9.3"
@@ -13258,7 +13210,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"webdriverio@npm:^9.31.5":
+"webdriverio@npm:^9.31.9":
   version: 9.31.9
   resolution: "webdriverio@npm:9.31.9"
   dependencies:
