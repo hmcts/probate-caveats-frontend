@@ -1,0 +1,12 @@
+{
+  "all": true,
+  "check-coverage": true,
+  "include": ["app/**"],
+  "exclude": [
+    "app/assets/**",
+    "app/utils/FormatName.js",
+    "app/**/scripts.html"
+  ],
+  "reporter": ["lcov", "text", "text-summary"],
+  "reports-dir": "./coverage"
+}
