@@ -49,7 +49,7 @@ Build a `git.properties.json` by running the following command:
 $ yarn git-info
 ```
 
-Note. if setting up on an M1 with ARM architecure, and node-sass is not successfully installing, make sure you're using node version 15
+Note. if setting up on an M1 with ARM architecture, and node-sass is not successfully installing, make sure you're using node version 24 or above.
 
 Git hooks:
 
@@ -70,7 +70,7 @@ $ yarn start:ld
 
 The application can be completed locally at [https://localhost:3000](https://localhost:3000), provided all services are running in the background as described in the next section.
 
-add a dev.yaml file to the /config folder with contents if you want to run LauchDarkly locally
+add a dev.yaml file to the /config folder with contents if you want to run LaunchDarkly locally
 
 ### Running the other services in Docker
 
@@ -101,14 +101,14 @@ The application can be completed locally at [https://localhost:3001](https://loc
 
 Before submitting a Pull Request you will be required to run `$ yarn eslint` (which is also run automatically when trying to commit anyway).
 
-We have a number of rules relating to code style that can be found in [.eslintrc.js](https://github.com/hmcts/probate-caveats-frontend/blob/develop/.eslintrc.js).
+We have a number of rules relating to code style that can be found in [eslint.config.js](eslint.config.js).
 
 ### Config
 
 For development only config, rename the `config/dev_template.yaml` file to `config/dev.yaml`. Running the app with the node environment set to `dev` will ensure this file is used.
 This file is not version controlled so any config here will not be pushed to git.
 
-As an example, if you want to use LanuchDarkly locally, place the SDK Key in this file. You can keep the key there as this file is not version controlled.
+As an example, if you want to use LaunchDarkly locally, place the SDK Key in this file. You can keep the key there as this file is not version controlled.
 
 ### Running the tests
 
@@ -137,4 +137,4 @@ part of the PR build. To do this, you can add the appropriate label to the PR (i
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](https://github.com/hmcts/probate-caveats-frontend/blob/develop/LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE](LICENSE.md) file for details
