@@ -12244,6 +12244,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"superagent@npm:^10.4.1":
+  version: 10.4.2
+  resolution: "superagent@npm:10.4.2"
+  dependencies:
+    component-emitter: "npm:^1.3.1"
+    cookiejar: "npm:^2.1.4"
+    debug: "npm:^4.3.7"
+    fast-safe-stringify: "npm:^2.1.1"
+    form-data: "npm:^4.0.6"
+    formidable: "npm:^3.5.4"
+    methods: "npm:^1.1.2"
+    mime: "npm:2.6.0"
+    qs: "npm:^6.17.1"
+  checksum: 10c0/8961e745df82f4707c59ca23caaeb3d72648863ab4c185339d8ec3223c195d9a4e4b924927aeed019ddd6b65b9bbc11db8825cd9a4f3ba21b07fa7cba45fdd49
+  languageName: node
+  linkType: hard
+
 "superagent@npm:^8.0.9":
   version: 8.1.2
   resolution: "superagent@npm:8.1.2"
@@ -12263,13 +12280,13 @@ __metadata:
   linkType: hard
 
 "supertest@npm:^7.0.0":
-  version: 7.3.0
-  resolution: "supertest@npm:7.3.0"
+  version: 7.3.2
+  resolution: "supertest@npm:7.3.2"
   dependencies:
     cookie-signature: "npm:^1.2.2"
     methods: "npm:^1.1.2"
-    superagent: "npm:^10.3.0"
-  checksum: 10c0/1e6c1c328b94a004cf7aff5e23e35b036768184fa66db44cacea02efaa66987578ffa4e054997c7f4265f659bd429a80b77d6ad9c820d9e45a6620f7a958e8ef
+    superagent: "npm:^10.4.1"
+  checksum: 10c0/88301fa07ec8003251c2bcff6bbb13778e11a34acb6e583a48e3eb3fd18135e7a3f4411924df1f4dc576a9bbbfc92786930262dbac41a438af7d5b827673ba30
   languageName: node
   linkType: hard
 
