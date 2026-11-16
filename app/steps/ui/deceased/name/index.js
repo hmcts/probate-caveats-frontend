@@ -2,9 +2,8 @@
 
 const ValidationStep = require('app/core/steps/ValidationStep');
 const validator = require('validator');
-const config = require('config');
 const FieldError = require('app/components/error');
-
+const config = require('config');
 class DeceasedName extends ValidationStep {
 
     static getUrl() {
