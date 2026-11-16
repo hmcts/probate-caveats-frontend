@@ -30,7 +30,7 @@ class Summary extends Step {
     }
 
     generateFields(language, ctx, errors, formdata) {
-        const fields = {};
+        const fields = super.generateFields(language, ctx, errors, formdata);
         Object.keys(this.steps)
             .filter((stepName) => stepName !== this.name)
             .forEach((stepName) => {
