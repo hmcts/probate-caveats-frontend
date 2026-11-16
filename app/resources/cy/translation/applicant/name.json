@@ -9,11 +9,11 @@
   "errors": {
     "firstName": {
       "required": "Nodwch eich enw cyntaf, gan gynnwys unrhyw enwau canol",
-      "invalid": "Rhowch enw cyntaf dilys - dim ond llythrennau a i z, bylchau, cysylltnodau a chollnodau y gellir eu cynnwys"
+      "invalid": "Rhowch enw cyntaf dilys"
     },
     "lastName": {
       "required": "Nodwch eich cyfenw",
-      "invalid": "Rhowch enw olaf dilys - dim ond llythrennau a i z, bylchau, cysylltnodau a chollnodau y gellir eu cynnwys"
+      "invalid": "Rhowch enw olaf dilys"
     }
   }
 }
