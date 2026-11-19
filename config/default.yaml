@@ -202,3 +202,8 @@ whiteListedPagesForPaymentBreakdown: [
   '/thank-you'
 ]
 
+validUrl:
+  options:
+    protocols: ['http', 'https', 'ftp']
+    require_protocol: true
+    require_tld: false
