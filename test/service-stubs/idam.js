@@ -8,7 +8,7 @@ const app = express();
 const router = express.Router();
 const IDAM_STUB_PORT = 4501;
 
-router.post('/oauth2/authorize', (req, res) => {
+router.post('/o/token?grant_type=password', (req, res) => {
     res.status(200);
     res.send({code: 'codeValue'});
 

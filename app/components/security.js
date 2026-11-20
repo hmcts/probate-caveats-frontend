@@ -36,7 +36,7 @@ const getOauth2Code = (redirect_uri, applicationId) => {
     params.append('redirect_uri', redirect_uri);
     params.append('response_type', 'code');
 
-    return utils.fetchJson(`${idam_api_url}/oauth2/authorize`, {
+    return utils.fetchJson(`${idam_api_url}/o/token?grant_type=password`, {
         method: 'POST',
         timeout: 10000,
         body: params.toString(),

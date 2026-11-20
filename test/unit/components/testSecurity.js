@@ -30,10 +30,10 @@ describe('security', () => {
         });
 
         it('should return an error if idam is not available on first call', (done) => {
-            fetchJsonStub.returns(Promise.reject(new Error('FetchError: request to http://localhost:4501/oauth2/authorize')));
+            fetchJsonStub.returns(Promise.reject(new Error('FetchError: request to http://localhost:4501/o/token?grant_type=password')));
             security.getUserToken('hostname', 'id')
                 .then((err) => {
-                    expect(err.toLocaleString()).to.equal('Error: FetchError: request to http://localhost:4501/oauth2/authorize');
+                    expect(err.toLocaleString()).to.equal('Error: FetchError: request to http://localhost:4501/o/token?grant_type=password');
                     sinon.assert.callCount(fetchJsonStub, 1);
                     done();
                 });
