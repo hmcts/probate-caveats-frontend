@@ -14,10 +14,10 @@ getTestLanguages().forEach(language => {
         await I.enterDeceasedAddressManually(language);
 
         await I.selectBilingualGopNo(language);
-        // if (testConfigurator.equalityAndDiversityEnabled) {
-        //     await I.completeEquality(language);
-        //     await I.selectBilingualGopNo(language);
-        // }
+        if (testConfigurator.equalityAndDiversityEnabled) {
+            await I.completeEquality(language);
+            await I.selectBilingualGopNo(language);
+        }
 
         await I.seeSummaryPage(language);
         await I.seePaymentBreakdownPage(language);

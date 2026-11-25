@@ -1,4 +1,4 @@
-const pcqAAT = 'https://pcq.aat.platform.hmcts.net';
+const pcqAAT = 'https://pcq.ithc.platform.hmcts.net';
 const pagePath = `${pcqAAT}/start-page`;
 const equalityEn = 'Equality and diversity questions';
 const equalityCy = 'Dydw i ddim eisiau ateb y cwestiynau hyn';
