@@ -1,7 +1,7 @@
 module.exports = {
 
-    TestFrontendUrl: process.env.TEST_URL || 'http://localhost:3000',
-    TestE2EFrontendUrl: process.env.TEST_E2E_URL || 'https://localhost:3000',
+    TestFrontendUrl: process.env.TEST_URL || 'https://manage-case.ithc.platform.hmcts.net',
+    TestE2EFrontendUrl: process.env.TEST_E2E_URL || 'https://manage-case.ithc.platform.hmcts.net',
     TestUseGovPay: process.env.USE_GOV_PAY || 'true',
     TestRetryFeatures: process.env.RETRY_FEATURES || 2,
     TestRetryScenarios: process.env.RETRY_SCENARIOS || 0,
