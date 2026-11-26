@@ -9,11 +9,7 @@ const FormatUrl = require('app/utils/FormatUrl');
 
 const getUserToken = (hostname, applicationId) => {
     const redirect_url = FormatUrl.format(hostname, config.services.idam.caveat_redirectUrl);
-    return getOauth2Code(redirect_url, applicationId)
-        .then((result) => {
-            checkForError(result);
-            return getOauth2Token(result.code, redirect_url, applicationId);
-        })
+    return getOpenIdToken(redirect_url, applicationId)
         .then((result) => {
             checkForError(result);
             return result.access_token;
@@ -21,48 +17,28 @@ const getUserToken = (hostname, applicationId) => {
         .catch((err) => err);
 };
 
-const getOauth2Code = (redirect_uri, applicationId) => {
-    logInfo('calling getOauth2Code to get code', applicationId);
-    const client_id = config.services.idam.probate_oauth2_client;
-    const idam_api_url = config.services.idam.apiUrl;
-    const username = config.services.idam.caveat_user_email;
-    const userpassword = config.services.idam.caveat_user_password;
-    const headers = {
-        'Content-Type': 'application/x-www-form-urlencoded',
-        'Authorization': `Basic ${new Buffer(`${username}:${userpassword}`).toString('base64')}`
-    };
-    const params = new URLSearchParams();
-    params.append('client_id', client_id);
-    params.append('redirect_uri', redirect_uri);
-    params.append('response_type', 'code');
-
-    return utils.fetchJson(`${idam_api_url}/oauth2/authorize`, {
-        method: 'POST',
-        timeout: 10000,
-        body: params.toString(),
-        headers: headers
-    });
-};
-
-const getOauth2Token = (code, redirect_url, applicationId) => {
-    logInfo('calling getOauth2Token to get auth token', applicationId);
+const getOpenIdToken = (redirect_url, applicationId) => {
+    logInfo('calling getOpenIdToken to get auth token', applicationId);
     const client_id = config.services.idam.probate_oauth2_client;
     const client_secret = config.services.idam.probate_oauth2_secret;
     const idam_api_url = config.services.idam.apiUrl;
     const redirect_uri = redirect_url;
-
+    const username = config.services.idam.caveat_user_email;
+    const userpassword = config.services.idam.caveat_user_password;
     const headers = {
         'Content-Type': 'application/x-www-form-urlencoded',
     };
 
     const params = new URLSearchParams();
-    params.append('grant_type', 'authorization_code');
-    params.append('code', code);
+    params.append('grant_type', 'password');
+    params.append('scope', 'openid profile roles');
     params.append('redirect_uri', redirect_uri);
     params.append('client_id', client_id);
     params.append('client_secret', client_secret);
+    params.append('username', username);
+    params.append('password', userpassword);
 
-    return utils.fetchJson(`${idam_api_url}/oauth2/token`, {
+    return utils.fetchJson(`${idam_api_url}/o/token`, {
         method: 'POST',
         timeout: 10000,
         body: params.toString(),
