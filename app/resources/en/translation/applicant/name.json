@@ -9,11 +9,11 @@
   "errors": {
     "firstName": {
       "required": "Enter your first name, including middle names",
-      "invalid": "Enter a valid first name - can only contain letters a to z, spaces, hyphens and apostrophes"
+      "invalid": "Enter a valid first name"
     },
     "lastName": {
       "required": "Enter your last name",
-      "invalid": "Enter a valid last name - can only contain letters a to z, spaces, hyphens and apostrophes"
+      "invalid": "Enter a valid last name"
     }
   }
 }
